@@ -157,12 +157,12 @@ void GetCategoryAndMsgNoByECWordIdx(u32 wordIdx, s32 * msgBank_p, s32 * msgNo_p)
     }
 }
 
-u32 FUN_02013B28(void)
+u32 sub_02013B28(void)
 {
     return sizeof(struct SaveEasyChat);
 }
 
-void FUN_02013B2C(struct SaveEasyChat * unk)
+void sub_02013B2C(struct SaveEasyChat * unk)
 {
     u32 i;
     unk->unk_0 = 0;
@@ -171,7 +171,7 @@ void FUN_02013B2C(struct SaveEasyChat * unk)
     {
         if (sNarcLanguages[i][0] == GAME_LANGUAGE)
         {
-            FUN_02013C18(unk, sNarcLanguages[i][1]);
+            sub_02013C18(unk, sNarcLanguages[i][1]);
             break;
         }
     }
@@ -182,12 +182,12 @@ struct SaveEasyChat * Save_EasyChat_Get(struct SaveData * save)
     return (struct SaveEasyChat *)SaveArray_Get(save, 34);
 }
 
-BOOL FUN_02013B68(struct SaveEasyChat * unk, u32 a1)
+BOOL sub_02013B68(struct SaveEasyChat * unk, u32 a1)
 {
     return (BOOL)((unk->unk_4 >> a1) & 1);
 }
 
-s32 FUN_02013B74(struct SaveEasyChat * unk)
+s32 sub_02013B74(struct SaveEasyChat * unk)
 {
     u32 i;
     u32 count;
@@ -216,7 +216,7 @@ s32 FUN_02013B74(struct SaveEasyChat * unk)
     return 32;
 }
 
-BOOL FUN_02013BC8(struct SaveEasyChat * unk)
+BOOL sub_02013BC8(struct SaveEasyChat * unk)
 {
     u32 i;
     for (i = 0; i < 32; i++)
@@ -227,7 +227,7 @@ BOOL FUN_02013BC8(struct SaveEasyChat * unk)
     return TRUE;
 }
 
-u16 FUN_02013BE4(u16 a0)
+u16 sub_02013BE4(u16 a0)
 {
     s32 i;
     u16 skip = 0;
@@ -236,17 +236,17 @@ u16 FUN_02013BE4(u16 a0)
     return (u16)(skip + a0);
 }
 
-BOOL FUN_02013C0C(struct SaveEasyChat * unk, u32 a1)
+BOOL sub_02013C0C(struct SaveEasyChat * unk, u32 a1)
 {
     return (BOOL)((unk->unk_0 >> a1) & 1);
 }
 
-void FUN_02013C18(struct SaveEasyChat * unk, u32 a1)
+void sub_02013C18(struct SaveEasyChat * unk, u32 a1)
 {
     unk->unk_0 |= (1 << a1);
 }
 
-s32 FUN_02013C28(u16 a0)
+s32 sub_02013C28(u16 a0)
 {
     s32 r3;
     s32 r4;
@@ -262,7 +262,7 @@ s32 FUN_02013C28(u16 a0)
     return 0;
 }
 
-u16 FUN_02013C6C(u16 a0, s32 a1)
+u16 sub_02013C6C(u16 a0, s32 a1)
 {
     s32 r7;
     s32 r2;

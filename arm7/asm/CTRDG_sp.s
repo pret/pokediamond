@@ -47,8 +47,8 @@ _03809FEC: ;0x03809FEC
 
     .section .text
 
-	arm_func_start FUN_03803BD4
-FUN_03803BD4: ;@ 0x03803BD4
+	arm_func_start sub_03803BD4
+sub_03803BD4: ;@ 0x03803BD4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	and	r0, r1, #63	;@ 0x3f
@@ -69,7 +69,7 @@ FUN_03803BD4: ;@ 0x03803BD4
 	b	_03803C24
 _03803C1C:
 	mov	r0, r7
-	bl	FUN_037F8CB4
+	bl	sub_037F8CB4
 _03803C24:
 	mov	r0, r6
 	mov	r1, r5
@@ -226,8 +226,8 @@ _03803E20:
 	bx	lr
 _03803E3C:	.word	0x0000FFFF
 
-	arm_func_start FUN_03803E40
-FUN_03803E40: ;@ 0x03803E40
+	arm_func_start sub_03803E40
+sub_03803E40: ;@ 0x03803E40
 	ldr	r1, _03803E54	;@ =current_vib
 	str	r0, [r1]
 	ldr	r1, _03803E58	;@ =0x08001000
@@ -285,7 +285,7 @@ _03803EE4:
 	bne	_03803F24
 _03803F04:
 	mov	r0, r6
-	bl	FUN_03803E40
+	bl	sub_03803E40
 	mov	r8, r5
 	cmp	sl, #0
 	bne	_03803F2C
@@ -322,7 +322,7 @@ _03803F74:
 	cmp	r1, r0
 	bne	_03803FB0
 	mov	r0, #0
-	bl	FUN_03803E40
+	bl	sub_03803E40
 	str	r5, [sp]
 	ldr	r0, _03804078	;@ =_03809FEC
 	ldr	r1, [r5, #8]
@@ -336,7 +336,7 @@ _03803FB0:
 	ands	r0, r1, #1
 	beq	_03803FF4
 	mov	r0, #0
-	bl	FUN_03803E40
+	bl	sub_03803E40
 	str	r5, [sp]
 	ldr	r0, _03804078	;@ =_03809FEC
 	ldr	r1, [r5]
@@ -352,7 +352,7 @@ _03803FB0:
 	b	_0380402C
 _03803FF4:
 	mov	r0, #2
-	bl	FUN_03803E40
+	bl	sub_03803E40
 	str	r5, [sp]
 	ldr	r0, _03804078	;@ =_03809FEC
 	ldr	r1, [r5]
@@ -456,7 +456,7 @@ CTRDGi_InitModuleInfo: ;@ 0x038040F8
 	b	_03804158
 _03804150:
 	mov	r0, r7
-	bl	FUN_037F8CB4
+	bl	sub_037F8CB4
 _03804158:
 	ldr	r0, [r6, #16]
 	cmp	r0, #1
@@ -527,7 +527,7 @@ CTRDG_Init: ;@ 0x038041E0
 	ldr	r1, _03804284	;@ =_03804084
 	bl	PXI_SetFifoRecvCallback
 	mov	r0, #17
-	ldr	r1, _03804288	;@ =FUN_03803BD4
+	ldr	r1, _03804288	;@ =sub_03803BD4
 	bl	PXI_SetFifoRecvCallback
 _03804264:
 	add	sp, sp, #4
@@ -539,4 +539,4 @@ _03804278:	.word	_03809FBC
 _0380427C:	.word	CTRDGi_CallbackForInitModuleInfo
 _03804280:	.word	CTRDGi_CallbackForPulledOut
 _03804284:	.word	_03804084
-_03804288:	.word	FUN_03803BD4
+_03804288:	.word	sub_03803BD4

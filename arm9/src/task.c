@@ -17,13 +17,13 @@ struct TaskManager *FieldSys_CreateTask(struct FieldSystem * fieldSystem, TaskFu
     return taskManager;
 }
 
-void FUN_020463CC(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
+void sub_020463CC(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
 {
     GF_ASSERT(fieldSystem->taskManager == NULL);
     fieldSystem->taskManager = FieldSys_CreateTask(fieldSystem, taskFunc, env);
 }
 
-void FUN_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
+void sub_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
 {
     taskManager->func = taskFunc;
     taskManager->state = 0;
@@ -36,14 +36,14 @@ void FUN_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
     }
 }
 
-void FUN_0204640C(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
+void sub_0204640C(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
 {
     struct TaskManager *taskManager2 = FieldSys_CreateTask(taskManager->fieldSystem, taskFunc, env);
     taskManager2->prev = taskManager;
     taskManager->fieldSystem->taskManager = taskManager2;
 }
 
-BOOL FUN_02046420(struct TaskManager *taskManager)
+BOOL sub_02046420(struct TaskManager *taskManager)
 {
     if (taskManager->unk10 == NULL)
         return FALSE;
@@ -61,38 +61,38 @@ BOOL FUN_02046420(struct TaskManager *taskManager)
     return FALSE;
 }
 
-BOOL FUN_0204646C(struct TaskManager *taskManager)
+BOOL sub_0204646C(struct TaskManager *taskManager)
 {
     return (taskManager->unk10 != NULL);
 }
 
-BOOL FUN_0204647C(struct FieldSystem *fieldSystem)
+BOOL sub_0204647C(struct FieldSystem *fieldSystem)
 {
-    return (FUN_0203739C(fieldSystem) || FUN_020373C4(fieldSystem));
+    return (sub_0203739C(fieldSystem) || sub_020373C4(fieldSystem));
 }
 
-void FUN_0204649C(void * r0)
+void sub_0204649C(void * r0)
 {
     LoadOverlay_MODULE_05(r0);
 }
 
-BOOL FUN_020464A4(void * r0)
+BOOL sub_020464A4(void * r0)
 {
-    return (FUN_020373AC(r0) != FALSE);
+    return (sub_020373AC(r0) != FALSE);
 }
 
-BOOL FUN_020464B8(struct TaskManager *taskManager)
+BOOL sub_020464B8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
-    u32 * r4_2 = FUN_0204652C(taskManager);
+    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    u32 * r4_2 = sub_0204652C(taskManager);
     switch (r4_2[0])
     {
     case 0:
-        FUN_020373D4(fieldSystem, (struct OverlayManagerTemplate *)r4_2[1], (void *)r4_2[2]); //FIXME: typing is wrong
+        sub_020373D4(fieldSystem, (struct OverlayManagerTemplate *)r4_2[1], (void *)r4_2[2]); //FIXME: typing is wrong
         r4_2[0]++;
         break;
     case 1:
-        if (!FUN_0204647C(fieldSystem))
+        if (!sub_0204647C(fieldSystem))
         {
             FreeToHeap(r4_2);
             return TRUE;
@@ -102,31 +102,31 @@ BOOL FUN_020464B8(struct TaskManager *taskManager)
     return FALSE;
 }
 
-void FUN_02046500(struct TaskManager *taskManager, u32 r5, u32 r4)
+void sub_02046500(struct TaskManager *taskManager, u32 r5, u32 r4)
 {
     u32 * r2 = AllocFromHeapAtEnd(32, 3 * sizeof(u32));
     r2[0] = 0;
     r2[1] = r5;
     r2[2] = r4;
-    FUN_0204640C(taskManager, FUN_020464B8, r2);
+    sub_0204640C(taskManager, sub_020464B8, r2);
 }
 
-struct FieldSystem *FUN_02046528(struct TaskManager *taskManager)
+struct FieldSystem *sub_02046528(struct TaskManager *taskManager)
 {
     return taskManager->fieldSystem;
 }
 
-void * FUN_0204652C(struct TaskManager *taskManager)
+void * sub_0204652C(struct TaskManager *taskManager)
 {
     return taskManager->env;
 }
 
-u32 * FUN_02046530(struct TaskManager *taskManager)
+u32 * sub_02046530(struct TaskManager *taskManager)
 {
     return &taskManager->state;
 }
 
-u32 FUN_02046534(struct TaskManager *taskManager)
+u32 sub_02046534(struct TaskManager *taskManager)
 {
     return *taskManager->unk1C;
 }

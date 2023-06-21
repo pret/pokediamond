@@ -3,6 +3,6 @@
 
 #include "script.h"
 
-void FUN_02064E20(struct FieldSystem *fieldSystem);
+void sub_02064E20(struct FieldSystem *fieldSystem);
 
 #endif // POKEDIAMOND_UNK_02064E20_H

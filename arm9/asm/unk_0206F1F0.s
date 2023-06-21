@@ -9,14 +9,14 @@ UNK_020F943C: ; 0x020F943C
 
 	.text
 
-	thumb_func_start FUN_0206F1F0
-FUN_0206F1F0: ; 0x0206F1F0
+	thumb_func_start sub_0206F1F0
+sub_0206F1F0: ; 0x0206F1F0
 	push {r4-r6, lr}
 	add r6, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0xb
@@ -55,7 +55,7 @@ _0206F234:
 	cmp r0, #0x1
 	bne _0206F24C
 	ldr r0, [r5, #0xc]
-	bl FUN_0203384C
+	bl sub_0203384C
 	cmp r0, #0x0
 	bne _0206F24E
 _0206F24C:
@@ -71,19 +71,19 @@ _0206F25A:
 	ldr r1, _0206F384 ; =UNK_020F943C
 	ldr r2, [r4, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02046500
+	bl sub_02046500
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
 	b _0206F380
 _0206F26C:
 	ldr r0, [r5, #0xc]
-	bl FUN_0203384C
+	bl sub_0203384C
 	cmp r0, #0x0
 	beq _0206F280
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F304
+	bl sub_0205F304
 _0206F280:
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x4]
@@ -179,7 +179,7 @@ _0206F31A:
 	ldrb r3, [r4, #0xd]
 	ldr r1, [r1, #0x8]
 	add r0, r6, #0x0
-	bl FUN_020471C0
+	bl sub_020471C0
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -190,7 +190,7 @@ _0206F330:
 	b _0206F380
 _0206F336:
 	add r0, r6, #0x0
-	bl FUN_020383D8
+	bl sub_020383D8
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -204,7 +204,7 @@ _0206F34A:
 	mov r0, #0x3
 	mov r1, #0x36
 	bl CreateHeap
-	bl FUN_02088878 ; Loads overlay 13
+	bl sub_02088878 ; Loads overlay 13
 	mov r0, #0x36
 	bl MOD13_02211E60
 	mov r0, #0x0
@@ -230,8 +230,8 @@ _0206F380:
 _0206F384: .word UNK_020F943C
 _0206F388: .word 0x00040100
 
-	thumb_func_start FUN_0206F38C
-FUN_0206F38C: ; 0x0206F38C
+	thumb_func_start sub_0206F38C
+sub_0206F38C: ; 0x0206F38C
 	push {r4, lr}
 	mov r0, #0xb
 	mov r1, #0x10
@@ -251,36 +251,36 @@ FUN_0206F38C: ; 0x0206F38C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206F3B8
-FUN_0206F3B8: ; 0x0206F3B8
+	thumb_func_start sub_0206F3B8
+sub_0206F3B8: ; 0x0206F3B8
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_0206F38C
+	bl sub_0206F38C
 	add r2, r0, #0x0
 	ldr r0, [r2, #0x0]
 	mov r1, #0x2
 	str r1, [r0, #0x4]
-	ldr r1, _0206F3D4 ; =FUN_0206F1F0
+	ldr r1, _0206F3D4 ; =sub_0206F1F0
 	add r0, r4, #0x0
-	bl FUN_0204640C
+	bl sub_0204640C
 	pop {r4, pc}
 	nop
-_0206F3D4: .word FUN_0206F1F0
+_0206F3D4: .word sub_0206F1F0
 
-	thumb_func_start FUN_0206F3D8
-FUN_0206F3D8: ; 0x0206F3D8
+	thumb_func_start sub_0206F3D8
+sub_0206F3D8: ; 0x0206F3D8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0206F38C
+	bl sub_0206F38C
 	add r2, r0, #0x0
 	ldr r0, [r2, #0x0]
 	mov r1, #0x1
 	str r1, [r0, #0x4]
-	ldr r1, _0206F3F8 ; =FUN_0206F1F0
+	ldr r1, _0206F3F8 ; =sub_0206F1F0
 	add r0, r5, #0x0
 	str r4, [r2, #0x8]
-	bl FUN_0204640C
+	bl sub_0204640C
 	pop {r3-r5, pc}
 	nop
-_0206F3F8: .word FUN_0206F1F0
+_0206F3F8: .word sub_0206F1F0

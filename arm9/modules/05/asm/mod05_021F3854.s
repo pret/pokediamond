@@ -38,16 +38,16 @@ _021F3882:
 	add r1, r6, #0
 	add r2, r7, #0
 	str r7, [r4, #4]
-	bl FUN_0204A6E0
+	bl sub_0204A6E0
 	add r4, r0, #0
-	bl FUN_02054A18
+	bl sub_02054A18
 	cmp r0, #0
 	beq _021F389E
 	mov r2, #0
 	b _021F38AA
 _021F389E:
 	add r0, r4, #0
-	bl FUN_02054A0C
+	bl sub_02054A0C
 	cmp r0, #0
 	beq _021F38B4
 	mov r2, #1

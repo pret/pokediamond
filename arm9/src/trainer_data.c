@@ -18,7 +18,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * 
     struct String * str;
 
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 559, heap_id);
-    rivalName = GetRivalNamePtr(FUN_02024EC0(save));
+    rivalName = GetRivalNamePtr(sub_02024EC0(save));
     for (i = 0; i < 4; i++)
     {
         if (enemies->trainer_idxs[i] != 0)

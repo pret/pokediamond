@@ -108,7 +108,7 @@ MOD05_021EC4F0: ; 0x021EC4F0
 	add r2, sp, #0xc
 	bl GetMonData
 	add r0, r4, #0
-	bl FUN_020690E4
+	bl sub_020690E4
 	bl MOD05_021EC4DC
 	cmp r0, #0
 	beq _021EC544
@@ -217,7 +217,7 @@ MOD05_021EC604: ; 0x021EC604
 	add r7, sp, #4
 _021EC616:
 	add r0, r5, #0
-	bl FUN_020690E8
+	bl sub_020690E8
 	cmp r0, #0
 	beq _021EC658
 	mov r0, #0
@@ -225,7 +225,7 @@ _021EC616:
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_02069818
+	bl sub_02069818
 	cmp r0, #0
 	beq _021EC64E
 _021EC632:
@@ -234,12 +234,12 @@ _021EC632:
 	bne _021EC640
 	ldrh r1, [r7]
 	add r0, r5, #0
-	bl FUN_02069708
+	bl sub_02069708
 _021EC640:
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_02069818
+	bl sub_02069818
 	cmp r0, #0
 	bne _021EC632
 _021EC64E:
@@ -361,7 +361,7 @@ MOD05_021EC744: ; 0x021EC744
 	add r5, r1, #0
 	bl AllocMonZeroed
 	add r7, r0, #0
-	bl FUN_020690E4
+	bl sub_020690E4
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
@@ -979,7 +979,7 @@ _021ECC10:
 	lsl r1, r1, #0x10
 	add r0, r7, #0
 	lsr r1, r1, #0x10
-	bl FUN_02069698
+	bl sub_02069698
 	ldr r1, _021ECD60 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECC46
@@ -988,7 +988,7 @@ _021ECC10:
 	ldr r1, [r4, r1]
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02069708
+	bl sub_02069708
 	b _021ECC46
 _021ECC3C:
 	add r0, r0, #1
@@ -1026,14 +1026,14 @@ _021ECC60:
 	ldr r0, [sp, #0x18]
 	ldr r1, [sp, #0xc]
 	lsr r2, r2, #0x18
-	bl FUN_0206A16C
+	bl sub_0206A16C
 	cmp r0, #0
 	beq _021ECCA2
 	ldr r1, [r4, r6]
 	add r0, r7, #0
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02069698
+	bl sub_02069698
 	ldr r1, _021ECD60 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECCA2
@@ -1041,7 +1041,7 @@ _021ECC60:
 	add r0, r7, #0
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02069708
+	bl sub_02069708
 _021ECCA2:
 	add r0, r5, #1
 	lsl r0, r0, #0x10
@@ -1116,7 +1116,7 @@ _021ECD10:
 	lsl r1, r3, #0x10
 	add r0, r7, #0
 	lsr r1, r1, #0x10
-	bl FUN_02069698
+	bl sub_02069698
 	ldr r1, _021ECD60 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECD4A
@@ -1124,7 +1124,7 @@ _021ECD10:
 	add r0, r7, #0
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02069708
+	bl sub_02069708
 	b _021ECD4A
 _021ECD3E:
 	add r0, r2, #1
@@ -1247,14 +1247,14 @@ _021ECE20:
 	mov r1, #0x56
 	add r0, r4, #0
 	lsl r1, r1, #2
-	bl FUN_02069698
+	bl sub_02069698
 	ldr r1, _021ECE40 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECE3A
 	mov r1, #0x56
 	add r0, r4, #0
 	lsl r1, r1, #2
-	bl FUN_02069708
+	bl sub_02069708
 _021ECE3A:
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -1470,7 +1470,7 @@ _021ECFEE:
 	ldr r3, [sp, #0x44]
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0208089C
+	bl sub_0208089C
 	add sp, #0x20
 	pop {r4, r5, r6}
 	pop {r3}
@@ -1619,14 +1619,14 @@ MOD05_DayCare_GiveEggToPlayer: ; 0x021ED0CC
 	bl MOD05_021ECB6C
 	mov r0, #1
 	mov r1, #0
-	bl FUN_02015CF8
+	bl sub_02015CF8
 	add r3, r0, #0
 	mov r0, #4
 	str r0, [sp]
 	add r0, r4, #0
 	add r1, r7, #0
 	mov r2, #3
-	bl FUN_0208089C
+	bl sub_0208089C
 	cmp r6, #0xac
 	bne _021ED168
 	add r0, r4, #0
@@ -1891,7 +1891,7 @@ MOD05_021ED334: ; 0x021ED334
 	mul r1, r0
 	add r0, r4, #0
 	add r5, r5, r1
-	bl FUN_0204B33C
+	bl sub_0204B33C
 	cmp r0, #0
 	beq _021ED358
 	mov r0, #0xff
@@ -2199,7 +2199,7 @@ MOD05_021ED5C4: ; 0x021ED5C4
 	add r5, r2, #0
 	bl GetPartyMonByIndex
 	add r4, r0, #0
-	bl FUN_020690E4
+	bl sub_020690E4
 	add r2, r0, #0
 	add r0, r5, #0
 	mov r1, #0
@@ -2399,7 +2399,7 @@ _021ED6B4:
 	add r5, r0, #0
 	mov r0, #2
 	mov r1, #1
-	bl FUN_02015CF8
+	bl sub_02015CF8
 	cmp r5, r0
 	bne _021ED788
 	ldr r0, [sp, #0x2c]

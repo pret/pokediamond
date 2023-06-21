@@ -33,10 +33,10 @@ MOD86_021D74E0: ; 0x021D74E0
 	str r0, [r4, #0xc]
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
@@ -241,7 +241,7 @@ MOD86_021D76B0: ; 0x021D76B0
 
 	thumb_func_start MOD86_021D76E0
 MOD86_021D76E0: ; 0x021D76E0
-	ldr r3, _021D76E8 ; =FUN_0201AB60
+	ldr r3, _021D76E8 ; =sub_0201AB60
 	ldr r0, [r0, #0x10]
 	bx r3
 	nop

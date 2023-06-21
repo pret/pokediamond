@@ -11,7 +11,7 @@ UNK_020F7200: ; 0x020F7200
 	.global UNK_020F7220
 UNK_020F7220: ; 0x020F7220
 	.word 0x00000000, MOD06_02241670, MOD06_0224186C, MOD06_02242224
-	.word MOD06_022425C8, MOD06_022428D8, MOD06_022451F4, FUN_020647A4
+	.word MOD06_022425C8, MOD06_022428D8, MOD06_022451F4, sub_020647A4
 
 	.global UNK_020F7240
 UNK_020F7240: ; 0x020F7240
@@ -20,13 +20,13 @@ UNK_020F7240: ; 0x020F7240
 
 	.text
 
-	thumb_func_start FUN_0205CDB4
-FUN_0205CDB4: ; 0x0205CDB4
+	thumb_func_start sub_0205CDB4
+sub_0205CDB4: ; 0x0205CDB4
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
-	bl FUN_020254B4
+	bl sub_02024ED8
+	bl sub_020254B4
 	add r1, r0, #0x0
 	beq _0205CDD2
 	lsl r2, r1, #0x2
@@ -39,13 +39,13 @@ _0205CDD2:
 	.balign 4
 _0205CDD4: .word UNK_020F7220
 
-	thumb_func_start FUN_0205CDD8
-FUN_0205CDD8: ; 0x0205CDD8
+	thumb_func_start sub_0205CDD8
+sub_0205CDD8: ; 0x0205CDD8
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
-	bl FUN_020254B4
+	bl sub_02024ED8
+	bl sub_020254B4
 	cmp r0, #0x0
 	beq _0205CDFA
 	lsl r1, r0, #0x2
@@ -60,8 +60,8 @@ _0205CDFA:
 	.balign 4
 _0205CDFC: .word UNK_020F7200
 
-	thumb_func_start FUN_0205CE00
-FUN_0205CE00: ; 0x0205CE00
+	thumb_func_start sub_0205CE00
+sub_0205CE00: ; 0x0205CE00
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -69,8 +69,8 @@ FUN_0205CE00: ; 0x0205CE00
 	add r7, r2, #0x0
 	str r3, [sp, #0x4]
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
-	bl FUN_020254B4
+	bl sub_02024ED8
+	bl sub_020254B4
 	cmp r0, #0x0
 	bne _0205CE22
 	add sp, #0x8

@@ -66,22 +66,22 @@ u8 Save_SysInfo_GetBirthDay(struct SavSysInfo * unk)
     return unk->birthDay;
 }
 
-u8 FUN_02023820(struct SavSysInfo * unk)
+u8 sub_02023820(struct SavSysInfo * unk)
 {
     return unk->field_48;
 }
 
-void FUN_02023828(struct SavSysInfo * unk, u8 val)
+void sub_02023828(struct SavSysInfo * unk, u8 val)
 {
     unk->field_48 = val;
 }
 
-u32 FUN_02023830(struct SavSysInfo * unk)
+u32 sub_02023830(struct SavSysInfo * unk)
 {
     return unk->field_4C;
 }
 
-void FUN_02023834(struct SavSysInfo * unk, u32 val)
+void sub_02023834(struct SavSysInfo * unk, u32 val)
 {
     if (unk->field_4C == 0)
         unk->field_4C = val;
@@ -97,12 +97,12 @@ void Save_SysInfo_RTC_Init(struct UnkSaveStruct_0202376C_sub * sub)
     sub->field_34 = 0;
 }
 
-BOOL FUN_02023874(struct UnkSaveStruct_0202376C_sub * sub)
+BOOL sub_02023874(struct UnkSaveStruct_0202376C_sub * sub)
 {
     return sub->field_34 != 0;
 }
 
-void FUN_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1)
+void sub_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1)
 {
     if (sub->field_34 > 1440)
         sub->field_34 = 1440;
@@ -112,7 +112,7 @@ void FUN_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1)
         sub->field_34 -= a1;
 }
 
-void FUN_020238A4(struct UnkSaveStruct_0202376C_sub * sub)
+void sub_020238A4(struct UnkSaveStruct_0202376C_sub * sub)
 {
     sub->field_34 = 1440;
     GF_RTC_CopyDateTime(&sub->date, &sub->time);

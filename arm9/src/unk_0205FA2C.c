@@ -6,16 +6,16 @@
 
 extern OverlayManagerTemplate UNK_020F96DC;
 extern OverlayManagerTemplate UNK_020FA6E8;
-extern u32 FUN_02079C70(struct SaveData *save);
-extern void FUN_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
-extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, PlayerProfile *player_data);
-extern u32 *FUN_02038790(struct FieldSystem *fieldSystem, u16 param1, u16 param2);
+extern u32 sub_02079C70(struct SaveData *save);
+extern void sub_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
+extern void sub_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, PlayerProfile *player_data);
+extern u32 *sub_02038790(struct FieldSystem *fieldSystem, u16 param1, u16 param2);
 extern u16 *GetVarPointer(struct FieldSystem *fieldSystem, u16);
 extern u16 MOD06_02244660(struct FieldSystem *fieldSystem, u8 *param1);
 extern u16 MOD06_022446BC(struct FieldSystem *fieldSystem, u8 *param1);
 extern u16 MOD06_022446E0(struct FieldSystem *fieldSystem, u8 *param1);
-extern u32 FUN_02026CC4(struct SaveData *save);
-extern u32 FUN_02025D94(u32 param0, u32 param1);
+extern u32 sub_02026CC4(struct SaveData *save);
+extern u32 sub_02025D94(u32 param0, u32 param1);
 
 const u8 UNK_020F7454[] = {
     0x00,
@@ -29,7 +29,7 @@ const u8 UNK_020F7454[] = {
     0x08,
 };
 
-u32 FUN_0205FA2C(
+u32 sub_0205FA2C(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id)
 {
     struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(
@@ -56,17 +56,17 @@ u32 FUN_0205FA2C(
         ptr->unk2c[i] = param0->unk0e[i];
     }
 
-    FUN_020373D4(fieldSystem, &UNK_020F96DC, ptr);
+    sub_020373D4(fieldSystem, &UNK_020F96DC, ptr);
 
     *param0->unk14 = ptr;
 
     return 1;
 }
 
-u32 FUN_0205FAD8(
+u32 sub_0205FAD8(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (FUN_0204647C(fieldSystem))
+    if (sub_0204647C(fieldSystem))
     {
         return 1;
     }
@@ -98,7 +98,7 @@ u32 FUN_0205FAD8(
     return 2;
 }
 
-u32 FUN_0205FB34(
+u32 sub_0205FB34(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id)
 {
     struct SaveData *save = fieldSystem->saveData;
@@ -110,7 +110,7 @@ u32 FUN_0205FB34(
     ptr->options = Save_PlayerData_GetOptionsAddr(save);
     ptr->player_party = SaveArray_PlayerParty_Get(save);
     ptr->IsNatDex = SaveArray_IsNatDexEnabled(save);
-    ptr->unk2c = FUN_02079C70(save);
+    ptr->unk2c = sub_02079C70(save);
 
     ptr->unk11 = 1;
     ptr->unk14 = param0->unk0d;
@@ -120,23 +120,23 @@ u32 FUN_0205FB34(
     ptr->unk18 = 0;
     ptr->unk12 = param0->unk09;
 
-    ptr->unk20 = FUN_0202A918(save);
+    ptr->unk20 = sub_0202A918(save);
 
-    FUN_0207B000(ptr, UNK_020F7454);
+    sub_0207B000(ptr, UNK_020F7454);
 
-    FUN_0207C2A4(ptr, Save_PlayerData_GetProfileAddr(save));
+    sub_0207C2A4(ptr, Save_PlayerData_GetProfileAddr(save));
 
-    FUN_020373D4(fieldSystem, &UNK_020FA6E8, ptr);
+    sub_020373D4(fieldSystem, &UNK_020FA6E8, ptr);
 
     *param0->unk14 = ptr;
 
     return 3;
 }
 
-u32 FUN_0205FBC0(
+u32 sub_0205FBC0(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (FUN_0204647C(fieldSystem))
+    if (sub_0204647C(fieldSystem))
     {
         return 3;
     }
@@ -150,24 +150,24 @@ u32 FUN_0205FBC0(
     return 0;
 }
 
-BOOL FUN_0205FBE8(struct TaskManager *taskManager)
+BOOL sub_0205FBE8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
     struct UnkCallbackStruct1_0205FA2C *res2 =
-        (struct UnkCallbackStruct1_0205FA2C *)FUN_0204652C(taskManager);
+        (struct UnkCallbackStruct1_0205FA2C *)sub_0204652C(taskManager);
     switch (res2->unk04)
     {
     case 0:
-        res2->unk04 = FUN_0205FA2C(res2, fieldSystem, 0xb);
+        res2->unk04 = sub_0205FA2C(res2, fieldSystem, 0xb);
         break;
     case 1:
-        res2->unk04 = FUN_0205FAD8(res2, fieldSystem);
+        res2->unk04 = sub_0205FAD8(res2, fieldSystem);
         break;
     case 2:
-        res2->unk04 = FUN_0205FB34(res2, fieldSystem, 0xb);
+        res2->unk04 = sub_0205FB34(res2, fieldSystem, 0xb);
         break;
     case 3:
-        res2->unk04 = FUN_0205FBC0(res2, fieldSystem);
+        res2->unk04 = sub_0205FBC0(res2, fieldSystem);
         break;
     case 4:
         FreeToHeap(res2);
@@ -177,7 +177,7 @@ BOOL FUN_0205FBE8(struct TaskManager *taskManager)
     return FALSE;
 }
 
-void FUN_0205FC50(struct TaskManager *taskManager,
+void sub_0205FC50(struct TaskManager *taskManager,
     void **param1,
     u8 param2,
     u8 param3,
@@ -186,7 +186,7 @@ void FUN_0205FC50(struct TaskManager *taskManager,
     u8 param6,
     u8 param7)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
 
     struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct1_0205FA2C));
@@ -200,16 +200,16 @@ void FUN_0205FC50(struct TaskManager *taskManager,
     ptr->unk0d = param7;
     ptr->unk14 = param1;
 
-    FUN_0204640C(fieldSystem->taskManager, &FUN_0205FBE8, ptr);
+    sub_0204640C(fieldSystem->taskManager, &sub_0205FBE8, ptr);
 }
 
-u32 FUN_0205FC9C(
+u32 sub_0205FC9C(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (FUN_0203384C(fieldSystem->saveData))
+    if (sub_0203384C(fieldSystem->saveData))
     {
 
-        param0->unk08 = FUN_02038790(fieldSystem, param0->unk12, param0->unk14);
+        param0->unk08 = sub_02038790(fieldSystem, param0->unk12, param0->unk14);
         return 1;
     }
 
@@ -217,10 +217,10 @@ u32 FUN_0205FC9C(
     return 2;
 }
 
-u32 FUN_0205FCC4(
+u32 sub_0205FCC4(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (FUN_0204647C(fieldSystem))
+    if (sub_0204647C(fieldSystem))
     {
         return 1;
     }
@@ -231,19 +231,19 @@ u32 FUN_0205FCC4(
     return 2;
 }
 
-BOOL FUN_0205FCE8(struct TaskManager *taskManager)
+BOOL sub_0205FCE8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
     struct UnkCallbackStruct2_0205FA2C *res2 =
-        (struct UnkCallbackStruct2_0205FA2C *)FUN_0204652C(taskManager);
+        (struct UnkCallbackStruct2_0205FA2C *)sub_0204652C(taskManager);
 
     switch (res2->unk04)
     {
     case 0:
-        res2->unk04 = FUN_0205FC9C(res2, fieldSystem);
+        res2->unk04 = sub_0205FC9C(res2, fieldSystem);
         break;
     case 1:
-        res2->unk04 = FUN_0205FCC4(res2, fieldSystem);
+        res2->unk04 = sub_0205FCC4(res2, fieldSystem);
         break;
     case 2:
         u16 *var = GetVarPointer(fieldSystem, res2->unk10);
@@ -256,9 +256,9 @@ BOOL FUN_0205FCE8(struct TaskManager *taskManager)
     return FALSE;
 }
 
-void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3)
+void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
     struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct2_0205FA2C));
@@ -267,14 +267,14 @@ void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 p
     ptr->unk14 = param3;
     ptr->unk10 = param2;
 
-    FUN_0204640C(fieldSystem->taskManager, &FUN_0205FCE8, (u32 *)ptr);
+    sub_0204640C(fieldSystem->taskManager, &sub_0205FCE8, (u32 *)ptr);
 }
 
-BOOL FUN_0205FD70(struct TaskManager *taskManager)
+BOOL sub_0205FD70(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
-    u16 *res2 = (u16 *)FUN_0204652C(taskManager);
-    u8 *res3 = FUN_020316E0(1 - FUN_02031190());
+    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    u16 *res2 = (u16 *)sub_0204652C(taskManager);
+    u8 *res3 = sub_020316E0(1 - sub_02031190());
     if (res3 == NULL)
     {
         return FALSE;
@@ -299,9 +299,9 @@ BOOL FUN_0205FD70(struct TaskManager *taskManager)
     return TRUE;
 }
 
-void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
+void sub_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
 
     u16 *ptr = AllocFromHeap(0xb, 2 * sizeof(u16));
     MI_CpuFill8(ptr, 0, 2 * sizeof(u16));
@@ -309,10 +309,10 @@ void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
     ptr[0] = param1;
     ptr[1] = param2;
 
-    FUN_0204640C(fieldSystem->taskManager, &FUN_0205FD70, (u32 *)ptr);
+    sub_0204640C(fieldSystem->taskManager, &sub_0205FD70, (u32 *)ptr);
 }
 
-u32 FUN_0205FE10(struct SaveData *save)
+u32 sub_0205FE10(struct SaveData *save)
 {
 
     u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(save), 0x35);
@@ -336,10 +336,10 @@ u32 FUN_0205FE10(struct SaveData *save)
         return 0;
     }
 
-    u32 res9 = FUN_02026CC4(save);
+    u32 res9 = sub_02026CC4(save);
     if (!flagD)
     {
-        if (FUN_02025D94(res9, 0x55) != 0)
+        if (sub_02025D94(res9, 0x55) != 0)
         {
             SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_SET);
             return 1;
@@ -360,7 +360,7 @@ u32 FUN_0205FE10(struct SaveData *save)
 
     if (!flag0)
     {
-        if (FUN_02025D94(res9, 0x56) != 0)
+        if (sub_02025D94(res9, 0x56) != 0)
         {
             SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_SET);
             return 2;
@@ -379,7 +379,7 @@ u32 FUN_0205FE10(struct SaveData *save)
         return 0;
     }
 
-    if (FUN_02025D94(res9, 0x57) != 0)
+    if (sub_02025D94(res9, 0x57) != 0)
     {
         SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 1, DATA_SET);
         return 3;
@@ -393,7 +393,7 @@ u32 FUN_0205FE10(struct SaveData *save)
     return 4;
 }
 
-u32 FUN_0205FF5C(struct SaveData *save)
+u32 sub_0205FF5C(struct SaveData *save)
 {
     u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(save), 0x35);
     if (res < 20)
@@ -459,7 +459,7 @@ u32 FUN_0205FF5C(struct SaveData *save)
     return 3;
 }
 
-void FUN_02060044(u16 **param0, u32 *param1)
+void sub_02060044(u16 **param0, u32 *param1)
 {
     u16 *ptr = param0[42];
 
@@ -468,53 +468,53 @@ void FUN_02060044(u16 **param0, u32 *param1)
     ptr[19] += param1[2];
 }
 
-u32 FUN_02060064(u32 param0)
+u32 sub_02060064(u32 param0)
 {
     return param0 * 0x02E90EDD + 1;
 }
 
-u32 FUN_02060070(u32 param0)
+u32 sub_02060070(u32 param0)
 {
     return param0 * 0x5D588B65 + 1;
 }
 
-u32 FUN_0206007C(struct SaveData *save)
+u32 sub_0206007C(struct SaveData *save)
 {
-    u32 res = FUN_02060070(FUN_020287A4(FUN_0202881C(save)));
+    u32 res = sub_02060070(sub_020287A4(sub_0202881C(save)));
 
     SaveStruct23_Substruct2_SetField_0x4(SaveStruct23_GetSubstruct2(save), res);
 
     return res;
 }
 
-u32 FUN_020600A0(struct SaveData *save)
+u32 sub_020600A0(struct SaveData *save)
 {
     struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
 
-    u32 res2 = FUN_02060070(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
+    u32 res2 = sub_02060070(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
 
     SaveStruct23_Substruct2_SetField_0x4(saveStruct23_substruct2, res2);
-    u32 res3 = FUN_02060064(res2);
+    u32 res3 = sub_02060064(res2);
 
     SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(save), FIELD_0x28, &res3);
 
     return res3;
 }
 
-u32 FUN_020600DC(struct SaveData *save)
+u32 sub_020600DC(struct SaveData *save)
 {
     struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
 
     struct SaveStruct23_Substruct1 *saveStruct23_substruct1 = SaveStruct23_GetSubstruct1(save);
 
-    u32 res3 = FUN_02060064(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
+    u32 res3 = sub_02060064(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
 
     int i = 0;
     int res4 = SaveStruct23_Substruct2_SetField_0xC(saveStruct23_substruct2, (u16)SaveStruct23_Substruct1_GetField(saveStruct23_substruct1, FIELD_0x0_2, 0), DATA_GET) * 0x18;
 
     for (i = 0; i < res4; i++)
     {
-        res3 = FUN_02060064(res3);
+        res3 = sub_02060064(res3);
     }
 
     SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(save), FIELD_0x28, &res3);
@@ -522,7 +522,7 @@ u32 FUN_020600DC(struct SaveData *save)
     return res3;
 }
 
-BOOL FUN_02060144(u32 **param0)
+BOOL sub_02060144(u32 **param0)
 {
     if (param0[7][0] == SPECIES_ARCEUS)
     {

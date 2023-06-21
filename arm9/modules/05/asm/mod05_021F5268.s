@@ -30,7 +30,7 @@ MOD05_021F5268: ; 0x021F5268
 	ldr r0, _021F52A8 ; =MOD05_021F52AC
 	add r1, r4, #0
 	lsl r2, r2, #0xa
-	bl FUN_0200CA98
+	bl sub_0200CA98
 _021F52A4:
 	pop {r3, r4, r5, pc}
 	nop
@@ -42,12 +42,12 @@ MOD05_021F52AC: ; 0x021F52AC
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_0201B3C4
+	bl sub_0201B3C4
 	ldr r0, [r4]
 	ldr r1, [r4, #0xc]
-	bl FUN_0201B3A8
+	bl sub_0201B3A8
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD05_021F52C8
@@ -321,7 +321,7 @@ MOD05_021F5430: ; 0x021F5430
 	add r1, #0x54
 	add r2, sp, #0x24
 	add r3, r4, #0
-	bl FUN_0201B26C
+	bl sub_0201B26C
 _021F54C4:
 	add sp, #0x48
 	pop {r4, pc}

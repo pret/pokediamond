@@ -9,10 +9,10 @@ struct unk_2025484
     u8 padding[0x1C];
 };
 
-void FUN_02025484(struct unk_2025484 *r0);
-u32 *FUN_02025490(struct unk_2025484 *r0, u32 r1);
-u32 *FUN_020254A0(struct unk_2025484 *r0, u32 r1);
-u32 FUN_020254B4(struct unk_2025484 *r0);
+void sub_02025484(struct unk_2025484 *r0);
+u32 *sub_02025490(struct unk_2025484 *r0, u32 r1);
+u32 *sub_020254A0(struct unk_2025484 *r0, u32 r1);
+u32 sub_020254B4(struct unk_2025484 *r0);
 
 #endif POKEDIAMOND_UNK_02025484_H
 

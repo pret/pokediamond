@@ -4,7 +4,7 @@
 #include "unk_02029FB0.h"
 #include "unk_0202C144.h"
 
-void FUN_0202C144(struct SaveData * save, struct Pokemon * mon)
+void sub_0202C144(struct SaveData * save, struct Pokemon * mon)
 {
     u32 is_egg = GetMonData(mon, MON_DATA_IS_EGG, NULL);
     if (!is_egg)

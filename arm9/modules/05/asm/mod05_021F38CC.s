@@ -116,19 +116,19 @@ MOD05_021F39A0: ; 0x021F39A0
 	add r6, r0, #0
 	mov r0, #4
 	add r5, r1, #0
-	bl FUN_02087A6C
+	bl sub_02087A6C
 	add r4, r0, #0
-	bl FUN_02087A84
+	bl sub_02087A84
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #4
-	bl FUN_02087A98
+	bl sub_02087A98
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_02087B58
+	bl sub_02087B58
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02087B0C
+	bl sub_02087B0C
 	add r0, r5, #0
 	bl MOD05_021F3978
 	lsl r4, r0, #3
@@ -187,7 +187,7 @@ MOD05_021F3A18: ; 0x021F3A18
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F3E8
+	bl sub_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]
 	ldrh r1, [r1]
@@ -222,7 +222,7 @@ _021F3A9A:
 	ldr r2, [sp]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_020619C0
+	bl sub_020619C0
 	add sp, #8
 	mov r0, #2
 	pop {r3, r4, r5, r6, r7, pc}
@@ -247,7 +247,7 @@ MOD05_021F3AB4: ; 0x021F3AB4
 	bl SaveArray_Flags_Get
 	add r1, sp, #0
 	ldrh r1, [r1]
-	bl FUN_0205F3F8
+	bl sub_0205F3F8
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 
@@ -310,7 +310,7 @@ MOD05_021F3B4C: ; 0x021F3B4C
 	add r6, r2, #0
 	add r7, r3, #0
 	bl SaveArray_Flags_Get
-	bl FUN_0205F3E8
+	bl sub_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]
 	ldrh r0, [r1]

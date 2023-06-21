@@ -8,7 +8,7 @@ FS_EXTERN_OVERLAY(MODULE_16);
 
 static void MOD11_0222F284(void)
 {
-    if (!FUN_02033590())
+    if (!sub_02033590())
     {
         HandleLoadOverlay(FS_OVERLAY_ID(MODULE_16), 2);
     }

@@ -11,7 +11,7 @@
 #include "render_window.h"
 
 extern void SetMasterBrightnessNeutral(BOOL set_brightness_on_bottom_screen);
-extern void FUN_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
+extern void sub_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
 
 static const struct WindowTemplate sSaveDataReadErrorWindowTemplate = {
     .bgId = GF_BG_LYR_MAIN_0,
@@ -63,8 +63,8 @@ void ShowSaveDataReadError(u32 heap_id)
 {
     struct Window window;
 
-    FUN_0200E3A0(PM_LCD_TOP, 0);
-    FUN_0200E3A0(PM_LCD_BOTTOM, 0);
+    sub_0200E3A0(PM_LCD_TOP, 0);
+    sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
@@ -126,8 +126,8 @@ void ShowGBACartRemovedError(u32 heap_id)
 {
     struct Window window;
 
-    FUN_0200E3A0(PM_LCD_TOP, 0);
-    FUN_0200E3A0(PM_LCD_BOTTOM, 0);
+    sub_0200E3A0(PM_LCD_TOP, 0);
+    sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);

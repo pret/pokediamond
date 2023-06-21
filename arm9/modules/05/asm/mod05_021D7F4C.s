@@ -28,14 +28,14 @@ MOD05_021D7F4C: ; 0x021D7F4C
 	add r2, r7, #0
 	bl MIi_CpuClear32
 	add r0, r6, #0
-	bl FUN_0201B578
+	bl sub_0201B578
 	add r1, r0, #0
 	add r0, r5, #0
 	bl AllocFromHeap
 	str r0, [r4, #0x10]
 	ldr r1, [r4, #0x10]
 	add r0, r6, #0
-	bl FUN_0201B580
+	bl sub_0201B580
 	str r0, [r4, #0x10]
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -69,11 +69,11 @@ _021D7FBC:
 
 	thumb_func_start MOD05_021D7FD0
 MOD05_021D7FD0: ; 0x021D7FD0
-	ldr r3, _021D7FD8 ; =FUN_0201B5CC
+	ldr r3, _021D7FD8 ; =sub_0201B5CC
 	ldr r0, [r0, #0x10]
 	bx r3
 	nop
-_021D7FD8: .word FUN_0201B5CC
+_021D7FD8: .word sub_0201B5CC
 
 	thumb_func_start MOD05_021D7FDC
 MOD05_021D7FDC: ; 0x021D7FDC
@@ -81,7 +81,7 @@ MOD05_021D7FDC: ; 0x021D7FDC
 	add r4, r1, #0
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_020373AC
+	bl sub_020373AC
 	cmp r0, #0
 	beq _021D7FFE
 	ldr r0, [r4, #0xc]
@@ -102,7 +102,7 @@ MOD05_021D8000: ; 0x021D8000
 	add r4, r1, #0
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_020373AC
+	bl sub_020373AC
 	cmp r0, #0
 	beq _021D8022
 	ldr r0, [r4, #0xc]
@@ -134,13 +134,13 @@ _021D8034:
 	ldr r0, _021D809C ; =MOD05_021D7FDC
 	ldr r2, [r6]
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #4]
 	ldr r0, [r5, #0x10]
 	ldr r1, _021D80A0 ; =MOD05_021D8000
 	ldr r3, [r6]
 	add r2, r4, #0
-	bl FUN_0201B60C
+	bl sub_0201B60C
 	str r0, [r4, #8]
 	str r5, [r4]
 	str r6, [r4, #0xc]
@@ -208,9 +208,9 @@ _021D80BE:
 	bl FreeToHeap
 _021D80CC:
 	ldr r0, [r4, #4]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #8]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	add r1, r4, #0
 	mov r2, #0x14

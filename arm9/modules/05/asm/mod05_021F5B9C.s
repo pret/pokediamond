@@ -9,7 +9,7 @@ MOD05_021F5B9C: ; 0x021F5B9C
 	sub sp, #0x28
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_02050DF0
+	bl sub_02050DF0
 	add r7, r0, #0
 	beq _021F5C40
 	bl MOD18_0223E2C4
@@ -23,22 +23,22 @@ MOD05_021F5B9C: ; 0x021F5B9C
 _021F5BC0:
 	add r0, r7, #0
 	add r1, r4, #0
-	bl FUN_020267C4
+	bl sub_020267C4
 	add r6, r0, #0
-	bl FUN_0204CA80
+	bl sub_0204CA80
 	str r0, [sp, #0x10]
 	add r0, r6, #0
-	bl FUN_0204CA90
+	bl sub_0204CA90
 	str r0, [sp, #0x14]
 	cmp r6, #0
 	beq _021F5C3A
 	add r0, r7, #0
 	add r1, r4, #0
-	bl FUN_02026810
+	bl sub_02026810
 	str r0, [sp, #0x18]
 	add r0, r7, #0
 	add r1, r4, #0
-	bl FUN_02026840
+	bl sub_02026840
 	mov r2, #1
 	ldr r1, [sp, #0x18]
 	lsl r2, r2, #0xc

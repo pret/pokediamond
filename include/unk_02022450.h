@@ -12,7 +12,7 @@ struct CARD_Header {
     u32 header_4C;
 };
 
-void FUN_02022450();
+void sub_02022450();
 void Reset_To_File(const char* path);
 
 #endif //POKEDIAMOND_UNK_02022450_H

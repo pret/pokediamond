@@ -20,8 +20,8 @@ UNK_020F46B0: ; 0x020F46B0
 
 	.text
 
-	thumb_func_start FUN_020484A8
-FUN_020484A8: ; 0x020484A8
+	thumb_func_start sub_020484A8
+sub_020484A8: ; 0x020484A8
 	push {r3-r6, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
@@ -58,18 +58,18 @@ _020484CC:
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020484F8
-FUN_020484F8: ; 0x020484F8
+	thumb_func_start sub_020484F8
+sub_020484F8: ; 0x020484F8
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02046530
+	bl sub_02046530
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x9
@@ -94,14 +94,14 @@ _02048526: ; jump table (using 16-bit offset)
 _0204853A:
 	add r0, r6, #0x0
 	add r1, r5, #0x4
-	bl FUN_02038814
+	bl sub_02038814
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02048688
 _0204854A:
 	add r0, r6, #0x0
-	bl FUN_0204647C
+	bl sub_0204647C
 	cmp r0, #0x0
 	beq _02048556
 _02048554:
@@ -113,7 +113,7 @@ _02048556:
 	bl CreateHeap
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_02048764
+	bl sub_02048764
 	mov r0, #0x8
 	str r0, [sp, #0x0]
 	mov r1, #0x1
@@ -138,7 +138,7 @@ _02048586:
 	bne _020485A8
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_020487E4
+	bl sub_020487E4
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -149,7 +149,7 @@ _020485A8:
 	b _02048688
 _020485AE:
 	add r0, r5, #0x0
-	bl FUN_02048838
+	bl sub_02048838
 	cmp r0, #0x0
 	beq _02048688
 	ldr r0, [r4, #0x0]
@@ -166,20 +166,20 @@ _020485C0:
 	add r7, r0, #0x0
 	ldr r1, [r5, #0x0]
 	add r0, r6, #0x0
-	bl FUN_020484A8
+	bl sub_020484A8
 	add r0, r5, #0x0
-	bl FUN_02048848
+	bl sub_02048848
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	add r2, r7, #0x0
-	bl FUN_02048864
+	bl sub_02048864
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02048688
 _020485F6:
 	add r0, r5, #0x0
-	bl FUN_02048838
+	bl sub_02048838
 	cmp r0, #0x0
 	beq _02048688
 	ldr r0, _02048690 ; =0x0000061B
@@ -223,18 +223,18 @@ _02048644:
 	beq _02048688
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_020488D4
+	bl sub_020488D4
 	add r5, #0x10
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_02038854
+	bl sub_02038854
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02048688
 _02048666:
 	add r0, r6, #0x0
-	bl FUN_0204647C
+	bl sub_0204647C
 	cmp r0, #0x0
 	bne _02048688
 	add r0, r5, #0x0
@@ -258,7 +258,7 @@ CallTask_GameClear: ; 0x02048694
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r4, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x3c
@@ -276,10 +276,10 @@ CallTask_GameClear: ; 0x02048694
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DCC
+	bl sub_02034DCC
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
-	bl FUN_0205ED0C
+	bl sub_0205ED0C
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
 	bl Save_PlayerData_GetProfileAddr
@@ -295,13 +295,13 @@ CallTask_GameClear: ; 0x02048694
 	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0x10]
 	add r0, r6, #0x0
-	bl FUN_0205ED0C
+	bl sub_0205ED0C
 	str r0, [r5, #0x14]
 	ldr r0, [r4, #0xc]
 	bl Save_Pokedex_Get
 	str r0, [r5, #0x18]
 	add r0, r6, #0x0
-	bl FUN_0205ED0C
+	bl sub_0205ED0C
 	cmp r0, #0x0
 	bne _0204871E
 	add r0, r4, #0x0
@@ -311,30 +311,30 @@ _0204871E:
 	bl SaveArray_PlayerParty_Get
 	bl GiveAllMonsTheSinnohChampRibbon
 	ldr r0, [sp, #0x8]
-	bl FUN_020377B0
+	bl sub_020377B0
 	ldr r0, [sp, #0x4]
-	bl FUN_020377C8
+	bl sub_020377C8
 	add r0, r6, #0x0
-	bl FUN_0205F154
+	bl sub_0205F154
 	add r0, r6, #0x0
-	bl FUN_0205ECFC
+	bl sub_0205ECFC
 	ldr r0, [sp, #0x0]
 	bl PlayerProfile_SetGameClearFlag
 	ldr r0, [r4, #0xc]
 	bl Save_GameStats_Get
 	mov r1, #0x2e
 	bl GameStats_Inc
-	ldr r1, _02048760 ; =FUN_020484F8
+	ldr r1, _02048760 ; =sub_020484F8
 	add r0, r7, #0x0
 	add r2, r5, #0x0
-	bl FUN_0204640C
+	bl sub_0204640C
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
-_02048760: .word FUN_020484F8
+_02048760: .word sub_020484F8
 
-	thumb_func_start FUN_02048764
-FUN_02048764: ; 0x02048764
+	thumb_func_start sub_02048764
+sub_02048764: ; 0x02048764
 	push {r4, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -388,8 +388,8 @@ _020487D8: .word 0x04000304
 _020487DC: .word UNK_020F4684
 _020487E0: .word UNK_020F4694
 
-	thumb_func_start FUN_020487E4
-FUN_020487E4: ; 0x020487E4
+	thumb_func_start sub_020487E4
+sub_020487E4: ; 0x020487E4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -406,17 +406,17 @@ FUN_020487E4: ; 0x020487E4
 	ldr r0, [r5, #0x8]
 	add r1, #0x1c
 	mov r2, #0x3
-	bl FUN_020545B8
+	bl sub_020545B8
 	add r0, r4, #0x0
 	add r0, #0x1c
 	add r1, r6, #0x0
-	bl FUN_02054608
+	bl sub_02054608
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x2c]
 	add r0, #0x1c
 	add r2, r6, #0x0
 	mov r3, #0x1
-	bl FUN_02054658
+	bl sub_02054658
 	str r0, [r4, #0x34]
 	add r0, r4, #0x0
 	ldr r1, _02048834 ; =0x000003E2
@@ -427,32 +427,32 @@ FUN_020487E4: ; 0x020487E4
 	.balign 4
 _02048834: .word 0x000003E2
 
-	thumb_func_start FUN_02048838
-FUN_02048838: ; 0x02048838
+	thumb_func_start sub_02048838
+sub_02048838: ; 0x02048838
 	ldr r0, [r0, #0x34]
-	ldr r3, _02048844 ; =FUN_020546C8
+	ldr r3, _02048844 ; =sub_020546C8
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	bx r3
 	nop
-_02048844: .word FUN_020546C8
+_02048844: .word sub_020546C8
 
-	thumb_func_start FUN_02048848
-FUN_02048848: ; 0x02048848
+	thumb_func_start sub_02048848
+sub_02048848: ; 0x02048848
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x2c]
 	bl String_Delete
 	ldr r0, [r4, #0x30]
-	bl FUN_0200DBFC
+	bl sub_0200DBFC
 	add r4, #0x1c
 	add r0, r4, #0x0
-	bl FUN_0205464C
+	bl sub_0205464C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02048864
-FUN_02048864: ; 0x02048864
+	thumb_func_start sub_02048864
+sub_02048864: ; 0x02048864
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -497,13 +497,13 @@ _020488B4:
 	ldr r1, [r4, #0x2c]
 	add r0, #0x1c
 	mov r3, #0x1
-	bl FUN_02054658
+	bl sub_02054658
 	str r0, [r4, #0x34]
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020488D4
-FUN_020488D4: ; 0x020488D4
+	thumb_func_start sub_020488D4
+sub_020488D4: ; 0x020488D4
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0

@@ -66,8 +66,8 @@ _03800DFC:
 	bx	lr
 _03800E08:	.word	cardi_common
 
-	arm_func_start FUN_03800E0C
-FUN_03800E0C: ; 0x03800E0C
+	arm_func_start sub_03800E0C
+sub_03800E0C: ; 0x03800E0C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -77,7 +77,7 @@ FUN_03800E0C: ; 0x03800E0C
 	b	_03800E30
 _03800E28:
 	mov	r0, r6
-	bl	FUN_037F8CB4
+	bl	sub_037F8CB4
 _03800E30:
 	mov	r0, r5
 	mov	r1, r7

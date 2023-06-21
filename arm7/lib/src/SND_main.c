@@ -15,7 +15,7 @@
 #include "OS_tick.h"
 #include "code32.h"
 
-static void FUN_037fc330(void *);
+static void sub_037fc330(void *);
 static void SndThread(void *);
 
 u8 sThreadStack[0x400];
@@ -55,7 +55,7 @@ void SND_InitIntervalTimer(void)
 void SND_StartIntervalTimer(void)
 {
     OSTick tick = OS_GetTick();
-    OS_SetPeriodicAlarm(&sAlarm, tick + 0x10000, 2728, FUN_037fc330, NULL);
+    OS_SetPeriodicAlarm(&sAlarm, tick + 0x10000, 2728, sub_037fc330, NULL);
 }
 
 void SND_StopIntervalTimer(void)
@@ -85,7 +85,7 @@ void SNDi_UnlockMutex(void)
     // nothing
 }
 
-static void FUN_037fc330(void *arg)
+static void sub_037fc330(void *arg)
 {
     (void)arg;
     (void)OS_SendMessage(&sMessageQueue, (OSMessage)1, 0);

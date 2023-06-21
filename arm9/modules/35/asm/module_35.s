@@ -24,7 +24,7 @@ MOD35_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD35_022548F0
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -103,7 +103,7 @@ MOD35_022548F0: ; 0x022548F0
 	add r0, r4, #0
 	bl MOD35_022548DC
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x2c]
 	bl MOD20_022529A0
 _0225491C:
@@ -257,7 +257,7 @@ MOD35_02254A08: ; 0x02254A08
 	bne _02254A48
 	add r0, sp, #4
 	add r1, sp, #0
-	bl FUN_02020ACC
+	bl sub_02020ACC
 	cmp r0, #0
 	beq _02254A48
 	ldr r0, [sp, #4]
@@ -321,7 +321,7 @@ _02254A7A:
 	bl AcquireBoxMonLock
 	str r0, [sp, #0xc]
 	add r0, r4, #0
-	bl FUN_0206B688
+	bl sub_0206B688
 	str r0, [r5, #4]
 	add r0, r4, #0
 	mov r1, #5
@@ -379,7 +379,7 @@ MOD35_02254ADC: ; 0x02254ADC
 	str r2, [r0]
 	ldr r0, _02254B34 ; =MOD35_02254E60
 	add r1, r4, #0
-	bl FUN_0200CA98
+	bl sub_0200CA98
 	add r1, r4, #0
 	add r1, #0x8c
 	str r0, [r1]
@@ -408,7 +408,7 @@ MOD35_02254B38: ; 0x02254B38
 	add r0, r4, #0
 	add r0, #0x8c
 	ldr r0, [r0]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	add r0, r4, #0
 	bl FreeToHeap
 _02254B52:
@@ -841,7 +841,7 @@ MOD35_02254E88: ; 0x02254E88
 	add r4, r1, #0
 	add r1, r0, #0
 	mov r2, #0
-	bl FUN_0206B6D4
+	bl sub_0206B6D4
 	ldrb r1, [r4]
 	cmp r1, #0
 	beq _02254EA4
@@ -886,7 +886,7 @@ _02254EDC:
 	ldrh r0, [r4, #0x1c]
 	ldrh r1, [r4, #0x20]
 	mov r2, #0
-	bl FUN_0206B7BC
+	bl sub_0206B7BC
 	add r1, r0, #0
 	ldr r0, [r5, #0x24]
 	add r1, r1, #1
@@ -903,7 +903,7 @@ _02254F00:
 	mov r0, #1
 	mov r1, #0
 	add r2, r0, #0
-	bl FUN_0206B7BC
+	bl sub_0206B7BC
 	add r1, r0, #0
 	ldr r0, [r7, #0x2c]
 	add r1, r1, #1

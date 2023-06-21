@@ -26,7 +26,7 @@ MOD11_0225D3EC: ; 0x0225D3EC
 	mov r1, #3
 	add r2, r5, #0
 	add r3, r4, #0
-	bl FUN_0200C0DC
+	bl sub_0200C0DC
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #2
@@ -36,7 +36,7 @@ MOD11_0225D3EC: ; 0x0225D3EC
 	mov r2, #0x1b
 	mov r3, #0xba
 	str r6, [sp, #8]
-	bl FUN_0200C00C
+	bl sub_0200C00C
 	mov r0, #1
 	str r0, [sp]
 	ldr r0, [sp, #0x2c]
@@ -45,7 +45,7 @@ MOD11_0225D3EC: ; 0x0225D3EC
 	add r0, r5, #0
 	mov r2, #0x1b
 	mov r3, #0xbb
-	bl FUN_0200C124
+	bl sub_0200C124
 	mov r0, #1
 	str r0, [sp]
 	ldr r0, [sp, #0x30]
@@ -54,7 +54,7 @@ MOD11_0225D3EC: ; 0x0225D3EC
 	add r0, r5, #0
 	mov r2, #0x1b
 	mov r3, #0xbc
-	bl FUN_0200C13C
+	bl sub_0200C13C
 	add sp, #0x18
 	pop {r4, r5, r6, pc}
 
@@ -64,16 +64,16 @@ MOD11_0225D45C: ; 0x0225D45C
 	add r5, r0, #0
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0200C358
+	bl sub_0200C358
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0200C368
+	bl sub_0200C368
 	add r0, r5, #0
 	add r1, r6, #0
-	bl FUN_0200C378
+	bl sub_0200C378
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0
-	bl FUN_0200C388
+	bl sub_0200C388
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
@@ -119,17 +119,17 @@ _0225D4CE:
 	add r0, r6, #0
 	add r1, r7, #0
 	add r2, sp, #4
-	bl FUN_0200C154
+	bl sub_0200C154
 	mov r1, #0
 	stmia r5!, {r0}
-	bl FUN_0200C644
+	bl sub_0200C644
 	add r4, r4, #1
 	cmp r4, #5
 	blt _0225D4CE
 	ldr r0, _0225D500 ; =MOD11_0225D670
 	ldr r1, [sp]
 	ldr r2, _0225D504 ; =0x00009C40
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	ldr r1, [sp]
 	str r0, [r1, #0x14]
 	add r0, r1, #0
@@ -148,13 +148,13 @@ MOD11_0225D508: ; 0x0225D508
 	add r5, r6, #0
 _0225D510:
 	ldr r0, [r5]
-	bl FUN_0200C3DC
+	bl sub_0200C3DC
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
 	blt _0225D510
 	ldr r0, [r6, #0x14]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	add r0, r6, #0
 	bl FreeToHeap
 	pop {r4, r5, r6, pc}
@@ -171,7 +171,7 @@ MOD11_0225D52C: ; 0x0225D52C
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	add r3, r4, #0
-	bl FUN_0200C750
+	bl sub_0200C750
 	ldr r2, [sp, #0x10]
 	lsl r1, r6, #0x10
 	lsl r2, r2, #0x10
@@ -179,7 +179,7 @@ MOD11_0225D52C: ; 0x0225D52C
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	add r3, r4, #0
-	bl FUN_0200C750
+	bl sub_0200C750
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	lsl r1, r1, #0x10
@@ -188,7 +188,7 @@ MOD11_0225D52C: ; 0x0225D52C
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	add r3, r4, #0
-	bl FUN_0200C750
+	bl sub_0200C750
 	ldr r1, [sp, #0x1c]
 	ldr r2, [sp, #0x20]
 	lsl r1, r1, #0x10
@@ -197,25 +197,25 @@ MOD11_0225D52C: ; 0x0225D52C
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	add r3, r4, #0
-	bl FUN_0200C750
+	bl sub_0200C750
 	ldr r0, [r5]
 	mov r1, #0
-	bl FUN_0200C5C0
+	bl sub_0200C5C0
 	ldr r0, [r5, #4]
 	mov r1, #1
-	bl FUN_0200C5C0
+	bl sub_0200C5C0
 	ldr r0, [r5, #8]
 	mov r1, #2
-	bl FUN_0200C5C0
+	bl sub_0200C5C0
 	ldr r0, [r5, #0xc]
 	mov r1, #3
-	bl FUN_0200C5C0
+	bl sub_0200C5C0
 	mov r4, #0
 	mov r6, #1
 _0225D5A2:
 	ldr r0, [r5]
 	add r1, r6, #0
-	bl FUN_0200C644
+	bl sub_0200C644
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #4
@@ -293,13 +293,13 @@ MOD11_0225D620: ; 0x0225D620
 	ldr r3, [sp, #0x10]
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
-	bl FUN_0200C750
+	bl sub_0200C750
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0
-	bl FUN_0200C5C0
+	bl sub_0200C5C0
 	ldr r0, [r5, #0x10]
 	mov r1, #1
-	bl FUN_0200C644
+	bl sub_0200C644
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD11_0225D648
@@ -311,7 +311,7 @@ MOD11_0225D648: ; 0x0225D648
 _0225D650:
 	ldr r0, [r5]
 	add r1, r6, #0
-	bl FUN_0200C644
+	bl sub_0200C644
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
@@ -321,36 +321,36 @@ _0225D650:
 
 	thumb_func_start MOD11_0225D664
 MOD11_0225D664: ; 0x0225D664
-	ldr r3, _0225D66C ; =FUN_0200C644
+	ldr r3, _0225D66C ; =sub_0200C644
 	ldr r0, [r0, #0x10]
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_0225D66C: .word FUN_0200C644
+_0225D66C: .word sub_0200C644
 
 	thumb_func_start MOD11_0225D670
 MOD11_0225D670: ; 0x0225D670
 	push {r4, r5, r6, lr}
 	add r6, r1, #0
 	ldr r0, [r6]
-	bl FUN_0200C658
+	bl sub_0200C658
 	cmp r0, #0
 	beq _0225D6A0
 	mov r4, #0
 	add r5, r6, #0
 _0225D682:
 	ldr r0, [r5]
-	bl FUN_0200C5A8
+	bl sub_0200C5A8
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #4
 	blt _0225D682
 	ldr r0, [r6, #0x10]
-	bl FUN_0200C658
+	bl sub_0200C658
 	cmp r0, #1
 	bne _0225D6A0
 	ldr r0, [r6, #0x10]
-	bl FUN_0200C5A8
+	bl sub_0200C5A8
 _0225D6A0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

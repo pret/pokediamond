@@ -24,7 +24,7 @@ MOD45_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD45_022549EC
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -240,7 +240,7 @@ MOD45_022549EC: ; 0x022549EC
 	add r0, r4, #0
 	bl MOD45_022549C0
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	add r4, #0x94
 	ldr r0, [r4]
 	bl MOD20_022529A0

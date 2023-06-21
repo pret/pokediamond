@@ -206,7 +206,7 @@ void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount);
 u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr);
 void SetupNativeScript(struct ScriptContext *ctx, BOOL (*ptr)(struct ScriptContext *));
 void StopScript(struct ScriptContext *ctx);
-void FUN_02038B6C(struct ScriptContext *ctx, struct TaskManager *taskManger);
+void sub_02038B6C(struct ScriptContext *ctx, struct TaskManager *taskManger);
 u8 RunScriptCommand(struct ScriptContext *ctx);
 u8 ScriptPush(struct ScriptContext *ctx, const u8 *ptr);
 const u8 *ScriptPop(struct ScriptContext *ctx);

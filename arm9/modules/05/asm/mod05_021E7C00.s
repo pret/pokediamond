@@ -301,7 +301,7 @@ _021E7DFA:
 	add r1, r2, #0
 	ldr r0, [r5, #0x64]
 	add r2, sp, #0x18
-	bl FUN_0201B6D0
+	bl sub_0201B6D0
 	cmp r0, #0
 	beq _021E7E86
 	ldr r0, [sp, #8]
@@ -329,7 +329,7 @@ _021E7E50:
 	add r0, #0x10
 	add r2, sp, #0x18
 	add r3, #0x80
-	bl FUN_0201B26C
+	bl sub_0201B26C
 	b _021E7E86
 _021E7E74:
 	str r4, [sp]
@@ -652,7 +652,7 @@ _021E807A:
 	add r1, r5, #0
 	add r0, r7, #0
 	add r1, #0x74
-	bl FUN_0201CAA8
+	bl sub_0201CAA8
 _021E80B2:
 	add r0, sp, #0x10
 	ldrh r0, [r0]
@@ -665,7 +665,7 @@ _021E80B2:
 	add r1, #0x68
 	add r2, r7, #0
 	add r3, r5, #0
-	bl FUN_0201B26C
+	bl sub_0201B26C
 	b _021E80E4
 _021E80CE:
 	str r6, [sp]

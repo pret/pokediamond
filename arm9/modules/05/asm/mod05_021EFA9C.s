@@ -30,7 +30,7 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	cmp r0, #0
 	beq _021EFAF8
 	add r0, r6, #0
-	bl FUN_0205F1E4
+	bl sub_0205F1E4
 	cmp r0, #0
 	bne _021EFAF8
 	ldr r0, _021EFB0C ; =SDK_OVERLAY_MODULE_20_ID
@@ -74,7 +74,7 @@ MOD05_021EFB14: ; 0x021EFB14
 	cmp r0, #0
 	beq _021EFB46
 	add r0, r6, #0
-	bl FUN_0205F1E4
+	bl sub_0205F1E4
 	cmp r0, #0
 	bne _021EFB46
 	ldr r0, [r5, #4]
@@ -102,7 +102,7 @@ MOD05_021EFB50: ; 0x021EFB50
 	cmp r0, #0
 	beq _021EFB94
 	add r0, r6, #0
-	bl FUN_0205F1E4
+	bl sub_0205F1E4
 	cmp r0, #0
 	bne _021EFB94
 	ldr r0, [r5, #4]

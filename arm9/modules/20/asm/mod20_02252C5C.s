@@ -75,7 +75,7 @@ _02252CA6:
 	ldr r0, _02252D10 ; =MOD20_02252D14
 	add r1, r4, #0
 	mov r2, #0
-	bl FUN_0200CA98
+	bl sub_0200CA98
 	mov r1, #0x56
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -254,7 +254,7 @@ _02252E44:
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _02252E52
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _02252E52:
 	add r0, r4, #0
 	bl FreeToHeap

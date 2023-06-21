@@ -25,7 +25,7 @@ MOD24_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD24_02254918
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488E
 	str r4, [r5]
@@ -127,7 +127,7 @@ MOD24_02254918: ; 0x02254918
 	add r0, r4, #0
 	bl MOD24_022548F4
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, _02254958 ; =0x000016F8
 	ldr r0, [r4, r0]
 	bl MOD20_022529A0
@@ -676,7 +676,7 @@ MOD24_02254D00: ; 0x02254D00
 	ldr r0, [r1, r0]
 	ldr r1, [r4, #0x70]
 	ldr r1, [r1, #0xc]
-	bl FUN_0208946C
+	bl sub_0208946C
 	cmp r0, #0
 	bne _02254D38
 	ldr r0, [r4, #0x70]
@@ -713,7 +713,7 @@ _02254D5C:
 	ldr r1, [r2, #0xc]
 	mov r2, #0xbe
 	lsl r2, r2, #6
-	bl FUN_02089444
+	bl sub_02089444
 	ldr r0, [r4, #0x70]
 	bl RemoveWindow
 	ldr r0, [r4, #0x70]

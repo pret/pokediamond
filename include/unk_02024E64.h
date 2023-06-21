@@ -14,15 +14,15 @@ struct UnkStruct_02024E64 {
     u8 unk74A[2]; // might be padding
 };
 
-u32 FUN_02024E64();
-void FUN_02024E6C(struct UnkStruct_02024E64 *param0);
-struct UnkStruct_02024E64 *FUN_02024EB4(struct SaveData *save);
-void *FUN_02024EC0(struct SaveData *save);
-struct UnkStruct_02024E64 *FUN_02024ECC(struct SaveData *save);
-void *FUN_02024ED8(struct SaveData *save);
+u32 sub_02024E64();
+void sub_02024E6C(struct UnkStruct_02024E64 *param0);
+struct UnkStruct_02024E64 *sub_02024EB4(struct SaveData *save);
+void *sub_02024EC0(struct SaveData *save);
+struct UnkStruct_02024E64 *sub_02024ECC(struct SaveData *save);
+void *sub_02024ED8(struct SaveData *save);
 u16 *GetRivalNamePtr(struct UnkStruct_02024E64 *unk);
 void RivalsNameToU16Array(struct UnkStruct_02024E64 *unk, struct String *str);
-u16 *FUN_02024F0C(struct UnkStruct_02024E64 *unk);
-void FUN_02024F18(struct UnkStruct_02024E64 *unk, struct String *str);
+u16 *sub_02024F0C(struct UnkStruct_02024E64 *unk);
+void sub_02024F18(struct UnkStruct_02024E64 *unk, struct String *str);
 
 #endif

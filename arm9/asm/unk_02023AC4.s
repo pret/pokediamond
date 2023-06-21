@@ -18,26 +18,26 @@ UNK_02105BD4: ; 0x02105BD4
 
 	.text
 
-	thumb_func_start FUN_02023AC4
-FUN_02023AC4: ; 0x02023AC4
+	thumb_func_start sub_02023AC4
+sub_02023AC4: ; 0x02023AC4
 	mov r0, #0x20
 	bx lr
 
-	thumb_func_start FUN_02023AC8
-FUN_02023AC8: ; 0x02023AC8
+	thumb_func_start sub_02023AC8
+sub_02023AC8: ; 0x02023AC8
 	mov r0, #0x20
 	bx lr
 
-	thumb_func_start FUN_02023ACC
-FUN_02023ACC: ; 0x02023ACC
+	thumb_func_start sub_02023ACC
+sub_02023ACC: ; 0x02023ACC
 	ldr r3, _02023AD4 ; =MI_CpuCopy8
 	mov r2, #0x20
 	bx r3
 	nop
 _02023AD4: .word MI_CpuCopy8
 
-	thumb_func_start FUN_02023AD8
-FUN_02023AD8: ; 0x02023AD8
+	thumb_func_start sub_02023AD8
+sub_02023AD8: ; 0x02023AD8
 	ldr r3, _02023AE0 ; =memset
 	mov r1, #0x0
 	mov r2, #0x20
@@ -45,8 +45,8 @@ FUN_02023AD8: ; 0x02023AD8
 	.balign 4
 _02023AE0: .word memset
 
-	thumb_func_start FUN_02023AE4
-FUN_02023AE4: ; 0x02023AE4
+	thumb_func_start sub_02023AE4
+sub_02023AE4: ; 0x02023AE4
 	ldr r3, _02023AF0 ; =CopyU16ArrayToStringN
 	add r2, r0, #0x0
 	add r0, r1, #0x0
@@ -56,8 +56,8 @@ FUN_02023AE4: ; 0x02023AE4
 	.balign 4
 _02023AF0: .word CopyU16ArrayToStringN
 
-	thumb_func_start FUN_02023AF4
-FUN_02023AF4: ; 0x02023AF4
+	thumb_func_start sub_02023AF4
+sub_02023AF4: ; 0x02023AF4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x18
@@ -69,8 +69,8 @@ FUN_02023AF4: ; 0x02023AF4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02023B0C
-FUN_02023B0C: ; 0x02023B0C
+	thumb_func_start sub_02023B0C
+sub_02023B0C: ; 0x02023B0C
 	mov r2, #0x0
 	cmp r1, #0xc
 	bhi _02023B9E
@@ -164,8 +164,8 @@ _02023B9E:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02023BA4
-FUN_02023BA4: ; 0x02023BA4
+	thumb_func_start sub_02023BA4
+sub_02023BA4: ; 0x02023BA4
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r0, #0x0
@@ -180,7 +180,7 @@ _02023BB2:
 	lsl r5, r5, #0x5
 	add r0, r4, r5
 	mov r1, #0x1
-	bl FUN_02023B0C
+	bl sub_02023B0C
 	cmp r0, #0x0
 	beq _02023BCE
 	add r0, r4, r5
@@ -190,19 +190,19 @@ _02023BCE:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02023BD4
-FUN_02023BD4: ; 0x02023BD4
+	thumb_func_start sub_02023BD4
+sub_02023BD4: ; 0x02023BD4
 	push {r4, lr}
 	add r4, r1, #0x0
 	mov r1, #0xd
 	bl SaveArray_Get
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02023ACC
+	bl sub_02023ACC
 	pop {r4, pc}
 
-	thumb_func_start FUN_02023BE8
-FUN_02023BE8: ; 0x02023BE8
+	thumb_func_start sub_02023BE8
+sub_02023BE8: ; 0x02023BE8
 	push {r3, lr}
 	cmp r1, #0x5
 	bhs _02023BF6
@@ -217,8 +217,8 @@ _02023BF6:
 	nop
 _02023C00: .word UNK_02105BD4
 
-	thumb_func_start FUN_02023C04
-FUN_02023C04: ; 0x02023C04
+	thumb_func_start sub_02023C04
+sub_02023C04: ; 0x02023C04
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
@@ -238,9 +238,9 @@ FUN_02023C04: ; 0x02023C04
 	pop {r4-r6, pc}
 _02023C2C:
 	mov r1, #0x0
-	bl FUN_02023BA4
+	bl sub_02023BA4
 	add r1, r4, #0x0
-	bl FUN_02023AE4
+	bl sub_02023AE4
 	pop {r4-r6, pc}
 	nop
 _02023C3C: .word 0x0000013A

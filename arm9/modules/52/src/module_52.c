@@ -9,10 +9,10 @@ extern struct OverlayManagerTemplate UNK_020FD144;
 extern struct OverlayManagerTemplate UNK_020F2B7C;
 extern struct OverlayManagerTemplate UNK_020F2B8C;
 
-extern int FUN_02053678(u32 random, u32 gender, u32 param2);
-extern void FUN_020250C4(void *sav_ptr, u32 heap_id, const u16 param2[], u32 param3);
-extern void FUN_020377E0(struct SaveData *save);
-extern void FUN_0205ECD4(struct ScriptState *script_state);
+extern int sub_02053678(u32 random, u32 gender, u32 param2);
+extern void sub_020250C4(void *sav_ptr, u32 heap_id, const u16 param2[], u32 param3);
+extern void sub_020377E0(struct SaveData *save);
+extern void sub_0205ECD4(struct ScriptState *script_state);
 
 const struct OverlayManagerTemplate MOD52_021D76E8 = {
     MOD52_021D74E0,
@@ -240,7 +240,7 @@ BOOL MOD52_021D7594(struct OverlayManager *manager, u32 *status)
 
     if (!Save_SysInfo_MacAddressIsMine(save_info) || !Save_SysInfo_RTCOffsetIsMine(save_info))
     {
-        FUN_020238A4(Save_SysInfo_RTC_Get(save));
+        sub_020238A4(Save_SysInfo_RTC_Get(save));
         Save_SysInfo_InitFromSystem(save_info);
     }
 
@@ -264,10 +264,10 @@ void MOD52_021D7604(u32 heap_id, struct SaveData *save, BOOL set_trainerid)
     Save_SysInfo_InitFromSystem(Save_SysInfo_Get(save));
     Save_SysInfo_RTC_Init(Save_SysInfo_RTC_Get(save));
 
-    struct UnkSaveStruct_020286F8 *unk_save = FUN_0202881C(save);
+    struct UnkSaveStruct_020286F8 *unk_save = sub_0202881C(save);
 
-    FUN_02028788(unk_save, 1, MTRandom());
-    FUN_0206007C(save);
+    sub_02028788(unk_save, 1, MTRandom());
+    sub_0206007C(save);
 
     PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
     u32 trainerid = MTRandom();
@@ -278,18 +278,18 @@ void MOD52_021D7604(u32 heap_id, struct SaveData *save, BOOL set_trainerid)
     }
 
     u32 gender = PlayerProfile_GetTrainerGender(playerProfile);
-    int avatar = FUN_02053678(trainerid, gender, 0);
+    int avatar = sub_02053678(trainerid, gender, 0);
 
     PlayerProfile_SetAvatar(playerProfile, (u8)avatar);
 
-    FUN_020250C4(FUN_02024ECC(save), heap_id, MOD52_021D76F8, NELEMS(MOD52_021D76F8) / 2);
+    sub_020250C4(sub_02024ECC(save), heap_id, MOD52_021D76F8, NELEMS(MOD52_021D76F8) / 2);
 }
 
 void MOD52_021D7688(u32 unused, struct SaveData *save)
 {
 #pragma unused(unused)
 
-    if (FUN_020226FC(save))
+    if (sub_020226FC(save))
     {
         return;
     }
@@ -302,8 +302,8 @@ void MOD52_021D769C(u32 unused, struct SaveData *save)
 #pragma unused(unused)
 
     Save_InitDynamicRegion(save);
-    FUN_020377E0(save);
+    sub_020377E0(save);
     PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
     PlayerProfile_SetMoney(playerProfile, 3000);
-    FUN_0205ECD4(SaveArray_Flags_Get(save));
+    sub_0205ECD4(SaveArray_Flags_Get(save));
 }

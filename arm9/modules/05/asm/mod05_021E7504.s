@@ -37,12 +37,12 @@ _021E7532:
 	str r0, [r1, #0x10]
 _021E7536:
 	ldr r0, [r1]
-	ldr r3, _021E7540 ; =FUN_02055304
+	ldr r3, _021E7540 ; =sub_02055304
 	ldr r0, [r0, #0x38]
 	ldr r1, [r1, #0x10]
 	bx r3
 	.balign 4, 0
-_021E7540: .word FUN_02055304
+_021E7540: .word sub_02055304
 
 	thumb_func_start MOD05_021E7544
 MOD05_021E7544: ; 0x021E7544
@@ -80,7 +80,7 @@ _021E756E:
 _021E7584:
 	add r0, r6, #0
 	add r1, sp, #0x18
-	bl FUN_02058BA4
+	bl sub_02058BA4
 	ldr r4, [r5, #0xc]
 	add r0, r4, #0
 	bl _dflt
@@ -102,7 +102,7 @@ _021E7584:
 	str r0, [sp, #0x1c]
 	add r0, r6, #0
 	add r1, sp, #0x18
-	bl FUN_02058BB4
+	bl sub_02058BB4
 	ldr r0, [r5, #0xc]
 	add r0, r0, #1
 	str r0, [r5, #0xc]
@@ -132,7 +132,7 @@ _021E75EA:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r7, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021E7606:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -161,10 +161,10 @@ MOD05_021E7618: ; 0x021E7618
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 _021E763C:
-	bl FUN_02058914
+	bl sub_02058914
 	add r0, r4, #0
 	add r1, sp, #0x14
-	bl FUN_02058BA4
+	bl sub_02058BA4
 	ldr r1, [r5, #0xc]
 	mov r0, #0x14
 	sub r6, r0, r1
@@ -188,7 +188,7 @@ _021E763C:
 	str r0, [sp, #0x18]
 	add r0, r4, #0
 	add r1, sp, #0x14
-	bl FUN_02058BB4
+	bl sub_02058BB4
 	add r0, r4, #0
 	bl MOD05_021F1D8C
 	ldr r0, _021E774C ; =0x0000064F
@@ -209,7 +209,7 @@ _021E7694:
 _021E76AA:
 	add r0, r4, #0
 	add r1, sp, #0x14
-	bl FUN_02058BA4
+	bl sub_02058BA4
 	ldr r1, [r5, #0xc]
 	mov r0, #0x14
 	sub r6, r0, r1
@@ -233,7 +233,7 @@ _021E76AA:
 	str r0, [sp, #0x18]
 	add r0, r4, #0
 	add r1, sp, #0x14
-	bl FUN_02058BB4
+	bl sub_02058BB4
 	ldr r0, [r5, #0xc]
 	add r0, r0, #1
 	str r0, [r5, #0xc]
@@ -264,14 +264,14 @@ _021E771C:
 	ldr r0, [r5]
 	mov r1, #1
 	ldr r0, [r0, #0x38]
-	bl FUN_02055304
+	bl sub_02055304
 	ldr r0, [r5, #4]
 	mov r1, #1
 	str r1, [r0]
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021E7740:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
@@ -303,13 +303,13 @@ MOD05_021E7750: ; 0x021E7750
 	ldr r0, _021E7794 ; =MOD05_021E7544
 	add r1, r4, #0
 	mov r2, #0x64
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	pop {r3, r4, r5, r6, r7, pc}
 _021E7786:
 	ldr r0, _021E7798 ; =MOD05_021E7618
 	add r1, r4, #0
 	mov r2, #0x64
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021E7794: .word MOD05_021E7544

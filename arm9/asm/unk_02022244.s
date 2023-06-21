@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02022244
-FUN_02022244: ; 0x02022244
+	thumb_func_start sub_02022244
+sub_02022244: ; 0x02022244
 	push {r3-r4}
 	ldr r3, [r0, #0xc]
 	mov r2, #0x0
@@ -36,8 +36,8 @@ _02022262:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202227C
-FUN_0202227C: ; 0x0202227C
+	thumb_func_start sub_0202227C
+sub_0202227C: ; 0x0202227C
 	ldr r2, [r0, #0x0]
 	str r2, [r1, #0xc]
 	add r2, r0, #0x4

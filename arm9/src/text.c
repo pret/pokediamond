@@ -18,9 +18,9 @@ u16 UNK_021C5710;
 u16 UNK_021C5712;
 u8 UNK_021C570C;
 
-extern struct TextPrinter *FUN_0201B6C8(void);
+extern struct TextPrinter *sub_0201B6C8(void);
 
-extern void FUN_0201C1A8(struct TextPrinter *printer);
+extern void sub_0201C1A8(struct TextPrinter *printer);
 
 
 extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
@@ -31,7 +31,7 @@ void SetFontsPointer(const struct FontInfo *fonts)
     gFonts = fonts;
 }
 
-u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
+u8 sub_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
 {
     u32 *r4 = UNK_021C5714;
     s32 i;
@@ -41,7 +41,7 @@ u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
         {
             continue;
         }
-        UNK_021C5714[i] = FUN_0200CA7C(func, printer, param2);
+        UNK_021C5714[i] = sub_0200CA7C(func, printer, param2);
         if (UNK_021C5714[i] != 0)
         {
             break;
@@ -52,7 +52,7 @@ u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
     return (u8)i;
 }
 
-void FUN_0201BCFC(u8 textPrinterNumber)
+void sub_0201BCFC(u8 textPrinterNumber)
 {
     GF_ASSERT(textPrinterNumber < 8);
     GF_ASSERT(UNK_021C5714[textPrinterNumber] != 0);
@@ -64,17 +64,17 @@ void FUN_0201BCFC(u8 textPrinterNumber)
     {
         return;
     }
-    struct TextPrinter *printer = FUN_0201B6C8();
+    struct TextPrinter *printer = sub_0201B6C8();
     if (printer)
     {
-        FUN_0201C238(printer);
+        sub_0201C238(printer);
         FreeToHeap((void *)printer);
     }
-    FUN_0200CAB4(UNK_021C5714[textPrinterNumber]);
+    sub_0200CAB4(UNK_021C5714[textPrinterNumber]);
     UNK_021C5714[textPrinterNumber] = 0;
 }
 
-BOOL FUN_0201BD44(u8 textPrinterNumber)
+BOOL sub_0201BD44(u8 textPrinterNumber)
 {
     return UNK_021C5714[textPrinterNumber] ? TRUE : FALSE;
 }
@@ -87,14 +87,14 @@ void ResetAllTextPrinters(void)
     }
 }
 
-u8 FUN_0201BD70(u8 textPrinterNumber)
+u8 sub_0201BD70(u8 textPrinterNumber)
 {
-    return (u8)FUN_0201BD44(textPrinterNumber);
+    return (u8)sub_0201BD44(textPrinterNumber);
 }
 
-void FUN_0201BD7C(u8 textPrinterNumber)
+void sub_0201BD7C(u8 textPrinterNumber)
 {
-    FUN_0201BCFC(textPrinterNumber);
+    sub_0201BCFC(textPrinterNumber);
 }
 
 u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
@@ -189,12 +189,12 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
     printer->printerTemplate.currentChar.raw = String_c_str(printer->printerTemplate.currentChar.wrapped);
     printer->callback = callback;
     UNK_021C570C = 0;
-    FUN_0201C1A8(printer);
+    sub_0201C1A8(printer);
     if (speed != 0xff && speed != 0)
     {
         printer->textSpeedBottom--;
         printer->textSpeedTop = 1;
-        printer->minLetterSpacing = FUN_0201BCC8((void (*)(u32, void *))RunTextPrinter, printer, 1);
+        printer->minLetterSpacing = sub_0201BCC8((void (*)(u32, void *))RunTextPrinter, printer, 1);
         return printer->minLetterSpacing;
     }
     else
@@ -214,7 +214,7 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
         {
             CopyWindowToVram(printer->printerTemplate.window);
         }
-        FUN_0201C238(printer);
+        sub_0201C238(printer);
         FreeToHeap((void *)printer);
         return 8;
     }
@@ -243,7 +243,7 @@ void RunTextPrinter(u32 param0, struct TextPrinter *printer)
                     printer->Unk29 = printer->callback(&printer->printerTemplate, printer->Unk2A);
                     return;
                 case 1:
-                    FUN_0201BCFC(printer->minLetterSpacing);
+                    sub_0201BCFC(printer->minLetterSpacing);
                     return;
                 default:
                     return;
@@ -323,12 +323,12 @@ void DecompressGlyphTile(const u16 *src, u16 *dst)
     dst[15] = sFontHalfRowLookupTable[(u8)src[7]];
 }
 
-void FUN_0201C1A8(struct TextPrinter *printer)
+void sub_0201C1A8(struct TextPrinter *printer)
 {
     printer->Unk2C = NULL;
 }
 
-u16 *FUN_0201C1B0(void)
+u16 *sub_0201C1B0(void)
 {
     void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
     struct UnkStruct_0200B870_sub * var;
@@ -338,20 +338,20 @@ u16 *FUN_0201C1B0(void)
     return res;
 }
 
-void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3)
+void sub_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3)
 {
 #pragma unused (param1, param2)
     struct Window * window = printer->printerTemplate.window;
     if (printer->Unk2C == NULL)
     {
-        printer->Unk2C = FUN_0201C1B0();
+        printer->Unk2C = sub_0201C1B0();
     }
     u16 * r6 = printer->Unk2C + param3 * 24 * 8;
     u16 r2 = (u16)((GetWindowWidth(window) - 3) * 8);
     BlitBitmapRectToWindow(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
 }
 
-void FUN_0201C238(struct TextPrinter *printer)
+void sub_0201C238(struct TextPrinter *printer)
 {
     if (printer->Unk2C == NULL)
     {

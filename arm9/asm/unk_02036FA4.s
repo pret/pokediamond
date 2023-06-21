@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02036FA4
-FUN_02036FA4: ; 0x02036FA4
+	thumb_func_start sub_02036FA4
+sub_02036FA4: ; 0x02036FA4
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x38]
@@ -55,15 +55,15 @@ _02036FFA:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02037000
-FUN_02037000: ; 0x02037000
+	thumb_func_start sub_02037000
+sub_02037000: ; 0x02037000
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	bl PlayerAvatar_GetMapObject
-	bl FUN_02058BE4
+	bl sub_02058BE4
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02058BE4
+	bl sub_02058BE4
 	cmp r4, r0
 	bne _0203701C
 	mov r0, #0x1

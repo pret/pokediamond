@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02022318
-FUN_02022318: ; 0x02022318
+	thumb_func_start sub_02022318
+sub_02022318: ; 0x02022318
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r7, r1, #0x0
@@ -74,7 +74,7 @@ _020223A4:
 	blx r0
 	b _020223B2
 _020223AE:
-	bl FUN_020223D4
+	bl sub_020223D4
 _020223B2:
 	add r0, r4, #0x0
 	add sp, #0x8
@@ -82,8 +82,8 @@ _020223B2:
 	.balign 4
 _020223B8: .word 0x04000540
 
-	thumb_func_start FUN_020223BC
-FUN_020223BC: ; 0x020223BC
+	thumb_func_start sub_020223BC
+sub_020223BC: ; 0x020223BC
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
@@ -94,8 +94,8 @@ FUN_020223BC: ; 0x020223BC
 	bl FreeToHeap
 	pop {r4, pc}
 
-	thumb_func_start FUN_020223D4
-FUN_020223D4: ; 0x020223D4
+	thumb_func_start sub_020223D4
+sub_020223D4: ; 0x020223D4
 	push {r3, lr}
 	mov r0, #0x1
 	add r1, r0, #0x0

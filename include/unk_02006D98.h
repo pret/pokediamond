@@ -130,13 +130,13 @@ struct UnkStruct_02006D98_5
     struct UnkStruct_02006D98_sub *unk10;
 };
 
-struct UnkStruct_02006D98 *FUN_02006D98(u32 heap_id);
-void FUN_02006ED4(struct UnkStruct_02006D98 *param0);
-void FUN_020072E8(struct UnkStruct_02006D98 *param0);
-void FUN_02007314(struct UnkStruct_02006D98_2 *param0);
-void FUN_0200737C(struct UnkStruct_02006D98_2 *param0, struct UnkStruct_02006D98_sub *param1);
-BOOL FUN_02007390(struct UnkStruct_02006D98_2 *param0);
-struct UnkStruct_02006D98_2 *FUN_020073A0(struct UnkStruct_02006D98 *param0,
+struct UnkStruct_02006D98 *sub_02006D98(u32 heap_id);
+void sub_02006ED4(struct UnkStruct_02006D98 *param0);
+void sub_020072E8(struct UnkStruct_02006D98 *param0);
+void sub_02007314(struct UnkStruct_02006D98_2 *param0);
+void sub_0200737C(struct UnkStruct_02006D98_2 *param0, struct UnkStruct_02006D98_sub *param1);
+BOOL sub_02007390(struct UnkStruct_02006D98_2 *param0);
+struct UnkStruct_02006D98_2 *sub_020073A0(struct UnkStruct_02006D98 *param0,
     struct UnkStruct_02006D98_4 *param1,
     u32 param2,
     u32 param3,
@@ -144,7 +144,7 @@ struct UnkStruct_02006D98_2 *FUN_020073A0(struct UnkStruct_02006D98 *param0,
     u32 param5,
     const void *param6,
     void (*param7)(struct UnkStruct_02006D98_2 *, void *));
-struct UnkStruct_02006D98_2 *FUN_020073E8(struct UnkStruct_02006D98 *param0,
+struct UnkStruct_02006D98_2 *sub_020073E8(struct UnkStruct_02006D98 *param0,
     struct UnkStruct_02006D98_4 *param1,
     u32 param2,
     u32 param3,
@@ -153,40 +153,40 @@ struct UnkStruct_02006D98_2 *FUN_020073E8(struct UnkStruct_02006D98 *param0,
     s32 param6,
     const void *param7,
     void (*param8)(struct UnkStruct_02006D98_2 *, void *));
-void FUN_02007534(struct UnkStruct_02006D98_2 *param0);
-void FUN_02007540(struct UnkStruct_02006D98 *param0);
-void FUN_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2);
-u32 FUN_0200782C(struct UnkStruct_02006D98_2 *param0, u32 param1);
-void FUN_020079E0(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2);
-void FUN_02007E40(
+void sub_02007534(struct UnkStruct_02006D98_2 *param0);
+void sub_02007540(struct UnkStruct_02006D98 *param0);
+void sub_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2);
+u32 sub_0200782C(struct UnkStruct_02006D98_2 *param0, u32 param1);
+void sub_020079E0(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2);
+void sub_02007E40(
     struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-void FUN_02007E68(
+void sub_02007E68(
     struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-void FUN_02007E98(
+void sub_02007E98(
     struct UnkStruct_02006D98 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-void FUN_02007EEC(struct UnkStruct_02006D98_2 *param0);
-BOOL FUN_02007F20(struct UnkStruct_02006D98_2 *param0);
-void FUN_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1);
-void FUN_02007F48(struct UnkStruct_02006D98_2 *param0);
-void FUN_02008010(struct UnkStruct_02006D98_5 *param0, struct UnkStruct_02006D98_sub *param1);
-s32 FUN_02008030(struct UnkStruct_02006D98_5 *param0);
-void FUN_020080D0(struct UnkStruct_02006D98_2 *param0);
-void FUN_020080E0(struct UnkStruct_02006D98_2 *param0);
-void FUN_0200813C(struct UnkStruct_02006D98_2 *param0);
-void FUN_020081A8(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2);
-void FUN_020081B4(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2);
-u32 FUN_020081C0(u32 param0);
-void FUN_020081C4(struct UnkStruct_02006D98 *param0);
-void FUN_0200825C(struct UnkStruct_02006D98 *param0, u8 param1);
-BOOL FUN_02008268(struct UnkStruct_02006D98_2 *param0);
-void FUN_02008284(struct UnkStruct_02006D98 *param0, u32 param1);
-void FUN_02008290(struct UnkStruct_02006D98 *param0, u32 param1);
-void FUN_020082A8(struct UnkStruct_02006D98 *param0);
-void FUN_020086F4(struct UnkStruct_02006D98 *param0);
-u8 FUN_020088D8(u8 param0);
-void FUN_020088EC(struct UnkStruct_02006D98_2 *param0, u8 *param1);
-void FUN_02008904(u8 *param0, u32 param1, u32 param2);
-u16 FUN_02008A54(u32 *param0);
-void FUN_02008A74(u8 *param0);
+void sub_02007EEC(struct UnkStruct_02006D98_2 *param0);
+BOOL sub_02007F20(struct UnkStruct_02006D98_2 *param0);
+void sub_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1);
+void sub_02007F48(struct UnkStruct_02006D98_2 *param0);
+void sub_02008010(struct UnkStruct_02006D98_5 *param0, struct UnkStruct_02006D98_sub *param1);
+s32 sub_02008030(struct UnkStruct_02006D98_5 *param0);
+void sub_020080D0(struct UnkStruct_02006D98_2 *param0);
+void sub_020080E0(struct UnkStruct_02006D98_2 *param0);
+void sub_0200813C(struct UnkStruct_02006D98_2 *param0);
+void sub_020081A8(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2);
+void sub_020081B4(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2);
+u32 sub_020081C0(u32 param0);
+void sub_020081C4(struct UnkStruct_02006D98 *param0);
+void sub_0200825C(struct UnkStruct_02006D98 *param0, u8 param1);
+BOOL sub_02008268(struct UnkStruct_02006D98_2 *param0);
+void sub_02008284(struct UnkStruct_02006D98 *param0, u32 param1);
+void sub_02008290(struct UnkStruct_02006D98 *param0, u32 param1);
+void sub_020082A8(struct UnkStruct_02006D98 *param0);
+void sub_020086F4(struct UnkStruct_02006D98 *param0);
+u8 sub_020088D8(u8 param0);
+void sub_020088EC(struct UnkStruct_02006D98_2 *param0, u8 *param1);
+void sub_02008904(u8 *param0, u32 param1, u32 param2);
+u16 sub_02008A54(u32 *param0);
+void sub_02008A74(u8 *param0);
 
 #endif // POKEDIAMOND_UNK_02006D98_H

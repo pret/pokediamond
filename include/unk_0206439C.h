@@ -10,6 +10,6 @@ struct UnkStruct_0206439C
     void* unk4;
 };
 
-struct UnkStruct_0206439C* FUN_0206439C(u32 heap_id, u8 mon_idx, struct SaveData* save);
+struct UnkStruct_0206439C* sub_0206439C(u32 heap_id, u8 mon_idx, struct SaveData* save);
 
 #endif

@@ -29,7 +29,7 @@ struct TextPrinterSubStruct
 };
 
 u32 RenderText(struct TextPrinter *printer);
-void FUN_02002840(u16 flag);
+void sub_02002840(u16 flag);
 void TextPrinterInitDownArrowCounters(struct TextPrinter *printer);
 void TextPrinterDrawDownArrow(struct TextPrinter *printer);
 void TextPrinterClearDownArrow(struct TextPrinter *printer);
@@ -38,11 +38,11 @@ BOOL TextPrinterWaitAutoMode(struct TextPrinter *printer);
 BOOL TextPrinterWaitWithDownArrow(struct TextPrinter *printer);
 u8 TextPrinterWait(struct TextPrinter *printer);
 void TextFlags_SetCanABSpeedUpPrint(BOOL param0);
-void FUN_02002B7C(s32 param0);
-void FUN_02002BB8(u32 param0);
-u8 FUN_02002BD4();
-void FUN_02002BE4();
-u8 FUN_02002BF4();
-void FUN_02002C04();
+void sub_02002B7C(s32 param0);
+void sub_02002BB8(u32 param0);
+u8 sub_02002BD4();
+void sub_02002BE4();
+u8 sub_02002BF4();
+void sub_02002C04();
 
 #endif // POKEDIAMOND_RENDER_TEXT_H

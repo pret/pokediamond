@@ -9,31 +9,31 @@ UNK_020F7630: ; 0x020F7630
 
 	.text
 
-	thumb_func_start FUN_020606B0
-FUN_020606B0: ; 0x020606B0
+	thumb_func_start sub_020606B0
+sub_020606B0: ; 0x020606B0
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r0, r4, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r2, r0, #0x0
 	ldr r1, _020606CC ; =UNK_020F7630
 	add r0, r4, #0x0
 	add r2, #0xc
-	bl FUN_02046500
+	bl sub_02046500
 	pop {r4, pc}
 	.balign 4
 _020606CC: .word UNK_020F7630
 
-	thumb_func_start FUN_020606D0
-FUN_020606D0: ; 0x020606D0
+	thumb_func_start sub_020606D0
+sub_020606D0: ; 0x020606D0
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x6
@@ -73,35 +73,35 @@ _02060704:
 	b _0206078A
 _0206072C:
 	add r0, r5, #0x0
-	bl FUN_0204AFC8
+	bl sub_0204AFC8
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
 	b _0206078A
 _0206073A:
 	add r0, r5, #0x0
-	bl FUN_0204AF3C
+	bl sub_0204AF3C
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
 	b _0206078A
 _02060748:
 	add r0, r5, #0x0
-	bl FUN_020606B0
+	bl sub_020606B0
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
 	b _0206078A
 _02060756:
 	add r0, r5, #0x0
-	bl FUN_0204AF84
+	bl sub_0204AF84
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
 	b _0206078A
 _02060764:
 	add r0, r5, #0x0
-	bl FUN_0204B00C
+	bl sub_0204B00C
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -121,8 +121,8 @@ _0206078A:
 	add sp, #0x8
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02060790
-FUN_02060790: ; 0x02060790
+	thumb_func_start sub_02060790
+sub_02060790: ; 0x02060790
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r5, r1, #0x0
@@ -145,10 +145,10 @@ FUN_02060790: ; 0x02060790
 	ldr r0, [sp, #0x0]
 	bl AllocMonZeroed
 	str r0, [r4, #0x28]
-	ldr r1, _020607D0 ; =FUN_020606D0
+	ldr r1, _020607D0 ; =sub_020606D0
 	add r0, r7, #0x0
 	add r2, r4, #0x0
-	bl FUN_0204640C
+	bl sub_0204640C
 	pop {r3-r7, pc}
 	.balign 4
-_020607D0: .word FUN_020606D0
+_020607D0: .word sub_020606D0

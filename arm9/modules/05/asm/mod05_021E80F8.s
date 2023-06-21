@@ -156,7 +156,7 @@ MOD05_021E81D0: ; 0x021E81D0
 	ldrb r2, [r1, #0x12]
 	ldr r0, [r4, #8]
 	mov r3, #3
-	bl FUN_020546E0
+	bl sub_020546E0
 	ldr r2, [r4, #0x60]
 	mov r0, #0x80
 	ldrb r1, [r2, #0x13]
@@ -166,7 +166,7 @@ _021E8200:
 	ldr r0, [r4, #0x60]
 	ldrb r1, [r0, #0x12]
 	ldrh r2, [r0, #0x10]
-	bl FUN_02054744
+	bl sub_02054744
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E820C

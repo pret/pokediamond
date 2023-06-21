@@ -28,13 +28,13 @@ BOOL GiveMon(u32 heap_id, struct SaveData * save, u16 species, u8 level, u16 ite
     struct Pokemon * mon = AllocMonZeroed(heap_id);
     ZeroMonData(mon);
     CreateMon(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
-    FUN_0206A014(mon, data, ITEM_POKE_BALL, mapSec, encounterType, heap_id);
+    sub_0206A014(mon, data, ITEM_POKE_BALL, mapSec, encounterType, heap_id);
     ptr = item;
     SetMonData(mon, MON_DATA_HELD_ITEM, &ptr);
     BOOL isAdded = AddMonToParty(party, mon);
     if (isAdded)
     {
-        FUN_0202C144(save, mon);
+        sub_0202C144(save, mon);
     }
     FreeToHeap(mon);
     return isAdded;
@@ -48,7 +48,7 @@ BOOL GiveEgg(u32 heapId, struct SaveData * save, u16 species, int level, int met
     struct PlayerParty * party = SaveArray_PlayerParty_Get(save);
     struct Pokemon * mon = AllocMonZeroed(32);
     ZeroMonData(mon);
-    MOD05_SetEggStats(mon, species, level, data, 4, FUN_02015CF8(metLocIndex, a3));
+    MOD05_SetEggStats(mon, species, level, data, 4, sub_02015CF8(metLocIndex, a3));
     BOOL isAdded = AddMonToParty(party, mon);
     FreeToHeap(mon);
     return isAdded;

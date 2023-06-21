@@ -2,7 +2,7 @@
 #include "fx.h"
 #include "unk_0201CBEC.h"
 
-s32 FUN_0201CBEC(s32 x1, s32 y1, s32 x2, s32 y2) 
+s32 sub_0201CBEC(s32 x1, s32 y1, s32 x2, s32 y2) 
 {
     // Calculate distance between two points with pythagoras
     s32 x_delta = x1 - x2;

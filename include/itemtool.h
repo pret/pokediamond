@@ -96,8 +96,8 @@ struct ItemData
 void MoveItemSlotInList(struct ItemSlot * itemSlots, u16 from, u16 to);
 u16 GetItemIndexMapping(u16 a0, u16 a1);
 u16 UpConvertItemId_Gen3to4(u16 a0);
-int FUN_0206E708();
-int FUN_0206E70C();
+int sub_0206E708();
+int sub_0206E70C();
 void * LoadItemDataOrGfx(u16 itemId, u16 which, u32 heap_id);
 void GetItemNameIntoString(struct String * dest, u16 item_id, u32 heap_no);
 void GetItemDescIntoString(struct String * dest, u16 item_id, u32 heap_no);

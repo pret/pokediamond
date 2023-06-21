@@ -13,7 +13,7 @@ MOD05_021D9320: ; 0x021D9320
 	add r0, r2, #0
 	add r1, r5, #4
 	add r2, r4, #0
-	bl FUN_02008C9C
+	bl sub_02008C9C
 	str r0, [r5]
 	ldr r1, _021D94B0 ; =0x00000162
 	ldr r0, [sp, #0x10]
@@ -28,7 +28,7 @@ _021D9346:
 _021D9348:
 	sub r0, r1, #2
 	strh r2, [r5, r0]
-	bl FUN_0200965C
+	bl sub_0200965C
 	mov r1, #0x16
 	lsl r1, r1, #4
 	ldrh r2, [r5, r1]
@@ -49,7 +49,7 @@ _021D9348:
 _021D9374:
 	ldr r1, [sp, #0x1c]
 	add r0, r7, #0
-	bl FUN_02009660
+	bl sub_02009660
 	str r0, [sp, #0x20]
 	ldr r1, [r6]
 	add r0, r4, #0
@@ -57,7 +57,7 @@ _021D9374:
 	ldr r1, [sp, #0x20]
 	str r0, [sp, #0x24]
 	add r2, r4, #0
-	bl FUN_02009668
+	bl sub_02009668
 	ldr r0, [sp, #0x24]
 	bl FreeToHeap
 	ldr r0, [sp, #0x1c]
@@ -78,11 +78,11 @@ _021D93AA:
 _021D93B2:
 	add r0, r7, #0
 	add r1, r6, #0
-	bl FUN_02009660
-	bl FUN_020096CC
+	bl sub_02009660
+	bl sub_020096CC
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_02008DEC
+	bl sub_02008DEC
 	mov r1, #0x13
 	ldr r2, [sp, #0x18]
 	lsl r1, r1, #4
@@ -105,11 +105,11 @@ _021D93E0:
 _021D93EA:
 	ldr r1, [sp, #0x14]
 	add r0, r7, #0
-	bl FUN_02009660
+	bl sub_02009660
 	str r0, [sp, #0x28]
-	bl FUN_020096CC
+	bl sub_020096CC
 	add r1, r4, #0
-	bl FUN_02009424
+	bl sub_02009424
 	mov r1, #0x52
 	lsl r1, r1, #2
 	str r0, [r6, r1]
@@ -121,7 +121,7 @@ _021D93EA:
 	ldr r1, [sp, #0x28]
 	ldr r2, [r6, r2]
 	add r3, r4, #0
-	bl FUN_020093A8
+	bl sub_020093A8
 	ldr r0, [sp, #0x14]
 	add r6, r6, #4
 	add r0, r0, #1
@@ -139,8 +139,8 @@ _021D942C:
 _021D9432:
 	add r0, r7, #0
 	add r1, r6, #0
-	bl FUN_02009660
-	bl FUN_020096B4
+	bl sub_02009660
+	bl sub_020096B4
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldrh r0, [r5, r0]
@@ -153,11 +153,11 @@ _021D944A:
 	mov r0, #0x52
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02009B44
+	bl sub_02009B44
 	mov r0, #0x53
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02009DAC
+	bl sub_02009DAC
 	ldr r1, [sp, #0x10]
 	add r0, r4, #0
 	ldr r1, [r1, #0x18]
@@ -184,7 +184,7 @@ _021D944A:
 	ldr r2, [r5, r2]
 	ldr r3, [r5, r3]
 	add r1, r4, #0
-	bl FUN_02008BE0
+	bl sub_02008BE0
 	mov r1, #0x4b
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -200,19 +200,19 @@ MOD05_021D94B4: ; 0x021D94B4
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	ldr r0, [r5]
-	bl FUN_0201FD58
+	bl sub_0201FD58
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02008C80
+	bl sub_02008C80
 	mov r0, #0x52
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02009C30
+	bl sub_02009C30
 	mov r0, #0x53
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02009E28
+	bl sub_02009E28
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldrh r0, [r5, r0]
@@ -226,11 +226,11 @@ _021D94EE:
 	mov r0, #0x52
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02009448
+	bl sub_02009448
 	mov r0, #0x13
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02008E2C
+	bl sub_02008E2C
 	ldrh r0, [r5, r7]
 	add r6, r6, #1
 	add r4, r4, #4
@@ -292,17 +292,17 @@ MOD05_021D9510: ; 0x021D9510
 	ldrh r0, [r2, r3]
 	str r0, [sp, #0x38]
 	add r0, sp, #0xc
-	bl FUN_0201FE94
+	bl sub_0201FE94
 	add r5, r0, #0
 	bne _021D9580
 	bl GF_AssertFail
 _021D9580:
 	ldrh r1, [r4, #0xa]
 	add r0, r5, #0
-	bl FUN_02020130
+	bl sub_02020130
 	ldr r1, [r4, #0x10]
 	add r0, r5, #0
-	bl FUN_0202027C
+	bl sub_0202027C
 	add r0, r5, #0
 	add sp, #0x3c
 	pop {r3, r4, r5, r6, pc}
@@ -319,7 +319,7 @@ MOD05_021D959C: ; 0x021D959C
 	str r3, [sp, #4]
 	add r1, r7, #4
 	add r2, r3, #0
-	bl FUN_02008C9C
+	bl sub_02008C9C
 	str r0, [r7]
 	ldr r1, _021D9678 ; =0x00000162
 	ldr r0, [sp, #4]
@@ -361,7 +361,7 @@ _021D95F4:
 	ldr r0, [r5]
 	ldr r2, [sp, #4]
 	add r1, r4, #0
-	bl FUN_02008DEC
+	bl sub_02008DEC
 	mov r1, #0x13
 	lsl r1, r1, #4
 	str r0, [r6, r1]
@@ -388,7 +388,7 @@ _021D9624:
 	cmp r0, #0
 	beq _021D9658
 	ldr r1, [sp, #4]
-	bl FUN_02009424
+	bl sub_02009424
 	mov r1, #0x52
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -441,7 +441,7 @@ MOD05_021D967C: ; 0x021D967C
 	ldr r1, [sp, #0x30]
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_0200945C
+	bl sub_0200945C
 	cmp r0, #0
 	bne _021D96A0
 	bl GF_AssertFail
@@ -462,10 +462,10 @@ _021D96A0:
 	str r1, [sp, #0xc]
 	ldr r0, [r5, r0]
 	add r1, r4, #0
-	bl FUN_02008FEC
+	bl sub_02008FEC
 	add r4, r0, #0
 	beq _021D96E8
-	bl FUN_02009D68
+	bl sub_02009D68
 	cmp r0, #1
 	beq _021D96D0
 	bl GF_AssertFail
@@ -477,7 +477,7 @@ _021D96D0:
 	bl MOD05_021D9780
 	ldr r1, [sp, #0x2c]
 	add r0, r4, #0
-	bl FUN_02009E88
+	bl sub_02009E88
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 _021D96E8:
@@ -523,7 +523,7 @@ MOD05_021D971C: ; 0x021D971C
 	ldr r1, [sp, #0x24]
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_0200945C
+	bl sub_0200945C
 	cmp r0, #0
 	bne _021D9740
 	bl GF_AssertFail
@@ -542,10 +542,10 @@ _021D9740:
 	str r1, [sp, #8]
 	ldr r0, [r5, r0]
 	add r1, r4, #0
-	bl FUN_02008F34
+	bl sub_02008F34
 	add r4, r0, #0
 	beq _021D9774
-	bl FUN_02009B04
+	bl sub_02009B04
 	mov r0, #0x52
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -607,7 +607,7 @@ MOD05_021D97B4: ; 0x021D97B4
 	ldr r1, [sp, #0x2c]
 	str r2, [sp, #0xc]
 	str r3, [sp, #0x10]
-	bl FUN_0200945C
+	bl sub_0200945C
 	cmp r0, #0
 	bne _021D97DE
 	bl GF_AssertFail
@@ -625,7 +625,7 @@ _021D97DE:
 	ldrh r0, [r5, r0]
 	str r0, [sp, #8]
 	ldr r0, [r6, r4]
-	bl FUN_020090AC
+	bl sub_020090AC
 	add r1, r0, #0
 	beq _021D9814
 	mov r0, #0x52
@@ -702,7 +702,7 @@ _021D9882:
 	mvn r2, r2
 	cmp r1, r2
 	beq _021D989A
-	bl FUN_0200945C
+	bl sub_0200945C
 	cmp r0, #0
 	bne _021D989A
 	mov r0, #0
@@ -717,7 +717,7 @@ _021D989A:
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_0200945C
+	bl sub_0200945C
 	cmp r0, #0
 	bne _021D98B8
 	mov r0, #0
@@ -760,7 +760,7 @@ _021D98B8:
 	ldr r1, [sp, #0x2c]
 	ldr r2, [sp, #0x30]
 	ldr r3, [sp, #0x34]
-	bl FUN_02008AA4
+	bl sub_02008AA4
 	ldr r0, [r5]
 	str r0, [sp, #0x44]
 	ldr r0, [r6, #4]
@@ -850,19 +850,19 @@ _021D99A6:
 	ldrh r0, [r5, r0]
 	str r0, [sp, #0x70]
 	add r0, sp, #0x44
-	bl FUN_0201FE94
+	bl sub_0201FE94
 	str r0, [r6]
 	cmp r0, #0
 	beq _021D99EA
-	bl FUN_020202A0
+	bl sub_020202A0
 	add r5, r0, #0
 	ldrh r1, [r4, #6]
 	ldr r0, [r6]
-	bl FUN_02020130
+	bl sub_02020130
 	ldr r1, [r4, #0xc]
 	ldr r0, [r6]
 	add r1, r5, r1
-	bl FUN_02020248
+	bl sub_02020248
 	b _021D99EE
 _021D99EA:
 	bl GF_AssertFail
@@ -878,15 +878,15 @@ MOD05_021D99F8: ; 0x021D99F8
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	ldr r0, [r6]
-	bl FUN_0201FD58
+	bl sub_0201FD58
 	mov r0, #0x52
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_02009C30
+	bl sub_02009C30
 	mov r0, #0x53
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_02009E28
+	bl sub_02009E28
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldrh r0, [r6, r0]
@@ -900,11 +900,11 @@ _021D9A28:
 	mov r0, #0x52
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02009448
+	bl sub_02009448
 	mov r0, #0x13
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02008E2C
+	bl sub_02008E2C
 	ldrh r0, [r6, r7]
 	add r4, r4, #1
 	add r5, r5, #4

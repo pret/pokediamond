@@ -74,7 +74,7 @@ _038017A4:
 	bl	TP_ExecSampling
 	add	r0, sp, #8
 	ldrh	r1, [sp, #4]
-	bl	FUN_03801954
+	bl	sub_03801954
 	ldrh	r1, [sp, #8]
 	ldr	r0, _0380193C	;@ =0x027FFFAA
 	strh	r1, [r0]
@@ -110,7 +110,7 @@ _03801834:
 	ldr	r8, _03801944	;@ =0x00000107
 	ldr	r6, _03801948	;@ =_03809E80
 	mov	r5, #10
-	ldr	r4, _0380194C	;@ =FUN_038016A8
+	ldr	r4, _0380194C	;@ =sub_038016A8
 	b	_0380189C
 _0380185C:
 	mul	r0, r9, r8
@@ -178,11 +178,11 @@ _0380193C:	.word	0x027FFFAA
 _03801940:	.word	0x027FFFAC
 _03801944:	.word	0x00000107
 _03801948:	.word	_03809E80
-_0380194C:	.word	FUN_038016A8
+_0380194C:	.word	sub_038016A8
 _03801950:	.word	0x54505641
 
-	arm_func_start FUN_03801954
-FUN_03801954: ;@ 0x03801954
+	arm_func_start sub_03801954
+sub_03801954: ;@ 0x03801954
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, [r0]
@@ -286,7 +286,7 @@ _03801AC0:
 	and	r0, r1, #255	;@ 0xff
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_03801660
+	bl	sub_03801660
 	b	_03801BF4
 _03801AD4:
 	mov	r0, #0
@@ -464,7 +464,7 @@ TP_ExecSampling: ;@ 0x03801D18
 	mov	r0, #0
 	strh	r0, [r5]
 	rsbmi	r6, r6, #0
-	bl	FUN_03802160
+	bl	sub_03802160
 	movs	r4, r0
 	bne	_03801D94
 	ldr	r1, [r7]
@@ -492,7 +492,7 @@ _03801D94:
 	mov	r1, r6
 	mov	r2, #0
 	add	r3, sp, #2
-	bl	FUN_03801F68
+	bl	sub_03801F68
 	ldr	r1, [r7]
 	bic	r1, r1, #100663296	;@ 0x6000000
 	and	r0, r0, #3
@@ -511,7 +511,7 @@ _03801D94:
 	mov	r1, r6
 	mov	r2, #1
 	add	r3, sp, #4
-	bl	FUN_03801F68
+	bl	sub_03801F68
 	cmp	r0, #2
 	bne	_03801E1C
 	ldr	r0, [r7]
@@ -561,7 +561,7 @@ _03801E88:
 	biceq	r0, r0, #100663296	;@ 0x6000000
 	orreq	r0, r0, #100663296	;@ 0x6000000
 	streq	r0, [r7]
-	bl	FUN_03802160
+	bl	sub_03802160
 	cmp	r0, #0
 	beq	_03801F20
 	cmp	r0, #1
@@ -614,8 +614,8 @@ _03801F5C:	.word	0x040001C0
 _03801F60:	.word	0x040001C2
 _03801F64:	.word	0x00008201
 
-	arm_func_start FUN_03801F68
-FUN_03801F68: ;@ 0x03801F68
+	arm_func_start sub_03801F68
+sub_03801F68: ;@ 0x03801F68
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	sub	sp, sp, #24
 	cmp	r2, #0
@@ -761,8 +761,8 @@ _03802154:	.word	0x040001C2
 _03802158:	.word	0x00007FF8
 _0380215C:	.word	0x00008201
 
-	arm_func_start FUN_03802160
-FUN_03802160: ;@ 0x03802160
+	arm_func_start sub_03802160
+sub_03802160: ;@ 0x03802160
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #32768	;@ 0x8000

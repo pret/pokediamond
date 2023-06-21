@@ -24,7 +24,7 @@ MOD32_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD32_02254920
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -136,7 +136,7 @@ MOD32_02254920: ; 0x02254920
 	add r0, r4, #0
 	bl MOD32_02254900
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0xc]
 	bl MOD20_022529A0
 _02254956:

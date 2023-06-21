@@ -495,7 +495,7 @@ const struct UnkStruct_020FB788 UNK_020FB788[] = {
     }
 };
 
-u32 FUN_0207FC5C(u8 a0, u32 a1)
+u32 sub_0207FC5C(u8 a0, u32 a1)
 {
     switch (a1)
     {
@@ -514,7 +514,7 @@ u32 FUN_0207FC5C(u8 a0, u32 a1)
     }
 }
 
-int FUN_0207FCC0(u8 * a0, u32 a1)
+int sub_0207FCC0(u8 * a0, u32 a1)
 {
     int ret = (int)UNK_020FB788[a1].descIdx;
     if (ret & 0x8000)
@@ -522,7 +522,7 @@ int FUN_0207FCC0(u8 * a0, u32 a1)
     return ret;
 }
 
-u8 FUN_0207FCE0(u32 a0)
+u8 sub_0207FCE0(u32 a0)
 {
     int ret = (int)UNK_020FB788[a0].descIdx;
     if (ret & 0x8000)

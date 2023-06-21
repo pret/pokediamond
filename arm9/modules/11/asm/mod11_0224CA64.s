@@ -221,7 +221,7 @@ MOD11_0224CBFC: ; 0x0224CBFC
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4, #0x20]
-	bl FUN_02007534
+	bl sub_02007534
 	mov r1, #0x65
 	lsl r1, r1, #2
 	ldrb r1, [r4, r1]
@@ -410,7 +410,7 @@ MOD11_0224CD58: ; 0x0224CD58
 	add r5, r0, #0
 	ldr r0, [r4, #0x20]
 	mov r1, #6
-	bl FUN_0200782C
+	bl sub_0200782C
 	cmp r0, #1
 	bne _0224CD7A
 	mov r1, #0x65
@@ -857,9 +857,9 @@ _0224D0A8:
 	ldrh r1, [r4, #2]
 	ldrb r2, [r4, #4]
 	add r0, sp, #0x14
-	bl FUN_02068C00
+	bl sub_02068C00
 	ldr r0, [r5, #0x20]
-	bl FUN_020081C0
+	bl sub_020081C0
 	add r7, r0, #0
 	add r3, sp, #0x14
 	add r2, r7, #0
@@ -868,7 +868,7 @@ _0224D0A8:
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	ldr r0, [r5, #0x20]
-	bl FUN_020080D0
+	bl sub_020080D0
 	ldr r0, [sp, #0x10]
 	bl MOD11_02230130
 	mov r1, #0x65
@@ -886,7 +886,7 @@ _0224D0A8:
 	str r0, [sp, #0xc]
 	ldrh r0, [r7]
 	ldrh r1, [r7, #2]
-	bl FUN_02012560
+	bl sub_02012560
 	ldr r0, [sp, #0x10]
 	bl MOD11_02230130
 	mov r1, #0x65
@@ -908,7 +908,7 @@ _0224D0A8:
 	ldrb r1, [r4, #4]
 	ldrb r3, [r4, #1]
 	lsr r2, r2, #0x18
-	bl FUN_02068E88
+	bl sub_02068E88
 	add r6, r0, #0
 	ldr r0, [sp, #0x10]
 	bl MOD11_02230130
@@ -925,7 +925,7 @@ _0224D0A8:
 	ldr r0, [r5, #0x20]
 	mov r1, #1
 	add r2, r6, r2
-	bl FUN_02007558
+	bl sub_02007558
 	mov r1, #0x65
 	lsl r1, r1, #2
 	ldrb r1, [r5, r1]

@@ -2227,7 +2227,7 @@ MOD11_02230F88: ; 0x02230F88
 	cmp r0, #0
 	beq _02230FA4
 	add r0, r1, #0
-	bl FUN_020690E4
+	bl sub_020690E4
 	add r4, #0x98
 	add r1, r0, #0
 	ldr r0, [r4]
@@ -2250,7 +2250,7 @@ MOD11_02230FA8: ; 0x02230FA8
 	add r0, #0x9c
 	ldrh r3, [r3, r4]
 	ldr r0, [r0]
-	bl FUN_02061028
+	bl sub_02061028
 	add sp, #4
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -2297,7 +2297,7 @@ MOD11_02230FCC: ; 0x02230FCC
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	ldr r0, [r0]
-	bl FUN_02020350
+	bl sub_02020350
 	ldr r1, [r0, #4]
 	ldr r0, [sp, #0x24]
 	add r0, r0, r1
@@ -2413,7 +2413,7 @@ _022310C6:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	ldr r0, [r0]
-	bl FUN_02020350
+	bl sub_02020350
 	ldr r1, [r0, #4]
 	ldr r0, [sp, #8]
 	mov r7, #0x26
@@ -2642,7 +2642,7 @@ _02231288: .word 0x0000242C
 MOD11_0223128C: ; 0x0223128C
 	mov r2, #0x86
 	lsl r2, r2, #2
-	ldr r3, _02231298 ; =FUN_0202A0E8
+	ldr r3, _02231298 ; =sub_0202A0E8
 	ldr r0, [r0, r2]
 	bx r3
 	nop
@@ -2653,7 +2653,7 @@ MOD11_0223129C: ; 0x0223129C
 	mov r1, #0x86
 	lsl r1, r1, #2
 	ldr r0, [r0, r1]
-	ldr r3, _022312A8 ; =FUN_0202A170
+	ldr r3, _022312A8 ; =sub_0202A170
 	mov r1, #0x16
 	bx r3
 	.align 2, 0
@@ -3435,7 +3435,7 @@ _02231814:
 	mov r0, #0
 	ldr r1, [r5, #0x18]
 	add r2, r0, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	ldr r1, [sp, #0x2c]
 	sub r3, r1, r0
 	b _0223182E
@@ -4675,11 +4675,11 @@ _02232220: ; jump table
 	.short _02232244 - _02232220 - 2 ; case 4
 	.short _0223224C - _02232220 - 2 ; case 5
 _0223222C:
-	bl FUN_02005514
+	bl sub_02005514
 	add r4, r0, #0
 	b _02232252
 _02232234:
-	bl FUN_02005CBC
+	bl sub_02005CBC
 	add r4, r0, #0
 	b _02232252
 _0223223C:

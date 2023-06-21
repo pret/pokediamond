@@ -20,7 +20,7 @@ CTRDGi_SendtoPxi: ;@ 0x038038C0
 	b	_038038E4
 _038038DC:
 	mov	r0, r6
-	bl	FUN_037F8CB4
+	bl	sub_037F8CB4
 _038038E4:
 	mov	r0, r5
 	mov	r1, r7
@@ -231,7 +231,7 @@ CTRDGi_InitCommon: ;@ 0x03803B88
 	add	r0, sp, #0
 	ldr	r1, _03803BC0	;@ =CTRDGi_Work
 	ldr	r2, _03803BC4	;@ =0x05000001
-	bl	FUN_03803BC8
+	bl	sub_03803BC8
 	bl	OS_GetLockID
 	ldr	r1, _03803BC0	;@ =CTRDGi_Work
 	strh	r0, [r1, #2]
@@ -241,8 +241,8 @@ CTRDGi_InitCommon: ;@ 0x03803B88
 _03803BC0:	.word	CTRDGi_Work
 _03803BC4:	.word	0x05000001
 
-	arm_func_start FUN_03803BC8
-FUN_03803BC8: ;@ 0x03803BC8
+	arm_func_start sub_03803BC8
+sub_03803BC8: ;@ 0x03803BC8
 	ldr	ip, _03803BD0	;@ =SVC_CpuSet
 	bx	ip
 _03803BD0:	.word	SVC_CpuSet

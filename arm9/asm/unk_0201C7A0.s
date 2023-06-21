@@ -6,16 +6,16 @@
 
 	.text
 
-	thumb_func_start FUN_0201C7A0
-FUN_0201C7A0: ; 0x0201C7A0
+	thumb_func_start sub_0201C7A0
+sub_0201C7A0: ; 0x0201C7A0
 	cmp r0, r1
 	blt _0201C7A6
 	add r0, r1, #0x0
 _0201C7A6:
 	bx lr
 
-	thumb_func_start FUN_0201C7A8
-FUN_0201C7A8: ; 0x0201C7A8
+	thumb_func_start sub_0201C7A8
+sub_0201C7A8: ; 0x0201C7A8
 	cmp r0, r1
 	bgt _0201C7AE
 	add r0, r1, #0x0
@@ -120,8 +120,8 @@ _0201C86A:
 	.balign 4
 _0201C874: .word 0x00000000
 
-	thumb_func_start FUN_0201C878
-FUN_0201C878: ; 0x0201C878
+	thumb_func_start sub_0201C878
+sub_0201C878: ; 0x0201C878
 	push {r0-r3}
 	push {r4-r7, lr}
 	sub sp, #0x54
@@ -395,8 +395,8 @@ _0201CA9C:
 	add sp, #0x10
 	bx r3
 
-	thumb_func_start FUN_0201CAA8
-FUN_0201CAA8: ; 0x0201CAA8
+	thumb_func_start sub_0201CAA8
+sub_0201CAA8: ; 0x0201CAA8
 	push {r4-r5, lr}
 	sub sp, #0x24
 	add r4, r1, #0x0
@@ -452,8 +452,8 @@ FUN_0201CAA8: ; 0x0201CAA8
 	nop
 _0201CB1C: .word FX_SinCosTable_
 
-	thumb_func_start FUN_0201CB20
-FUN_0201CB20: ; 0x0201CB20
+	thumb_func_start sub_0201CB20
+sub_0201CB20: ; 0x0201CB20
 	push {r4-r7, lr}
 	sub sp, #0x24
 	add r6, r1, #0x0
@@ -496,8 +496,8 @@ FUN_0201CB20: ; 0x0201CB20
 	.balign 4
 _0201CB78: .word gSineTable
 
-	thumb_func_start FUN_0201CB7C
-FUN_0201CB7C: ; 0x0201CB7C
+	thumb_func_start sub_0201CB7C
+sub_0201CB7C: ; 0x0201CB7C
 	push {r3-r7, lr}
 	asr r0, r0, #0x4
 	add r7, r2, #0x0

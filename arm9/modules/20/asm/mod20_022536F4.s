@@ -212,7 +212,7 @@ _0225382E:
 	str r0, [r4, #0x10]
 	ldr r0, [r5, r6]
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #0x14]
 	cmp r0, #0
 	beq _02253884
@@ -249,7 +249,7 @@ MOD20_02253888: ; 0x02253888
 	ldr r1, [r4]
 	bl MOD20_02253754
 	ldr r0, [r4, #0x14]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -435,7 +435,7 @@ _022539C2:
 MOD20_022539C4: ; 0x022539C4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_0206B888
+	bl sub_0206B888
 	add r1, r0, #0
 	mov r0, #0x13
 	add r2, sp, #0

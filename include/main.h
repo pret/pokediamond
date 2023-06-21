@@ -92,14 +92,14 @@ void NitroMain(void);
 
 extern struct Main gSystem;
 
-void FUN_02000DF4(void);
+void sub_02000DF4(void);
 void Main_RunOverlayManager(void);
 void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *template);
-void FUN_02000E9C(void);
-void FUN_02000EC8(u32 parameter);
-void FUN_02000EE8(void);
+void sub_02000E9C(void);
+void sub_02000EC8(u32 parameter);
+void sub_02000EE8(void);
 void DoSoftReset(u32 parameter);
-void FUN_02000F4C(u32 arg0, u32 arg1);
+void sub_02000F4C(u32 arg0, u32 arg1);
 void InitializeMainRNG(void);
 void HandleDSLidAction(void);
 

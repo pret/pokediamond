@@ -54,7 +54,7 @@ struct SoundData
 
 struct SoundData * GetSoundDataPointer(void);
 void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options);
-void * FUN_02003D38(u32 a0);
+void * sub_02003D38(u32 a0);
 int GF_Snd_SaveState(int * level_p);
 void GF_Snd_RestoreState(int level);
 BOOL GF_Snd_LoadGroup(int groupNo);
@@ -63,8 +63,8 @@ BOOL GF_Snd_LoadSeqEx(int seqNo, u32 loadFlag);
 BOOL GF_Snd_LoadWaveArc(int waveArcNo);
 BOOL GF_Snd_LoadBank(int bankNo);
 u32 * GetSoundPlayer(int playerNo);
-int FUN_02004018(u32 a0);
+int sub_02004018(u32 a0);
 void DoSoundUpdateFrame(void);
-void FUN_02003CE8(int);
+void sub_02003CE8(int);
 
 #endif //POKEDIAMOND_SOUND_H

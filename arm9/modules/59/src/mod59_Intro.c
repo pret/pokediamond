@@ -26,9 +26,9 @@
 #include "unk_020051F4.h"
 #include "unk_02024E64.h"
 
-extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
+extern void *sub_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
 
-extern void FUN_0200E3A0(PMLCDTarget, int);
+extern void sub_0200E3A0(PMLCDTarget, int);
 
 const struct WindowTemplate MOD59_021D9DB8 =
     {
@@ -366,22 +366,22 @@ const u8 MOD59_021D9FE8[0x64] =
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern BOOL IsPaletteFadeFinished(void);
 
-extern u32 FUN_020142EC(u32 param0, u32 param1, u32 param2, u32 heap_id);
+extern u32 sub_020142EC(u32 param0, u32 param1, u32 param2, u32 heap_id);
 
-extern void FUN_02077AC4(void *param0);
+extern void sub_02077AC4(void *param0);
 
-extern void FUN_020143D0(u32 param0);
-extern u32 FUN_02014590(u32 heap_id);
-extern void FUN_020145A8(u32 param0);
+extern void sub_020143D0(u32 param0);
+extern u32 sub_02014590(u32 heap_id);
+extern void sub_020145A8(u32 param0);
 
-extern u32 *FUN_0201244C(u16 param0, u16 param1, u32 heap_id);
-extern u32 *FUN_02012470(u16 param0, u16 param1, u32 heap_id);
+extern u32 *sub_0201244C(u16 param0, u16 param1, u32 heap_id);
+extern u32 *sub_02012470(u16 param0, u16 param1, u32 heap_id);
 
 extern const struct OverlayManagerTemplate UNK_020FA5FC;
 
-extern void FUN_020145C8(u32 param0, u32 param1[5]);
-extern u32 FUN_02014630(u32 param0);
-extern void FUN_020146C4(u32 param0);
+extern void sub_020145C8(u32 param0, u32 param1[5]);
+extern u32 sub_02014630(u32 param0);
+extern void sub_020146C4(u32 param0);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 
@@ -398,8 +398,8 @@ BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *status)
     data->options = Save_PlayerData_GetOptionsAddr(data->save);
     data->nextControllerCounter = data->controllerCounter = 0;
     data->loadedOverlay = NULL;
-    data->playerStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 0, 0, 7, data->options);
-    data->rivalStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 3, 0, 7, data->options);
+    data->playerStruct = (struct MOD59_UnkPlayerStruct *)sub_02077A84(0x52, 0, 0, 7, data->options);
+    data->rivalStruct = (struct MOD59_UnkPlayerStruct *)sub_02077A84(0x52, 3, 0, 7, data->options);
     data->scrnDataIndexMain = 0;
     data->spriteDataIndex0 = 0;
     data->spriteDataIndex1 = 0;
@@ -416,8 +416,8 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
     switch (*status)
     {
         case 0:
-            FUN_0200E3A0(PM_LCD_TOP, 0);
-            FUN_0200E3A0(PM_LCD_BOTTOM, 0);
+            sub_0200E3A0(PM_LCD_TOP, 0);
+            sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
             Main_SetVBlankIntrCB(NULL, NULL);
             Main_SetHBlankIntrCB(NULL, NULL);
@@ -521,10 +521,10 @@ BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *status)
     PlayerName_StringToFlat(Save_PlayerData_GetProfileAddr(data->save), data->playerStruct->name);
     PlayerProfile_SetTrainerGender(Save_PlayerData_GetProfileAddr(data->save), data->playerStruct->gender);
 
-    RivalsNameToU16Array(FUN_02024EB4(data->save), data->rivalStruct->name);
+    RivalsNameToU16Array(sub_02024EB4(data->save), data->rivalStruct->name);
 
-    FUN_02077AC4(data->playerStruct);
-    FUN_02077AC4(data->rivalStruct);
+    sub_02077AC4(data->playerStruct);
+    sub_02077AC4(data->rivalStruct);
 
     OverlayManager_FreeData(overlayManager);
     DestroyHeap(heap_id);
@@ -590,7 +590,7 @@ void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_3);
 
-    FUN_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heap_id);
+    sub_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heap_id);
     LoadUserFrameGfx1(data->bgConfig, GF_BG_LYR_MAIN_0, 985, 3, 0, data->heap_id);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_5, data->heap_id);
     LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_6, data->heap_id);
@@ -661,7 +661,7 @@ void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 
     ResetAllTextPrinters();
 
-    data->unk60 = FUN_020142EC(0, 0, 6, data->heap_id);
+    data->unk60 = sub_020142EC(0, 0, 6, data->heap_id);
 
     data->messageFormat = MessageFormat_New(data->heap_id);
 
@@ -673,18 +673,18 @@ void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 void MOD59_IntroDestroyMsg(MOD59_IntroOverlayData *data)
 {
     MessageFormat_Delete(data->messageFormat);
-    FUN_020143D0(data->unk60);
+    sub_020143D0(data->unk60);
     DestroyMsgData(data->msgData);
 }
 
 void MOD59_021D7A4C(MOD59_IntroOverlayData *data) //MOD59_Setup... something?
 {
-    data->unk68 = FUN_02014590(data->heap_id);
+    data->unk68 = sub_02014590(data->heap_id);
 }
 
 void MOD59_021D7A5C(MOD59_IntroOverlayData *data) //MOD59_Destroy... something?
 {
-    FUN_020145A8(data->unk68);
+    sub_020145A8(data->unk68);
 }
 
 BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32 param2)
@@ -827,7 +827,7 @@ BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, BOOL autoAdva
             DrawFrameAndWindow2(&data->window, FALSE, 994, 4);
 
             TextFlags_SetCanABSpeedUpPrint(TRUE);
-            FUN_02002B7C(0);
+            sub_02002B7C(0);
 
             struct String* string = String_New(1024, data->heap_id);
             data->string = String_New(1024, data->heap_id);
@@ -842,7 +842,7 @@ BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, BOOL autoAdva
             data->displayMessageCounter = 1;
             break;
         case 1:
-            if (FUN_0201BD70((u8)data->minTextSpacing))
+            if (sub_0201BD70((u8)data->minTextSpacing))
             {
                 break;
             }
@@ -955,7 +955,7 @@ BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *data, u32 msgN
             if (param2 == 1)
             {
                 template = MOD59_021D9D98;
-                u32 count = FUN_02002F90(data->string);
+                u32 count = sub_02002F90(data->string);
                 template.tilemapTop = (u8)(12 - count);
                 template.height = (u8)(count * 2);
                 AddWindow(data->bgConfig, &data->window, &template);
@@ -1085,14 +1085,14 @@ void MOD59_LoadSubScrnData(MOD59_IntroOverlayData *data)
 void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
 {
     struct SomeDrawPokemonStruct drawStruct;
-    FUN_02068C00(&drawStruct, SPECIES_MUNCHLAX, MON_MALE, 2, FALSE, 0, 0);
+    sub_02068C00(&drawStruct, SPECIES_MUNCHLAX, MON_MALE, 2, FALSE, 0, 0);
     u16 *src = (u16 *)AllocFromHeap(data->heap_id, 0x64 * sizeof(u16));
     for (s32 i = 0; i < 0x64; i++)
     {
         src[i] = MOD59_021D9FE8[i] + 1;
     }
-    u32 *charData = FUN_0201244C(drawStruct.unk0, drawStruct.unk2, data->heap_id);
-    u32 *plttData = FUN_02012470(drawStruct.unk0, drawStruct.unk4, data->heap_id);
+    u32 *charData = sub_0201244C(drawStruct.unk0, drawStruct.unk2, data->heap_id);
+    u32 *plttData = sub_02012470(drawStruct.unk0, drawStruct.unk4, data->heap_id);
 
     FillBgTilemapRect(data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, 0, 32, 24, 9);
     LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_MAIN_2, src, 11, 11, 10, 10);
@@ -1127,7 +1127,7 @@ asm void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
     str r2, [sp, #8]
     add r0, sp, #0x10
     mov r3, #2
-    bl FUN_02068C00
+    bl sub_02068C00
     ldr r0, [r5, #0]
     mov r1, #0xc8
     bl AllocFromHeap
@@ -1148,13 +1148,13 @@ _021D82C8:
     ldrh r0, [r1]
     ldrh r1, [r1, #2]
     ldr r2, [r5, #0]
-    bl FUN_0201244C
+    bl sub_0201244C
     add r1, sp, #0x10
     add r4, r0, #0
     ldrh r0, [r1]
     ldrh r1, [r1, #4]
     ldr r2, [r5, #0]
-    bl FUN_02012470
+    bl sub_02012470
     mov r2, #0
     add r6, r0, #0
     str r2, [sp]
@@ -1535,7 +1535,7 @@ BOOL MOD59_MunchlaxJumpAnimation(MOD59_IntroOverlayData *data, u32 *param1)
             }
             break;
         case 5:
-            FUN_02005578(SPECIES_MUNCHLAX);
+            sub_02005578(SPECIES_MUNCHLAX);
             MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
             ret = TRUE;
     }
@@ -1831,7 +1831,7 @@ _021D88CC:
     b _021D890A
 _021D88F8:
     ldr r0, =0x000001BE
-    bl FUN_02005578
+    bl sub_02005578
     add r0, r4, #0
     mov r1, #2
     mov r2, #8
@@ -1856,8 +1856,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
     switch (data->controllerCounter)
     {
         case 0: //load and fade from black
-            FUN_0200433C(2, SEQ_OPENING, 1);
-            FUN_02005350(SEQ_OPENING, 0);
+            sub_0200433C(2, SEQ_OPENING, 1);
+            sub_02005350(SEQ_OPENING, 0);
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
             BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
@@ -1886,7 +1886,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 3: //play SE, make rowan visible, fade from black
-            FUN_0200521C(SEQ_OPENING);
+            sub_0200521C(SEQ_OPENING);
             data->spriteDataIndex0 = 1;
             data->spriteDataIndex1 = 0;
             MOD59_LoadCharDataFromIndex(data);
@@ -2054,7 +2054,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             }
 #endif
             arr[0] = (u32)data->bgConfig;
-            FUN_020145C8(data->unk68, arr);
+            sub_020145C8(data->unk68, arr);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
             data->scrnDataIndexSub = 3;
             MOD59_LoadSubScrnData(data);
@@ -2069,7 +2069,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             }
             else
             {
-                if ((FUN_02014630(data->unk68) - 3) > 1)
+                if ((sub_02014630(data->unk68) - 3) > 1)
                 {
                     break;
                 }
@@ -2078,7 +2078,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             }
 
         case 23: //check whether yes or no
-            switch (FUN_02014630(data->unk68))
+            switch (sub_02014630(data->unk68))
             {
                 case 1:
                     data->controllerCounter = 24;
@@ -2095,7 +2095,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             {
                 break;
             }
-            FUN_020146C4(data->unk68);
+            sub_020146C4(data->unk68);
             BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 25;
             break;
@@ -2115,7 +2115,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
                 break;
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-            FUN_020146C4(data->unk68);
+            sub_020146C4(data->unk68);
             data->scrnDataIndexMain = 1;
             MOD59_LoadMainScrnData(data);
             data->scrnDataIndexSub = 1;
@@ -2864,7 +2864,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             {
                 break;
             }
-            FUN_020053CC(0, 50); //fade music
+            sub_020053CC(0, 50); //fade music
             data->controllerCounter = 102;
             break;
 

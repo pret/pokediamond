@@ -80,16 +80,16 @@ struct UnkCallbackStruct2_0205FA2C
     u16 unk14;
 };
 
-u32 FUN_0205FA2C(
+u32 sub_0205FA2C(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id);
-u32 FUN_0205FAD8(
+u32 sub_0205FAD8(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem);
-u32 FUN_0205FB34(
+u32 sub_0205FB34(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id);
-u32 FUN_0205FBC0(
+u32 sub_0205FBC0(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem);
-BOOL FUN_0205FBE8(struct TaskManager *taskManager);
-void FUN_0205FC50(struct TaskManager *taskManager,
+BOOL sub_0205FBE8(struct TaskManager *taskManager);
+void sub_0205FC50(struct TaskManager *taskManager,
     void **param1,
     u8 param2,
     u8 param3,
@@ -98,24 +98,24 @@ void FUN_0205FC50(struct TaskManager *taskManager,
     u8 param6,
     u8 param7);
 
-u32 FUN_0205FC9C(
+u32 sub_0205FC9C(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem);
-u32 FUN_0205FCC4(
+u32 sub_0205FCC4(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem);
-BOOL FUN_0205FCE8(struct TaskManager *taskManager);
-void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3);
+BOOL sub_0205FCE8(struct TaskManager *taskManager);
+void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3);
 
-BOOL FUN_0205FD70(struct TaskManager *taskManager);
-void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2);
+BOOL sub_0205FD70(struct TaskManager *taskManager);
+void sub_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2);
 
-u32 FUN_0205FE10(struct SaveData *save);
-u32 FUN_0205FF5C(struct SaveData *save);
-void FUN_02060044(u16 **param0, u32 *param1);
-u32 FUN_02060064(u32 param0);
-u32 FUN_02060070(u32 param0);
-u32 FUN_0206007C(struct SaveData *save);
-u32 FUN_020600A0(struct SaveData *save);
-u32 FUN_020600DC(struct SaveData *save);
-BOOL FUN_02060144(u32 **param0);
+u32 sub_0205FE10(struct SaveData *save);
+u32 sub_0205FF5C(struct SaveData *save);
+void sub_02060044(u16 **param0, u32 *param1);
+u32 sub_02060064(u32 param0);
+u32 sub_02060070(u32 param0);
+u32 sub_0206007C(struct SaveData *save);
+u32 sub_020600A0(struct SaveData *save);
+u32 sub_020600DC(struct SaveData *save);
+BOOL sub_02060144(u32 **param0);
 
 #endif // POKEDIAMOND_UNK_0205FA2C_H

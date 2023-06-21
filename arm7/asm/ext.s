@@ -99,7 +99,7 @@ _06000130:	.word	_0601A960
 WMSP_GetInternalRequestBuf: ; 0x06000134
 	stmdb	sp!, {r4, lr}
 	mov	r4, #0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	ldr	r1, _060001A0	; =_0601A960
 	ldr	r2, [r1, #1356]	; 0x54c
 	cmp	r2, #0
@@ -124,45 +124,45 @@ _06000188:
 	cmp	ip, #32
 	blt	_06000158
 _06000190:
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060001A0:	.word	_0601A960
 
-	arm_func_start FUN_060001A4
-FUN_060001A4: ; 0x060001A4
+	arm_func_start sub_060001A4
+sub_060001A4: ; 0x060001A4
 	ldr	pc, _060001A8	; =OS_DisableInterrupts
 _060001A8:	.word	OS_DisableInterrupts
 
-	arm_func_start FUN_060001AC
-FUN_060001AC: ; 0x060001AC
+	arm_func_start sub_060001AC
+sub_060001AC: ; 0x060001AC
 	ldr	pc, _060001B0	; =OS_RestoreInterrupts
 _060001B0:	.word	OS_RestoreInterrupts
 
-	arm_func_start FUN_060001B4
-FUN_060001B4: ; 0x060001B4
+	arm_func_start sub_060001B4
+sub_060001B4: ; 0x060001B4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	strh	r6, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_060001E8
-FUN_060001E8: ; 0x060001E8
+	arm_func_start sub_060001E8
+sub_060001E8: ; 0x060001E8
 	ldr	pc, _060001EC	; =WMSP_GetBuffer4Callback2Wm9
 _060001EC:	.word	WMSP_GetBuffer4Callback2Wm9
 
-	arm_func_start FUN_060001F0
-FUN_060001F0: ; 0x060001F0
+	arm_func_start sub_060001F0
+sub_060001F0: ; 0x060001F0
 	ldr	pc, _060001F4	; =WMSP_ReturnResult2Wm9
 _060001F4:	.word	WMSP_ReturnResult2Wm9
 
@@ -181,66 +181,66 @@ _0600020C:	.word	_0380B764
 	arm_func_start WMSP_SetThreadPriorityHigh
 WMSP_SetThreadPriorityHigh: ; 0x06000210
 	stmdb	sp!, {r4, lr}
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
-	bl	FUN_06000270
+	bl	sub_06000270
 	ldr	r0, _06000264	; =_0380B808
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1400]	; 0x578
-	bl	FUN_06000278
+	bl	sub_06000278
 	bl	WL_GetThreadStruct
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1404]	; 0x57c
-	bl	FUN_06000278
+	bl	sub_06000278
 	ldr	r0, _0600026C	; =_0380B764
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1408]	; 0x580
-	bl	FUN_06000278
-	bl	FUN_06000280
+	bl	sub_06000278
+	bl	sub_06000280
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06000264:	.word	_0380B808
 _06000268:	.word	_0601A960
 _0600026C:	.word	_0380B764
 
-	arm_func_start FUN_06000270
-FUN_06000270: ; 0x06000270
+	arm_func_start sub_06000270
+sub_06000270: ; 0x06000270
 	ldr	pc, _06000274	; =OS_DisableScheduler
 _06000274:	.word	OS_DisableScheduler
 
-	arm_func_start FUN_06000278
-FUN_06000278: ; 0x06000278
+	arm_func_start sub_06000278
+sub_06000278: ; 0x06000278
 	ldr	pc, _0600027C	; =OS_SetThreadPriority
 _0600027C:	.word	OS_SetThreadPriority
 
-	arm_func_start FUN_06000280
-FUN_06000280: ; 0x06000280
+	arm_func_start sub_06000280
+sub_06000280: ; 0x06000280
 	ldr	pc, _06000284	; =OS_EnableScheduler
 _06000284:	.word	OS_EnableScheduler
 
 	arm_func_start WMSP_SetThreadPriorityLow
 WMSP_SetThreadPriorityLow: ; 0x06000288
 	stmdb	sp!, {r4, lr}
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
-	bl	FUN_06000270
+	bl	sub_06000270
 	ldr	r0, _060002DC	; =_0380B764
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1420]	; 0x58c
-	bl	FUN_06000278
+	bl	sub_06000278
 	bl	WL_GetThreadStruct
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1416]	; 0x588
-	bl	FUN_06000278
+	bl	sub_06000278
 	ldr	r0, _060002E4	; =_0380B808
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1412]	; 0x584
-	bl	FUN_06000278
-	bl	FUN_06000280
+	bl	sub_06000278
+	bl	sub_06000280
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060002DC:	.word	_0380B764
@@ -344,7 +344,7 @@ WMSP_SetAllParams: ; 0x06000408
 	add	r0, r4, #224	; 0xe0
 	add	r1, r5, #16
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, #7
 	strh	r0, [r5, #22]
 	add	r0, r4, #256	; 0x100
@@ -362,7 +362,7 @@ WMSP_SetAllParams: ; 0x06000408
 	strh	r0, [r5, #34]	; 0x22
 	add	r1, r5, #36	; 0x24
 	mov	r2, #80	; 0x50
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #0
 	strh	r0, [r5, #158]	; 0x9e
 	b	_060004A8
@@ -374,7 +374,7 @@ _06000480:
 	add	r0, r4, #412	; 0x19c
 	add	r1, r5, #36	; 0x24
 	mov	r2, #80	; 0x50
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, #1
 	strh	r0, [r5, #158]	; 0x9e
 _060004A8:
@@ -394,17 +394,17 @@ _060004A8:
 	mov	r0, #0
 	add	r1, r5, #124	; 0x7c
 	mov	r2, #32
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	b	_06000510
 _060004F0:
 	mov	r0, #0
 	add	r1, r5, #124	; 0x7c
 	mov	r2, #8
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	ldr	r0, _06000550	; =0x0000FFFF
 	add	r1, r5, #132	; 0x84
 	mov	r2, #24
-	bl	FUN_0600055C
+	bl	sub_0600055C
 _06000510:
 	add	r0, r4, #256	; 0x100
 	ldrh	r0, [r0, #238]	; 0xee
@@ -417,7 +417,7 @@ _06000510:
 	beq	_06000544
 	mov	r0, r6
 	mov	r1, #512	; 0x200
-	bl	FUN_060001B4
+	bl	sub_060001B4
 	mov	r0, #0
 _06000544:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -425,13 +425,13 @@ _06000544:
 _0600054C:	.word	_0601A960
 _06000550:	.word	0x0000FFFF
 
-	arm_func_start FUN_06000554
-FUN_06000554: ; 0x06000554
+	arm_func_start sub_06000554
+sub_06000554: ; 0x06000554
 	ldr	pc, _06000558	; =MI_CpuCopy8
 _06000558:	.word	MI_CpuCopy8
 
-	arm_func_start FUN_0600055C
-FUN_0600055C: ; 0x0600055C
+	arm_func_start sub_0600055C
+sub_0600055C: ; 0x0600055C
 	ldr	pc, _06000560	; =MIi_CpuClear16
 _06000560:	.word	MIi_CpuClear16
 
@@ -477,7 +477,7 @@ WMSP_CopyParentParam: ; 0x06000564
 	add	r1, r2, #16
 	add	r2, r3, #1
 	bic	r2, r2, #1
-	bl	FUN_06000554
+	bl	sub_06000554
 _06000608:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
@@ -518,22 +518,22 @@ _06000684:
 	bx	lr
 _0600068C:	.word	_0601A960
 
-	arm_func_start FUN_06000690
-FUN_06000690: ; 0x06000690
+	arm_func_start sub_06000690
+sub_06000690: ; 0x06000690
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	cmp	r2, #0
 	bne	_060006E8
 	ldr	r0, _060006F0	; =_060199E8
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 	cmp	r0, #0
 	bne	_060006E8
 	ldr	r0, _060006F4	; =_0601A960
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_060006E8
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	ldrh	r1, [r4]
 	strh	r1, [r0]
 	mov	r1, #8
@@ -541,15 +541,15 @@ FUN_06000690: ; 0x06000690
 	mov	r1, #0
 	strh	r1, [r0, #4]
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060006E8:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060006F0:	.word	_060199E8
 _060006F4:	.word	_0601A960
 
-	arm_func_start FUN_060006F8
-FUN_060006F8: ; 0x060006F8
+	arm_func_start sub_060006F8
+sub_060006F8: ; 0x060006F8
 	ldr	pc, _060006FC	; =OS_SendMessage
 _060006FC:	.word	OS_SendMessage
 
@@ -560,27 +560,27 @@ WMSP_WlRequest: ; 0x06000700
 	mov	r1, r0
 	ldr	r0, _06000778	; =wmspW
 	mov	r2, #1
-	bl	FUN_060006F8
+	bl	sub_060006F8
 	ldr	r0, _0600077C	; =_060199B8
 	add	r1, sp, #0
 	mov	r2, #1
-	bl	FUN_06000780
+	bl	sub_06000780
 	ldr	r1, [sp]
 	ldrh	r0, [r1, #14]
 	add	r0, r1, r0, lsl #1
 	ldrh	r0, [r0, #20]
 	cmp	r0, #14
 	bne	_06000768
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #19
 	strh	r1, [r0, #2]
 	mov	r1, #24
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
-	bl	FUN_06000788
-	bl	FUN_06000790
+	bl	sub_060001F0
+	bl	sub_06000788
+	bl	sub_06000790
 _06000768:
 	ldr	r0, [sp]
 	add	sp, sp, #4
@@ -589,18 +589,18 @@ _06000768:
 _06000778:	.word	wmspW
 _0600077C:	.word	_060199B8
 
-	arm_func_start FUN_06000780
-FUN_06000780: ; 0x06000780
+	arm_func_start sub_06000780
+sub_06000780: ; 0x06000780
 	ldr	pc, _06000784	; =OS_ReceiveMessage
 _06000784:	.word	OS_ReceiveMessage
 
-	arm_func_start FUN_06000788
-FUN_06000788: ; 0x06000788
+	arm_func_start sub_06000788
+sub_06000788: ; 0x06000788
 	ldr	pc, _0600078C	; =SND_BeginSleep
 _0600078C:	.word	SND_BeginSleep
 
-	arm_func_start FUN_06000790
-FUN_06000790: ; 0x06000790
+	arm_func_start sub_06000790
+sub_06000790: ; 0x06000790
 	ldr	pc, _06000794	; =OS_Terminate
 _06000794:	.word	OS_Terminate
 
@@ -623,19 +623,19 @@ WM_sp_init: ; 0x06000798
 	ldr	r0, _06000928	; =wmspW
 	ldr	r1, _0600092C	; =_06019980
 	mov	r2, #2
-	bl	FUN_06000964
+	bl	sub_06000964
 	ldr	r0, _06000930	; =_06019988
 	ldr	r1, _06000934	; =_060199A8
 	mov	r2, #4
-	bl	FUN_06000964
+	bl	sub_06000964
 	ldr	r0, _06000938	; =_060199B8
 	ldr	r1, _0600093C	; =_060199D8
 	mov	r2, #4
-	bl	FUN_06000964
+	bl	sub_06000964
 	ldr	r0, _06000940	; =_060199E8
 	ldr	r1, _06000944	; =_06019A08
 	mov	r2, #32
-	bl	FUN_06000964
+	bl	sub_06000964
 	ldr	r0, _06000928	; =wmspW
 	str	r0, [r5, #16]
 	ldr	r0, _06000930	; =_06019988
@@ -654,7 +654,7 @@ WM_sp_init: ; 0x06000798
 	ldr	r1, [r4, #12]
 	str	r1, [r0, #1420]	; 0x58c
 	ldr	r0, _06000948	; =_0601AE88
-	bl	FUN_0600096C
+	bl	sub_0600096C
 	mov	r0, #1024	; 0x400
 	str	r0, [sp]
 	ldr	r0, [r4, #4]
@@ -663,9 +663,9 @@ WM_sp_init: ; 0x06000798
 	ldr	r1, _06000950	; =WMSP_IndicateThread
 	mov	r2, #0
 	ldr	r3, _06000948	; =_0601AE88
-	bl	FUN_06000974
+	bl	sub_06000974
 	ldr	r0, _0600094C	; =_0380B808
-	bl	FUN_0600097C
+	bl	sub_0600097C
 	mov	r0, #4096	; 0x1000
 	str	r0, [sp]
 	ldr	r0, [r4, #12]
@@ -674,9 +674,9 @@ WM_sp_init: ; 0x06000798
 	ldr	r1, _06000958	; =WMSP_RequestThread
 	mov	r2, #0
 	ldr	r3, _0600095C	; =_0601AA88
-	bl	FUN_06000974
+	bl	sub_06000974
 	ldr	r0, _06000954	; =_0380B764
-	bl	FUN_0600097C
+	bl	sub_0600097C
 	mov	r3, #0
 	mov	r2, r3
 	ldr	r1, _06000928	; =wmspW
@@ -689,15 +689,15 @@ _060008C0:
 	blt	_060008C0
 	ldr	r0, _06000924	; =_0601A960
 	str	r2, [r0, #1396]	; 0x574
-	bl	FUN_06000984
+	bl	sub_06000984
 	cmp	r0, #0
 	bne	_060008F0
-	bl	FUN_0600098C
+	bl	sub_0600098C
 _060008F0:
-	bl	FUN_06000994
+	bl	sub_06000994
 	mov	r0, #10
-	ldr	r1, _06000960	; =FUN_06000690
-	bl	FUN_0600099C
+	ldr	r1, _06000960	; =sub_06000690
+	bl	sub_0600099C
 	mov	r0, #2
 	str	r0, [r5, #24]
 	ldr	r0, [r4, #20]
@@ -722,45 +722,45 @@ _06000950:	.word	WMSP_IndicateThread
 _06000954:	.word	_0380B764
 _06000958:	.word	WMSP_RequestThread
 _0600095C:	.word	_0601AA88
-_06000960:	.word	FUN_06000690
+_06000960:	.word	sub_06000690
 
-	arm_func_start FUN_06000964
-FUN_06000964: ; 0x06000964
+	arm_func_start sub_06000964
+sub_06000964: ; 0x06000964
 	ldr	pc, _06000968	; =OS_InitMessageQueue
 _06000968:	.word	OS_InitMessageQueue
 
-	arm_func_start FUN_0600096C
-FUN_0600096C: ; 0x0600096C
+	arm_func_start sub_0600096C
+sub_0600096C: ; 0x0600096C
 	ldr	pc, _06000970	; =OS_InitMutex
 _06000970:	.word	OS_InitMutex
 
-	arm_func_start FUN_06000974
-FUN_06000974: ; 0x06000974
+	arm_func_start sub_06000974
+sub_06000974: ; 0x06000974
 	ldr	pc, _06000978	; =OS_CreateThread
 _06000978:	.word	OS_CreateThread
 
-	arm_func_start FUN_0600097C
-FUN_0600097C: ; 0x0600097C
+	arm_func_start sub_0600097C
+sub_0600097C: ; 0x0600097C
 	ldr	pc, _06000980	; =OS_WakeupThreadDirect
 _06000980:	.word	OS_WakeupThreadDirect
 
-	arm_func_start FUN_06000984
-FUN_06000984: ; 0x06000984
+	arm_func_start sub_06000984
+sub_06000984: ; 0x06000984
 	ldr	pc, _06000988	; =OS_IsVAlarmAvailable
 _06000988:	.word	OS_IsVAlarmAvailable
 
-	arm_func_start FUN_0600098C
-FUN_0600098C: ; 0x0600098C
+	arm_func_start sub_0600098C
+sub_0600098C: ; 0x0600098C
 	ldr	pc, _06000990	; =OS_InitVAlarm
 _06000990:	.word	OS_InitVAlarm
 
-	arm_func_start FUN_06000994
-FUN_06000994: ; 0x06000994
+	arm_func_start sub_06000994
+sub_06000994: ; 0x06000994
 	ldr	pc, _06000998	; =PXI_Init
 _06000998:	.word	PXI_Init
 
-	arm_func_start FUN_0600099C
-FUN_0600099C: ; 0x0600099C
+	arm_func_start sub_0600099C
+sub_0600099C: ; 0x0600099C
 	ldr	pc, _060009A0	; =PXI_SetFifoRecvCallback
 _060009A0:	.word	PXI_SetFifoRecvCallback
 
@@ -769,17 +769,17 @@ WMSP_CancelAllAlarms: ; 0x060009A4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _060009C8	; =_0380B8D8
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	ldr	r0, _060009CC	; =_0380B8AC
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060009C8:	.word	_0380B8D8
 _060009CC:	.word	_0380B8AC
 
-	arm_func_start FUN_060009D0
-FUN_060009D0: ; 0x060009D0
+	arm_func_start sub_060009D0
+sub_060009D0: ; 0x060009D0
 	ldr	pc, _060009D4	; =OS_CancelAlarm
 _060009D4:	.word	OS_CancelAlarm
 
@@ -788,38 +788,38 @@ WMSP_InitAlarm: ; 0x060009D8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _060009FC	; =_0380B8D8
-	bl	FUN_06000A04
+	bl	sub_06000A04
 	ldr	r0, _06000A00	; =_0380B8AC
-	bl	FUN_06000A04
+	bl	sub_06000A04
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060009FC:	.word	_0380B8D8
 _06000A00:	.word	_0380B8AC
 
-	arm_func_start FUN_06000A04
-FUN_06000A04: ; 0x06000A04
+	arm_func_start sub_06000A04
+sub_06000A04: ; 0x06000A04
 	ldr	pc, _06000A08	; =OS_CreateAlarm
 _06000A08:	.word	OS_CreateAlarm
 
-	arm_func_start FUN_06000A0C
-FUN_06000A0C: ; 0x06000A0C
+	arm_func_start sub_06000A0C
+sub_06000A0C: ; 0x06000A0C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #19
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06000A40
-FUN_06000A40: ; 0x06000A40
+	arm_func_start sub_06000A40
+sub_06000A40: ; 0x06000A40
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	r8, r0
@@ -834,14 +834,14 @@ _06000A68:
 	add	r0, r8, #16
 	add	r1, sp, #0
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r5, #0
 	mov	r7, r5
 	mov	r4, #1
 	mov	r9, #6
 	b	_06000B6C
 _06000A8C:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	fp, r0
 	add	ip, r6, #256	; 0x100
 	ldrh	r3, [ip, #130]	; 0x82
@@ -890,13 +890,13 @@ _06000A8C:
 	add	r0, r6, #296	; 0x128
 	add	r0, r0, r2
 	mov	r2, #6
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	mov	r0, fp
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06000B74
 _06000B60:
 	mov	r0, fp
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	add	r7, r7, #1
 _06000B6C:
 	cmp	r7, #15
@@ -904,7 +904,7 @@ _06000B6C:
 _06000B74:
 	cmp	r5, #0
 	beq	_06000CF4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #8
 	strh	r0, [r4]
@@ -918,13 +918,13 @@ _06000B74:
 	add	r0, r8, #16
 	add	r1, r4, #10
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r6, #48]	; 0x30
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r6, #50]	; 0x32
 	strh	r0, [r4, #46]	; 0x2e
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldr	r0, [r6, #12]
 	cmp	r0, #1
 	bne	_06000CF4
@@ -936,13 +936,13 @@ _06000B74:
 	b	_06000CF4
 _06000BF4:
 	mov	r5, #0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	add	r1, r6, #256	; 0x100
 	ldrh	r1, [r1, #130]	; 0x82
 	cmp	r1, #0
 	bne	_06000C18
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06000CF4
 _06000C18:
 	ldr	r0, [r6, #12]
@@ -965,15 +965,15 @@ _06000C38:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r6, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	bl	WMSP_ResetSizeVars
 	mov	r0, #0
 	strh	r0, [r6, #194]	; 0xc2
 	mov	r0, #3
 	strh	r0, [r6]
 	mov	r0, r4
-	bl	FUN_060001AC
-	bl	FUN_060001E8
+	bl	sub_060001AC
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #12
 	strh	r0, [r4]
@@ -990,13 +990,13 @@ _06000C38:
 	add	r0, r6, r0
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r6, #48]	; 0x30
 	strh	r0, [r4, #22]
 	ldrh	r0, [r6, #50]	; 0x32
 	strh	r0, [r4, #24]
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	cmp	r5, #0
 	beq	_06000CF4
 	mov	r0, #1
@@ -1008,13 +1008,13 @@ _06000CF4:
 _06000D00:	.word	_0601A960
 _06000D04:	.word	0x0000018A
 
-	arm_func_start FUN_06000D08
-FUN_06000D08: ; 0x06000D08
+	arm_func_start sub_06000D08
+sub_06000D08: ; 0x06000D08
 	ldr	pc, _06000D0C	; =MI_CpuFill8
 _06000D0C:	.word	MI_CpuFill8
 
-	arm_func_start FUN_06000D10
-FUN_06000D10: ; 0x06000D10
+	arm_func_start sub_06000D10
+sub_06000D10: ; 0x06000D10
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -1037,15 +1037,15 @@ FUN_06000D10: ; 0x06000D10
 	add	r0, r7, #16
 	add	r1, r4, #4
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldr	r0, _06000E94	; =_060199E8
 	mov	r1, r4
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _06000D7C:
 	cmp	r0, #0
 	bne	_06000E84
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1054,10 +1054,10 @@ _06000D7C:
 	strh	r1, [r0, #4]
 	mov	r1, #34	; 0x22
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06000E84
 _06000DB0:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	mov	r2, #1
 	add	r0, r5, #256	; 0x100
@@ -1068,7 +1068,7 @@ _06000DB0:
 	mvn	r0, r2, lsl r6
 	and	r0, r1, r0
 	strh	r0, [r5, #134]	; 0x86
-	bl	FUN_06000E98
+	bl	sub_06000E98
 	orr	r1, r1, #0
 	orr	r2, r0, #1
 	add	r0, r5, r6, lsl #3
@@ -1079,15 +1079,15 @@ _06000DB0:
 	sub	r3, r6, #1
 	mov	r2, #6
 	mla	r1, r3, r2, r1
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r0, #1
 	add	r1, r5, #504	; 0x1f8
 	add	r1, r1, r6, lsl #4
 	mov	r2, #16
-	bl	FUN_0600055C
-	bl	FUN_060001E8
+	bl	sub_0600055C
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #8
 	strh	r0, [r4]
@@ -1098,18 +1098,18 @@ _06000DB0:
 	add	r0, r7, #16
 	add	r1, r4, #10
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	strh	r6, [r4, #16]
 	add	r0, r7, #34	; 0x22
 	add	r1, r4, #20
 	mov	r2, #24
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r5, #48]	; 0x30
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r5, #50]	; 0x32
 	strh	r0, [r4, #46]	; 0x2e
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06000E84:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -1117,50 +1117,50 @@ _06000E84:
 _06000E90:	.word	_0601A960
 _06000E94:	.word	_060199E8
 
-	arm_func_start FUN_06000E98
-FUN_06000E98: ; 0x06000E98
+	arm_func_start sub_06000E98
+sub_06000E98: ; 0x06000E98
 	ldr	pc, _06000E9C	; =OS_GetTick
 _06000E9C:	.word	OS_GetTick
 
-	arm_func_start FUN_06000EA0
-FUN_06000EA0: ; 0x06000EA0
+	arm_func_start sub_06000EA0
+sub_06000EA0: ; 0x06000EA0
 	ldr	pc, _06000EA4	; =MIi_CpuCopy16
 _06000EA4:	.word	MIi_CpuCopy16
 
-	arm_func_start FUN_06000EA8
-FUN_06000EA8: ; 0x06000EA8
+	arm_func_start sub_06000EA8
+sub_06000EA8: ; 0x06000EA8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #18
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06000EDC
-FUN_06000EDC: ; 0x06000EDC
+	arm_func_start sub_06000EDC
+sub_06000EDC: ; 0x06000EDC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #17
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06000F10
-FUN_06000F10: ; 0x06000F10
+	arm_func_start sub_06000F10
+sub_06000F10: ; 0x06000F10
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r1, _06001034	; =_0601A960
@@ -1171,19 +1171,19 @@ FUN_06000F10: ; 0x06000F10
 	ldrh	r0, [r0, #16]
 	cmp	r0, #32
 	bne	_06000F94
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	ldr	r0, _06001038	; =_0380B8AC
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	mov	r0, #0
 	strh	r0, [r5, #132]	; 0x84
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r1, #0
 	strh	r1, [r5, #138]	; 0x8a
 	mov	r0, #1
 	bl	WMSP_FlushSendQueue
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
@@ -1192,7 +1192,7 @@ FUN_06000F10: ; 0x06000F10
 	strh	r1, [r0, #4]
 	mov	r1, #1
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06001028
 _06000F94:
 	bl	WMSP_GetInternalRequestBuf
@@ -1223,11 +1223,11 @@ _06000FE4:
 _06000FEC:
 	ldr	r0, _06001044	; =_060199E8
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _06000FF8:
 	cmp	r0, #0
 	bne	_06001028
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1236,7 +1236,7 @@ _06000FF8:
 	strh	r1, [r0, #4]
 	mov	r1, #37	; 0x25
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06001028:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -1247,8 +1247,8 @@ _0600103C:	.word	0x00008003
 _06001040:	.word	0x00007FFE
 _06001044:	.word	_060199E8
 
-	arm_func_start FUN_06001048
-FUN_06001048: ; 0x06001048
+	arm_func_start sub_06001048
+sub_06001048: ; 0x06001048
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1288,16 +1288,16 @@ FUN_06001048: ; 0x06001048
 	add	r2, r2, #44	; 0x2c
 	add	r2, r2, #1
 	bic	r2, r2, #1
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, r5, #24
 	add	r1, r4, #24
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, r5, #30
 	add	r1, r4, #30
 	mov	r2, #6
-	bl	FUN_06000554
-	bl	FUN_060001E8
+	bl	sub_06000554
+	bl	sub_060001E8
 	mov	r1, #17
 	strh	r1, [r0]
 	mov	r1, #0
@@ -1305,7 +1305,7 @@ FUN_06001048: ; 0x06001048
 	mov	r1, #15
 	strh	r1, [r0, #4]
 	str	r4, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _0600112C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -1313,8 +1313,8 @@ _0600112C:
 _06001138:	.word	_0601A960
 _0600113C:	.word	0x000005E4
 
-	arm_func_start FUN_06001140
-FUN_06001140: ; 0x06001140
+	arm_func_start sub_06001140
+sub_06001140: ; 0x06001140
 	stmdb	sp!, {r4, lr}
 	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
@@ -1329,7 +1329,7 @@ FUN_06001140: ; 0x06001140
 	mov	r0, #44	; 0x2c
 	str	r0, [r1]
 	add	r0, r4, #136	; 0x88
-	bl	FUN_060006F8
+	bl	sub_060006F8
 	mov	r2, r0
 _06001180:
 	cmp	r2, #0
@@ -1338,7 +1338,7 @@ _06001180:
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_060011C0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1347,21 +1347,21 @@ _06001180:
 	strh	r1, [r0, #4]
 	mov	r1, #44	; 0x2c
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060011C0:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060011C8:	.word	wmspW
 _060011CC:	.word	_0601A960
 
-	arm_func_start FUN_060011D0
-FUN_060011D0: ; 0x060011D0
-	ldr	ip, _060011D8	; =FUN_06001140
+	arm_func_start sub_060011D0
+sub_060011D0: ; 0x060011D0
+	ldr	ip, _060011D8	; =sub_06001140
 	bx	ip
-_060011D8:	.word	FUN_06001140
+_060011D8:	.word	sub_06001140
 
-	arm_func_start FUN_060011DC
-FUN_060011DC: ; 0x060011DC
+	arm_func_start sub_060011DC
+sub_060011DC: ; 0x060011DC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	add	r9, r0, #16
@@ -1396,21 +1396,21 @@ FUN_060011DC: ; 0x060011DC
 _06001258:
 	mov	r8, r7
 _0600125C:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	ldrh	r1, [r5, #132]	; 0x84
 	cmp	r1, #0
 	bne	_06001278
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06001428
 _06001278:
 	mov	r0, #0
 	strh	r0, [r5, #132]	; 0x84
 	ldrh	r6, [r5, #144]	; 0x90
 	ldr	r0, _06001440	; =_0380B8AC
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r0, #1
 	ldrh	r3, [r5, #140]	; 0x8c
 	cmp	r3, #0
@@ -1444,7 +1444,7 @@ _060012C8:
 _06001304:
 	cmp	r6, #0
 	beq	_06001428
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #14
 	strh	r0, [r4]
@@ -1476,11 +1476,11 @@ _06001354:
 	add	r0, r9, #24
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, r9, #30
 	add	r1, r4, #22
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r9, #42]	; 0x2a
 	strh	r0, [r4, #28]
 	ldrh	r0, [r9, #44]	; 0x2c
@@ -1489,7 +1489,7 @@ _06001354:
 	strh	r0, [r4, #32]
 _060013B4:
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	cmp	r6, #0
 	beq	_06001428
 	cmp	r7, #1
@@ -1502,17 +1502,17 @@ _060013D8:
 	cmp	r0, #0
 	beq	_0600140C
 	ldr	r0, _06001444	; =_0380B8D8
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	mov	r0, #0
 	str	r0, [sp]
 	ldr	r0, _06001444	; =_0380B8D8
 	ldr	r1, [r5, #80]	; 0x50
 	ldr	r2, [r5, #84]	; 0x54
-	ldr	r3, _06001448	; =FUN_060011D0
-	bl	FUN_0600144C
+	ldr	r3, _06001448	; =sub_060011D0
+	bl	sub_0600144C
 	b	_06001428
 _0600140C:
-	bl	FUN_06001140
+	bl	sub_06001140
 	b	_06001428
 _06001414:
 	mov	r1, #0
@@ -1529,15 +1529,15 @@ _06001438:	.word	0x048080F8
 _0600143C:	.word	0x048080FA
 _06001440:	.word	_0380B8AC
 _06001444:	.word	_0380B8D8
-_06001448:	.word	FUN_060011D0
+_06001448:	.word	sub_060011D0
 
-	arm_func_start FUN_0600144C
-FUN_0600144C: ; 0x0600144C
+	arm_func_start sub_0600144C
+sub_0600144C: ; 0x0600144C
 	ldr	pc, _06001450	; =OS_SetAlarm
 _06001450:	.word	OS_SetAlarm
 
-	arm_func_start FUN_06001454
-FUN_06001454: ; 0x06001454
+	arm_func_start sub_06001454
+sub_06001454: ; 0x06001454
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r5, _060014E4	; =wmspW
@@ -1545,7 +1545,7 @@ FUN_06001454: ; 0x06001454
 	ldr	r0, [r1, #1348]	; 0x544
 	ldr	r1, [r1, #1352]	; 0x548
 	mov	r2, #64	; 0x40
-	bl	FUN_060014F4
+	bl	sub_060014F4
 	mov	r4, r0
 	ldr	r0, _060014EC	; =0x00000185
 	strh	r0, [r4, #12]
@@ -1553,16 +1553,16 @@ FUN_06001454: ; 0x06001454
 	strh	r2, [r4, #14]
 	ldr	r0, _060014F0	; =_06019988
 	mov	r1, r4
-	bl	FUN_060006F8
+	bl	sub_060006F8
 	cmp	r0, #0
 	bne	_060014D8
 	mov	r0, r4
-	bl	FUN_06001F4C
+	bl	sub_06001F4C
 	add	r0, r5, #4096	; 0x1000
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_060014D8
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r2, #128	; 0x80
 	strh	r2, [r0]
 	mov	r1, #8
@@ -1570,7 +1570,7 @@ FUN_06001454: ; 0x06001454
 	mov	r1, #22
 	strh	r1, [r0, #4]
 	strh	r2, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060014D8:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -1580,13 +1580,13 @@ _060014E8:	.word	_0601A960
 _060014EC:	.word	0x00000185
 _060014F0:	.word	_06019988
 
-	arm_func_start FUN_060014F4
-FUN_060014F4: ; 0x060014F4
+	arm_func_start sub_060014F4
+sub_060014F4: ; 0x060014F4
 	ldr	pc, _060014F8	; =OS_AllocFromHeap
 _060014F8:	.word	OS_AllocFromHeap
 
-	arm_func_start FUN_060014FC
-FUN_060014FC: ; 0x060014FC
+	arm_func_start sub_060014FC
+sub_060014FC: ; 0x060014FC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -1623,8 +1623,8 @@ FUN_060014FC: ; 0x060014FC
 	movcc	r2, r0
 	add	r0, sl, #16
 	mov	r1, r8
-	bl	FUN_06000554
-	bl	FUN_060001A4
+	bl	sub_06000554
+	bl	sub_060001A4
 	mov	fp, r0
 	mov	r7, #0
 	ldrh	r0, [r5, #132]	; 0x84
@@ -1632,7 +1632,7 @@ FUN_060014FC: ; 0x060014FC
 	bne	_060015B4
 	mov	r7, #1
 	ldr	r0, _06001834	; =_0380B8AC
-	bl	FUN_060009D0
+	bl	sub_060009D0
 _060015B4:
 	mov	r9, #1
 	strh	r9, [r5, #132]	; 0x84
@@ -1664,8 +1664,8 @@ _060015B4:
 	mov	r2, lr, lsr #10
 	mov	r1, r1, lsr #10
 	orr	r1, r1, lr, lsl #22
-	ldr	r3, _0600183C	; =FUN_06001454
-	bl	FUN_0600144C
+	ldr	r3, _0600183C	; =sub_06001454
+	bl	sub_0600144C
 	and	r0, r4, #10240	; 0x2800
 	cmp	r0, #10240	; 0x2800
 	moveq	r1, #1
@@ -1690,7 +1690,7 @@ _060015B4:
 	ldrh	r0, [r8, #44]	; 0x2c
 	sub	r0, r0, #102	; 0x66
 	mov	r1, #4
-	bl	FUN_06001840
+	bl	sub_06001840
 	subs	r1, r0, #32
 	bmi	_060016C4
 	ldrh	r0, [r5, #54]	; 0x36
@@ -1704,7 +1704,7 @@ _060015B4:
 	bl	WMSP_SetChildSize
 _060016C4:
 	mov	r0, fp
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	r7, #0
 	beq	_06001710
 	cmp	r6, #1
@@ -1713,7 +1713,7 @@ _060016C4:
 	mov	r1, #0
 	bl	WMSP_FlushSendQueue
 _060016E8:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #9
@@ -1722,7 +1722,7 @@ _060016E8:
 	strh	r1, [r0, #4]
 	mov	r1, #0
 	str	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06001710:
 	cmp	r9, #0
 	bne	_0600173C
@@ -1739,11 +1739,11 @@ _0600173C:
 	add	r0, sl, #40	; 0x28
 	add	r1, r8, #24
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, sl, #46	; 0x2e
 	add	r1, r8, #30
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r8, #6]
 	cmp	r0, #2
 	bcc	_060017CC
@@ -1754,7 +1754,7 @@ _0600173C:
 	movne	r0, #1
 	moveq	r0, #0
 	strh	r0, [r5, #94]	; 0x5e
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #0
@@ -1762,7 +1762,7 @@ _0600173C:
 	mov	r1, #12
 	strh	r1, [r0, #4]
 	str	r8, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldrh	r3, [r8, #6]
 	cmp	r3, #0
 	beq	_060017F8
@@ -1776,14 +1776,14 @@ _060017CC:
 	mov	r0, #0
 	strh	r0, [r8, #6]
 	strh	r0, [r5, #94]	; 0x5e
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	mov	r1, #12
 	strh	r1, [r0, #4]
 	str	r8, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060017F8:
 	ldr	r2, [r5, #1976]	; 0x7b8
 	ldr	r1, [r5, #1980]	; 0x7bc
@@ -1791,7 +1791,7 @@ _060017F8:
 	cmp	r1, r0
 	cmpeq	r2, r0
 	beq	_06001824
-	bl	FUN_06000E98
+	bl	sub_06000E98
 	orr	r1, r1, #0
 	orr	r0, r0, #1
 	str	r0, [r5, #1848]	; 0x738
@@ -1803,15 +1803,15 @@ _06001824:
 _06001830:	.word	_0601A960
 _06001834:	.word	_0380B8AC
 _06001838:	.word	0x000082EA
-_0600183C:	.word	FUN_06001454
+_0600183C:	.word	sub_06001454
 
-	arm_func_start FUN_06001840
-FUN_06001840: ; 0x06001840
+	arm_func_start sub_06001840
+sub_06001840: ; 0x06001840
 	ldr	pc, _06001844	; =_s32_div_f
 _06001844:	.word	_s32_div_f
 
-	arm_func_start FUN_06001848
-FUN_06001848: ; 0x06001848
+	arm_func_start sub_06001848
+sub_06001848: ; 0x06001848
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r2, _060018C4	; =_0601A960
@@ -1848,8 +1848,8 @@ _060018B8:
 	bx	lr
 _060018C4:	.word	_0601A960
 
-	arm_func_start FUN_060018C8
-FUN_060018C8: ; 0x060018C8
+	arm_func_start sub_060018C8
+sub_060018C8: ; 0x060018C8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1863,7 +1863,7 @@ FUN_060018C8: ; 0x060018C8
 	str	r5, [r1, #4]
 	add	r0, r4, #136	; 0x88
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _06001900:
 	cmp	r0, #0
 	bne	_06001940
@@ -1871,7 +1871,7 @@ _06001900:
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_06001940
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1880,20 +1880,20 @@ _06001900:
 	strh	r1, [r0, #4]
 	mov	r1, #43	; 0x2b
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06001940:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600194C:	.word	wmspW
 
-	arm_func_start FUN_06001950
-FUN_06001950: ; 0x06001950
+	arm_func_start sub_06001950
+sub_06001950: ; 0x06001950
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	ldr	ip, _06001960	; =FUN_060018C8
+	ldr	ip, _06001960	; =sub_060018C8
 	bx	ip
-_06001960:	.word	FUN_060018C8
+_06001960:	.word	sub_060018C8
 
 	arm_func_start WMSP_RequestResumeMP
 WMSP_RequestResumeMP: ; 0x06001964
@@ -1910,13 +1910,13 @@ WMSP_RequestResumeMP: ; 0x06001964
 	str	r0, [r1, #4]
 	ldr	r0, _060019E0	; =_060199E8
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _0600199C:
 	cmp	r0, #0
 	movne	r0, #1
 	strneh	r0, [r4, #102]	; 0x66
 	bne	_060019D4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1925,15 +1925,15 @@ _0600199C:
 	strh	r1, [r0, #4]
 	mov	r1, #45	; 0x2d
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060019D4:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060019DC:	.word	_0601A960
 _060019E0:	.word	_060199E8
 
-	arm_func_start FUN_060019E4
-FUN_060019E4: ; 0x060019E4
+	arm_func_start sub_060019E4
+sub_060019E4: ; 0x060019E4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	mov	sl, r0
@@ -1971,12 +1971,12 @@ _06001A34:
 	movcc	r2, r0
 	add	r0, sl, #16
 	mov	r1, r7
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, sl
 	ldrh	r1, [r7]
 	ldrh	r2, [r8, #146]	; 0x92
-	bl	FUN_06001848
-	bl	FUN_06000E98
+	bl	sub_06001848
+	bl	sub_06000E98
 	mov	r9, #0
 	mov	r2, #1
 	str	r2, [sp, #16]
@@ -2070,11 +2070,11 @@ _06001B50:
 	str	r0, [r1, #8]
 	ldr	r0, _06001D40	; =_060199E8
 	ldr	r2, [sp, #20]
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _06001BF8:
 	cmp	r0, #0
 	bne	_06001C28
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	ldr	r1, [sp, #28]
 	strh	r1, [r0]
 	ldr	r1, [sp, #32]
@@ -2083,7 +2083,7 @@ _06001BF8:
 	strh	r1, [r0, #4]
 	ldr	r1, [sp, #24]
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06001C28:
 	add	r0, r9, #1
 	mov	r0, r0, lsl #16
@@ -2101,7 +2101,7 @@ _06001C3C:
 	ldrh	r0, [r7]
 	cmp	r0, #0
 	movne	r5, #1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #0
@@ -2109,11 +2109,11 @@ _06001C3C:
 	mov	r1, #11
 	strh	r1, [r0, #4]
 	str	r7, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldrh	r0, [r8, #112]	; 0x70
 	eor	r0, r0, #1
 	strh	r0, [r8, #112]	; 0x70
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	cmp	r5, #0
 	ldreqsh	r1, [r8, #98]	; 0x62
 	subeq	r1, r1, #1
@@ -2132,7 +2132,7 @@ _06001C3C:
 _06001CD4:
 	mov	r4, #0
 _06001CD8:
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	r4, #0
 	beq	_06001D28
 	cmp	r5, #1
@@ -2142,17 +2142,17 @@ _06001CD8:
 	cmp	r0, #0
 	beq	_06001D20
 	ldr	r0, _06001D44	; =_0380B8D8
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	str	r4, [sp]
 	ldr	r0, _06001D44	; =_0380B8D8
 	ldr	r1, [r8, #72]	; 0x48
 	ldr	r2, [r8, #76]	; 0x4c
-	ldr	r3, _06001D48	; =FUN_06001950
-	bl	FUN_0600144C
+	ldr	r3, _06001D48	; =sub_06001950
+	bl	sub_0600144C
 	b	_06001D28
 _06001D20:
 	mov	r0, r4
-	bl	FUN_060018C8
+	bl	sub_060018C8
 _06001D28:
 	add	sp, sp, #44	; 0x2c
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -2162,10 +2162,10 @@ _06001D38:	.word	0x0000FFFF
 _06001D3C:	.word	0x00008001
 _06001D40:	.word	_060199E8
 _06001D44:	.word	_0380B8D8
-_06001D48:	.word	FUN_06001950
+_06001D48:	.word	sub_06001950
 
-	arm_func_start FUN_06001D4C
-FUN_06001D4C: ; 0x06001D4C
+	arm_func_start sub_06001D4C
+sub_06001D4C: ; 0x06001D4C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06001D94	; =_0601A960
@@ -2173,22 +2173,22 @@ FUN_06001D4C: ; 0x06001D4C
 	ldrh	r0, [r0, #194]	; 0xc2
 	cmp	r0, #0
 	beq	_06001D88
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #8
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06001D88:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06001D94:	.word	_0601A960
 
-	arm_func_start FUN_06001D98
-FUN_06001D98: ; 0x06001D98
+	arm_func_start sub_06001D98
+sub_06001D98: ; 0x06001D98
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -2229,11 +2229,11 @@ _06001DF4:
 	str	r0, [r1, #8]
 	ldr	r0, _06001EF8	; =_060199E8
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _06001E38:
 	cmp	r0, #0
 	bne	_06001EE0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -2242,7 +2242,7 @@ _06001E38:
 	strh	r1, [r0, #4]
 	mov	r1, #37	; 0x25
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06001EE0
 _06001E6C:
 	ldr	r0, _06001EEC	; =_0601A960
@@ -2250,7 +2250,7 @@ _06001E6C:
 	ldrh	r0, [r0, #194]	; 0xc2
 	cmp	r0, #0
 	beq	_06001EE0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r5, r0
 	mov	r0, #128	; 0x80
 	strh	r0, [r5]
@@ -2271,10 +2271,10 @@ _06001E6C:
 	add	r1, r5, #12
 	add	r2, r2, #1
 	bic	r2, r2, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 _06001ED8:
 	mov	r0, r5
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06001EE0:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -2284,8 +2284,8 @@ _06001EF0:	.word	0x027FFF98
 _06001EF4:	.word	0x00008002
 _06001EF8:	.word	_060199E8
 
-	arm_func_start FUN_06001EFC
-FUN_06001EFC: ; 0x06001EFC
+	arm_func_start sub_06001EFC
+sub_06001EFC: ; 0x06001EFC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06001F44	; =_0601A960
@@ -2293,50 +2293,50 @@ FUN_06001EFC: ; 0x06001EFC
 	ldrh	r0, [r0, #194]	; 0xc2
 	cmp	r0, #0
 	beq	_06001F38
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #2
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06001F38:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06001F44:	.word	_0601A960
 
-	arm_func_start FUN_06001F48
-FUN_06001F48: ; 0x06001F48
+	arm_func_start sub_06001F48
+sub_06001F48: ; 0x06001F48
 	bx	lr
 
-	arm_func_start FUN_06001F4C
-FUN_06001F4C: ; 0x06001F4C
+	arm_func_start sub_06001F4C
+sub_06001F4C: ; 0x06001F4C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	ldr	r1, _06001F88	; =_0601A960
 	ldr	r0, [r1, #1348]	; 0x544
 	ldr	r1, [r1, #1352]	; 0x548
 	mov	r2, r5
-	bl	FUN_06001F8C
+	bl	sub_06001F8C
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06001F88:	.word	_0601A960
 
-	arm_func_start FUN_06001F8C
-FUN_06001F8C: ; 0x06001F8C
+	arm_func_start sub_06001F8C
+sub_06001F8C: ; 0x06001F8C
 	ldr	pc, _06001F90	; =OS_FreeToHeap
 _06001F90:	.word	OS_FreeToHeap
 
-	arm_func_start FUN_06001F94
-FUN_06001F94: ; 0x06001F94
+	arm_func_start sub_06001F94
+sub_06001F94: ; 0x06001F94
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r1, _060020D0	; =_0601A960
@@ -2387,51 +2387,51 @@ _0600203C:
 	beq	_060020B0
 	b	_060020B8
 _0600204C:
-	bl	FUN_06000A0C
+	bl	sub_06000A0C
 	b	_060020C0
 _06002054:
-	bl	FUN_06000A40
+	bl	sub_06000A40
 	b	_060020C0
 _0600205C:
-	bl	FUN_06000D10
+	bl	sub_06000D10
 	b	_060020C0
 _06002064:
-	bl	FUN_06000EA8
+	bl	sub_06000EA8
 	b	_060020C0
 _0600206C:
-	bl	FUN_06000EDC
+	bl	sub_06000EDC
 	b	_060020C0
 _06002074:
-	bl	FUN_06001D4C
+	bl	sub_06001D4C
 	b	_060020C0
 _0600207C:
-	bl	FUN_06001EFC
+	bl	sub_06001EFC
 	b	_060020C0
 _06002084:
-	bl	FUN_06001D98
+	bl	sub_06001D98
 	b	_060020C0
 _0600208C:
 	mov	r0, r4
-	bl	FUN_06001048
+	bl	sub_06001048
 	b	_060020C0
 _06002098:
-	bl	FUN_060014FC
+	bl	sub_060014FC
 	b	_060020C0
 _060020A0:
-	bl	FUN_060019E4
+	bl	sub_060019E4
 	b	_060020C0
 _060020A8:
-	bl	FUN_060011DC
+	bl	sub_060011DC
 	b	_060020C0
 _060020B0:
-	bl	FUN_06000F10
+	bl	sub_06000F10
 	b	_060020C0
 _060020B8:
 	mov	r0, r4
-	bl	FUN_06001F48
+	bl	sub_06001F48
 _060020C0:
 	mov	r0, r4
-	bl	FUN_06001F4C
+	bl	sub_06001F4C
 _060020C8:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -2444,8 +2444,8 @@ _060020DC:	.word	0x00000186
 WMSP_IndicateThread: ; 0x060020E0
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
-	arm_func_start FUN_060020E4
-FUN_060020E4: ; 0x060020E4
+	arm_func_start sub_060020E4
+sub_060020E4: ; 0x060020E4
 	sub	sp, sp, #4
 	ldr	r0, _06002178	; =wmspW
 	add	r7, r0, #88	; 0x58
@@ -2456,11 +2456,11 @@ _060020FC:
 	mov	r0, r6
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUN_06000780
+	bl	sub_06000780
 	ldr	r1, [sp]
 	cmp	r1, #0
 	bne	_06002120
-	bl	FUN_0600217C
+	bl	sub_0600217C
 	b	_0600216C
 _06002120:
 	ldrh	r2, [r1, #12]
@@ -2477,12 +2477,12 @@ _06002148:
 	ands	r0, r3, #128	; 0x80
 	beq	_0600215C
 	mov	r0, r1
-	bl	FUN_06001F94
+	bl	sub_06001F94
 	b	_060020FC
 _0600215C:
 	mov	r0, r7
 	mov	r2, r4
-	bl	FUN_060006F8
+	bl	sub_060006F8
 	b	_060020FC
 _0600216C:
 	add	sp, sp, #4
@@ -2490,13 +2490,13 @@ _0600216C:
 	bx	lr
 _06002178:	.word	wmspW
 
-	arm_func_start FUN_0600217C
-FUN_0600217C: ; 0x0600217C
+	arm_func_start sub_0600217C
+sub_0600217C: ; 0x0600217C
 	ldr	pc, _06002180	; =OS_ExitThread
 _06002180:	.word	OS_ExitThread
 
-	arm_func_start FUN_06002184
-FUN_06002184: ; 0x06002184
+	arm_func_start sub_06002184
+sub_06002184: ; 0x06002184
 	bx	lr
 
 	arm_func_start WMSP_RequestThread
@@ -2515,11 +2515,11 @@ _060021B0:
 	mov	r0, r8
 	mov	r1, r7
 	mov	r2, r6
-	bl	FUN_06000780
+	bl	sub_06000780
 	ldr	r0, [sp]
 	cmp	r0, #0
 	bne	_060021D4
-	bl	FUN_0600217C
+	bl	sub_0600217C
 	b	_0600221C
 _060021D4:
 	ldrh	r9, [r0]
@@ -2549,8 +2549,8 @@ _06002228:	.word	wmspW
 _0600222C:	.word	_0601A960
 _06002230:	.word	_06019268
 
-	arm_func_start FUN_06002234
-FUN_06002234: ; 0x06002234
+	arm_func_start sub_06002234
+sub_06002234: ; 0x06002234
 	stmdb	sp!, {r4, lr}
 	mov	r3, #0
 	strh	r3, [r0]
@@ -2608,97 +2608,97 @@ _060022F4:	.word	0x00000309
 WMSP_WL_DevGetStationState: ; 0x060022F8
 	mov	r1, #776	; 0x308
 	mov	r2, #2
-	ldr	ip, _06002308	; =FUN_06002234
+	ldr	ip, _06002308	; =sub_06002234
 	bx	ip
-_06002308:	.word	FUN_06002234
+_06002308:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_DevGetWirelessCounter
 WMSP_WL_DevGetWirelessCounter: ; 0x0600230C
 	ldr	r1, _0600231C	; =0x00000307
 	mov	r2, #92	; 0x5c
-	ldr	ip, _06002320	; =FUN_06002234
+	ldr	ip, _06002320	; =sub_06002234
 	bx	ip
 _0600231C:	.word	0x00000307
-_06002320:	.word	FUN_06002234
+_06002320:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_DevGetVersion
 WMSP_WL_DevGetVersion: ; 0x06002324
 	ldr	r1, _06002334	; =0x00000306
 	mov	r2, #9
-	ldr	ip, _06002338	; =FUN_06002234
+	ldr	ip, _06002338	; =sub_06002234
 	bx	ip
 _06002334:	.word	0x00000306
-_06002338:	.word	FUN_06002234
+_06002338:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_DevSetInitializeWirelessCounter
 WMSP_WL_DevSetInitializeWirelessCounter: ; 0x0600233C
 	ldr	r1, _0600234C	; =0x00000305
 	mov	r2, #1
-	ldr	ip, _06002350	; =FUN_06002234
+	ldr	ip, _06002350	; =sub_06002234
 	bx	ip
 _0600234C:	.word	0x00000305
-_06002350:	.word	FUN_06002234
+_06002350:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_DevRestart
 WMSP_WL_DevRestart: ; 0x06002354
 	mov	r1, #772	; 0x304
 	mov	r2, #1
-	ldr	ip, _06002364	; =FUN_06002234
+	ldr	ip, _06002364	; =sub_06002234
 	bx	ip
-_06002364:	.word	FUN_06002234
+_06002364:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_DevClass1
 WMSP_WL_DevClass1: ; 0x06002368
 	ldr	r1, _06002378	; =0x00000303
 	mov	r2, #1
-	ldr	ip, _0600237C	; =FUN_06002234
+	ldr	ip, _0600237C	; =sub_06002234
 	bx	ip
 _06002378:	.word	0x00000303
-_0600237C:	.word	FUN_06002234
+_0600237C:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_DevIdle
 WMSP_WL_DevIdle: ; 0x06002380
 	ldr	r1, _06002390	; =0x00000302
 	mov	r2, #1
-	ldr	ip, _06002394	; =FUN_06002234
+	ldr	ip, _06002394	; =sub_06002234
 	bx	ip
 _06002390:	.word	0x00000302
-_06002394:	.word	FUN_06002234
+_06002394:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_DevShutdown
 WMSP_WL_DevShutdown: ; 0x06002398
 	ldr	r1, _060023A8	; =0x00000301
 	mov	r2, #1
-	ldr	ip, _060023AC	; =FUN_06002234
+	ldr	ip, _060023AC	; =sub_06002234
 	bx	ip
 _060023A8:	.word	0x00000301
-_060023AC:	.word	FUN_06002234
+_060023AC:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_ParamGetMode
 WMSP_WL_ParamGetMode: ; 0x060023B0
 	mov	r1, #644	; 0x284
 	mov	r2, #2
-	ldr	ip, _060023C0	; =FUN_06002234
+	ldr	ip, _060023C0	; =sub_06002234
 	bx	ip
-_060023C0:	.word	FUN_06002234
+_060023C0:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_ParamGetEnableChannel
 WMSP_WL_ParamGetEnableChannel: ; 0x060023C4
 	ldr	r1, _060023D4	; =0x00000283
 	mov	r2, #3
-	ldr	ip, _060023D8	; =FUN_06002234
+	ldr	ip, _060023D8	; =sub_06002234
 	bx	ip
 _060023D4:	.word	0x00000283
-_060023D8:	.word	FUN_06002234
+_060023D8:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_ParamGetMacAddress
 WMSP_WL_ParamGetMacAddress: ; 0x060023DC
 	ldr	r1, _060023EC	; =0x00000281
 	mov	r2, #4
-	ldr	ip, _060023F0	; =FUN_06002234
+	ldr	ip, _060023F0	; =sub_06002234
 	bx	ip
 _060023EC:	.word	0x00000281
-_060023F0:	.word	FUN_06002234
+_060023F0:	.word	sub_06002234
 
 	arm_func_start WMSP_WL_ParamSetGameInfo
 WMSP_WL_ParamSetGameInfo: ; 0x060023F4
@@ -2717,14 +2717,14 @@ WMSP_WL_ParamSetGameInfo: ; 0x060023F4
 	strh	r0, [r4, #12]
 	add	r0, r6, #1
 	mov	r1, #2
-	bl	FUN_06001840
+	bl	sub_06001840
 	add	r0, r0, #1
 	strh	r0, [r4, #14]
 	strh	r6, [r4, #16]
 	mov	r0, r5
 	add	r1, r4, #18
 	mov	r2, r6
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -2923,7 +2923,7 @@ WMSP_WL_ParamSetSsidMask: ; 0x060026D0
 	mov	r0, r1
 	add	r1, r4, #16
 	mov	r2, #32
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -3137,7 +3137,7 @@ WMSP_WL_MaData: ; 0x060029D0
 	mov	r0, r5
 	add	r1, r4, #16
 	mov	r2, #48	; 0x30
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	mov	r0, #0
 	strh	r0, [r5, #2]
 	strh	r0, [r5, #4]
@@ -3189,7 +3189,7 @@ WMSP_WL_MlmeMeasureChannel: ; 0x06002A88
 	ldr	r0, [sp, #16]
 	add	r1, r4, #24
 	mov	r2, #16
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -3224,14 +3224,14 @@ WMSP_WL_MlmeStart: ; 0x06002B14
 	ldrh	r0, [sp, #40]	; 0x28
 	add	r0, r0, #1
 	mov	r1, #2
-	bl	FUN_06001840
+	bl	sub_06001840
 	add	r0, r0, #23
 	strh	r0, [r7, #14]
 	strh	r6, [r7, #16]
 	mov	r0, r5
 	add	r1, r7, #18
 	mov	r2, #32
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	strh	r4, [r7, #50]	; 0x32
 	ldrh	r0, [sp, #24]
 	strh	r0, [r7, #52]	; 0x34
@@ -3245,7 +3245,7 @@ WMSP_WL_MlmeStart: ; 0x06002B14
 	strh	r2, [r7, #60]	; 0x3c
 	ldr	r0, [sp, #44]	; 0x2c
 	add	r1, r7, #62	; 0x3e
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r7, #14]
 	add	r1, r7, r0, lsl #1
 	add	r4, r1, #16
@@ -3279,7 +3279,7 @@ WMSP_WL_MlmeAssociate: ; 0x06002BE8
 	strh	r0, [r4, #14]
 	mov	r0, r1
 	add	r1, r4, #16
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	strh	r6, [r4, #22]
 	strh	r5, [r4, #24]
 	ldrh	r0, [r4, #14]
@@ -3315,7 +3315,7 @@ WMSP_WL_MlmeDeAuthenticate: ; 0x06002C68
 	mov	r0, r1
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	strh	r5, [r4, #22]
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
@@ -3351,7 +3351,7 @@ WMSP_WL_MlmeAuthenticate: ; 0x06002CEC
 	mov	r0, r1
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	strh	r6, [r4, #22]
 	strh	r5, [r4, #24]
 	ldrh	r0, [r4, #14]
@@ -3388,7 +3388,7 @@ WMSP_WL_MlmeJoin: ; 0x06002D70
 	mov	r0, r2
 	add	r1, r4, #20
 	mov	r2, #68	; 0x44
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -3423,18 +3423,18 @@ WMSP_WL_MlmeScan: ; 0x06002DF4
 	mov	r0, r2
 	add	r1, r5, #16
 	mov	r2, #6
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	strh	r6, [r5, #22]
 	ldr	r0, [sp, #16]
 	add	r1, r5, #24
 	mov	r2, #32
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [sp, #20]
 	strh	r0, [r5, #56]	; 0x38
 	ldr	r0, [sp, #24]
 	add	r1, r5, #58	; 0x3a
 	mov	r2, #16
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [sp, #28]
 	strh	r0, [r5, #74]	; 0x4a
 	mov	r0, #0
@@ -3520,7 +3520,7 @@ WMSP_Initialize: ; 0x06002F6C
 	str	r0, [r4, #8]
 	bl	WMSPi_CommonInit
 	mov	r0, #15
-	bl	FUN_0600301C
+	bl	sub_0600301C
 	mov	r1, #1
 	ldr	r0, [r4]
 	strh	r1, [r0]
@@ -3529,7 +3529,7 @@ WMSP_Initialize: ; 0x06002F6C
 	bl	WMSPi_CommonWlIdle
 	cmp	r0, #0
 	bne	_06002FEC
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #0
 	strh	r1, [r0]
 	mov	r1, #1
@@ -3538,41 +3538,41 @@ WMSP_Initialize: ; 0x06002F6C
 	strh	r1, [r0, #4]
 	ldrh	r1, [sp, #2]
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_0600300C
 _06002FEC:
 	mov	r1, #2
 	ldr	r0, [r4]
 	strh	r1, [r0]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #0
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _0600300C:
 	add	sp, sp, #8
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06003018:	.word	_0601A960
 
-	arm_func_start FUN_0600301C
-FUN_0600301C: ; 0x0600301C
+	arm_func_start sub_0600301C
+sub_0600301C: ; 0x0600301C
 	ldr	pc, _06003020	; =PM_SetLEDPattern
 _06003020:	.word	PM_SetLEDPattern
 
-	arm_func_start FUN_06003024
-FUN_06003024: ; 0x06003024
+	arm_func_start sub_06003024
+sub_06003024: ; 0x06003024
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #1
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -3584,7 +3584,7 @@ WMSP_Reset: ; 0x0600305C
 	ldr	r0, _06003448	; =_0601A960
 	ldr	r7, [r0, #1360]	; 0x550
 	mov	r5, #0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	ldr	r0, [r7, #12]
 	cmp	r0, #1
@@ -3628,7 +3628,7 @@ _060030F0:
 	str	r1, [r7, #28]
 	strh	r1, [r7, #194]	; 0xc2
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	r5, #0
 	beq	_06003128
 	ldr	r0, _06003450	; =0x0000FFFF
@@ -3665,14 +3665,14 @@ _0600318C:
 	add	r0, r7, #296	; 0x128
 	mov	r1, #0
 	mov	r2, #90	; 0x5a
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	add	r0, sp, #16
 	bl	WMSP_WL_DevGetStationState
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060031BC
 	mov	r0, #776	; 0x308
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _060031BC:
 	ldrh	r4, [r0, #6]
@@ -3682,7 +3682,7 @@ _060031BC:
 	cmp	r1, #0
 	beq	_060031E0
 	mov	r0, #644	; 0x284
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _060031E0:
 	ldrh	r1, [r0, #6]
@@ -3727,7 +3727,7 @@ _06003250:
 	add	r0, r7, r0
 	add	r1, sp, #4
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r6, #0
 	add	r5, sp, #4
 	mov	r4, #3
@@ -3761,7 +3761,7 @@ _060032D8:
 	add	r0, sp, #10
 	mov	r1, #255	; 0xff
 	mov	r2, #6
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	add	r0, sp, #16
 	add	r1, sp, #10
 	mov	r2, #3
@@ -3778,7 +3778,7 @@ _06003310:
 	cmp	r1, #0
 	beq	_06003334
 	mov	r0, #0
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _06003334:
 	add	r0, sp, #16
@@ -3787,7 +3787,7 @@ _06003334:
 	cmp	r1, #0
 	beq	_06003354
 	ldr	r0, _0600345C	; =0x00000302
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _06003354:
 	add	r0, r7, #256	; 0x100
@@ -3801,7 +3801,7 @@ _06003354:
 	cmp	r1, #0
 	beq	_06003388
 	ldr	r0, _06003460	; =0x0000020E
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _06003388:
 	mov	r1, #1
@@ -3828,7 +3828,7 @@ _060033AC:
 	cmp	r1, #0
 	beq	_060033E8
 	ldr	r0, _06003464	; =0x00000309
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _060033E8:
 	add	r0, sp, #16
@@ -3837,7 +3837,7 @@ _060033E8:
 	cmp	r1, #0
 	beq	_06003408
 	ldr	r0, _0600345C	; =0x00000302
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _06003408:
 	mov	r0, #2
@@ -3846,15 +3846,15 @@ _06003408:
 _06003414:
 	mov	r0, #776	; 0x308
 	mov	r1, #0
-	bl	FUN_06003024
+	bl	sub_06003024
 	b	_0600343C
 _06003424:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #1
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _0600343C:
 	add	sp, sp, #532	; 0x214
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -3868,20 +3868,20 @@ _0600345C:	.word	0x00000302
 _06003460:	.word	0x0000020E
 _06003464:	.word	0x00000309
 
-	arm_func_start FUN_06003468
-FUN_06003468: ; 0x06003468
+	arm_func_start sub_06003468
+sub_06003468: ; 0x06003468
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #2
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -3895,12 +3895,12 @@ WMSP_End: ; 0x060034A4
 	ldrh	r0, [r4]
 	cmp	r0, #2
 	beq	_060034DC
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #2
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06003528
 _060034DC:
 	add	r0, sp, #0
@@ -3909,20 +3909,20 @@ _060034DC:
 	cmp	r1, #0
 	beq	_060034FC
 	ldr	r0, _06003538	; =0x00000301
-	bl	FUN_06003468
+	bl	sub_06003468
 	b	_06003528
 _060034FC:
 	mov	r0, #1
 	strh	r0, [r4]
-	bl	FUN_0600301C
+	bl	sub_0600301C
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #2
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06003528:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, lr}
@@ -3930,20 +3930,20 @@ _06003528:
 _06003534:	.word	_0601A960
 _06003538:	.word	0x00000301
 
-	arm_func_start FUN_0600353C
-FUN_0600353C: ; 0x0600353C
+	arm_func_start sub_0600353C
+sub_0600353C: ; 0x0600353C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #7
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -3957,7 +3957,7 @@ WMSP_SetParentParam: ; 0x06003578
 	ldr	r0, [r0, #4]
 	add	r1, r4, #232	; 0xe8
 	mov	r2, #64	; 0x40
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r2, #1
 	add	r0, r4, #256	; 0x100
 	ldrh	r1, [r0, #26]
@@ -3965,12 +3965,12 @@ WMSP_SetParentParam: ; 0x06003578
 	ldrh	r0, [r0, #244]	; 0xf4
 	ands	r0, r1, r0
 	bne	_060035D0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #7
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_0600360C
 _060035D0:
 	add	r0, sp, #0
@@ -3980,15 +3980,15 @@ _060035D0:
 	cmp	r1, #0
 	beq	_060035F4
 	ldr	r0, _0600361C	; =0x00000212
-	bl	FUN_0600353C
+	bl	sub_0600353C
 	b	_0600360C
 _060035F4:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #7
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _0600360C:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, lr}
@@ -3996,13 +3996,13 @@ _0600360C:
 _06003618:	.word	_0601A960
 _0600361C:	.word	0x00000212
 
-	arm_func_start FUN_06003620
-FUN_06003620: ; 0x06003620
+	arm_func_start sub_06003620
+sub_06003620: ; 0x06003620
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #1
@@ -4011,7 +4011,7 @@ FUN_06003620: ; 0x06003620
 	strh	r1, [r0, #8]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -4026,14 +4026,14 @@ WMSP_StartParent: ; 0x06003664
 	ldrh	r1, [r4]
 	cmp	r1, #2
 	beq	_060036A8
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #0
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060038D4
 _060036A8:
 	ldr	r5, [r0, #4]
@@ -4045,25 +4045,25 @@ _060036A8:
 	mov	r1, r1, asr #1
 	ands	r1, r3, r1
 	bne	_060036F0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #0
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060038D4
 _060036F0:
 	strh	r2, [r4, #230]	; 0xe6
 	mov	r1, #0
 	strh	r1, [r0, #136]	; 0x88
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r2, #0
 	add	r1, r4, #256	; 0x100
 	strh	r2, [r1, #130]	; 0x82
 	strh	r2, [r4, #134]	; 0x86
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r1, #1
 	add	r0, r4, #256	; 0x100
 	strh	r1, [r0, #238]	; 0xee
@@ -4078,7 +4078,7 @@ _060036F0:
 	cmp	r1, #0
 	beq	_06003754
 	ldr	r0, _060038E4	; =0x00000303
-	bl	FUN_06003620
+	bl	sub_06003620
 	b	_060038D4
 _06003754:
 	cmp	r5, #0
@@ -4095,7 +4095,7 @@ _06003754:
 	cmp	r1, #0
 	beq	_06003794
 	mov	r0, #1
-	bl	FUN_06003620
+	bl	sub_06003620
 	b	_060038D4
 _06003794:
 	strh	r5, [r4, #198]	; 0xc6
@@ -4103,14 +4103,14 @@ _06003794:
 	mov	r0, #0
 	add	r1, sp, #568	; 0x238
 	mov	r2, #128	; 0x80
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	add	r0, sp, #568	; 0x238
 	mov	r1, r5
 	bl	WMSP_CopyParentParam
 	mov	r0, #0
 	add	r1, sp, #24
 	mov	r2, #32
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	ldr	r0, [r5, #8]
 	strh	r0, [sp, #24]
 	ldr	r0, [r5, #8]
@@ -4143,7 +4143,7 @@ _06003794:
 	cmp	r1, #0
 	beq	_06003850
 	mov	r0, #9
-	bl	FUN_06003620
+	bl	sub_06003620
 	b	_060038D4
 _06003850:
 	ldrh	r0, [r5, #20]
@@ -4164,7 +4164,7 @@ _06003850:
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	bl	WMSP_SetChildMaxSize
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #7
 	strh	r1, [r4]
 	mov	r1, #8
@@ -4176,7 +4176,7 @@ _06003850:
 	strh	r1, [r0, #44]	; 0x2c
 	ldrh	r1, [r4, #50]	; 0x32
 	strh	r1, [r0, #46]	; 0x2e
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	mov	r0, #1
 	strh	r0, [r4, #194]	; 0xc2
 _060038D4:
@@ -4186,20 +4186,20 @@ _060038D4:
 _060038E0:	.word	_0601A960
 _060038E4:	.word	0x00000303
 
-	arm_func_start FUN_060038E8
-FUN_060038E8: ; 0x060038E8
+	arm_func_start sub_060038E8
+sub_060038E8: ; 0x060038E8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #9
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -4213,12 +4213,12 @@ WMSP_EndParent: ; 0x06003924
 	ldrh	r0, [r8]
 	cmp	r0, #7
 	beq	_0600395C
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #9
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06003AE4
 _0600395C:
 	mov	r6, #0
@@ -4241,7 +4241,7 @@ _06003980:
 	mla	r0, r1, r0, r4
 	add	r1, sp, #8
 	mov	r2, fp
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r9, r6
 	b	_060039E4
 _060039B4:
@@ -4262,7 +4262,7 @@ _060039E4:
 	cmp	r9, #2
 	blt	_060039B4
 _060039EC:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	add	r1, r8, #256	; 0x100
 	ldrh	r2, [r1, #130]	; 0x82
 	ands	r3, r2, r7
@@ -4276,7 +4276,7 @@ _060039EC:
 	add	r1, r8, sl, lsl #3
 	str	r6, [r1, #1848]	; 0x738
 	str	r6, [r1, #1852]	; 0x73c
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	ldr	r0, [sp, #4]
 	mov	r1, sl, lsl #16
 	mov	r1, r1, lsr #16
@@ -4284,7 +4284,7 @@ _060039EC:
 	bl	WMSP_IndicateDisconnectionFromMyself
 	b	_06003A44
 _06003A40:
-	bl	FUN_060001AC
+	bl	sub_060001AC
 _06003A44:
 	add	sl, sl, #1
 	cmp	sl, #16
@@ -4296,7 +4296,7 @@ _06003A44:
 	cmp	r1, #0
 	beq	_06003A74
 	mov	r0, #0
-	bl	FUN_060038E8
+	bl	sub_060038E8
 	b	_06003AE4
 _06003A74:
 	mov	r0, #0
@@ -4309,7 +4309,7 @@ _06003A74:
 	cmp	r1, #0
 	beq	_06003AA4
 	ldr	r0, _06003AF4	; =0x00000302
-	bl	FUN_060038E8
+	bl	sub_060038E8
 	b	_06003AE4
 _06003AA4:
 	mov	r0, #2
@@ -4320,14 +4320,14 @@ _06003AA4:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r8, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	bl	WMSP_ResetSizeVars
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #9
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06003AE4:
 	add	sp, sp, #532	; 0x214
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -4335,13 +4335,13 @@ _06003AE4:
 _06003AF0:	.word	_0601A960
 _06003AF4:	.word	0x00000302
 
-	arm_func_start FUN_06003AF8
-FUN_06003AF8: ; 0x06003AF8
+	arm_func_start sub_06003AF8
+sub_06003AF8: ; 0x06003AF8
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	cmp	r4, #0
 	movne	r1, #38	; 0x26
 	strneh	r1, [r0]
@@ -4353,29 +4353,29 @@ FUN_06003AF8: ; 0x06003AF8
 	strh	r1, [r0, #8]
 	strh	r6, [r0, #4]
 	strh	r5, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_06003B44
-FUN_06003B44: ; 0x06003B44
+	arm_func_start sub_06003B44
+sub_06003B44: ; 0x06003B44
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	sub	r0, r4, #64	; 0x40
 	mov	r1, #66	; 0x42
-	bl	FUN_06003B68
+	bl	sub_06003B68
 	sub	r0, r4, r0, lsl #1
 	add	r0, r0, #94	; 0x5e
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06003B68
-FUN_06003B68: ; 0x06003B68
+	arm_func_start sub_06003B68
+sub_06003B68: ; 0x06003B68
 	ldr	pc, _06003B6C	; =_u32_div_f
 _06003B6C:	.word	_u32_div_f
 
-	arm_func_start FUN_06003B70
-FUN_06003B70: ; 0x06003B70
+	arm_func_start sub_06003B70
+sub_06003B70: ; 0x06003B70
 	ldrh	r2, [r0, #10]
 	cmp	r2, #0
 	moveq	r0, #0
@@ -4413,14 +4413,14 @@ WMSP_StartScanEx: ; 0x06003BBC
 	beq	_06003C14
 	cmp	r0, #5
 	beq	_06003C14
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #38	; 0x26
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060040C8
 _06003C14:
 	ldr	r0, [r8, #4]
@@ -4432,7 +4432,7 @@ _06003C14:
 	add	r0, r8, #12
 	add	r1, sp, #28
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r6, [r8, #54]	; 0x36
 	ldrh	r7, [r8, #18]
 	cmp	r7, #2
@@ -4455,7 +4455,7 @@ _06003C74:
 	add	r0, r8, #22
 	add	r1, sp, #34	; 0x22
 	mov	r2, #32
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r8, #8]
 	str	r0, [sp, #16]
 	ldrh	r1, [sp, #28]
@@ -4472,14 +4472,14 @@ _06003CAC:
 	ldrh	r0, [r0, #244]	; 0xf4
 	ands	sl, r1, r0
 	bne	_06003CE8
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #38	; 0x26
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060040C8
 _06003CE8:
 	ldr	r0, [r8, #4]
@@ -4491,14 +4491,14 @@ _06003CE8:
 	cmp	r0, #64	; 0x40
 	bcs	_06003D2C
 _06003D08:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #38	; 0x26
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060040C8
 _06003D2C:
 	mov	r0, #2
@@ -4510,7 +4510,7 @@ _06003D2C:
 	beq	_06003D58
 	mov	r0, #776	; 0x308
 	mov	r2, #1
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_060040C8
 _06003D58:
 	ldrh	r0, [r0, #6]
@@ -4528,7 +4528,7 @@ _06003D58:
 	beq	_06003D9C
 	ldr	r0, _060040E4	; =0x00000303
 	mov	r2, #1
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_060040C8
 _06003D9C:
 	mov	r0, #3
@@ -4543,7 +4543,7 @@ _06003D9C:
 	beq	_06003DD4
 	mov	r0, #1
 	mov	r2, r0
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_060040C8
 _06003DD4:
 	mov	r0, #1
@@ -4563,7 +4563,7 @@ _06003DDC:
 	beq	_06003E1C
 	ldr	r0, _060040E8	; =0x0000020E
 	mov	r2, #1
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_060040C8
 _06003E1C:
 	mov	r1, #0
@@ -4583,7 +4583,7 @@ _06003E2C:
 	beq	_06003E64
 	ldr	r0, _060040E8	; =0x0000020E
 	mov	r2, #1
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_060040C8
 _06003E64:
 	mov	r1, #1
@@ -4595,13 +4595,13 @@ _06003E70:
 	add	r0, sp, #66	; 0x42
 	mov	r1, #255	; 0xff
 	mov	r2, #32
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	cmp	r6, #32
 	bhi	_06003EA0
 	add	r0, sp, #66	; 0x42
 	mov	r1, #0
 	mov	r2, r6
-	bl	FUN_06000D08
+	bl	sub_06000D08
 _06003EA0:
 	add	r0, sp, #116	; 0x74
 	add	r1, sp, #66	; 0x42
@@ -4611,7 +4611,7 @@ _06003EA0:
 	beq	_06003EC8
 	ldr	r0, _060040EC	; =0x0000020D
 	mov	r2, #1
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_060040C8
 _06003EC8:
 	mov	r0, #5
@@ -4620,7 +4620,7 @@ _06003EC8:
 	add	r0, sp, #98	; 0x62
 	mov	r1, r5
 	mov	r2, #16
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	mov	r3, #1
 	add	r1, sp, #98	; 0x62
 	mov	r2, r3
@@ -4637,7 +4637,7 @@ _06003EF0:
 	cmp	r3, #15
 	bcc	_06003EF0
 	ldr	r0, [sp, #16]
-	bl	FUN_06003B44
+	bl	sub_06003B44
 	mov	r1, r0
 	add	r0, sp, #34	; 0x22
 	str	r0, [sp]
@@ -4655,10 +4655,10 @@ _06003EF0:
 	beq	_06003F70
 	mov	r0, #2
 	mov	r2, #1
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_060040C8
 _06003F70:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r7, r0
 	ldrh	r0, [r8, #8]
 	cmp	r0, #0
@@ -4679,7 +4679,7 @@ _06003FAC:
 	mov	r0, #0
 	mov	r1, r4
 	ldr	r2, [sp, #16]
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r6, #0
 	mov	r0, #32
 	str	r0, [sp, #24]
@@ -4692,18 +4692,18 @@ _06003FD4:
 	mov	r0, r5
 	mov	r1, r4
 	ldr	r2, [sp, #20]
-	bl	FUN_06000554
+	bl	sub_06000554
 	cmp	r9, #0
 	beq	_06004020
 	mov	r0, r4
-	bl	FUN_06003B70
+	bl	sub_06003B70
 	cmp	r0, #0
 	bne	_06004020
 	strh	r9, [r4, #10]
 	add	r0, sp, #34	; 0x22
 	add	r1, r4, #12
 	ldr	r2, [sp, #24]
-	bl	FUN_06000554
+	bl	sub_06000554
 _06004020:
 	add	r0, r7, r6, lsl #2
 	str	r4, [r0, #16]
@@ -4748,7 +4748,7 @@ _0600408C:
 	strh	r0, [r7, #10]
 _060040C0:
 	mov	r0, r7
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060040C8:
 	ldr	ip, _060040D8	; =0x000004CC
 	add	sp, sp, ip
@@ -4776,14 +4776,14 @@ WMSP_StartScan: ; 0x060040F4
 	beq	_06004148
 	cmp	r1, #5
 	beq	_06004148
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #10
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004470
 _06004148:
 	ldr	r1, [r0, #4]
@@ -4795,7 +4795,7 @@ _06004148:
 	add	r0, r0, #10
 	add	r1, sp, #16
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r1, [sp, #16]
 	ldr	r0, _06004480	; =0x0000FFFF
 	cmp	r1, r0
@@ -4806,14 +4806,14 @@ _06004148:
 _0600418C:
 	cmp	r7, #0
 	bne	_060041B8
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #10
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004470
 _060041B8:
 	mov	r0, #1
@@ -4822,14 +4822,14 @@ _060041B8:
 	ldrh	r0, [r0, #244]	; 0xf4
 	ands	r0, r1, r0
 	bne	_060041F4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #10
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004470
 _060041F4:
 	mov	r0, #2
@@ -4841,7 +4841,7 @@ _060041F4:
 	beq	_06004220
 	mov	r0, #776	; 0x308
 	mov	r2, #0
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_06004470
 _06004220:
 	ldrh	r0, [r0, #6]
@@ -4859,7 +4859,7 @@ _06004220:
 	beq	_06004264
 	ldr	r0, _06004484	; =0x00000303
 	mov	r2, #0
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_06004470
 _06004264:
 	mov	r0, #3
@@ -4874,7 +4874,7 @@ _06004264:
 	beq	_0600429C
 	mov	r0, #1
 	mov	r2, #0
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_06004470
 _0600429C:
 	mov	r0, #1
@@ -4885,12 +4885,12 @@ _060042A4:
 	ldr	r0, _06004480	; =0x0000FFFF
 	add	r1, sp, #22
 	mov	r2, #32
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	strb	r7, [sp, #54]	; 0x36
 	add	r0, sp, #55	; 0x37
 	mov	r1, #0
 	mov	r2, #15
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	add	r0, sp, #22
 	str	r0, [sp]
 	mov	r0, #1
@@ -4909,10 +4909,10 @@ _060042A4:
 	beq	_06004320
 	mov	r0, #2
 	mov	r2, #0
-	bl	FUN_06003AF8
+	bl	sub_06003AF8
 	b	_06004470
 _06004320:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r5, r0
 	ldrh	r0, [r6, #8]
 	cmp	r0, #0
@@ -4931,12 +4931,12 @@ _06004358:
 	ldr	r1, [r4, #388]	; 0x184
 	add	r1, r1, #64	; 0x40
 	mov	r2, #128	; 0x80
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	add	r0, r6, #10
 	ldr	r1, [r4, #388]	; 0x184
 	ldrh	r2, [r6, #10]
 	mov	r2, r2, lsl #1
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, #10
 	strh	r0, [r5]
 	mov	r0, #0
@@ -4966,11 +4966,11 @@ _06004358:
 	add	r0, r6, #14
 	add	r1, r5, #10
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, r6, #22
 	add	r1, r5, #22
 	mov	r2, #32
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r6, #70]	; 0x46
 	strh	r0, [r5, #54]	; 0x36
 	ldrh	r0, [r5, #54]	; 0x36
@@ -4989,16 +4989,16 @@ _06004440:
 	mov	r0, #0
 	add	r1, r5, #56	; 0x38
 	mov	r2, #128	; 0x80
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	add	r0, r6, #74	; 0x4a
 	add	r1, r5, #56	; 0x38
 	ldrh	r2, [r5, #54]	; 0x36
 	add	r2, r2, #1
 	bic	r2, r2, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 _06004468:
 	mov	r0, r5
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06004470:
 	add	sp, sp, #588	; 0x24c
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -5009,20 +5009,20 @@ _06004484:	.word	0x00000303
 _06004488:	.word	0x0000011E
 _0600448C:	.word	0x027FFF98
 
-	arm_func_start FUN_06004490
-FUN_06004490: ; 0x06004490
+	arm_func_start sub_06004490
+sub_06004490: ; 0x06004490
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #11
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -5037,12 +5037,12 @@ WMSP_EndScan: ; 0x060044CC
 	ldrh	r0, [r4]
 	cmp	r0, #5
 	beq	_06004508
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #11
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004588
 _06004508:
 	mov	r0, r5
@@ -5051,7 +5051,7 @@ _06004508:
 	cmp	r1, #0
 	beq	_06004528
 	ldr	r0, _06004598	; =0x00000302
-	bl	FUN_06004490
+	bl	sub_06004490
 	b	_06004588
 _06004528:
 	mov	r0, #2
@@ -5067,19 +5067,19 @@ _06004528:
 	cmp	r1, #0
 	beq	_06004564
 	ldr	r0, _0600459C	; =0x0000020E
-	bl	FUN_06004490
+	bl	sub_06004490
 	b	_06004588
 _06004564:
 	mov	r1, #1
 	add	r0, r4, #256	; 0x100
 	strh	r1, [r0, #238]	; 0xee
 _06004570:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #11
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06004588:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
@@ -5088,13 +5088,13 @@ _06004594:	.word	_0601A960
 _06004598:	.word	0x00000302
 _0600459C:	.word	0x0000020E
 
-	arm_func_start FUN_060045A0
-FUN_060045A0: ; 0x060045A0
+	arm_func_start sub_060045A0
+sub_060045A0: ; 0x060045A0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #1
@@ -5102,7 +5102,7 @@ FUN_060045A0: ; 0x060045A0
 	strh	r6, [r0, #4]
 	strh	r5, [r0, #6]
 	strh	r4, [r0, #14]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
@@ -5118,34 +5118,34 @@ WMSP_StartConnectEx: ; 0x060045DC
 	ldrh	r0, [r5]
 	cmp	r0, #2
 	beq	_06004628
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004B9C
 _06004628:
 	ldr	r0, [r6, #4]
 	add	r1, r7, #16
 	mov	r2, #192	; 0xc0
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r7, #76]	; 0x4c
 	cmp	r0, #16
 	bcc	_06004674
 	ldrb	r0, [r7, #91]	; 0x5b
 	ands	r0, r0, #1
 	bne	_06004674
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #11
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004B9C
 _06004674:
 	mov	r1, #1
@@ -5160,23 +5160,23 @@ _06004674:
 	ands	r0, r1, r0
 	bne	_060046C0
 _060046A0:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004B9C
 _060046C0:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	r0, r5, #256	; 0x100
 	ldrh	r1, [r0, #236]	; 0xec
 	cmp	r1, #1
@@ -5223,7 +5223,7 @@ _06004724:
 	beq	_06004798
 	ldr	r0, _06004BB0	; =0x00000216
 	mov	r2, #0
-	bl	FUN_060045A0
+	bl	sub_060045A0
 	b	_06004B9C
 _06004798:
 	ldrh	r0, [r7, #76]	; 0x4c
@@ -5234,7 +5234,7 @@ _06004798:
 	moveq	r0, #1
 	beq	_060047C0
 	ldr	r0, _06004BB4	; =0x00002710
-	bl	FUN_06001840
+	bl	sub_06001840
 	add	r0, r0, #1
 _060047C0:
 	mov	r0, r0, lsl #16
@@ -5248,7 +5248,7 @@ _060047C0:
 	beq	_060047F4
 	ldr	r0, _06004BB8	; =0x0000020B
 	mov	r2, #0
-	bl	FUN_060045A0
+	bl	sub_060045A0
 	b	_06004B9C
 _060047F4:
 	mov	r0, r4
@@ -5258,7 +5258,7 @@ _060047F4:
 	beq	_06004818
 	ldr	r0, _06004BBC	; =0x00000303
 	mov	r2, #0
-	bl	FUN_060045A0
+	bl	sub_060045A0
 	b	_06004B9C
 _06004818:
 	mov	r0, #3
@@ -5279,14 +5279,14 @@ _06004818:
 	beq	_06004868
 	mov	r0, #1
 	mov	r2, #0
-	bl	FUN_060045A0
+	bl	sub_060045A0
 	b	_06004B9C
 _06004868:
 	strh	r8, [r5, #198]	; 0xc6
 	add	r0, r7, #16
 	add	r1, sp, #524	; 0x20c
 	mov	r2, #64	; 0x40
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r5, #230]	; 0xe6
 	cmp	r0, #2
 	bne	_060048C8
@@ -5305,7 +5305,7 @@ _06004868:
 	add	r0, r6, #8
 	add	r1, sp, #544	; 0x220
 	mov	r2, #24
-	bl	FUN_06000554
+	bl	sub_06000554
 _060048C8:
 	mov	r0, r4
 	mov	r1, #2000	; 0x7d0
@@ -5321,19 +5321,19 @@ _060048C8:
 _060048F4:
 	mov	r0, #3
 	ldrh	r2, [r2, #6]
-	bl	FUN_060045A0
+	bl	sub_060045A0
 	b	_06004B9C
 _06004904:
 	add	r0, r2, #8
 	ldr	r1, _06004BC0	; =0x0000018A
 	add	r1, r5, r1
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldr	r0, _06004BC0	; =0x0000018A
 	add	r0, r5, r0
 	add	r1, sp, #0
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, r4
 	add	r1, sp, #0
 	ldrh	r2, [r6, #38]	; 0x26
@@ -5346,13 +5346,13 @@ _06004904:
 	ldrh	r0, [r2, #6]
 	cmp	r0, #19
 	bne	_0600497C
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004B9C
 _0600497C:
 	cmp	r1, #0
@@ -5363,21 +5363,21 @@ _0600497C:
 _06004990:
 	mov	r0, #4
 	ldrh	r2, [r2, #6]
-	bl	FUN_060045A0
+	bl	sub_060045A0
 	b	_06004B9C
 _060049A0:
 	ldr	r0, _06004BC0	; =0x0000018A
 	add	r0, r5, r0
 	add	r1, sp, #6
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, r4
 	add	r1, sp, #6
 	mov	r2, #1
 	mov	r3, #2000	; 0x7d0
 	bl	WMSP_WL_MlmeAssociate
 	mov	r4, r0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r6, r0
 	ldrh	r2, [r4, #4]
 	cmp	r2, #12
@@ -5385,14 +5385,14 @@ _060049A0:
 	ldrh	r1, [r4, #6]
 	cmp	r1, #19
 	bne	_06004A10
-	bl	FUN_060001AC
-	bl	FUN_060001E8
+	bl	sub_060001AC
+	bl	sub_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06004B9C
 _06004A10:
 	cmp	r2, #0
@@ -5402,11 +5402,11 @@ _06004A10:
 	beq	_06004A40
 _06004A24:
 	mov	r0, r6
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r0, #6
 	ldrh	r1, [r4, #4]
 	ldrh	r2, [r4, #6]
-	bl	FUN_060045A0
+	bl	sub_060045A0
 	b	_06004B9C
 _06004A40:
 	ldrh	r1, [r4, #8]
@@ -5417,7 +5417,7 @@ _06004A40:
 	mov	r0, #1
 	add	r1, r5, #504	; 0x1f8
 	mov	r2, #16
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	ldrh	r0, [r7, #18]
 	and	r1, r0, #255	; 0xff
 	ands	r0, r1, #2
@@ -5431,7 +5431,7 @@ _06004A40:
 	strh	r0, [r5, #188]	; 0xbc
 	mov	r0, r4
 	bl	WMSP_FillRssiIntoList
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	mov	r1, #1
 	add	r0, r5, #256	; 0x100
@@ -5443,7 +5443,7 @@ _06004A40:
 	cmp	r1, r0
 	cmpeq	r2, r0
 	beq	_06004ADC
-	bl	FUN_06000E98
+	bl	sub_06000E98
 	orr	r1, r1, #0
 	orr	r0, r0, #1
 	str	r0, [r5, #1848]	; 0x738
@@ -5470,10 +5470,10 @@ _06004ADC:
 	mov	r0, r0, lsr #16
 	bl	WMSP_SetChildMaxSize
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r0, #1
 	strh	r0, [r5, #194]	; 0xc2
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #12
 	strh	r0, [r4]
@@ -5488,15 +5488,15 @@ _06004ADC:
 	add	r0, r5, r0
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r5, #48]	; 0x30
 	strh	r0, [r4, #22]
 	ldrh	r0, [r5, #50]	; 0x32
 	strh	r0, [r4, #24]
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	mov	r0, r6
-	bl	FUN_060001AC
+	bl	sub_060001AC
 _06004B9C:
 	add	sp, sp, #592	; 0x250
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -5509,15 +5509,15 @@ _06004BB8:	.word	0x0000020B
 _06004BBC:	.word	0x00000303
 _06004BC0:	.word	0x0000018A
 
-	arm_func_start FUN_06004BC4
-FUN_06004BC4: ; 0x06004BC4
+	arm_func_start sub_06004BC4
+sub_06004BC4: ; 0x06004BC4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
 	mov	r6, r1
 	mov	r5, r2
 	mov	r4, r3
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #37	; 0x25
 	strh	r1, [r0]
 	mov	r1, #1
@@ -5526,20 +5526,20 @@ FUN_06004BC4: ; 0x06004BC4
 	strh	r6, [r0, #6]
 	strh	r5, [r0, #8]
 	strh	r4, [r0, #10]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUN_06004C10
-FUN_06004C10: ; 0x06004C10
+	arm_func_start sub_06004C10
+sub_06004C10: ; 0x06004C10
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
 	mov	r6, r1
 	mov	r5, r2
 	mov	r4, r3
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #1
@@ -5548,7 +5548,7 @@ FUN_06004C10: ; 0x06004C10
 	strh	r6, [r0, #6]
 	strh	r5, [r0, #8]
 	strh	r4, [r0, #10]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -5561,7 +5561,7 @@ WMSP_IndicateDisconnectionFromMyself: ; 0x06004C5C
 	mov	r6, r2
 	ldr	r0, _06004D20	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r5, r0
 	mov	r0, #0
 	strh	r0, [r5, #2]
@@ -5577,7 +5577,7 @@ WMSP_IndicateDisconnectionFromMyself: ; 0x06004C5C
 	mov	r0, r6
 	add	r1, r5, #10
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r4, #48]	; 0x30
 	strh	r0, [r5, #44]	; 0x2c
 	ldrh	r0, [r4, #50]	; 0x32
@@ -5596,14 +5596,14 @@ _06004CCC:
 	mov	r0, r6
 	add	r1, r5, #16
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r4, #48]	; 0x30
 	strh	r0, [r5, #22]
 	ldrh	r0, [r4, #50]	; 0x32
 	strh	r0, [r5, #24]
 _06004D10:
 	mov	r0, r5
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 _06004D20:	.word	_0601A960
@@ -5643,16 +5643,16 @@ _06004D8C:
 	cmp	r0, #8
 	bne	_06004E4C
 _06004D9C:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	add	r1, r5, #256	; 0x100
 	ldrh	r1, [r1, #130]	; 0x82
 	cmp	r1, #0
 	bne	_06004DF4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	sl, #0
 	bne	_06004DEC
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #3
@@ -5662,7 +5662,7 @@ _06004D9C:
 	strh	r1, [r0, #6]
 	strh	r9, [r0, #8]
 	strh	r1, [r0, #10]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06004DEC:
 	mov	r0, #0
 	b	_06005310
@@ -5688,12 +5688,12 @@ _06004E24:
 	str	r1, [r5, #16]
 	str	r1, [r5, #28]
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06004E88
 _06004E4C:
 	cmp	sl, #0
 	bne	_06004E80
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #3
@@ -5703,7 +5703,7 @@ _06004E4C:
 	strh	r1, [r0, #6]
 	strh	r9, [r0, #8]
 	strh	r1, [r0, #10]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06004E80:
 	mov	r0, #0
 	b	_06005310
@@ -5718,7 +5718,7 @@ _06004E9C:
 	add	r0, r5, r0
 	add	r1, sp, #56	; 0x38
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r8, #0
 	add	r6, sp, #56	; 0x38
 	mov	r4, #3
@@ -5754,13 +5754,13 @@ _06004F18:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, #0
-	bl	FUN_06004BC4
+	bl	sub_06004BC4
 	b	_06004F44
 _06004F34:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, #0
-	bl	FUN_06004C10
+	bl	sub_06004C10
 _06004F44:
 	cmp	r7, #0
 	beq	_06004F54
@@ -5789,13 +5789,13 @@ _06004F64:
 	mov	r0, #0
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUN_06004BC4
+	bl	sub_06004BC4
 	b	_06004FBC
 _06004FAC:
 	mov	r0, #0
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUN_06004C10
+	bl	sub_06004C10
 _06004FBC:
 	cmp	r7, #0
 	beq	_06004FCC
@@ -5815,13 +5815,13 @@ _06004FD4:
 	ldr	r0, _06005324	; =0x00000302
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUN_06004BC4
+	bl	sub_06004BC4
 	b	_06005014
 _06005004:
 	ldr	r0, _06005324	; =0x00000302
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUN_06004C10
+	bl	sub_06004C10
 _06005014:
 	cmp	r7, #0
 	beq	_06005024
@@ -5839,11 +5839,11 @@ _0600502C:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r5, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	bl	WMSP_ResetSizeVars
 	cmp	sl, #1
 	bne	_060050BC
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #12
 	strh	r0, [r4]
@@ -5859,13 +5859,13 @@ _0600502C:
 	add	r0, sp, #56	; 0x38
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r0, [r5, #48]	; 0x30
 	strh	r0, [r4, #22]
 	ldrh	r0, [r5, #50]	; 0x32
 	strh	r0, [r4, #24]
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060050CC
 _060050BC:
 	mov	r0, #0
@@ -5911,7 +5911,7 @@ _0600511C:
 	str	r0, [sp, #12]
 	add	r1, sp, #62	; 0x3e
 	ldr	r2, [sp, #20]
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldr	r0, [sp, #24]
 	str	r0, [sp, #8]
 	b	_060051EC
@@ -5938,13 +5938,13 @@ _060051A8:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUN_06004BC4
+	bl	sub_06004BC4
 	b	_060051D4
 _060051C4:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUN_06004C10
+	bl	sub_06004C10
 _060051D4:
 	cmp	r7, #0
 	beq	_060051E4
@@ -5958,7 +5958,7 @@ _060051EC:
 	cmp	r0, #2
 	blt	_0600516C
 _060051F8:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	str	r0, [sp, #32]
 	add	r2, r5, #256	; 0x100
 	ldrh	r1, [r2, #130]	; 0x82
@@ -5981,12 +5981,12 @@ _060051F8:
 	ldr	r0, [sp, #12]
 	ldr	r1, [sp, #24]
 	ldr	r2, [sp, #20]
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	ldr	r0, [sp, #32]
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	sl, #1
 	bne	_060052C4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	str	r0, [sp, #40]	; 0x28
 	ldr	r1, [sp, #44]	; 0x2c
 	strh	r1, [r0]
@@ -6001,13 +6001,13 @@ _060051F8:
 	ldr	r1, [sp, #40]	; 0x28
 	add	r1, r1, #10
 	ldr	r2, [sp, #20]
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldrh	r1, [r5, #48]	; 0x30
 	ldr	r0, [sp, #40]	; 0x28
 	strh	r1, [r0, #44]	; 0x2c
 	ldrh	r1, [r5, #50]	; 0x32
 	strh	r1, [r0, #46]	; 0x2e
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060052D8
 _060052C4:
 	ldr	r0, [sp, #52]	; 0x34
@@ -6023,7 +6023,7 @@ _060052D8:
 	bl	WMSP_CleanSendQueue
 	b	_060052F4
 _060052F0:
-	bl	FUN_060001AC
+	bl	sub_060001AC
 _060052F4:
 	add	r6, r6, #1
 _060052F8:
@@ -6054,7 +6054,7 @@ WMSP_Disconnect: ; 0x06005328
 	bl	WMSP_DisconnectCore
 	cmp	r0, #1
 	bne	_06005374
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #0
@@ -6062,7 +6062,7 @@ WMSP_Disconnect: ; 0x06005328
 	strh	r4, [r0, #8]
 	ldrh	r1, [sp]
 	strh	r1, [r0, #10]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06005374:
 	add	sp, sp, #8
 	ldmia	sp!, {r4, lr}
@@ -6122,13 +6122,13 @@ _06005408:
 _0600543C:
 	cmp	sl, #0
 	beq	_06005464
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	strh	sl, [r0, #2]
 	mov	r1, #10
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06005624
 _06005464:
 	mov	r1, #0
@@ -6145,7 +6145,7 @@ _06005488:
 	mov	r0, r5
 	mov	r1, #0
 	bl	WMSP_SetMPParameterCore
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r5, r0
 	ldrh	r2, [r4]
 	ldr	r1, _0600563C	; =0x0000FFF9
@@ -6183,7 +6183,7 @@ _06005488:
 	ldr	r0, _06005638	; =0x0000FFFF
 	strh	r0, [r4, #190]	; 0xbe
 	strh	r1, [r4, #192]	; 0xc0
-	bl	FUN_06000E98
+	bl	sub_06000E98
 	mov	r2, #0
 	orr	r1, r1, #0
 	orr	r3, r0, #1
@@ -6207,18 +6207,18 @@ _06005540:
 	moveq	r0, #9
 	streqh	r0, [r4]
 _06005588:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #10
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	mov	r0, #1
 	str	r0, [r4, #12]
 	mov	r0, r5
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	add	r0, sp, #0
 	mov	r1, #1
 	bl	WMSP_WL_ParamSetNullKeyResponseMode
@@ -6226,7 +6226,7 @@ _06005588:
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
 	beq	_06005624
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #1
@@ -6235,18 +6235,18 @@ _06005588:
 	strh	r1, [r0, #4]
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06005624
 _06005600:
-	bl	FUN_060001AC
-	bl	FUN_060001E8
+	bl	sub_060001AC
+	bl	sub_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #10
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06005624:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -6301,7 +6301,7 @@ WMSP_SetMPData: ; 0x06005644
 _060056E0:
 	cmp	r6, #2
 	beq	_06005778
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #129	; 0x81
 	strh	r1, [r0]
 	strh	r6, [r0, #2]
@@ -6336,7 +6336,7 @@ _060056E0:
 	cmp	r1, #0
 	movne	r3, r2
 	strh	r3, [r0, #38]	; 0x26
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06005778:
 	add	sp, sp, #20
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -6344,20 +6344,20 @@ _06005778:
 _06005784:	.word	_0601A960
 _06005788:	.word	0x0000FFFF
 
-	arm_func_start FUN_0600578C
-FUN_0600578C: ; 0x0600578C
+	arm_func_start sub_0600578C
+sub_0600578C: ; 0x0600578C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #16
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -6374,15 +6374,15 @@ WMSP_EndMP: ; 0x060057C8
 	beq	_0600580C
 	cmp	r0, #10
 	beq	_0600580C
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #16
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060058D0
 _0600580C:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r5, r0
 	ldr	r0, [r4, #12]
 	cmp	r0, #1
@@ -6401,7 +6401,7 @@ _0600580C:
 	streqh	r0, [r4]
 _06005850:
 	mov	r0, r5
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	add	r0, sp, #0
 	mov	r1, #0
 	bl	WMSP_WL_ParamSetNullKeyResponseMode
@@ -6409,7 +6409,7 @@ _06005850:
 	cmp	r1, #0
 	beq	_0600587C
 	ldr	r0, _060058E0	; =0x00000216
-	bl	FUN_0600578C
+	bl	sub_0600578C
 	b	_060058D0
 _0600587C:
 	add	r0, sp, #0
@@ -6419,7 +6419,7 @@ _0600587C:
 	cmp	r1, #0
 	beq	_060058A0
 	mov	r0, #260	; 0x104
-	bl	FUN_0600578C
+	bl	sub_0600578C
 	b	_060058D0
 _060058A0:
 	mov	r0, #0
@@ -6429,12 +6429,12 @@ _060058A0:
 	ldr	r0, _060058E4	; =0x0000FFFF
 	bl	WMSP_CleanSendQueue
 _060058B8:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #16
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060058D0:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -6452,7 +6452,7 @@ WMSP_StartDCF: ; 0x060058E8
 	ldr	r0, [r0, #8]
 	mov	r6, r0, lsl #16
 	mov	r7, r6, lsr #16
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r4, r0
 	str	r8, [r5, #176]	; 0xb0
 	strh	r7, [r5, #184]	; 0xb8
@@ -6465,18 +6465,18 @@ WMSP_StartDCF: ; 0x060058E8
 	str	r0, [r5, #24]
 	mov	r0, #11
 	strh	r0, [r5]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #17
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #14
 	strh	r1, [r0, #4]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	mov	r0, #1
 	str	r0, [r5, #16]
 	mov	r0, r4
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 _06005970:	.word	_0601A960
@@ -6491,7 +6491,7 @@ WMSP_SetDCFData: ; 0x06005974
 	add	r0, r5, #4
 	add	r1, r4, #162	; 0xa2
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldr	r0, [r5, #12]
 	str	r0, [r4, #168]	; 0xa8
 	ldr	r0, [r5, #16]
@@ -6501,7 +6501,7 @@ WMSP_SetDCFData: ; 0x06005974
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #48	; 0x30
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #0
 	strh	r0, [sp]
 	ldr	r0, [r5, #16]
@@ -6515,18 +6515,18 @@ WMSP_SetDCFData: ; 0x06005974
 	add	r0, r5, #4
 	add	r1, sp, #24
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, r4, #224	; 0xe0
 	add	r1, sp, #30
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	ldr	r0, [r5, #12]
 	str	r0, [sp, #44]	; 0x2c
 	add	r0, sp, #48	; 0x30
 	add	r1, sp, #0
 	bl	WMSP_WL_MaData
 	mov	r4, r0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #18
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -6540,26 +6540,26 @@ WMSP_SetDCFData: ; 0x06005974
 	strneh	r1, [r0, #4]
 	ldrneh	r1, [r4, #4]
 	strneh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #564	; 0x234
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06005A68:	.word	_0601A960
 
-	arm_func_start FUN_06005A6C
-FUN_06005A6C: ; 0x06005A6C
+	arm_func_start sub_06005A6C
+sub_06005A6C: ; 0x06005A6C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #19
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -6570,24 +6570,24 @@ WMSP_EndDCF: ; 0x06005AA8
 	sub	sp, sp, #512	; 0x200
 	ldr	r0, _06005B44	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	ldrh	r1, [r4]
 	cmp	r1, #11
 	beq	_06005AE8
-	bl	FUN_060001AC
-	bl	FUN_060001E8
+	bl	sub_060001AC
+	bl	sub_060001E8
 	mov	r1, #19
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06005B38
 _06005AE8:
 	mov	r1, #0
 	str	r1, [r4, #16]
 	mov	r1, #8
 	strh	r1, [r4]
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	add	r0, sp, #0
 	mov	r1, #7
 	bl	WMSP_WL_MaClearData
@@ -6595,35 +6595,35 @@ _06005AE8:
 	cmp	r1, #0
 	beq	_06005B20
 	mov	r0, #260	; 0x104
-	bl	FUN_06005A6C
+	bl	sub_06005A6C
 	b	_06005B38
 _06005B20:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #19
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06005B38:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06005B44:	.word	_0601A960
 
-	arm_func_start FUN_06005B48
-FUN_06005B48: ; 0x06005B48
+	arm_func_start sub_06005B48
+sub_06005B48: ; 0x06005B48
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #20
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -6664,13 +6664,13 @@ _06005BE4:
 	ldr	r0, [r5, #8]
 	add	r1, r4, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUN_06000554
+	bl	sub_06000554
 	b	_06005C14
 _06005C04:
 	add	r0, r4, #412	; 0x19c
 	mov	r1, #0
 	mov	r2, #80	; 0x50
-	bl	FUN_06000D08
+	bl	sub_06000D08
 _06005C14:
 	ldr	r0, [r5, #12]
 	strh	r0, [r4, #196]	; 0xc4
@@ -6681,14 +6681,14 @@ _06005C14:
 	cmp	r1, #0
 	beq	_06005C3C
 	ldr	r0, _06005C64	; =0x00000207
-	bl	FUN_06005B48
+	bl	sub_06005B48
 _06005C3C:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #39	; 0x27
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -6730,20 +6730,20 @@ _06005CC4:
 	ldr	r0, [r0, #8]
 	add	r1, r3, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUN_06000554
+	bl	sub_06000554
 	b	_06005CF4
 _06005CE4:
 	add	r0, r3, #412	; 0x19c
 	mov	r1, #0
 	mov	r2, #80	; 0x50
-	bl	FUN_06000D08
+	bl	sub_06000D08
 _06005CF4:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #20
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
@@ -6792,7 +6792,7 @@ WMSP_SetGameInfo: ; 0x06005D1C
 	add	r2, sp, #512	; 0x200
 	bl	WMSP_WL_ParamSetGameInfo
 	mov	r4, r0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #24
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -6806,27 +6806,27 @@ WMSP_SetGameInfo: ; 0x06005D1C
 	strneh	r1, [r0, #4]
 	ldrneh	r1, [r4, #4]
 	strneh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #640	; 0x280
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06005E08:	.word	_0601A960
 _06005E0C:	.word	0x00000245
 
-	arm_func_start FUN_06005E10
-FUN_06005E10: ; 0x06005E10
+	arm_func_start sub_06005E10
+sub_06005E10: ; 0x06005E10
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #25
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -6845,15 +6845,15 @@ WMSP_SetBeaconTxRxInd: ; 0x06005E4C
 	cmp	r1, #0
 	beq	_06005E84
 	ldr	r0, _06005EA8	; =0x00000215
-	bl	FUN_06005E10
+	bl	sub_06005E10
 	b	_06005E9C
 _06005E84:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #25
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06005E9C:
 	add	sp, sp, #516	; 0x204
 	ldmfd	sp!, {lr}
@@ -6864,12 +6864,12 @@ _06005EA8:	.word	0x00000215
 WMSP_StartTestMode: ; 0x06005EAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #26
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
@@ -6878,30 +6878,30 @@ WMSP_StartTestMode: ; 0x06005EAC
 WMSP_StopTestMode: ; 0x06005ED8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #27
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06005F04
-FUN_06005F04: ; 0x06005F04
+	arm_func_start sub_06005F04
+sub_06005F04: ; 0x06005F04
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #29
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -6931,7 +6931,7 @@ WMSP_SetLifeTime: ; 0x06005F40
 	cmp	r1, #0
 	beq	_06005FA4
 	ldr	r0, _06006054	; =0x00000211
-	bl	FUN_06005F04
+	bl	sub_06005F04
 	b	_06006044
 _06005FA4:
 	ldr	r0, _06006058	; =0x0000FFFF
@@ -6961,7 +6961,7 @@ _06005FF8:
 	str	r0, [r4, #1976]	; 0x7b8
 	str	r0, [r4, #1980]	; 0x7bc
 _06006004:
-	bl	FUN_06000E98
+	bl	sub_06000E98
 	mov	r2, #0
 	orr	r1, r1, #0
 	orr	r3, r0, #1
@@ -6972,12 +6972,12 @@ _06006014:
 	add	r2, r2, #1
 	cmp	r2, #16
 	blt	_06006014
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #29
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06006044:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
@@ -6987,20 +6987,20 @@ _06006054:	.word	0x00000211
 _06006058:	.word	0x0000FFFF
 _0600605C:	.word	0x000082EA
 
-	arm_func_start FUN_06006060
-FUN_06006060: ; 0x06006060
+	arm_func_start sub_06006060
+sub_06006060: ; 0x06006060
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #30
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -7016,12 +7016,12 @@ WMSP_MeasureChannel: ; 0x0600609C
 	ldrh	r0, [r4]
 	cmp	r0, #2
 	beq	_060060DC
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #30
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06006238
 _060060DC:
 	mov	r0, r7
@@ -7030,7 +7030,7 @@ _060060DC:
 	cmp	r1, #0
 	beq	_060060FC
 	mov	r0, #776	; 0x308
-	bl	FUN_06006060
+	bl	sub_06006060
 	b	_06006238
 _060060FC:
 	ldrh	r1, [r0, #6]
@@ -7049,7 +7049,7 @@ _060060FC:
 	cmp	r1, #0
 	beq	_06006144
 	ldr	r0, _06006248	; =0x00000303
-	bl	FUN_06006060
+	bl	sub_06006060
 	b	_06006238
 _06006144:
 	mov	r0, #3
@@ -7063,7 +7063,7 @@ _06006144:
 	cmp	r1, #0
 	beq	_06006178
 	mov	r0, #1
-	bl	FUN_06006060
+	bl	sub_06006060
 	b	_06006238
 _06006178:
 	mov	r0, #1
@@ -7076,7 +7076,7 @@ _06006180:
 	add	r0, sp, #4
 	mov	r1, #0
 	mov	r2, #16
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	strb	r9, [sp, #4]
 	add	r0, sp, #4
 	str	r0, [sp]
@@ -7089,7 +7089,7 @@ _06006180:
 	cmp	r1, #0
 	beq	_060061D8
 	mov	r0, #10
-	bl	FUN_06006060
+	bl	sub_06006060
 	b	_06006238
 _060061D8:
 	ldrh	r1, [r0, #8]
@@ -7104,19 +7104,19 @@ _060061D8:
 	cmp	r1, #0
 	beq	_06006210
 	ldr	r0, _0600624C	; =0x00000302
-	bl	FUN_06006060
+	bl	sub_06006060
 	b	_06006238
 _06006210:
 	mov	r0, #2
 	strh	r0, [r4]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #30
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #8]
 	strh	r6, [r0, #10]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06006238:
 	add	sp, sp, #532	; 0x214
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -7125,20 +7125,20 @@ _06006244:	.word	_0601A960
 _06006248:	.word	0x00000303
 _0600624C:	.word	0x00000302
 
-	arm_func_start FUN_06006250
-FUN_06006250: ; 0x06006250
+	arm_func_start sub_06006250
+sub_06006250: ; 0x06006250
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #31
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -7153,35 +7153,35 @@ WMSP_InitWirelessCounter: ; 0x0600628C
 	cmp	r1, #0
 	beq	_060062B4
 	ldr	r0, _060062D8	; =0x00000305
-	bl	FUN_06006250
+	bl	sub_06006250
 	b	_060062CC
 _060062B4:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #31
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060062CC:
 	add	sp, sp, #516	; 0x204
 	ldmfd	sp!, {lr}
 	bx	lr
 _060062D8:	.word	0x00000305
 
-	arm_func_start FUN_060062DC
-FUN_060062DC: ; 0x060062DC
+	arm_func_start sub_060062DC
+sub_060062DC: ; 0x060062DC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #32
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -7197,10 +7197,10 @@ WMSP_GetWirelessCounter: ; 0x06006318
 	cmp	r1, #0
 	beq	_06006344
 	ldr	r0, _06006380	; =0x00000307
-	bl	FUN_060062DC
+	bl	sub_060062DC
 	b	_06006374
 _06006344:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #32
 	strh	r0, [r4]
@@ -7209,32 +7209,32 @@ _06006344:
 	add	r0, r5, #8
 	add	r1, r4, #8
 	mov	r2, #180	; 0xb4
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06006374:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06006380:	.word	0x00000307
 
-	arm_func_start FUN_06006384
-FUN_06006384: ; 0x06006384
+	arm_func_start sub_06006384
+sub_06006384: ; 0x06006384
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r5, _06006434	; =wmspW
 	ldr	r0, _06006438	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	ldrh	r1, [r4, #206]	; 0xce
 	cmp	r1, #1
 	bne	_060063B0
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06006428
 _060063B0:
 	mov	r1, #1
 	strh	r1, [r4, #206]	; 0xce
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
 	moveq	r0, #0
@@ -7243,7 +7243,7 @@ _060063B0:
 	str	r0, [r1]
 	add	r0, r5, #136	; 0x88
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _060063E0:
 	cmp	r0, #0
 	bne	_06006428
@@ -7253,7 +7253,7 @@ _060063E0:
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_06006428
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -7262,7 +7262,7 @@ _060063E0:
 	strh	r1, [r0, #4]
 	mov	r1, #28
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06006428:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -7270,8 +7270,8 @@ _06006428:
 _06006434:	.word	wmspW
 _06006438:	.word	_0601A960
 
-	arm_func_start FUN_0600643C
-FUN_0600643C: ; 0x0600643C
+	arm_func_start sub_0600643C
+sub_0600643C: ; 0x0600643C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006478	; =_0601A960
@@ -7280,23 +7280,23 @@ FUN_0600643C: ; 0x0600643C
 	cmp	r0, #1
 	bne	_0600646C
 	mov	r0, #209	; 0xd1
-	ldr	r1, _0600647C	; =FUN_06006480
+	ldr	r1, _0600647C	; =sub_06006480
 	mov	r2, #3
-	bl	FUN_060068A0
-	bl	FUN_06006384
+	bl	sub_060068A0
+	bl	sub_06006384
 _0600646C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06006478:	.word	_0601A960
-_0600647C:	.word	FUN_06006480
+_0600647C:	.word	sub_06006480
 
-	arm_func_start FUN_06006480
-FUN_06006480: ; 0x06006480
+	arm_func_start sub_06006480
+sub_06006480: ; 0x06006480
 	stmdb	sp!, {r4, lr}
 
-	arm_func_start FUN_06006484
-FUN_06006484: ; 0x06006484
+	arm_func_start sub_06006484
+sub_06006484: ; 0x06006484
 	ldr	r0, _060064E0	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	ldrh	r0, [r4, #220]	; 0xdc
@@ -7315,19 +7315,19 @@ _060064BC:
 	add	r0, r0, #1
 	strh	r0, [r4, #220]	; 0xdc
 _060064C4:
-	bl	FUN_06006848
+	bl	sub_06006848
 	ldrsh	r0, [r4, #64]	; 0x40
-	ldr	r1, _060064E8	; =FUN_0600643C
+	ldr	r1, _060064E8	; =sub_0600643C
 	mov	r2, #5
-	bl	FUN_060068A0
+	bl	sub_060068A0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060064E0:	.word	_0601A960
 _060064E4:	.word	0x04000006
-_060064E8:	.word	FUN_0600643C
+_060064E8:	.word	sub_0600643C
 
-	arm_func_start FUN_060064EC
-FUN_060064EC: ; 0x060064EC
+	arm_func_start sub_060064EC
+sub_060064EC: ; 0x060064EC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _060065E4	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
@@ -7335,16 +7335,16 @@ FUN_060064EC: ; 0x060064EC
 	cmp	r0, #1
 	bne	_060065DC
 	mov	r0, #200	; 0xc8
-	ldr	r1, _060065E8	; =FUN_06006634
+	ldr	r1, _060065E8	; =sub_06006634
 	mov	r2, #1
-	bl	FUN_060068A0
+	bl	sub_060068A0
 	ldr	r2, [r4, #1976]	; 0x7b8
 	ldr	r1, [r4, #1980]	; 0x7bc
 	mov	r0, #0
 	cmp	r1, r0
 	cmpeq	r2, r0
 	beq	_060065D8
-	bl	FUN_06000E98
+	bl	sub_06000E98
 	mov	r2, #0
 	orr	r3, r1, #0
 	orr	ip, r0, #1
@@ -7373,11 +7373,11 @@ FUN_060064EC: ; 0x060064EC
 	ldr	r0, _060065EC	; =0x00008001
 	str	r0, [r1, #8]
 	ldr	r0, _060065F0	; =_060199E8
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _060065A4:
 	cmp	r0, #0
 	bne	_060065DC
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -7386,43 +7386,43 @@ _060065A4:
 	strh	r1, [r0, #4]
 	mov	r1, #37	; 0x25
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060065DC
 _060065D8:
-	bl	FUN_06006384
+	bl	sub_06006384
 _060065DC:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060065E4:	.word	_0601A960
-_060065E8:	.word	FUN_06006634
+_060065E8:	.word	sub_06006634
 _060065EC:	.word	0x00008001
 _060065F0:	.word	_060199E8
 
-	arm_func_start FUN_060065F4
-FUN_060065F4: ; 0x060065F4
+	arm_func_start sub_060065F4
+sub_060065F4: ; 0x060065F4
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600662C	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUN_060066B4
+	bl	sub_060066B4
 	ldr	r0, [r4, #216]	; 0xd8
 	cmp	r0, #127	; 0x7f
 	movcs	r0, #0
 	strcs	r0, [r4, #28]
 	ldrsh	r0, [r4, #66]	; 0x42
-	ldr	r1, _06006630	; =FUN_060064EC
+	ldr	r1, _06006630	; =sub_060064EC
 	mov	r2, #4
-	bl	FUN_060068A0
+	bl	sub_060068A0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600662C:	.word	_0601A960
-_06006630:	.word	FUN_060064EC
+_06006630:	.word	sub_060064EC
 
-	arm_func_start FUN_06006634
-FUN_06006634: ; 0x06006634
+	arm_func_start sub_06006634
+sub_06006634: ; 0x06006634
 	stmdb	sp!, {r4, lr}
 
-	arm_func_start FUN_06006638
-FUN_06006638: ; 0x06006638
+	arm_func_start sub_06006638
+sub_06006638: ; 0x06006638
 	ldr	r0, _060066A4	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	ldr	r0, _060066A8	; =0x0380FFF0
@@ -7433,33 +7433,33 @@ FUN_06006638: ; 0x06006638
 	cmp	r0, r1
 	beq	_06006664
 	str	r1, [r4, #212]	; 0xd4
-	bl	FUN_06006748
+	bl	sub_06006748
 _06006664:
 	ldr	r0, [r4, #216]	; 0xd8
 	cmp	r0, #127	; 0x7f
 	bls	_06006684
 	mov	r0, #208	; 0xd0
-	ldr	r1, _060066AC	; =FUN_060065F4
+	ldr	r1, _060066AC	; =sub_060065F4
 	mov	r2, #2
-	bl	FUN_060068A0
+	bl	sub_060068A0
 	b	_0600669C
 _06006684:
 	mov	r0, #1
 	str	r0, [r4, #28]
 	ldrsh	r0, [r4, #66]	; 0x42
-	ldr	r1, _060066B0	; =FUN_060064EC
+	ldr	r1, _060066B0	; =sub_060064EC
 	mov	r2, #4
-	bl	FUN_060068A0
+	bl	sub_060068A0
 _0600669C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060066A4:	.word	_0601A960
 _060066A8:	.word	0x0380FFF0
-_060066AC:	.word	FUN_060065F4
-_060066B0:	.word	FUN_060064EC
+_060066AC:	.word	sub_060065F4
+_060066B0:	.word	sub_060064EC
 
-	arm_func_start FUN_060066B4
-FUN_060066B4: ; 0x060066B4
+	arm_func_start sub_060066B4
+sub_060066B4: ; 0x060066B4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006740	; =_0601A960
@@ -7502,8 +7502,8 @@ _06006734:
 _06006740:	.word	_0601A960
 _06006744:	.word	0x04000006
 
-	arm_func_start FUN_06006748
-FUN_06006748: ; 0x06006748
+	arm_func_start sub_06006748
+sub_06006748: ; 0x06006748
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006828	; =_0601A960
@@ -7573,8 +7573,8 @@ _0600683C:	.word	0x00000107
 _06006840:	.word	0x0000414B
 _06006844:	.word	0x0000400E
 
-	arm_func_start FUN_06006848
-FUN_06006848: ; 0x06006848
+	arm_func_start sub_06006848
+sub_06006848: ; 0x06006848
 	ldr	r0, _06006890	; =0x04000006
 	ldrh	ip, [r0]
 	ldr	r2, _06006894	; =0x048080F8
@@ -7598,8 +7598,8 @@ _06006894:	.word	0x048080F8
 _06006898:	.word	0x048080FA
 _0600689C:	.word	0x0380FFF0
 
-	arm_func_start FUN_060068A0
-FUN_060068A0: ; 0x060068A0
+	arm_func_start sub_060068A0
+sub_060068A0: ; 0x060068A0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	ip, r0
@@ -7608,15 +7608,15 @@ FUN_060068A0: ; 0x060068A0
 	ldr	r0, _060068D0	; =_0380B904
 	mov	r1, ip
 	ldr	r2, _060068D4	; =0x00000107
-	bl	FUN_060068D8
+	bl	sub_060068D8
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060068D0:	.word	_0380B904
 _060068D4:	.word	0x00000107
 
-	arm_func_start FUN_060068D8
-FUN_060068D8: ; 0x060068D8
+	arm_func_start sub_060068D8
+sub_060068D8: ; 0x060068D8
 	ldr	pc, _060068DC	; =OS_SetVAlarm
 _060068DC:	.word	OS_SetVAlarm
 
@@ -7632,12 +7632,12 @@ WMSP_SetVAlarm: ; 0x060068E0
 	ldr	r1, [r0]
 	cmp	r1, #0
 	beq	_0600690C
-	bl	FUN_06006970
+	bl	sub_06006970
 _0600690C:
 	mov	r0, #209	; 0xd1
-	ldr	r1, _06006968	; =FUN_06006480
+	ldr	r1, _06006968	; =sub_06006480
 	mov	r2, #3
-	bl	FUN_060068A0
+	bl	sub_060068A0
 	b	_06006958
 _06006920:
 	cmp	r1, #2
@@ -7647,12 +7647,12 @@ _06006920:
 	ldr	r1, [r0]
 	cmp	r1, #0
 	beq	_06006940
-	bl	FUN_06006970
+	bl	sub_06006970
 _06006940:
 	mov	r0, #200	; 0xc8
-	ldr	r1, _0600696C	; =FUN_06006634
+	ldr	r1, _0600696C	; =sub_06006634
 	mov	r2, #1
-	bl	FUN_060068A0
+	bl	sub_060068A0
 	mov	r0, #0
 	str	r0, [r4, #216]	; 0xd8
 _06006958:
@@ -7660,11 +7660,11 @@ _06006958:
 	bx	lr
 _06006960:	.word	_0601A960
 _06006964:	.word	_0380B904
-_06006968:	.word	FUN_06006480
-_0600696C:	.word	FUN_06006634
+_06006968:	.word	sub_06006480
+_0600696C:	.word	sub_06006634
 
-	arm_func_start FUN_06006970
-FUN_06006970: ; 0x06006970
+	arm_func_start sub_06006970
+sub_06006970: ; 0x06006970
 	ldr	pc, _06006974	; =OS_CancelVAlarm
 _06006974:	.word	OS_CancelVAlarm
 
@@ -7772,14 +7772,14 @@ _06006AB8:
 	ldrh	r0, [r4]
 	cmp	r0, #9
 	bne	_06006BA8
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	add	r1, r4, #256	; 0x100
 	ldrh	r1, [r1, #130]	; 0x82
 	cmp	r1, #0
 	bne	_06006AE8
 	mov	r1, #0
 	strh	r1, [r4, #98]	; 0x62
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06006BDC
 _06006AE8:
 	mov	r3, #1
@@ -7815,7 +7815,7 @@ _06006B04:
 _06006B5C:
 	mov	r5, #0
 _06006B60:
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	r5, #0
 	beq	_06006B74
 	ldr	r0, _06006BEC	; =0x0000FFFF
@@ -7838,13 +7838,13 @@ _06006BA8:
 	cmp	r0, #10
 	bne	_06006BDC
 	mov	r5, #0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	ldr	r1, [r4, #1844]	; 0x734
 	cmp	r1, #1
 	movne	r5, #1
 	movne	r1, #0
 	strneh	r1, [r4, #96]	; 0x60
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	r5, #1
 	bne	_06006BDC
 	bl	WMSP_SendMaKeyData
@@ -7855,8 +7855,8 @@ _06006BDC:
 _06006BE8:	.word	_0601A960
 _06006BEC:	.word	0x0000FFFF
 
-	arm_func_start FUN_06006BF0
-FUN_06006BF0: ; 0x06006BF0
+	arm_func_start sub_06006BF0
+sub_06006BF0: ; 0x06006BF0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -7868,7 +7868,7 @@ FUN_06006BF0: ; 0x06006BF0
 	moveq	r0, r0, lsl #2
 	addeq	r5, r0, #102	; 0x66
 	mov	r0, r2
-	bl	FUN_06006CA4
+	bl	sub_06006CA4
 	add	r1, r6, #34	; 0x22
 	mov	r1, r1, lsl #2
 	add	r1, r1, #96	; 0x60
@@ -7905,8 +7905,8 @@ _06006C98:	.word	0x04000006
 _06006C9C:	.word	0x00000107
 _06006CA0:	.word	0x66666667
 
-	arm_func_start FUN_06006CA4
-FUN_06006CA4: ; 0x06006CA4
+	arm_func_start sub_06006CA4
+sub_06006CA4: ; 0x06006CA4
 	ldr	pc, _06006CA8	; =MATH_CountPopulation
 _06006CA8:	.word	MATH_CountPopulation
 
@@ -7914,8 +7914,8 @@ _06006CA8:	.word	MATH_CountPopulation
 WMSP_ParsePortPacket: ; 0x06006CAC
 	stmdb	sp!, {r0, r1, r2, r3}
 
-	arm_func_start FUN_06006CB0
-FUN_06006CB0: ; 0x06006CB0
+	arm_func_start sub_06006CB0
+sub_06006CB0: ; 0x06006CB0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	str	r0, [sp]
@@ -8046,7 +8046,7 @@ _06006E80:
 _06006EA4:
 	cmp	r7, #0
 	ble	_06006F28
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	ldr	r1, [sp, #32]
 	strh	r1, [r0]
 	strh	r4, [r0, #2]
@@ -8076,7 +8076,7 @@ _06006EA4:
 	cmp	r1, #0
 	movne	r3, r2
 	strh	r3, [r0, #66]	; 0x42
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06006F28:
 	cmp	r9, #0
 	bgt	_06006DA4
@@ -8101,7 +8101,7 @@ WMSP_CleanSendQueue: ; 0x06006F48
 	str	r0, [sp, #8]
 	ldr	r0, _0600714C	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUN_06007158
+	bl	sub_06007158
 	mov	r0, #0
 	str	r0, [sp]
 	ldr	r0, _06007150	; =0x0000070C
@@ -8139,7 +8139,7 @@ _06006FD4:
 	ldrh	r0, [r7, #6]
 	cmp	r0, #0
 	bne	_060070DC
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	ldr	r1, [sp, #20]
 	strh	r1, [r0]
 	ldr	r1, [sp, #24]
@@ -8177,7 +8177,7 @@ _06006FD4:
 	cmp	r3, #0
 	movne	r2, r1
 	strh	r2, [r0, #38]	; 0x26
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldrh	r0, [r7]
 	cmp	r0, r4
 	streqh	r8, [r5, #2]
@@ -8218,7 +8218,7 @@ _06007104:
 	blt	_06006FB4
 	ldr	r0, _0600714C	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUN_06007160
+	bl	sub_06007160
 	add	sp, sp, #36	; 0x24
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
@@ -8227,13 +8227,13 @@ _0600714C:	.word	0x0000071C
 _06007150:	.word	0x0000070C
 _06007154:	.word	0x0000FFFF
 
-	arm_func_start FUN_06007158
-FUN_06007158: ; 0x06007158
+	arm_func_start sub_06007158
+sub_06007158: ; 0x06007158
 	ldr	pc, _0600715C	; =OS_LockMutex
 _0600715C:	.word	OS_LockMutex
 
-	arm_func_start FUN_06007160
-FUN_06007160: ; 0x06007160
+	arm_func_start sub_06007160
+sub_06007160: ; 0x06007160
 	ldr	pc, _06007164	; =OS_UnlockMutex
 _06007164:	.word	OS_UnlockMutex
 
@@ -8262,13 +8262,13 @@ WMSP_FlushSendQueue: ; 0x06007168
 _060071B8:
 	ldr	r0, _060074A0	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUN_06007158
+	bl	sub_06007158
 	ldr	r0, [r6, #1844]	; 0x734
 	cmp	r0, #0
 	bne	_060071EC
 	ldr	r0, _060074A0	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUN_06007160
+	bl	sub_06007160
 	mov	r0, #0
 	add	sp, sp, #44	; 0x2c
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8277,10 +8277,10 @@ _060071EC:
 	cmp	r5, #0
 	moveq	fp, #1
 	beq	_06007208
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	add	r1, r6, #256	; 0x100
 	ldrh	fp, [r1, #130]	; 0x82
-	bl	FUN_060001AC
+	bl	sub_060001AC
 _06007208:
 	mov	r0, #0
 	str	r0, [sp, #4]
@@ -8361,7 +8361,7 @@ _060072DC:
 	mov	r5, r0, lsr #16
 	b	_06007414
 _06007330:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	ldr	r1, [sp, #28]
 	strh	r1, [r0]
 	ldrh	r1, [r7, #6]
@@ -8403,7 +8403,7 @@ _06007330:
 	cmp	r3, #0
 	movne	r2, r1
 	strh	r2, [r0, #38]	; 0x26
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldrh	r0, [r7]
 	cmp	r0, r4
 	streqh	r4, [r8, #2]
@@ -8450,7 +8450,7 @@ _06007460:
 	str	r0, [r6, #1844]	; 0x734
 	ldr	r0, _060074A0	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUN_06007160
+	bl	sub_06007160
 	ldr	r0, [sp, #8]
 	add	sp, sp, #44	; 0x2c
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8492,7 +8492,7 @@ WMSP_PutSendQueue: ; 0x060074AC
 	bxgt	lr
 	ldr	r0, _06007600	; =0x0000071C
 	add	r0, r9, r0
-	bl	FUN_06007158
+	bl	sub_06007158
 	add	r2, r9, #1536	; 0x600
 	ldrh	r0, [r2, #248]	; 0xf8
 	ldr	r3, _06007604	; =0x0000FFFF
@@ -8500,7 +8500,7 @@ WMSP_PutSendQueue: ; 0x060074AC
 	bne	_06007558
 	ldr	r0, _06007600	; =0x0000071C
 	add	r0, r9, r0
-	bl	FUN_06007160
+	bl	sub_06007160
 	mov	r0, #10
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -8541,7 +8541,7 @@ _06007558:
 	strh	r0, [r4, #2]
 	ldr	r0, _06007600	; =0x0000071C
 	add	r0, r9, r0
-	bl	FUN_06007160
+	bl	sub_06007160
 	mov	r0, #2
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -8551,8 +8551,8 @@ _060075FC:	.word	0x0000070C
 _06007600:	.word	0x0000071C
 _06007604:	.word	0x0000FFFF
 
-	arm_func_start FUN_06007608
-FUN_06007608: ; 0x06007608
+	arm_func_start sub_06007608
+sub_06007608: ; 0x06007608
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #100	; 0x64
 	mov	sl, r3
@@ -8636,7 +8636,7 @@ _06007728:
 	ldr	r1, _06007B30	; =0x0000071C
 	ldr	r0, [sp, #56]	; 0x38
 	add	r0, r0, r1
-	bl	FUN_06007158
+	bl	sub_06007158
 	ldr	r0, [sp, #56]	; 0x38
 	ldr	r0, [r0, #1844]	; 0x734
 	cmp	r0, #1
@@ -8644,7 +8644,7 @@ _06007728:
 	ldr	r1, _06007B30	; =0x0000071C
 	ldr	r0, [sp, #56]	; 0x38
 	add	r0, r0, r1
-	bl	FUN_06007160
+	bl	sub_06007160
 	mov	r0, #1
 	add	sp, sp, #100	; 0x64
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8768,7 +8768,7 @@ _06007894:
 	ldr	r0, [r5, #20]
 	mov	r1, r7
 	ldrh	r2, [r5, #14]
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r1, [r5, #14]
 	bic	r0, r1, #1
 	add	r7, r7, r0
@@ -8894,7 +8894,7 @@ _06007AF8:
 	ldr	r1, _06007B30	; =0x0000071C
 	ldr	r0, [sp, #56]	; 0x38
 	add	r0, r0, r1
-	bl	FUN_06007160
+	bl	sub_06007160
 	mov	r0, #0
 	add	sp, sp, #100	; 0x64
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8913,8 +8913,8 @@ WMSP_ResumeMaMP: ; 0x06007B44
 	mov	r7, r0
 	ldr	r0, _06007C3C	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUN_060001A4
-	bl	FUN_060001AC
+	bl	sub_060001A4
+	bl	sub_060001AC
 	ldr	r0, _06007C40	; =0x048080F8
 	ldrh	r6, [r0]
 	ldrh	r5, [r4, #106]	; 0x6a
@@ -8923,7 +8923,7 @@ WMSP_ResumeMaMP: ; 0x06007B44
 	and	r7, r7, r0
 	ldrh	r8, [r4, #58]	; 0x3a
 	mov	r0, r7
-	bl	FUN_06006CA4
+	bl	sub_06006CA4
 	ldrh	r2, [r4, #114]	; 0x72
 	add	r1, r8, #12
 	mul	r0, r1, r0
@@ -8932,7 +8932,7 @@ WMSP_ResumeMaMP: ; 0x06007B44
 	cmp	r2, r0
 	bge	_06007BB8
 	mov	r0, #2
-	bl	FUN_06007C48
+	bl	sub_06007C48
 	bl	WMSP_RequestResumeMP
 	add	sp, sp, #536	; 0x218
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -8949,7 +8949,7 @@ _06007BD0:
 	ldrh	r1, [r4, #108]	; 0x6c
 	mov	r2, r7
 	ldrh	r3, [r4, #64]	; 0x40
-	bl	FUN_06006BF0
+	bl	sub_06006BF0
 	orr	r5, r5, #32768	; 0x8000
 	b	_06007BF4
 _06007BEC:
@@ -8978,8 +8978,8 @@ _06007C3C:	.word	_0601A960
 _06007C40:	.word	0x048080F8
 _06007C44:	.word	0x0000800C
 
-	arm_func_start FUN_06007C48
-FUN_06007C48: ; 0x06007C48
+	arm_func_start sub_06007C48
+sub_06007C48: ; 0x06007C48
 	ldr	pc, _06007C4C	; =OS_Sleep
 _06007C4C:	.word	OS_Sleep
 
@@ -8990,11 +8990,11 @@ WMSP_SendMaMP: ; 0x06007C50
 	mov	r8, r0
 	ldr	r0, _06007E40	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	add	r1, r4, #256	; 0x100
 	ldrh	r7, [r1, #130]	; 0x82
 	ldrh	r6, [r4, #134]	; 0x86
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r1, #0
 	strh	r1, [sp, #24]
 	ldrh	r0, [r4, #136]	; 0x88
@@ -9013,7 +9013,7 @@ WMSP_SendMaMP: ; 0x06007C50
 	mov	r1, r7
 	mov	r2, r6
 	add	r3, sp, #24
-	bl	FUN_06007608
+	bl	sub_06007608
 	cmp	r0, #1
 	moveq	r0, #0
 	streqh	r0, [r4, #98]	; 0x62
@@ -9027,7 +9027,7 @@ WMSP_SendMaMP: ; 0x06007C50
 	ldreq	r8, [sp, #28]
 	and	r8, r8, r7
 	mov	r0, r8
-	bl	FUN_06006CA4
+	bl	sub_06006CA4
 	ldrh	r2, [r4, #114]	; 0x72
 	add	r1, r5, #12
 	mul	r0, r1, r0
@@ -9057,7 +9057,7 @@ _06007D58:
 	mov	r1, r6
 	mov	r2, r8
 	ldrh	r3, [r4, #64]	; 0x40
-	bl	FUN_06006BF0
+	bl	sub_06006BF0
 	mov	r5, r0
 	ldrh	r0, [sp, #24]
 	orr	r0, r0, #32768	; 0x8000
@@ -9075,14 +9075,14 @@ _06007D88:
 	ldrh	r0, [sp, #24]
 	bic	r0, r0, #32768	; 0x8000
 	strh	r0, [sp, #24]
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	ldrsh	r1, [r4, #98]	; 0x62
 	add	r1, r1, #1
 	strh	r1, [r4, #98]	; 0x62
 	ldrsh	r1, [r4, #100]	; 0x64
 	add	r1, r1, #1
 	strh	r1, [r4, #100]	; 0x64
-	bl	FUN_060001AC
+	bl	sub_060001AC
 _06007DC8:
 	mov	r0, r8, lsl #16
 	mov	r0, r0, lsr #16
@@ -9142,7 +9142,7 @@ WMSP_SendMaKeyData: ; 0x06007E50
 	mov	r1, r0
 	mov	r2, r0
 	add	r3, sp, #8
-	bl	FUN_06007608
+	bl	sub_06007608
 	cmp	r0, #1
 	moveq	r0, #0
 	streqh	r0, [r4, #138]	; 0x8a
@@ -9181,11 +9181,11 @@ WMSP_InitSendQueue: ; 0x06007F20
 	ldr	r4, [r0, #1360]	; 0x550
 	ldr	r0, _06007FD8	; =0x0000071C
 	add	r0, r4, r0
-	bl	FUN_06007158
+	bl	sub_06007158
 	mov	r0, #0
 	add	r1, r4, #760	; 0x2f8
 	mov	r2, #1024	; 0x400
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r2, #0
 _06007F4C:
 	add	r0, r2, #1
@@ -9220,7 +9220,7 @@ _06007F90:
 	bcc	_06007F90
 	ldr	r0, _06007FD8	; =0x0000071C
 	add	r0, r4, r0
-	bl	FUN_06007160
+	bl	sub_06007160
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06007FD4:	.word	_0601A960
@@ -9246,7 +9246,7 @@ WMSP_SetEntry: ; 0x06007FE0
 	add	r2, sp, #512	; 0x200
 	bl	WMSP_WL_ParamSetGameInfo
 	mov	r4, r0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #33	; 0x21
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -9261,7 +9261,7 @@ WMSP_SetEntry: ; 0x06007FE0
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
 _0600805C:
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #640	; 0x280
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -9275,7 +9275,7 @@ WMSP_AutoDeAuth: ; 0x06008074
 	add	r0, r0, #4
 	add	r1, sp, #0
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r8, #0
 	add	r7, sp, #8
 	add	r6, sp, #0
@@ -9300,7 +9300,7 @@ _060080D4:
 	cmp	r8, #2
 	blt	_060080A0
 _060080DC:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #34	; 0x22
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -9315,7 +9315,7 @@ _060080DC:
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
 _06008114:
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #520	; 0x208
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
@@ -9328,7 +9328,7 @@ WMSPi_CommonInit: ; 0x06008124
 	ldr	r7, [r0, #1356]	; 0x54c
 	ldr	r4, [r0, #1360]	; 0x550
 	mov	r6, #0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r5, r0
 	ldr	r0, [r4, #12]
 	cmp	r0, #1
@@ -9362,7 +9362,7 @@ _06008164:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r4, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUN_06000D08
+	bl	sub_06000D08
 	bl	WMSP_ResetSizeVars
 	mov	r0, #260	; 0x104
 	strh	r0, [r4, #64]	; 0x40
@@ -9382,7 +9382,7 @@ _06008164:
 	add	r0, r4, #256	; 0x100
 	strh	r1, [r0, #238]	; 0xee
 	mov	r0, r5
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	cmp	r6, #0
 	beq	_06008224
 	ldr	r0, _06008278	; =0x0000FFFF
@@ -9399,11 +9399,11 @@ _0600822C:
 	mov	r0, #1
 	add	r1, r4, #504	; 0x1f8
 	mov	r2, #256	; 0x100
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	bl	WMSP_InitAlarm
 	ldr	r0, _0600827C	; =0x0000071C
 	add	r0, r4, r0
-	bl	FUN_0600096C
+	bl	sub_0600096C
 	bl	WMSP_InitVAlarm
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -9426,16 +9426,16 @@ WMSP_Enable: ; 0x06008280
 	str	r0, [r4, #8]
 	bl	WMSPi_CommonInit
 	mov	r0, #15
-	bl	FUN_0600301C
+	bl	sub_0600301C
 	mov	r1, #1
 	ldr	r0, [r4]
 	strh	r1, [r0]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #3
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060082DC:	.word	_0601A960
@@ -9448,31 +9448,31 @@ WMSP_Disable: ; 0x060082E0
 	ldrh	r0, [r4]
 	cmp	r0, #1
 	beq	_06008314
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #4
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_0600833C
 _06008314:
 	mov	r0, #1
-	bl	FUN_0600301C
+	bl	sub_0600301C
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #4
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _0600833C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06008344:	.word	_0601A960
 
-	arm_func_start FUN_06008348
-FUN_06008348: ; 0x06008348
+	arm_func_start sub_06008348
+sub_06008348: ; 0x06008348
 	mov	r1, #200	; 0xc8
 	ldr	r0, _06008370	; =0x04808124
 	strh	r1, [r0]
@@ -9520,7 +9520,7 @@ _060083C4:
 	mov	r0, #0
 	b	_06008544
 _060083F0:
-	bl	FUN_06008348
+	bl	sub_06008348
 	add	r0, sp, #0
 	bl	WMSP_WL_ParamGetEnableChannel
 	ldrh	r1, [r0, #4]
@@ -9538,7 +9538,7 @@ _06008420:
 	strh	r1, [r0, #244]	; 0xf4
 	mov	r0, r1, lsl #15
 	mov	r0, r0, lsr #16
-	bl	FUN_06008570
+	bl	sub_06008570
 	add	r1, r5, #256	; 0x100
 	strh	r0, [r1, #246]	; 0xf6
 	add	r0, sp, #0
@@ -9571,7 +9571,7 @@ _060084A8:
 	add	r0, r4, #6
 	add	r1, r5, #32
 	mov	r2, #8
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r4, #14]
 	strh	r0, [r5, #40]	; 0x28
 	ldrh	r0, [r4, #16]
@@ -9595,7 +9595,7 @@ _06008504:
 	add	r0, r0, #6
 	add	r1, r5, #224	; 0xe0
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, sp, #0
 	mov	r1, #1
 	bl	WMSP_WL_ParamSetBeaconSendRecvInd
@@ -9621,8 +9621,8 @@ _06008564:	.word	0x00000306
 _06008568:	.word	0x00000281
 _0600856C:	.word	0x00000215
 
-	arm_func_start FUN_06008570
-FUN_06008570: ; 0x06008570
+	arm_func_start sub_06008570
+sub_06008570: ; 0x06008570
 	ldr	pc, _06008574	; =WMSP_GetAllowedChannel
 _06008574:	.word	WMSP_GetAllowedChannel
 
@@ -9635,12 +9635,12 @@ WMSP_PowerOn: ; 0x06008578
 	ldrh	r0, [r4]
 	cmp	r0, #1
 	beq	_060085B0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #5
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06008610
 _060085B0:
 	add	r0, sp, #0
@@ -9648,7 +9648,7 @@ _060085B0:
 	bl	WMSPi_CommonWlIdle
 	cmp	r0, #0
 	bne	_060085F0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #5
 	strh	r1, [r0]
 	mov	r1, #1
@@ -9657,17 +9657,17 @@ _060085B0:
 	strh	r1, [r0, #4]
 	ldrh	r1, [sp, #2]
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06008610
 _060085F0:
 	mov	r0, #2
 	strh	r0, [r4]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #5
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06008610:
 	add	sp, sp, #8
 	ldmia	sp!, {r4, lr}
@@ -9683,12 +9683,12 @@ WMSP_PowerOff: ; 0x06008620
 	ldrh	r0, [r5]
 	cmp	r0, #2
 	beq	_06008658
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #6
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060086BC
 _06008658:
 	add	r0, sp, #0
@@ -9697,7 +9697,7 @@ _06008658:
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
 	beq	_0600869C
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #6
 	strh	r1, [r0]
 	mov	r1, #1
@@ -9706,17 +9706,17 @@ _06008658:
 	strh	r1, [r0, #4]
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_060086BC
 _0600869C:
 	mov	r0, #1
 	strh	r0, [r5]
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #6
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _060086BC:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
@@ -9745,7 +9745,7 @@ WMSP_SetMPParameterCore: ; 0x060086D0
 	movne	r6, #3
 	bicne	r5, r5, #11264	; 0x2c00
 _06008718:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r7, r0
 	cmp	r8, #0
 	beq	_060087A0
@@ -9925,7 +9925,7 @@ _06008970:
 	ldrneb	r0, [r9, #27]
 	strneh	r0, [r4, #156]	; 0x9c
 	mov	r0, r7
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	mov	r0, r6
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -9946,7 +9946,7 @@ WMSP_SetMPParameter: ; 0x060089DC
 	add	r1, sp, #0
 	bl	WMSP_SetMPParameterCore
 	mov	r5, r0
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r4, r0
 	mov	r0, #35	; 0x23
 	strh	r0, [r4]
@@ -9956,27 +9956,27 @@ WMSP_SetMPParameter: ; 0x060089DC
 	add	r0, sp, #0
 	add	r1, r4, #8
 	mov	r2, #28
-	bl	FUN_06000554
+	bl	sub_06000554
 	mov	r0, r4
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #32
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_06008A38
-FUN_06008A38: ; 0x06008A38
+	arm_func_start sub_06008A38
+sub_06008A38: ; 0x06008A38
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #36	; 0x24
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -9995,15 +9995,15 @@ WMSP_SetBeaconPeriod: ; 0x06008A74
 	cmp	r1, #0
 	beq	_06008AAC
 	ldr	r0, _06008AD0	; =0x00000242
-	bl	FUN_06008A38
+	bl	sub_06008A38
 	b	_06008AC4
 _06008AAC:
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #36	; 0x24
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06008AC4:
 	add	sp, sp, #516	; 0x204
 	ldmfd	sp!, {lr}
@@ -10026,7 +10026,7 @@ WMSP_SetPowerSaveMode: ; 0x06008AE8
 	ldr	r0, _06008C64	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	add	r6, sp, #48	; 0x30
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r5, r0
 	mov	r1, #40	; 0x28
 	strh	r1, [r5]
@@ -10035,7 +10035,7 @@ WMSP_SetPowerSaveMode: ; 0x06008AE8
 	beq	_06008B2C
 	mov	r1, #3
 	strh	r1, [r5, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06008C58
 _06008B2C:
 	ldr	r0, [r7, #4]
@@ -10057,7 +10057,7 @@ _06008B2C:
 	ldrh	r0, [r0, #4]
 	strh	r0, [r5, #6]
 	mov	r0, r5
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06008C58
 _06008B80:
 	ldr	r0, _06008C64	; =_0601A960
@@ -10066,7 +10066,7 @@ _06008B80:
 	add	r0, r4, r0
 	add	r1, r4, #162	; 0xa2
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, sp, #48	; 0x30
 	str	r0, [r4, #168]	; 0xa8
 	mov	r0, #0
@@ -10075,7 +10075,7 @@ _06008B80:
 	str	r1, [r4, #24]
 	add	r1, sp, #0
 	mov	r2, #48	; 0x30
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #0
 	strh	r0, [sp]
 	strh	r0, [sp, #6]
@@ -10089,11 +10089,11 @@ _06008B80:
 	add	r0, r4, r0
 	add	r1, sp, #24
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, r4, #224	; 0xe0
 	add	r1, sp, #30
 	mov	r2, #6
-	bl	FUN_06000554
+	bl	sub_06000554
 	add	r0, sp, #48	; 0x30
 	str	r0, [sp, #44]	; 0x2c
 	add	r1, sp, #0
@@ -10108,13 +10108,13 @@ _06008B80:
 	ldrh	r0, [r0, #4]
 	strh	r0, [r5, #6]
 	mov	r0, r5
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	b	_06008C58
 _06008C48:
 	mov	r0, #0
 	strh	r0, [r5, #2]
 	mov	r0, r5
-	bl	FUN_060001F0
+	bl	sub_060001F0
 _06008C58:
 	add	sp, sp, #564	; 0x234
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -10126,12 +10126,12 @@ _06008C68:	.word	0x0000018A
 WMSP_StartTestRxMode: ; 0x06008C6C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #41	; 0x29
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
@@ -10140,12 +10140,12 @@ WMSP_StartTestRxMode: ; 0x06008C6C
 WMSP_StopTestRxMode: ; 0x06008C98
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_060001E8
+	bl	sub_060001E8
 	mov	r1, #42	; 0x2a
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUN_060001F0
+	bl	sub_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
@@ -10155,30 +10155,30 @@ WL_Terminate: ; 0x06008CC4
 	stmdb	sp!, {r4, lr}
 	bl	WL_GetThreadStruct
 	mov	r4, r0
-	bl	FUN_06008D08
+	bl	sub_06008D08
 	cmp	r0, #1
 	beq	_06008D00
 	mov	r0, #2
 	mov	r1, #22
 	bl	AddTask
 	mov	r0, r4
-	bl	FUN_06008D10
+	bl	sub_06008D10
 _06008CF0:
 	mov	r0, r4
-	bl	FUN_06008D08
+	bl	sub_06008D08
 	cmp	r0, #0
 	beq	_06008CF0
 _06008D00:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06008D08
-FUN_06008D08: ; 0x06008D08
+	arm_func_start sub_06008D08
+sub_06008D08: ; 0x06008D08
 	ldr	pc, _06008D0C	; =OS_IsThreadTerminated
 _06008D0C:	.word	OS_IsThreadTerminated
 
-	arm_func_start FUN_06008D10
-FUN_06008D10: ; 0x06008D10
+	arm_func_start sub_06008D10
+sub_06008D10: ; 0x06008D10
 	ldr	pc, _06008D14	; =OS_JoinThread
 _06008D14:	.word	OS_JoinThread
 
@@ -10200,8 +10200,8 @@ WL_InitDriver: ; 0x06008D2C
 	str	r1, [r0]
 	mov	r0, #0
 	ldr	r2, _06008EF4	; =0x00000694
-	bl	FUN_06008F08
-	bl	FUN_06008F10
+	bl	sub_06008F08
+	bl	sub_06008F10
 	ldr	r2, _06008EF0	; =0x0380FFF4
 	ldr	r1, [r2]
 	str	r0, [r1, #788]	; 0x314
@@ -10252,7 +10252,7 @@ WL_InitDriver: ; 0x06008D2C
 	str	r1, [r0, #772]	; 0x304
 	ldr	r0, [r4, #48]	; 0x30
 	mov	r1, #28
-	bl	FUN_06003B68
+	bl	sub_06003B68
 	mov	r1, r0
 	ldr	r0, [r4, #44]	; 0x2c
 	bl	InitializeParam
@@ -10294,11 +10294,11 @@ _06008E94:
 	ldr	r1, _06008F04	; =MainTaskRoutine
 	mov	r2, #0
 	ldr	r3, [r4, #4]
-	bl	FUN_06000974
+	bl	sub_06000974
 	ldr	r0, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #24
-	bl	FUN_0600097C
+	bl	sub_0600097C
 	bl	InitializeIntr
 	ldr	r0, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -10314,13 +10314,13 @@ _06008EFC:	.word	0x04000206
 _06008F00:	.word	0x00000692
 _06008F04:	.word	MainTaskRoutine
 
-	arm_func_start FUN_06008F08
-FUN_06008F08: ; 0x06008F08
+	arm_func_start sub_06008F08
+sub_06008F08: ; 0x06008F08
 	ldr	pc, _06008F0C	; =MIi_CpuClearFast
 _06008F0C:	.word	MIi_CpuClearFast
 
-	arm_func_start FUN_06008F10
-FUN_06008F10: ; 0x06008F10
+	arm_func_start sub_06008F10
+sub_06008F10: ; 0x06008F10
 	ldr	pc, _06008F14	; =OS_GetLockID
 _06008F14:	.word	OS_GetLockID
 
@@ -10377,7 +10377,7 @@ LowestIdleTask: ; 0x06008FAC
 	ldr	r0, [r0, #776]	; 0x308
 	add	r1, sp, #0
 	mov	r2, #1
-	bl	FUN_06000780
+	bl	sub_06000780
 	add	r0, sp, #0
 	bl	ExecuteMessage
 	mov	r0, #3
@@ -10395,7 +10395,7 @@ DeleteTask: ; 0x06008FF0
 	ldr	r0, _0600905C	; =0x0380FFF4
 	ldr	r5, [r0]
 	ldr	r0, _06009060	; =0x01000010
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r6, r4, lsl #1
 	ldrh	r4, [r5, r6]
 	ldr	r2, _06009064	; =0x0000FFFF
@@ -10414,7 +10414,7 @@ DeleteTask: ; 0x06008FF0
 	strneh	r1, [r5, r6]
 	strneh	r2, [lr, r3]
 _0600904C:
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, r4
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
@@ -10422,13 +10422,13 @@ _0600905C:	.word	0x0380FFF4
 _06009060:	.word	0x01000010
 _06009064:	.word	0x0000FFFF
 
-	arm_func_start FUN_06009068
-FUN_06009068: ; 0x06009068
+	arm_func_start sub_06009068
+sub_06009068: ; 0x06009068
 	ldr	pc, _0600906C	; =OS_DisableIrqMask
 _0600906C:	.word	OS_DisableIrqMask
 
-	arm_func_start FUN_06009070
-FUN_06009070: ; 0x06009070
+	arm_func_start sub_06009070
+sub_06009070: ; 0x06009070
 	ldr	pc, _06009074	; =OS_EnableIrqMask
 _06009074:	.word	OS_EnableIrqMask
 
@@ -10442,7 +10442,7 @@ AddTask: ; 0x06009078
 	ldr	r5, [r0]
 	add	r4, r5, #188	; 0xbc
 	ldr	r0, _06009130	; =0x01000010
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	ip, r6, lsl #3
 	add	r2, r4, r6, lsl #3
 	ldrh	r1, [r2, #2]
@@ -10465,7 +10465,7 @@ AddTask: ; 0x06009078
 	cmp	r7, r1
 	strlth	r7, [r5, #16]
 _060090F0:
-	bl	FUN_06009070
+	bl	sub_06009070
 	cmp	r7, #3
 	beq	_06009120
 	ldrh	r0, [r5, #18]
@@ -10476,7 +10476,7 @@ _060090F0:
 	ldr	r0, [r0, #776]	; 0x308
 	mov	r1, #0
 	mov	r2, r1
-	bl	FUN_060006F8
+	bl	sub_060006F8
 _06009120:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -10489,8 +10489,8 @@ _06009134:	.word	0x0000FFFF
 MainTaskRoutine: ; 0x06009138
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 
-	arm_func_start FUN_0600913C
-FUN_0600913C: ; 0x0600913C
+	arm_func_start sub_0600913C
+sub_0600913C: ; 0x0600913C
 	sub	sp, sp, #8
 	ldr	r8, _060091EC	; =0x0380FFF4
 	ldr	r9, [r8]
@@ -10506,14 +10506,14 @@ _06009164:
 	ldr	r0, [r0, #776]	; 0x308
 	mov	r1, r6
 	mov	r2, r7
-	bl	FUN_06000780
+	bl	sub_06000780
 	cmp	r0, #0
 	beq	_06009188
 	mov	r0, r6
 	bl	ExecuteMessage
 _06009188:
 	mov	r0, r5
-	bl	FUN_06009068
+	bl	sub_06009068
 	ldrh	r1, [r9, #16]
 	strh	r1, [r9, #18]
 	ldrh	r1, [r9, #18]
@@ -10524,10 +10524,10 @@ _06009188:
 	ldrh	r1, [r4]
 	add	r1, r1, #1
 	strh	r1, [r4]
-	bl	FUN_06009070
+	bl	sub_06009070
 	b	_06009164
 _060091C0:
-	bl	FUN_06009070
+	bl	sub_06009070
 	ldrh	r0, [r9, #18]
 	bl	DeleteTask
 	strh	r0, [r9, #20]
@@ -10727,7 +10727,7 @@ DeleteHeapBuf: ; 0x0600943C
 	movne	r0, #2
 	bne	_06009510
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	ldrh	r1, [r5, #8]
 	sub	r1, r1, #1
 	strh	r1, [r5, #8]
@@ -10766,7 +10766,7 @@ _060094E8:
 _06009500:
 	mov	r1, #0
 	strh	r1, [r4, #8]
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, #0
 _06009510:
 	add	sp, sp, #4
@@ -10790,7 +10790,7 @@ AddHeapBuf: ; 0x06009520
 	movne	r0, #2
 	bne	_060095A4
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	ldrh	r1, [r5, #8]
 	cmp	r1, #0
 	mvneq	r1, #0
@@ -10807,7 +10807,7 @@ AddHeapBuf: ; 0x06009520
 	ldrh	r1, [r5, #8]
 	add	r1, r1, #1
 	strh	r1, [r5, #8]
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, #0
 _060095A4:
 	add	sp, sp, #4
@@ -10822,7 +10822,7 @@ NewHeapBuf: ; 0x060095B4
 	mov	r5, r0
 	mov	r4, r1
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	ldrh	r1, [r5, #8]
 	cmp	r1, #0
 	mvneq	r1, #0
@@ -10841,7 +10841,7 @@ NewHeapBuf: ; 0x060095B4
 	ldrh	r1, [r5, #8]
 	add	r1, r1, #1
 	strh	r1, [r5, #8]
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -10861,7 +10861,7 @@ MoveHeapBuf: ; 0x0600962C
 	movne	r0, #1
 	bne	_06009690
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	mov	r0, r5
 	mov	r1, r6
@@ -10874,7 +10874,7 @@ MoveHeapBuf: ; 0x0600962C
 	mov	r5, r0
 _06009684:
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, r5
 _06009690:
 	add	sp, sp, #4
@@ -10907,7 +10907,7 @@ _060096EC:
 	ldr	r0, [r6, #4]
 	ldr	r1, [r6, #8]
 	mov	r2, r4
-	bl	FUN_06001F8C
+	bl	sub_06001F8C
 	b	_06009710
 _06009700:
 	mov	r0, r4
@@ -10943,7 +10943,7 @@ AllocateHeapBuf: ; 0x06009724
 _06009764:
 	ldr	r0, [r3, #4]
 	ldr	r1, [r3, #8]
-	bl	FUN_060014F4
+	bl	sub_060014F4
 	mov	r4, r0
 	b	_0600978C
 _06009778:
@@ -10990,7 +10990,7 @@ ReleaseWlTask: ; 0x060097CC
 	ldr	r1, [r1, #992]	; 0x3e0
 	sub	r1, r1, #12
 	bl	ReleaseHeapBuf
-	bl	FUN_0600217C
+	bl	sub_0600217C
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600981C:	.word	0x0380FFF4
@@ -11061,12 +11061,12 @@ SendFatalErrMsgTask: ; 0x060098C4
 	mov	r0, #1
 	strh	r0, [r4, #14]
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	ldrh	r1, [r5, #176]	; 0xb0
 	strh	r1, [r4, #16]
 	mov	r1, #0
 	strh	r1, [r5, #176]	; 0xb0
-	bl	FUN_06009070
+	bl	sub_06009070
 	ldr	r0, _06009944	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
@@ -11084,14 +11084,14 @@ SetFatalErr: ; 0x0600994C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	ldr	r1, _0600998C	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #768	; 0x300
 	ldrh	r2, [r1, #244]	; 0xf4
 	orr	r2, r2, r4
 	strh	r2, [r1, #244]	; 0xf4
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, #2
 	mov	r1, #21
 	bl	AddTask
@@ -11118,30 +11118,30 @@ WCheckTxBuf: ; 0x06009990
 	b	_06009A3C
 _060099CC:
 	add	r0, r4, #120	; 0x78
-	bl	FUN_06009B28
+	bl	sub_06009B28
 	cmp	r0, #0
 	beq	_060099E4
-	bl	FUN_06009AE4
+	bl	sub_06009AE4
 	bl	MakeBeaconFrame
 _060099E4:
 	add	r0, r4, #40	; 0x28
-	bl	FUN_06009B28
+	bl	sub_06009B28
 	cmp	r0, #0
 	beq	_06009A3C
 	add	r0, r4, #40	; 0x28
-	bl	FUN_06009A98
+	bl	sub_06009A98
 	b	_06009A3C
 _06009A00:
 	add	r0, r4, #100	; 0x64
-	bl	FUN_06009B28
+	bl	sub_06009B28
 	add	r0, r4, #40	; 0x28
-	bl	FUN_06009B28
+	bl	sub_06009B28
 	cmp	r0, #0
 	beq	_06009A3C
 	ldrh	r0, [r4, #40]	; 0x28
 	cmp	r0, #0
 	beq	_06009A28
-	bl	FUN_06009AE4
+	bl	sub_06009AE4
 _06009A28:
 	ldrh	r0, [r5, #106]	; 0x6a
 	bl	MakePsPollFrame
@@ -11150,18 +11150,18 @@ _06009A28:
 	strh	r0, [r5, #184]	; 0xb8
 _06009A3C:
 	add	r0, r4, #20
-	bl	FUN_06009B28
+	bl	sub_06009B28
 	cmp	r0, #0
 	beq	_06009A54
 	add	r0, r4, #20
-	bl	FUN_06009A98
+	bl	sub_06009A98
 _06009A54:
 	mov	r0, r4
-	bl	FUN_06009B28
+	bl	sub_06009B28
 	cmp	r0, #0
 	beq	_06009A6C
 	mov	r0, r4
-	bl	FUN_06009A98
+	bl	sub_06009A98
 _06009A6C:
 	ldr	r1, _06009A94	; =0x04808004
 	ldrh	r0, [r1]
@@ -11175,14 +11175,14 @@ _06009A8C:	.word	0x0380FFF4
 _06009A90:	.word	0x0000042C
 _06009A94:	.word	0x04808004
 
-	arm_func_start FUN_06009A98
-FUN_06009A98: ; 0x06009A98
+	arm_func_start sub_06009A98
+sub_06009A98: ; 0x06009A98
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldrh	r0, [r4]
 	cmp	r0, #0
 	beq	_06009AD8
-	bl	FUN_06009AE4
+	bl	sub_06009AE4
 	ldr	r0, [r4, #8]
 	ldr	r1, [r4, #12]
 	sub	r1, r1, #16
@@ -11198,8 +11198,8 @@ _06009AD8:
 	bx	lr
 _06009AE0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009AE4
-FUN_06009AE4: ; 0x06009AE4
+	arm_func_start sub_06009AE4
+sub_06009AE4: ; 0x06009AE4
 	mov	r1, #0
 	ldr	r0, _06009B20	; =0x04808004
 	strh	r1, [r0]
@@ -11220,8 +11220,8 @@ _06009B14:
 _06009B20:	.word	0x04808004
 _06009B24:	.word	0x04808214
 
-	arm_func_start FUN_06009B28
-FUN_06009B28: ; 0x06009B28
+	arm_func_start sub_06009B28
+sub_06009B28: ; 0x06009B28
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r3, [r0, #8]
@@ -11435,7 +11435,7 @@ DMA_Read: ; 0x06009DA4
 	mov	r0, r6
 	mov	r1, r7
 	mov	r2, r5
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	cmp	r4, #0
 	beq	_06009E14
 	add	r1, r6, r5
@@ -11446,7 +11446,7 @@ DMA_Read: ; 0x06009DA4
 	sub	r0, r1, r0
 	add	r1, r7, r5
 	mov	r2, r4
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 _06009E14:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -11476,7 +11476,7 @@ SetupUsTimeOut: ; 0x06009E4C
 	ldr	r1, [r0]
 	ldr	r0, _06009ED4	; =0x00000634
 	add	r0, r1, r0
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	mov	r3, #0
 	ldr	r0, _06009ED8	; =0x000082EA
 	umull	ip, r2, r5, r0
@@ -11486,7 +11486,7 @@ SetupUsTimeOut: ; 0x06009E4C
 	mov	r0, ip, lsr #6
 	orr	r0, r0, r2, lsl #26
 	mov	r2, #1000	; 0x3e8
-	bl	FUN_06009EDC
+	bl	sub_06009EDC
 	mov	r3, r0
 	mov	r2, r1
 	mov	r0, #0
@@ -11497,7 +11497,7 @@ SetupUsTimeOut: ; 0x06009E4C
 	add	r0, r1, r0
 	mov	r1, r3
 	mov	r3, r4
-	bl	FUN_0600144C
+	bl	sub_0600144C
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -11505,8 +11505,8 @@ _06009ED0:	.word	0x0380FFF4
 _06009ED4:	.word	0x00000634
 _06009ED8:	.word	0x000082EA
 
-	arm_func_start FUN_06009EDC
-FUN_06009EDC: ; 0x06009EDC
+	arm_func_start sub_06009EDC
+sub_06009EDC: ; 0x06009EDC
 	ldr	pc, _06009EE0	; =_ll_udiv
 _06009EE0:	.word	_ll_udiv
 
@@ -11520,7 +11520,7 @@ SetupTimeOut: ; 0x06009EE4
 	ldr	r1, [r0]
 	ldr	r0, _06009F54	; =0x00000634
 	add	r0, r1, r0
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	mov	r2, #0
 	str	r2, [sp]
 	ldr	r0, _06009F50	; =0x0380FFF4
@@ -11535,7 +11535,7 @@ SetupTimeOut: ; 0x06009EE4
 	mov	r1, ip, lsr #6
 	orr	r1, r1, r3, lsl #26
 	mov	r3, r4
-	bl	FUN_0600144C
+	bl	sub_0600144C
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -11602,7 +11602,7 @@ SetupPeriodicTimeOut: ; 0x0600A000
 	ldr	r1, [r0]
 	ldr	r0, _0600A088	; =0x00000608
 	add	r0, r1, r0
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	mov	r1, #0
 	ldr	r0, _0600A08C	; =0x000082EA
 	umull	r3, r2, r5, r0
@@ -11610,7 +11610,7 @@ SetupPeriodicTimeOut: ; 0x0600A000
 	mla	r2, r1, r0, r2
 	mov	r6, r3, lsr #6
 	orr	r6, r6, r2, lsl #26
-	bl	FUN_06000E98
+	bl	sub_06000E98
 	mov	r5, #0
 	adds	ip, r6, r0
 	adc	r2, r1, #0
@@ -11623,7 +11623,7 @@ SetupPeriodicTimeOut: ; 0x0600A000
 	ldr	r0, _0600A088	; =0x00000608
 	add	r0, r1, r0
 	mov	r1, ip
-	bl	FUN_0600A090
+	bl	sub_0600A090
 	add	sp, sp, #16
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
@@ -11631,8 +11631,8 @@ _0600A084:	.word	0x0380FFF4
 _0600A088:	.word	0x00000608
 _0600A08C:	.word	0x000082EA
 
-	arm_func_start FUN_0600A090
-FUN_0600A090: ; 0x0600A090
+	arm_func_start sub_0600A090
+sub_0600A090: ; 0x0600A090
 	ldr	pc, _0600A094	; =OS_SetPeriodicAlarm
 _0600A094:	.word	OS_SetPeriodicAlarm
 
@@ -11655,8 +11655,8 @@ _0600A0C0:	.word	WWaitus
 _0600A0C4:
 	mov	r1, #0
 
-	arm_func_start FUN_0600A0C8
-FUN_0600A0C8: ; 0x0600A0C8
+	arm_func_start sub_0600A0C8
+sub_0600A0C8: ; 0x0600A0C8
 	str	r1, [r0]
 	bx	lr
 
@@ -11665,7 +11665,7 @@ InitializeAlarm: ; 0x0600A0D0
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600A120	; =0x0380FFF4
 	ldr	r4, [r0]
-	bl	FUN_0600A12C
+	bl	sub_0600A12C
 	cmp	r0, #0
 	addeq	r0, r4, #768	; 0x300
 	ldreqh	r1, [r0, #62]	; 0x3e
@@ -11674,12 +11674,12 @@ InitializeAlarm: ; 0x0600A0D0
 	beq	_0600A118
 	ldr	r0, _0600A124	; =0x00000608
 	add	r0, r4, r0
-	bl	FUN_06000A04
+	bl	sub_06000A04
 	ldr	r0, _0600A128	; =0x00000634
 	add	r0, r4, r0
-	bl	FUN_06000A04
+	bl	sub_06000A04
 	add	r0, r4, #1632	; 0x660
-	bl	FUN_06000A04
+	bl	sub_06000A04
 _0600A118:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -11687,8 +11687,8 @@ _0600A120:	.word	0x0380FFF4
 _0600A124:	.word	0x00000608
 _0600A128:	.word	0x00000634
 
-	arm_func_start FUN_0600A12C
-FUN_0600A12C: ; 0x0600A12C
+	arm_func_start sub_0600A12C
+sub_0600A12C: ; 0x0600A12C
 	ldr	pc, _0600A130	; =OS_IsAlarmAvailable
 _0600A130:	.word	OS_IsAlarmAvailable
 
@@ -11735,7 +11735,7 @@ _0600A160:
 	and	r0, r0, #127	; 0x7f
 	add	r0, r0, #7
 	mov	r1, #8
-	bl	FUN_06001840
+	bl	sub_06001840
 	mov	r8, r0
 	ldrh	r4, [r7, #4]
 	ldrh	r0, [r7]
@@ -11863,7 +11863,7 @@ WConfigDevice: ; 0x0600A36C
 	mov	r0, #0
 	mov	r1, r4
 	mov	r2, #16
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #64	; 0x40
 	mov	r1, #1
 	mov	r2, r4
@@ -12152,7 +12152,7 @@ _0600A728:
 	ldr	r1, [sp, #4]
 	mov	r2, r4
 	mov	r3, r5
-	bl	FUN_06009EDC
+	bl	sub_06009EDC
 	str	r0, [sp]
 	str	r1, [sp, #4]
 	mov	r2, #1
@@ -12637,15 +12637,15 @@ WInitCounter: ; 0x0600AE88
 	ldr	r1, _0600AEC0	; =0x0000053C
 	add	r1, r2, r1
 	mov	r2, #180	; 0xb4
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600AEBC:	.word	0x0380FFF4
 _0600AEC0:	.word	0x0000053C
 
-	arm_func_start FUN_0600AEC4
-FUN_0600AEC4: ; 0x0600AEC4
+	arm_func_start sub_0600AEC4
+sub_0600AEC4: ; 0x0600AEC4
 	ldr	pc, _0600AEC8	; =MIi_CpuClear32
 _0600AEC8:	.word	MIi_CpuClear32
 
@@ -12858,7 +12858,7 @@ _0600B174:
 	mov	r0, r5
 	ldr	r1, [r4, #156]	; 0x9c
 	add	r2, r6, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 _0600B184:
 	strh	r6, [r4, #160]	; 0xa0
 	mov	r0, #1
@@ -12883,7 +12883,7 @@ WInitGameInfo: ; 0x0600B1A0
 	mov	r0, r1
 	ldr	r1, [r4, #156]	; 0x9c
 	add	r2, r5, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	strh	r5, [r4, #160]	; 0xa0
 	mov	r0, #0
 _0600B1DC:
@@ -12948,7 +12948,7 @@ WSetFrameLifeTime: ; 0x0600B270
 	ldrh	r0, [r5, #110]	; 0x6e
 	mul	r0, r6, r0
 	mov	r1, #100	; 0x64
-	bl	FUN_06003B68
+	bl	sub_06003B68
 	cmp	r0, #65536	; 0x10000
 	movhi	r0, #5
 	bhi	_0600B2C8
@@ -14175,13 +14175,13 @@ InitializeParam: ; 0x0600C338
 	mov	r0, #0
 	add	r1, r1, #796	; 0x31c
 	mov	r2, #40	; 0x28
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #0
 	ldr	r1, _0600C3B4	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #836	; 0x344
 	mov	r2, #192	; 0xc0
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	ldr	r2, _0600C3B4	; =0x0380FFF4
 	ldr	r0, [r2]
 	str	r6, [r0, #796]	; 0x31c
@@ -14659,16 +14659,16 @@ ReleaseIntr: ; 0x0600C9E0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r0, #16777216	; 0x1000000
 	mov	r1, #0
-	bl	FUN_0600CA08
+	bl	sub_0600CA08
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600CA08
-FUN_0600CA08: ; 0x0600CA08
+	arm_func_start sub_0600CA08
+sub_0600CA08: ; 0x0600CA08
 	ldr	pc, _0600CA0C	; =OS_SetIrqFunction
 _0600CA0C:	.word	OS_SetIrqFunction
 
@@ -14678,16 +14678,16 @@ InitializeIntr: ; 0x0600CA10
 	sub	sp, sp, #4
 	mov	r0, #16777216	; 0x1000000
 	ldr	r1, _0600CA38	; =WlIntr
-	bl	FUN_0600CA08
+	bl	sub_0600CA08
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009070
+	bl	sub_06009070
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600CA38:	.word	WlIntr
 
-	arm_func_start FUN_0600CA3C
-FUN_0600CA3C: ; 0x0600CA3C
+	arm_func_start sub_0600CA3C
+sub_0600CA3C: ; 0x0600CA3C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldrh	r1, [r0]
@@ -14717,20 +14717,20 @@ _0600CA90:
 _0600CA9C:	.word	0x00003FFF
 _0600CAA0:	.word	0x04808098
 
-	arm_func_start FUN_0600CAA4
-FUN_0600CAA4: ; 0x0600CAA4
+	arm_func_start sub_0600CAA4
+sub_0600CAA4: ; 0x0600CAA4
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600CAE8	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _0600CAEC	; =0x0000042C
 	add	r4, r1, r0
 	add	r0, r4, #80	; 0x50
-	bl	FUN_0600CA3C
+	bl	sub_0600CA3C
 	cmp	r0, #0
 	movne	r0, #1
 	bne	_0600CAE0
 	add	r0, r4, #100	; 0x64
-	bl	FUN_0600CA3C
+	bl	sub_0600CA3C
 	cmp	r0, #0
 	movne	r0, #1
 	moveq	r0, #0
@@ -14740,8 +14740,8 @@ _0600CAE0:
 _0600CAE8:	.word	0x0380FFF4
 _0600CAEC:	.word	0x0000042C
 
-	arm_func_start FUN_0600CAF0
-FUN_0600CAF0: ; 0x0600CAF0
+	arm_func_start sub_0600CAF0
+sub_0600CAF0: ; 0x0600CAF0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600CB48	; =0x0380FFF4
@@ -14788,7 +14788,7 @@ _0600CB80:	.word	0x0380FFF4
 MacBugTxMp: ; 0x0600CB84
 	stmdb	sp!, {r4, lr}
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	ldr	r2, _0600CBE8	; =0x04808210
 	ldrh	r3, [r2]
@@ -14809,16 +14809,16 @@ _0600CBC8:
 	mov	r0, #0
 	ldr	r1, _0600CBEC	; =0x04808244
 	strh	r0, [r1]
-	bl	FUN_0600D070
+	bl	sub_0600D070
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600CBE8:	.word	0x04808210
 _0600CBEC:	.word	0x04808244
 
-	arm_func_start FUN_0600CBF0
-FUN_0600CBF0: ; 0x0600CBF0
+	arm_func_start sub_0600CBF0
+sub_0600CBF0: ; 0x0600CBF0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600CCBC	; =0x0380FFF4
@@ -14877,8 +14877,8 @@ _0600CCA4:
 _0600CCBC:	.word	0x0380FFF4
 _0600CCC0:	.word	0x0000042C
 
-	arm_func_start FUN_0600CCC4
-FUN_0600CCC4: ; 0x0600CCC4
+	arm_func_start sub_0600CCC4
+sub_0600CCC4: ; 0x0600CCC4
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	ldr	r2, _0600CEF4	; =0x0380FFF4
 	ldr	r1, [r2]
@@ -15023,7 +15023,7 @@ _0600CEA8:
 	strh	r0, [r1]
 	mov	r0, #0
 	strh	r0, [r1]
-	bl	FUN_0600CAF0
+	bl	sub_0600CAF0
 _0600CEEC:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
@@ -15045,8 +15045,8 @@ _0600CF2C:	.word	0x048080B4
 _0600CF30:	.word	0x04808244
 _0600CF34:	.word	0x04808228
 
-	arm_func_start FUN_0600CF38
-FUN_0600CF38: ; 0x0600CF38
+	arm_func_start sub_0600CF38
+sub_0600CF38: ; 0x0600CF38
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r3, _0600D048	; =0x0380FFF4
@@ -15130,8 +15130,8 @@ _0600D064:	.word	0x04808000
 _0600D068:	.word	0x0480819C
 _0600D06C:	.word	0x048082B8
 
-	arm_func_start FUN_0600D070
-FUN_0600D070: ; 0x0600D070
+	arm_func_start sub_0600D070
+sub_0600D070: ; 0x0600D070
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	ip, _0600D168	; =0x0380FFF4
@@ -15206,8 +15206,8 @@ _0600D174:	.word	0x048080B6
 _0600D178:	.word	0x04808214
 _0600D17C:	.word	MacBugTxMp
 
-	arm_func_start FUN_0600D180
-FUN_0600D180: ; 0x0600D180
+	arm_func_start sub_0600D180
+sub_0600D180: ; 0x0600D180
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #28
 	ldr	r0, _0600D5BC	; =0x0380FFF4
@@ -15389,7 +15389,7 @@ _0600D3EC:
 	ands	r1, r1, #32768	; 0x8000
 	beq	_0600D49C
 	add	r0, r0, #1632	; 0x660
-	bl	FUN_060009D0
+	bl	sub_060009D0
 	ldr	r0, [sp, #4]
 	ldrh	r2, [r0]
 	mov	r1, #0
@@ -15402,7 +15402,7 @@ _0600D3EC:
 	orr	r0, r0, r3, lsl #26
 	ldr	r2, [sp, #20]
 	ldr	r3, [sp, #24]
-	bl	FUN_06009EDC
+	bl	sub_06009EDC
 	mov	r3, r0
 	mov	r2, r1
 	ldr	r0, [sp, #24]
@@ -15412,7 +15412,7 @@ _0600D3EC:
 	add	r0, r0, #1632	; 0x660
 	mov	r1, r3
 	ldr	r3, _0600D600	; =WClearKSID
-	bl	FUN_0600144C
+	bl	sub_0600144C
 	b	_0600D4C4
 _0600D49C:
 	ldr	r6, _0600D5E8	; =0x0000FFFF
@@ -15427,7 +15427,7 @@ _0600D49C:
 	strh	r0, [r8]
 _0600D4C4:
 	strh	r6, [r9]
-	bl	FUN_0600CAA4
+	bl	sub_0600CAA4
 	cmp	r0, #0
 	bne	_0600D544
 	ldr	r0, _0600D5BC	; =0x0380FFF4
@@ -15471,7 +15471,7 @@ _0600D558:
 	beq	_0600D58C
 	ldr	r0, _0600D5C8	; =0x04808054
 	ldrh	r4, [r0]
-	bl	FUN_0600CAA4
+	bl	sub_0600CAA4
 	cmp	r0, #0
 	beq	_0600D58C
 	ldr	r0, _0600D5C8	; =0x04808054
@@ -15516,8 +15516,8 @@ _0600D604:	.word	0x04805F7E
 _0600D608:	.word	0x0480824C
 _0600D60C:	.word	0x0480824E
 
-	arm_func_start FUN_0600D610
-FUN_0600D610: ; 0x0600D610
+	arm_func_start sub_0600D610
+sub_0600D610: ; 0x0600D610
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r2, _0600D87C	; =0x0380FFF4
@@ -15549,7 +15549,7 @@ _0600D678:
 	ldr	r0, [r5, #140]	; 0x8c
 	ands	r0, r0, #2
 	beq	_0600D688
-	bl	FUN_0600CBF0
+	bl	sub_0600CBF0
 _0600D688:
 	ldr	r0, _0600D87C	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -15670,7 +15670,7 @@ _0600D7F0:
 	addne	r0, r0, #1
 	strneh	r0, [r5, #172]	; 0xac
 	bne	_0600D84C
-	bl	FUN_0600D070
+	bl	sub_0600D070
 _0600D84C:
 	ldrh	r0, [r5, #170]	; 0xaa
 	add	r0, r0, #1
@@ -15704,8 +15704,8 @@ _0600D8B0:	.word	0x048080B4
 _0600D8B4:	.word	0x04808048
 _0600D8B8:	.word	0x048080AE
 
-	arm_func_start FUN_0600D8BC
-FUN_0600D8BC: ; 0x0600D8BC
+	arm_func_start sub_0600D8BC
+sub_0600D8BC: ; 0x0600D8BC
 	stmdb	sp!, {r4, lr}
 	ldr	r4, _0600DA44	; =0x0380FFF4
 	ldr	r1, [r4]
@@ -15789,14 +15789,14 @@ _0600D9BC:
 	ldrh	r0, [r0]
 	sub	r0, r0, #16384	; 0x4000
 	mov	r1, #2
-	bl	FUN_06001840
+	bl	sub_06001840
 	cmp	r4, r0
 	bge	_0600DA1C
 	ldr	r0, _0600DA6C	; =0x04808050
 	ldrh	r0, [r0]
 	sub	r0, r0, #16384	; 0x4000
 	mov	r1, #2
-	bl	FUN_06001840
+	bl	sub_06001840
 	cmp	r4, r0
 	bge	_0600DA38
 _0600DA1C:
@@ -15828,8 +15828,8 @@ _0600DA74:	.word	0x04808056
 _0600DA78:	.word	0x00008001
 _0600DA7C:	.word	0x04808030
 
-	arm_func_start FUN_0600DA80
-FUN_0600DA80: ; 0x0600DA80
+	arm_func_start sub_0600DA80
+sub_0600DA80: ; 0x0600DA80
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r1, #8
@@ -15910,8 +15910,8 @@ _0600DBA0:	.word	0x04808290
 _0600DBA4:	.word	0x0000042C
 _0600DBA8:	.word	0x04808032
 
-	arm_func_start FUN_0600DBAC
-FUN_0600DBAC: ; 0x0600DBAC
+	arm_func_start sub_0600DBAC
+sub_0600DBAC: ; 0x0600DBAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	bl	WUpdateCounter
@@ -15928,16 +15928,16 @@ _0600DBDC:	.word	0x0000FFFF
 _0600DBE0:	.word	0x048081AC
 _0600DBE4:	.word	0x04808010
 
-	arm_func_start FUN_0600DBE8
-FUN_0600DBE8: ; 0x0600DBE8
+	arm_func_start sub_0600DBE8
+sub_0600DBE8: ; 0x0600DBE8
 	mov	r1, #2048	; 0x800
 	ldr	r0, _0600DBF8	; =0x04808010
 	strh	r1, [r0]
 	bx	lr
 _0600DBF8:	.word	0x04808010
 
-	arm_func_start FUN_0600DBFC
-FUN_0600DBFC: ; 0x0600DBFC
+	arm_func_start sub_0600DBFC
+sub_0600DBFC: ; 0x0600DBFC
 	ldr	r0, _0600DC68	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r2, r0, #836	; 0x344
@@ -15970,8 +15970,8 @@ _0600DC6C:	.word	0x04808010
 _0600DC70:	.word	0x048080AC
 _0600DC74:	.word	0x04808048
 
-	arm_func_start FUN_0600DC78
-FUN_0600DC78: ; 0x0600DC78
+	arm_func_start sub_0600DC78
+sub_0600DC78: ; 0x0600DC78
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600DF48	; =0x0380FFF4
@@ -16035,7 +16035,7 @@ _0600DD5C:
 	ldr	r0, [r9, #140]	; 0x8c
 	bic	r0, r0, #2
 	str	r0, [r9, #140]	; 0x8c
-	bl	FUN_0600CBF0
+	bl	sub_0600CBF0
 	b	_0600DF3C
 _0600DD70:
 	ldr	r0, [r9, #140]	; 0x8c
@@ -16178,8 +16178,8 @@ _0600DF68:	.word	0x04808118
 _0600DF6C:	.word	0x04808048
 _0600DF70:	.word	0x048080AE
 
-	arm_func_start FUN_0600DF74
-FUN_0600DF74: ; 0x0600DF74
+	arm_func_start sub_0600DF74
+sub_0600DF74: ; 0x0600DF74
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600DFF8	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -16221,8 +16221,8 @@ _0600DFFC:	.word	0x04808010
 WlIntr: ; 0x0600E000
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
-	arm_func_start FUN_0600E004
-FUN_0600E004: ; 0x0600E004
+	arm_func_start sub_0600E004
+sub_0600E004: ; 0x0600E004
 	sub	sp, sp, #4
 	mov	r7, #1
 	ldr	r5, _0600E0D8	; =0x04808010
@@ -16234,52 +16234,52 @@ _0600E014:
 	beq	_0600E0BC
 	ands	r0, r6, #128	; 0x80
 	beq	_0600E030
-	bl	FUN_0600CF38
+	bl	sub_0600CF38
 _0600E030:
 	ands	r0, r6, #64	; 0x40
 	beq	_0600E03C
-	bl	FUN_0600CCC4
+	bl	sub_0600CCC4
 _0600E03C:
 	ands	r0, r6, #32768	; 0x8000
 	beq	_0600E048
-	bl	FUN_0600DF74
+	bl	sub_0600DF74
 _0600E048:
 	ands	r0, r6, #16384	; 0x4000
 	beq	_0600E054
-	bl	FUN_0600DC78
+	bl	sub_0600DC78
 _0600E054:
 	ands	r0, r6, #8192	; 0x2000
 	beq	_0600E060
-	bl	FUN_0600DBFC
+	bl	sub_0600DBFC
 _0600E060:
 	ands	r0, r6, #2048	; 0x800
 	beq	_0600E06C
-	bl	FUN_0600DBE8
+	bl	sub_0600DBE8
 _0600E06C:
 	ands	r0, r6, #8
 	beq	_0600E078
-	bl	FUN_0600DA80
+	bl	sub_0600DA80
 _0600E078:
 	ands	r0, r6, #4
 	beq	_0600E084
-	bl	FUN_0600D8BC
+	bl	sub_0600D8BC
 _0600E084:
 	ands	r0, r6, #1
 	beq	_0600E090
-	bl	FUN_0600D180
+	bl	sub_0600D180
 _0600E090:
 	ands	r0, r6, #48	; 0x30
 	beq	_0600E09C
-	bl	FUN_0600DBAC
+	bl	sub_0600DBAC
 _0600E09C:
 	ands	r0, r6, #2
 	beq	_0600E0A8
-	bl	FUN_0600D610
+	bl	sub_0600D610
 _0600E0A8:
 	ands	r0, r6, #4096	; 0x1000
 	beq	_0600E014
 	mov	r0, r7
-	bl	FUN_0600D070
+	bl	sub_0600D070
 	b	_0600E014
 _0600E0BC:
 	ldr	r1, _0600E0E0	; =0x0380FFF8
@@ -16293,8 +16293,8 @@ _0600E0D8:	.word	0x04808010
 _0600E0DC:	.word	0x04808012
 _0600E0E0:	.word	0x0380FFF8
 
-	arm_func_start FUN_0600E0E4
-FUN_0600E0E4: ; 0x0600E0E4
+	arm_func_start sub_0600E0E4
+sub_0600E0E4: ; 0x0600E0E4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -16509,7 +16509,7 @@ _0600E3A4:
 	bl	AdjustRingPointer
 	ldrh	r1, [r0]
 	mov	r0, r5
-	bl	FUN_0600E0E4
+	bl	sub_0600E0E4
 	movs	r4, r0
 	ldr	r0, _0600E6C0	; =0x0480805A
 	strh	r9, [r0]
@@ -16882,8 +16882,8 @@ _0600E92C:
 	bx	lr
 _0600E938:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600E93C
-FUN_0600E93C: ; 0x0600E93C
+	arm_func_start sub_0600E93C
+sub_0600E93C: ; 0x0600E93C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -16902,7 +16902,7 @@ FUN_0600E93C: ; 0x0600E93C
 	mov	r0, #0
 	mov	r1, r4
 	mov	r2, #26
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	ldr	r0, _0600EA08	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -16957,7 +16957,7 @@ _0600EA44:
 	mov	r0, r8
 	mla	r1, sl, r6, r5
 	mov	r2, r7
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	add	sl, sl, #1
 _0600EA58:
 	cmp	sl, r9
@@ -16991,14 +16991,14 @@ InitializeCAM: ; 0x0600EA9C
 	mov	r1, r5
 	mov	r2, #28
 	mul	r2, r4, r2
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #0
 	ldr	r1, _0600EB34	; =0x0380FFF4
 	ldr	r2, [r1]
 	ldr	r1, _0600EB38	; =0x0000052C
 	add	r1, r2, r1
 	mov	r2, #16
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	ldr	r2, _0600EB3C	; =0x0000FFFF
 	strh	r2, [r5, #26]
 	mov	r3, #1
@@ -17013,7 +17013,7 @@ _0600EB08:
 	bcc	_0600EAFC
 	mov	r0, #0
 	ldr	r1, _0600EB40	; =BC_ADRS
-	bl	FUN_0600E93C
+	bl	sub_0600E93C
 	mov	r0, #0
 	mov	r1, #64	; 0x40
 	bl	CAM_SetStaState
@@ -17195,7 +17195,7 @@ CAM_ClrTIMElementBitmap: ; 0x0600ED74
 	ldr	r0, _0600EE1C	; =0x0480425C
 	add	r6, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	cmp	r5, #0
 	bne	_0600EDD0
@@ -17223,7 +17223,7 @@ _0600EDD0:
 	bl	WL_WriteByte
 _0600EE08:
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 _0600EE10:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
@@ -17250,7 +17250,7 @@ CAM_SetTIMElementBitmap: ; 0x0600EE20
 	ldr	r0, _0600EEDC	; =0x0480425C
 	add	r6, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	cmp	r5, #0
 	bne	_0600EE94
@@ -17277,7 +17277,7 @@ _0600EE94:
 	bl	WL_WriteByte
 _0600EEC8:
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 _0600EED0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
@@ -17432,7 +17432,7 @@ CAM_AllocateAID: ; 0x0600F080
 	ldr	r0, _0600F12C	; =0x0000052C
 	add	r6, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	mov	r5, #1
 	mov	r2, #2
@@ -17455,7 +17455,7 @@ _0600F0E4:
 	bl	CAM_GetTbl
 	strh	r5, [r0, #2]
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, r5
 	b	_0600F11C
 _0600F100:
@@ -17465,7 +17465,7 @@ _0600F108:
 	cmp	r5, #16
 	bcc	_0600F0B4
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	mov	r0, #0
 _0600F11C:
 	add	sp, sp, #4
@@ -17597,7 +17597,7 @@ CAM_SetStaState: ; 0x0600F294
 	mov	r6, r0
 	mov	r5, r1
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	cmp	r5, #64	; 0x40
 	bcs	_0600F308
@@ -17642,7 +17642,7 @@ _0600F340:
 	bl	CAM_GetTbl
 	strh	r5, [r0]
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600F35C:	.word	0x0380FFF4
@@ -17655,7 +17655,7 @@ CAM_DecFrameCount: ; 0x0600F360
 	bl	CAM_GetTbl
 	mov	r6, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r5, r0
 	ldr	r0, _0600F3C8	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -17673,7 +17673,7 @@ _0600F3AC:
 	sub	r0, r0, #1
 	strh	r0, [r6, #22]
 	mov	r0, r5
-	bl	FUN_06009070
+	bl	sub_06009070
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600F3C8:	.word	0x0380FFF4
@@ -17686,7 +17686,7 @@ CAM_IncFrameCount: ; 0x0600F3CC
 	bl	CAM_GetTbl
 	mov	r6, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r5, r0
 	ldr	r0, _0600F458	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -17704,7 +17704,7 @@ _0600F418:
 	add	r0, r0, #1
 	strh	r0, [r6, #22]
 	mov	r0, r5
-	bl	FUN_06009070
+	bl	sub_06009070
 	ldr	r0, _0600F458	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -17728,7 +17728,7 @@ CAM_AddBcFrame: ; 0x0600F45C
 	ldr	r0, [r0]
 	add	r5, r0, #428	; 0x1ac
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	ldrh	r0, [r5, #8]
 	cmp	r0, #0
@@ -17741,7 +17741,7 @@ _0600F498:
 	mov	r2, r6
 	bl	MoveHeapBuf
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -17837,7 +17837,7 @@ _0600F5D8:
 _0600F5EC:
 	mov	r0, r6
 	mov	r1, r9
-	bl	FUN_0600E93C
+	bl	sub_0600E93C
 	mov	r0, r6
 _0600F5FC:
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -17896,8 +17896,8 @@ _0600F6AC:	.word	0x0380FFF4
 _0600F6B0:
 	mov	r2, #0
 
-	arm_func_start FUN_0600F6B4
-FUN_0600F6B4: ; 0x0600F6B4
+	arm_func_start sub_0600F6B4
+sub_0600F6B4: ; 0x0600F6B4
 	ldr	r1, _0600F6E0	; =0x04808180
 	b	_0600F6D0
 _0600F6BC:
@@ -17975,8 +17975,8 @@ _0600F79C:	.word	0x0480819C
 WaitLoop_Waitus: ; 0x0600F7A0
 	stmdb	sp!, {r4, lr}
 
-	arm_func_start FUN_0600F7A4
-FUN_0600F7A4: ; 0x0600F7A4
+	arm_func_start sub_0600F7A4
+sub_0600F7A4: ; 0x0600F7A4
 	sub	sp, sp, #8
 	mov	r4, r1
 	mov	r1, #1
@@ -17990,7 +17990,7 @@ FUN_0600F7A4: ; 0x0600F7A4
 	mov	r0, ip, lsr #6
 	orr	r0, r0, r2, lsl #26
 	mov	r2, #1000	; 0x3e8
-	bl	FUN_06009EDC
+	bl	sub_06009EDC
 	mov	r3, r0
 	mov	r2, r1
 	add	r0, sp, #4
@@ -18001,7 +18001,7 @@ FUN_0600F7A4: ; 0x0600F7A4
 	add	r0, r1, r0
 	mov	r1, r3
 	mov	r3, r4
-	bl	FUN_0600144C
+	bl	sub_0600144C
 _0600F808:
 	ldr	r0, [sp, #4]
 	cmp	r0, #0
@@ -18053,7 +18053,7 @@ _0600F894:
 	ldr	r0, [r0, #772]	; 0x304
 	mov	r1, r7
 	mov	r2, r5
-	bl	FUN_060006F8
+	bl	sub_060006F8
 	cmp	r0, #0
 	beq	_0600F8CC
 	ldr	r0, [r6]
@@ -18093,7 +18093,7 @@ SendMessageToWmDirect: ; 0x0600F8DC
 _0600F920:
 	ldr	r0, [r3, #772]	; 0x304
 	mov	r2, #0
-	bl	FUN_060006F8
+	bl	sub_060006F8
 	cmp	r0, #0
 	beq	_0600F944
 	mov	r0, r5
@@ -18374,7 +18374,7 @@ _0600FCFC:
 	ldrh	r0, [r5, #160]	; 0xa0
 	add	r0, r0, #1
 	mov	r1, #2
-	bl	FUN_06001840
+	bl	sub_06001840
 	add	r0, r0, #22
 	strh	r0, [r4, #14]
 	add	r0, r4, #31
@@ -18419,7 +18419,7 @@ _0600FDAC:
 	ldr	r0, [r5, #156]	; 0x9c
 	add	r1, r4, #60	; 0x3c
 	add	r2, r2, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 _0600FDBC:
 	ldr	r0, _0600FDE0	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -18787,8 +18787,8 @@ _06010298:	.word	0x0380FFF4
 _0601029C:	.word	0x000003C6
 _060102A0:	.word	MLME_IssueBeaconLostIndication
 
-	arm_func_start FUN_060102A4
-FUN_060102A4: ; 0x060102A4
+	arm_func_start sub_060102A4
+sub_060102A4: ; 0x060102A4
 	mov	r1, #131	; 0x83
 	ldr	r0, _060102C8	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -18889,7 +18889,7 @@ _06010400:
 	strh	r0, [r4]
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #22]
-	ldr	r1, _06010550	; =FUN_060102A4
+	ldr	r1, _06010550	; =sub_060102A4
 	bl	SetupTimeOut
 _06010418:
 	ldr	r0, [r4, #4]
@@ -18916,7 +18916,7 @@ _06010440:
 	ldr	r0, [r4, #8]
 	cmp	r0, #0
 	beq	_06010484
-	bl	FUN_06003B68
+	bl	sub_06003B68
 	add	r2, r0, #1
 	cmp	r2, #100	; 0x64
 	movhi	r2, #100	; 0x64
@@ -18977,11 +18977,11 @@ _06010538:
 _06010544:	.word	0x0380FFF4
 _06010548:	.word	0x00000404
 _0601054C:	.word	0x04808040
-_06010550:	.word	FUN_060102A4
+_06010550:	.word	sub_060102A4
 _06010554:	.word	0x0480819C
 
-	arm_func_start FUN_06010558
-FUN_06010558: ; 0x06010558
+	arm_func_start sub_06010558
+sub_06010558: ; 0x06010558
 	ldr	r0, _06010590	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _06010594	; =0x00000404
@@ -19035,7 +19035,7 @@ _06010604:
 	bl	TxManCtrlFrame
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
-	ldr	r1, _06010654	; =FUN_06010558
+	ldr	r1, _06010654	; =sub_06010558
 	bl	SetupTimeOut
 	b	_06010644
 _06010624:
@@ -19052,10 +19052,10 @@ _06010644:
 	bx	lr
 _0601064C:	.word	0x0380FFF4
 _06010650:	.word	0x00000404
-_06010654:	.word	FUN_06010558
+_06010654:	.word	sub_06010558
 
-	arm_func_start FUN_06010658
-FUN_06010658: ; 0x06010658
+	arm_func_start sub_06010658
+sub_06010658: ; 0x06010658
 	ldr	r0, _06010690	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _06010694	; =0x00000404
@@ -19109,7 +19109,7 @@ _06010704:
 	bl	TxManCtrlFrame
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
-	ldr	r1, _0601075C	; =FUN_06010658
+	ldr	r1, _0601075C	; =sub_06010658
 	bl	SetupTimeOut
 	b	_0601074C
 _06010724:
@@ -19128,10 +19128,10 @@ _0601074C:
 	bx	lr
 _06010754:	.word	0x0380FFF4
 _06010758:	.word	0x00000404
-_0601075C:	.word	FUN_06010658
+_0601075C:	.word	sub_06010658
 
-	arm_func_start FUN_06010760
-FUN_06010760: ; 0x06010760
+	arm_func_start sub_06010760
+sub_06010760: ; 0x06010760
 	ldr	r0, _06010798	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _0601079C	; =0x00000404
@@ -19194,7 +19194,7 @@ _06010814:
 	bl	TxManCtrlFrame
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
-	ldr	r1, _06010888	; =FUN_06010760
+	ldr	r1, _06010888	; =sub_06010760
 	bl	SetupTimeOut
 	b	_06010878
 _06010850:
@@ -19213,10 +19213,10 @@ _06010878:
 	bx	lr
 _06010880:	.word	0x0380FFF4
 _06010884:	.word	0x00000404
-_06010888:	.word	FUN_06010760
+_06010888:	.word	sub_06010760
 
-	arm_func_start FUN_0601088C
-FUN_0601088C: ; 0x0601088C
+	arm_func_start sub_0601088C
+sub_0601088C: ; 0x0601088C
 	ldr	r0, _060108C0	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _060108C4	; =0x00000404
@@ -19257,7 +19257,7 @@ _060108FC:
 	strh	r0, [r4]
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #16]
-	ldr	r1, _0601096C	; =FUN_0601088C
+	ldr	r1, _0601096C	; =sub_0601088C
 	bl	SetupTimeOut
 	b	_0601095C
 _06010928:
@@ -19280,10 +19280,10 @@ _0601095C:
 	bx	lr
 _06010964:	.word	0x0380FFF4
 _06010968:	.word	0x00000404
-_0601096C:	.word	FUN_0601088C
+_0601096C:	.word	sub_0601088C
 
-	arm_func_start FUN_06010970
-FUN_06010970: ; 0x06010970
+	arm_func_start sub_06010970
+sub_06010970: ; 0x06010970
 	ldr	r0, _060109CC	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _060109D0	; =0x00000404
@@ -19352,7 +19352,7 @@ _06010A24:
 	ldrh	r0, [r1, #74]	; 0x4a
 	add	r0, r0, #3
 	mov	r1, #4
-	bl	FUN_06001840
+	bl	sub_06001840
 	strh	r0, [r6, #12]
 	ldrh	r0, [r6, #12]
 	cmp	r0, #10
@@ -19430,7 +19430,7 @@ _06010B78:
 	bl	TxManCtrlFrame
 _06010B7C:
 	ldrh	r0, [r6, #12]
-	ldr	r1, _06010BD0	; =FUN_06010970
+	ldr	r1, _06010BD0	; =sub_06010970
 	bl	SetupTimeOut
 	b	_06010BAC
 _06010B8C:
@@ -19453,7 +19453,7 @@ _06010BC0:
 	bx	lr
 _06010BC8:	.word	0x0380FFF4
 _06010BCC:	.word	0x00000404
-_06010BD0:	.word	FUN_06010970
+_06010BD0:	.word	sub_06010970
 
 	arm_func_start MLME_MeasChanReqCmd
 MLME_MeasChanReqCmd: ; 0x06010BD4
@@ -20312,12 +20312,12 @@ _060117F8:
 	ldr	r0, [r3, #992]	; 0x3e0
 	add	r1, r4, #8
 	add	r2, r2, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 _06011808:
 	ldrh	r0, [r4, #6]
 	add	r0, r0, #1
 	mov	r1, #2
-	bl	FUN_06001840
+	bl	sub_06001840
 	add	r0, r0, #2
 	strh	r0, [r4, #2]
 	mov	r0, #0
@@ -20783,7 +20783,7 @@ PARAMGET_AllReqCmd: ; 0x06011D2C
 	add	r0, r0, #900	; 0x384
 	add	r1, r4, #34	; 0x22
 	mov	r2, #32
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldr	r1, _06011E60	; =0x0380FFF4
 	ldr	r0, [r1]
 	add	r0, r0, #768	; 0x300
@@ -20817,7 +20817,7 @@ PARAMSET_GameInfoReqCmd: ; 0x06011E64
 	ldrh	r5, [r4, #16]
 	add	r0, r5, #1
 	mov	r1, #2
-	bl	FUN_06001840
+	bl	sub_06001840
 	ldrh	r1, [r4, #14]
 	add	r0, r0, #1
 	cmp	r1, r0
@@ -21489,8 +21489,8 @@ _06012738:	.word	0x04808010
 _0601273C:	.word	0x04808194
 _06012740:	.word	0x04808040
 
-	arm_func_start FUN_06012744
-FUN_06012744: ; 0x06012744
+	arm_func_start sub_06012744
+sub_06012744: ; 0x06012744
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -21512,7 +21512,7 @@ _06012788:
 	mov	r0, #0
 	ldr	r1, _06012860	; =0x04804000
 	mov	r2, #12
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #20
 	ldr	r1, _06012860	; =0x04804000
 	strh	r0, [r1, #8]
@@ -21689,7 +21689,7 @@ _06012A14:
 	b	_06012ACC
 _06012A30:
 	mov	r0, r5
-	bl	FUN_06012744
+	bl	sub_06012744
 	b	_06012ACC
 _06012A3C:
 	ldrh	r0, [r4, #8]
@@ -21781,7 +21781,7 @@ DEV_GetWlInfoReqCmd: ; 0x06012B28
 	add	r0, r1, r0
 	add	r1, r4, #8
 	mov	r2, #180	; 0xb4
-	bl	FUN_06012B88
+	bl	sub_06012B88
 	mov	r0, #0
 _06012B78:
 	ldmia	sp!, {r4, lr}
@@ -21789,8 +21789,8 @@ _06012B78:
 _06012B80:	.word	0x0380FFF4
 _06012B84:	.word	0x0000053C
 
-	arm_func_start FUN_06012B88
-FUN_06012B88: ; 0x06012B88
+	arm_func_start sub_06012B88
+sub_06012B88: ; 0x06012B88
 	ldr	pc, _06012B8C	; =MIi_CpuCopy32
 _06012B8C:	.word	MIi_CpuCopy32
 
@@ -21803,7 +21803,7 @@ DEV_GetVerInfoReqCmd: ; 0x06012B90
 	ldr	r0, _06012C2C	; =_06019950
 	add	r1, r4, #6
 	mov	r2, #8
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldr	r0, _06012C30	; =0x04808000
 	ldrh	r0, [r0]
 	strh	r0, [r4, #14]
@@ -22295,9 +22295,9 @@ _06013228:
 	add	r0, r2, r0
 	add	r0, r0, #50	; 0x32
 	mov	r1, #10
-	bl	FUN_06003B68
+	bl	sub_06003B68
 	mov	r5, r0
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	ldr	r1, _060133A4	; =0x04808118
 	strh	r5, [r1]
 	ldr	r1, _060133A8	; =0x00003FFF
@@ -22307,10 +22307,10 @@ _06013228:
 	orr	r2, r1, r7
 	ldr	r1, _060133AC	; =0x04808090
 	strh	r2, [r1]
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06013368
 _060132CC:
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	mov	r6, r0
 	ldr	r0, _060133B0	; =0x048080F8
 	ldrh	r0, [r0]
@@ -22318,7 +22318,7 @@ _060132CC:
 	ldr	r0, _0601338C	; =0x0000FFFF
 	and	r0, r1, r0
 	mov	r1, #10
-	bl	FUN_06003B68
+	bl	sub_06003B68
 	ldrh	r2, [r5, #24]
 	add	r1, r0, #3
 	cmp	r1, r2
@@ -22335,11 +22335,11 @@ _060132CC:
 	ldr	r0, _060133AC	; =0x04808090
 	strh	r1, [r0]
 	mov	r0, r6
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	b	_06013368
 _06013338:
 	mov	r0, r6
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	add	r0, sl, #12
 	ldr	r1, [r9, #144]	; 0x90
 	bl	ReleaseHeapBuf
@@ -22633,7 +22633,7 @@ InitTxCtrl: ; 0x0601373C
 	mov	r0, #0
 	mov	r1, r6
 	mov	r2, #176	; 0xb0
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	mov	r1, #0
 	add	r0, r7, #1024	; 0x400
 	strh	r1, [r0, #44]	; 0x2c
@@ -22863,8 +22863,8 @@ _06013ADC:	.word	0x048045D6
 _06013AE0:	.word	0x04804BF8
 _06013AE4:	.word	0x04804BFA
 
-	arm_func_start FUN_06013AE8
-FUN_06013AE8: ; 0x06013AE8
+	arm_func_start sub_06013AE8
+sub_06013AE8: ; 0x06013AE8
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r7, r0
 	ldr	r1, _06013C04	; =0x0380FFF4
@@ -22942,8 +22942,8 @@ _06013BF8:
 _06013C04:	.word	0x0380FFF4
 _06013C08:	.word	0x0380FFF0
 
-	arm_func_start FUN_06013C0C
-FUN_06013C0C: ; 0x06013C0C
+	arm_func_start sub_06013C0C
+sub_06013C0C: ; 0x06013C0C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r1, #3
@@ -22963,8 +22963,8 @@ FUN_06013C0C: ; 0x06013C0C
 	bx	lr
 _06013C50:	.word	0x0380FFF4
 
-	arm_func_start FUN_06013C54
-FUN_06013C54: ; 0x06013C54
+	arm_func_start sub_06013C54
+sub_06013C54: ; 0x06013C54
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -23016,8 +23016,8 @@ _06013CD8:
 _06013D04:	.word	0x0380FFF4
 _06013D08:	.word	RateBit2Element
 
-	arm_func_start FUN_06013D0C
-FUN_06013D0C: ; 0x06013D0C
+	arm_func_start sub_06013D0C
+sub_06013D0C: ; 0x06013D0C
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r4, r0
 	ldr	r1, _06013D7C	; =0x0380FFF4
@@ -23095,7 +23095,7 @@ InitManHeader: ; 0x06013DF4
 	mov	r0, #0
 	mov	r1, r5
 	mov	r2, #44	; 0x2c
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	bl	WCalcManRate
 	strh	r0, [r5, #16]
 	ldr	r0, _06013E44	; =0x0380FFF4
@@ -23141,7 +23141,7 @@ MakeDeAuthFrame: ; 0x06013E9C
 	mov	r5, r1
 	cmp	r2, #0
 	bne	_06013EC0
-	bl	FUN_06014640
+	bl	sub_06014640
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_06013F28
@@ -23186,7 +23186,7 @@ MakeAuthFrame: ; 0x06013F38
 	mov	r5, r1
 	cmp	r2, #0
 	beq	_06013F5C
-	bl	FUN_06014640
+	bl	sub_06014640
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_06013FEC
@@ -23242,7 +23242,7 @@ MakeProbeResFrame: ; 0x06013FFC
 	ldr	r0, _060140DC	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r5, r0, #836	; 0x344
-	bl	FUN_06014640
+	bl	sub_06014640
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_060140D4
@@ -23270,19 +23270,19 @@ _06014050:
 	ldrh	r0, [r5, #124]	; 0x7c
 	strh	r0, [r4, #54]	; 0x36
 	add	r0, r4, #56	; 0x38
-	bl	FUN_06013D0C
+	bl	sub_06013D0C
 	mov	r5, r0
 	add	r0, r4, #56	; 0x38
 	add	r0, r0, r5
-	bl	FUN_06013C54
+	bl	sub_06013C54
 	add	r5, r5, r0
 	add	r0, r4, #56	; 0x38
 	add	r0, r0, r5
-	bl	FUN_06013C0C
+	bl	sub_06013C0C
 	add	r5, r5, r0
 	add	r0, r4, #56	; 0x38
 	add	r0, r0, r5
-	bl	FUN_06013AE8
+	bl	sub_06013AE8
 	add	r0, r5, r0
 	add	r0, r0, #12
 	strh	r0, [r4, #6]
@@ -23321,11 +23321,11 @@ _06014118:
 	mov	r1, r6
 	bl	InitManHeader
 	add	r0, r5, #44	; 0x2c
-	bl	FUN_06013D0C
+	bl	sub_06013D0C
 	mov	r4, r0
 	add	r0, r5, #44	; 0x2c
 	add	r0, r0, r4
-	bl	FUN_06013C54
+	bl	sub_06013C54
 	add	r0, r4, r0
 	strh	r0, [r5, #6]
 	add	r0, r0, #28
@@ -23385,7 +23385,7 @@ _060141E0:
 	orr	r0, r4, #49152	; 0xc000
 	strh	r0, [r5, #48]	; 0x30
 	add	r0, r5, #50	; 0x32
-	bl	FUN_06013C54
+	bl	sub_06013C54
 	add	r0, r0, #6
 	strh	r0, [r5, #6]
 	ldrh	r0, [r5, #6]
@@ -23490,7 +23490,7 @@ _0601434C:
 	orrne	r0, r0, #49152	; 0xc000
 	strneh	r0, [r5, #48]	; 0x30
 	add	r0, r5, #50	; 0x32
-	bl	FUN_06013C54
+	bl	sub_06013C54
 	add	r0, r0, #6
 	strh	r0, [r5, #6]
 	ldrh	r0, [r5, #6]
@@ -23577,11 +23577,11 @@ _06014490:
 	add	r1, r5, #130	; 0x82
 	bl	WSetMacAdrs1
 	add	r0, r4, #54	; 0x36
-	bl	FUN_06013D0C
+	bl	sub_06013D0C
 	mov	r5, r0
 	add	r0, r4, #54	; 0x36
 	add	r0, r0, r5
-	bl	FUN_06013C54
+	bl	sub_06013C54
 	add	r0, r5, r0
 	add	r0, r0, #10
 	strh	r0, [r4, #6]
@@ -23625,11 +23625,11 @@ _06014548:
 	ldrh	r0, [r5, #112]	; 0x70
 	strh	r0, [r4, #46]	; 0x2e
 	add	r0, r4, #48	; 0x30
-	bl	FUN_06013D0C
+	bl	sub_06013D0C
 	mov	r5, r0
 	add	r0, r4, #48	; 0x30
 	add	r0, r0, r5
-	bl	FUN_06013C54
+	bl	sub_06013C54
 	add	r0, r5, r0
 	add	r0, r0, #4
 	strh	r0, [r4, #6]
@@ -23683,8 +23683,8 @@ _06014630:
 _06014638:	.word	0x0380FFF4
 _0601463C:	.word	0x0000FFFF
 
-	arm_func_start FUN_06014640
-FUN_06014640: ; 0x06014640
+	arm_func_start sub_06014640
+sub_06014640: ; 0x06014640
 	ldr	r0, _0601466C	; =0x0380FFF4
 	ldr	r2, [r0]
 	add	r0, r2, #256	; 0x100
@@ -23843,7 +23843,7 @@ _0601487C:
 	strh	r1, [r8, #146]	; 0x92
 _06014880:
 	mov	r0, r6
-	bl	FUN_06013C54
+	bl	sub_06013C54
 	add	r6, r6, r0
 	mov	r0, r6
 	mov	r1, #3
@@ -24378,7 +24378,7 @@ ResetTxqPri: ; 0x06014FC8
 	mul	r4, r7, r0
 	add	r6, r5, r4
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r2, r7, lsl #1
 	ldr	r1, _06015058	; =_06019958
 	ldrh	r2, [r1, r2]
@@ -24398,7 +24398,7 @@ ResetTxqPri: ; 0x06014FC8
 	ldr	r1, [r6, #12]
 	strh	r2, [r1, #42]	; 0x2a
 _06015040:
-	bl	FUN_06009070
+	bl	sub_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -24450,7 +24450,7 @@ ClearTxData: ; 0x060150D8
 	ldr	r0, _06015188	; =0x0000042C
 	add	r5, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	ldr	r0, _06015184	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -24486,7 +24486,7 @@ _06015164:
 	mov	r1, #1
 	bl	MessageDeleteTx
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -24503,7 +24503,7 @@ ClearTxMp: ; 0x06015190
 	ldr	r0, _060151E8	; =0x0000042C
 	add	r5, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	mov	r1, #2
 	ldr	r0, _060151EC	; =0x048080B4
@@ -24514,7 +24514,7 @@ ClearTxMp: ; 0x06015190
 	bl	WlIntrMpEndTask
 _060151D0:
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -24531,7 +24531,7 @@ ClearTxKeyData: ; 0x060151F0
 	ldr	r0, _06015268	; =0x0000042C
 	add	r5, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	mov	r4, r0
 	ldr	r0, _06015264	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -24550,7 +24550,7 @@ _06015238:
 	strh	r0, [r5, #80]	; 0x50
 	strh	r0, [r5, #100]	; 0x64
 	mov	r0, r4
-	bl	FUN_06009070
+	bl	sub_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -24586,8 +24586,8 @@ _060152C0:	.word	0x0000053C
 TxqEndBroadCast: ; 0x060152C4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
-	arm_func_start FUN_060152C8
-FUN_060152C8: ; 0x060152C8
+	arm_func_start sub_060152C8
+sub_060152C8: ; 0x060152C8
 	sub	sp, sp, #4
 	mov	r7, r0
 	mov	r6, r1
@@ -24668,8 +24668,8 @@ _060153E0:	.word	0x048080AE
 _060153E4:
 	ldr	r1, _06015450	; =0x0380FFF4
 
-	arm_func_start FUN_060153E8
-FUN_060153E8: ; 0x060153E8
+	arm_func_start sub_060153E8
+sub_060153E8: ; 0x060153E8
 	ldr	r2, [r1]
 	ldr	r1, _06015454	; =0x0000053C
 	add	r3, r2, r1
@@ -24704,8 +24704,8 @@ _06015454:	.word	0x0000053C
 TxqEndManCtrl: ; 0x06015458
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 
-	arm_func_start FUN_0601545C
-FUN_0601545C: ; 0x0601545C
+	arm_func_start sub_0601545C
+sub_0601545C: ; 0x0601545C
 	sub	sp, sp, #4
 	mov	sl, r0
 	mov	r9, r1
@@ -25067,8 +25067,8 @@ _06015970:	.word	0x0000053C
 TxqEndData: ; 0x06015974
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 
-	arm_func_start FUN_06015978
-FUN_06015978: ; 0x06015978
+	arm_func_start sub_06015978
+sub_06015978: ; 0x06015978
 	sub	sp, sp, #4
 	mov	r9, r0
 	mov	r8, r1
@@ -25297,12 +25297,12 @@ TxqPri: ; 0x06015C78
 	cmp	r0, #0
 	beq	_06015EAC
 	mov	r0, #16777216	; 0x1000000
-	bl	FUN_06009068
+	bl	sub_06009068
 	str	r0, [sp, #8]
 	ldrh	r1, [r7]
 	cmp	r1, #0
 	beq	_06015CD8
-	bl	FUN_06009070
+	bl	sub_06009070
 	b	_06015EAC
 _06015CD8:
 	ldr	r0, [fp]
@@ -25316,7 +25316,7 @@ _06015CEC:
 	cmp	r0, r1
 	bne	_06015D08
 	ldr	r0, [sp, #8]
-	bl	FUN_06009070
+	bl	sub_06009070
 	b	_06015EAC
 _06015D08:
 	str	r0, [sp]
@@ -25431,7 +25431,7 @@ _06015E48:
 	strneh	r1, [r0]
 _06015EA4:
 	ldr	r0, [sp, #8]
-	bl	FUN_06009070
+	bl	sub_06009070
 _06015EAC:
 	add	sp, sp, #20
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25452,7 +25452,7 @@ InitRxCtrl: ; 0x06015EC8
 	mov	r0, #0
 	mov	r1, r5
 	mov	r2, #80	; 0x50
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _06015FE8	; =0x04808030
 	strh	r1, [r0]
@@ -25577,8 +25577,8 @@ _06016094:
 _060160AC:	.word	0x0380FFF4
 _060160B0:	.word	0x000004E4
 
-	arm_func_start FUN_060160B4
-FUN_060160B4: ; 0x060160B4
+	arm_func_start sub_060160B4
+sub_060160B4: ; 0x060160B4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	sl, r0
@@ -25664,12 +25664,12 @@ _060161DC:
 	add	r2, r6, #44	; 0x2c
 	add	r1, r2, r1
 	add	r2, r5, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	strh	r9, [r6, #16]
 	ldrh	r0, [sl]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUN_06001840
+	bl	sub_06001840
 	add	r2, r7, r4
 	ldrh	r3, [r2, #16]
 	bic	r1, r3, #15
@@ -25732,8 +25732,8 @@ _060162E8:	.word	0x0380FFF4
 _060162EC:	.word	0x000004E4
 _060162F0:	.word	0x000005E4
 
-	arm_func_start FUN_060162F4
-FUN_060162F4: ; 0x060162F4
+	arm_func_start sub_060162F4
+sub_060162F4: ; 0x060162F4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -25774,7 +25774,7 @@ _0601632C:
 	ldrh	r0, [sl]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUN_06001840
+	bl	sub_06001840
 	mov	r6, r0
 	ldrh	r0, [r4, #16]
 	mov	r0, r0, lsl #28
@@ -25798,7 +25798,7 @@ _0601632C:
 	add	r1, r7, #44	; 0x2c
 	add	r1, r1, r2
 	mov	r2, r5
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r7, #16]
 	add	r0, r0, r5
 	strh	r0, [r7, #16]
@@ -25838,7 +25838,7 @@ _0601643C:
 	mov	r0, r9
 	add	r1, r6, #4
 	mov	r2, #16
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	mov	r0, #5
 	strh	r0, [r8, r4]
 	mov	r0, r6
@@ -25848,15 +25848,15 @@ _0601643C:
 	add	r1, r5, #8
 	ldrh	r2, [sl, #8]
 	add	r2, r2, #12
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldr	r0, _06016538	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #780]	; 0x30c
-	bl	FUN_06016544
+	bl	sub_06016544
 	ldrh	r0, [r5, #8]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUN_06001840
+	bl	sub_06001840
 	mov	r1, r0
 	ldrh	r0, [r6, #16]
 	bic	r2, r0, #15
@@ -25874,7 +25874,7 @@ _0601643C:
 	sub	r0, r0, #24
 	strh	r0, [r5, #16]
 	ldrh	r0, [r5, #16]
-	bl	FUN_06003B68
+	bl	sub_06003B68
 	mov	r1, r6
 	strh	r0, [r1, #2]
 	b	_0601652C
@@ -25889,8 +25889,8 @@ _06016538:	.word	0x0380FFF4
 _0601653C:	.word	0x000004E4
 _06016540:	.word	0x00000622
 
-	arm_func_start FUN_06016544
-FUN_06016544: ; 0x06016544
+	arm_func_start sub_06016544
+sub_06016544: ; 0x06016544
 	ldr	pc, _06016548	; =MI_WaitDma
 _06016548:	.word	MI_WaitDma
 
@@ -25951,12 +25951,12 @@ _060165F4:
 	bne	_06016624
 	add	r0, r5, #8
 	add	r1, sp, #0
-	bl	FUN_060162F4
+	bl	sub_060162F4
 	b	_06016630
 _06016624:
 	add	r0, r5, #8
 	add	r1, sp, #0
-	bl	FUN_060160B4
+	bl	sub_060160B4
 _06016630:
 	add	r0, r7, #108	; 0x6c
 	mov	r1, r6
@@ -25974,8 +25974,8 @@ _06016654:
 _06016660:	.word	0x0380FFF4
 _06016664:	.word	0x000005FC
 
-	arm_func_start FUN_06016668
-FUN_06016668: ; 0x06016668
+	arm_func_start sub_06016668
+sub_06016668: ; 0x06016668
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -26015,8 +26015,8 @@ _060166E4:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUN_060166F0
-FUN_060166F0: ; 0x060166F0
+	arm_func_start sub_060166F0
+sub_060166F0: ; 0x060166F0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
 	mov	r4, r1
@@ -26078,7 +26078,7 @@ RxManCtrlTask: ; 0x06016764
 	ldrh	r0, [r6, #8]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUN_06001840
+	bl	sub_06001840
 	ldr	r1, [r8, #36]	; 0x24
 	sub	r0, r0, #1
 	add	r0, r1, r0
@@ -26107,15 +26107,15 @@ RxManCtrlTask: ; 0x06016764
 	cmp	r4, #11
 	bne	_06016A78
 	mov	r0, r6
-	bl	FUN_06016F18
+	bl	sub_06016F18
 	b	_06016A78
 _0601684C:
 	mov	r0, r6
-	bl	FUN_0601784C
+	bl	sub_0601784C
 	b	_06016A78
 _06016858:
 	mov	r0, r6
-	bl	FUN_06017D0C
+	bl	sub_06017D0C
 	b	_06016A78
 _06016864:
 	bl	CAM_UpdateLifeTime
@@ -26179,32 +26179,32 @@ _06016938:
 	b	_06016A78
 _06016944:
 	mov	r0, r6
-	bl	FUN_06017D0C
+	bl	sub_06017D0C
 	b	_06016A78
 _06016950:
 	mov	r0, r6
-	bl	FUN_06017A34
+	bl	sub_06017A34
 	b	_06016A78
 _0601695C:
 	mov	r0, r6
-	bl	FUN_0601784C
+	bl	sub_0601784C
 	b	_06016A78
 _06016968:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUN_0601745C
+	bl	sub_0601745C
 	b	_06016A78
 _06016978:
 	mov	r0, r6
-	bl	FUN_06017EE8
+	bl	sub_06017EE8
 	b	_06016A78
 _06016984:
 	mov	r0, r6
-	bl	FUN_06016F18
+	bl	sub_06016F18
 	b	_06016A78
 _06016990:
 	mov	r0, r6
-	bl	FUN_06016E5C
+	bl	sub_06016E5C
 	b	_06016A78
 _0601699C:
 	cmp	r5, #1
@@ -26212,7 +26212,7 @@ _0601699C:
 	cmp	r4, #10
 	bne	_06016A78
 	mov	r0, r6
-	bl	FUN_06016DF4
+	bl	sub_06016DF4
 	b	_06016A78
 _060169B8:
 	cmp	r5, #0
@@ -26239,28 +26239,28 @@ _06016A00:
 	b	_06016A78
 _06016A0C:
 	mov	r0, r6
-	bl	FUN_06017BE0
+	bl	sub_06017BE0
 	b	_06016A78
 _06016A18:
 	mov	r0, r6
-	bl	FUN_06017900
+	bl	sub_06017900
 	b	_06016A78
 _06016A24:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUN_0601745C
+	bl	sub_0601745C
 	b	_06016A78
 _06016A34:
 	mov	r0, r6
-	bl	FUN_06017EE8
+	bl	sub_06017EE8
 	b	_06016A78
 _06016A40:
 	mov	r0, r6
-	bl	FUN_06016F18
+	bl	sub_06016F18
 	b	_06016A78
 _06016A4C:
 	mov	r0, r6
-	bl	FUN_06016E5C
+	bl	sub_06016E5C
 	b	_06016A78
 _06016A58:
 	cmp	r5, #1
@@ -26271,7 +26271,7 @@ _06016A58:
 	bne	_06016A78
 _06016A70:
 	mov	r0, r6
-	bl	FUN_06016DF0
+	bl	sub_06016DF0
 _06016A78:
 	add	r0, r9, #96	; 0x60
 	ldr	r1, [sp]
@@ -26289,8 +26289,8 @@ _06016A9C:
 _06016AA8:	.word	0x0380FFF4
 _06016AAC:	.word	0x0000053C
 
-	arm_func_start FUN_06016AB0
-FUN_06016AB0: ; 0x06016AB0
+	arm_func_start sub_06016AB0
+sub_06016AB0: ; 0x06016AB0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -26518,12 +26518,12 @@ _06016DE0:
 	bx	lr
 _06016DEC:	.word	0x0380FFF4
 
-	arm_func_start FUN_06016DF0
-FUN_06016DF0: ; 0x06016DF0
+	arm_func_start sub_06016DF0
+sub_06016DF0: ; 0x06016DF0
 	bx	lr
 
-	arm_func_start FUN_06016DF4
-FUN_06016DF4: ; 0x06016DF4
+	arm_func_start sub_06016DF4
+sub_06016DF4: ; 0x06016DF4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r1, _06016E58	; =0x0380FFF4
@@ -26553,8 +26553,8 @@ _06016E4C:
 	bx	lr
 _06016E58:	.word	0x0380FFF4
 
-	arm_func_start FUN_06016E5C
-FUN_06016E5C: ; 0x06016E5C
+	arm_func_start sub_06016E5C
+sub_06016E5C: ; 0x06016E5C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -26606,8 +26606,8 @@ _06016F08:
 	bx	lr
 _06016F14:	.word	0x0380FFF4
 
-	arm_func_start FUN_06016F18
-FUN_06016F18: ; 0x06016F18
+	arm_func_start sub_06016F18
+sub_06016F18: ; 0x06016F18
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -26800,7 +26800,7 @@ _0601718C:
 	strh	r0, [r8, #48]	; 0x30
 	mov	r0, r6
 	mov	r1, r8
-	bl	FUN_060166F0
+	bl	sub_060166F0
 	mov	r0, r8
 	bl	TxManCtrlFrame
 	b	_060173FC
@@ -26821,7 +26821,7 @@ _06017220:
 	b	_060173FC
 _0601722C:
 	mov	r0, sl
-	bl	FUN_06016668
+	bl	sub_06016668
 	cmp	r0, #0
 	bne	_06017254
 	mov	r4, #15
@@ -26897,7 +26897,7 @@ _0601730C:
 	add	r1, r6, #44	; 0x2c
 	ldrh	r2, [sl, #6]
 	add	r2, r2, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	ldrh	r0, [r7]
 	strh	r0, [r6, #44]	; 0x2c
 	mov	r0, #3
@@ -26971,8 +26971,8 @@ _06017450:	.word	0x048080B0
 _06017454:	.word	0x0480819C
 _06017458:	.word	0x04808032
 
-	arm_func_start FUN_0601745C
-FUN_0601745C: ; 0x0601745C
+	arm_func_start sub_0601745C
+sub_0601745C: ; 0x0601745C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #52	; 0x34
 	mov	r5, r0
@@ -27029,7 +27029,7 @@ _06017514:
 	mov	r0, #0
 	mov	r1, r7
 	mov	r2, #64	; 0x40
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	ldrh	r6, [r5, #6]
 	cmp	r6, #12
 	bls	_06017834
@@ -27038,7 +27038,7 @@ _06017514:
 	mov	r0, #0
 	add	r1, sp, #8
 	mov	r2, #44	; 0x2c
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	add	r0, r4, #12
 	str	r0, [sp, #8]
 	sub	r0, r6, #12
@@ -27052,7 +27052,7 @@ _06017514:
 	ldrh	r0, [r4, #10]
 	strh	r0, [sp, #14]
 	add	r0, sp, #8
-	bl	FUN_06016AB0
+	bl	sub_06016AB0
 	add	sl, sp, #8
 _06017590:
 	ldr	r0, [sl, #40]	; 0x28
@@ -27250,8 +27250,8 @@ _06017840:	.word	0x0380FFF4
 _06017844:	.word	0x00000404
 _06017848:	.word	NULL_ADRS
 
-	arm_func_start FUN_0601784C
-FUN_0601784C: ; 0x0601784C
+	arm_func_start sub_0601784C
+sub_0601784C: ; 0x0601784C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #48	; 0x30
 	mov	r4, r0
@@ -27270,7 +27270,7 @@ _06017884:
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #44	; 0x2c
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	add	r0, r4, #44	; 0x2c
 	str	r0, [sp]
 	ldrh	r0, [r4, #6]
@@ -27284,7 +27284,7 @@ _06017884:
 	moveq	r0, #2048	; 0x800
 	streqh	r0, [sp, #12]
 	add	r0, sp, #0
-	bl	FUN_06016AB0
+	bl	sub_06016AB0
 	ldrh	r0, [sp, #10]
 	and	r0, r0, #1
 	cmp	r0, #1
@@ -27300,8 +27300,8 @@ _060178F0:
 	bx	lr
 _060178FC:	.word	0x0380FFF4
 
-	arm_func_start FUN_06017900
-FUN_06017900: ; 0x06017900
+	arm_func_start sub_06017900
+sub_06017900: ; 0x06017900
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -27385,8 +27385,8 @@ _06017A28:	.word	0x0380FFF4
 _06017A2C:	.word	0x00000404
 _06017A30:	.word	0x00000FFF
 
-	arm_func_start FUN_06017A34
-FUN_06017A34: ; 0x06017A34
+	arm_func_start sub_06017A34
+sub_06017A34: ; 0x06017A34
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #48	; 0x30
 	mov	r8, r0
@@ -27444,7 +27444,7 @@ _06017B00:
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #44	; 0x2c
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	add	r0, r6, #10
 	str	r0, [sp]
 	sub	r0, r5, #10
@@ -27452,7 +27452,7 @@ _06017B00:
 	mov	r0, #2048	; 0x800
 	strh	r0, [sp, #12]
 	add	r0, sp, #0
-	bl	FUN_06016AB0
+	bl	sub_06016AB0
 	ldrh	r1, [r6]
 	ldr	r0, _06017BDC	; =0x0000FFC2
 	ands	r0, r1, r0
@@ -27503,8 +27503,8 @@ _06017BCC:
 _06017BD8:	.word	0x0380FFF4
 _06017BDC:	.word	0x0000FFC2
 
-	arm_func_start FUN_06017BE0
-FUN_06017BE0: ; 0x06017BE0
+	arm_func_start sub_06017BE0
+sub_06017BE0: ; 0x06017BE0
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -27586,8 +27586,8 @@ _06017D00:	.word	0x0380FFF4
 _06017D04:	.word	0x00000404
 _06017D08:	.word	0x00000FFF
 
-	arm_func_start FUN_06017D0C
-FUN_06017D0C: ; 0x06017D0C
+	arm_func_start sub_06017D0C
+sub_06017D0C: ; 0x06017D0C
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #48	; 0x30
 	mov	r8, r0
@@ -27649,13 +27649,13 @@ _06017DE4:
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #44	; 0x2c
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	add	r0, r6, #4
 	str	r0, [sp]
 	sub	r0, r5, #4
 	strh	r0, [sp, #8]
 	add	r0, sp, #0
-	bl	FUN_06016AB0
+	bl	sub_06016AB0
 	ldrh	r1, [r6]
 	ldr	r0, _06017EE4	; =0x0000FFC2
 	ands	r0, r1, r0
@@ -27718,8 +27718,8 @@ _06017ED4:
 _06017EE0:	.word	0x0380FFF4
 _06017EE4:	.word	0x0000FFC2
 
-	arm_func_start FUN_06017EE8
-FUN_06017EE8: ; 0x06017EE8
+	arm_func_start sub_06017EE8
+sub_06017EE8: ; 0x06017EE8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -27820,7 +27820,7 @@ RxBeaconFrame: ; 0x06017FDC
 	mov	r0, #0
 	add	r1, sp, #24
 	mov	r2, #44	; 0x2c
-	bl	FUN_0600AEC4
+	bl	sub_0600AEC4
 	add	r0, r9, #12
 	str	r0, [sp, #24]
 	sub	r0, fp, #12
@@ -27839,7 +27839,7 @@ RxBeaconFrame: ; 0x06017FDC
 	ldrh	r0, [r9, #10]
 	strh	r0, [sp, #30]
 	add	r0, sp, #24
-	bl	FUN_06016AB0
+	bl	sub_06016AB0
 	ldr	r9, [sp, #56]	; 0x38
 	cmp	r9, #0
 	beq	_060180DC
@@ -27868,7 +27868,7 @@ _060180DC:
 	bne	_06018638
 	mov	r0, sl
 	add	r1, sp, #24
-	bl	FUN_0601745C
+	bl	sub_0601745C
 	b	_06018638
 _06018118:
 	ldrh	r0, [sp, #34]	; 0x22
@@ -28018,7 +28018,7 @@ _060182B8:
 	add	r0, r1, #9
 	ldr	r1, [r8, #156]	; 0x9c
 	add	r2, r2, #2
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	mov	r0, #1
 	strh	r0, [r8, #162]	; 0xa2
 	b	_06018374
@@ -28026,7 +28026,7 @@ _0601835C:
 	add	r0, r1, #10
 	ldr	r1, [r8, #156]	; 0x9c
 	add	r2, r2, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 	mov	r0, #0
 	strh	r0, [r8, #162]	; 0xa2
 _06018374:
@@ -28045,7 +28045,7 @@ _06018374:
 	ldr	r1, [sp, #4]
 	mov	r2, r7
 	mov	r3, r4
-	bl	FUN_06009EDC
+	bl	sub_06009EDC
 	str	r0, [sp]
 	str	r1, [sp, #4]
 	mov	r2, #1
@@ -28084,7 +28084,7 @@ _06018374:
 	sbc	r0, r0, r4
 	str	r1, [sp]
 	str	r0, [sp, #4]
-	bl	FUN_060001A4
+	bl	sub_060001A4
 	ldr	r7, _06018688	; =0x048080F8
 	ldrh	r1, [r7]
 	strh	r1, [sp, #8]
@@ -28105,7 +28105,7 @@ _06018374:
 	strh	r1, [sp, #20]
 	ldrh	r1, [r2]
 	strh	r1, [sp, #22]
-	bl	FUN_060001AC
+	bl	sub_060001AC
 	ldrh	r1, [sp, #8]
 	ldrh	r0, [sp, #16]
 	cmp	r1, r0
@@ -28417,7 +28417,7 @@ _060188D8:
 	add	r0, r7, #44	; 0x2c
 	add	r1, r4, #8
 	add	r2, r2, #1
-	bl	FUN_06000EA0
+	bl	sub_06000EA0
 _06018930:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -28583,7 +28583,7 @@ _06018B78:
 	ldrh	r0, [r9, #8]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUN_06001840
+	bl	sub_06001840
 	ldr	r1, [r6, #36]	; 0x24
 	sub	r0, r0, #1
 	add	r0, r1, r0
@@ -28844,7 +28844,7 @@ _06018F08:
 	add	r6, r5, r4
 	mov	r0, #0
 	mov	r1, r6
-	bl	FUN_0600055C
+	bl	sub_0600055C
 	mov	r0, #1024	; 0x400
 	strh	r0, [r6, #48]	; 0x30
 	ldrh	r0, [sl, #18]
@@ -28889,18 +28889,18 @@ FLASH_MakeImage: ; 0x06018FB0
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUN_060190A4
+	bl	sub_060190A4
 	bl	FLASH_Wait
 	mov	r0, #0
 	str	r0, [sp]
 	mov	r0, #44	; 0x2c
 	mov	r1, #2
 	add	r2, sp, #0
-	bl	FUN_060190AC
+	bl	sub_060190AC
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUN_060190B4
+	bl	sub_060190B4
 	ldr	r1, [sp]
 	cmp	r1, #164	; 0xa4
 	bcc	_0601900C
@@ -28929,18 +28929,18 @@ _06019014:
 	str	r0, [r1, #792]	; 0x318
 	ldr	r0, [r2]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUN_060190A4
+	bl	sub_060190A4
 	bl	FLASH_Wait
 	mov	r0, #42	; 0x2a
 	ldr	r1, [sp]
 	ldr	r2, _0601909C	; =0x0380FFF4
 	ldr	r2, [r2]
 	ldr	r2, [r2, #792]	; 0x318
-	bl	FUN_060190AC
+	bl	sub_060190AC
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUN_060190B4
+	bl	sub_060190B4
 	mov	r0, #1
 _06019090:
 	add	sp, sp, #4
@@ -28949,18 +28949,18 @@ _06019090:
 _0601909C:	.word	0x0380FFF4
 _060190A0:	.word	0x000001D6
 
-	arm_func_start FUN_060190A4
-FUN_060190A4: ; 0x060190A4
+	arm_func_start sub_060190A4
+sub_060190A4: ; 0x060190A4
 	ldr	pc, _060190A8	; =SPI_Lock
 _060190A8:	.word	SPI_Lock
 
-	arm_func_start FUN_060190AC
-FUN_060190AC: ; 0x060190AC
+	arm_func_start sub_060190AC
+sub_060190AC: ; 0x060190AC
 	ldr	pc, _060190B0	; =NVRAM_ReadDataBytes
 _060190B0:	.word	NVRAM_ReadDataBytes
 
-	arm_func_start FUN_060190B4
-FUN_060190B4: ; 0x060190B4
+	arm_func_start sub_060190B4
+sub_060190B4: ; 0x060190B4
 	ldr	pc, _060190B8	; =SPI_Unlock
 _060190B8:	.word	SPI_Unlock
 
@@ -28968,24 +28968,24 @@ _060190B8:	.word	SPI_Unlock
 FLASH_DirectRead: ; 0x060190BC
 	stmdb	sp!, {r4, r5, r6, lr}
 
-	arm_func_start FUN_060190C0
-FUN_060190C0: ; 0x060190C0
+	arm_func_start sub_060190C0
+sub_060190C0: ; 0x060190C0
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
 	ldr	r0, _06019108	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUN_060190A4
+	bl	sub_060190A4
 	bl	FLASH_Wait
 	mov	r0, r6
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUN_060190AC
+	bl	sub_060190AC
 	ldr	r0, _06019108	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUN_060190B4
+	bl	sub_060190B4
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06019108:	.word	0x0380FFF4
@@ -29027,11 +29027,11 @@ FLASH_Wait: ; 0x0601916C
 	add	r4, sp, #0
 _06019178:
 	mov	r0, r4
-	bl	FUN_060191AC
+	bl	sub_060191AC
 	ldr	r0, [sp]
 	ands	r0, r0, #32
 	beq	_06019194
-	bl	FUN_060191B4
+	bl	sub_060191B4
 	b	_06019178
 _06019194:
 	ldr	r0, [sp]
@@ -29041,13 +29041,13 @@ _06019194:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_060191AC
-FUN_060191AC: ; 0x060191AC
+	arm_func_start sub_060191AC
+sub_060191AC: ; 0x060191AC
 	ldr	pc, _060191B0	; =NVRAM_ReadStatusRegister
 _060191B0:	.word	NVRAM_ReadStatusRegister
 
-	arm_func_start FUN_060191B4
-FUN_060191B4: ; 0x060191B4
+	arm_func_start sub_060191B4
+sub_060191B4: ; 0x060191B4
 	ldr	pc, _060191B8	; =NVRAM_SoftwareReset
 _060191B8:	.word	NVRAM_SoftwareReset
 
@@ -29125,9 +29125,9 @@ _0601926C: ; 0x0601926C
 	.word	WMSP_SetDCFData
 	.word	WMSP_EndDCF
 	.word	WMSP_SetWEPKey
-	.word	FUN_06002184
-	.word	FUN_06002184
-	.word	FUN_06002184
+	.word	sub_06002184
+	.word	sub_06002184
+	.word	sub_06002184
 	.word	WMSP_SetGameInfo
 	.word	WMSP_SetBeaconTxRxInd
 	.word	WMSP_StartTestMode

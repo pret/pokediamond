@@ -7,7 +7,7 @@
 
 void GF_AssertFail(void)
 {
-    if (FUN_02031810())
+    if (sub_02031810())
     {
         if (OS_GetProcMode() != OS_PROCMODE_IRQ)
         {

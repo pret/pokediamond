@@ -29,7 +29,7 @@ BOOL MOD21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param2, u32 para
     UnkStruct02254854 *alloced = (UnkStruct02254854 *)AllocFromHeap(8, sizeof(UnkStruct02254854));
     if (alloced != NULL)
     {
-        if (MOD21_0225489C(alloced, param1, param2, param3) && FUN_0200CA44((void (*)(u32, void *))MOD21_02254930, (void *)alloced, 1))
+        if (MOD21_0225489C(alloced, param1, param2, param3) && sub_0200CA44((void (*)(u32, void *))MOD21_02254930, (void *)alloced, 1))
         {
             *param0 = alloced;
             return TRUE;
@@ -92,7 +92,7 @@ void MOD21_02254930(u32 param0, UnkStruct02254854 *param1)
         return;
     }
     MOD21_02254918(param1);
-    FUN_0200CAB4((s32)param0);
+    sub_0200CAB4((s32)param0);
     MOD20_022529A0(param1->Unk28);
 }
 

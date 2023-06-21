@@ -123,8 +123,8 @@ UNK_020F2364: ; 0x020F2364
 
 	.text
 
-	thumb_func_start FUN_02034FE4
-FUN_02034FE4: ; 0x02034FE4
+	thumb_func_start sub_02034FE4
+sub_02034FE4: ; 0x02034FE4
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r0, r1, #0x0
@@ -175,7 +175,7 @@ _0203503E:
 	add r5, r5, #0x1
 _02035044:
 	add r0, r7, #0x0
-	bl FUN_0204B33C
+	bl sub_0204B33C
 	cmp r0, #0x0
 	beq _02035050
 	mov r5, #0x1

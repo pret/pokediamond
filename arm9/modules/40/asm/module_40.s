@@ -24,7 +24,7 @@ MOD40_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD40_02254998
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -189,7 +189,7 @@ MOD40_02254998: ; 0x02254998
 	add r0, r4, #0
 	bl MOD40_02254978
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0xc]
 	bl MOD20_022529A0
 _022549CE:
@@ -1333,7 +1333,7 @@ _02255262:
 	bl MOD40_02254FD4
 	pop {r3, r4, r5, pc}
 _02255294:
-	bl FUN_02005670
+	bl sub_02005670
 	cmp r0, #0
 	bne _022552A2
 	ldr r0, _02255308 ; =0x00000126

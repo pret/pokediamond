@@ -24,7 +24,7 @@ MOD23_02254854: ; 0x02254854
 	str r6, [r4, #0x10]
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r4, [r5]
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -168,7 +168,7 @@ _02254964:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x10]
 	bl MOD20_022529A0
 _0225499E:

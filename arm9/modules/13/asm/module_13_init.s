@@ -7,7 +7,7 @@
 MOD13_02211E60: ; 0x02211E60
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl FUN_0202E49C
+	bl sub_0202E49C
 	bl OS_InitTick
 	bl OS_InitAlarm
 	bl OS_DisableInterrupts

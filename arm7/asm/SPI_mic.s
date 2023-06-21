@@ -13,8 +13,8 @@ _03809FA8: ;0x03809FA8
 
     .section .text
 
-	arm_func_start FUN_03802D14
-FUN_03802D14: ;@ 0x03802D14
+	arm_func_start sub_03802D14
+sub_03802D14: ;@ 0x03802D14
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	ldr	r4, _03802E6C	;@ =_03809F6C
 	ldrh	r5, [r4, #38]	;@ 0x26
@@ -114,11 +114,11 @@ _03802E70:	.word	0x0000FFFF
 _03802E74:	.word	0x027FFC00
 _03802E78:	.word	0x0400010E
 
-	arm_func_start FUN_03802E7C
-FUN_03802E7C: ;@ 0x03802E7C
+	arm_func_start sub_03802E7C
+sub_03802E7C: ;@ 0x03802E7C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_03802D14
+	bl	sub_03802D14
 	ldr	r1, _03802EB0	;@ =0x0380FFF8
 	ldr	r0, [r1]
 	orr	r0, r0, #64	;@ 0x40
@@ -213,7 +213,7 @@ _03802FB0:
 	mov	r0, #64	;@ 0x40
 	bl	OS_EnableIrqMask
 	mov	r0, #64	;@ 0x40
-	ldr	r1, _03803108	;@ =FUN_03802E7C
+	ldr	r1, _03803108	;@ =sub_03802E7C
 	bl	MIC_SetIrqFunction
 	bl	MIC_EnableMultipleInterrupt
 	ldr	r0, _03803104	;@ =_03809F6C
@@ -294,12 +294,12 @@ _038030F0:
 _038030FC:	.word	0x027FFF94
 _03803100:	.word	0x027FFF90
 _03803104:	.word	_03809F6C
-_03803108:	.word	FUN_03802E7C
+_03803108:	.word	sub_03802E7C
 _0380310C:	.word	0x0400010C
 _03803110:	.word	0x0400010E
 
-	arm_func_start FUN_03803114
-FUN_03803114: ;@ 0x03803114
+	arm_func_start sub_03803114
+sub_03803114: ;@ 0x03803114
 	cmp	r0, #65536	;@ 0x10000
 	bcs	_03803138
 	mov	r2, #0
@@ -437,7 +437,7 @@ _038032EC:
 	ldrh	r2, [r1, #10]
 	ldrh	r0, [r1, #12]
 	orr	r0, r0, r2, lsl #16
-	bl	FUN_03803114
+	bl	sub_03803114
 	cmp	r0, #0
 	bne	_03803318
 	mov	r0, r4
@@ -510,7 +510,7 @@ _038033F8:
 	ldrh	r2, [r1, #2]
 	ldrh	r0, [r1, #4]
 	orr	r0, r0, r2, lsl #16
-	bl	FUN_03803114
+	bl	sub_03803114
 	cmp	r0, #0
 	bne	_03803420
 	mov	r0, r4

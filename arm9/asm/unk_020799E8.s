@@ -12,8 +12,8 @@ UNK_020FA60C: ; 0x020FA60C
 
 	.text
 
-	thumb_func_start FUN_020799E8
-FUN_020799E8: ; 0x020799E8
+	thumb_func_start sub_020799E8
+sub_020799E8: ; 0x020799E8
 	lsl r1, r0, #0x1
 	ldr r0, _020799F0 ; =UNK_020FA60C
 	ldrh r0, [r0, r1]
@@ -21,8 +21,8 @@ FUN_020799E8: ; 0x020799E8
 	.balign 4
 _020799F0: .word UNK_020FA60C
 
-	thumb_func_start FUN_020799F4
-FUN_020799F4: ; 0x020799F4
+	thumb_func_start sub_020799F4
+sub_020799F4: ; 0x020799F4
 	push {r3, lr}
 	add r2, r0, #0x0
 	mul r2, r0
@@ -35,8 +35,8 @@ FUN_020799F4: ; 0x020799F4
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02079A0C
-FUN_02079A0C: ; 0x02079A0C
+	thumb_func_start sub_02079A0C
+sub_02079A0C: ; 0x02079A0C
 	push {r4, lr}
 	add r4, r0, #0x0
 	mul r0, r2
@@ -50,8 +50,8 @@ FUN_02079A0C: ; 0x02079A0C
 _02079A22:
 	pop {r4, pc}
 
-	thumb_func_start FUN_02079A24
-FUN_02079A24: ; 0x02079A24
+	thumb_func_start sub_02079A24
+sub_02079A24: ; 0x02079A24
 	push {r4, lr}
 	add r4, r0, #0x0
 	lsl r0, r1, #0x8
@@ -80,8 +80,8 @@ _02079A4E:
 	lsr r0, r0, #0x18
 	pop {r4, pc}
 
-	thumb_func_start FUN_02079A54
-FUN_02079A54: ; 0x02079A54
+	thumb_func_start sub_02079A54
+sub_02079A54: ; 0x02079A54
 	push {r4, lr}
 	add r4, r2, #0x0
 	cmp r0, r1
@@ -91,13 +91,13 @@ FUN_02079A54: ; 0x02079A54
 _02079A60:
 	lsl r2, r4, #0x18
 	lsr r2, r2, #0x18
-	bl FUN_02079A0C
+	bl sub_02079A0C
 	add r1, r4, #0x0
-	bl FUN_02079A24
+	bl sub_02079A24
 	pop {r4, pc}
 
-	thumb_func_start FUN_02079A70
-FUN_02079A70: ; 0x02079A70
+	thumb_func_start sub_02079A70
+sub_02079A70: ; 0x02079A70
 	push {lr}
 	sub sp, #0xc
 	cmp r0, #0x0
@@ -128,8 +128,8 @@ _02079A90:
 	pop {pc}
 	.balign 4
 
-	thumb_func_start FUN_02079AAC
-FUN_02079AAC: ; 0x02079AAC
+	thumb_func_start sub_02079AAC
+sub_02079AAC: ; 0x02079AAC
 	push {r4-r5}
 	ldr r3, _02079B5C ; =gSystem
 	mov r2, #0x0
@@ -233,8 +233,8 @@ _02079B56:
 	.balign 4
 _02079B5C: .word gSystem
 
-	thumb_func_start FUN_02079B60
-FUN_02079B60: ; 0x02079B60
+	thumb_func_start sub_02079B60
+sub_02079B60: ; 0x02079B60
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r7, r1, #0x0
@@ -344,8 +344,8 @@ _02079C36:
 	add sp, #0x14
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_02079C40
-FUN_02079C40: ; 0x02079C40
+	thumb_func_start sub_02079C40
+sub_02079C40: ; 0x02079C40
 	push {r3-r7, lr}
 	add r5, r2, #0x0
 	add r6, r0, #0x0

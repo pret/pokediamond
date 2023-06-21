@@ -25,7 +25,7 @@ MOD11_0225464C: ; 0x0225464C
 	ldr r0, _02254684 ; =MOD11_022546B4
 	ldr r2, _02254688 ; =0x000003F2
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	mov r1, #0x66
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -44,7 +44,7 @@ MOD11_0225468C: ; 0x0225468C
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _022546B2
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0x66
 	mov r2, #0
 	lsl r0, r0, #2
@@ -53,7 +53,7 @@ MOD11_0225468C: ; 0x0225468C
 	strh r2, [r4, r0]
 	ldr r0, [r4, #0x20]
 	mov r1, #4
-	bl FUN_02007558
+	bl sub_02007558
 _022546B2:
 	pop {r4, pc}
 
@@ -100,6 +100,6 @@ _022546D4:
 	lsr r2, r2, #0x14
 	add r2, r3, r2
 	asr r2, r2, #0xc
-	bl FUN_02007558
+	bl sub_02007558
 	pop {r3, r4, r5, pc}
 	.align 2, 0

@@ -96,7 +96,7 @@ MOD05_021EDA48: ; 0x021EDA48
 	add r0, r5, #0
 	mov r1, #2
 	str r5, [sp, #0x20]
-	bl FUN_0205829C
+	bl sub_0205829C
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -121,7 +121,7 @@ MOD05_021EDA98: ; 0x021EDA98
 	str r1, [r2, #4]
 	add r5, r0, #0
 	str r1, [r2, #8]
-	bl FUN_0206475C
+	bl sub_0206475C
 	add r2, r4, #0
 	add r3, r0, #0
 	add r2, #0x10
@@ -133,11 +133,11 @@ MOD05_021EDA98: ; 0x021EDA98
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
-	bl FUN_02058450
+	bl sub_02058450
 	str r0, [r4, #8]
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_0206476C
+	bl sub_0206476C
 	ldr r0, [r4, #0x14]
 	mov r1, #4
 	add r2, sp, #0
@@ -150,11 +150,11 @@ MOD05_021EDA98: ; 0x021EDA98
 
 	thumb_func_start MOD05_021EDAE8
 MOD05_021EDAE8: ; 0x021EDAE8
-	ldr r3, _021EDAF0 ; =FUN_0201F744
+	ldr r3, _021EDAF0 ; =sub_0201F744
 	ldr r0, [r1, #0x20]
 	bx r3
 	nop
-_021EDAF0: .word FUN_0201F744
+_021EDAF0: .word sub_0201F744
 
 	thumb_func_start MOD05_021EDAF4
 MOD05_021EDAF4: ; 0x021EDAF4
@@ -164,7 +164,7 @@ MOD05_021EDAF4: ; 0x021EDAF4
 	ldr r0, [r2, #0x1c]
 	ldr r1, [r2, #4]
 	ldr r2, [r2, #8]
-	bl FUN_020582A8
+	bl sub_020582A8
 	cmp r0, #0
 	bne _021EDB0E
 	add r0, r4, #0
@@ -182,7 +182,7 @@ MOD05_021EDB10: ; 0x021EDB10
 	add r6, r0, #0
 	ldr r2, [r5, #8]
 	add r0, r4, #0
-	bl FUN_020582A8
+	bl sub_020582A8
 	cmp r0, #0
 	bne _021EDB32
 	add r0, r6, #0
@@ -192,10 +192,10 @@ MOD05_021EDB10: ; 0x021EDB10
 _021EDB32:
 	add r0, r4, #0
 	add r1, sp, #0xc
-	bl FUN_02058B5C
+	bl sub_02058B5C
 	add r0, r4, #0
 	add r1, sp, #0
-	bl FUN_02058B84
+	bl sub_02058B84
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp]
 	add r0, r1, r0
@@ -214,7 +214,7 @@ _021EDB32:
 	str r0, [sp, #0x14]
 	ldr r0, [r5, #0x20]
 	add r1, sp, #0xc
-	bl FUN_0201F7C8
+	bl sub_0201F7C8
 	add sp, #0x18
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

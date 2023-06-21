@@ -64,7 +64,7 @@ static const struct GraphicsBanks sErrorMessageBanksConfig = {
 
 static u32 sErrorMessagePrinterLock;
 
-extern void FUN_0200E3A0(PMLCDTarget, int);
+extern void sub_0200E3A0(PMLCDTarget, int);
 extern void SetMasterBrightnessNeutral(u32 screen);
 
 void VBlankHandler()
@@ -86,8 +86,8 @@ void PrintErrorMessageAndReset()
         OS_SetArenaLo(OS_ARENA_MAIN, OS_GetInitArenaLo(OS_ARENA_MAIN));
 
         InitHeapSystem(&sErrorMessageHeapParams, 1, 1, 0);
-        FUN_0200E3A0(PM_LCD_TOP, 0);
-        FUN_0200E3A0(PM_LCD_BOTTOM, 0);
+        sub_0200E3A0(PM_LCD_TOP, 0);
+        sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
         OS_DisableIrqMask(OS_IE_V_BLANK);
         OS_SetIrqFunction(OS_IE_V_BLANK, &VBlankHandler);
@@ -144,13 +144,13 @@ void PrintErrorMessageAndReset()
         SetMasterBrightnessNeutral(PM_LCD_TOP);
         SetMasterBrightnessNeutral(PM_LCD_BOTTOM);
         SetBlendBrightness(0, 0x3f, 3);
-        FUN_02032DAC();
+        sub_02032DAC();
 
         while (TRUE)
         {
             HandleDSLidAction();
-            FUN_0202FB80();
-            if (FUN_02033678())
+            sub_0202FB80();
+            if (sub_02033678())
                 break;
             OS_WaitIrq(TRUE, OS_IE_V_BLANK);
         }
@@ -162,8 +162,8 @@ void PrintErrorMessageAndReset()
                 break;
             OS_WaitIrq(TRUE, OS_IE_V_BLANK);
         }
-        FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
-        FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
+        sub_0200E3A0(PM_LCD_TOP, 0x7FFF);
+        sub_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
 
         RemoveWindow(&buf);
 

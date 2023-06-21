@@ -392,10 +392,10 @@ MOD05_021F57EC: ; 0x021F57EC
 MOD05_021F57F0: ; 0x021F57F0
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
-	bl FUN_02046528
+	bl sub_02046528
 	add r5, r0, #0
 	add r0, r6, #0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0
 	ldrh r1, [r4, #8]
 	cmp r1, #9
@@ -487,7 +487,7 @@ _021F5888:
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
-	bl FUN_0204A6E0
+	bl sub_0204A6E0
 	add r1, r0, #0
 	add r0, r5, #0
 	bl MOD06_0223CDB8
@@ -557,7 +557,7 @@ _021F5936:
 	ldr r1, _021F5988 ; =0x000007ED
 	add r0, r6, #0
 	add r3, r2, #0
-	bl FUN_02038CD8
+	bl sub_02038CD8
 	mov r0, #9
 	strh r0, [r4, #8]
 	b _021F5980
@@ -566,7 +566,7 @@ _021F5956:
 	ldr r1, _021F598C ; =0x000007EC
 	add r0, r6, #0
 	add r3, r2, #0
-	bl FUN_02038CD8
+	bl sub_02038CD8
 	mov r0, #9
 	strh r0, [r4, #8]
 	b _021F5980

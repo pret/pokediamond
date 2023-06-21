@@ -24,7 +24,7 @@ MOD39_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD39_02254998
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -68,7 +68,7 @@ _022548CC:
 	add r1, r6, #0
 	bl GetPartyMonByIndex
 	add r7, r0, #0
-	bl FUN_0206B688
+	bl sub_0206B688
 	str r0, [r4, #4]
 	add r0, r7, #0
 	mov r1, #5
@@ -190,7 +190,7 @@ MOD39_02254998: ; 0x02254998
 	add r0, r4, #0
 	bl MOD39_02254974
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x3c]
 	bl MOD20_022529A0
 _022549CE:
@@ -1015,7 +1015,7 @@ _02254FCC:
 	ldrh r1, [r1, #0x10]
 	add r0, r7, #0
 	mov r2, #0
-	bl FUN_0206B7BC
+	bl sub_0206B7BC
 	add r1, r0, #0
 	add r0, r4, #0
 	add r1, r1, #1

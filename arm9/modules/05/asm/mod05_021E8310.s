@@ -10,7 +10,7 @@ MOD05_021E8310: ; 0x021E8310
 	add r5, r0, #0
 	add r0, r4, #0
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DC0
+	bl sub_02034DC0
 	add r6, r0, #0
 	add r0, r4, #0
 	bl Save_Pokedex_Get
@@ -208,7 +208,7 @@ _021E846E:
 	add r2, r0, #0
 	mov r0, #0
 	add r1, r6, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	mov r1, #0x68
 	sub r3, r1, r0
 	str r4, [sp]
@@ -366,7 +366,7 @@ MOD05_021E85E4: ; 0x021E85E4
 Field_SaveGame: ; 0x021E85FC
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02034E48
+	bl sub_02034E48
 	add r0, r4, #0
 	mov r1, #4
 	mov r2, #0

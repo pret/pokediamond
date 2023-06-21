@@ -15,7 +15,7 @@
 #include "text.h"
 #include "unk_020040F4.h"
 
-extern void FUN_0200E3A0(PMLCDTarget, s32);
+extern void sub_0200E3A0(PMLCDTarget, s32);
 
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern BOOL IsPaletteFadeFinished(void);
@@ -144,8 +144,8 @@ BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
     switch (*status)
     {
         case 0:
-            FUN_0200E3A0(PM_LCD_TOP, 0);
-            FUN_0200E3A0(PM_LCD_BOTTOM, 0);
+            sub_0200E3A0(PM_LCD_TOP, 0);
+            sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
             Main_SetVBlankIntrCB(NULL, NULL);
             Main_SetHBlankIntrCB(NULL, NULL);
@@ -177,8 +177,8 @@ BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
                 break;
             }
 
-            FUN_0200414C(SEQ_TV_HOUSOU);
-            FUN_0200433C(4, SEQ_TV_HOUSOU, 1);
+            sub_0200414C(SEQ_TV_HOUSOU);
+            sub_0200433C(4, SEQ_TV_HOUSOU, 1);
 
             data->unk24 = 90;
 
@@ -345,7 +345,7 @@ BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3
             ReadMsgDataIntoString(data->msgData, msgNo, string);
             AddWindow(data->bgConfig, &data->window, &MOD59_021DA04C);
             FillWindowPixelRect(&data->window, 0, 0, 0, 256, 192);
-            u32 unk0 = (u32)FUN_02002F08(0, string, 0);
+            u32 unk0 = (u32)sub_02002F08(0, string, 0);
 
             unk0 = (256 - unk0 ) / 2;
             AddTextPrinterParameterized2(&data->window, 0, string, unk0, param3, 0, MakeFontColor(15, 2, 0), NULL);

@@ -79,11 +79,11 @@ MOD20_022541B4: ; 0x022541B4
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r5, r0, #0
-	bl FUN_02020A98
+	bl sub_02020A98
 	str r0, [sp, #4]
 	cmp r0, #0
 	beq _0225420C
-	bl FUN_02020AA4
+	bl sub_02020AA4
 	ldr r1, [r5, #0xc]
 	mov r7, #0
 	str r0, [sp]
@@ -103,11 +103,11 @@ _022541D6:
 	ldr r0, [r5]
 	beq _022541F2
 	add r0, r0, r6
-	bl FUN_02020A40
+	bl sub_02020A40
 	b _022541F8
 _022541F2:
 	add r0, r0, r6
-	bl FUN_02020A6C
+	bl sub_02020A6C
 _022541F8:
 	ldr r1, [r5, #0x14]
 	add r7, r7, #1

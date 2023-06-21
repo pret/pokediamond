@@ -230,7 +230,7 @@ ScrCmd_Unk0236: ; 0x02041FDC
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_02061374
+	bl sub_02061374
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -257,7 +257,7 @@ ScrCmd_Unk02B8: ; 0x02042000
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_02061460
+	bl sub_02061460
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -308,7 +308,7 @@ _02042058:
 	ldr r0, [sp, #0x0]
 	ldr r1, [r5, #0x0]
 	ldr r2, [r4, #0x0]
-	bl FUN_020421F0
+	bl sub_020421F0
 	strh r0, [r7, #0x0]
 	b _02042106
 _020420A8:
@@ -346,7 +346,7 @@ _020420A8:
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_020421D8
+	bl sub_020421D8
 	add r0, r4, #0x0
 	mov r1, #0x3
 	bl GameStats_AddSpecial
@@ -378,7 +378,7 @@ ScrCmd_Unk0238: ; 0x02042110
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
-	bl FUN_02042214
+	bl sub_02042214
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -391,7 +391,7 @@ ScrCmd_Unk027C: ; 0x0204214C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022504
+	bl sub_02022504
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -421,7 +421,7 @@ _02042170:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	mov r2, #0x4
-	bl FUN_02060F3C
+	bl sub_02060F3C
 	b _020421D4
 _020421A2:
 	add r0, r5, #0x0
@@ -432,7 +432,7 @@ _020421A2:
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02060F9C
+	bl sub_02060F9C
 	b _020421D4
 _020421BC:
 	add r0, r5, #0x0
@@ -443,13 +443,13 @@ _020421BC:
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02060F88
+	bl sub_02060F88
 _020421D4:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020421D8
-FUN_020421D8: ; 0x020421D8
+	thumb_func_start sub_020421D8
+sub_020421D8: ; 0x020421D8
 	push {r3, lr}
 	sub r1, r1, #0x1
 	lsl r3, r1, #0x4
@@ -464,8 +464,8 @@ _020421EA:
 	.balign 4
 _020421EC: .word UNK_020F4264
 
-	thumb_func_start FUN_020421F0
-FUN_020421F0: ; 0x020421F0
+	thumb_func_start sub_020421F0
+sub_020421F0: ; 0x020421F0
 	push {r4, lr}
 	sub r0, r0, #0x1
 	lsl r4, r0, #0x4
@@ -484,16 +484,16 @@ _02042204:
 _0204220C: .word UNK_020F4268
 _02042210: .word UNK_020F4270
 
-	thumb_func_start FUN_02042214
-FUN_02042214: ; 0x02042214
+	thumb_func_start sub_02042214
+sub_02042214: ; 0x02042214
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0x0
-	bl FUN_02022504
+	bl sub_02022504
 	mov r1, #0x1
 	add r2, r5, #0x0
-	bl FUN_0202B710
+	bl sub_0202B710
 	cmp r0, #0x0
 	bne _02042230
 	mov r0, #0x0
@@ -514,8 +514,8 @@ _02042240:
 	nop
 _02042248: .word UNK_020F426C
 
-	thumb_func_start FUN_0204224C
-FUN_0204224C: ; 0x0204224C
+	thumb_func_start sub_0204224C
+sub_0204224C: ; 0x0204224C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -543,14 +543,14 @@ FUN_0204224C: ; 0x0204224C
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02042288
-FUN_02042288: ; 0x02042288
+	thumb_func_start sub_02042288
+sub_02042288: ; 0x02042288
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
 	bl SaveArray_PlayerParty_Get
 	bl GetFirstNonEggInParty
-	bl FUN_020690E4
+	bl sub_020690E4
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -558,8 +558,8 @@ FUN_02042288: ; 0x02042288
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020422A8
-FUN_020422A8: ; 0x020422A8
+	thumb_func_start sub_020422A8
+sub_020422A8: ; 0x020422A8
 	push {r4, lr}
 	ldr r0, [r0, #0x4]
 	add r4, r1, #0x0
@@ -571,14 +571,14 @@ FUN_020422A8: ; 0x020422A8
 	bl BufferPoketchAppName
 	pop {r4, pc}
 
-	thumb_func_start FUN_020422C0
-FUN_020422C0: ; 0x020422C0
+	thumb_func_start sub_020422C0
+sub_020422C0: ; 0x020422C0
 	push {r4, lr}
 	sub sp, #0x20
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_02022504
-	bl FUN_0202B844
+	bl sub_02022504
+	bl sub_0202B844
 	ldrh r0, [r0, #0x2]
 	mov r1, #0x4
 	add r2, sp, #0x8
@@ -591,22 +591,22 @@ FUN_020422C0: ; 0x020422C0
 	add r0, r4, #0x0
 	add r2, sp, #0x8
 	add r3, r1, #0x0
-	bl FUN_0204224C
+	bl sub_0204224C
 	add sp, #0x20
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020422F4
-FUN_020422F4: ; 0x020422F4
+	thumb_func_start sub_020422F4
+sub_020422F4: ; 0x020422F4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02022504
-	bl FUN_0202B85C
+	bl sub_02022504
+	bl sub_0202B85C
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}
 
-	thumb_func_start FUN_02042304
-FUN_02042304: ; 0x02042304
+	thumb_func_start sub_02042304
+sub_02042304: ; 0x02042304
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl Save_Poketch_Get
@@ -614,17 +614,17 @@ FUN_02042304: ; 0x02042304
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02042314
-FUN_02042314: ; 0x02042314
+	thumb_func_start sub_02042314
+sub_02042314: ; 0x02042314
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02022504
-	bl FUN_0202B838
+	bl sub_02022504
+	bl sub_0202B838
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}
 
-	thumb_func_start FUN_02042324
-FUN_02042324: ; 0x02042324
+	thumb_func_start sub_02042324
+sub_02042324: ; 0x02042324
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
@@ -632,20 +632,20 @@ FUN_02042324: ; 0x02042324
 	bl CheckPortraitSlotFull
 	pop {r3, pc}
 
-	thumb_func_start FUN_02042334
-FUN_02042334: ; 0x02042334
+	thumb_func_start sub_02042334
+sub_02042334: ; 0x02042334
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02022504
-	bl FUN_0202B850
+	bl sub_02022504
+	bl sub_0202B850
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}
 
-	thumb_func_start FUN_02042344
-FUN_02042344: ; 0x02042344
+	thumb_func_start sub_02042344
+sub_02042344: ; 0x02042344
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02022504
-	bl FUN_0202B844
+	bl sub_02022504
+	bl sub_0202B844
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}

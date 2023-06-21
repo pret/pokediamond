@@ -9,12 +9,12 @@ MOD05_021D74E0: ; 0x021D74E0
 	add r4, r0, #0
 	ldr r0, [r4, #8]
 	bl DoScheduledBgGpuUpdates
-	bl FUN_0201C30C
+	bl sub_0201C30C
 	bl ApplyAndResetOamManagerBuffer
 	ldr r0, [r4, #0x34]
-	bl FUN_020583A0
+	bl sub_020583A0
 	bl MOD05_021F2D48
-	bl FUN_0201F2D8
+	bl sub_0201F2D8
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -45,17 +45,17 @@ _021D752C:
 	add r0, r6, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	ldr r1, _021D7670 ; =0x04000050
 	add r0, r6, #0
 	strh r0, [r1]
 	ldr r1, _021D7674 ; =0x04001050
 	strh r0, [r1]
-	bl FUN_0200E388
+	bl sub_0200E388
 	mov r0, #1
-	bl FUN_0200E388
+	bl sub_0200E388
 	add r0, r4, #0
-	bl FUN_020489DC
+	bl sub_020489DC
 	ldr r0, [r4, #0x70]
 	ldr r0, [r0]
 	lsl r0, r0, #8
@@ -91,12 +91,12 @@ _021D757A:
 	bl MOD05_021D7A00
 	mov r0, #0x80
 	mov r1, #4
-	bl FUN_0201C24C
+	bl sub_0201C24C
 	mov r0, #4
 	add r1, r0, #0
-	bl FUN_0201F100
+	bl sub_0201F100
 	mov r0, #4
-	bl FUN_0201B2EC
+	bl sub_0201B2EC
 	bl MOD05_021D7BA0
 	bl MOD05_021D7B38
 	bl GX_SwapDisplay
@@ -106,10 +106,10 @@ _021D757A:
 	bl MOD05_021D7A30
 	mov r0, #0
 	mov r1, #1
-	bl FUN_02054590
+	bl sub_02054590
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_0203989C
+	bl sub_0203989C
 	b _021D7666
 _021D75DE:
 	bl MOD05_021D7CF0
@@ -138,10 +138,10 @@ _021D75DE:
 	ldr r1, [r4, #0x1c]
 	add r0, r4, #0
 	ldr r1, [r1]
-	bl FUN_0204ADBC
+	bl sub_0204ADBC
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_0203989C
+	bl sub_0203989C
 	mov r0, #4
 	bl MOD05_021F45B4
 	ldr r1, [r4, #4]
@@ -185,7 +185,7 @@ MOD05_021D767C: ; 0x021D767C
 	cmp r0, #0
 	beq _021D76A8
 	add r0, r4, #0
-	bl FUN_0204B490
+	bl sub_0204B490
 	add r0, r4, #0
 	bl MOD05_021D79B4
 	mov r1, #1
@@ -228,7 +228,7 @@ _021D76E0:
 	b _021D785A
 _021D76E2:
 	add r0, r4, #0
-	bl FUN_0205CDD8
+	bl sub_0205CDD8
 	ldr r0, [r4, #0x24]
 	bl MOD05_021EF5FC
 	ldr r0, [r4, #0x38]
@@ -271,11 +271,11 @@ _021D7720:
 	mov r1, #0
 	str r1, [r0, #0x10]
 	ldr r0, [r4, #0x34]
-	bl FUN_02057750
+	bl sub_02057750
 	ldr r0, [r4, #0x34]
 	bl MOD05_021F1D2C
 	ldr r0, [r4, #0x34]
-	bl FUN_02058768
+	bl sub_02058768
 	ldr r0, [r4, #0x3c]
 	bl MOD05_021E4BA8
 	ldr r0, [r4, #0x30]
@@ -323,7 +323,7 @@ _021D7782:
 	bl MOD05_021F45C8
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #0x18]
-	bl FUN_0204B3B8
+	bl sub_0204B3B8
 	add r0, r4, #0
 	add r0, #0x44
 	bl MOD05_021DBA1C
@@ -345,9 +345,9 @@ _021D7806:
 	cmp r0, #0
 	beq _021D785A
 	bl MOD05_021D7BD4
-	bl FUN_0201F140
-	bl FUN_0201C29C
-	bl FUN_0201B398
+	bl sub_0201F140
+	bl sub_0201C29C
+	bl sub_0201B398
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #4]
 	bl MOD05_021D7F9C
@@ -441,25 +441,25 @@ _021D78CE:
 	add r1, r4, #0
 	str r4, [r0]
 	add r0, r5, #0
-	bl FUN_02034A60
+	bl sub_02034A60
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_020489FC
+	bl sub_020489FC
 	add r0, r5, #0
-	bl FUN_02034B64
+	bl sub_02034B64
 	str r0, [sp, #4]
 	add r0, r5, #0
-	bl FUN_02034B6C
+	bl sub_02034B6C
 	str r0, [sp]
 	ldr r0, [r5, #0x34]
 	ldr r3, [sp, #4]
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_020573C8
+	bl sub_020573C8
 	add r0, r5, #0
 	add r0, #0x90
 	ldr r0, [r0]
-	bl FUN_0205DD40
+	bl sub_0205DD40
 	ldr r1, [r5, #0x1c]
 	add r0, r5, #0
 	ldr r1, [r1]
@@ -469,7 +469,7 @@ _021D78CE:
 	mov r2, #1
 	bl FieldSystem_PlayOrFadeToNewMusicId
 	add r0, r5, #0
-	bl FUN_02034AC8
+	bl sub_02034AC8
 	add r0, r7, #0
 	bl LocalFieldData_GetWeatherType
 	add r1, r0, #0
@@ -497,11 +497,11 @@ MOD05_021D795C: ; 0x021D795C
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_0204646C
+	bl sub_0204646C
 	cmp r0, #0
 	bne _021D7970
 	add r0, r5, #0
-	bl FUN_0204B0F8
+	bl sub_0204B0F8
 _021D7970:
 	ldr r0, [r5, #0x48]
 	bl MOD05_021DB4D0
@@ -547,7 +547,7 @@ MOD05_021D79B4: ; 0x021D79B4
 	beq _021D79FE
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034E0C
+	bl sub_02034E0C
 	add r7, r0, #0
 	ldr r0, [r5, #0x38]
 	bl GetPlayerXCoord
@@ -567,7 +567,7 @@ MOD05_021D79B4: ; 0x021D79B4
 	add r0, r7, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0204AE5C
+	bl sub_0204AE5C
 _021D79FE:
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -738,7 +738,7 @@ MOD05_021D7B38: ; 0x021D7B38
 	mov r2, #4
 	str r2, [sp, #0x10]
 	add r2, r0, #0
-	bl FUN_02009EAC
+	bl sub_02009EAC
 	add sp, #0x14
 	pop {pc}
 
@@ -791,12 +791,12 @@ MOD05_021D7BA0: ; 0x021D7BA0
 	mov r1, #0x10
 	add r0, r2, #0
 	add r2, r1, #0
-	bl FUN_0201D060
+	bl sub_0201D060
 	mov r0, #0x14
 	mov r1, #4
-	bl FUN_0201E00C
-	bl FUN_0201D168
-	bl FUN_0201E0BC
+	bl sub_0201E00C
+	bl sub_0201D168
+	bl sub_0201E0BC
 	add sp, #0x10
 	pop {r4, pc}
 	.balign 4, 0
@@ -805,8 +805,8 @@ _021D7BD0: .word UNK05_021F642C
 	thumb_func_start MOD05_021D7BD4
 MOD05_021D7BD4: ; 0x021D7BD4
 	push {r3, lr}
-	bl FUN_0201D12C
-	bl FUN_0201E08C
+	bl sub_0201D12C
+	bl sub_0201E08C
 	pop {r3, pc}
 
 	thumb_func_start MOD05_021D7BE0
@@ -814,10 +814,10 @@ MOD05_021D7BE0: ; 0x021D7BE0
 	push {r3, r4, r5, lr}
 	sub sp, #0x80
 	add r4, r0, #0
-	bl FUN_020222AC
+	bl sub_020222AC
 	bl Camera_PushLookAtToNNSGlb
 	add r0, r4, #0
-	bl FUN_0205E0A8
+	bl sub_0205E0A8
 	ldr r0, [r4, #0x24]
 	ldr r1, [r4, #0x40]
 	bl MOD05_021EF4C4
@@ -871,7 +871,7 @@ _021D7C1C:
 	bl NNS_G3dGlbFlushP
 	ldr r0, [r4, #0x3c]
 	bl MOD05_021E4BA0
-	bl FUN_0201F178
+	bl sub_0201F178
 	ldr r1, _021D7C98 ; =NNS_G3dGlb + 0x8
 	add r0, sp, #0x40
 	mov r2, #0x40
@@ -888,7 +888,7 @@ _021D7C1C:
 	ldr r1, _021D7CA0 ; =g3dDepthBufferingMode
 	mov r0, #0
 	ldr r1, [r1]
-	bl FUN_020222B4
+	bl sub_020222B4
 	add sp, #0x80
 	pop {r3, r4, r5, pc}
 	nop
@@ -1046,7 +1046,7 @@ MOD05_021D7D98: ; 0x021D7D98
 	bhi _021D7DE0
 	ldr r0, [r4, #0x34]
 	mov r1, #0
-	bl FUN_02058804
+	bl sub_02058804
 _021D7DE0:
 	ldr r0, [r4, #0x6c]
 	cmp r0, #1
@@ -1070,19 +1070,19 @@ _021D7DF6:
 	add r2, r5, #3
 	bl MOD05_021F1CB8
 	ldr r0, [r4, #0x38]
-	bl FUN_02055108
+	bl sub_02055108
 	ldr r0, [r4, #0x34]
-	bl FUN_020577A8
-	bl FUN_0204F88C
+	bl sub_020577A8
+	bl sub_0204F88C
 	ldr r0, [r4, #0x34]
-	bl FUN_02058774
+	bl sub_02058774
 	ldr r0, [r4, #0x38]
-	bl FUN_02055360
+	bl sub_02055360
 	ldr r1, [r4, #0x24]
 	bl MOD05_021EF5E0
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_0204B388
+	bl sub_0204B388
 	ldr r1, [r4, #4]
 	str r0, [r1, #0x18]
 	add sp, #0x14
@@ -1106,10 +1106,10 @@ MOD05_021D7E4C: ; 0x021D7E4C
 	str r0, [r4, #0x44]
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034E10
+	bl sub_02034E10
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_02055360
+	bl sub_02055360
 	add r1, r4, #0
 	add r2, r5, #0
 	mov r3, #1
@@ -1141,7 +1141,7 @@ MOD05_021D7E4C: ; 0x021D7E4C
 	ldr r0, [r0, #0x10]
 	bl MOD05_021DBF20
 	add r0, r4, #0
-	bl FUN_0205CDB4
+	bl sub_0205CDB4
 	add r0, r4, #0
 	bl MOD05_021F38B8
 	ldr r0, _021D7EE4 ; =MOD05_021D74E0

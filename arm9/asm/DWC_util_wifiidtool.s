@@ -62,8 +62,8 @@ DWC_Auth_GetId: ; 0x02096518
 	add sp, sp, #0x18
 	ldmia sp!, {r4,pc}
 
-	arm_func_start FUN_02096570
-FUN_02096570: ; 0x02096570
+	arm_func_start sub_02096570
+sub_02096570: ; 0x02096570
 	stmdb sp!, {r4-r10,lr}
 	sub sp, sp, #0x28
 	add r2, sp, #0x0
@@ -157,7 +157,7 @@ _020966A4:
 	mov r1, r10
 	mov r2, r4
 	mov r3, r8
-	bl FUN_02096988
+	bl sub_02096988
 	str r0, [r5, #0x8]
 	str r1, [r5, #0xc]
 	ldr r0, [r5, #0xc]
@@ -175,8 +175,8 @@ _02096704: .word 0x5D588B65
 _02096708: .word 0x00269EC3
 _0209670C: .word 0x000009BF
 
-	arm_func_start FUN_02096710
-FUN_02096710: ; 0x02096710
+	arm_func_start sub_02096710
+sub_02096710: ; 0x02096710
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x14
 	mov r5, r0
@@ -306,7 +306,7 @@ _020968D8:
 	mov r1, r6
 	mov r2, r7
 	mov r3, r4
-	bl FUN_02096988
+	bl sub_02096988
 	str r0, [r8, #0x8]
 	str r1, [r8, #0xc]
 	ldr r0, [r8, #0xc]
@@ -332,7 +332,7 @@ _02096930:
 	strh r0, [r5, #0x0]
 	ldrh r0, [r8, #0x12]
 	mov r3, r4
-	bl FUN_02096988
+	bl sub_02096988
 	str r0, [r8, #0x8]
 	str r1, [r8, #0xc]
 	ldr r0, [r8, #0xc]
@@ -350,8 +350,8 @@ _0209697C: .word 0x5D588B65
 _02096980: .word 0x00269EC3
 _02096984: .word 0x000009BF
 
-	arm_func_start FUN_02096988
-FUN_02096988: ; 0x02096988
+	arm_func_start sub_02096988
+sub_02096988: ; 0x02096988
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x14
 	mov lr, #0x0

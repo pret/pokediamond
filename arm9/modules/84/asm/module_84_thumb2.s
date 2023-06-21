@@ -62,7 +62,7 @@ _021D81AA:
 	mov	r0, #0
 	str	r0, [r5, #4]
 	add	r0, r6, #0
-	bl	FUN_0200CAB4
+	bl	sub_0200CAB4
 _021D81C2:
 	pop	{r4, r5, r6, pc}
 
@@ -184,18 +184,18 @@ MOD84_021D8260: ; 0x021D8260
 	mov r0, #0x4b
 	str r0, [sp, #0x1c]
 	add r0, sp, #0
-	bl FUN_0201FF84
+	bl sub_0201FF84
 	add r4, r0, #0
 	beq _021D82A6
 	mov r1, #1
-	bl FUN_020200BC
+	bl sub_020200BC
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #0xc
-	bl FUN_020200D8
+	bl sub_020200D8
 	ldr r1, [sp, #0x30]
 	add r0, r4, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 _021D82A6:
 	add r0, r4, #0
 	add sp, #0x20
@@ -255,7 +255,7 @@ _021D82CC:
 	strh r1, [r2, r0]
 	add r0, r6, #0
 	mov r2, #0
-	bl FUN_02024674
+	bl sub_02024674
 	ldr r1, _021D8428 ; =0x00001220
 	ldr r1, [r4, r1]
 	lsl r1, r1, #3
@@ -376,7 +376,7 @@ _021D83E8:
 	ldrh r1, [r4, r1]
 	add r0, r6, #0
 	mov r2, #0
-	bl FUN_02024674
+	bl sub_02024674
 	ldr r1, _021D8434 ; =0x000002BA
 	strb r0, [r4, r1]
 	bl LCRandom
@@ -604,7 +604,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	ldr r0, _021D85B4 ; =MOD84_021D8784
 	add r1, r4, #0
 	mov r2, #0
-	bl FUN_0200CA98
+	bl sub_0200CA98
 	str r0, [r4, #0x34]
 _021D85AC:
 	add r0, r4, #0
@@ -621,7 +621,7 @@ MOD84_021D85B8: ; 0x021D85B8
 	ldr r0, [r4, #0x34]
 	cmp r0, #0
 	beq _021D85C6
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021D85C6:
 	ldr r0, [r4, #0x30]
 	bl String_Delete
@@ -680,7 +680,7 @@ _021D8600:
 	mov r0, #0
 	ldr r1, [r5, #0x30]
 	add r2, r0, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	mov r1, #1
 	lsl r1, r1, #8
 	sub r0, r1, r0
@@ -893,7 +893,7 @@ _021D87D0:
 	mov r0, #0
 	ldr r1, [r5, #0x30]
 	add r2, r0, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	mov r1, #1
 	lsl r1, r1, #8
 	sub r0, r1, r0
@@ -1002,10 +1002,10 @@ MOD84_021D88A4: ; 0x021D88A4
 	beq _021D88C4
 	ldr r0, [r4, #8]
 	mov r1, #1
-	bl FUN_02020130
+	bl sub_02020130
 	ldr r0, [r4, #8]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	mov r0, #1
 	pop {r4, pc}
 _021D88C4:
@@ -1079,7 +1079,7 @@ _021D893A:
 	beq _021D8950
 	ldr r0, [r5, #8]
 	mov r1, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8950:
@@ -1530,7 +1530,7 @@ MOD84_021D8C54: ; 0x021D8C54
 	ldr r0, _021D8CD4 ; =MOD84_021D9278
 	add r1, r4, #0
 	mov r2, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	mov r1, #0x5a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1971,7 +1971,7 @@ _021D8FE4:
 	bl MOD84_021D8260
 	mov r1, #0xe
 	str r0, [r5, #0x60]
-	bl FUN_020202A8
+	bl sub_020202A8
 	add r7, r7, #1
 	add r6, #0x24
 	add r5, r5, #4
@@ -2012,22 +2012,22 @@ _021D9056:
 	ldr r0, [r5, #0x48]
 	cmp r0, #0
 	beq _021D9060
-	bl FUN_0201FFC8
+	bl sub_0201FFC8
 _021D9060:
 	ldr r0, [r5, #0x60]
 	cmp r0, #0
 	beq _021D906A
-	bl FUN_0201FFC8
+	bl sub_0201FFC8
 _021D906A:
 	ldr r0, [r5, r7]
 	cmp r0, #0
 	beq _021D9082
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	bl FreeToHeap
 	mov r0, #0x15
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021D9082:
 	add r4, r4, #1
 	add r5, r5, #4
@@ -2038,7 +2038,7 @@ _021D9082:
 	ldr r0, [r6, r0]
 	cmp r0, #0
 	beq _021D9098
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021D9098:
 	ldr r0, [r6, #8]
 	cmp r0, #0
@@ -2113,7 +2113,7 @@ _021D90F6:
 	ldrb r2, [r2, #2]
 	add r0, sp, #0xc
 	mov r3, #2
-	bl FUN_02068C00
+	bl sub_02068C00
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2123,7 +2123,7 @@ _021D90F6:
 	ldrh r1, [r1, #2]
 	ldr r3, _021D91FC ; =0x021DACA8
 	mov r2, #0x4b
-	bl FUN_02012400
+	bl sub_02012400
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	mov r1, #0x32
@@ -2183,21 +2183,21 @@ _021D90F6:
 	add r1, r4, #0
 	ldr r0, [r4, #0x14]
 	add r1, #0x18
-	bl FUN_02020044
+	bl sub_02020044
 	add r1, r4, #0
 	ldr r0, [r4, #0x10]
 	add r1, #0x18
-	bl FUN_02020044
+	bl sub_02020044
 	ldr r0, [r4, #0x14]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	ldr r0, [r4, #0x10]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	ldr r0, _021D9208 ; =MOD84_021D920C
 	add r1, r4, #0
 	mov r2, #0
-	bl FUN_0200CA60
+	bl sub_0200CA60
 	mov r1, #0x15
 	add r2, r5, r6
 	lsl r1, r1, #4
@@ -2250,11 +2250,11 @@ _021D9230:
 	str r0, [r4, #0x18]
 	ldr r0, [r4, #0x14]
 	add r1, #0x18
-	bl FUN_02020044
+	bl sub_02020044
 	add r1, r4, #0
 	ldr r0, [r4, #0x10]
 	add r1, #0x18
-	bl FUN_02020044
+	bl sub_02020044
 	ldr r0, [r4, #0x18]
 	asr r1, r0, #0xc
 	mov r0, #0x37
@@ -2282,7 +2282,7 @@ _021D9282:
 	ldr r0, [r6, r0]
 	cmp r0, #0
 	beq _021D937A
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #0
@@ -2317,7 +2317,7 @@ _021D92AE:
 	ldrb r2, [r2, #2]
 	add r0, sp, #0x14
 	mov r3, #2
-	bl FUN_02068C00
+	bl sub_02068C00
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2328,7 +2328,7 @@ _021D92AE:
 	ldrh r1, [r1, #2]
 	ldr r3, _021D9388 ; =0x021DACA8
 	mov r2, #0x4b
-	bl FUN_02012400
+	bl sub_02012400
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	mov r1, #0x32
@@ -2693,10 +2693,10 @@ MOD84_021D9594: ; 0x021D9594
 	beq _021D95B4
 	ldr r0, [r4, #0x4c]
 	mov r1, #0
-	bl FUN_02020130
+	bl sub_02020130
 	ldr r0, [r4, #0x4c]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	mov r0, #1
 	pop {r4, pc}
 _021D95B4:
@@ -2749,7 +2749,7 @@ MOD84_021D95CC: ; 0x021D95CC
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _021D9632
-	bl FUN_0202011C
+	bl sub_0202011C
 	add r3, r0, #0
 	add r2, sp, #0x10
 	ldmia r3!, {r0, r1}
@@ -2762,7 +2762,7 @@ MOD84_021D95CC: ; 0x021D95CC
 	sub r0, #0x40
 	str r0, [sp, #0x14]
 	ldr r0, [r4, #0x50]
-	bl FUN_02020044
+	bl sub_02020044
 _021D9632:
 	ldr r0, [r5]
 	cmp r0, #7
@@ -2972,7 +2972,7 @@ _021D97D8:
 	beq _021D97F0
 	ldr r0, [r4, #0x4c]
 	mov r1, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	add sp, #0x1c
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -3245,7 +3245,7 @@ MOD84_021D9A04: ; 0x021D9A04
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _021D9A12
-	bl FUN_0201FFC8
+	bl sub_0201FFC8
 _021D9A12:
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -3586,10 +3586,10 @@ MOD84_021D9C80: ; 0x021D9C80
 	beq _021D9CA0
 	ldr r0, [r4, #0x10]
 	mov r1, #2
-	bl FUN_02020130
+	bl sub_02020130
 	ldr r0, [r4, #0x10]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	mov r0, #1
 	pop {r4, pc}
 _021D9CA0:
@@ -3992,7 +3992,7 @@ _021D9FBE:
 	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #0x10]
 	mov r1, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4347,13 +4347,13 @@ _021DA238:
 	bl MOD84_021D8260
 	str r0, [r4, #0x18]
 	mov r1, #3
-	bl FUN_02020238
+	bl sub_02020238
 	ldr r0, [r4, #0x18]
 	mov r1, #1
-	bl FUN_02020398
+	bl sub_02020398
 	ldr r0, [r4, #0x18]
 	mov r1, #0
-	bl FUN_02020130
+	bl sub_02020130
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -4413,12 +4413,12 @@ _021DA334:
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	beq _021DA33E
-	bl FUN_0201FFC8
+	bl sub_0201FFC8
 _021DA33E:
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
 	beq _021DA348
-	bl FUN_0201FFC8
+	bl sub_0201FFC8
 _021DA348:
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
@@ -4465,7 +4465,7 @@ MOD84_021DA390: ; 0x021DA390
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DA39E
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021DA39E:
 	pop {r3, pc}
 	thumb_func_end MOD84_021DA390
@@ -4485,7 +4485,7 @@ MOD84_021DA3A0: ; 0x021DA3A0
 	str r0, [r1]
 	ldr r0, _021DA3C4 ; =MOD84_021DA3D8
 	add r1, r4, #0
-	bl FUN_0200CA60
+	bl sub_0200CA60
 	str r0, [r4, #0x7c]
 	pop {r4, pc}
 	nop
@@ -4581,13 +4581,13 @@ _021DA3FE:
 	add r1, r4, #0
 	ldr r0, [r5, #0x14]
 	add r1, #0x14
-	bl FUN_02020044
+	bl sub_02020044
 	ldr r0, [r5, #0x14]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	ldr r0, [r5, #0x14]
 	mov r1, #1
-	bl FUN_02020130
+	bl sub_02020130
 	add r0, r4, #0
 	add r0, #0x20
 	add r1, sp, #0
@@ -4602,10 +4602,10 @@ _021DA3FE:
 	add r1, r4, #0
 	ldr r0, [r5, #0x18]
 	add r1, #0x2c
-	bl FUN_02020044
+	bl sub_02020044
 	ldr r0, [r5, #0x18]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	mov r0, #0
 	str r0, [r4, #0x74]
 	ldr r0, [r4]
@@ -4632,11 +4632,11 @@ _021DA4B8:
 	add r1, r4, #0
 	ldr r0, [r5, #0x14]
 	add r1, #0x14
-	bl FUN_02020044
+	bl sub_02020044
 	add r1, r4, #0
 	ldr r0, [r5, #0x18]
 	add r1, #0x2c
-	bl FUN_02020044
+	bl sub_02020044
 	ldr r0, [r4, #0xc]
 	add sp, #0xc
 	sub r0, r0, #1
@@ -4647,7 +4647,7 @@ _021DA4F8:
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x14]
 	mov r1, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -4664,7 +4664,7 @@ _021DA50A:
 	add r1, r4, #0
 	ldr r0, [r5, #0x18]
 	add r1, #0x2c
-	bl FUN_02020044
+	bl sub_02020044
 	ldr r0, [r4, #0xc]
 	add sp, #0xc
 	sub r0, r0, #1
@@ -4673,7 +4673,7 @@ _021DA50A:
 _021DA532:
 	ldr r0, [r5, #0x18]
 	mov r1, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -4698,7 +4698,7 @@ _021DA552:
 	str r0, [r4]
 	pop {r3, r4, r5, r6, pc}
 _021DA564:
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	str r0, [r4, #0x7c]
 _021DA56C:
@@ -4739,7 +4739,7 @@ MOD84_021DA58C: ; 0x021DA58C
 	str r0, [r4, #0x10]
 	ldr r0, _021DA5D4 ; =MOD84_021DA5F0
 	mov r2, #2
-	bl FUN_0200CA98
+	bl sub_0200CA98
 	add r5, r0, #0
 	bne _021DA5CA
 	add r0, r4, #0
@@ -4759,10 +4759,10 @@ MOD84_021DA5D8: ; 0x021DA5D8
 	push {r4, lr}
 	add r4, r0, #0
 	beq _021DA5EC
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021DA5EC:
 	pop {r4, pc}
 	.align 2, 0

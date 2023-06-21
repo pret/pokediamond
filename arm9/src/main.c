@@ -30,15 +30,15 @@ s32 UNK_02016FA4;
 PMBackLightSwitch gBacklightTop;
 struct UnkStruct_02016FA8 UNK_02016FA8;
 
-extern void FUN_02022294(void);
+extern void sub_02022294(void);
 extern void GF_InitRTCWork(void);
-extern int FUN_020337E8(int);
+extern int sub_020337E8(int);
 extern void PlayTimerInit(void);
-extern void FUN_0201B5CC(void *);
+extern void sub_0201B5CC(void *);
 extern void GF_RTC_UpdateOnFrame(void);
 extern void PlayTimerUpdate(void);
-extern void FUN_020222C4(void);
-extern void FUN_0200E2D8(void);
+extern void sub_020222C4(void);
+extern void sub_0200E2D8(void);
 
 extern struct OverlayManagerTemplate MOD63_021DBE18;
 
@@ -53,24 +53,24 @@ void NitroMain(void)
     InitSystemForTheGame();
     InitGraphicMemory();
     InitKeypadAndTouchpad();
-    FUN_02016438(0);
+    sub_02016438(0);
 
     PM_GetBackLight(&gBacklightTop, NULL);
 
-    FUN_02022294();
+    sub_02022294();
     GF_InitRTCWork();
-    FUN_02000DF4();
-    FUN_02002C14();
-    FUN_02002C50(0, 3);
-    FUN_02002C50(1, 3);
-    FUN_02002C50(3, 3);
+    sub_02000DF4();
+    sub_02002C14();
+    sub_02002C50(0, 3);
+    sub_02002C50(1, 3);
+    sub_02002C50(3, 3);
     UNK_02016FA8.unk10 = -1;
     UNK_02016FA8.save = SaveData_New();
     InitSoundData(Save_Chatot_Get(UNK_02016FA8.save), Save_PlayerData_GetOptionsAddr(UNK_02016FA8.save));
     Init_Timer3();
-    if (FUN_020337E8(3) == 3)
+    if (sub_020337E8(3) == 3)
         ShowWFCUserInfoWarning(3, 0);
-    if (FUN_020227FC(UNK_02016FA8.save) == 0)
+    if (sub_020227FC(UNK_02016FA8.save) == 0)
     {
         ShowSaveDataReadError(0);
     }
@@ -101,18 +101,18 @@ void NitroMain(void)
     UNK_02016FA4 = 0;
     for (;;)
     {
-        FUN_02000EE8();
+        sub_02000EE8();
         HandleDSLidAction();
         ReadKeypadAndTocuhpad();
         if ((gSystem.heldKeysRaw & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gSystem.softResetDisabled) // soft reset?
         {
             DoSoftReset(0); // soft reset?
         }
-        if (FUN_0202FB80())
+        if (sub_0202FB80())
         {
             Main_RunOverlayManager();
-            FUN_0201B5CC(gSystem.unk18);
-            FUN_0201B5CC(gSystem.unk24);
+            sub_0201B5CC(gSystem.unk18);
+            sub_0201B5CC(gSystem.unk24);
             if (!gSystem.unk30)
             {
                 OS_WaitIrq(1, 1);
@@ -121,21 +121,21 @@ void NitroMain(void)
         }
         GF_RTC_UpdateOnFrame();
         PlayTimerUpdate();
-        FUN_020222C4();
-        FUN_0201B5CC(gSystem.unk24);
+        sub_020222C4();
+        sub_0201B5CC(gSystem.unk24);
         OS_WaitIrq(1, 1);
         gSystem.unk2C++;
         gSystem.unk30 = 0;
         DoAllScreenBrightnessTransitionStep();
-        FUN_0200E2D8();
+        sub_0200E2D8();
         if (gSystem.vBlankIntr)
             gSystem.vBlankIntr(gSystem.vBlankIntrArg);
         DoSoundUpdateFrame();
-        FUN_0201B5CC(gSystem.unk20);
+        sub_0201B5CC(gSystem.unk20);
     }
 }
 
-void FUN_02000DF4(void)
+void sub_02000DF4(void)
 {
     UNK_02016FA8.mainOverlayId = SDK_OVERLAY_INVALID_ID;
     UNK_02016FA8.overlayManager = NULL;
@@ -172,9 +172,9 @@ void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *te
     UNK_02016FA8.template = template;
 }
 
-void FUN_02000E9C(void)
+void sub_02000E9C(void)
 {
-    FUN_0202FB80();
+    sub_0202FB80();
     OS_WaitIrq(TRUE, OS_IE_V_BLANK);
     gSystem.unk2C++;
     gSystem.unk30 = 0;
@@ -182,51 +182,51 @@ void FUN_02000E9C(void)
         gSystem.vBlankIntr(gSystem.vBlankIntrArg);
 }
 
-void FUN_02000EC8(u32 parameter)
+void sub_02000EC8(u32 parameter)
 {
-    if (FUN_02033678() && CARD_TryWaitBackupAsync() == TRUE)
+    if (sub_02033678() && CARD_TryWaitBackupAsync() == TRUE)
     {
         OS_ResetSystem(parameter);
     }
-    FUN_02000E9C();
+    sub_02000E9C();
 }
 
-void FUN_02000EE8(void)
+void sub_02000EE8(void)
 {
-    u32 r1 = FUN_020335B8();
+    u32 r1 = sub_020335B8();
     switch (r1)
     {
     case 1:
-        FUN_02000F4C(1, r1);
+        sub_02000F4C(1, r1);
         break;
     case 2:
-        FUN_02000F4C(0, r1);
+        sub_02000F4C(0, r1);
         break;
     case 3:
-        FUN_02000F4C(1, r1);
+        sub_02000F4C(1, r1);
         break;
     }
 }
 
-extern void FUN_0200E3A0(PMLCDTarget, int);
+extern void sub_0200E3A0(PMLCDTarget, int);
 
 __declspec(noreturn)
 void DoSoftReset(u32 parameter)
 {
-    FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
-    FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
-    if (FUN_02032DAC())
+    sub_0200E3A0(PM_LCD_TOP, 0x7FFF);
+    sub_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
+    if (sub_02032DAC())
     {
-        FUN_0202287C(FUN_020225F8());
+        sub_0202287C(sub_020225F8());
     }
     do
     {
         HandleDSLidAction();
-        FUN_02000EC8(parameter);
+        sub_02000EC8(parameter);
     } while (1);
 }
 
-void FUN_02000F4C(u32 arg0, u32 arg1)
+void sub_02000F4C(u32 arg0, u32 arg1)
 {
     if (arg1 == 3)
     {
@@ -240,14 +240,14 @@ void FUN_02000F4C(u32 arg0, u32 arg1)
     {
         ShowCommunicationError(0, 0, 0);
     }
-    FUN_02032DAC();
+    sub_02032DAC();
     while (1)
     {
         HandleDSLidAction();
         ReadKeypadAndTocuhpad();
         if (gSystem.newKeys & 1)
             break;
-        FUN_02000E9C();
+        sub_02000E9C();
     }
     DoSoftReset(arg0);
 }
@@ -269,8 +269,8 @@ void InitializeMainRNG(void)
     }
 }
 
-extern void FUN_0201CE04(void);
-extern void FUN_0201CDD0(void);
+extern void sub_0201CE04(void);
+extern void sub_0201CDD0(void);
 
 void HandleDSLidAction(void)
 {
@@ -279,7 +279,7 @@ void HandleDSLidAction(void)
     {
         if (!gSystem.unk67)
         {
-            FUN_0201CE04();
+            sub_0201CE04();
             if (CTRDG_IsPulledOut() == TRUE)
             {
                 UNK_02016FA4 = 1;
@@ -304,7 +304,7 @@ void HandleDSLidAction(void)
                     else
                         break;
                 }
-                FUN_0201CDD0();
+                sub_0201CDD0();
                 return;
             }
         }

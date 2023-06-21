@@ -5,10 +5,10 @@
 
     thumb_func_start MOD20_02252440
 MOD20_02252440: ; 0x02252440
-	ldr r3, _02252444 ; =FUN_02037790
+	ldr r3, _02252444 ; =sub_02037790
 	bx r3
 	.align 2, 0
-_02252444: .word FUN_02037790
+_02252444: .word sub_02037790
 	thumb_func_end MOD20_02252440
 
 	thumb_func_start MOD20_02252448
@@ -44,19 +44,19 @@ MOD20_02252448: ; 0x02252448
 	bl MOD20_0225253C
 	cmp r0, #0
 	beq _022524B2
-	bl FUN_0201CC08
+	bl sub_0201CC08
 	mov r0, #4
-	bl FUN_0201CC24
+	bl sub_0201CC24
 	ldr r0, _022524B4 ; =MOD20_022525F0
 	str r5, [r4, #0x34]
 	add r1, r4, #0
 	mov r2, #4
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #0x38]
 	ldr r0, _022524B8 ; =MOD20_0225259C
 	add r1, r4, #0
 	mov r2, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 _022524B2:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -193,7 +193,7 @@ MOD20_0225257C: ; 0x0225257C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	add r0, r4, #0
 	bl MOD20_02252A08
 	add r0, r4, #0
@@ -236,7 +236,7 @@ _022525C6:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #7
 	bl DestroyHeap
 	mov r0, #8
@@ -444,7 +444,7 @@ _02252750:
 	beq _022527AA
 	add r0, r4, #0
 	bl ClosePoketchApp
-	bl FUN_020893E0
+	bl sub_020893E0
 	add r0, r4, #0
 	mov r1, #2
 	bl MOD20_022525F8
@@ -611,7 +611,7 @@ _02252890:
 	beq _022528AC
 	add r0, r4, #0
 	bl ClosePoketchApp
-	bl FUN_0201CD04
+	bl sub_0201CD04
 	add r0, r4, #0
 	mov r1, #4
 	bl MOD20_022525F8
@@ -1035,7 +1035,7 @@ MOD20_02252B48: ; 0x02252B48
 	bne _02252B66
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_02005578
+	bl sub_02005578
 _02252B66:
 	pop {r4, pc}
 	thumb_func_end MOD20_02252B48
@@ -1054,7 +1054,7 @@ MOD20_02252B68: ; 0x02252B68
 	bne _02252BB4
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_02020AB0
+	bl sub_02020AB0
 	cmp r0, #0
 	beq _02252BB4
 	ldr r0, [r5]
@@ -1101,7 +1101,7 @@ MOD20_02252BB8: ; 0x02252BB8
 	bne _02252C04
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_02020ACC
+	bl sub_02020ACC
 	cmp r0, #0
 	beq _02252C04
 	ldr r0, [r5]
@@ -1136,11 +1136,11 @@ _02252C04:
 
 	thumb_func_start MOD20_02252C08
 MOD20_02252C08: ; 0x02252C08
-	ldr r3, _02252C10 ; =FUN_0204646C
+	ldr r3, _02252C10 ; =sub_0204646C
 	ldr r0, [r0, #0x5c]
 	bx r3
 	nop
-_02252C10: .word FUN_0204646C
+_02252C10: .word sub_0204646C
 	thumb_func_end MOD20_02252C08
 
 	thumb_func_start MOD20_02252C14

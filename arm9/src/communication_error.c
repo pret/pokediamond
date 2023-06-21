@@ -11,7 +11,7 @@
 #include "render_window.h"
 
 extern void SetMasterBrightnessNeutral(BOOL set_brightness_on_bottom_screen);
-extern void FUN_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
+extern void sub_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
 
 static const struct WindowTemplate sCommunicationErrorWindowTemplate = {
     .bgId = GF_BG_LYR_MAIN_0,
@@ -92,8 +92,8 @@ void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
             break;
     }
 
-    FUN_0200E3A0(PM_LCD_TOP, 0);
-    FUN_0200E3A0(PM_LCD_BOTTOM, 0);
+    sub_0200E3A0(PM_LCD_TOP, 0);
+    sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
     OS_DisableIrqMask(OS_IE_V_BLANK);
     OS_SetIrqFunction(OS_IE_V_BLANK, VBlankIntr);

@@ -413,7 +413,7 @@ _021E318E:
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x18]
 	ldr r2, [r4, #0x40]
-	bl FUN_02064E4C
+	bl sub_02064E4C
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E2F34
@@ -528,14 +528,14 @@ MOD05_021E3270: ; 0x021E3270
 	ldr r0, _021E32EC ; =MOD05_021E3124
 	add r1, r4, #0
 	mov r2, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #8]
 	mov r0, #1
 	strb r0, [r4, #4]
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x18]
 	ldr r2, [r4, #0x40]
-	bl FUN_02064E4C
+	bl sub_02064E4C
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E2F34
@@ -580,7 +580,7 @@ MOD05_021E32F0: ; 0x021E32F0
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	beq _021E32FE
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _021E32FE:
 	add r0, r4, #0
 	add r0, #0x20

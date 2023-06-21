@@ -67,7 +67,7 @@ MOD05_021E5614: ; 0x021E5614
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x1c]
-	bl FUN_02058B5C
+	bl sub_02058B5C
 	add r0, sp, #0x14
 	str r0, [sp]
 	mov r0, #0xff
@@ -88,7 +88,7 @@ MOD05_021E5650: ; 0x021E5650
 	sub sp, #0xc
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_0206475C
+	bl sub_0206475C
 	add r3, r0, #0
 	add r2, r4, #0
 	ldmia r3!, {r0, r1}
@@ -100,17 +100,17 @@ MOD05_021E5650: ; 0x021E5650
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x38]
-	bl FUN_02058450
+	bl sub_02058450
 	str r0, [r4, #0xc]
 	mov r0, #6
 	lsl r0, r0, #0xc
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #0x38]
 	add r1, sp, #0
-	bl FUN_02058B5C
+	bl sub_02058B5C
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_0206476C
+	bl sub_0206476C
 	mov r0, #1
 	add sp, #0xc
 	pop {r4, r5, pc}
@@ -131,7 +131,7 @@ MOD05_021E569C: ; 0x021E569C
 	add r5, r0, #0
 	ldr r2, [r4, #0xc]
 	add r0, r6, #0
-	bl FUN_020582A8
+	bl sub_020582A8
 	cmp r0, #0
 	bne _021E56B8
 	bl GF_AssertFail
@@ -147,7 +147,7 @@ _021E56B8:
 _021E56C8:
 	add r0, r6, #0
 	add r1, sp, #0
-	bl FUN_02058B5C
+	bl sub_02058B5C
 	mov r0, #0xa
 	ldr r1, [sp, #8]
 	lsl r0, r0, #0xc
@@ -155,7 +155,7 @@ _021E56C8:
 	str r0, [sp, #8]
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_0206476C
+	bl sub_0206476C
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 _021E56E6:
@@ -196,7 +196,7 @@ _021E5716:
 	add r1, sp, #0x54
 	str r0, [r5]
 	add r0, r2, #0
-	bl FUN_0206477C
+	bl sub_0206477C
 	mov r0, #0x19
 	ldr r1, [sp, #0x58]
 	lsl r0, r0, #0xc
@@ -213,7 +213,7 @@ _021E5716:
 	add r0, sp, #0x24
 	mov r1, #0x5a
 	add r3, r2, #0
-	bl FUN_0201CB20
+	bl sub_0201CB20
 	add r0, r5, #0
 	add r1, sp, #0
 	bl MI_Copy36B
@@ -226,7 +226,7 @@ _021E5716:
 	add r0, #0xc
 	add r2, sp, #0x24
 	add r3, sp, #0x48
-	bl FUN_0201B2A8
+	bl sub_0201B2A8
 	add sp, #0x60
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

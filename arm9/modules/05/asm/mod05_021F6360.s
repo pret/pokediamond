@@ -7,13 +7,13 @@
 MOD05_021F6360: ; 0x021F6360
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl FUN_02046528
+	bl sub_02046528
 	str r0, [sp]
 	add r0, r7, #0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r6, r0, #0
 	add r0, r7, #0
-	bl FUN_02046530
+	bl sub_02046530
 	add r4, r0, #0
 	ldr r0, [r4]
 	ldr r5, [r6, #4]
@@ -84,7 +84,7 @@ _021F6402:
 	ldr r1, _021F6428 ; =MOD05_021F57F0
 	ldr r2, [r5, #4]
 	add r0, r7, #0
-	bl FUN_0204640C
+	bl sub_0204640C
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]

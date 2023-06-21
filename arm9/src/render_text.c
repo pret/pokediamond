@@ -114,7 +114,7 @@ u32 RenderText(struct TextPrinter *printer)
                             field = (u16)MsgArray_ControlCodeGetField(
                                 printer->printerTemplate.currentChar.raw, 0);
 
-                            FUN_0201C1EC(printer,
+                            sub_0201C1EC(printer,
                                 printer->printerTemplate.currentX,
                                 printer->printerTemplate.currentY,
                                 field);
@@ -207,7 +207,7 @@ u32 RenderText(struct TextPrinter *printer)
                     return 3;
             }
 
-            struct UnkStruct_02002C14_sub *r5 = FUN_02002D94(subStruct->glyphId, currentChar);
+            struct UnkStruct_02002C14_sub *r5 = sub_02002D94(subStruct->glyphId, currentChar);
             CopyGlyphToWindow(printer->printerTemplate.window,
                 r5->buf,
                 r5->width,
@@ -302,7 +302,7 @@ u32 RenderText(struct TextPrinter *printer)
     return 1;
 }
 
-void FUN_02002840(u16 flag)
+void sub_02002840(u16 flag)
 {
     unk00 = flag;
 }
@@ -470,33 +470,33 @@ void TextFlags_SetCanABSpeedUpPrint(BOOL param0)
     gTextFlags.canABSpeedUpPrint = param0;
 }
 
-void FUN_02002B7C(s32 param0)
+void sub_02002B7C(s32 param0)
 {
     gTextFlags.autoScroll = param0 & 1;
     gTextFlags.unk0_5 = (param0 >> 1) & 1;
 }
 
-void FUN_02002BB8(u32 param0)
+void sub_02002BB8(u32 param0)
 {
     gTextFlags.unk0_4 = param0;
 }
 
-u8 FUN_02002BD4()
+u8 sub_02002BD4()
 {
     return gTextFlags.unk0_6;
 }
 
-void FUN_02002BE4()
+void sub_02002BE4()
 {
     gTextFlags.unk0_6 = 0;
 }
 
-u8 FUN_02002BF4()
+u8 sub_02002BF4()
 {
     return gTextFlags.unk0_7;
 }
 
-void FUN_02002C04()
+void sub_02002C04()
 {
     gTextFlags.unk0_7 = 0;
 }

@@ -50,8 +50,8 @@ UNK_02106148: ; 0x02106148
 
 	.text
 
-	thumb_func_start FUN_0207F95C
-FUN_0207F95C: ; 0x0207F95C
+	thumb_func_start sub_0207F95C
+sub_0207F95C: ; 0x0207F95C
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x93
@@ -104,13 +104,13 @@ _0207F9AC:
 	strb r0, [r4, r1]
 _0207F9BA:
 	add r0, r4, #0x0
-	bl FUN_0207FA38
+	bl sub_0207FA38
 	pop {r4, pc}
 	nop
 _0207F9C4: .word 0x0000068F
 
-	thumb_func_start FUN_0207F9C8
-FUN_0207F9C8: ; 0x0207F9C8
+	thumb_func_start sub_0207F9C8
+sub_0207F9C8: ; 0x0207F9C8
 	push {r3-r7, lr}
 	ldr r0, [r0, #0x0]
 	add r4, r1, #0x0
@@ -169,8 +169,8 @@ _0207FA08:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0207FA38
-FUN_0207FA38: ; 0x0207FA38
+	thumb_func_start sub_0207FA38
+sub_0207FA38: ; 0x0207FA38
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r0, _0207FA78 ; =0x0000068F
@@ -192,7 +192,7 @@ _0207FA52:
 	add r0, r6, #0x0
 	add r1, r4, r1
 	add r2, r7, #0x0
-	bl FUN_0207F9C8
+	bl sub_0207F9C8
 	add r0, r5, #0x1
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
@@ -207,10 +207,10 @@ _0207FA74:
 _0207FA78: .word 0x0000068F
 _0207FA7C: .word UNK_02106148
 
-	thumb_func_start FUN_0207FA80
-FUN_0207FA80: ; 0x0207FA80
+	thumb_func_start sub_0207FA80
+sub_0207FA80: ; 0x0207FA80
 	push {r3, lr}
-	bl FUN_0207FA98
+	bl sub_0207FA98
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r0, r1
@@ -222,8 +222,8 @@ _0207FA94:
 	mov r0, #0xff
 	pop {r3, pc}
 
-	thumb_func_start FUN_0207FA98
-FUN_0207FA98: ; 0x0207FA98
+	thumb_func_start sub_0207FA98
+sub_0207FA98: ; 0x0207FA98
 	push {r3, lr}
 	ldr r1, _0207FAB8 ; =0x0000068F
 	ldrb r0, [r0, r1]
@@ -238,14 +238,14 @@ _0207FAAC:
 	lsl r1, r0, #0x2
 	ldr r0, _0207FABC ; =UNK_0210613C
 	ldr r0, [r0, r1]
-	bl FUN_02020988
+	bl sub_02020988
 	pop {r3, pc}
 	.balign 4
 _0207FAB8: .word 0x0000068F
 _0207FABC: .word UNK_0210613C
 
-	thumb_func_start FUN_0207FAC0
-FUN_0207FAC0: ; 0x0207FAC0
+	thumb_func_start sub_0207FAC0
+sub_0207FAC0: ; 0x0207FAC0
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -263,7 +263,7 @@ _0207FADA:
 	lsl r1, r0, #0x2
 	ldr r0, _0207FB1C ; =UNK_0210613C
 	ldr r0, [r0, r1]
-	bl FUN_02020968
+	bl sub_02020968
 	add r4, r0, #0x0
 	mov r0, #0x0
 	mvn r0, r0
@@ -296,8 +296,8 @@ _0207FB1C: .word UNK_0210613C
 _0207FB20: .word 0x0000FFFE
 _0207FB24: .word gSystem + 0x40
 
-	thumb_func_start FUN_0207FB28
-FUN_0207FB28: ; 0x0207FB28
+	thumb_func_start sub_0207FB28
+sub_0207FB28: ; 0x0207FB28
 	push {r4-r6, lr}
 	ldr r1, _0207FBF4 ; =0x0000068F
 	add r5, r0, #0x0
@@ -320,19 +320,19 @@ _0207FB4A:
 	add r0, r1, #0x0
 	bl PlaySE
 	add r0, r5, #0x0
-	bl FUN_0207FA38
+	bl sub_0207FA38
 	ldr r1, _0207FBFC ; =0x00000696
 	add r0, r5, #0x0
 	ldrb r1, [r5, r1]
 	mov r2, #0x2
 	lsl r1, r1, #0x2
 	add r1, r4, r1
-	bl FUN_0207F9C8
+	bl sub_0207F9C8
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
 	bl ScheduleBgTilemapBufferTransfer
 	add r0, r5, #0x0
-	bl FUN_0207CEDC
+	bl sub_0207CEDC
 	ldr r0, _0207FC00 ; =0x00000694
 	mov r1, #0x0
 	strb r1, [r5, r0]
@@ -357,11 +357,11 @@ _0207FB8C:
 	strb r2, [r5, r0]
 	b _0207FBEE
 _0207FBA0:
-	bl FUN_0207CF58
+	bl sub_0207CF58
 	ldr r0, _0207FBFC ; =0x00000696
 	ldrb r6, [r5, r0]
 	add r0, r5, #0x0
-	bl FUN_0207FAC0
+	bl sub_0207FAC0
 	cmp r6, r0
 	beq _0207FBEE
 	mov r0, #0x2a
@@ -379,14 +379,14 @@ _0207FBA0:
 	add r0, r5, #0x0
 	add r1, r4, r1
 	mov r2, #0x0
-	bl FUN_0207F9C8
+	bl sub_0207F9C8
 	b _0207FBE2
 _0207FBD6:
 	lsl r1, r6, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
 	mov r2, #0x1
-	bl FUN_0207F9C8
+	bl sub_0207F9C8
 _0207FBE2:
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
@@ -402,8 +402,8 @@ _0207FBF8: .word UNK_02106148
 _0207FBFC: .word 0x00000696
 _0207FC00: .word 0x00000694
 
-	thumb_func_start FUN_0207FC04
-FUN_0207FC04: ; 0x0207FC04
+	thumb_func_start sub_0207FC04
+sub_0207FC04: ; 0x0207FC04
 	push {r4-r5}
 	ldr r4, _0207FC38 ; =0x0000068F
 	ldrb r3, [r0, r4]
@@ -433,8 +433,8 @@ FUN_0207FC04: ; 0x0207FC04
 _0207FC38: .word 0x0000068F
 _0207FC3C: .word UNK_02106148
 
-	thumb_func_start FUN_0207FC40
-FUN_0207FC40: ; 0x0207FC40
+	thumb_func_start sub_0207FC40
+sub_0207FC40: ; 0x0207FC40
 	ldr r2, _0207FC54 ; =0x0000068F
 	ldrb r0, [r0, r2]
 	lsl r0, r0, #0x1c

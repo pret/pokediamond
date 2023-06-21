@@ -396,13 +396,13 @@ MOD60_021D77D4: ; 0x021D77D4
 	ldr r0, [r4]
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x14]
-	bl FUN_0200CD68
+	bl sub_0200CD68
 	ldr r1, [r4, #0x10]
 	ldr r0, _021D7828 ; =0xFFDFFFFF
 	and r0, r1
 	str r0, [r4, #0x10]
 _021D7804:
-	bl FUN_0200BC30
+	bl sub_0200BC30
 	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x14]
 	bl DoScheduledBgGpuUpdates
@@ -437,7 +437,7 @@ _021D7848:
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -452,9 +452,9 @@ _021D7848:
 	str r0, [r2]
 	bl MOD60_021D77B4
 	mov r0, #0
-	bl FUN_0200E388
+	bl sub_0200E388
 	mov r0, #1
-	bl FUN_0200E388
+	bl sub_0200E388
 	add r0, r4, #0
 	bl MOD60_021D7990
 	b _021D78D0
@@ -475,11 +475,11 @@ _021D78A2:
 	bl MOD60_021D7D18
 	ldr r1, [r4]
 	mov r0, #0x20
-	bl FUN_0201C24C
+	bl sub_0201C24C
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
-	bl FUN_02033F20
+	bl sub_02033F20
 	ldr r0, _021D78E4 ; =MOD60_021D77D4
 	add r1, r4, #0
 	bl Main_SetVBlankIntrCB
@@ -510,7 +510,7 @@ MOD60_021D78E8: ; 0x021D78E8
 	beq _021D7946
 	b _021D7978
 _021D78F8:
-	bl FUN_0201C29C
+	bl sub_0201C29C
 	ldr r0, [sp]
 	bl MOD60_021D7CD4
 	ldr r6, [sp]
@@ -550,7 +550,7 @@ _021D7946:
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -898,7 +898,7 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	mov r3, #0xf
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x14]
-	bl FUN_0200CD68
+	bl sub_0200CD68
 	mov r1, #0x1a
 	ldr r2, [r4]
 	mov r0, #0
@@ -1325,7 +1325,7 @@ _021D7F8E:
 	mov r0, #0
 	ldr r1, [r6, #0x60]
 	add r2, r0, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	add r0, #0xc
 	add r0, r7, r0
 	lsl r0, r0, #0x18

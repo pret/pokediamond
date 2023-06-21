@@ -26,12 +26,12 @@ UNK_020FF3AC: ; 0x020FF3AC
 
 	.global UNK_020FF3D4
 UNK_020FF3D4: ; 0x020FF3D4
-	.word FUN_02089960, FUN_0208999C, FUN_02089A40, 0xFFFFFFFF
+	.word sub_02089960, sub_0208999C, sub_02089A40, 0xFFFFFFFF
 
 	.text
 
-	thumb_func_start FUN_02089960
-FUN_02089960: ; 0x02089960
+	thumb_func_start sub_02089960
+sub_02089960: ; 0x02089960
 	push {r3-r5, lr}
 	mov r2, #0x2
 	add r5, r0, #0x0
@@ -59,8 +59,8 @@ FUN_02089960: ; 0x02089960
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0208999C
-FUN_0208999C: ; 0x0208999C
+	thumb_func_start sub_0208999C
+sub_0208999C: ; 0x0208999C
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	bl OverlayManager_GetData
@@ -77,10 +77,10 @@ FUN_0208999C: ; 0x0208999C
 _020899B8:
 	add r0, r4, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	mov r0, #0x1
 	add r1, r4, #0x0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	add r0, r4, #0x0
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
@@ -103,24 +103,24 @@ _020899B8:
 	mov r1, #0x8
 	bl SetKeyRepeatTimers
 	add r0, r6, #0x0
-	bl FUN_02089A6C
+	bl sub_02089A6C
 	add r0, r6, #0x0
-	bl FUN_02089B80
+	bl sub_02089B80
 	bl GX_BothDispOn
 	mov r0, #0x1
 	str r0, [r5, #0x0]
 	b _02089A34
 _02089A12:
-	bl FUN_02089BE0
+	bl sub_02089BE0
 	cmp r0, #0x1
 	bne _02089A34
 	mov r0, #0x2
 	str r0, [r5, #0x0]
 	b _02089A34
 _02089A20:
-	bl FUN_02089BCC
+	bl sub_02089BCC
 	add r0, r6, #0x0
-	bl FUN_02089B2C
+	bl sub_02089B2C
 	add r0, r4, #0x0
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
@@ -132,8 +132,8 @@ _02089A34:
 _02089A38: .word 0xFFFFE0FF
 _02089A3C: .word 0x04001000
 
-	thumb_func_start FUN_02089A40
-FUN_02089A40: ; 0x02089A40
+	thumb_func_start sub_02089A40
+sub_02089A40: ; 0x02089A40
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl OverlayManager_GetData
@@ -151,8 +151,8 @@ FUN_02089A40: ; 0x02089A40
 _02089A64: .word SDK_OVERLAY_MODULE_83_ID
 _02089A68: .word MOD83_0223A360
 
-	thumb_func_start FUN_02089A6C
-FUN_02089A6C: ; 0x02089A6C
+	thumb_func_start sub_02089A6C
+sub_02089A6C: ; 0x02089A6C
 	push {r4-r5, lr}
 	sub sp, #0x5c
 	ldr r5, _02089B18 ; =UNK_020FF3AC
@@ -203,7 +203,7 @@ _02089A78:
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0x18]
 	mov r3, #0x2
-	bl FUN_0200CD68
+	bl sub_0200CD68
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -236,8 +236,8 @@ _02089B20: .word UNK_020FF390
 _02089B24: .word 0x000001E2
 _02089B28: .word 0x000001D9
 
-	thumb_func_start FUN_02089B2C
-FUN_02089B2C: ; 0x02089B2C
+	thumb_func_start sub_02089B2C
+sub_02089B2C: ; 0x02089B2C
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x0
@@ -271,8 +271,8 @@ FUN_02089B2C: ; 0x02089B2C
 	bl FreeToHeap
 	pop {r4, pc}
 
-	thumb_func_start FUN_02089B80
-FUN_02089B80: ; 0x02089B80
+	thumb_func_start sub_02089B80
+sub_02089B80: ; 0x02089B80
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -306,8 +306,8 @@ FUN_02089B80: ; 0x02089B80
 _02089BC4: .word 0x00000167
 _02089BC8: .word UNK_020FF378
 
-	thumb_func_start FUN_02089BCC
-FUN_02089BCC: ; 0x02089BCC
+	thumb_func_start sub_02089BCC
+sub_02089BCC: ; 0x02089BCC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x20
@@ -317,8 +317,8 @@ FUN_02089BCC: ; 0x02089BCC
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02089BE0
-FUN_02089BE0: ; 0x02089BE0
+	thumb_func_start sub_02089BE0
+sub_02089BE0: ; 0x02089BE0
 	push {r4-r5, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -341,7 +341,7 @@ _02089BFA: ; jump table (using 16-bit offset)
 	.short _02089CC0 - _02089BFA - 2; case 5
 _02089C06:
 	ldr r0, [r4, #0x34]
-	bl FUN_02022800
+	bl sub_02022800
 	cmp r0, #0x3
 	bhi _02089CC2
 	add r0, r0, r0
@@ -401,7 +401,7 @@ _02089C76:
 	ldr r1, [r4, #0x8]
 	add r2, r5, #0x0
 	mov r3, #0x4
-	bl FUN_02089CCC
+	bl sub_02089CCC
 	cmp r0, #0x1
 	bne _02089CC2
 	mov r0, #0x6
@@ -440,8 +440,8 @@ _02089CC2:
 	.balign 4
 _02089CC8: .word 0x00006C21
 
-	thumb_func_start FUN_02089CCC
-FUN_02089CCC: ; 0x02089CCC
+	thumb_func_start sub_02089CCC
+sub_02089CCC: ; 0x02089CCC
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -508,7 +508,7 @@ _02089D50:
 	ldr r0, [r5, #0x10]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_0201BD70
+	bl sub_0201BD70
 	cmp r0, #0x0
 	bne _02089D80
 	ldr r0, [r5, #0x14]

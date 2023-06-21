@@ -24,7 +24,7 @@ MOD22_02254854: ; 0x02254854
 	add r1, r4, #0
 	mov r2, #1
 	str r6, [r4, #0x64]
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _02254892
 	str r4, [r5]
@@ -50,7 +50,7 @@ MOD22_0225489C: ; 0x0225489C
 	add r0, r2, #0
 	add r1, #0x38
 	mov r2, #0x24
-	bl FUN_02089418
+	bl sub_02089418
 	cmp r0, #0
 	beq _022548F0
 	add r0, r5, #0
@@ -145,7 +145,7 @@ MOD22_0225492C: ; 0x0225492C
 	ldr r0, [r4, #0x1c]
 	str r0, [r4, #0x38]
 	ldr r0, [r4, #8]
-	bl FUN_020893F0
+	bl sub_020893F0
 	add r0, r4, #0
 	bl MOD22_02254CD4
 	ldr r0, [r4, #0x60]
@@ -193,7 +193,7 @@ _0225499E:
 	add r0, r4, #0
 	bl MOD22_0225492C
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x64]
 	bl MOD20_022529A0
 _022549D2:
@@ -1197,7 +1197,7 @@ MOD22_02255098: ; 0x02255098
 	ldr r0, _02255160 ; =MOD22_02254F28
 	add r1, r5, #0
 	mov r2, #3
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	add r5, #0x84
 	str r0, [r5]
 	add r0, r4, #0
@@ -1324,7 +1324,7 @@ MOD22_02255200: ; 0x02255200
 	lsl r2, r1, #2
 	ldr r1, _0225522C ; =MOD22_02255638
 	ldr r1, [r1, r2]
-	bl FUN_0201B6C4
+	bl sub_0201B6C4
 	ldr r2, [r4, #0x18]
 	add r0, r5, #0
 	lsl r3, r2, #2
@@ -1801,7 +1801,7 @@ _022555CC:
 	add r0, r4, #0
 	add r0, #0x84
 	ldr r0, [r0]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	add r4, #0x84
 	str r0, [r4]

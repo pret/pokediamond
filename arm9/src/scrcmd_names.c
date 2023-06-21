@@ -13,12 +13,12 @@
 
 extern void* FieldSysGetAttrAddr(struct FieldSystem* fieldSystem, int idx);
 
-extern u32 FUN_020536D0(u32 gender, u32 avatar, u32 a2);
+extern u32 sub_020536D0(u32 gender, u32 avatar, u32 a2);
 extern u32 ScriptState_GetStarter(struct ScriptState* state);
-extern u32 FUN_0205F398(struct ScriptState* state);
+extern u32 sub_0205F398(struct ScriptState* state);
 extern struct PCStorage* GetStoragePCPointer(struct SaveData* save);
-extern u32 FUN_0205F3C0(struct ScriptState* state);
-extern u32 FUN_02054C14(u32 number);
+extern u32 sub_0205F3C0(struct ScriptState* state);
+extern u32 sub_02054C14(u32 number);
 
 BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: BufferPlayerName? TextPlayerName?
 {
@@ -123,7 +123,7 @@ BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx) //00D5 - todo: BufferNumber? Text
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u16 unk = ScriptGetVar(ctx);
-    u32 digits = FUN_02054C14(unk);
+    u32 digits = sub_02054C14(unk);
 
     BufferIntegerAsString(*messageFormat, idx, unk, digits, PRINTING_MODE_RIGHT_ALIGN, TRUE);
 
@@ -139,7 +139,7 @@ BOOL ScrCmd_Unk0280(struct ScriptContext* ctx) //0280 - todo: BufferNumberSpecia
     u8 digits = ScriptReadByte(ctx);
     if (printingMode == PRINTING_MODE_LEFT_ALIGN)
     {
-        digits = (u8)FUN_02054C14(unk);
+        digits = (u8)sub_02054C14(unk);
     }
 
     BufferIntegerAsString(*messageFormat, idx, unk, digits, printingMode, TRUE);
@@ -208,7 +208,7 @@ BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferPlayerTraine
     u8 idx = ScriptReadByte(ctx);
     u32 gender = PlayerProfile_GetTrainerGender(player);
     u32 avatar = PlayerProfile_GetAvatar(player);
-    u32 trainer_class = FUN_020536D0(gender, avatar, 2);
+    u32 trainer_class = sub_020536D0(gender, avatar, 2);
 
     BufferTrainerClassNameWithArticle(*messageFormat, idx, trainer_class);
 
@@ -222,7 +222,7 @@ BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferPokemonSpeci
     u16 msg_no = ScriptGetVar(ctx);
     u16 unk1 = ScriptReadHalfword(ctx);
     u8 unk2 = ScriptReadByte(ctx);
-    struct String* str = FUN_02040AE4(msg_no, 4);
+    struct String* str = sub_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, unk1, unk2, 2);
     String_Delete(str);
@@ -230,7 +230,7 @@ BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferPokemonSpeci
     return FALSE;
 }
 
-struct String* FUN_02040AE4(u32 msg_no, u32 heap_id) //todo: GetPokemonSpeciesName?
+struct String* sub_02040AE4(u32 msg_no, u32 heap_id) //todo: GetPokemonSpeciesName?
 {
     struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 362, heap_id); //todo change to NAIX
     struct String* ret = NewString_ReadMsgData(msg_data, msg_no);
@@ -245,7 +245,7 @@ BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - todo: Buffe
     u8 idx = ScriptReadByte(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
     u32 msg_no = ScriptState_GetStarter(state);
-    struct String* str = FUN_02040AE4(msg_no, 4);
+    struct String* str = sub_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
     String_Delete(str);
@@ -258,8 +258,8 @@ BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx) //00DC - todo: Buffer
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
-    u32 msg_no = FUN_0205F398(state);
-    struct String* str = FUN_02040AE4(msg_no, 4);
+    u32 msg_no = sub_0205F398(state);
+    struct String* str = sub_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
     String_Delete(str);
@@ -272,8 +272,8 @@ BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx) //00DD - todo: 
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
-    u32 msg_no = FUN_0205F3C0(state);
-    struct String* str = FUN_02040AE4(msg_no, 4);
+    u32 msg_no = sub_0205F3C0(state);
+    struct String* str = sub_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
     String_Delete(str);
@@ -321,7 +321,7 @@ BOOL ScrCmd_GetMapName(struct ScriptContext* ctx) //00E2 - todo: BufferMapName?
     u8 idx = ScriptReadByte(ctx);
     u16 map_no = ScriptGetVar(ctx);
 
-    FUN_02064E60(map_no, 4, str);
+    sub_02064E60(map_no, 4, str);
     BufferString(*messageFormat, idx, str, 0, 1, 2);
     String_Delete(str);
 
@@ -369,8 +369,8 @@ BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx) //0272 - todo: Bu
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     struct String* str = String_New(11, 11);
-    struct UnkStruct_02024E64* unk = FUN_02024EB4(ctx->fieldSystem->saveData);
-    u16* unk_buffer = FUN_02024F0C(unk);
+    struct UnkStruct_02024E64* unk = sub_02024EB4(ctx->fieldSystem->saveData);
+    u16* unk_buffer = sub_02024F0C(unk);
 
     CopyU16ArrayToString(str, unk_buffer);
     BufferString(*messageFormat, idx, str, 0, 0, gGameLanguage);
@@ -400,7 +400,7 @@ BOOL ScrCmd_GetRibbonName(struct ScriptContext* ctx) //0232 - todo: BufferRibbon
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u8 unk = (u8)ScriptGetVar(ctx);
-    u16 ribbon = (u16)FUN_0207FC5C(unk, 3);
+    u16 ribbon = (u16)sub_0207FC5C(unk, 3);
 
     BufferRibbonNameOrDesc(*messageFormat, idx, ribbon);
 
@@ -491,7 +491,7 @@ BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx) //02CA - todo: BufferIndefFriendS
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
-    u32 species = FUN_0205F3C0(state);
+    u32 species = sub_0205F3C0(state);
 
     BufferSpeciesNameWithArticle(*messageFormat, idx, species);
 

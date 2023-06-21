@@ -60,12 +60,12 @@ MOD05_021F4D2C: ; 0x021F4D2C
 	add r0, r4, #0
 	add r1, r6, #0
 	sub r3, r2, #1
-	bl FUN_0204A840
+	bl sub_0204A840
 	add r0, r5, #0
 	mov r1, #0x1a
 	add r2, sp, #0xc
 	mov r3, #0
-	bl FUN_0204A8C4
+	bl sub_0204A8C4
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 _021F4D76:
@@ -89,10 +89,10 @@ CheckHoneyTree: ; 0x021F4D80
 _021F4D96:
 	ldr r0, [r4, #0xc]
 	bl Save_Roamers_Get
-	bl FUN_0202A9BC
+	bl sub_0202A9BC
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_0202A9C8
+	bl sub_0202A9C8
 	add r4, r0, #0
 	ldr r0, [r4]
 	bl MOD05_021F5120
@@ -125,11 +125,11 @@ UpdateHoneyTree: ; 0x021F4DC8
 _021F4DDE:
 	ldr r0, [r6, #0xc]
 	bl Save_Roamers_Get
-	bl FUN_0202A9BC
+	bl sub_0202A9BC
 	str r0, [sp]
 	ldr r1, [sp]
 	add r0, r5, #0
-	bl FUN_0202A9C8
+	bl sub_0202A9C8
 	add r4, r0, #0
 	mov r0, #0x5a
 	lsl r0, r0, #4
@@ -141,7 +141,7 @@ _021F4DDE:
 	bl MOD05_021F5138
 	add r7, r0, #0
 	ldr r0, [sp]
-	bl FUN_0202A9C0
+	bl sub_0202A9C0
 	cmp r5, r0
 	bne _021F4E42
 	bl LCRandom
@@ -186,7 +186,7 @@ _021F4E68:
 	strb r0, [r4, #7]
 	ldr r1, [sp]
 	add r0, r5, #0
-	bl FUN_0202A9C4
+	bl sub_0202A9C4
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 
@@ -491,10 +491,10 @@ MOD05_021F5068: ; 0x021F5068
 	beq _021F50F8
 	ldr r0, [r5, #0xc]
 	bl Save_Roamers_Get
-	bl FUN_0202A9BC
+	bl sub_0202A9BC
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_0202A9C8
+	bl sub_0202A9C8
 	add r6, r0, #0
 	ldr r0, [r6]
 	bl MOD05_021F5120
@@ -675,10 +675,10 @@ MOD05_021F51D0: ; 0x021F51D0
 _021F51E6:
 	ldr r0, [r4, #0xc]
 	bl Save_Roamers_Get
-	bl FUN_0202A9BC
+	bl sub_0202A9BC
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_0202A9C8
+	bl sub_0202A9C8
 	add r4, r0, #0
 	ldrb r1, [r4, #5]
 	mov r0, #0x6a
@@ -728,10 +728,10 @@ _021F5242:
 	str r2, [r0, #4]
 	ldr r0, [r5, #0xc]
 	bl Save_Roamers_Get
-	bl FUN_0202A9BC
+	bl sub_0202A9BC
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_0202A9C8
+	bl sub_0202A9C8
 	mov r1, #0
 	str r1, [r0]
 	pop {r3, r4, r5, pc}

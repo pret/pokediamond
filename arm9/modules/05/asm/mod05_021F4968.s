@@ -6,7 +6,7 @@
 	thumb_func_start MOD05_021F4968
 MOD05_021F4968: ; 0x021F4968
 	ldr r2, [r1, #0x14]
-	ldr r3, _021F4974 ; =FUN_02016B44
+	ldr r3, _021F4974 ; =sub_02016B44
 	add r1, r1, r2
 	sub r1, r1, r0
 	bx r3
@@ -107,7 +107,7 @@ _021F4A2C:
 _021F4A32:
 	ldr r0, _021F4BA8 ; =0x000008A4
 	ldr r0, [r5, r0]
-	bl FUN_0201B3C4
+	bl sub_0201B3C4
 	cmp r0, #0
 	bne _021F4A42
 	bl GF_AssertFail
@@ -121,7 +121,7 @@ _021F4A42:
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021F4A70
-	bl FUN_0201B3C4
+	bl sub_0201B3C4
 	cmp r0, #0
 	bne _021F4A62
 	bl GF_AssertFail
@@ -196,7 +196,7 @@ _021F4AEC:
 	ldr r1, _021F4BB0 ; =0x000008A8
 	ldr r0, [r4, #4]
 	ldr r1, [r5, r1]
-	bl FUN_0201B3A8
+	bl sub_0201B3A8
 	cmp r0, #0
 	bne _021F4AFE
 	bl GF_AssertFail
@@ -222,14 +222,14 @@ _021F4B10:
 	bl NNS_G3dGetTex
 	add r4, r0, #0
 	beq _021F4B46
-	bl FUN_0201B3C4
+	bl sub_0201B3C4
 	cmp r0, #0
 	bne _021F4B36
 	bl GF_AssertFail
 _021F4B36:
 	ldr r0, [r5, #4]
 	add r1, r4, #0
-	bl FUN_0201B3A8
+	bl sub_0201B3A8
 	cmp r0, #0
 	bne _021F4B46
 	bl GF_AssertFail

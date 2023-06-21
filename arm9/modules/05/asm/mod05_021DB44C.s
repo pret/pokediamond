@@ -266,7 +266,7 @@ MOD05_021DB61C: ; 0x021DB61C
 _021DB63C:
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	ldrsb r1, [r5, r4]
 	cmp r1, #0x45
 	bne _021DB656
@@ -279,31 +279,31 @@ _021DB63C:
 _021DB656:
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r1, r5, #0
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	ldr r1, [sp, #8]
 	add r1, r1, #1
 	str r1, [sp, #8]
@@ -347,14 +347,14 @@ _021DB6E8:
 	ldr r1, [sp, #0x10]
 	add r4, r5, r1
 	add r1, sp, #0x11c
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	str r0, [sp, #4]
 	add r0, sp, #0x11c
 	add r1, sp, #0x1c
 	mov r2, #0x2c
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r0, sp, #0x1c
-	bl FUN_0201C70C
+	bl sub_0201C70C
 	ldr r1, [sp, #0x10]
 	add r6, r4, #0
 	str r0, [r5, r1]
@@ -406,7 +406,7 @@ _021DB73E:
 	bl MOD05_021DB8A4
 	add r1, sp, #0x11c
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	ldr r1, [sp, #0x10]
 	add r1, #0x30
 	str r1, [sp, #0x10]
@@ -448,15 +448,15 @@ MOD05_021DB7B4: ; 0x021DB7B4
 	add r7, r2, #0
 	add r1, sp, #0x11c
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	str r0, [sp]
 	add r0, sp, #0x11c
 	add r1, sp, #0x1c
 	mov r2, #0x2c
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r4, r0, #0
 	add r0, sp, #0x1c
-	bl FUN_0201C70C
+	bl sub_0201C70C
 	cmp r0, #1
 	bne _021DB88C
 	mov r6, #0
@@ -465,10 +465,10 @@ _021DB7E2:
 	add r0, r4, #0
 	add r1, sp, #0x1c
 	mov r2, #0x2c
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r4, r0, #0
 	add r0, sp, #0x1c
-	bl FUN_0201C70C
+	bl sub_0201C70C
 	strh r0, [r5]
 	add r6, r6, #1
 	add r5, r5, #2
@@ -490,10 +490,10 @@ _021DB816:
 	add r0, r4, #0
 	add r1, sp, #0x1c
 	mov r2, #0x2c
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r4, r0, #0
 	add r0, sp, #0x1c
-	bl FUN_0201C70C
+	bl sub_0201C70C
 	add r6, r6, #1
 	stmia r5!, {r0}
 	cmp r6, #3
@@ -571,7 +571,7 @@ MOD05_021DB8A4: ; 0x021DB8A4
 	add r1, sp, #0x10c
 	add r1, #2
 	mov r2, #0xd
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r6, sp, #0x10c
 	add r7, sp, #0xc
 	str r0, [sp]
@@ -583,10 +583,10 @@ _021DB8C4:
 	add r0, r6, #0
 	add r1, r7, #0
 	mov r2, #0x2c
-	bl FUN_0201C6C8
+	bl sub_0201C6C8
 	add r6, r0, #0
 	add r0, r7, #0
-	bl FUN_0201C70C
+	bl sub_0201C70C
 	strh r0, [r5]
 	add r4, r4, #1
 	add r5, r5, #2

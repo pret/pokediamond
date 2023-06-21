@@ -25,7 +25,7 @@ MOD26_02254854: ; 0x02254854
 	ldr r0, _022548A0 ; =MOD26_02254A4C
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _02254896
 	ldr r0, _022548A4 ; =MOD26_02254A30
@@ -293,7 +293,7 @@ MOD26_02254A4C: ; 0x02254A4C
 	add r0, r4, #0
 	bl MOD26_02254A04
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0x1f
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -417,7 +417,7 @@ _02254B04:
 	ldr r0, [r4, #8]
 	cmp r0, r1
 	bne _02254B54
-	bl FUN_02020AA4
+	bl sub_02020AA4
 	cmp r0, #1
 	bne _02254B90
 _02254B54:

@@ -284,12 +284,12 @@ MOD05_CreateMessageBox: ; 0x021E2D9C
 	ldr r0, [r5, #8]
 	ldr r1, [r4, #0xc]
 	mov r2, #3
-	bl FUN_020545B8
+	bl sub_020545B8
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_02054608
+	bl sub_02054608
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	strb r1, [r0]

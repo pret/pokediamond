@@ -305,7 +305,7 @@ _021F3E7C:
 	ldr r0, [sp, #0x4c]
 	ldr r3, [r0]
 	ldmia r6!, {r0, r1, r2}
-	bl FUN_0201C878
+	bl sub_0201C878
 	cmp r0, #1
 	bne _021F3F40
 	add r0, r4, #0
@@ -377,11 +377,11 @@ _021F3F50:
 	str r0, [sp, #0x24]
 	ldr r0, [sp, #0x20]
 	ldr r1, [sp, #0x98]
-	bl FUN_0201C7A8
+	bl sub_0201C7A8
 	add r4, r0, #0
 	ldr r0, [sp, #0x20]
 	ldr r1, [sp, #0x98]
-	bl FUN_0201C7A0
+	bl sub_0201C7A0
 	sub r6, r4, r0
 	mov r4, #1
 	cmp r5, #1
@@ -393,12 +393,12 @@ _021F3F72:
 	add r1, sp, #0x98
 	ldr r0, [sp, #0x20]
 	ldr r1, [r1, r7]
-	bl FUN_0201C7A8
+	bl sub_0201C7A8
 	add r1, sp, #0x98
 	str r0, [sp, #0x54]
 	ldr r0, [sp, #0x20]
 	ldr r1, [r1, r7]
-	bl FUN_0201C7A0
+	bl sub_0201C7A0
 	ldr r1, [sp, #0x54]
 	sub r0, r1, r0
 	cmp r6, r0

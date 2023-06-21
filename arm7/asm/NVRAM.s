@@ -9,8 +9,8 @@ _0380A018: ;0x0380A018
 
 	.section .text
 
-	arm_func_start FUN_0380428C
-FUN_0380428C: ;@ 0x0380428C
+	arm_func_start sub_0380428C
+sub_0380428C: ;@ 0x0380428C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	add	r0, sp, #0
@@ -27,8 +27,8 @@ _038042B8:
 	ldmia	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_038042C4
-FUN_038042C4: ;@ 0x038042C4
+	arm_func_start sub_038042C4
+sub_038042C4: ;@ 0x038042C4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	add	r0, sp, #0
@@ -95,7 +95,7 @@ _038043A0:
 	bl	NVRAM_ReadStatusRegister
 	b	_038045A4
 _038043AC:
-	bl	FUN_038042C4
+	bl	sub_038042C4
 	cmp	r0, #0
 	bne	_038043D8
 	ldr	r0, [r4, #4]
@@ -113,7 +113,7 @@ _038043D8:
 	bl	NVRAM_ReadDataBytes
 	b	_038045A4
 _038043EC:
-	bl	FUN_038042C4
+	bl	sub_038042C4
 	cmp	r0, #0
 	bne	_03804418
 	ldr	r0, [r4, #4]
@@ -131,7 +131,7 @@ _03804418:
 	bl	NVRAM_ReadDataBytesAtHigherSpeed
 	b	_038045A4
 _0380442C:
-	bl	FUN_0380428C
+	bl	sub_0380428C
 	cmp	r0, #0
 	bne	_03804458
 	ldr	r0, [r4, #4]
@@ -151,7 +151,7 @@ _03804458:
 	bl	NVRAM_PageWrite
 	b	_038045A4
 _03804474:
-	bl	FUN_0380428C
+	bl	sub_0380428C
 	cmp	r0, #0
 	bne	_038044A0
 	ldr	r0, [r4, #4]
@@ -171,7 +171,7 @@ _038044A0:
 	bl	NVRAM_PageProgram
 	b	_038045A4
 _038044BC:
-	bl	FUN_0380428C
+	bl	sub_0380428C
 	cmp	r0, #0
 	bne	_038044E8
 	ldr	r0, [r4, #4]
@@ -187,7 +187,7 @@ _038044E8:
 	bl	NVRAM_PageErase
 	b	_038045A4
 _038044F4:
-	bl	FUN_0380428C
+	bl	sub_0380428C
 	cmp	r0, #0
 	bne	_03804520
 	ldr	r0, [r4, #4]
@@ -209,7 +209,7 @@ _03804534:
 	bl	NVRAM_ReleaseFromDeepPowerDown
 	b	_038045A4
 _0380453C:
-	bl	FUN_0380428C
+	bl	sub_0380428C
 	cmp	r0, #0
 	bne	_03804568
 	ldr	r0, [r4, #4]

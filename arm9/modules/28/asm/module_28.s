@@ -24,7 +24,7 @@ MOD28_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD28_022549C0
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -56,7 +56,7 @@ MOD28_0225489C: ; 0x0225489C
 	strb r0, [r7, #1]
 	strb r0, [r7, #2]
 	str r4, [r7, #0x60]
-	bl FUN_020225F8
+	bl sub_020225F8
 	bl SaveArray_PlayerParty_Get
 	mov r1, #0
 	str r0, [sp, #4]
@@ -88,7 +88,7 @@ _022548D6:
 	bl GetMonData
 	strh r0, [r4, #0x10]
 	add r0, r5, #0
-	bl FUN_0206B688
+	bl sub_0206B688
 	str r0, [r4, #8]
 	add r0, r5, #0
 	mov r1, #9
@@ -213,7 +213,7 @@ MOD28_022549C0: ; 0x022549C0
 	add r0, r4, #0
 	bl MOD28_022549AC
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x60]
 	bl MOD20_022529A0
 _022549EC:
@@ -325,7 +325,7 @@ _02254A98:
 _02254A9A:
 	tst r0, r1
 	beq _02254AAA
-	bl FUN_02020AA4
+	bl sub_02020AA4
 	add r4, #0x52
 	strh r0, [r4]
 	mov r0, #0
@@ -477,7 +477,7 @@ _02254B9A:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02254BC0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _02254BC0:
 	add r0, r5, #0
 	bl FreeToHeap
@@ -708,7 +708,7 @@ _02254D24:
 	ldrh r0, [r4, #8]
 	ldrh r1, [r4, #0xc]
 	mov r2, #0
-	bl FUN_0206B7BC
+	bl sub_0206B7BC
 	add r1, r0, #0
 	mov r0, #0x4d
 	lsl r0, r0, #2
@@ -897,7 +897,7 @@ _02254EF8:
 	ldr r0, _02254F14 ; =MOD28_02254F84
 	ldr r1, [sp]
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	ldr r1, [sp]
 	add r1, #0xb0
 	str r1, [sp]

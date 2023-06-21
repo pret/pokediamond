@@ -37,7 +37,7 @@ _021D7516:
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -66,12 +66,12 @@ _021D7516:
 	mov r2, #0x4b
 	str r2, [sp, #0x10]
 	add r2, r0, #0
-	bl FUN_02009EAC
+	bl sub_02009EAC
 	add r1, r4, #0
 	mov r0, #0x80
 	add r1, #0xe0
 	mov r2, #0x4b
-	bl FUN_02008C9C
+	bl sub_02008C9C
 	add r1, r4, #0
 	add r1, #0xdc
 	str r0, [r1]
@@ -80,12 +80,12 @@ _021D7516:
 	add r0, #0xe0
 	mov r1, #0
 	lsl r2, r2, #0x10
-	bl FUN_02008D04
+	bl sub_02008D04
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0xe0
 	add r2, r1, #0
-	bl FUN_02008D24
+	bl sub_02008D24
 	add r0, r4, #0
 	str r6, [r4]
 	bl MOD84_021D7968
@@ -133,11 +133,11 @@ _021D7516:
 	str r0, [r4, r1]
 	ldr r1, _021D7690 ; =0x000004A2
 	mov r0, #0xe
-	bl FUN_0200433C
+	bl sub_0200433C
 	ldr r0, _021D7694 ; =MOD84_021D7958
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA60
+	bl sub_0200CA60
 	ldr r1, _021D7698 ; =0x00001230
 	str r0, [r4, r1]
 	ldr r0, _021D769C ; =MOD84_021D7950
@@ -229,7 +229,7 @@ _021D76CA:
 	add r6, r0, #0
 	ldr r0, _021D7744 ; =0x00001230
 	ldr r0, [r5, r0]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	add r0, r6, #0
 	bl OS_RestoreInterrupts
 	mov r0, #0
@@ -259,7 +259,7 @@ _021D76EE:
 _021D771A:
 	add r5, #0xdc
 	ldr r0, [r5]
-	bl FUN_0201FD58
+	bl sub_0201FD58
 	bl DeinitOamData
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -551,7 +551,7 @@ MOD84_021D7958: ; 0x021D7958
 	push {r3, lr}
 	add r1, #0xdc
 	ldr r0, [r1]
-	bl FUN_0201FDEC
+	bl sub_0201FDEC
 	bl ApplyAndResetOamManagerBuffer
 	pop {r3, pc}
 	thumb_func_end MOD84_021D7958
@@ -838,7 +838,7 @@ _021D7BB8: .word 0x00000FA4
 
 	thumb_func_start MOD84_021D7BBC
 MOD84_021D7BBC: ; 0x021D7BBC
-	ldr r3, _021D7BC4 ; =FUN_0201EB70
+	ldr r3, _021D7BC4 ; =sub_0201EB70
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
@@ -909,10 +909,10 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	ldr r0, [r4]
 	bl NNS_G3dGetTex
 	str r0, [r4, #0x64]
-	bl FUN_0201B3C4
+	bl sub_0201B3C4
 	ldr r0, [r4]
 	ldr r1, [r4, #0x64]
-	bl FUN_0201B3A8
+	bl sub_0201B3A8
 	add r0, r4, #0
 	ldr r1, [r4, #0x60]
 	add r0, #8
@@ -1093,7 +1093,7 @@ _021D7DBA:
 	add r0, #8
 	add r1, #0x7c
 	add r3, r4, #0
-	bl FUN_0201B26C
+	bl sub_0201B26C
 	mov r2, #1
 	mov r0, #0x12
 	add r1, sp, #0
@@ -1101,7 +1101,7 @@ _021D7DBA:
 	bl NNS_G3dGeBufferOP_N
 	mov r0, #0
 	mov r1, #1
-	bl FUN_020222B4
+	bl sub_020222B4
 	add sp, #0x4c
 	pop {r3, r4, pc}
 	nop
@@ -1178,10 +1178,10 @@ _021D7E08:
 	ldr r0, [r4]
 	bl NNS_G3dGetTex
 	str r0, [r4, #0x64]
-	bl FUN_0201B3C4
+	bl sub_0201B3C4
 	ldr r0, [r4]
 	ldr r1, [r4, #0x64]
-	bl FUN_0201B3A8
+	bl sub_0201B3A8
 	add r0, r4, #0
 	ldr r1, [r4, #0x60]
 	add r0, #8
@@ -1339,13 +1339,13 @@ MOD84_021D7F94: ; 0x021D7F94
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]
 	mov r1, #1
-	bl FUN_020200BC
+	bl sub_020200BC
 	mov r0, #0x2b
 	lsl r0, r0, #4
 	mov r1, #1
 	ldr r0, [r4, r0]
 	lsl r1, r1, #0xc
-	bl FUN_020200D8
+	bl sub_020200D8
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -1363,7 +1363,7 @@ MOD84_021D8000: ; 0x021D8000
 	mov r0, #0x2b
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0201FFC8
+	bl sub_0201FFC8
 	mov r0, #0xad
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1429,7 +1429,7 @@ _021D806E:
 	ldr r0, _021D80B4 ; =MOD84_021D8150
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA98
+	bl sub_0200CA98
 	str r0, [r4, #4]
 _021D8090:
 	add r0, r4, #0

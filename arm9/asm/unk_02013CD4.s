@@ -9,8 +9,8 @@
 
 	.text
 
-	thumb_func_start FUN_02013CD4
-FUN_02013CD4: ; 0x02013CD4
+	thumb_func_start sub_02013CD4
+sub_02013CD4: ; 0x02013CD4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -22,19 +22,19 @@ FUN_02013CD4: ; 0x02013CD4
 _02013CE8:
 	ldr r0, [r5, #0x0]
 	ldr r1, [r5, #0xc]
-	bl FUN_02013F68
+	bl sub_02013F68
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x0]
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0x4]
 	ldr r1, [r5, #0xc]
-	bl FUN_02013F98
+	bl sub_02013F98
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0x4]
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x8]
 	ldr r1, [r5, #0xc]
-	bl FUN_02013FC8
+	bl sub_02013FC8
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x8]
 	str r0, [r4, #0x14]
@@ -42,8 +42,8 @@ _02013CE8:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02013D18
-FUN_02013D18: ; 0x02013D18
+	thumb_func_start sub_02013D18
+sub_02013D18: ; 0x02013D18
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02013D22
@@ -75,8 +75,8 @@ _02013D40:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02013D5C
-FUN_02013D5C: ; 0x02013D5C
+	thumb_func_start sub_02013D5C
+sub_02013D5C: ; 0x02013D5C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, _02013D90 ; =0x04000444
@@ -92,7 +92,7 @@ _02013D6E:
 	ldr r1, [r0, #0x20]
 	cmp r1, #0x0
 	beq _02013D7C
-	bl FUN_020140D8
+	bl sub_020140D8
 _02013D7C:
 	ldr r0, [r5, #0x4]
 	add r6, r6, #0x1
@@ -108,12 +108,12 @@ _02013D86:
 _02013D90: .word 0x04000444
 _02013D94: .word 0x04000448
 
-	thumb_func_start FUN_02013D98
-FUN_02013D98: ; 0x02013D98
+	thumb_func_start sub_02013D98
+sub_02013D98: ; 0x02013D98
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_02014024
+	bl sub_02014024
 	add r4, r0, #0x0
 	bne _02013DAA
 	bl GF_AssertFail
@@ -125,7 +125,7 @@ _02013DAA:
 	bl GF_AssertFail
 _02013DB6:
 	ldr r0, [r5, #0x4]
-	bl FUN_0201407C
+	bl sub_0201407C
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02013DC6
@@ -134,12 +134,12 @@ _02013DC6:
 	ldr r0, [r5, #0x4]
 	ldr r1, [r4, #0x0]
 	add r2, r4, #0x4
-	bl FUN_020140A4
+	bl sub_020140A4
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02013DD4
-FUN_02013DD4: ; 0x02013DD4
+	thumb_func_start sub_02013DD4
+sub_02013DD4: ; 0x02013DD4
 	push {r4, lr}
 	ldr r1, _02013DE8 ; =NNS_GfdDefaultFuncFreeTexVram
 	add r4, r0, #0x0
@@ -147,13 +147,13 @@ FUN_02013DD4: ; 0x02013DD4
 	ldr r1, [r1, #0x0]
 	blx r1
 	add r0, r4, #0x0
-	bl FUN_02013F50
+	bl sub_02013F50
 	pop {r4, pc}
 	.balign 4
 _02013DE8: .word NNS_GfdDefaultFuncFreeTexVram
 
-	thumb_func_start FUN_02013DEC
-FUN_02013DEC: ; 0x02013DEC
+	thumb_func_start sub_02013DEC
+sub_02013DEC: ; 0x02013DEC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -167,7 +167,7 @@ _02013DFA:
 	cmp r0, #0x0
 	beq _02013E08
 	add r0, r1, r4
-	bl FUN_02013DD4
+	bl sub_02013DD4
 _02013E08:
 	ldr r0, [r5, #0xc]
 	add r6, r6, #0x1
@@ -177,18 +177,18 @@ _02013E08:
 _02013E12:
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02013E14
-FUN_02013E14: ; 0x02013E14
+	thumb_func_start sub_02013E14
+sub_02013E14: ; 0x02013E14
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_02014050
+	bl sub_02014050
 	add r4, r0, #0x0
 	bne _02013E26
 	bl GF_AssertFail
 _02013E26:
 	ldr r0, [r5, #0x8]
-	bl FUN_02014090
+	bl sub_02014090
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02013E36
@@ -197,12 +197,12 @@ _02013E36:
 	ldr r0, [r5, #0x4]
 	ldr r1, [r4, #0x0]
 	add r2, r4, #0x4
-	bl FUN_020140B4
+	bl sub_020140B4
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02013E44
-FUN_02013E44: ; 0x02013E44
+	thumb_func_start sub_02013E44
+sub_02013E44: ; 0x02013E44
 	push {r4, lr}
 	ldr r1, _02013E58 ; =NNS_GfdDefaultFuncFreePlttVram
 	add r4, r0, #0x0
@@ -210,13 +210,13 @@ FUN_02013E44: ; 0x02013E44
 	ldr r1, [r1, #0x0]
 	blx r1
 	add r0, r4, #0x0
-	bl FUN_02013F5C
+	bl sub_02013F5C
 	pop {r4, pc}
 	.balign 4
 _02013E58: .word NNS_GfdDefaultFuncFreePlttVram
 
-	thumb_func_start FUN_02013E5C
-FUN_02013E5C: ; 0x02013E5C
+	thumb_func_start sub_02013E5C
+sub_02013E5C: ; 0x02013E5C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x14]
@@ -230,7 +230,7 @@ _02013E6A:
 	cmp r0, #0x0
 	beq _02013E78
 	add r0, r1, r4
-	bl FUN_02013E44
+	bl sub_02013E44
 _02013E78:
 	ldr r0, [r5, #0x14]
 	add r6, r6, #0x1
@@ -240,34 +240,34 @@ _02013E78:
 _02013E82:
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02013E84
-FUN_02013E84: ; 0x02013E84
+	thumb_func_start sub_02013E84
+sub_02013E84: ; 0x02013E84
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_02013FF8
+	bl sub_02013FF8
 	add r4, r0, #0x0
 	bne _02013E96
 	bl GF_AssertFail
 _02013E96:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_02014218
+	bl sub_02014218
 	mov r0, #0x1
 	str r0, [r4, #0x1c]
 	str r0, [r4, #0x20]
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02013EA8
-FUN_02013EA8: ; 0x02013EA8
-	ldr r3, _02013EAC ; =FUN_02013F30
+	thumb_func_start sub_02013EA8
+sub_02013EA8: ; 0x02013EA8
+	ldr r3, _02013EAC ; =sub_02013F30
 	bx r3
 	.balign 4
-_02013EAC: .word FUN_02013F30
+_02013EAC: .word sub_02013F30
 
-	thumb_func_start FUN_02013EB0
-FUN_02013EB0: ; 0x02013EB0
+	thumb_func_start sub_02013EB0
+sub_02013EB0: ; 0x02013EB0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -279,15 +279,15 @@ _02013EBE:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02013EC4
-FUN_02013EC4: ; 0x02013EC4
+	thumb_func_start sub_02013EC4
+sub_02013EC4: ; 0x02013EC4
 	strh r1, [r0, #0x0]
 	strh r2, [r0, #0x2]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02013ECC
-FUN_02013ECC: ; 0x02013ECC
+	thumb_func_start sub_02013ECC
+sub_02013ECC: ; 0x02013ECC
 	ldrh r1, [r0, #0x2]
 	ldrh r0, [r0, #0x0]
 	lsl r1, r1, #0x10
@@ -295,29 +295,29 @@ FUN_02013ECC: ; 0x02013ECC
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02013ED8
-FUN_02013ED8: ; 0x02013ED8
+	thumb_func_start sub_02013ED8
+sub_02013ED8: ; 0x02013ED8
 	strh r1, [r0, #0x4]
 	strh r2, [r0, #0x6]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02013EE0
-FUN_02013EE0: ; 0x02013EE0
+	thumb_func_start sub_02013EE0
+sub_02013EE0: ; 0x02013EE0
 	str r1, [r0, #0xc]
 	str r2, [r0, #0x10]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02013EE8
-FUN_02013EE8: ; 0x02013EE8
+	thumb_func_start sub_02013EE8
+sub_02013EE8: ; 0x02013EE8
 	strh r1, [r0, #0x8]
 	strh r2, [r0, #0xa]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02013EF0
-FUN_02013EF0: ; 0x02013EF0
+	thumb_func_start sub_02013EF0
+sub_02013EF0: ; 0x02013EF0
 	ldrh r1, [r0, #0xa]
 	ldrh r0, [r0, #0x8]
 	lsl r1, r1, #0x10
@@ -325,50 +325,50 @@ FUN_02013EF0: ; 0x02013EF0
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02013EFC
-FUN_02013EFC: ; 0x02013EFC
+	thumb_func_start sub_02013EFC
+sub_02013EFC: ; 0x02013EFC
 	str r1, [r0, #0x14]
 	bx lr
 
-	thumb_func_start FUN_02013F00
-FUN_02013F00: ; 0x02013F00
+	thumb_func_start sub_02013F00
+sub_02013F00: ; 0x02013F00
 	ldr r0, [r0, #0x14]
 	bx lr
 
-	thumb_func_start FUN_02013F04
-FUN_02013F04: ; 0x02013F04
+	thumb_func_start sub_02013F04
+sub_02013F04: ; 0x02013F04
 	add r0, #0x3e
 	strb r1, [r0, #0x0]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02013F0C
-FUN_02013F0C: ; 0x02013F0C
+	thumb_func_start sub_02013F0C
+sub_02013F0C: ; 0x02013F0C
 	strh r1, [r0, #0x3c]
 	bx lr
 
-	thumb_func_start FUN_02013F10
-FUN_02013F10: ; 0x02013F10
+	thumb_func_start sub_02013F10
+sub_02013F10: ; 0x02013F10
 	str r1, [r0, #0x24]
 	bx lr
 
-	thumb_func_start FUN_02013F14
-FUN_02013F14: ; 0x02013F14
+	thumb_func_start sub_02013F14
+sub_02013F14: ; 0x02013F14
 	str r1, [r0, #0x28]
 	bx lr
 
-	thumb_func_start FUN_02013F18
-FUN_02013F18: ; 0x02013F18
+	thumb_func_start sub_02013F18
+sub_02013F18: ; 0x02013F18
 	str r1, [r0, #0x2c]
 	bx lr
 
-	thumb_func_start FUN_02013F1C
-FUN_02013F1C: ; 0x02013F1C
+	thumb_func_start sub_02013F1C
+sub_02013F1C: ; 0x02013F1C
 	str r1, [r0, #0x30]
 	bx lr
 
-	thumb_func_start FUN_02013F20
-FUN_02013F20: ; 0x02013F20
+	thumb_func_start sub_02013F20
+sub_02013F20: ; 0x02013F20
 	cmp r1, #0x0
 	bne _02013F28
 	str r2, [r0, #0x34]
@@ -377,13 +377,13 @@ _02013F28:
 	str r2, [r0, #0x38]
 	bx lr
 
-	thumb_func_start FUN_02013F2C
-FUN_02013F2C: ; 0x02013F2C
+	thumb_func_start sub_02013F2C
+sub_02013F2C: ; 0x02013F2C
 	str r1, [r0, #0x18]
 	bx lr
 
-	thumb_func_start FUN_02013F30
-FUN_02013F30: ; 0x02013F30
+	thumb_func_start sub_02013F30
+sub_02013F30: ; 0x02013F30
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r1, #0x0
@@ -399,8 +399,8 @@ FUN_02013F30: ; 0x02013F30
 	nop
 _02013F4C: .word 0x00007FFF
 
-	thumb_func_start FUN_02013F50
-FUN_02013F50: ; 0x02013F50
+	thumb_func_start sub_02013F50
+sub_02013F50: ; 0x02013F50
 	ldr r3, _02013F58 ; =NNS_G2dInitImageProxy
 	mov r1, #0x0
 	stmia r0!, {r1}
@@ -408,8 +408,8 @@ FUN_02013F50: ; 0x02013F50
 	.balign 4
 _02013F58: .word NNS_G2dInitImageProxy
 
-	thumb_func_start FUN_02013F5C
-FUN_02013F5C: ; 0x02013F5C
+	thumb_func_start sub_02013F5C
+sub_02013F5C: ; 0x02013F5C
 	ldr r3, _02013F64 ; =NNS_G2dInitImagePaletteProxy
 	mov r1, #0x0
 	stmia r0!, {r1}
@@ -417,8 +417,8 @@ FUN_02013F5C: ; 0x02013F5C
 	.balign 4
 _02013F64: .word NNS_G2dInitImagePaletteProxy
 
-	thumb_func_start FUN_02013F68
-FUN_02013F68: ; 0x02013F68
+	thumb_func_start sub_02013F68
+sub_02013F68: ; 0x02013F68
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	add r0, r1, #0x0
@@ -434,7 +434,7 @@ _02013F7C:
 	add r5, r7, #0x0
 _02013F84:
 	add r0, r5, #0x0
-	bl FUN_02013F30
+	bl sub_02013F30
 	add r4, r4, #0x1
 	add r5, #0x40
 	cmp r4, r6
@@ -444,8 +444,8 @@ _02013F92:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02013F98
-FUN_02013F98: ; 0x02013F98
+	thumb_func_start sub_02013F98
+sub_02013F98: ; 0x02013F98
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	add r0, r1, #0x0
@@ -462,7 +462,7 @@ _02013FAE:
 	add r5, r7, #0x0
 _02013FB6:
 	add r0, r5, #0x0
-	bl FUN_02013F50
+	bl sub_02013F50
 	add r4, r4, #0x1
 	add r5, #0x28
 	cmp r4, r6
@@ -471,8 +471,8 @@ _02013FC4:
 	add r0, r7, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02013FC8
-FUN_02013FC8: ; 0x02013FC8
+	thumb_func_start sub_02013FC8
+sub_02013FC8: ; 0x02013FC8
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	add r0, r1, #0x0
@@ -489,7 +489,7 @@ _02013FDE:
 	add r5, r7, #0x0
 _02013FE6:
 	add r0, r5, #0x0
-	bl FUN_02013F5C
+	bl sub_02013F5C
 	add r4, r4, #0x1
 	add r5, #0x18
 	cmp r4, r6
@@ -498,8 +498,8 @@ _02013FF4:
 	add r0, r7, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02013FF8
-FUN_02013FF8: ; 0x02013FF8
+	thumb_func_start sub_02013FF8
+sub_02013FF8: ; 0x02013FF8
 	push {r3-r4}
 	ldr r4, [r0, #0x4]
 	mov r1, #0x0
@@ -526,8 +526,8 @@ _0201401C:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02014024
-FUN_02014024: ; 0x02014024
+	thumb_func_start sub_02014024
+sub_02014024: ; 0x02014024
 	push {r3-r4}
 	ldr r4, [r0, #0x4]
 	mov r1, #0x0
@@ -554,8 +554,8 @@ _0201404A:
 	pop {r3-r4}
 	bx lr
 
-	thumb_func_start FUN_02014050
-FUN_02014050: ; 0x02014050
+	thumb_func_start sub_02014050
+sub_02014050: ; 0x02014050
 	push {r3-r4}
 	ldr r4, [r0, #0x4]
 	mov r1, #0x0
@@ -582,8 +582,8 @@ _02014076:
 	pop {r3-r4}
 	bx lr
 
-	thumb_func_start FUN_0201407C
-FUN_0201407C: ; 0x0201407C
+	thumb_func_start sub_0201407C
+sub_0201407C: ; 0x0201407C
 	push {r3, lr}
 	ldr r3, _0201408C ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x0
@@ -595,8 +595,8 @@ FUN_0201407C: ; 0x0201407C
 	.balign 4
 _0201408C: .word NNS_GfdDefaultFuncAllocTexVram
 
-	thumb_func_start FUN_02014090
-FUN_02014090: ; 0x02014090
+	thumb_func_start sub_02014090
+sub_02014090: ; 0x02014090
 	push {r3, lr}
 	ldr r3, _020140A0 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x0
@@ -608,8 +608,8 @@ FUN_02014090: ; 0x02014090
 	.balign 4
 _020140A0: .word NNS_GfdDefaultFuncAllocPlttVram
 
-	thumb_func_start FUN_020140A4
-FUN_020140A4: ; 0x020140A4
+	thumb_func_start sub_020140A4
+sub_020140A4: ; 0x020140A4
 	push {r3, lr}
 	lsl r1, r1, #0x10
 	add r3, r2, #0x0
@@ -618,8 +618,8 @@ FUN_020140A4: ; 0x020140A4
 	bl NNS_G2dLoadImage2DMapping
 	pop {r3, pc}
 
-	thumb_func_start FUN_020140B4
-FUN_020140B4: ; 0x020140B4
+	thumb_func_start sub_020140B4
+sub_020140B4: ; 0x020140B4
 	push {r3-r5, lr}
 	add r3, r2, #0x0
 	ldr r2, _020140D4 ; =0xFFFF0000
@@ -638,8 +638,8 @@ FUN_020140B4: ; 0x020140B4
 	.balign 4
 _020140D4: .word 0xFFFF0000
 
-	thumb_func_start FUN_020140D8
-FUN_020140D8: ; 0x020140D8
+	thumb_func_start sub_020140D8
+sub_020140D8: ; 0x020140D8
 	push {r3-r7, lr}
 	sub sp, #0x18
 	ldr r7, _020141F8 ; =0x04000444
@@ -797,8 +797,8 @@ _0201420C: .word FX_SinCosTable_
 _02014210: .word 0x0400046C
 _02014214: .word 0x04000448
 
-	thumb_func_start FUN_02014218
-FUN_02014218: ; 0x02014218
+	thumb_func_start sub_02014218
+sub_02014218: ; 0x02014218
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	ldr r1, [r5, #0x4]
@@ -834,7 +834,7 @@ _0201424C:
 	ldrsh r1, [r5, r1]
 	ldrsh r2, [r5, r2]
 	add r0, r7, #0x0
-	bl FUN_02013EC4
+	bl sub_02013EC4
 	lsr r1, r6, #0x1f
 	lsr r2, r4, #0x1f
 	add r1, r6, r1
@@ -844,7 +844,7 @@ _0201424C:
 	add r0, r7, #0x0
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
-	bl FUN_02013ED8
+	bl sub_02013ED8
 	mov r0, #0x1
 	lsl r0, r0, #0xc
 	str r0, [r7, #0xc]
@@ -852,46 +852,46 @@ _0201424C:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl FUN_02013EE8
+	bl sub_02013EE8
 	ldr r1, [r5, #0x18]
 	add r0, r7, #0x0
-	bl FUN_02013EFC
+	bl sub_02013EFC
 	ldr r1, [r5, #0x14]
 	add r0, r7, #0x0
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02013F04
+	bl sub_02013F04
 	ldr r1, [r5, #0x4]
 	add r0, r7, #0x0
 	add r1, #0x10
-	bl FUN_02013F10
+	bl sub_02013F10
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
 	add r0, r0, #0x4
 	bl NNS_G2dGetImageLocation
 	add r1, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_02013F14
+	bl sub_02013F14
 	ldr r0, [r5, #0x8]
 	mov r1, #0x0
 	add r0, r0, #0x4
 	bl NNS_G2dGetImagePaletteLocation
 	add r1, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_02013F18
+	bl sub_02013F18
 	ldrh r1, [r5, #0x1c]
 	add r0, r7, #0x0
-	bl FUN_02013F1C
+	bl sub_02013F1C
 	mov r1, #0x0
 	add r0, r7, #0x0
 	add r2, r1, #0x0
-	bl FUN_02013F20
+	bl sub_02013F20
 	add r0, r7, #0x0
 	mov r1, #0x1
 	mov r2, #0x0
-	bl FUN_02013F20
+	bl sub_02013F20
 	ldrh r1, [r5, #0x10]
 	add r0, r7, #0x0
-	bl FUN_02013F2C
+	bl sub_02013F2C
 	pop {r3-r7, pc}
 	.balign 4

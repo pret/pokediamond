@@ -399,9 +399,9 @@ _0380270C:
 	ldrh	r0, [r1]
 	ands	r0, r0, #128	;@ 0x80
 	bne	_0380270C
-	bl	FUN_03802808
+	bl	sub_03802808
 	mov	r0, #1
-	bl	FUN_03802820
+	bl	sub_03802820
 	orr	r0, r4, #128	;@ 0x80
 	and	r0, r0, #255	;@ 0xff
 	and	r1, r0, #255	;@ 0xff
@@ -413,7 +413,7 @@ _0380273C:
 	ands	r0, r0, #128	;@ 0x80
 	bne	_0380273C
 	mov	r0, #0
-	bl	FUN_03802820
+	bl	sub_03802820
 	mov	r1, #0
 	ldr	r0, _03802790	;@ =0x040001C2
 	strh	r1, [r0]
@@ -444,9 +444,9 @@ _038027A8:
 	ldrh	r0, [r1]
 	ands	r0, r0, #128	;@ 0x80
 	bne	_038027A8
-	bl	FUN_03802808
+	bl	sub_03802808
 	mov	r0, #1
-	bl	FUN_03802820
+	bl	sub_03802820
 	and	r0, r5, #255	;@ 0xff
 	and	r1, r0, #255	;@ 0xff
 	ldr	r0, _03802804	;@ =0x040001C2
@@ -457,7 +457,7 @@ _038027D4:
 	ands	r0, r0, #128	;@ 0x80
 	bne	_038027D4
 	mov	r0, #0
-	bl	FUN_03802820
+	bl	sub_03802820
 	and	r1, r4, #255	;@ 0xff
 	ldr	r0, _03802804	;@ =0x040001C2
 	strh	r1, [r0]
@@ -467,8 +467,8 @@ _038027D4:
 _03802800:	.word	0x040001C0
 _03802804:	.word	0x040001C2
 
-	arm_func_start FUN_03802808
-FUN_03802808: ;@ 0x03802808
+	arm_func_start sub_03802808
+sub_03802808: ;@ 0x03802808
 	ldr	r1, _03802818	;@ =0x00008202
 	ldr	r0, _0380281C	;@ =0x040001C0
 	strh	r1, [r0]
@@ -476,8 +476,8 @@ FUN_03802808: ;@ 0x03802808
 _03802818:	.word	0x00008202
 _0380281C:	.word	0x040001C0
 
-	arm_func_start FUN_03802820
-FUN_03802820: ;@ 0x03802820
+	arm_func_start sub_03802820
+sub_03802820: ;@ 0x03802820
 	ldr	r1, _03802834	;@ =0x00008002
 	orr	r1, r1, r0, lsl #11
 	ldr	r0, _03802838	;@ =0x040001C0
@@ -696,7 +696,7 @@ _03802AE4:
 	ldrh	r0, [r1]
 	mov	r0, #1
 	strh	r0, [r1]
-	bl	FUN_03802BAC
+	bl	sub_03802BAC
 	mov	r0, #0
 	mov	r1, r7
 	bl	PMi_SetRegister
@@ -741,8 +741,8 @@ _03802BA0:	.word	0x04000132
 _03802BA4:	.word	0x04000134
 _03802BA8:	.word	PMi_Work
 
-	arm_func_start FUN_03802BAC
-FUN_03802BAC: ;@ 0x03802BAC
+	arm_func_start sub_03802BAC
+sub_03802BAC: ;@ 0x03802BAC
 	ldr	ip, _03802BB4	;@ =SVC_Stop
 	bx	ip
 _03802BB4:	.word	SVC_Stop

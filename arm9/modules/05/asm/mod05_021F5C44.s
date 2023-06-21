@@ -31,10 +31,10 @@ _021F5C58:
 MOD05_021F5C70: ; 0x021F5C70
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
-	bl FUN_02046528
+	bl sub_02046528
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r5, r0, #0
 	ldr r0, [r5]
 	cmp r0, #0
@@ -44,7 +44,7 @@ MOD05_021F5C70: ; 0x021F5C70
 	b _021F5D28
 _021F5C8E:
 	ldr r0, [r4, #0x34]
-	bl FUN_02058780
+	bl sub_02058780
 	mov r0, #0
 	str r0, [r5, #0x10]
 	add r2, r5, #0
@@ -84,7 +84,7 @@ _021F5CBA:
 	add r0, r4, #0
 	mov r1, #1
 	lsr r2, r2, #0x10
-	bl FUN_02061208
+	bl sub_02061208
 	ldr r0, [r4, #0xc]
 	bl Save_GameStats_Get
 	mov r1, #0xa
@@ -92,7 +92,7 @@ _021F5CBA:
 	ldr r2, [r5, #0x10]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_02046A20
+	bl sub_02046A20
 	add r0, r5, #0
 	bl FreeToHeap
 	mov r0, #0
@@ -100,10 +100,10 @@ _021F5CBA:
 _021F5D10:
 	cmp r0, #0
 	beq _021F5D18
-	bl FUN_02047964
+	bl sub_02047964
 _021F5D18:
 	ldr r0, [r4, #0x34]
-	bl FUN_020587B0
+	bl sub_020587B0
 	add r0, r5, #0
 	bl FreeToHeap
 	mov r0, #1
@@ -126,7 +126,7 @@ MOD05_021F5D2C: ; 0x021F5D2C
 	ldr r0, _021F5D4C ; =MOD05_021F5D7C
 	mov r2, #0x80
 	str r6, [r1]
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021F5D4C: .word MOD05_021F5D7C
@@ -134,7 +134,7 @@ _021F5D4C: .word MOD05_021F5D7C
 	thumb_func_start MOD05_021F5D50
 MOD05_021F5D50: ; 0x021F5D50
 	push {r3, lr}
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	ldr r0, [r0, #4]
 	pop {r3, pc}
 	.align 2, 0
@@ -142,7 +142,7 @@ MOD05_021F5D50: ; 0x021F5D50
 	thumb_func_start MOD05_021F5D5C
 MOD05_021F5D5C: ; 0x021F5D5C
 	push {r3, lr}
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	ldr r0, [r0, #8]
 	pop {r3, pc}
 	.align 2, 0
@@ -151,10 +151,10 @@ MOD05_021F5D5C: ; 0x021F5D5C
 MOD05_021F5D68: ; 0x021F5D68
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021F5D7C
@@ -188,7 +188,7 @@ MOD05_021F5DA8: ; 0x021F5DA8
 	add r5, r0, #0
 	bl MOD05_021F60C4
 	add r0, r4, #0
-	bl FUN_02058914
+	bl sub_02058914
 	mov r0, #1
 	str r0, [r5, #0xc]
 	pop {r3, r4, r5, pc}
@@ -201,11 +201,11 @@ MOD05_021F5DC0: ; 0x021F5DC0
 	add r5, r0, #0
 	add r0, r6, #0
 	add r4, r1, #0
-	bl FUN_0205AD98
+	bl sub_0205AD98
 	cmp r0, #1
 	bne _021F5DF2
 	add r0, r6, #0
-	bl FUN_0205AE50
+	bl sub_0205AE50
 	add r0, r4, #0
 	mov r1, #0x20
 	bl Field_PlayerAvatar_OrrTransitionFlags
@@ -213,7 +213,7 @@ MOD05_021F5DC0: ; 0x021F5DC0
 	bl Field_PlayerAvatar_ApplyTransitionFlags
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_02058544
+	bl sub_02058544
 	mov r0, #2
 	str r0, [r5, #0xc]
 _021F5DF2:
@@ -306,7 +306,7 @@ _021F5E80:
 _021F5E8A:
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02058544
+	bl sub_02058544
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #1
@@ -350,12 +350,12 @@ MOD05_021F5ED4: ; 0x021F5ED4
 	add r5, r0, #0
 	ldr r0, [r5, #0x24]
 	add r4, r2, #0
-	bl FUN_02064520
+	bl sub_02064520
 	mov r0, #0
 	str r0, [r5, #0x24]
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_02058544
+	bl sub_02058544
 	mov r0, #0
 	str r0, [r5, #0x10]
 	mov r1, #7
@@ -412,7 +412,7 @@ MOD05_021F5F3C: ; 0x021F5F3C
 	add r4, r0, #0
 	add r0, r2, #0
 	mov r1, #0
-	bl FUN_02058544
+	bl sub_02058544
 	add r0, r4, #0
 	mov r1, #0x38
 	bl MOD05_021F6140
@@ -429,7 +429,7 @@ MOD05_021F5F5C: ; 0x021F5F5C
 	add r4, r0, #0
 	add r0, r2, #0
 	mov r1, #0
-	bl FUN_02058544
+	bl sub_02058544
 	add r0, r4, #0
 	mov r1, #0x37
 	bl MOD05_021F6140
@@ -448,7 +448,7 @@ MOD05_021F5F5C: ; 0x021F5F5C
 	mov r1, #0
 	ldr r0, [r4, #0x20]
 	add r3, r1, #0
-	bl FUN_02061208
+	bl sub_02061208
 	mov r0, #1
 	pop {r4, pc}
 
@@ -485,7 +485,7 @@ _021F5FC4:
 _021F5FCE:
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02058544
+	bl sub_02058544
 	add r0, r5, #0
 	mov r1, #0x36
 	bl MOD05_021F6140
@@ -531,7 +531,7 @@ MOD05_021F6018: ; 0x021F6018
 	add r4, r1, #0
 	cmp r0, #0
 	beq _021F602C
-	bl FUN_02064520
+	bl sub_02064520
 	mov r0, #0
 	str r0, [r5, #0x24]
 _021F602C:
@@ -539,7 +539,7 @@ _021F602C:
 	bl MOD05_021F60FC
 	add r0, r4, #0
 	bl PlayerAvatar_GetState
-	bl FUN_02055648
+	bl sub_02055648
 	add r1, r0, #0
 	add r0, r4, #0
 	bl Field_PlayerAvatar_OrrTransitionFlags
@@ -672,13 +672,13 @@ MOD05_021F611C: ; 0x021F611C
 	ldr r0, [r4, #8]
 	add r1, #0x38
 	mov r2, #3
-	bl FUN_020545B8
+	bl sub_020545B8
 	ldr r0, [r4, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
 	add r5, #0x38
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_02054608
+	bl sub_02054608
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD05_021F6140
@@ -703,7 +703,7 @@ MOD05_021F6140: ; 0x021F6140
 	ldr r1, [r5, #0x2c]
 	add r0, #0x38
 	mov r3, #1
-	bl FUN_02054658
+	bl sub_02054658
 	add r5, #0x28
 	strb r0, [r5]
 	pop {r4, r5, r6, pc}
@@ -715,7 +715,7 @@ MOD05_021F617C: ; 0x021F617C
 	add r4, r0, #0
 	add r0, #0x28
 	ldrb r0, [r0]
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #1
 	bne _021F61AA
 	bl MOD05_021F60AC

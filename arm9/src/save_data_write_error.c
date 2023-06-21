@@ -11,7 +11,7 @@
 #include "render_window.h"
 
 extern void SetMasterBrightnessNeutral(BOOL set_brightness_on_bottom_screen);
-extern void FUN_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
+extern void sub_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
 
 static const struct WindowTemplate sSaveDataWriteErrorWindowTemplate = {
     .bgId = GF_BG_LYR_MAIN_0,
@@ -70,10 +70,10 @@ void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
         msg_no = narc_0006_00000; // The data could not be written. Please turn off the power...
     }
 
-    FUN_0200E3A0(PM_LCD_TOP, 0);
-    FUN_0200E3A0(PM_LCD_BOTTOM, 0);
+    sub_0200E3A0(PM_LCD_TOP, 0);
+    sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
-    FUN_02015EF4();
+    sub_02015EF4();
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
 

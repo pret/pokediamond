@@ -15,8 +15,8 @@ UNK_020F2BB0: ; 0x020F2BB0
 
 	.text
 
-	thumb_func_start FUN_020377B0
-FUN_020377B0: ; 0x020377B0
+	thumb_func_start sub_020377B0
+sub_020377B0: ; 0x020377B0
 	ldr r2, _020377C4 ; =UNK_020F2B9C
 	add r3, r0, #0x0
 	ldmia r2!, {r0-r1}
@@ -29,8 +29,8 @@ FUN_020377B0: ; 0x020377B0
 	nop
 _020377C4: .word UNK_020F2B9C
 
-	thumb_func_start FUN_020377C8
-FUN_020377C8: ; 0x020377C8
+	thumb_func_start sub_020377C8
+sub_020377C8: ; 0x020377C8
 	ldr r2, _020377DC ; =UNK_020F2BB0
 	add r3, r0, #0x0
 	ldmia r2!, {r0-r1}
@@ -43,10 +43,10 @@ FUN_020377C8: ; 0x020377C8
 	nop
 _020377DC: .word UNK_020F2BB0
 
-	thumb_func_start FUN_020377E0
-FUN_020377E0: ; 0x020377E0
+	thumb_func_start sub_020377E0
+sub_020377E0: ; 0x020377E0
 	push {r3, lr}
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DC0
-	bl FUN_020377B0
+	bl sub_02034DC0
+	bl sub_020377B0
 	pop {r3, pc}

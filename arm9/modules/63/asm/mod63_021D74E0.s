@@ -9,10 +9,10 @@ MOD63_021D74E0: ; 0x021D74E0
 	ldr r1, _021D7584 ; =0x00007FFF
 	add r4, r0, #0
 	mov r0, #0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	ldr r1, _021D7584 ; =0x00007FFF
 	mov r0, #1
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	ldr r1, _021D7588 ; =0x04001050
 	mov r0, #0
 	strh r0, [r1]
@@ -155,11 +155,11 @@ _021D7616:
 	b _021D779C
 _021D7622:
 	mov r0, #0
-	bl FUN_0200415C
+	bl sub_0200415C
 	mov r0, #1
 	ldr r1, _021D77A8 ; =0x00000495
 	add r2, r0, #0
-	bl FUN_0200433C
+	bl sub_0200433C
 	mov r0, #3
 	str r0, [r5]
 	b _021D779C
@@ -212,7 +212,7 @@ _021D768C:
 	strh r1, [r4, r0]
 	mov r0, #0
 	mov r1, #0x3c
-	bl FUN_020053CC
+	bl sub_020053CC
 	ldr r0, _021D77AC ; =0x000005F4
 	bl PlaySE
 	mov r0, #4
@@ -254,7 +254,7 @@ _021D76D4:
 	bl GX_EngineBToggleLayers
 	mov r0, #0
 	mov r1, #0x3c
-	bl FUN_020053CC
+	bl sub_020053CC
 	mov r0, #5
 	str r0, [r5]
 	b _021D779C
@@ -268,12 +268,12 @@ _021D76FA:
 	ldr r2, [r4]
 	add r0, #0xb4
 	bl MOD63_021D8260
-	bl FUN_02005404
+	bl sub_02005404
 	cmp r0, #0
 	bne _021D779C
 	ldr r0, _021D77A8 ; =0x00000495
 	mov r1, #0
-	bl FUN_02005350
+	bl sub_02005350
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #1
@@ -298,12 +298,12 @@ _021D773C:
 	ldr r2, [r4]
 	add r0, #0xb4
 	bl MOD63_021D8260
-	bl FUN_02005404
+	bl sub_02005404
 	cmp r0, #0
 	bne _021D779C
 	ldr r0, _021D77A8 ; =0x00000495
 	mov r1, #0
-	bl FUN_02005350
+	bl sub_02005350
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #1
@@ -384,7 +384,7 @@ _021D77FE:
 	b _021D7818
 _021D780A:
 	mov r0, #0
-	bl FUN_0200415C
+	bl sub_0200415C
 	ldr r0, _021D7824 ; =SDK_OVERLAY_MODULE_63_ID
 	ldr r1, _021D7828 ; =MOD63_021DBE18
 	bl RegisterMainOverlay
@@ -400,7 +400,7 @@ _021D7828: .word MOD63_021DBE18
 
 	thumb_func_start MOD63_021D782C
 MOD63_021D782C: ; 0x021D782C
-	ldr r3, _021D7834 ; =FUN_0201AB60
+	ldr r3, _021D7834 ; =sub_0201AB60
 	ldr r0, [r0, #4]
 	bx r3
 	nop
@@ -465,7 +465,7 @@ MOD63_021D7880: ; 0x021D7880
 	ldr r0, [r4]
 	mov r2, #1
 	add r3, r1, #0
-	bl FUN_02022318
+	bl sub_02022318
 	str r0, [r4, #8]
 	ldr r1, _021D78AC ; =0x04000008
 	mov r0, #3
@@ -482,11 +482,11 @@ _021D78AC: .word 0x04000008
 
 	thumb_func_start MOD63_021D78B0
 MOD63_021D78B0: ; 0x021D78B0
-	ldr r3, _021D78B8 ; =FUN_020223BC
+	ldr r3, _021D78B8 ; =sub_020223BC
 	ldr r0, [r0, #8]
 	bx r3
 	nop
-_021D78B8: .word FUN_020223BC
+_021D78B8: .word sub_020223BC
 	thumb_func_end MOD63_021D78B0
 
 	thumb_func_start MOD63_021D78BC
@@ -516,7 +516,7 @@ MOD63_021D78BC: ; 0x021D78BC
 	add r0, r5, #4
 	add r1, #0x58
 	add r2, #0x5c
-	bl FUN_0201B234
+	bl sub_0201B234
 	ldr r0, [r5, #0x60]
 	mov r1, #0
 	bl NNS_G3dGetAnmByIdx
@@ -613,28 +613,28 @@ _021D7998:
 	add sp, #0x24
 	pop {r4, r5, pc}
 _021D79B6:
-	bl FUN_020222AC
+	bl sub_020222AC
 	mov r0, #0
 	mov r1, #1
-	bl FUN_020222B4
+	bl sub_020222B4
 	mov r0, #0
 	add sp, #0x24
 	str r0, [r4]
 	pop {r4, r5, pc}
 _021D79CA:
-	bl FUN_020222AC
+	bl sub_020222AC
 	bl Camera_PushLookAtToNNSGlb
 	add r1, r4, #0
 	add r0, sp, #0
 	add r1, #0x90
-	bl FUN_0201CAA8
+	bl sub_0201CAA8
 	add r1, r4, #0
 	add r3, r4, #0
 	add r0, r4, #4
 	add r1, #0x78
 	add r2, sp, #0
 	add r3, #0x84
-	bl FUN_0201B26C
+	bl sub_0201B26C
 	add r0, r4, #0
 	add r0, #0xa0
 	ldr r0, [r0]
@@ -678,7 +678,7 @@ _021D7A18:
 _021D7A36:
 	mov r0, #0
 	mov r1, #1
-	bl FUN_020222B4
+	bl sub_020222B4
 _021D7A3E:
 	add sp, #0x24
 	pop {r4, r5, pc}
@@ -1057,7 +1057,7 @@ MOD63_021D7D74: ; 0x021D7D74
 	bl MOD63_021D7858
 	cmp r0, #1
 	bne _021D7D92
-	bl FUN_0200E31C
+	bl sub_0200E31C
 	add sp, #0xc
 	mov r0, #1
 	pop {r4, r5, r6, r7, pc}
@@ -2076,7 +2076,7 @@ _021D844C:
 	add r1, r4, #0
 	mov r2, #1
 	lsl r3, r3, #3
-	bl FUN_02002F40
+	bl sub_02002F40
 	mov r1, #0
 	add r3, r0, #0
 	str r1, [sp]
@@ -2178,7 +2178,7 @@ _021D8640: .word gGameVersion
 
 	thumb_func_start MOD63_021D8644
 MOD63_021D8644: ; 0x021D8644
-	ldr r3, _021D864C ; =FUN_02019178
+	ldr r3, _021D864C ; =sub_02019178
 	add r2, #0xac
 	add r0, r2, #0
 	bx r3

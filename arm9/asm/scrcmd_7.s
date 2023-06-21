@@ -84,7 +84,7 @@ _02041748:
 	ldr r1, [r4, #0x38]
 	ldr r2, [r2, #0x0]
 	ldr r3, [r3, #0x0]
-	bl FUN_0205CA4C
+	bl sub_0205CA4C
 	str r0, [r7, #0x0]
 	mov r0, #0x0
 	add sp, #0x18
@@ -133,11 +133,11 @@ _020417B8:
 	strh r0, [r4, #0x0]
 	pop {r4-r6, pc}
 _020417C6:
-	bl FUN_0205CA64
+	bl sub_0205CA64
 	cmp r0, #0x1
 	bne _020417DC
 	ldr r0, [r5, #0x0]
-	bl FUN_0205CA78
+	bl sub_0205CA78
 	mov r0, #0x0
 	str r0, [r5, #0x0]
 	mov r0, #0x1
@@ -224,7 +224,7 @@ ScrCmd_Unk00E4: ; 0x0204185C
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
-	bl FUN_020395F4
+	bl sub_020395F4
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -266,12 +266,12 @@ ScrCmd_Unk00E5: ; 0x0204188C
 	mov r6, #0x0
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205ED3C
+	bl sub_0205ED3C
 	cmp r0, #0x1
 	bne _020418F2
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F368
+	bl sub_0205F368
 	add r6, r0, #0x0
 _020418F2:
 	mov r0, #0xb
@@ -281,7 +281,7 @@ _020418F2:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x8]
 	add r3, r6, #0x0
-	bl FUN_020470E8
+	bl sub_020470E8
 	mov r0, #0x1
 	add sp, #0x10
 	pop {r3-r7, pc}
@@ -327,7 +327,7 @@ ScrCmd_Unk02A0: ; 0x0204190C
 	ldr r0, [r5, #0x74]
 	add r1, r7, #0x0
 	add r3, r6, #0x0
-	bl FUN_020470E8
+	bl sub_020470E8
 	mov r0, #0x1
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -365,7 +365,7 @@ ScrCmd_Unk00E7: ; 0x02041970
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
-	bl FUN_020395F4
+	bl sub_020395F4
 	bl Field_TrainerIsDoubleBattle
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -376,7 +376,7 @@ ScrCmd_Unk00E7: ; 0x02041970
 	b _020419EC
 _020419D2:
 	ldrh r0, [r4, #0x0]
-	bl FUN_02039618
+	bl sub_02039618
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _020419E6
@@ -429,7 +429,7 @@ ScrCmd_Unk00E8: ; 0x020419F8
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
-	bl FUN_020395F4
+	bl sub_020395F4
 	bl Field_TrainerIsDoubleBattle
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -440,7 +440,7 @@ ScrCmd_Unk00E8: ; 0x020419F8
 	b _02041A74
 _02041A5A:
 	ldrh r0, [r4, #0x0]
-	bl FUN_02039618
+	bl sub_02039618
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _02041A6E
@@ -477,7 +477,7 @@ ScrCmd_Unk00E9: ; 0x02041A80
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
-	bl FUN_020395F4
+	bl sub_020395F4
 	bl Field_TrainerIsDoubleBattle
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
@@ -493,8 +493,8 @@ ScrCmd_Unk00EA: ; 0x02041AB4
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl VarGet
-	bl FUN_0204AD0C
-	bl FUN_02004724
+	bl sub_0204AD0C
+	bl sub_02004724
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
@@ -503,7 +503,7 @@ ScrCmd_Unk00EA: ; 0x02041AB4
 ScrCmd_Unk00EB: ; 0x02041AD4
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
-	bl FUN_02048498
+	bl sub_02048498
 	mov r0, #0x1
 	pop {r3, pc}
 
@@ -524,7 +524,7 @@ ScrCmd_Unk00EC: ; 0x02041AE0
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020480B8
+	bl sub_020480B8
 	strh r0, [r5, #0x0]
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -547,7 +547,7 @@ ScrCmd_Unk00ED: ; 0x02041B10
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020480C8
+	bl sub_020480C8
 	strh r0, [r5, #0x0]
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -570,7 +570,7 @@ ScrCmd_Unk02BC: ; 0x02041B40
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020480D8
+	bl sub_020480D8
 	strh r0, [r5, #0x0]
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -613,7 +613,7 @@ ScrCmd_Unk00EF: ; 0x02041B9C
 	ldr r0, [r4, #0x74]
 	mov r1, #0x1
 	add r3, r2, #0x0
-	bl FUN_020470E8
+	bl sub_020470E8
 	mov r0, #0x1
 	add sp, #0x8
 	pop {r4, pc}

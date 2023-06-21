@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_020144FC
-FUN_020144FC: ; 0x020144FC
+	thumb_func_start sub_020144FC
+sub_020144FC: ; 0x020144FC
 	push {r3, lr}
 	add r3, r0, #0x0
 	mov r0, #0x20
@@ -19,8 +19,8 @@ FUN_020144FC: ; 0x020144FC
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02014518
-FUN_02014518: ; 0x02014518
+	thumb_func_start sub_02014518
+sub_02014518: ; 0x02014518
 	push {r3-r7, lr}
 	mov r1, #0x78
 	add r7, r0, #0x0
@@ -55,8 +55,8 @@ _0201453E:
 	nop
 _02014560: .word 0x0000019E
 
-	thumb_func_start FUN_02014564
-FUN_02014564: ; 0x02014564
+	thumb_func_start sub_02014564
+sub_02014564: ; 0x02014564
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r5, r6, #0x0
@@ -74,8 +74,8 @@ _0201456E:
 	bl FreeToHeap
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02014588
-FUN_02014588: ; 0x02014588
+	thumb_func_start sub_02014588
+sub_02014588: ; 0x02014588
 	lsl r1, r1, #0x2
 	add r0, r0, r1
 	ldr r0, [r0, #0x4]

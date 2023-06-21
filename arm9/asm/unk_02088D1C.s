@@ -171,13 +171,13 @@ UNK_020FD9AC: ; 0x020FD9AC
 
 	.text
 
-	thumb_func_start FUN_02088D1C
-FUN_02088D1C: ; 0x02088D1C
+	thumb_func_start sub_02088D1C
+sub_02088D1C: ; 0x02088D1C
 	mov r0, #0x13
 	bx lr
 
-	thumb_func_start FUN_02088D20
-FUN_02088D20: ; 0x02088D20
+	thumb_func_start sub_02088D20
+sub_02088D20: ; 0x02088D20
 	ldr r3, _02088D3C ; =UNK_020FD8C8
 	mov r2, #0x0
 _02088D24:
@@ -199,12 +199,12 @@ _02088D3C: .word UNK_020FD8C8
 	thumb_func_start GetCityNamesMsgdataIdByCountry
 GetCityNamesMsgdataIdByCountry: ; 0x02088D40
 	push {r3, lr}
-	bl FUN_02088D20
-	bl FUN_02088D4C
+	bl sub_02088D20
+	bl sub_02088D4C
 	pop {r3, pc}
 
-	thumb_func_start FUN_02088D4C
-FUN_02088D4C: ; 0x02088D4C
+	thumb_func_start sub_02088D4C
+sub_02088D4C: ; 0x02088D4C
 	push {r4, lr}
 	add r4, r0, #0x0
 	cmp r4, #0x13
@@ -220,8 +220,8 @@ _02088D58:
 	.balign 4
 _02088D64: .word UNK_020FD8C8 + 2
 
-	thumb_func_start FUN_02088D68
-FUN_02088D68: ; 0x02088D68
+	thumb_func_start sub_02088D68
+sub_02088D68: ; 0x02088D68
 	push {r4, lr}
 	add r4, r0, #0x0
 	cmp r4, #0x13
@@ -237,8 +237,8 @@ _02088D74:
 	.balign 4
 _02088D80: .word UNK_020FD8C8
 
-	thumb_func_start FUN_02088D84
-FUN_02088D84: ; 0x02088D84
+	thumb_func_start sub_02088D84
+sub_02088D84: ; 0x02088D84
 	push {r4, lr}
 	add r4, r0, #0x0
 	cmp r4, #0x13
@@ -254,8 +254,8 @@ _02088D90:
 	.balign 4
 _02088D9C: .word UNK_020FD8C8 + 1
 
-	thumb_func_start FUN_02088DA0
-FUN_02088DA0: ; 0x02088DA0
+	thumb_func_start sub_02088DA0
+sub_02088DA0: ; 0x02088DA0
 	push {r4, lr}
 	add r4, r0, #0x0
 	cmp r4, #0x13
@@ -271,8 +271,8 @@ _02088DAC:
 	.balign 4
 _02088DB8: .word UNK_020FD8C8 + 4
 
-	thumb_func_start FUN_02088DBC
-FUN_02088DBC: ; 0x02088DBC
+	thumb_func_start sub_02088DBC
+sub_02088DBC: ; 0x02088DBC
 	push {r4, lr}
 	add r4, r0, #0x0
 	cmp r4, #0x13

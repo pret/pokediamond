@@ -20,8 +20,8 @@ UNK_020F457E: ; 0x020F457E
 
 	.text
 
-	thumb_func_start FUN_02047500
-FUN_02047500: ; 0x02047500
+	thumb_func_start sub_02047500
+sub_02047500: ; 0x02047500
 	push {r4, lr}
 	ldr r4, [r0, #0x0]
 	mov r1, #0x1
@@ -29,7 +29,7 @@ FUN_02047500: ; 0x02047500
 	beq _02047546
 	add r0, #0x5d
 	ldrb r0, [r0, #0x0]
-	bl FUN_020475C0
+	bl sub_020475C0
 	mov r1, #0x80
 	tst r1, r4
 	beq _0204752A
@@ -61,7 +61,7 @@ _0204753C:
 	pop {r4, pc}
 _02047546:
 	ldr r0, [r0, #0x8]
-	bl FUN_02047668
+	bl sub_02047668
 	cmp r0, #0x1e
 	blo _02047558
 	mov r1, #0x2
@@ -72,8 +72,8 @@ _02047558:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204755C
-FUN_0204755C: ; 0x0204755C
+	thumb_func_start sub_0204755C
+sub_0204755C: ; 0x0204755C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -95,8 +95,8 @@ _0204757C:
 _02047580: .word UNK_020F457C
 _02047584: .word 0x0000FFFF
 
-	thumb_func_start FUN_02047588
-FUN_02047588: ; 0x02047588
+	thumb_func_start sub_02047588
+sub_02047588: ; 0x02047588
 	push {r4, lr}
 	add r4, r0, #0x0
 	cmp r4, #0x1f
@@ -110,26 +110,26 @@ _02047594:
 	.balign 4
 _0204759C: .word UNK_020F457E
 
-	thumb_func_start FUN_020475A0
-FUN_020475A0: ; 0x020475A0
+	thumb_func_start sub_020475A0
+sub_020475A0: ; 0x020475A0
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02047500
+	bl sub_02047500
 	add r1, r4, #0x0
-	bl FUN_0204755C
+	bl sub_0204755C
 	pop {r4, pc}
 
-	thumb_func_start FUN_020475B0
-FUN_020475B0: ; 0x020475B0
+	thumb_func_start sub_020475B0
+sub_020475B0: ; 0x020475B0
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02047500
+	bl sub_02047500
 	add r1, r4, #0x0
-	bl FUN_02047588
+	bl sub_02047588
 	pop {r4, pc}
 
-	thumb_func_start FUN_020475C0
-FUN_020475C0: ; 0x020475C0
+	thumb_func_start sub_020475C0
+sub_020475C0: ; 0x020475C0
 	sub r0, #0x3e
 	mov r1, #0x1d
 	cmp r0, #0x23
@@ -235,8 +235,8 @@ _02047662:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02047668
-FUN_02047668: ; 0x02047668
+	thumb_func_start sub_02047668
+sub_02047668: ; 0x02047668
 	push {r4, lr}
 	mov r4, #0x1e
 	bl GetFirstAliveMonInParty_CrashIfNone

@@ -10,7 +10,7 @@ MOD67_021D74E0: ; 0x021D74E0
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r0, #1
@@ -52,17 +52,17 @@ MOD67_021D74E0: ; 0x021D74E0
 	str r0, [r4]
 	str r5, [r4, #0x4c]
 	add r0, r5, #0
-	bl FUN_020289A4
+	bl sub_020289A4
 	str r0, [r4, #0x44]
 	add r0, r5, #0
 	bl Save_PlayerData_GetProfileAddr
 	str r0, [r4, #0x48]
 	mov r0, #0
 	mov r1, #0x2a
-	bl FUN_02079A70
+	bl sub_02079A70
 	mov r0, #0
 	mov r1, #0x2a
-	bl FUN_02002C84
+	bl sub_02002C84
 	bl MOD67_021D7680
 	ldr r0, [r4]
 	bl MOD67_021D76A0
@@ -81,14 +81,14 @@ MOD67_021D74E0: ; 0x021D74E0
 	add r1, r4, #0
 	bl Main_SetVBlankIntrCB
 	bl GX_BothDispOn
-	bl FUN_02033E74
+	bl sub_02033E74
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
 	mov r1, #0
 	mov r0, #0x43
 	add r2, r1, #0
-	bl FUN_0200433C
+	bl sub_0200433C
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -161,7 +161,7 @@ MOD67_021D7624: ; 0x021D7624
 	add r0, r4, #0
 	bl MOD67_021D78AC
 	mov r0, #0
-	bl FUN_02002CC0
+	bl sub_02002CC0
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x2a
@@ -528,7 +528,7 @@ _021D7910:
 _021D792E:
 	mov r0, #1
 	mov r1, #0x2a
-	bl FUN_02079A70
+	bl sub_02079A70
 	mov r0, #4
 	pop {r3, pc}
 _021D793A:
@@ -539,7 +539,7 @@ _021D793A:
 	beq _021D7950
 	mov r0, #1
 	mov r1, #0x2a
-	bl FUN_02079A70
+	bl sub_02079A70
 	mov r0, #4
 	pop {r3, pc}
 _021D7950:
@@ -758,7 +758,7 @@ MOD67_021D7AF0: ; 0x021D7AF0
 	add r3, r1, #0
 	add r1, sp, #0
 	mov r2, #0
-	bl FUN_02029584
+	bl sub_02029584
 	ldr r1, [sp]
 	lsl r0, r1, #0x19
 	lsr r0, r0, #0x19
@@ -1164,7 +1164,7 @@ MOD67_021D7E00: ; 0x021D7E00
 	str r2, [sp, #0x10]
 	add r1, sp, #0x14
 	mov r2, #0
-	bl FUN_02029584
+	bl sub_02029584
 	ldr r1, [sp, #0x14]
 	lsl r0, r1, #0x19
 	lsr r0, r0, #0x19
@@ -1219,7 +1219,7 @@ _021D7E32:
 	mov r0, #0
 	ldr r1, [r5, #0x58]
 	add r2, r0, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	ldr r1, [sp, #0x14]
 	add r4, r0, #0
 	lsl r1, r1, #0x12
@@ -1289,7 +1289,7 @@ MOD67_021D7F18: ; 0x021D7F18
 	add r7, r1, #0
 	add r1, sp, #0
 	mov r2, #1
-	bl FUN_02029584
+	bl sub_02029584
 	mov r4, #0
 	add r5, sp, #0
 _021D7F32:
@@ -1638,7 +1638,7 @@ MOD67_021D81C4: ; 0x021D81C4
 	add r4, r1, #0
 	add r1, sp, #0
 	mov r2, #2
-	bl FUN_02029584
+	bl sub_02029584
 	add r0, sp, #0
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -1676,7 +1676,7 @@ MOD67_021D8208: ; 0x021D8208
 	add r7, r1, #0
 	add r1, sp, #0x10
 	mov r2, #3
-	bl FUN_02029584
+	bl sub_02029584
 	add r0, sp, #0x10
 	ldrh r1, [r0]
 	lsl r1, r1, #0x1f
@@ -1818,7 +1818,7 @@ MOD67_021D8344: ; 0x021D8344
 	add r7, r1, #0
 	add r1, sp, #0
 	mov r2, #4
-	bl FUN_02029584
+	bl sub_02029584
 	mov r5, #0
 	add r4, sp, #0
 _021D835E:
@@ -2517,7 +2517,7 @@ MOD67_021D88AC: ; 0x021D88AC
 	add r7, r1, #0
 	add r4, r3, #0
 	str r0, [sp, #0x10]
-	bl FUN_02029960
+	bl sub_02029960
 	cmp r0, #0
 	ldr r0, [r5, #0x50]
 	bne _021D88CC
@@ -3309,7 +3309,7 @@ MOD67_021D8F00: ; 0x021D8F00
 	mov r3, #0x20
 	bl CreateMonWithGenderNatureLetter
 	add r0, r6, #0
-	bl FUN_020690E4
+	bl sub_020690E4
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	ldr r1, [sp, #0xc]

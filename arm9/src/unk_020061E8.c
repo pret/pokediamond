@@ -3,9 +3,9 @@
 #include "unk_0200CA44.h"
 #include "unk_020061E8.h"
 
-extern struct TextPrinter *FUN_0201B6C8(void);
+extern struct TextPrinter *sub_0201B6C8(void);
 
-BOOL FUN_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, u32 r3)
+BOOL sub_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, u32 r3)
 {
     void * r4;
     if(r1 != 0)
@@ -21,15 +21,15 @@ BOOL FUN_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, u32 r3)
     {
         r4 = NULL;
     }
-    return FUN_0200CA44(r0, r4, r2);
+    return sub_0200CA44(r0, r4, r2);
 }
 
-void FUN_0200621C(s32 r4)
+void sub_0200621C(s32 r4)
 {
-    struct TextPrinter * r0 = FUN_0201B6C8();
+    struct TextPrinter * r0 = sub_0201B6C8();
     if(r0 != NULL)
     {
         FreeToHeap(r0);
     }
-    FUN_0200CAB4(r4);
+    sub_0200CAB4(r4);
 }

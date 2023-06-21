@@ -1,11 +1,11 @@
 #include "global.h"
 #include "scrcmd.h"
 
-extern BOOL FUN_02025D6C(void*, u16);
-extern BOOL FUN_02025D94(void*, u16);
-extern BOOL FUN_02026298(void*, u16);
-extern void* FUN_02026CC4(struct SaveData* save);
-extern BOOL FUN_020260C4(void*, u16, u16);
+extern BOOL sub_02025D6C(void*, u16);
+extern BOOL sub_02025D94(void*, u16);
+extern BOOL sub_02026298(void*, u16);
+extern void* sub_02026CC4(struct SaveData* save);
+extern BOOL sub_020260C4(void*, u16, u16);
 
 /* Given the amount of dummy functions in this file, I believe this is a debug file of some kind */
 
@@ -15,9 +15,9 @@ BOOL ScrCmd_GiveSecretBaseDecoration(struct ScriptContext* ctx) //0083
     u16 unk1 = ScriptGetVar(ctx);
     u16 unused = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    void* unk2 = FUN_02026CC4(save);
+    void* unk2 = sub_02026CC4(save);
 
-    *ret_ptr = (u16)FUN_02025D6C(unk2, unk1);
+    *ret_ptr = (u16)sub_02025D6C(unk2, unk1);
 
     return FALSE;
 }
@@ -37,9 +37,9 @@ BOOL ScrCmd_HasSpaceForDecoration(struct ScriptContext* ctx) //0085
     u16 unk1 = ScriptGetVar(ctx);
     u16 unused = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    void* unk2 = FUN_02026CC4(save);
+    void* unk2 = sub_02026CC4(save);
 
-    *ret_ptr = (u16)FUN_02025D94(unk2, unk1);
+    *ret_ptr = (u16)sub_02025D94(unk2, unk1);
 
     return FALSE;
 }
@@ -59,9 +59,9 @@ BOOL ScrCmd_GiveUndergroundTrap(struct ScriptContext* ctx) //0087
     u16 unk1 = ScriptGetVar(ctx);
     u16 unused = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    void* unk2 = FUN_02026CC4(save);
+    void* unk2 = sub_02026CC4(save);
 
-    *ret_ptr = (u16)FUN_02026298(unk2, unk1);
+    *ret_ptr = (u16)sub_02026298(unk2, unk1);
 
     return FALSE;
 }
@@ -99,7 +99,7 @@ BOOL ScrCmd_GiveTreasure(struct ScriptContext* ctx) //008B
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    void* unused3 = FUN_02026CC4(save);
+    void* unused3 = sub_02026CC4(save);
 
     return FALSE;
 }
@@ -137,9 +137,9 @@ BOOL ScrCmd_GiveUndergroundSphere(struct ScriptContext* ctx) //008F
     u16 unk1 = ScriptGetVar(ctx);
     u16 unk2 = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    void* unk3 = FUN_02026CC4(save);
+    void* unk3 = sub_02026CC4(save);
 
-    *ret_ptr = (u16)FUN_020260C4(unk3, unk1, unk2);
+    *ret_ptr = (u16)sub_020260C4(unk3, unk1, unk2);
 
     return FALSE;
 }

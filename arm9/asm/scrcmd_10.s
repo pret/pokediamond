@@ -306,7 +306,7 @@ _02042578:
 	ldr r0, [r7, #0x74]
 	ldr r2, [sp, #0x4]
 	add r1, r6, #0x0
-	bl FUN_0205FD38
+	bl sub_0205FD38
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -475,7 +475,7 @@ _020426CC:
 	lsl r1, r6, #0x18
 	add r0, r5, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_0204290C
+	bl sub_0204290C
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020426DA:
@@ -575,7 +575,7 @@ ScrCmd_Unk01DF: ; 0x02042780
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0205FE10
+	bl sub_0205FE10
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -595,7 +595,7 @@ ScrCmd_Unk01E0: ; 0x020427A8
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0205FF5C
+	bl sub_0205FF5C
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -661,10 +661,10 @@ _0204283E:
 	ldr r0, [r0, #0x0]
 	bl MOD06_02244770
 _0204284C:
-	bl FUN_02031190
+	bl sub_02031190
 	ldr r1, _02042860 ; =0x0000083E
 	add r1, r6, r1
-	bl FUN_020316AC
+	bl sub_020316AC
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -689,7 +689,7 @@ ScrCmd_Unk01E2: ; 0x02042864
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x10]
-	bl FUN_0205FDDC
+	bl sub_0205FDDC
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -719,7 +719,7 @@ ScrCmd_Unk01E3: ; 0x02042894
 	ldr r0, [r0, #0xc]
 	bl SaveStruct23_GetSubstruct4
 	add r1, sp, #0x0
-	bl FUN_0202A864
+	bl sub_0202A864
 	add r0, sp, #0x0
 	ldrb r1, [r0, #0x0]
 	strh r1, [r4, #0x0]
@@ -750,8 +750,8 @@ ScrCmd_Unk01E4: ; 0x020428E0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204290C
-FUN_0204290C: ; 0x0204290C
+	thumb_func_start sub_0204290C
+sub_0204290C: ; 0x0204290C
 	cmp r1, #0x2
 	bne _02042918
 	ldrb r0, [r0, #0x10]

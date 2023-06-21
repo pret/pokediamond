@@ -10,7 +10,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -62,7 +62,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	str r0, [r5, r1]
 	mov r0, #0
 	mov r1, #0x24
-	bl FUN_02079A70
+	bl sub_02079A70
 	bl MOD68_021D76A0
 	ldr r0, [r5]
 	bl MOD68_021D76C0
@@ -74,9 +74,9 @@ MOD68_021D74E0: ; 0x021D74E0
 	mov r0, #4
 	mov r1, #8
 	bl SetKeyRepeatTimers
-	bl FUN_0201CC08
+	bl sub_0201CC08
 	mov r0, #4
-	bl FUN_0201CC24
+	bl sub_0201CC24
 	add r0, r5, #0
 	bl MOD68_021D7EEC
 	add r0, r5, #0
@@ -90,7 +90,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	ldr r0, _021D75D4 ; =MOD68_021D7680
 	add r1, r5, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02033F20
+	bl sub_02033F20
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -158,7 +158,7 @@ MOD68_021D762C: ; 0x021D762C
 	bl MOD68_021D78EC
 	ldr r0, [r4]
 	bl MOD68_021D7774
-	bl FUN_0201CD04
+	bl sub_0201CD04
 	add r0, r4, #0
 	bl MOD68_021D78A8
 	add r0, r4, #0
@@ -524,7 +524,7 @@ MOD68_021D7904: ; 0x021D7904
 	mov r0, #0
 	ldr r1, [sp, #0x10]
 	add r2, r0, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	add r7, r0, #0
 	add r0, r5, r4
 	bl GetWindowWidth
@@ -669,7 +669,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #0
-	bl FUN_0200B9A8
+	bl sub_0200B9A8
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -1190,7 +1190,7 @@ _021D7E50:
 _021D7E60:
 	mov r0, #1
 	mov r1, #0x24
-	bl FUN_02079A70
+	bl sub_02079A70
 	mov r0, #3
 	pop {r4, pc}
 _021D7E6C:
@@ -1334,7 +1334,7 @@ _021D7F56:
 	lsl r1, r4, #0x10
 	add r0, r6, #0
 	lsr r1, r1, #0x10
-	bl FUN_02085224
+	bl sub_02085224
 	cmp r0, #1
 	bne _021D7F6C
 	add r7, r4, #0
@@ -1352,7 +1352,7 @@ _021D7F76:
 	lsl r1, r4, #0x10
 	add r0, r6, #0
 	lsr r1, r1, #0x10
-	bl FUN_02085224
+	bl sub_02085224
 	cmp r0, #1
 	bne _021D7F8E
 	lsl r0, r4, #0x10
@@ -1469,7 +1469,7 @@ _021D8068: .word 0x04000008
 MOD68_021D806C: ; 0x021D806C
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020222AC
+	bl sub_020222AC
 	bl Camera_PushLookAtToNNSGlb
 	ldr r2, _021D80A0 ; =0x04000440
 	mov r3, #0
@@ -1496,7 +1496,7 @@ _021D80A4: .word 0x04000540
 
 	thumb_func_start MOD68_021D80A8
 MOD68_021D80A8: ; 0x021D80A8
-	ldr r3, _021D80B0 ; =FUN_0201EB70
+	ldr r3, _021D80B0 ; =sub_0201EB70
 	add r0, #0xd0
 	ldr r0, [r0]
 	bx r3

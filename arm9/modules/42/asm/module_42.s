@@ -24,7 +24,7 @@ MOD42_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD42_02254A04
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -99,7 +99,7 @@ _022548BE:
 _0225490E:
 	add r0, r7, #0
 	add r1, r4, #0
-	bl FUN_0205F524
+	bl sub_0205F524
 	str r0, [r6, #0x30]
 	add r4, r4, #1
 	add r6, r6, #4
@@ -116,10 +116,10 @@ _02254932:
 	lsl r1, r4, #0x18
 	ldr r0, [sp, #0xc]
 	lsr r1, r1, #0x18
-	bl FUN_0202AAA0
+	bl sub_0202AAA0
 	mov r1, #8
 	str r0, [r7, #0x64]
-	bl FUN_0202AAB8
+	bl sub_0202AAB8
 	str r0, [r6, #0x40]
 	add r1, r5, #0
 	add r1, #0x76
@@ -135,7 +135,7 @@ _02254932:
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DCC
+	bl sub_02034DCC
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
@@ -236,7 +236,7 @@ MOD42_02254A04: ; 0x02254A04
 	add r0, r4, #0
 	bl MOD42_022549CC
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x5c]
 	bl MOD20_022529A0
 _02254A30:
@@ -523,7 +523,7 @@ MOD42_02254C04: ; 0x02254C04
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DCC
+	bl sub_02034DCC
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
@@ -577,7 +577,7 @@ _02254C7E:
 	bne _02254C94
 	ldr r0, [r4, #0x64]
 	mov r1, #8
-	bl FUN_0202AAB8
+	bl sub_0202AAB8
 	str r0, [r5, #0x40]
 	cmp r0, #0
 	beq _02254C94
@@ -587,7 +587,7 @@ _02254C94:
 	beq _02254CA4
 	ldr r0, [r4, #0x64]
 	mov r1, #1
-	bl FUN_0202AAB8
+	bl sub_0202AAB8
 	str r0, [r5, #0x44]
 	mov r7, #1
 _02254CA4:
@@ -823,7 +823,7 @@ _02254E5E:
 	ldr r0, _02254E78 ; =MOD42_02254FE8
 	add r1, r5, #0
 	mov r2, #3
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r5, #0x70]
 	add sp, #0x3c
 	pop {r4, r5, r6, r7, pc}
@@ -836,7 +836,7 @@ MOD42_02254E7C: ; 0x02254E7C
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x70]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r6, #0
 	add r4, r5, #0
 	add r7, r6, #0

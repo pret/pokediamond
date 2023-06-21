@@ -7,8 +7,8 @@
 #include "party.h"
 #include "player_data.h"
 
-extern u32 FUN_0206B6C8(struct Pokemon * pokemon);
-extern u16 FUN_0206B7BC(u16 species, u32 forme, BOOL is_egg);
+extern u32 sub_0206B6C8(struct Pokemon * pokemon);
+extern u16 sub_0206B7BC(u16 species, u32 forme, BOOL is_egg);
 
 void Mail_Init(struct Mail * mail)
 {
@@ -73,8 +73,8 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
         species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
         is_egg = (BOOL)GetMonData(pokemon, MON_DATA_IS_EGG, NULL);
         forme = GetMonData(pokemon, MON_DATA_FORME, NULL);
-        sp10 = FUN_0206B6C8(pokemon);
-        r7 = FUN_0206B7BC(species, forme, is_egg);
+        sp10 = sub_0206B6C8(pokemon);
+        r7 = sub_0206B7BC(species, forme, is_egg);
         ptr = &mail->unk_18[i];
         ptr->bits.unk_0 = sp10;
         i++;

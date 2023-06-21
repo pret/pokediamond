@@ -4,8 +4,8 @@
 	.extern UNK_020F34FC
 	.extern UNK_020F3538
 	.extern gSystem
-	.extern FUN_0203BB90
-	.extern FUN_0203BC04
+	.extern sub_0203BB90
+	.extern sub_0203BC04
 
 	.text
 
@@ -14,7 +14,7 @@ ScrCmd_Unk013D: ; 0x0203D448
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_0208881C
+	bl sub_0208881C
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -26,20 +26,20 @@ ScrCmd_Unk013E: ; 0x0203D458
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x7c]
-	bl FUN_02052F74
-	bl FUN_02031B50
-	ldr r1, _0203D478 ; =FUN_0203D47C
+	bl sub_02052F74
+	bl sub_02031B50
+	ldr r1, _0203D478 ; =sub_0203D47C
 	add r0, r4, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r4, pc}
 	nop
-_0203D478: .word FUN_0203D47C 
+_0203D478: .word sub_0203D47C 
 
-	thumb_func_start FUN_0203D47C
-FUN_0203D47C: ; 0x0203D47C
+	thumb_func_start sub_0203D47C
+sub_0203D47C: ; 0x0203D47C
 	push {r3, lr}
-	bl FUN_02030F20
+	bl sub_02030F20
 	cmp r0, #0x2
 	bge _0203D48A
 	mov r0, #0x1
@@ -83,7 +83,7 @@ ScrCmd_Unk013F: ; 0x0203D490
 	ldr r2, [sp, #0x0]
 	ldr r0, [r0, #0x78]
 	ldr r3, [r7, #0x0]
-	bl FUN_02052A10
+	bl sub_02052A10
 	strh r0, [r6, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -104,7 +104,7 @@ ScrCmd_Unk02BA: ; 0x0203D4E8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x78]
-	bl FUN_020527A8
+	bl sub_020527A8
 	strh r0, [r4, #0x0]
 	ldrh r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -141,7 +141,7 @@ ScrCmd_Unk0140: ; 0x0203D528
 	bl MapObject_GetID
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x78]
-	bl FUN_020524CC
+	bl sub_020524CC
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -176,7 +176,7 @@ ScrCmd_Unk0146: ; 0x0203D560
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x78]
 	add r2, r7, #0x0
-	bl FUN_02052544
+	bl sub_02052544
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -188,22 +188,22 @@ ScrCmd_Unk0141: ; 0x0203D5B0
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
 	str r0, [r4, #0x64]
-	ldr r1, _0203D5C8 ; =FUN_0203D5CC
+	ldr r1, _0203D5C8 ; =sub_0203D5CC
 	add r0, r4, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r4, pc}
 	nop
-_0203D5C8: .word FUN_0203D5CC 
+_0203D5C8: .word sub_0203D5CC 
 
-	thumb_func_start FUN_0203D5CC
-FUN_0203D5CC: ; 0x0203D5CC
+	thumb_func_start sub_0203D5CC
+sub_0203D5CC: ; 0x0203D5CC
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
 	ldr r0, [r5, #0x78]
-	bl FUN_02052604
+	bl sub_02052604
 	ldr r1, [r6, #0x64]
 	add r4, r0, #0x0
 	lsl r1, r1, #0x10
@@ -227,7 +227,7 @@ ScrCmd_Unk0142: ; 0x0203D5F8
 	ldr r1, [r0, #0x0]
 	ldr r0, [r1, #0x34]
 	ldr r1, [r1, #0x7c]
-	bl FUN_020534DC
+	bl sub_020534DC
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -236,18 +236,18 @@ ScrCmd_Unk0142: ; 0x0203D5F8
 ScrCmd_Unk013A: ; 0x0203D60C
 	push {r3, lr}
 	mov r0, #0x4
-	bl FUN_02052B74
-	bl FUN_02031C2C
+	bl sub_02052B74
+	bl sub_02031C2C
 	mov r0, #0x0
 	pop {r3, pc}
 
 	thumb_func_start ScrCmd_Unk013B
 ScrCmd_Unk013B: ; 0x0203D61C
 	push {r3, lr}
-	bl FUN_02031C64
-	bl FUN_02031B50
+	bl sub_02031C64
+	bl sub_02031B50
 	mov r0, #0x0
-	bl FUN_02052B74
+	bl sub_02052B74
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -274,7 +274,7 @@ ScrCmd_Unk0143: ; 0x0203D630
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x78]
 	add r1, r6, #0x0
-	bl FUN_0205265C
+	bl sub_0205265C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -285,16 +285,16 @@ ScrCmd_Unk0144: ; 0x0203D66C
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
 	str r0, [r4, #0x64]
-	ldr r1, _0203D684 ; =FUN_0203D688
+	ldr r1, _0203D684 ; =sub_0203D688
 	add r0, r4, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r4, pc}
 	nop
-_0203D684: .word FUN_0203D688 
+_0203D684: .word sub_0203D688 
 
-	thumb_func_start FUN_0203D688
-FUN_0203D688: ; 0x0203D688
+	thumb_func_start sub_0203D688
+sub_0203D688: ; 0x0203D688
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r1, [r5, #0x64]
@@ -308,14 +308,14 @@ FUN_0203D688: ; 0x0203D688
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x78]
-	bl FUN_02052608
+	bl sub_02052608
 	cmp r0, #0x1
 	blo _0203D6BC
 	add r5, #0x80
 	strh r0, [r4, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0x78]
-	bl FUN_02052E10
+	bl sub_02052E10
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _0203D6BC:
@@ -330,16 +330,16 @@ ScrCmd_Unk0145: ; 0x0203D6C4
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
 	str r0, [r4, #0x64]
-	ldr r1, _0203D6DC ; =FUN_0203D6E0
+	ldr r1, _0203D6DC ; =sub_0203D6E0
 	add r0, r4, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r4, pc}
 	nop
-_0203D6DC: .word FUN_0203D6E0 
+_0203D6DC: .word sub_0203D6E0 
 
-	thumb_func_start FUN_0203D6E0
-FUN_0203D6E0: ; 0x0203D6E0
+	thumb_func_start sub_0203D6E0
+sub_0203D6E0: ; 0x0203D6E0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r1, [r5, #0x64]
@@ -353,7 +353,7 @@ FUN_0203D6E0: ; 0x0203D6E0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x78]
-	bl FUN_02052648
+	bl sub_02052648
 	ldr r1, _0203D724 ; =gSystem
 	ldr r2, [r1, #0x48]
 	mov r1, #0x2
@@ -363,7 +363,7 @@ FUN_0203D6E0: ; 0x0203D6E0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x8
 	ldr r0, [r0, #0x78]
-	bl FUN_02052718
+	bl sub_02052718
 _0203D716:
 	cmp r0, #0x0
 	beq _0203D720
@@ -382,7 +382,7 @@ ScrCmd_Unk0153: ; 0x0203D728
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x10]
-	bl FUN_02049EA4
+	bl sub_02049EA4
 	mov r0, #0x1
 	pop {r3, pc}
 
@@ -408,7 +408,7 @@ ScrCmd_Unk0154: ; 0x0203D738
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x0]
 	add r0, r6, #0x0
-	bl FUN_0205363C
+	bl sub_0205363C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -445,13 +445,13 @@ ScrCmd_Unk0155: ; 0x0203D774
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_02053678
+	bl sub_02053678
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
 	bl PlayerProfile_GetTrainerGender
 	ldrh r1, [r4, #0x0]
 	mov r2, #0x2
-	bl FUN_020536D0
+	bl sub_020536D0
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -489,7 +489,7 @@ ScrCmd_Unk029C: ; 0x0203D7DC
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_02053678
+	bl sub_02053678
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -523,7 +523,7 @@ ScrCmd_Unk0156: ; 0x0203D834
 ScrCmd_Unk014B: ; 0x0203D868
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
-	bl FUN_02048498
+	bl sub_02048498
 	mov r0, #0x1
 	pop {r3, pc}
 
@@ -543,7 +543,7 @@ ScrCmd_Unk014C: ; 0x0203D874
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
 	add r1, r4, #0x0
-	bl FUN_02034E04
+	bl sub_02034E04
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -574,7 +574,7 @@ ScrCmd_GetPlayerGender: ; 0x0203D8A0
 ScrCmd_HealParty: ; 0x0203D8D0
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
-	bl FUN_02046528
+	bl sub_02046528
 	ldr r0, [r0, #0xc]
 	bl SaveArray_PlayerParty_Get
 	bl HealParty
@@ -591,22 +591,22 @@ ScrCmd_Unk014F: ; 0x0203D8E8
 ScrCmd_Unk0150: ; 0x0203D8EC
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02050024
-	ldr r1, _0203D900 ; =FUN_0203D904
+	bl sub_02050024
+	ldr r1, _0203D900 ; =sub_0203D904
 	add r0, r4, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
-_0203D900: .word FUN_0203D904 
+_0203D900: .word sub_0203D904 
 
-	thumb_func_start FUN_0203D904
-FUN_0203D904: ; 0x0203D904
+	thumb_func_start sub_0203D904
+sub_0203D904: ; 0x0203D904
 	push {r3, lr}
-	bl FUN_02031810
+	bl sub_02031810
 	cmp r0, #0x1
 	beq _0203D91A
-	bl FUN_0202EDF8
+	bl sub_0202EDF8
 	cmp r0, #0x1
 	beq _0203D91A
 	mov r0, #0x1
@@ -620,21 +620,21 @@ _0203D91A:
 ScrCmd_Unk02BB: ; 0x0203D920
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02050048
-	ldr r1, _0203D934 ; =FUN_0203D904
+	bl sub_02050048
+	ldr r1, _0203D934 ; =sub_0203D904
 	add r0, r4, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
-_0203D934: .word FUN_0203D904 
+_0203D934: .word sub_0203D904 
 
 	thumb_func_start ScrCmd_Unk0151
 ScrCmd_Unk0151: ; 0x0203D938
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_0204FF5C
+	bl sub_0204FF5C
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -643,7 +643,7 @@ ScrCmd_Unk0151: ; 0x0203D938
 ScrCmd_Unk0152: ; 0x0203D948
 	push {r3, lr}
 	bl ScriptReadHalfword
-	bl FUN_0204F6DC
+	bl sub_0204F6DC
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -708,7 +708,7 @@ ScrCmd_Unk0186: ; 0x0203D998
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_02034B74
+	bl sub_02034B74
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -761,15 +761,15 @@ ScrCmd_Unk0187: ; 0x0203D9E8
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
 	ldr r0, [r0, #0x34]
-	bl FUN_02058060
+	bl sub_02058060
 	ldr r2, [sp, #0x4]
 	ldr r3, [sp, #0x8]
 	add r5, r0, #0x0
 	add r1, r7, #0x0
 	str r4, [sp, #0x0]
-	bl FUN_02058E28
+	bl sub_02058E28
 	add r0, r5, #0x0
-	bl FUN_02059D1C
+	bl sub_02059D1C
 	mov r0, #0x0
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -797,7 +797,7 @@ ScrCmd_Unk0188: ; 0x0203DA78
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02034BDC
+	bl sub_02034BDC
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -823,7 +823,7 @@ ScrCmd_Unk0189: ; 0x0203DAB0
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02034BAC
+	bl sub_02034BAC
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -858,7 +858,7 @@ ScrCmd_Unk018A: ; 0x0203DAE8
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_02034C0C
+	bl sub_02034C0C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -894,7 +894,7 @@ ScrCmd_Unk018B: ; 0x0203DB38
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_02034C34
+	bl sub_02034C34
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -922,7 +922,7 @@ ScrCmd_Unk018C: ; 0x0203DB88
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
 	ldr r0, [r0, #0x34]
-	bl FUN_02058060
+	bl sub_02058060
 	add r5, r0, #0x0
 	bne _0203DBC6
 	bl GF_AssertFail
@@ -1058,7 +1058,7 @@ ScrCmd_Unk016F: ; 0x0203DCB8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02064CA8
+	bl sub_02064CA8
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1078,7 +1078,7 @@ ScrCmd_Unk0171: ; 0x0203DCD8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02064CC8
+	bl sub_02064CC8
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1098,7 +1098,7 @@ ScrCmd_Unk0173: ; 0x0203DCF8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02064D10
+	bl sub_02064D10
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1108,7 +1108,7 @@ ScrCmd_Unk0174: ; 0x0203DD08
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02064D4C
+	bl sub_02064D4C
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1124,7 +1124,7 @@ ScrCmd_Unk0175: ; 0x0203DD18
 	str r1, [r0, #0x8]
 	ldrb r1, [r2, #0x0]
 	add r0, r3, #0x0
-	bl FUN_02064D88
+	bl sub_02064D88
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1150,7 +1150,7 @@ ScrCmd_Unk01AC: ; 0x0203DD50
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020388B4
+	bl sub_020388B4
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -1190,16 +1190,16 @@ ScrCmd_Unk019E: ; 0x0203DD60
 	add r0, r7, #0x0
 	bl MOD18_0224CA54
 	str r0, [r4, #0x0]
-	ldr r1, _0203DDBC ; =FUN_0203DDC0
+	ldr r1, _0203DDBC ; =sub_0203DDC0
 	add r0, r5, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r3-r7, pc}
 	.balign 4
-_0203DDBC: .word FUN_0203DDC0 
+_0203DDBC: .word sub_0203DDC0 
 
-	thumb_func_start FUN_0203DDC0
-FUN_0203DDC0: ; 0x0203DDC0
+	thumb_func_start sub_0203DDC0
+sub_0203DDC0: ; 0x0203DDC0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -1248,23 +1248,23 @@ ScrCmd_Unk019F: ; 0x0203DE00
 	bl VarGet
 	bl MOD18_0224CA58
 	strb r0, [r4, #0x0]
-	ldr r1, _0203DE34 ; =FUN_0203DE38
+	ldr r1, _0203DE34 ; =sub_0203DE38
 	add r0, r5, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
-_0203DE34: .word FUN_0203DE38 
+_0203DE34: .word sub_0203DE38 
 
-	thumb_func_start FUN_0203DE38
-FUN_0203DE38: ; 0x0203DE38
+	thumb_func_start sub_0203DE38
+sub_0203DE38: ; 0x0203DE38
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x3
 	bl FieldSysGetAttrAddr
 	ldrb r0, [r0, #0x0]
-	bl FUN_020546C8
+	bl sub_020546C8
 	pop {r3, pc}
 
 	thumb_func_start ScrCmd_Unk01A0
@@ -1345,14 +1345,14 @@ ScrCmd_Unk01B1: ; 0x0203DEC4
 	bl VarGet
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x34]
-	bl FUN_02058060
+	bl sub_02058060
 	add r4, r0, #0x0
 	bne _0203DEEC
 	bl GF_AssertFail
 _0203DEEC:
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0205889C
+	bl sub_0205889C
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -1370,14 +1370,14 @@ ScrCmd_Unk01B2: ; 0x0203DEF8
 	bl VarGet
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x34]
-	bl FUN_02058060
+	bl sub_02058060
 	add r4, r0, #0x0
 	bne _0203DF20
 	bl GF_AssertFail
 _0203DF20:
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_0205889C
+	bl sub_0205889C
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -1385,7 +1385,7 @@ _0203DF20:
 ScrCmd_Unk01B3: ; 0x0203DF2C
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
-	bl FUN_02066818
+	bl sub_02066818
 	mov r0, #0x1
 	pop {r3, pc}
 
@@ -1422,7 +1422,7 @@ ScrCmd_Unk01B5: ; 0x0203DF64
 	bl VarGet
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x74]
-	bl FUN_02063650
+	bl sub_02063650
 	mov r0, #0x1
 	pop {r4, pc}
 
@@ -1625,7 +1625,7 @@ ScrCmd_Unk01C5: ; 0x0203E120
 	bl SaveArray_Flags_Get
 	mov r1, #0x82
 	lsl r1, r1, #0x8
-	bl FUN_0205F3F8
+	bl sub_0205F3F8
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -1637,16 +1637,16 @@ ScrCmd_Unk01CC: ; 0x0203E138
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
 	mov r1, #0x1
-	bl FUN_0205F2D4
+	bl sub_0205F2D4
 	ldr r0, [r4, #0xc]
-	bl FUN_020289A4
+	bl sub_020289A4
 	mov r1, #0x1
-	bl FUN_020289B0
+	bl sub_020289B0
 	add r1, r4, #0x0
 	add r1, #0x98
 	str r0, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_02048C58
+	bl sub_02048C58
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -1722,20 +1722,20 @@ _0203E1EA: ; jump table (using 16-bit offset)
 _0203E200:
 	mov r0, #0x4
 	mov r6, #0x1
-	bl FUN_02029120
+	bl sub_02029120
 	str r0, [r5, #0x0]
 	b _0203E23E
 _0203E20C:
 	mov r0, #0x4
 	mov r6, #0x1
-	bl FUN_0202912C
+	bl sub_0202912C
 	str r0, [r5, #0x0]
 	b _0203E23E
 _0203E218:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4
 	mov r6, #0x1
-	bl FUN_02029138
+	bl sub_02029138
 	str r0, [r5, #0x0]
 	b _0203E23E
 _0203E226:
@@ -1745,7 +1745,7 @@ _0203E226:
 	lsr r0, r0, #0x18
 	mov r2, #0x4
 	mov r6, #0x1
-	bl FUN_0202914C
+	bl sub_0202914C
 	str r0, [r5, #0x0]
 	b _0203E23E
 _0203E23A:
@@ -1758,7 +1758,7 @@ _0203E23E:
 	add r0, #0x98
 	ldr r0, [r0, #0x0]
 	add r2, r6, #0x0
-	bl FUN_02028AD4
+	bl sub_02028AD4
 	mov r0, #0x1
 	pop {r3-r7, pc}
 	.balign 4
@@ -1791,10 +1791,10 @@ ScrCmd_Unk01D2: ; 0x0203E258
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
-	bl FUN_0202708C
+	bl sub_0202708C
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_020271A4
+	bl sub_020271A4
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -1829,10 +1829,10 @@ ScrCmd_Unk01D3: ; 0x0203E29C
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
-	bl FUN_0202708C
+	bl sub_0202708C
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_020270D8
+	bl sub_020270D8
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -1869,9 +1869,9 @@ ScrCmd_Unk01D4: ; 0x0203E2F8
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
-	bl FUN_0202708C
+	bl sub_0202708C
 	add r1, r7, #0x0
-	bl FUN_02027114
+	bl sub_02027114
 	cmp r6, r0
 	bhi _0203E352
 	mov r0, #0x1
@@ -1899,9 +1899,9 @@ ScrCmd_Unk01D5: ; 0x0203E35C
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
-	bl FUN_0202708C
+	bl sub_0202708C
 	add r1, r4, #0x0
-	bl FUN_02027264
+	bl sub_02027264
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1929,9 +1929,9 @@ ScrCmd_Unk01D6: ; 0x0203E38C
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
-	bl FUN_0202708C
+	bl sub_0202708C
 	add r1, r6, #0x0
-	bl FUN_02027100
+	bl sub_02027100
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -2006,15 +2006,15 @@ ScrCmd_Unk01EA: ; 0x0203E440
 	ldr r0, [r0, #0x0]
 	mov r1, #0x20
 	mov r2, #0x0
-	bl FUN_02038AF4
+	bl sub_02038AF4
 	str r0, [r4, #0x0]
-	ldr r1, _0203E46C ; =FUN_0203BB90
+	ldr r1, _0203E46C ; =sub_0203BB90
 	add r0, r5, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
-_0203E46C: .word FUN_0203BB90 
+_0203E46C: .word sub_0203BB90 
 
 	thumb_func_start ScrCmd_Unk01EB
 ScrCmd_Unk01EB: ; 0x0203E470
@@ -2030,15 +2030,15 @@ ScrCmd_Unk01EB: ; 0x0203E470
 	ldr r0, [r0, #0x0]
 	mov r1, #0x20
 	mov r2, #0x1
-	bl FUN_02038AF4
+	bl sub_02038AF4
 	str r0, [r4, #0x0]
-	ldr r1, _0203E49C ; =FUN_0203BB90
+	ldr r1, _0203E49C ; =sub_0203BB90
 	add r0, r5, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
-_0203E49C: .word FUN_0203BB90 
+_0203E49C: .word sub_0203BB90 
 
 	thumb_func_start ScrCmd_Unk01EC
 ScrCmd_Unk01EC: ; 0x0203E4A0
@@ -2215,17 +2215,17 @@ ScrCmd_Unk0202: ; 0x0203E5DC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022504
+	bl sub_02022504
 	ldr r1, [r5, #0x8]
 	str r0, [sp, #0x4]
 	add r0, r1, #0x1
 	str r0, [r5, #0x8]
 	ldrb r4, [r1, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02034E24
+	bl sub_02034E24
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_02034E28
+	bl sub_02034E28
 	add r7, r0, #0x0
 	cmp r4, #0x0
 	beq _0203E62C
@@ -2234,9 +2234,9 @@ ScrCmd_Unk0202: ; 0x0203E5DC
 	b _0203E66E
 _0203E62C:
 	ldr r0, [sp, #0x0]
-	bl FUN_0205F1F4
+	bl sub_0205F1F4
 	ldr r0, [sp, #0x4]
-	bl FUN_02060FD0
+	bl sub_02060FD0
 	mov r0, #0x1e
 	strh r0, [r6, #0x0]
 	mov r0, #0x0
@@ -2244,20 +2244,20 @@ _0203E62C:
 	b _0203E66E
 _0203E642:
 	ldr r0, [sp, #0x0]
-	bl FUN_0205F204
+	bl sub_0205F204
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02061574
+	bl sub_02061574
 	mov r0, #0x4
-	bl FUN_0202912C
+	bl sub_0202912C
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
 	mov r2, #0x1
 	add r0, #0x98
 	ldr r0, [r0, #0x0]
-	bl FUN_02028AD4
+	bl sub_02028AD4
 	mov r0, #0x0
 	strh r0, [r6, #0x0]
 	strh r0, [r7, #0x0]
@@ -2271,7 +2271,7 @@ ScrCmd_Unk0206: ; 0x0203E674
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_0206015C
+	bl sub_0206015C
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -2305,7 +2305,7 @@ ScrCmd_Unk020E: ; 0x0203E6B4
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02064E20
+	bl sub_02064E20
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -2327,7 +2327,7 @@ ScrCmd_Unk020F: ; 0x0203E6C4
 	add r6, r0, #0x0
 	mov r0, #0x41
 	add r2, r1, #0x0
-	bl FUN_0200433C
+	bl sub_0200433C
 	add r5, #0x80
 	ldrh r1, [r4, #0x0]
 	ldr r0, [r5, #0x0]
@@ -2369,7 +2369,7 @@ ScrCmd_Unk0211: ; 0x0203E72C
 	ldr r0, [r0, #0x0]
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055560
+	bl sub_02055560
 	mov r0, #0x1
 	pop {r3, pc}
 
@@ -2390,7 +2390,7 @@ ScrCmd_Unk0214: ; 0x0203E744
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0205F688
+	bl sub_0205F688
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2473,7 +2473,7 @@ ScrCmd_Unk0219: ; 0x0203E7F0
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
 	add r1, r4, #0x0
-	bl FUN_0205F5A4
+	bl sub_0205F5A4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -2493,7 +2493,7 @@ ScrCmd_Unk021A: ; 0x0203E81C
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F594
+	bl sub_0205F594
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2505,7 +2505,7 @@ ScrCmd_Unk021B: ; 0x0203E848
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202AA00
+	bl sub_0202AA00
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -2519,7 +2519,7 @@ ScrCmd_Unk021C: ; 0x0203E858
 	ldr r0, [r0, #0x0]
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02060490
+	bl sub_02060490
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -2608,7 +2608,7 @@ ScrCmd_Unk0229: ; 0x0203E8F4
 	ldr r0, [r5, #0x74]
 	ldr r1, [r4, #0x0]
 	mov r3, #0xb
-	bl FUN_02060790
+	bl sub_02060790
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -2633,7 +2633,7 @@ ScrCmd_Unk022B: ; 0x0203E940
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_Pokedex_Get
-	bl FUN_02024D4C
+	bl sub_02024D4C
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -2644,7 +2644,7 @@ ScrCmd_Unk022C: ; 0x0203E954
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_Pokedex_Get
-	bl FUN_02024CE0
+	bl sub_02024CE0
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -2924,7 +2924,7 @@ ScrCmd_Unk023D: ; 0x0203EB88
 	ldr r3, [sp, #0x8]
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl FUN_020607D4
+	bl sub_020607D4
 	mov r0, #0x1
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -3050,8 +3050,8 @@ ScrCmd_Unk024A: ; 0x0203ECAC
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02026CB4
-	bl FUN_020269CC
+	bl sub_02026CB4
+	bl sub_020269CC
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -3217,7 +3217,7 @@ ScrCmd_Unk025B: ; 0x0203EE08
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_0206486C
+	bl sub_0206486C
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -3227,7 +3227,7 @@ ScrCmd_Unk025C: ; 0x0203EE18
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020649D4
+	bl sub_020649D4
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -3245,7 +3245,7 @@ ScrCmd_Unk025D: ; 0x0203EE28
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020649B0
+	bl sub_020649B0
 	cmp r0, #0x0
 	beq _0203EE4E
 	mov r0, #0x1
@@ -3482,7 +3482,7 @@ ScrCmd_Unk0265: ; 0x0203F00C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F1C4
+	bl sub_0205F1C4
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -3493,7 +3493,7 @@ ScrCmd_Unk0266: ; 0x0203F020
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F1D4
+	bl sub_0205F1D4
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -3511,7 +3511,7 @@ ScrCmd_Unk0267: ; 0x0203F034
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x10]
-	bl FUN_020389CC
+	bl sub_020389CC
 	mov r0, #0x1
 	pop {r4, pc}
 
@@ -3582,7 +3582,7 @@ ScrCmd_Unk0269: ; 0x0203F07C
 	ldr r0, [r0, #0x0]
 	add r1, r7, #0x0
 	ldr r0, [r0, #0x34]
-	bl FUN_02058060
+	bl sub_02058060
 	add r7, r0, #0x0
 	bne _0203F0FA
 	bl GF_AssertFail
@@ -3593,7 +3593,7 @@ _0203F0FA:
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #0x8]
 	add r1, r7, #0x0
-	bl FUN_02054F50
+	bl sub_02054F50
 	mov r0, #0x1
 	add sp, #0x10
 	pop {r3-r7, pc}
@@ -3630,7 +3630,7 @@ ScrCmd_Unk026A: ; 0x0203F110
 	ldr r0, [r0, #0x0]
 	add r1, r5, #0x0
 	ldr r0, [r0, #0x34]
-	bl FUN_02058060
+	bl sub_02058060
 	add r5, r0, #0x0
 	bne _0203F164
 	bl GF_AssertFail
@@ -3639,7 +3639,7 @@ _0203F164:
 	add r1, r5, #0x0
 	add r2, r7, #0x0
 	add r3, r6, #0x0
-	bl FUN_0205502C
+	bl sub_0205502C
 	mov r0, #0x1
 	pop {r3-r7, pc}
 
@@ -3657,7 +3657,7 @@ ScrCmd_Unk026B: ; 0x0203F174
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02054E30
+	bl sub_02054E30
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -3679,7 +3679,7 @@ ScrCmd_Unk026C: ; 0x0203F19C
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
-	bl FUN_0202708C
+	bl sub_0202708C
 	mov r6, #0x0
 	add r7, r0, #0x0
 	add r4, r6, #0x0
@@ -3689,7 +3689,7 @@ _0203F1CA:
 	add r0, r7, #0x0
 	add r1, #0x22
 	mov r2, #0x1
-	bl FUN_020270D8
+	bl sub_020270D8
 	cmp r0, #0x1
 	bne _0203F1E0
 	mov r0, #0x1
@@ -3765,7 +3765,7 @@ ScrCmd_Unk026F: ; 0x0203F254
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
 	mov r1, #0x0
-	bl FUN_0205F698
+	bl sub_0205F698
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -3792,11 +3792,11 @@ ScrCmd_Unk0270: ; 0x0203F26C
 	cmp r4, #0x0
 	beq _0203F2A0
 	add r1, r6, #0x0
-	bl FUN_0205F4E4
+	bl sub_0205F4E4
 	b _0203F2A6
 _0203F2A0:
 	add r1, r6, #0x0
-	bl FUN_0205F50C
+	bl sub_0205F50C
 _0203F2A6:
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -3846,7 +3846,7 @@ ScrCmd_Unk0275: ; 0x0203F2E4
 	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0205F6C8
+	bl sub_0205F6C8
 	cmp r0, #0xa
 	blo _0203F314
 	mov r0, #0x1
@@ -3873,7 +3873,7 @@ ScrCmd_Unk0277: ; 0x0203F31C
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F648
+	bl sub_0205F648
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -3902,10 +3902,10 @@ ScrCmd_Unk0279: ; 0x0203F348
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
-	bl FUN_0202708C
+	bl sub_0202708C
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_02027210
+	bl sub_02027210
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -3914,7 +3914,7 @@ ScrCmd_Unk027A: ; 0x0203F38C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02046030
+	bl sub_02046030
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -3925,7 +3925,7 @@ ScrCmd_Unk027B: ; 0x0203F39C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0205F668
+	bl sub_0205F668
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -3958,7 +3958,7 @@ ScrCmd_Unk027D: ; 0x0203F3AC
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_EasyChat_Get
-	bl FUN_02013B74
+	bl sub_02013B74
 	cmp r0, #0x20
 	bne _0203F3FE
 	ldr r0, _0203F414 ; =0x0000FFFF
@@ -3967,7 +3967,7 @@ ScrCmd_Unk027D: ; 0x0203F3AC
 	pop {r3-r7, pc}
 _0203F3FE:
 	strh r0, [r4, #0x0]
-	bl FUN_02013BE4
+	bl sub_02013BE4
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r7, #0x0
@@ -3992,7 +3992,7 @@ ScrCmd_Unk027F: ; 0x0203F418
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_EasyChat_Get
-	bl FUN_02013BC8
+	bl sub_02013BC8
 	cmp r0, #0x1
 	bne _0203F444
 	mov r0, #0x1
@@ -4021,7 +4021,7 @@ ScrCmd_Unk027E: ; 0x0203F44C
 	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0205F710
+	bl sub_0205F710
 	cmp r0, #0x5
 	blo _0203F47C
 	mov r0, #0x1
@@ -4186,7 +4186,7 @@ _0203F5A6:
 	ldr r0, [r0, #0x0]
 	add r1, r5, #0x0
 	add r2, r7, #0x0
-	bl FUN_02034C24
+	bl sub_02034C24
 _0203F5B8:
 	add r0, r5, #0x1
 	lsl r0, r0, #0x18
@@ -4217,7 +4217,7 @@ ScrCmd_Unk0286: ; 0x0203F5D4
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0205F720
+	bl sub_0205F720
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4240,7 +4240,7 @@ ScrCmd_Unk0287: ; 0x0203F604
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0205F740
+	bl sub_0205F740
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4263,7 +4263,7 @@ ScrCmd_Unk0288: ; 0x0203F634
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0205F760
+	bl sub_0205F760
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4302,19 +4302,19 @@ _0203F684:
 	str r1, [r0, #0x0]
 	ldrb r6, [r2, #0x0]
 	mov r0, #0x4
-	bl FUN_02027E5C
+	bl sub_02027E5C
 	add r1, sp, #0x0
 	add r2, r6, #0x0
 	mov r3, #0x0
 	add r7, r0, #0x0
-	bl FUN_02027F04
+	bl sub_02027F04
 	add r5, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02028048
+	bl sub_02028048
 	add r1, r7, #0x0
-	bl FUN_02028094
+	bl sub_02028094
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	bl FreeToHeap
@@ -4346,8 +4346,8 @@ ScrCmd_Unk028A: ; 0x0203F6E4
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02028048
-	bl FUN_02028074
+	bl sub_02028048
+	bl sub_02028074
 	ldr r1, _0203F71C ; =0x0000FFFF
 	cmp r0, r1
 	bne _0203F712
@@ -4388,7 +4388,7 @@ ScrCmd_Unk028B: ; 0x0203F720
 _0203F752:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0205F4A0
+	bl sub_0205F4A0
 	strh r0, [r6, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -4466,15 +4466,15 @@ ScrCmd_Unk0290: ; 0x0203F7C8
 	ldr r1, [r1, #0x0]
 	mov r0, #0x20
 	add r2, r6, #0x0
-	bl FUN_02037A48
+	bl sub_02037A48
 	str r0, [r4, #0x0]
-	ldr r1, _0203F808 ; =FUN_0203BC04
+	ldr r1, _0203F808 ; =sub_0203BC04
 	add r0, r5, #0x0
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r4-r6, pc}
 	.balign 4
-_0203F808: .word FUN_0203BC04 
+_0203F808: .word sub_0203BC04 
 
 	thumb_func_start ScrCmd_Unk0291
 ScrCmd_Unk0291: ; 0x0203F80C
@@ -4506,7 +4506,7 @@ ScrCmd_Unk0291: ; 0x0203F80C
 	bl GF_AssertFail
 _0203F84C:
 	ldr r0, [r4, #0x0]
-	bl FUN_02037A40
+	bl sub_02037A40
 	strh r0, [r6, #0x0]
 	ldrh r0, [r6, #0x0]
 	cmp r0, #0x7
@@ -4515,7 +4515,7 @@ _0203F84C:
 	strh r0, [r6, #0x0]
 _0203F85E:
 	ldr r0, [r4, #0x0]
-	bl FUN_02037A70
+	bl sub_02037A70
 	strh r0, [r5, #0x0]
 	ldrh r0, [r5, #0x0]
 	cmp r0, #0x1
@@ -4633,7 +4633,7 @@ ScrCmd_Unk0293: ; 0x0203F924
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0205F6A8
+	bl sub_0205F6A8
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4680,7 +4680,7 @@ ScrCmd_Unk02A3: ; 0x0203F988
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0203384C
+	bl sub_0203384C
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4700,8 +4700,8 @@ ScrCmd_Unk02A4: ; 0x0203F9B0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020286EC
-	bl FUN_02028448
+	bl sub_020286EC
+	bl sub_02028448
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4721,14 +4721,14 @@ ScrCmd_Unk02A2: ; 0x0203F9DC
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02026CC4
+	bl sub_02026CC4
 	ldr r1, _0203FA10 ; =0x0000FF79
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	cmp r1, #0x1
 	bhi _0203FA0C
-	bl FUN_02025C30
+	bl sub_02025C30
 _0203FA0C:
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4879,7 +4879,7 @@ ScrCmd_Unk02AC: ; 0x0203FB4C
 	ldr r0, [r0, #0xc]
 	bl Save_SysInfo_Get
 	mov r1, #0x1
-	bl FUN_02023828
+	bl sub_02023828
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -4901,7 +4901,7 @@ ScrCmd_Unk02AF: ; 0x0203FB64
 	mov r1, #0xf
 	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
-	bl FUN_0205296C
+	bl sub_0205296C
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -4910,7 +4910,7 @@ ScrCmd_Unk02AF: ; 0x0203FB64
 	thumb_func_start ScrCmd_Unk02B0
 ScrCmd_Unk02B0: ; 0x0203FB94
 	push {r3, lr}
-	bl FUN_02033E74
+	bl sub_02033E74
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -4918,7 +4918,7 @@ ScrCmd_Unk02B0: ; 0x0203FB94
 	thumb_func_start ScrCmd_Unk02B1
 ScrCmd_Unk02B1: ; 0x0203FBA0
 	push {r3, lr}
-	bl FUN_02033ED0
+	bl sub_02033ED0
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -4928,7 +4928,7 @@ ScrCmd_Unk02B2: ; 0x0203FBAC
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02034E48
+	bl sub_02034E48
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -4964,7 +4964,7 @@ ScrCmd_Unk02B5: ; 0x0203FBBC
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DCC
+	bl sub_02034DCC
 	str r4, [r0, #0x0]
 	str r6, [r0, #0x8]
 	mov r1, #0x0
@@ -4994,14 +4994,14 @@ ScrCmd_Unk02B6: ; 0x0203FC1C
 	ldr r0, [r5, #0x0]
 	ldrb r4, [r2, #0x0]
 	ldr r0, [r0, #0x34]
-	bl FUN_02058060
+	bl sub_02058060
 	add r5, r0, #0x0
 	bne _0203FC4C
 	bl GF_AssertFail
 _0203FC4C:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_020588B8
+	bl sub_020588B8
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -5019,7 +5019,7 @@ ScrCmd_Unk02BE: ; 0x0203FC58
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02065078
+	bl sub_02065078
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -5080,7 +5080,7 @@ ScrCmd_Unk02C3: ; 0x0203FCDC
 	add r0, #0x80
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
-	bl FUN_0206367C
+	bl sub_0206367C
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4

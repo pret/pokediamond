@@ -14,8 +14,8 @@ WM_GetNextTgid: ; 0x020D8868
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
 
-	arm_func_start FUN_020D8870
-FUN_020D8870: ; 0x020D8870
+	arm_func_start sub_020D8870
+sub_020D8870: ; 0x020D8870
 	ldr r0, _020D88DC ; =UNK_02106A54
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x10000

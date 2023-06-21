@@ -3,8 +3,8 @@
 
 	.section .text
 
-	arm_func_start FUN_03805A48
-FUN_03805A48: ;@ 0x03805A48
+	arm_func_start sub_03805A48
+sub_03805A48: ;@ 0x03805A48
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -33,8 +33,8 @@ _03805A9C:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUN_03805AAC
-FUN_03805AAC: ;@ 0x03805AAC
+	arm_func_start sub_03805AAC
+sub_03805AAC: ;@ 0x03805AAC
 	ldr	r2, [r0]
 	mov	r1, r2, lsl #18
 	mov	r3, r1, lsr #26
@@ -110,8 +110,8 @@ _03805BA8:
 	str	r1, [r0]
 	bx	lr
 
-	arm_func_start FUN_03805BC4
-FUN_03805BC4: ;@ 0x03805BC4
+	arm_func_start sub_03805BC4
+sub_03805BC4: ;@ 0x03805BC4
 	ldr	r1, [r0]
 	mov	r2, r1, lsl #18
 	mov	r2, r2, lsr #26
@@ -201,7 +201,7 @@ RTC_WriteFree: ;@ 0x03805CEC
 	mov	r1, #112	;@ 0x70
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -215,7 +215,7 @@ RTC_ReadFree: ;@ 0x03805D18
 	mov	r1, #112	;@ 0x70
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -229,7 +229,7 @@ RTC_WriteAdjust: ;@ 0x03805D44
 	mov	r1, #48	;@ 0x30
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -243,7 +243,7 @@ RTC_ReadAdjust: ;@ 0x03805D70
 	mov	r1, #48	;@ 0x30
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -257,7 +257,7 @@ RTC_WriteStatus2: ;@ 0x03805D9C
 	mov	r1, #64	;@ 0x40
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -271,7 +271,7 @@ RTC_ReadStatus2: ;@ 0x03805DC8
 	mov	r1, #64	;@ 0x40
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -285,7 +285,7 @@ RTC_WriteStatus1: ;@ 0x03805DF4
 	mov	r1, #0
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -299,7 +299,7 @@ RTC_ReadStatus1: ;@ 0x03805E20
 	mov	r1, #0
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -319,7 +319,7 @@ RTC_WriteAlarm2: ;@ 0x03805E4C
 	mov	r1, #80	;@ 0x50
 	mov	r2, r4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, #1
 _03805E8C:
 	add	sp, sp, #8
@@ -342,7 +342,7 @@ RTC_ReadAlarm2: ;@ 0x03805E98
 	mov	r1, #80	;@ 0x50
 	mov	r2, r4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, #1
 _03805ED8:
 	add	sp, sp, #8
@@ -366,7 +366,7 @@ RTC_WriteAlarm1: ;@ 0x03805EE4
 	mov	r1, #16
 	mov	r2, r4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, #1
 _03805F28:
 	add	sp, sp, #8
@@ -390,7 +390,7 @@ RTC_ReadAlarm1: ;@ 0x03805F34
 	mov	r1, #16
 	mov	r2, r4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, #1
 _03805F78:
 	add	sp, sp, #8
@@ -415,7 +415,7 @@ RTC_WritePulse: ;@ 0x03805F84
 	mov	r1, #16
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, #1
 _03805FCC:
 	add	sp, sp, #8
@@ -440,7 +440,7 @@ RTC_ReadPulse: ;@ 0x03805FD8
 	mov	r1, #16
 	mov	r2, r4
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, #1
 _03806020:
 	add	sp, sp, #8
@@ -457,7 +457,7 @@ RTC_WriteTime: ;@ 0x0380602C
 	mov	r1, #96	;@ 0x60
 	mov	r2, r4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -471,7 +471,7 @@ RTC_ReadTime: ;@ 0x03806058
 	mov	r1, #96	;@ 0x60
 	mov	r2, r4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -485,7 +485,7 @@ RTC_ReadDate: ;@ 0x03806084
 	mov	r1, #32
 	mov	r2, r4
 	mov	r3, #4
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -499,7 +499,7 @@ RTC_WriteDateTime: ;@ 0x038060B0
 	mov	r1, #32
 	mov	r2, r4
 	mov	r3, #7
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -513,7 +513,7 @@ RTC_ReadDateTime: ;@ 0x038060DC
 	mov	r1, #32
 	mov	r2, r4
 	mov	r3, #7
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
@@ -548,42 +548,42 @@ RTC_SetHourFormat: ;@ 0x03806108
 	mov	r1, #16
 	add	r2, sp, #4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, r4, lsl #16
 	movs	r0, r0, lsr #16
 	bne	_03806198
 	add	r0, sp, #4
-	bl	FUN_03805BC4
+	bl	sub_03805BC4
 	b	_038061A0
 _03806198:
 	add	r0, sp, #4
-	bl	FUN_03805AAC
+	bl	sub_03805AAC
 _038061A0:
 	mov	r0, #6
 	mov	r1, #16
 	add	r2, sp, #4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, #134	;@ 0x86
 	mov	r1, #80	;@ 0x50
 	add	r2, sp, #4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	mov	r0, r5, lsl #16
 	movs	r0, r0, lsr #16
 	bne	_038061E0
 	add	r0, sp, #4
-	bl	FUN_03805BC4
+	bl	sub_03805BC4
 	b	_038061E8
 _038061E0:
 	add	r0, sp, #4
-	bl	FUN_03805AAC
+	bl	sub_03805AAC
 _038061E8:
 	mov	r0, #6
 	mov	r1, #80	;@ 0x50
 	add	r2, sp, #4
 	mov	r3, #3
-	bl	FUN_03805A48
+	bl	sub_03805A48
 _038061FC:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, lr}
@@ -603,7 +603,7 @@ RTC_Reset: ;@ 0x03806208
 	mov	r1, #0
 	add	r2, sp, #0
 	mov	r3, #1
-	bl	FUN_03805A48
+	bl	sub_03805A48
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
 	bx	lr

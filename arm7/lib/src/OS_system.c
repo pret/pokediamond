@@ -58,5 +58,5 @@ asm OSProcMode OS_GetProcMode(void)
 
 void OS_SpinWait(u32 cycle)
 {
-    FUN_037F8CB4((s32)cycle / 4);
+    sub_037F8CB4((s32)cycle / 4);
 }

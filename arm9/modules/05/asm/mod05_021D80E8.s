@@ -74,10 +74,10 @@ MOD05_021D8164: ; 0x021D8164
 	add r4, r3, #0
 	bl MOD05_021D80E8
 	ldr r0, [r7, #0x38]
-	bl FUN_02055378
+	bl sub_02055378
 	str r0, [sp, #4]
 	ldr r0, [r7, #0x38]
-	bl FUN_02055370
+	bl sub_02055370
 	str r0, [sp]
 	ldr r0, [r7, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -196,7 +196,7 @@ _021D824C:
 	ldr r0, [r7, #0x38]
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_02057020
+	bl sub_02057020
 	strb r0, [r5, #2]
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -208,7 +208,7 @@ MOD05_021D825C: ; 0x021D825C
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_02055378
+	bl sub_02055378
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r1, [r0]
@@ -221,7 +221,7 @@ MOD05_021D825C: ; 0x021D825C
 _021D827C:
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205ED3C
+	bl sub_0205ED3C
 	cmp r0, #0
 	bne _021D8290
 	add sp, #0x10
@@ -231,7 +231,7 @@ _021D8290:
 	cmp r6, #0
 	bne _021D82EC
 	ldr r0, [r4, #0x38]
-	bl FUN_02055370
+	bl sub_02055370
 	ldrb r1, [r5, #2]
 	lsl r2, r1, #0x18
 	asr r3, r2, #0x18
@@ -248,8 +248,8 @@ _021D8290:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #8]
 	add r0, r4, #0
-	bl FUN_0204A6E0
-	bl FUN_0205478C
+	bl sub_0204A6E0
+	bl sub_0205478C
 	cmp r0, #0
 	beq _021D8314
 	add sp, #0x10
@@ -263,7 +263,7 @@ _021D82CE:
 	beq _021D8314
 	add r0, r4, #0
 	bl MOD05_021D9194
-	bl FUN_0205478C
+	bl sub_0205478C
 	cmp r0, #0
 	beq _021D8314
 	add sp, #0x10
@@ -280,8 +280,8 @@ _021D82EC:
 	ldr r1, [sp, #4]
 	ldr r2, [sp]
 	add r0, r4, #0
-	bl FUN_0204A6E0
-	bl FUN_0205478C
+	bl sub_0204A6E0
+	bl sub_0205478C
 	cmp r0, #0
 	beq _021D8314
 	add sp, #0x10
@@ -306,7 +306,7 @@ MOD05_021D8320: ; 0x021D8320
 	bne _021D8342
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_0203989C
+	bl sub_0203989C
 	cmp r0, #1
 	bne _021D8342
 	add sp, #8
@@ -323,20 +323,20 @@ _021D8342:
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205ED3C
+	bl sub_0205ED3C
 	cmp r0, #1
 	bne _021D8366
 	mov r6, #1
 _021D8366:
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_0205C598
+	bl sub_0205C598
 	cmp r0, #1
 	bne _021D8384
 	ldr r0, [r4, #0x38]
-	bl FUN_02055B14
+	bl sub_02055B14
 	ldr r0, [r4, #0x34]
-	bl FUN_02058780
+	bl sub_02058780
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -347,7 +347,7 @@ _021D8384:
 	beq _021D83A6
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205ED5C
+	bl sub_0205ED5C
 	add r0, r4, #0
 	bl MOD05_021D8D24
 	cmp r0, #1
@@ -364,7 +364,7 @@ _021D83A6:
 	add r0, r4, #0
 	mov r1, #4
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -373,12 +373,12 @@ _021D83C2:
 	ldrh r2, [r5, #6]
 	ldr r0, [r4, #0x38]
 	mov r6, #0
-	bl FUN_02057020
+	bl sub_02057020
 	add r7, r0, #0
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
 	mov r1, #2
-	bl FUN_0205F264
+	bl sub_0205F264
 	cmp r0, #0
 	beq _021D83E4
 	mov r0, #1
@@ -447,52 +447,52 @@ _021D845A:
 	beq _021D8532
 	add r0, r4, #0
 	add r1, sp, #4
-	bl FUN_02037090
+	bl sub_02037090
 	cmp r0, #1
 	bne _021D84B8
 	ldr r0, [r4, #0x38]
-	bl FUN_02055B30
+	bl sub_02055B30
 	cmp r0, #1
 	bne _021D8486
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_02055B8C
+	bl sub_02055B8C
 _021D8486:
 	ldr r0, [sp, #4]
-	bl FUN_02058488
+	bl sub_02058488
 	cmp r0, #9
 	beq _021D84A8
 	ldr r5, [sp, #4]
 	add r0, r5, #0
-	bl FUN_02058498
+	bl sub_02058498
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	add r2, r5, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	b _021D84B2
 _021D84A8:
 	ldr r2, [sp, #4]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 _021D84B2:
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _021D84B8:
 	add r0, r4, #0
-	bl FUN_02034AF0
+	bl sub_02034AF0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02034AF8
+	bl sub_02034AF8
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_020370BC
+	bl sub_020370BC
 	add r1, r0, #0
 	ldr r0, _021D8594 ; =0x0000FFFF
 	cmp r1, r0
@@ -501,7 +501,7 @@ _021D84B8:
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -516,7 +516,7 @@ _021D84EA:
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -534,7 +534,7 @@ _021D850A:
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -559,7 +559,7 @@ _021D8552:
 	lsr r0, r0, #0x1f
 	beq _021D856A
 	add r0, r4, #0
-	bl FUN_0205DB44
+	bl sub_0205DB44
 	cmp r0, #1
 	bne _021D856A
 	add sp, #8
@@ -571,13 +571,13 @@ _021D856A:
 	lsr r0, r0, #0x1f
 	beq _021D858E
 	add r0, r4, #0
-	bl FUN_02035068
+	bl sub_02035068
 	cmp r0, #1
 	bne _021D858E
 	ldr r0, _021D8598 ; =0x000005FD
 	bl PlaySE
 	add r0, r4, #0
-	bl FUN_02035080
+	bl sub_02035080
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -594,30 +594,30 @@ MOD05_021D859C: ; 0x021D859C
 	push {r3, r4, r5, lr}
 	add r1, sp, #0
 	add r5, r0, #0
-	bl FUN_02037230
+	bl sub_02037230
 	cmp r0, #1
 	bne _021D85C4
 	ldr r4, [sp]
 	add r0, r4, #0
-	bl FUN_02058498
+	bl sub_02058498
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r5, #0
 	lsr r1, r1, #0x10
 	add r2, r4, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D85C4:
 	add r0, r5, #0
-	bl FUN_02034AF0
+	bl sub_02034AF0
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_02034AF8
+	bl sub_02034AF8
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_020371D0
+	bl sub_020371D0
 	add r1, r0, #0
 	ldr r0, _021D85F8 ; =0x0000FFFF
 	cmp r1, r0
@@ -626,7 +626,7 @@ _021D85C4:
 	add r0, r5, #0
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D85F4:
@@ -645,17 +645,17 @@ MOD05_021D85FC: ; 0x021D85FC
 	bne _021D8618
 	add r0, r1, #0
 	mov r1, #1
-	bl FUN_0203989C
+	bl sub_0203989C
 	cmp r0, #1
 	bne _021D8618
 	mov r0, #1
 	pop {r4, pc}
 _021D8618:
-	bl FUN_02031438
+	bl sub_02031438
 	cmp r0, #0
 	bne _021D862C
-	bl FUN_02031190
-	bl FUN_0204F6B4
+	bl sub_02031190
+	bl sub_0204F6B4
 	cmp r0, #0
 	beq _021D8630
 _021D862C:
@@ -698,24 +698,24 @@ MOD05_021D865C: ; 0x021D865C
 	bne _021D868E
 	add r0, r5, #0
 	bl MOD05_021D9178
-	bl FUN_020547E0
+	bl sub_020547E0
 	cmp r0, #0
 	beq _021D868E
 	ldr r1, _021D872C ; =0x0000238D
 	add r0, r5, #0
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D868E:
-	bl FUN_02031438
+	bl sub_02031438
 	cmp r0, #0
 	bne _021D86AA
-	bl FUN_02031190
-	bl FUN_0204F6B4
+	bl sub_02031190
+	bl sub_0204F6B4
 	cmp r0, #0
 	bne _021D86AA
-	bl FUN_02050A68
+	bl sub_02050A68
 	cmp r0, #0
 	bne _021D86AE
 _021D86AA:
@@ -728,32 +728,32 @@ _021D86AE:
 	beq _021D86FE
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_02037090
+	bl sub_02037090
 	cmp r0, #1
 	bne _021D86FE
 	ldr r0, [sp]
-	bl FUN_02058480
+	bl sub_02058480
 	cmp r0, #1
 	beq _021D86FE
 	ldr r0, [r5, #0x38]
-	bl FUN_02055B30
+	bl sub_02055B30
 	cmp r0, #1
 	bne _021D86E4
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055B8C
+	bl sub_02055B8C
 _021D86E4:
 	ldr r4, [sp]
 	add r0, r4, #0
-	bl FUN_02058498
+	bl sub_02058498
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r5, #0
 	lsr r1, r1, #0x10
 	add r2, r4, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D86FE:
@@ -762,7 +762,7 @@ _021D86FE:
 	lsr r1, r1, #0x1f
 	beq _021D8710
 	add r0, r5, #0
-	bl FUN_02052044
+	bl sub_02052044
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8710:
@@ -772,7 +772,7 @@ _021D8710:
 	ldr r0, _021D8730 ; =0x000005FD
 	bl PlaySE
 	add r0, r5, #0
-	bl FUN_0203515C
+	bl sub_0203515C
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8726:
@@ -789,7 +789,7 @@ MOD05_021D8734: ; 0x021D8734
 	mov r4, #1
 _021D873A:
 	add r0, r4, #0
-	bl FUN_0202DFA4
+	bl sub_0202DFA4
 	cmp r0, #0
 	beq _021D8746
 	add r5, r5, #1
@@ -810,20 +810,20 @@ MOD05_021D8758: ; 0x021D8758
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	add r5, r1, #0
-	bl FUN_0202CB8C
+	bl sub_0202CB8C
 	mov r1, #0xfe
 	tst r0, r1
 	beq _021D878A
 	bl MOD05_021D8734
 	cmp r0, #0
 	beq _021D8786
-	bl FUN_02030F20
+	bl sub_02030F20
 	cmp r0, #1
 	ble _021D8786
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8786:
@@ -836,29 +836,29 @@ _021D878A:
 	beq _021D87D4
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_02037090
+	bl sub_02037090
 	cmp r0, #1
 	bne _021D87D4
 	ldr r0, [r5, #0x38]
-	bl FUN_02055B30
+	bl sub_02055B30
 	cmp r0, #1
 	bne _021D87B6
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055B8C
+	bl sub_02055B8C
 _021D87B6:
-	bl FUN_02031C10
+	bl sub_02031C10
 	ldr r4, [sp]
 	add r0, r4, #0
-	bl FUN_02058498
+	bl sub_02058498
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r5, #0
 	lsr r1, r1, #0x10
 	add r2, r4, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D87D4:
@@ -868,11 +868,11 @@ _021D87D4:
 	beq _021D87F4
 	add r0, r5, #0
 	bl MOD05_021D9178
-	bl FUN_02054B60
+	bl sub_02054B60
 	cmp r0, #0
 	beq _021D87F4
 	add r0, r5, #0
-	bl FUN_02049D9C
+	bl sub_02049D9C
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D87F4:
@@ -883,10 +883,10 @@ _021D87F4:
 	ldr r0, _021D881C ; =0x000005FD
 	bl PlaySE
 	add r0, r5, #0
-	bl FUN_02035118
+	bl sub_02035118
 	mov r0, #4
-	bl FUN_02052B74
-	bl FUN_02031C2C
+	bl sub_02052B74
+	bl sub_02031C2C
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8816:
@@ -907,7 +907,7 @@ MOD05_021D8820: ; 0x021D8820
 	bne _021D8842
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_0203989C
+	bl sub_0203989C
 	cmp r0, #1
 	bne _021D8842
 	add sp, #4
@@ -920,52 +920,52 @@ _021D8842:
 	beq _021D88FA
 	add r0, r4, #0
 	add r1, sp, #0
-	bl FUN_02037090
+	bl sub_02037090
 	cmp r0, #1
 	bne _021D88A0
 	ldr r0, [r4, #0x38]
-	bl FUN_02055B30
+	bl sub_02055B30
 	cmp r0, #1
 	bne _021D886E
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_02055B8C
+	bl sub_02055B8C
 _021D886E:
 	ldr r0, [sp]
-	bl FUN_02058488
+	bl sub_02058488
 	cmp r0, #9
 	beq _021D8890
 	ldr r5, [sp]
 	add r0, r5, #0
-	bl FUN_02058498
+	bl sub_02058498
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	add r2, r5, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	b _021D889A
 _021D8890:
 	ldr r2, [sp]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 _021D889A:
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
 _021D88A0:
 	add r0, r4, #0
-	bl FUN_02034AF0
+	bl sub_02034AF0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02034AF8
+	bl sub_02034AF8
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_020370BC
+	bl sub_020370BC
 	add r1, r0, #0
 	ldr r0, _021D894C ; =0x0000FFFF
 	cmp r1, r0
@@ -974,7 +974,7 @@ _021D88A0:
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -992,7 +992,7 @@ _021D88D2:
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -1015,7 +1015,7 @@ _021D8914:
 	lsr r0, r0, #0x1f
 	beq _021D892C
 	add r0, r4, #0
-	bl FUN_0205DB44
+	bl sub_0205DB44
 	cmp r0, #1
 	bne _021D892C
 	add sp, #4
@@ -1029,7 +1029,7 @@ _021D892C:
 	ldr r0, _021D8950 ; =0x000005FD
 	bl PlaySE
 	add r0, r4, #0
-	bl FUN_02035080
+	bl sub_02035080
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -1051,20 +1051,20 @@ MOD05_021D8954: ; 0x021D8954
 	bl MOD05_021D90F8
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F244
+	bl sub_0205F244
 	cmp r0, #1
 	bne _021D8998
 	ldr r1, [sp, #4]
 	ldr r2, [sp]
 	add r0, r4, #0
-	bl FUN_0204BA68
+	bl sub_0204BA68
 	cmp r0, #1
 	bne _021D8992
 	add r0, r4, #0
-	bl FUN_0204BA90
+	bl sub_0204BA90
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_02046F70
+	bl sub_02046F70
 	add sp, #8
 	mov r0, #1
 	pop {r4, pc}
@@ -1120,7 +1120,7 @@ _021D89E2:
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
 	add r0, r6, #0
-	bl FUN_0204A6B4
+	bl sub_0204A6B4
 	cmp r0, #0
 	bne _021D8A00
 	add sp, #0x28
@@ -1142,8 +1142,8 @@ _021D8A00:
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
 	add r0, r6, #0
-	bl FUN_0204A6E0
-	bl FUN_020547B0
+	bl sub_0204A6E0
+	bl sub_020547B0
 	cmp r0, #0
 	beq _021D8A4A
 	mov r3, #0
@@ -1156,7 +1156,7 @@ _021D8A00:
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	add r0, r6, #0
-	bl FUN_0204C260
+	bl sub_0204C260
 	add sp, #0x28
 	mov r0, #1
 	pop {r4, r5, r6, pc}
@@ -1168,13 +1168,13 @@ _021D8A4A:
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
 	add r0, r6, #0
-	bl FUN_0204A6E0
+	bl sub_0204A6E0
 	add r4, r0, #0
-	bl FUN_020547BC
+	bl sub_020547BC
 	cmp r0, #0
 	bne _021D8A72
 	add r0, r4, #0
-	bl FUN_020547EC
+	bl sub_020547EC
 	cmp r0, #0
 	beq _021D8A80
 _021D8A72:
@@ -1187,11 +1187,11 @@ _021D8A72:
 	pop {r4, r5, r6, pc}
 _021D8A80:
 	add r0, r4, #0
-	bl FUN_020547C8
+	bl sub_020547C8
 	cmp r0, #0
 	bne _021D8A94
 	add r0, r4, #0
-	bl FUN_020547F8
+	bl sub_020547F8
 	cmp r0, #0
 	beq _021D8AA2
 _021D8A94:
@@ -1204,11 +1204,11 @@ _021D8A94:
 	pop {r4, r5, r6, pc}
 _021D8AA2:
 	add r0, r4, #0
-	bl FUN_020547E0
+	bl sub_020547E0
 	cmp r0, #0
 	bne _021D8AB6
 	add r0, r4, #0
-	bl FUN_02054810
+	bl sub_02054810
 	cmp r0, #0
 	beq _021D8AC4
 _021D8AB6:
@@ -1221,7 +1221,7 @@ _021D8AB6:
 	pop {r4, r5, r6, pc}
 _021D8AC4:
 	add r0, r4, #0
-	bl FUN_020548D8
+	bl sub_020548D8
 	cmp r0, #0
 	beq _021D8ADC
 	mov r0, #3
@@ -1233,7 +1233,7 @@ _021D8AC4:
 	pop {r4, r5, r6, pc}
 _021D8ADC:
 	add r0, r4, #0
-	bl FUN_020548E4
+	bl sub_020548E4
 	cmp r0, #0
 	beq _021D8AF4
 	mov r0, #3
@@ -1256,48 +1256,48 @@ _021D8AF4:
 	pop {r4, r5, r6, pc}
 _021D8B0A:
 	add r0, r4, #0
-	bl FUN_020547B0
+	bl sub_020547B0
 	cmp r0, #0
 	beq _021D8B18
 	mov r1, #1
 	b _021D8B90
 _021D8B18:
 	add r0, r4, #0
-	bl FUN_020548D8
+	bl sub_020548D8
 	cmp r0, #0
 	beq _021D8B26
 	mov r1, #3
 	b _021D8B90
 _021D8B26:
 	add r0, r4, #0
-	bl FUN_020548E4
+	bl sub_020548E4
 	cmp r0, #0
 	beq _021D8B34
 	mov r1, #3
 	b _021D8B90
 _021D8B34:
 	add r0, r4, #0
-	bl FUN_020547BC
+	bl sub_020547BC
 	cmp r0, #0
 	bne _021D8B70
 	add r0, r4, #0
-	bl FUN_020547EC
+	bl sub_020547EC
 	cmp r0, #0
 	bne _021D8B70
 	add r0, r4, #0
-	bl FUN_020547C8
+	bl sub_020547C8
 	cmp r0, #0
 	bne _021D8B70
 	add r0, r4, #0
-	bl FUN_020547F8
+	bl sub_020547F8
 	cmp r0, #0
 	bne _021D8B70
 	add r0, r4, #0
-	bl FUN_020547E0
+	bl sub_020547E0
 	cmp r0, #0
 	bne _021D8B70
 	add r0, r4, #0
-	bl FUN_02054810
+	bl sub_02054810
 	cmp r0, #0
 	beq _021D8B8A
 _021D8B70:
@@ -1309,7 +1309,7 @@ _021D8B70:
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	add r0, r6, #0
-	bl FUN_0204C29C
+	bl sub_0204C29C
 	add sp, #0x28
 	mov r0, #1
 	pop {r4, r5, r6, pc}
@@ -1327,7 +1327,7 @@ _021D8B90:
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	add r0, r6, #0
-	bl FUN_0204C260
+	bl sub_0204C260
 	mov r0, #1
 	add sp, #0x28
 	pop {r4, r5, r6, pc}
@@ -1341,7 +1341,7 @@ MOD05_021D8BAC: ; 0x021D8BAC
 	bl PlayerAvatar_GetFacingDirection
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02054878
+	bl sub_02054878
 	cmp r0, #0
 	beq _021D8BCC
 	cmp r6, #0
@@ -1350,84 +1350,84 @@ MOD05_021D8BAC: ; 0x021D8BAC
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8BCC:
 	add r0, r4, #0
-	bl FUN_02054914
+	bl sub_02054914
 	cmp r0, #0
 	beq _021D8BDA
 	ldr r0, _021D8CE8 ; =0x000009C4
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8BDA:
 	add r0, r4, #0
-	bl FUN_02054920
+	bl sub_02054920
 	cmp r0, #0
 	beq _021D8BE8
 	ldr r0, _021D8CEC ; =0x000009C5
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8BE8:
 	add r0, r4, #0
-	bl FUN_0205492C
+	bl sub_0205492C
 	cmp r0, #0
 	beq _021D8BF6
 	ldr r0, _021D8CF0 ; =0x000009C6
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8BF6:
 	add r0, r4, #0
-	bl FUN_02054938
+	bl sub_02054938
 	cmp r0, #0
 	beq _021D8C04
 	ldr r0, _021D8CF4 ; =0x000009C7
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C04:
 	add r0, r4, #0
-	bl FUN_02054944
+	bl sub_02054944
 	cmp r0, #0
 	beq _021D8C12
 	ldr r0, _021D8CF8 ; =0x000009C8
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C12:
 	add r0, r4, #0
-	bl FUN_02054950
+	bl sub_02054950
 	cmp r0, #0
 	beq _021D8C20
 	ldr r0, _021D8CFC ; =0x000009C9
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C20:
 	add r0, r4, #0
-	bl FUN_0205495C
+	bl sub_0205495C
 	cmp r0, #0
 	beq _021D8C2E
 	ldr r0, _021D8D00 ; =0x000009CA
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C2E:
 	add r0, r4, #0
-	bl FUN_02054968
+	bl sub_02054968
 	cmp r0, #0
 	beq _021D8C3C
 	ldr r0, _021D8D04 ; =0x000009CB
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C3C:
 	add r0, r4, #0
-	bl FUN_02054A48
+	bl sub_02054A48
 	cmp r0, #0
 	beq _021D8C4A
 	ldr r0, _021D8D08 ; =0x00002716
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C4A:
 	add r0, r4, #0
-	bl FUN_02054884
+	bl sub_02054884
 	cmp r0, #0
 	beq _021D8C58
 	ldr r0, _021D8D0C ; =0x000009CC
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C58:
 	add r0, r4, #0
-	bl FUN_02054A54
+	bl sub_02054A54
 	cmp r0, #0
 	beq _021D8C66
 	ldr r0, _021D8D10 ; =0x000007EE
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C66:
 	add r0, r4, #0
-	bl FUN_02054B14
+	bl sub_02054B14
 	cmp r0, #0
 	beq _021D8C78
 	cmp r6, #0
@@ -1458,7 +1458,7 @@ _021D8C88:
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
-	bl FUN_0204A6E0
+	bl sub_0204A6E0
 	add r1, r0, #0
 	ldr r0, [r5, #0x38]
 	add r2, r4, #0
@@ -1529,7 +1529,7 @@ _021D8D4C:
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r7, #0
-	bl FUN_0204A6E0
+	bl sub_0204A6E0
 	add r6, r0, #0
 	add r0, r5, #0
 	bl MOD05_021D8E1C
@@ -1551,7 +1551,7 @@ _021D8D76:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8D90:
 	ldr r0, [r5, #0x38]
-	bl FUN_020556B4
+	bl sub_020556B4
 	cmp r0, #0
 	beq _021D8D9E
 	mov r0, #0
@@ -1612,7 +1612,7 @@ _021D8DFC:
 _021D8E0C:
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F56C
+	bl sub_0205F56C
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -1621,21 +1621,21 @@ _021D8E0C:
 MOD05_021D8E1C: ; 0x021D8E1C
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl FUN_02034B5C
+	bl sub_02034B5C
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_02034B54
+	bl sub_02034B54
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
-	bl FUN_02037264
+	bl sub_02037264
 	add r1, r0, #0
 	ldr r0, _021D8E50 ; =0x0000FFFF
 	cmp r1, r0
 	beq _021D8E4A
 	add r0, r4, #0
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8E4A:
@@ -1659,7 +1659,7 @@ MOD05_021D8E54: ; 0x021D8E54
 	pop {r3, r4, r5, pc}
 _021D8E6C:
 	add r0, r5, #0
-	bl FUN_020548C0
+	bl sub_020548C0
 	cmp r0, #1
 	bne _021D8EB0
 	ldr r0, [r4, #0x38]
@@ -1687,13 +1687,13 @@ _021D8E96:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0
-	bl FUN_0204C260
+	bl sub_0204C260
 	add sp, #0x20
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8EB0:
 	add r0, r5, #0
-	bl FUN_020548CC
+	bl sub_020548CC
 	cmp r0, #1
 	bne _021D8EEC
 	ldr r0, [r4, #0x38]
@@ -1715,17 +1715,17 @@ _021D8ED2:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0
-	bl FUN_0204C260
+	bl sub_0204C260
 	add sp, #0x20
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8EEC:
 	add r0, r5, #0
-	bl FUN_020547D4
+	bl sub_020547D4
 	cmp r0, #0
 	bne _021D8F00
 	add r0, r5, #0
-	bl FUN_02054804
+	bl sub_02054804
 	cmp r0, #0
 	beq _021D8F16
 _021D8F00:
@@ -1735,19 +1735,19 @@ _021D8F00:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0
-	bl FUN_0204C29C
+	bl sub_0204C29C
 	add sp, #0x20
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8F16:
 	add r0, r5, #0
-	bl FUN_02054B60
+	bl sub_02054B60
 	cmp r0, #0
 	beq _021D8F30
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0
-	bl FUN_02049718
+	bl sub_02049718
 	add sp, #0x20
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -1782,7 +1782,7 @@ MOD05_021D8F38: ; 0x021D8F38
 	ldr r1, _021D8F80 ; =0x000007EF
 	add r0, r4, #0
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8F7A:
@@ -1802,7 +1802,7 @@ MOD05_021D8F84: ; 0x021D8F84
 	thumb_func_start MOD05_021D8F90
 MOD05_021D8F90: ; 0x021D8F90
 	push {r3, lr}
-	bl FUN_0205E4A4
+	bl sub_0205E4A4
 	mov r0, #0
 	pop {r3, pc}
 	.balign 4, 0
@@ -1823,7 +1823,7 @@ MOD05_021D8FA8: ; 0x021D8FA8
 	mov r5, #0
 	bl SaveArray_Flags_Get
 	add r4, r0, #0
-	bl FUN_0205F780
+	bl sub_0205F780
 	add r0, r0, #1
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
@@ -1833,7 +1833,7 @@ MOD05_021D8FA8: ; 0x021D8FA8
 	mov r5, #1
 _021D8FC6:
 	add r0, r4, #0
-	bl FUN_0205F790
+	bl sub_0205F790
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
 
@@ -1878,7 +1878,7 @@ MOD05_021D9010: ; 0x021D9010
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034E2C
+	bl sub_02034E2C
 	ldrh r1, [r0]
 	add r1, r1, #1
 	strh r1, [r0]
@@ -1923,7 +1923,7 @@ _021D9070:
 	ldr r1, _021D908C ; =0x000007D3
 	add r0, r5, #0
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D9086:
@@ -1938,7 +1938,7 @@ MOD05_021D9090: ; 0x021D9090
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F214
+	bl sub_0205F214
 	cmp r0, #0
 	bne _021D90A6
 	mov r0, #0
@@ -1946,20 +1946,20 @@ MOD05_021D9090: ; 0x021D9090
 _021D90A6:
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034E24
+	bl sub_02034E24
 	ldrh r0, [r0]
 	cmp r0, #0
 	bne _021D90C4
 	ldr r1, _021D90F0 ; =0x00002262
 	add r0, r4, #0
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r4, pc}
 _021D90C4:
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034E28
+	bl sub_02034E28
 	ldrh r1, [r0]
 	add r1, r1, #1
 	strh r1, [r0]
@@ -1971,7 +1971,7 @@ _021D90C4:
 	ldr r1, _021D90F4 ; =0x00002261
 	add r0, r4, #0
 	mov r2, #0
-	bl FUN_02038C78
+	bl sub_02038C78
 	mov r0, #1
 	pop {r4, pc}
 _021D90EC:
@@ -2066,7 +2066,7 @@ MOD05_021D9178: ; 0x021D9178
 	ldr r1, [sp, #4]
 	ldr r2, [sp]
 	add r0, r4, #0
-	bl FUN_0204A6E0
+	bl sub_0204A6E0
 	add sp, #8
 	pop {r4, pc}
 
@@ -2081,7 +2081,7 @@ MOD05_021D9194: ; 0x021D9194
 	ldr r1, [sp, #4]
 	ldr r2, [sp]
 	add r0, r4, #0
-	bl FUN_0204A6E0
+	bl sub_0204A6E0
 	add sp, #8
 	pop {r4, pc}
 
@@ -2092,7 +2092,7 @@ MOD05_021D91B0: ; 0x021D91B0
 	add r7, r1, #0
 	str r2, [sp]
 	add r5, r3, #0
-	bl FUN_02034B18
+	bl sub_02034B18
 	add r6, r0, #0
 	mov r0, #0
 	mvn r0, r0
@@ -2103,7 +2103,7 @@ MOD05_021D91B0: ; 0x021D91B0
 _021D91CC:
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_02034B00
+	bl sub_02034B00
 	cmp r0, #0
 	bne _021D91DC
 	mov r0, #0
@@ -2144,7 +2144,7 @@ _021D920C:
 _021D921E:
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DC4
+	bl sub_02034DC4
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -2170,7 +2170,7 @@ MOD05_021D9248: ; 0x021D9248
 	str r2, [sp]
 	add r4, r3, #0
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DCC
+	bl sub_02034DCC
 	add r6, r0, #0
 	ldr r3, [r5, #0x1c]
 	add r2, r6, #0

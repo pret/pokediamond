@@ -7,17 +7,17 @@
 
 extern void* FieldSysGetAttrAddr(struct FieldSystem*, int idx);
 
-extern struct UnkStruct_02037CF0* FUN_02037CF0(u32 heap_id, struct FieldSystem*, u8);
-extern u8 FUN_02037D5C(struct UnkStruct_02037CF0*);
-extern void FUN_02038864(struct FieldSystem*, MoveRelearner *moveRelearner);
-extern BOOL FUN_0203BC04(struct ScriptContext* ctx);
+extern struct UnkStruct_02037CF0* sub_02037CF0(u32 heap_id, struct FieldSystem*, u8);
+extern u8 sub_02037D5C(struct UnkStruct_02037CF0*);
+extern void sub_02038864(struct FieldSystem*, MoveRelearner *moveRelearner);
+extern BOOL sub_0203BC04(struct ScriptContext* ctx);
 
 BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) { //01C6 - todo: MoveInfo?
     u16 unk = ScriptGetVar(ctx);
     struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *runningAppData = FUN_02037CF0(32, ctx->fieldSystem, (u8)unk);
+    *runningAppData = sub_02037CF0(32, ctx->fieldSystem, (u8)unk);
 
-    SetupNativeScript(ctx, FUN_0203BC04);
+    SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
 
@@ -26,7 +26,7 @@ BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) { //01C7 - todo: StoreMove?
     struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     GF_ASSERT(*runningAppData != NULL);
 
-    *ret_ptr = FUN_02037D5C(*runningAppData);
+    *ret_ptr = sub_02037D5C(*runningAppData);
     if (*ret_ptr == 4)
     {
         *ret_ptr = 0xFF;
@@ -50,15 +50,15 @@ BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 *eligibleMoves = GetEligibleLevelUpMoves(pokemon, 32);
 
-    *ret_ptr = (u16)FUN_02088EF8(eligibleMoves);
+    *ret_ptr = (u16)sub_02088EF8(eligibleMoves);
     FreeToHeap(eligibleMoves);
 
     return FALSE;
 }
 
-void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16 *eligibleMoves) {
+void sub_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16 *eligibleMoves) {
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    MoveRelearner *moveRelearner = FUN_02088DD8(32);
+    MoveRelearner *moveRelearner = sub_02088DD8(32);
     *moveRelearnerPtr = moveRelearner;
 
     moveRelearner->pokemon = pokemon;
@@ -69,9 +69,9 @@ void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16
     moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
     moveRelearner->eligibleMoves = eligibleMoves;
     moveRelearner->unk15 = a1;
-    FUN_02038864(ctx->fieldSystem, moveRelearner);
+    sub_02038864(ctx->fieldSystem, moveRelearner);
 
-    SetupNativeScript(ctx, FUN_0203BC04);
+    SetupNativeScript(ctx, sub_0203BC04);
     FreeToHeap(eligibleMoves);
 }
 
@@ -88,7 +88,7 @@ BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 *eligibleMoves  = GetEligibleLevelUpMoves(pokemon, 32);
 
-    FUN_02045E74(ctx, 1, pokemon, eligibleMoves);
+    sub_02045E74(ctx, 1, pokemon, eligibleMoves);
     return TRUE;
 }
 
@@ -103,7 +103,7 @@ BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
     eligibleMoves[0] = move;
     eligibleMoves[1] = 0xFFFF;
 
-    FUN_02045E74(ctx, 0, pokemon, eligibleMoves);
+    sub_02045E74(ctx, 0, pokemon, eligibleMoves);
     return TRUE;
 }
 
@@ -130,7 +130,7 @@ BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: RememberMoveRespon
         *ret_ptr = 0xFF;
     }
 
-    FUN_02088DF0(moveRelearner);
+    sub_02088DF0(moveRelearner);
     return FALSE;
 }
 
@@ -151,6 +151,6 @@ BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMoveResponse?
         *ret_ptr = 0xFF;
     }
 
-    FUN_02088DF0(moveRelearner);
+    sub_02088DF0(moveRelearner);
     return FALSE;
 }

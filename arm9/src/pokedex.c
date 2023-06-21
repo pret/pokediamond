@@ -296,7 +296,7 @@ void Pokedex_SetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 sp
     }
 }
 
-s32 FUN_020242C8(struct Pokedex * pokedex, u16 species, s32 r4)
+s32 sub_020242C8(struct Pokedex * pokedex, u16 species, s32 r4)
 {
     u8 r0;
     u8 r1;
@@ -500,13 +500,13 @@ u32 Pokedex_GetSeenSpindaPersonality(struct Pokedex * pokedex, u32 a1)
     return r6;
 }
 
-s32 FUN_02024674(struct Pokedex * pokedex, u16 species, s32 r6)
+s32 sub_02024674(struct Pokedex * pokedex, u16 species, s32 r6)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     if (DexSpeciesIsInvalid(species))
         return -1;
     if (CheckDexFlag(pokedex->seenFlags, species))
-        return FUN_020242C8(pokedex, species, r6);
+        return sub_020242C8(pokedex, species, r6);
     else
         return -1;
 }
@@ -699,13 +699,13 @@ BOOL Pokedex_GetNatDexFlag(struct Pokedex * pokedex)
     return pokedex->unlockedNationalDex;
 }
 
-BOOL FUN_02024CC4(struct Pokedex * pokedex)
+BOOL sub_02024CC4(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return pokedex->field_0128;
 }
 
-void FUN_02024CE0(struct Pokedex * pokedex)
+void sub_02024CE0(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     pokedex->field_0128 = 1;
@@ -722,12 +722,12 @@ s32 Pokedex_GetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 spe
     return pokedex->meister[r5] & (1 << r0);
 }
 
-void FUN_02024D4C(struct Pokedex * pokedex)
+void sub_02024D4C(struct Pokedex * pokedex)
 {
     pokedex->field_0137 = 1;
 }
 
-BOOL FUN_02024D58(struct Pokedex * pokedex)
+BOOL sub_02024D58(struct Pokedex * pokedex)
 {
     return pokedex->field_0137;
 }

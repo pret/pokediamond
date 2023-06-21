@@ -5,7 +5,7 @@
 #include "scrcmd.h"
 #include "module_06.h"
 
-extern void FUN_02038AD0(struct TaskManager *);
+extern void sub_02038AD0(struct TaskManager *);
 
 static const u16 UNK_020F40A6[] = {
     ITEM_AIR_MAIL,
@@ -437,6 +437,6 @@ BOOL ScrCmd_SealsMart(struct ScriptContext * ctx) //014A
 
 BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx) //0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
 {
-    FUN_02038AD0(ctx->fieldSystem->taskManager);
+    sub_02038AD0(ctx->fieldSystem->taskManager);
     return TRUE;
 }

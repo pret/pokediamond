@@ -3,15 +3,15 @@
 
 	.text
 
-	thumb_func_start FUN_0202BE98
-FUN_0202BE98: ; 0x0202BE98
+	thumb_func_start sub_0202BE98
+sub_0202BE98: ; 0x0202BE98
 	ldr r0, _0202BE9C ; =0x00000688
 	bx lr
 	.balign 4
 _0202BE9C: .word 0x00000688
 
-	thumb_func_start FUN_0202BEA0
-FUN_0202BEA0: ; 0x0202BEA0
+	thumb_func_start sub_0202BEA0
+sub_0202BEA0: ; 0x0202BEA0
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	ldr r2, _0202BED8 ; =0x00000688
@@ -40,8 +40,8 @@ _0202BECC:
 	nop
 _0202BED8: .word 0x00000688
 
-	thumb_func_start FUN_0202BEDC
-FUN_0202BEDC: ; 0x0202BEDC
+	thumb_func_start sub_0202BEDC
+sub_0202BEDC: ; 0x0202BEDC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	ldr r2, _0202BF14 ; =0x00000588
@@ -70,8 +70,8 @@ _0202BF08:
 	nop
 _0202BF14: .word 0x00000588
 
-	thumb_func_start FUN_0202BF18
-FUN_0202BF18: ; 0x0202BF18
+	thumb_func_start sub_0202BF18
+sub_0202BF18: ; 0x0202BF18
 	push {r4-r7}
 	add r2, r0, #0x0
 	ldr r3, _0202BF70 ; =0x00000588
@@ -126,8 +126,8 @@ _0202BF70: .word 0x00000588
 _0202BF74: .word 0x7FFFFFFF
 _0202BF78: .word 0x000005D8
 
-	thumb_func_start FUN_0202BF7C
-FUN_0202BF7C: ; 0x0202BF7C
+	thumb_func_start sub_0202BF7C
+sub_0202BF7C: ; 0x0202BF7C
 	add r3, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0xec
@@ -138,12 +138,12 @@ FUN_0202BF7C: ; 0x0202BF7C
 	nop
 _0202BF8C: .word CopyBoxPokemonToPokemon
 
-	thumb_func_start FUN_0202BF90
-FUN_0202BF90: ; 0x0202BF90
+	thumb_func_start sub_0202BF90
+sub_0202BF90: ; 0x0202BF90
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0202BF18
+	bl sub_0202BF18
 	add r6, r0, #0x0
 	lsl r0, r6, #0x2
 	add r1, r5, r0
@@ -170,8 +170,8 @@ _0202BFCC: .word 0x00000588
 _0202BFD0: .word 0x000005D8
 _0202BFD4: .word 0x00000678
 
-	thumb_func_start FUN_0202BFD8
-FUN_0202BFD8: ; 0x0202BFD8
+	thumb_func_start sub_0202BFD8
+sub_0202BFD8: ; 0x0202BFD8
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	add r6, r0, #0x0
@@ -194,8 +194,8 @@ _0202BFF0:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0202C000
-FUN_0202C000: ; 0x0202C000
+	thumb_func_start sub_0202C000
+sub_0202C000: ; 0x0202C000
 	push {r3-r7, lr}
 	mov r4, #0x0
 	add r5, r0, #0x0
@@ -218,8 +218,8 @@ _0202C01A:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0202C028
-FUN_0202C028: ; 0x0202C028
+	thumb_func_start sub_0202C028
+sub_0202C028: ; 0x0202C028
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -248,8 +248,8 @@ _0202C04A:
 _0202C058: .word 0x00000588
 _0202C05C: .word 0x000005D8
 
-	thumb_func_start FUN_0202C060
-FUN_0202C060: ; 0x0202C060
+	thumb_func_start sub_0202C060
+sub_0202C060: ; 0x0202C060
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -278,8 +278,8 @@ _0202C084:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0202C094
-FUN_0202C094: ; 0x0202C094
+	thumb_func_start sub_0202C094
+sub_0202C094: ; 0x0202C094
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl OS_GetOwnerRtcOffset
@@ -299,8 +299,8 @@ _0202C0B0:
 	.balign 4
 _0202C0B4: .word 0x00000678
 
-	thumb_func_start FUN_0202C0B8
-FUN_0202C0B8: ; 0x0202C0B8
+	thumb_func_start sub_0202C0B8
+sub_0202C0B8: ; 0x0202C0B8
 	push {r3-r4}
 	mov r4, #0x0
 	mov r1, #0x1a

@@ -112,7 +112,7 @@ MOD05_021E5B80: ; 0x021E5B80
 	sub sp, #0xc
 	add r6, r0, #0
 	add r5, r1, #0
-	bl FUN_0206475C
+	bl sub_0206475C
 	ldr r1, [r0]
 	ldr r0, [r0, #4]
 	mov r2, #1
@@ -149,7 +149,7 @@ MOD05_021E5B80: ; 0x021E5B80
 	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #0
 	add r1, sp, #0
-	bl FUN_0206477C
+	bl sub_0206477C
 	add r4, #0x18
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
@@ -215,7 +215,7 @@ _021E5C40:
 	add r0, sp, #0x24
 	mov r1, #0x5a
 	add r3, r2, #0
-	bl FUN_0201CB20
+	bl sub_0201CB20
 	add r0, r5, #0
 	add r1, sp, #0
 	bl MI_Copy36B
@@ -230,7 +230,7 @@ _021E5C40:
 	add r1, #0x6c
 	add r2, sp, #0x24
 	add r3, r4, #0
-	bl FUN_0201B26C
+	bl sub_0201B26C
 	add sp, #0x48
 	pop {r3, r4, r5, pc}
 	nop

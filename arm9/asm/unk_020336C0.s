@@ -3,15 +3,15 @@
 
 	.text
 
-	thumb_func_start FUN_020336C0
-FUN_020336C0: ; 0x020336C0
+	thumb_func_start sub_020336C0
+sub_020336C0: ; 0x020336C0
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_020336C8
-FUN_020336C8: ; 0x020336C8
+	thumb_func_start sub_020336C8
+sub_020336C8: ; 0x020336C8
 	push {r4-r6, lr}
 	add r4, r2, #0x0
 	add r6, r1, #0x0
@@ -35,23 +35,23 @@ _020336E2: ; jump table (using 16-bit offset)
 	.short _02033770 - _020336E2 - 2; case 6
 _020336F0:
 	mov r0, #0x6f
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x1
 	str r0, [r4, #0x0]
 	b _02033774
 _020336FC:
 	mov r0, #0x6f
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _02033774
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl FUN_02022840
+	bl sub_02022840
 	mov r0, #0x2
 	str r0, [r4, #0x0]
 	b _02033774
 _02033714:
-	bl FUN_02022854
+	bl sub_02022854
 	add r5, r0, #0x0
 	cmp r5, #0x2
 	bne _02033722
@@ -66,18 +66,18 @@ _0203372A:
 	mov r0, #0x3
 	str r0, [r4, #0x0]
 	mov r0, #0x70
-	bl FUN_02031588
+	bl sub_02031588
 	b _02033774
 _0203373A:
 	mov r0, #0x70
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _02033774
 	mov r0, #0x4
 	str r0, [r4, #0x0]
 	b _02033774
 _0203374A:
-	bl FUN_02022854
+	bl sub_02022854
 	add r5, r0, #0x0
 	cmp r5, #0x3
 	bne _02033758

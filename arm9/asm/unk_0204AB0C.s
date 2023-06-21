@@ -32,13 +32,13 @@ UNK_020F471A: ; 0x020F471A
 
 	.text
 
-	thumb_func_start FUN_0204AB0C
-FUN_0204AB0C: ; 0x0204AB0C
+	thumb_func_start sub_0204AB0C
+sub_0204AB0C: ; 0x0204AB0C
 	push {r3, lr}
-	bl FUN_0200541C
-	bl FUN_02004810
+	bl sub_0200541C
+	bl sub_02004810
 	mov r0, #0x0
-	bl FUN_0200415C
+	bl sub_0200415C
 	pop {r3, pc}
 	.balign 4
 
@@ -48,26 +48,26 @@ FieldSystem_SetSavedMusicId: ; 0x0204AB20
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DE8
+	bl sub_02034DE8
 	strh r4, [r0, #0x0]
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204AB34
-FUN_0204AB34: ; 0x0204AB34
+	thumb_func_start sub_0204AB34
+sub_0204AB34: ; 0x0204AB34
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DE8
+	bl sub_02034DE8
 	ldrh r0, [r0, #0x0]
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204AB44
-FUN_0204AB44: ; 0x0204AB44
+	thumb_func_start sub_0204AB44
+sub_0204AB44: ; 0x0204AB44
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DE8
+	bl sub_02034DE8
 	mov r1, #0x0
 	strh r1, [r0, #0x0]
 	pop {r3, pc}
@@ -88,7 +88,7 @@ _0204AB6C:
 	add r0, r5, #0x0
 	add r0, #0x90
 	ldr r0, [r0, #0x0]
-	bl FUN_0205E128
+	bl sub_0205E128
 	cmp r0, #0x1
 	bne _0204AB7E
 	ldr r0, _0204ABA4 ; =0x0000047E
@@ -96,14 +96,14 @@ _0204AB6C:
 _0204AB7E:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0204ABA8
+	bl sub_0204ABA8
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0204AB34
+	bl sub_0204AB34
 	cmp r0, #0x0
 	beq _0204AB9A
 	add r0, r5, #0x0
-	bl FUN_0204AB34
+	bl sub_0204AB34
 	add r4, r0, #0x0
 _0204AB9A:
 	add r0, r4, #0x0
@@ -112,8 +112,8 @@ _0204AB9A:
 _0204ABA0: .word 0x0000047F
 _0204ABA4: .word 0x0000047E
 
-	thumb_func_start FUN_0204ABA8
-FUN_0204ABA8: ; 0x0204ABA8
+	thumb_func_start sub_0204ABA8
+sub_0204ABA8: ; 0x0204ABA8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -131,7 +131,7 @@ _0204ABC4:
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Flags_Get
 	add r1, r4, #0x0
-	bl FUN_0205EF20
+	bl sub_0205EF20
 	cmp r0, #0x0
 	beq _0204ABD8
 	add r6, r0, #0x0
@@ -149,7 +149,7 @@ FieldSystem_PlayOrFadeToNewMusicId: ; 0x0204ABDC
 	add r7, r2, #0x0
 	bl PlayerAvatar_GetState
 	add r6, r0, #0x0
-	bl FUN_02004104
+	bl sub_02004104
 	cmp r0, #0x1
 	bne _0204ABFC
 	add sp, #0x14
@@ -157,19 +157,19 @@ FieldSystem_PlayOrFadeToNewMusicId: ; 0x0204ABDC
 	pop {r4-r7, pc}
 _0204ABFC:
 	add r0, r5, #0x0
-	bl FUN_02004124
+	bl sub_02004124
 	cmp r4, r0
 	bne _0204AC0C
 	add sp, #0x14
 	mov r0, #0x0
 	pop {r4-r7, pc}
 _0204AC0C:
-	bl FUN_02004810
+	bl sub_02004810
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	add r2, sp, #0x10
 	add r3, sp, #0xc
-	bl FUN_0204ACCC
+	bl sub_0204ACCC
 	cmp r6, #0x1
 	beq _0204AC22
 	bne _0204AC3A
@@ -183,7 +183,7 @@ _0204AC22:
 	ldr r3, [sp, #0xc]
 	mov r0, #0x4
 	add r1, r4, #0x0
-	bl FUN_02004E08
+	bl sub_02004E08
 	b _0204AC4C
 _0204AC3A:
 	mov r0, #0x0
@@ -193,21 +193,21 @@ _0204AC3A:
 	ldr r3, [sp, #0xc]
 	mov r0, #0x4
 	add r1, r4, #0x0
-	bl FUN_02004DCC
+	bl sub_02004DCC
 _0204AC4C:
 	mov r0, #0x1
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204AC54
-FUN_0204AC54: ; 0x0204AC54
+	thumb_func_start sub_0204AC54
+sub_0204AC54: ; 0x0204AC54
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_02004104
+	bl sub_02004104
 	cmp r0, #0x1
 	bne _0204AC6C
 	add sp, #0x10
@@ -215,19 +215,19 @@ FUN_0204AC54: ; 0x0204AC54
 	pop {r4-r6, pc}
 _0204AC6C:
 	add r0, r5, #0x0
-	bl FUN_02004124
+	bl sub_02004124
 	cmp r4, r0
 	bne _0204AC7C
 	add sp, #0x10
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _0204AC7C:
-	bl FUN_02004810
+	bl sub_02004810
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0xc
 	add r3, sp, #0x8
-	bl FUN_0204ACCC
+	bl sub_0204ACCC
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0x0
@@ -236,14 +236,14 @@ _0204AC7C:
 	ldr r3, [sp, #0x8]
 	mov r0, #0x4
 	add r1, r4, #0x0
-	bl FUN_02004DCC
+	bl sub_02004DCC
 	mov r0, #0x1
 	add sp, #0x10
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204ACA8
-FUN_0204ACA8: ; 0x0204ACA8
+	thumb_func_start sub_0204ACA8
+sub_0204ACA8: ; 0x0204ACA8
 	push {r3-r7, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -251,16 +251,16 @@ FUN_0204ACA8: ; 0x0204ACA8
 	bl FieldSystem_GetOverriddenMusicId
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0204AD44
-	bl FUN_0200414C
+	bl sub_0204AD44
+	bl sub_0200414C
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	bl FUN_0204AC54
+	bl sub_0204AC54
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0204ACCC
-FUN_0204ACCC: ; 0x0204ACCC
+	thumb_func_start sub_0204ACCC
+sub_0204ACCC: ; 0x0204ACCC
 	cmp r1, #0x3
 	bhi _0204AD0A
 	add r0, r1, r1
@@ -300,8 +300,8 @@ _0204AD02:
 _0204AD0A:
 	bx lr
 
-	thumb_func_start FUN_0204AD0C
-FUN_0204AD0C: ; 0x0204AD0C
+	thumb_func_start sub_0204AD0C
+sub_0204AD0C: ; 0x0204AD0C
 	push {r3-r5, lr}
 	mov r1, #0x1
 	bl TrainerData_GetAttr
@@ -330,8 +330,8 @@ _0204AD38: .word 0x0000044D
 _0204AD3C: .word UNK_020F4718
 _0204AD40: .word UNK_020F471A
 
-	thumb_func_start FUN_0204AD44
-FUN_0204AD44: ; 0x0204AD44
+	thumb_func_start sub_0204AD44
+sub_0204AD44: ; 0x0204AD44
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl IsNighttime
@@ -345,53 +345,53 @@ _0204AD58:
 	bl MapHeader_GetNightMusicId
 	pop {r4, pc}
 
-	thumb_func_start FUN_0204AD60
-FUN_0204AD60: ; 0x0204AD60
+	thumb_func_start sub_0204AD60
+sub_0204AD60: ; 0x0204AD60
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r6, r1, #0x0
-	bl FUN_02004104
+	bl sub_02004104
 	cmp r0, #0x1
 	beq _0204AD88
-	bl FUN_02004124
+	bl sub_02004124
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl FUN_0204ABA8
+	bl sub_0204ABA8
 	cmp r4, r0
 	beq _0204AD88
 	mov r0, #0x0
 	mov r1, #0x28
-	bl FUN_020053CC
+	bl sub_020053CC
 _0204AD88:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204AD8C
-FUN_0204AD8C: ; 0x0204AD8C
+	thumb_func_start sub_0204AD8C
+sub_0204AD8C: ; 0x0204AD8C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_02004104
+	bl sub_02004104
 	cmp r0, #0x1
 	beq _0204ADB8
 	mov r0, #0x0
-	bl FUN_0200415C
+	bl sub_0200415C
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0204ABA8
+	bl sub_0204ABA8
 	add r4, r0, #0x0
-	bl FUN_0200414C
+	bl sub_0200414C
 	mov r0, #0x4
 	add r1, r4, #0x0
 	mov r2, #0x1
-	bl FUN_0200433C
+	bl sub_0200433C
 _0204ADB8:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204ADBC
-FUN_0204ADBC: ; 0x0204ADBC
+	thumb_func_start sub_0204ADBC
+sub_0204ADBC: ; 0x0204ADBC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -399,10 +399,10 @@ FUN_0204ADBC: ; 0x0204ADBC
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0204ABA8
-	bl FUN_0200414C
+	bl sub_0204ABA8
+	bl sub_0200414C
 	mov r0, #0x4
 	add r1, r6, #0x0
 	mov r2, #0x1
-	bl FUN_0200433C
+	bl sub_0200433C
 	pop {r4-r6, pc}

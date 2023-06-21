@@ -27,7 +27,7 @@ MOD05_021F61F4: ; 0x021F61F4
 	ldr r0, _021F622C ; =MOD05_021F6270
 	ldr r2, _021F6230 ; =0x0000FFFF
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021F622C: .word MOD05_021F6270
@@ -36,7 +36,7 @@ _021F6230: .word 0x0000FFFF
 	thumb_func_start MOD05_021F6234
 MOD05_021F6234: ; 0x021F6234
 	push {r3, lr}
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	ldr r0, [r0, #8]
 	pop {r3, pc}
 	.align 2, 0
@@ -45,10 +45,10 @@ MOD05_021F6234: ; 0x021F6234
 MOD05_021F6240: ; 0x021F6240
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021F6254
@@ -57,7 +57,7 @@ MOD05_021F6254: ; 0x021F6254
 	add r5, r1, #0
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	mov r1, #0
 	str r1, [r0, #4]
 	str r1, [r0, #8]
@@ -151,7 +151,7 @@ _021F62F2:
 
 	thumb_func_start MOD05_021F62FC
 MOD05_021F62FC: ; 0x021F62FC
-	ldr r3, _021F6308 ; =FUN_0201EFE0
+	ldr r3, _021F6308 ; =sub_0201EFE0
 	add r1, r0, #0
 	ldr r0, [r1, #0x20]
 	ldr r1, [r1, #0x30]

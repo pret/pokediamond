@@ -97,7 +97,7 @@ _021DBF8A:
 	mul r5, r0
 	ldr r1, [sp]
 	add r0, r7, #0
-	bl FUN_0201C578
+	bl sub_0201C578
 	str r0, [r6, r5]
 	ldr r0, [r6, r5]
 	cmp r0, #0
@@ -109,7 +109,7 @@ _021DBF8A:
 _021DBFA8:
 	ldr r1, [sp]
 	add r0, r7, #0
-	bl FUN_0201C5FC
+	bl sub_0201C5FC
 	add r1, r6, r5
 	str r0, [r1, #4]
 	ldr r1, _021DBFF4 ; =UNK05_021FD2BC
@@ -185,12 +185,12 @@ _021DC036:
 	ldrh r1, [r1, #0x20]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_0201C50C
+	bl sub_0201C50C
 	add r2, r0, #0
 	ldr r1, [r5]
 	ldr r3, [r5, #4]
 	mov r0, #0
-	bl FUN_0201C2C8
+	bl sub_0201C2C8
 	b _021DC05C
 _021DC058:
 	add r0, r0, #1

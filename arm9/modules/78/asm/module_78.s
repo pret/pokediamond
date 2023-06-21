@@ -100,7 +100,7 @@ _021D7558:
 	bl NNS_G3dGlbPolygonAttr
 	mov r0, #0
 	mov r1, #0x48
-	bl FUN_02079A70
+	bl sub_02079A70
 	mov r0, #1
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
@@ -176,7 +176,7 @@ _021D7622:
 	add r1, #0x9d
 	strb r0, [r1]
 	mov r1, #0x48
-	bl FUN_02079A70
+	bl sub_02079A70
 	b _021D7662
 _021D7654:
 	bl IsPaletteFadeFinished
@@ -208,16 +208,16 @@ _021D7680:
 	lsr r2, r0, #0x18
 	cmp r2, #4
 	blo _021D7668
-	bl FUN_020222AC
+	bl sub_020222AC
 	bl Camera_PushLookAtToNNSGlb
 	add r0, r4, #4
 	add r1, sp, #0
 	add r2, sp, #0x18
 	add r3, sp, #0xc
-	bl FUN_0201B26C
+	bl sub_0201B26C
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020222B4
+	bl sub_020222B4
 	mov r0, #0
 	add sp, #0x3c
 	pop {r3, r4, r5, r6, pc}
@@ -257,7 +257,7 @@ _021D76C8:
 	bl Camera_Free
 	ldr r0, [sp]
 	bl OverlayManager_FreeData
-	bl FUN_0201B398
+	bl sub_0201B398
 	mov r0, #0x48
 	bl DestroyHeap
 	mov r0, #1
@@ -270,7 +270,7 @@ MOD78_021D7708: ; 0x021D7708
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -285,7 +285,7 @@ MOD78_021D7708: ; 0x021D7708
 	str r0, [r2]
 	bl MOD78_021D776C
 	mov r0, #0x48
-	bl FUN_0201B2EC
+	bl sub_0201B2EC
 	ldr r2, _021D7760 ; =0x04000060
 	ldr r0, _021D7764 ; =0xFFFFCFFF
 	ldrh r1, [r2]
@@ -356,7 +356,7 @@ MOD78_021D778C: ; 0x021D778C
 	add r0, r5, #4
 	add r1, #0x58
 	add r2, #0x5c
-	bl FUN_0201B234
+	bl sub_0201B234
 	ldr r0, [r5, #0x5c]
 	bl NNS_G3dGetTex
 	str r0, [sp, #4]

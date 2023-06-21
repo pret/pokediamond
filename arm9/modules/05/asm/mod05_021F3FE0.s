@@ -410,7 +410,7 @@ _021F42EA:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	pop {r3, r4, r5, pc}
 _021F4302:
 	cmp r0, #1
@@ -572,7 +572,7 @@ MOD05_021F43E4: ; 0x021F43E4
 	str r2, [r0]
 	ldr r0, _021F4440 ; =MOD05_021F4200
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021F4440: .word MOD05_021F4200
@@ -580,7 +580,7 @@ _021F4440: .word MOD05_021F4200
 	thumb_func_start MOD05_021F4444
 MOD05_021F4444: ; 0x021F4444
 	push {r3, lr}
-	bl FUN_0201B6C8
+	bl sub_0201B6C8
 	mov r1, #1
 	add r0, #0xa0
 	str r1, [r0]

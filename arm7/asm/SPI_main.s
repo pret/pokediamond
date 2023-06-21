@@ -37,8 +37,8 @@ _03809E40: ;0x03809E40
 
     .section .text
 
-	arm_func_start FUN_03801150
-FUN_03801150: ;@ 0x03801150
+	arm_func_start sub_03801150
+sub_03801150: ;@ 0x03801150
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r2, #0
@@ -73,8 +73,8 @@ _038011B4:
 	ldmia	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_038011C0
-FUN_038011C0: ;@ 0x038011C0
+	arm_func_start sub_038011C0
+sub_038011C0: ;@ 0x038011C0
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #8
 	ldr	r6, _03801228	;@ =_03809C5C
@@ -369,16 +369,16 @@ SPI_Init: ;@ 0x03801544
 	bl	PM_Init
 	bl	PXI_Init
 	mov	r0, #6
-	ldr	r1, _03801648	;@ =FUN_03801150
+	ldr	r1, _03801648	;@ =sub_03801150
 	bl	PXI_SetFifoRecvCallback
 	mov	r0, #9
-	ldr	r1, _03801648	;@ =FUN_03801150
+	ldr	r1, _03801648	;@ =sub_03801150
 	bl	PXI_SetFifoRecvCallback
 	mov	r0, #8
-	ldr	r1, _03801648	;@ =FUN_03801150
+	ldr	r1, _03801648	;@ =sub_03801150
 	bl	PXI_SetFifoRecvCallback
 	mov	r0, #4
-	ldr	r1, _03801648	;@ =FUN_03801150
+	ldr	r1, _03801648	;@ =sub_03801150
 	bl	PXI_SetFifoRecvCallback
 	ldr	r0, _0380164C	;@ =_03809C5C
 	ldr	r1, _03801650	;@ =_03809C7C
@@ -405,7 +405,7 @@ _038015E0:
 	str	r0, [sp]
 	str	r4, [sp, #4]
 	ldr	r0, _03801658	;@ =_038099B8
-	ldr	r1, _0380165C	;@ =FUN_038011C0
+	ldr	r1, _0380165C	;@ =sub_038011C0
 	ldr	r3, _0380164C	;@ =_03809C5C
 	bl	OS_CreateThread
 	ldr	r0, _03801658	;@ =_038099B8
@@ -416,15 +416,15 @@ _03801634:
 	bx	lr
 _03801640:	.word	_038099AC
 _03801644:	.word	_038099B0
-_03801648:	.word	FUN_03801150
+_03801648:	.word	sub_03801150
 _0380164C:	.word	_03809C5C
 _03801650:	.word	_03809C7C
 _03801654:	.word	_03809CBC
 _03801658:	.word	_038099B8
-_0380165C:	.word	FUN_038011C0
+_0380165C:	.word	sub_038011C0
 
-	arm_func_start FUN_03801660
-FUN_03801660: ;@ 0x03801660
+	arm_func_start sub_03801660
+sub_03801660: ;@ 0x03801660
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r0, #0
@@ -446,8 +446,8 @@ _03801698:
 	bx	lr
 _038016A4:	.word	_03809E54
 
-	arm_func_start FUN_038016A8
-FUN_038016A8: ;@ 0x038016A8
+	arm_func_start sub_038016A8
+sub_038016A8: ;@ 0x038016A8
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	mov	r4, r0

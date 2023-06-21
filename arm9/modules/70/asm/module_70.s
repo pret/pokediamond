@@ -418,12 +418,12 @@ MOD70_021D77CC: ; 0x021D77CC
 	mov r2, #0x3d
 	str r2, [sp, #0x10]
 	add r2, r0, #0
-	bl FUN_02009EAC
+	bl sub_02009EAC
 	add r1, r4, #0
 	mov r0, #0x40
 	add r1, #0x38
 	mov r2, #0x3d
-	bl FUN_02008C9C
+	bl sub_02008C9C
 	str r0, [r4, #0x34]
 	ldr r2, _021D7898 ; =0x00000139
 	mov r0, #0
@@ -523,7 +523,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	ldr r0, [r4, r0]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x34]
-	bl FUN_0201FD58
+	bl sub_0201FD58
 	bl DeinitOamData
 	ldr r0, [r4, #0x10]
 	bl FreeToHeap
@@ -537,7 +537,7 @@ _021D790A:
 MOD70_021D790C: ; 0x021D790C
 	push {r3, lr}
 	ldr r0, [r0, #0x34]
-	bl FUN_0201FDEC
+	bl sub_0201FDEC
 	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021D7928 ; =0x027E0000
 	ldr r1, _021D792C ; =0x00003FF8
@@ -701,28 +701,28 @@ _021D7A32:
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	mov r1, #0
-	bl FUN_02020398
+	bl sub_02020398
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	mov r1, #0
-	bl FUN_02020310
+	bl sub_02020310
 	mov r0, #1
-	bl FUN_02005E80
+	bl sub_02005E80
 	ldrh r0, [r6, #0x30]
-	bl FUN_02005578
+	bl sub_02005578
 	b _021D7A76
 _021D7A5E:
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	mov r1, #1
-	bl FUN_02020398
+	bl sub_02020398
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	add r1, r4, #1
-	bl FUN_02020310
+	bl sub_02020310
 _021D7A76:
 	ldr r0, [r7, #0x14]
 	add r4, r4, #1
@@ -1290,7 +1290,7 @@ _021D7E68:
 	mov r0, #0
 	ldr r1, [r5, r1]
 	add r2, r0, #0
-	bl FUN_02002E14
+	bl sub_02002E14
 	add r3, r0, #0
 	mov r0, #0x10
 	str r0, [sp]
@@ -1399,7 +1399,7 @@ _021D7FD0:
 	ldr r0, [r5, r6]
 	cmp r0, #0
 	beq _021D7FDA
-	bl FUN_0201FFC8
+	bl sub_0201FFC8
 _021D7FDA:
 	add r4, r4, #1
 	add r5, r5, #4
@@ -1485,14 +1485,14 @@ _021D8050:
 	add r0, r0, #1
 	str r0, [sp, #0x64]
 	add r0, sp, #0x50
-	bl FUN_0201FF84
+	bl sub_0201FF84
 	mov r1, #0x16
 	lsl r1, r1, #4
 	str r0, [r5, r1]
 	add r0, r1, #0
 	ldr r0, [r5, r0]
 	mov r1, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	mov r0, #0x32
 	lsl r0, r0, #6
 	add r4, r4, r0
@@ -1568,7 +1568,7 @@ _021D80F4:
 	ldr r1, [r7, r1]
 	add r0, sp, #0x28
 	mov r2, #2
-	bl FUN_02068B68
+	bl sub_02068B68
 	ldr r0, [sp, #0x24]
 	add r1, sp, #0x28
 	str r0, [sp]
@@ -1585,7 +1585,7 @@ _021D80F4:
 	add r0, sp, #0x28
 	ldrh r0, [r0]
 	ldrh r1, [r1, #2]
-	bl FUN_02012530
+	bl sub_02012530
 	mov r1, #0x32
 	ldr r0, [sp, #0x24]
 	lsl r1, r1, #6
@@ -1611,27 +1611,27 @@ _021D80F4:
 	cmp r4, r0
 	bne _021D81A8
 	mov r0, #1
-	bl FUN_02005E80
+	bl sub_02005E80
 	ldrh r0, [r5, #0x30]
-	bl FUN_02005578
+	bl sub_02005578
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r6, r0]
 	mov r1, #0
-	bl FUN_02020398
+	bl sub_02020398
 	b _021D81B4
 _021D81A8:
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r6, r0]
 	mov r1, #1
-	bl FUN_02020398
+	bl sub_02020398
 _021D81B4:
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r6, r0]
 	mov r1, #1
-	bl FUN_020200A0
+	bl sub_020200A0
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	add r0, #0x1c
@@ -1661,7 +1661,7 @@ _021D81E4:
 _021D81F2:
 	ldr r0, [r5, r6]
 	add r1, r7, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6
@@ -1684,7 +1684,7 @@ MOD70_021D820C: ; 0x021D820C
 _021D8218:
 	ldr r0, [r5, r6]
 	add r1, r7, #0
-	bl FUN_020200A0
+	bl sub_020200A0
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6

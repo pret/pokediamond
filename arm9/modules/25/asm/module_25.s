@@ -24,7 +24,7 @@ MOD25_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD25_02254930
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -138,7 +138,7 @@ MOD25_02254930: ; 0x02254930
 	add r0, r4, #0
 	bl MOD25_02254918
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x28]
 	bl MOD20_022529A0
 _02254966:
@@ -331,7 +331,7 @@ _02254AA8:
 	ldr r0, _02254AC0 ; =MOD25_02254AE0
 	add r1, r4, #0
 	mov r2, #3
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #0x30]
 	str r4, [r5]
 	mov r0, #1
@@ -352,7 +352,7 @@ MOD25_02254AC4: ; 0x02254AC4
 	ldr r0, [r4, #0x30]
 	cmp r0, #0
 	beq _02254AD8
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 _02254AD8:
 	add r0, r4, #0
 	bl FreeToHeap

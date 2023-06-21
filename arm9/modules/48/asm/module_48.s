@@ -24,7 +24,7 @@ MOD48_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =MOD48_02254950
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -152,7 +152,7 @@ MOD48_02254950: ; 0x02254950
 	add r0, r4, #0
 	bl MOD48_02254938
 	add r0, r5, #0
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	ldr r0, [r4, #0x30]
 	bl MOD20_022529A0
 _02254986:
@@ -511,7 +511,7 @@ MOD48_02254BE8: ; 0x02254BE8
 	beq _02254C3C
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_0206B6D4
+	bl sub_0206B6D4
 	str r0, [sp]
 	add r0, r5, #0
 	add r0, #0xac
@@ -523,7 +523,7 @@ MOD48_02254BE8: ; 0x02254BE8
 	mov r1, #0
 	ldr r0, [r4]
 	add r2, r1, #0
-	bl FUN_0206B7BC
+	bl sub_0206B7BC
 	add r1, r0, #0
 	ldr r0, [r5, #0x24]
 	add r1, r1, #1
@@ -710,7 +710,7 @@ _02254D96:
 _02254D9E:
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_0206B6D4
+	bl sub_0206B6D4
 	add r1, r6, #0
 	add r1, #0x8c
 	add r7, r7, #1
@@ -803,7 +803,7 @@ _02254E48:
 _02254E5E:
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_0206B7BC
+	bl sub_0206B7BC
 	add r1, r0, #0
 	ldr r0, [sp, #0x20]
 	add r1, r1, #1

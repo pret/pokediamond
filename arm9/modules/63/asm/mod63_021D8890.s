@@ -415,7 +415,7 @@ MOD63_021D8BD8: ; 0x021D8BD8
 	ldr r0, [r4]
 	mov r2, #1
 	add r3, r1, #0
-	bl FUN_02022318
+	bl sub_02022318
 	str r0, [r4, #0x10]
 	ldr r3, _021D8C18 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #2
@@ -568,10 +568,10 @@ MOD63_021D8D10: ; 0x021D8D10
 	bl InitAllScreenBrightnessData
 	ldr r1, _021D8D90 ; =0x00007FFF
 	mov r0, #0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	ldr r1, _021D8D90 ; =0x00007FFF
 	mov r0, #1
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
@@ -644,10 +644,10 @@ _021D8DBC:
 	mov r0, #0
 	str r0, [r1, #0x6c]
 	ldr r1, _021D8E60 ; =0x00007FFF
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	ldr r1, _021D8E60 ; =0x00007FFF
 	mov r0, #1
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 _021D8DD4:
 	ldr r0, [r4]
 	cmp r0, #4
@@ -733,7 +733,7 @@ MOD63_021D8E68: ; 0x021D8E68
 	add r5, r0, #0
 	bl OverlayManager_GetData
 	add r4, r0, #0
-	bl FUN_0200E31C
+	bl sub_0200E31C
 	ldr r0, [r4, #0x14]
 	bl SetLCRNGSeed
 	add r0, r5, #0
@@ -1051,12 +1051,12 @@ _021D90FE:
 	ldr r0, _021D9210 ; =MOD63_021D92A4
 	strb r2, [r4, #8]
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #0x10]
 	mov r0, #1
 	ldr r1, _021D9214 ; =0x00000494
 	add r2, r0, #0
-	bl FUN_0200433C
+	bl sub_0200433C
 	ldrb r0, [r4, #1]
 	add r0, r0, #1
 	strb r0, [r4, #1]
@@ -1074,7 +1074,7 @@ _021D9122:
 	ldr r0, _021D9218 ; =MOD63_021D9300
 	strb r2, [r4, #8]
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #0x10]
 	ldrb r0, [r4, #1]
 	add r0, r0, #1
@@ -1119,7 +1119,7 @@ _021D9148:
 	ldr r0, _021D9228 ; =MOD63_021D9360
 	strb r2, [r4, #8]
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #0x10]
 	ldrb r0, [r4, #1]
 	add r0, r0, #1
@@ -1135,7 +1135,7 @@ _021D91AE:
 	ldr r0, _021D922C ; =MOD63_021D93A8
 	strb r2, [r4, #8]
 	add r1, r4, #0
-	bl FUN_0200CA44
+	bl sub_0200CA44
 	str r0, [r4, #0x10]
 	ldrb r0, [r4, #1]
 	add r0, r0, #1
@@ -1230,7 +1230,7 @@ _021D9286:
 	bl GF_AssertFail
 _021D9296:
 	ldr r0, [r4, #0x28]
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	str r0, [r4, #0x28]
 _021D92A0:
@@ -1258,7 +1258,7 @@ _021D92C0:
 	ldrb r1, [r4, #6]
 	cmp r1, #0x10
 	blo _021D92D2
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r0, #1
@@ -1305,7 +1305,7 @@ _021D931C:
 	ldrb r1, [r4, #6]
 	cmp r1, #0
 	bne _021D9332
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r1, #1
@@ -1354,7 +1354,7 @@ _021D937C:
 	ldrb r1, [r4, #6]
 	cmp r1, #0x10
 	blo _021D938E
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r0, #1
@@ -1393,7 +1393,7 @@ _021D93C4:
 	ldrb r1, [r4, #6]
 	cmp r1, #0x10
 	blo _021D93D6
-	bl FUN_0200CAB4
+	bl sub_0200CAB4
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r0, #1
@@ -1721,7 +1721,7 @@ _021D965E:
 	ldr r0, [r5, #0xc]
 	bl FreeToHeap
 	ldr r0, [r5, #0x10]
-	bl FUN_020223BC
+	bl sub_020223BC
 	mov r0, #0
 	add r5, #0x36
 	strb r0, [r5]
@@ -1914,7 +1914,7 @@ MOD63_021D9810: ; 0x021D9810
 	str r0, [r5, #0x3c]
 	bl NNS_G3dGetTex
 	str r0, [r5, #0x40]
-	bl FUN_0201B3C4
+	bl sub_0201B3C4
 	cmp r0, #0
 	bne _021D9834
 	bl GF_AssertFail
@@ -1957,7 +1957,7 @@ _021D9862:
 	add r0, #0x9c
 	ldr r0, [r0]
 	ldr r1, [r5, #0x40]
-	bl FUN_0201B3A8
+	bl sub_0201B3A8
 	cmp r0, #0
 	bne _021D9890
 	bl GF_AssertFail
@@ -2090,7 +2090,7 @@ _021D998C:
 	str r0, [r1]
 	str r0, [r1, #4]
 	str r0, [r1, #8]
-	bl FUN_020222AC
+	bl sub_020222AC
 	bl Camera_PushLookAtToNNSGlb
 	mov r4, #0
 	add r5, #0x48
@@ -2103,7 +2103,7 @@ _021D99BE:
 	add r1, r7, #0
 	add r2, sp, #0x18
 	add r3, sp, #0xc
-	bl FUN_0201B26C
+	bl sub_0201B26C
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -2111,7 +2111,7 @@ _021D99BE:
 	blo _021D99BE
 	mov r0, #0
 	mov r1, #1
-	bl FUN_020222B4
+	bl sub_020222B4
 	add sp, #0x3c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3005,10 +3005,10 @@ MOD63_021DA11C: ; 0x021DA11C
 	str r1, [r4, r0]
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	ldr r0, _021DA150 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]

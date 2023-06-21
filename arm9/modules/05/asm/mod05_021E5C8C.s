@@ -110,7 +110,7 @@ MOD05_021E5D50: ; 0x021E5D50
 	sub sp, #0xc
 	add r6, r0, #0
 	add r5, r1, #0
-	bl FUN_0206475C
+	bl sub_0206475C
 	ldr r1, [r0]
 	ldr r0, [r0, #4]
 	mov r2, #1
@@ -147,7 +147,7 @@ MOD05_021E5D50: ; 0x021E5D50
 	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #0
 	add r1, sp, #0
-	bl FUN_0206477C
+	bl sub_0206477C
 	add r4, #0x18
 	ldr r1, [sp]
 	ldr r2, [sp, #4]

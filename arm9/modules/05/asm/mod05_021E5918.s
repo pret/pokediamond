@@ -67,7 +67,7 @@ MOD05_021E5970: ; 0x021E5970
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x1c]
-	bl FUN_02058B5C
+	bl sub_02058B5C
 	add r0, sp, #0x14
 	str r0, [sp]
 	mov r0, #0xff
@@ -88,7 +88,7 @@ MOD05_021E59AC: ; 0x021E59AC
 	sub sp, #0xc
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_0206475C
+	bl sub_0206475C
 	add r3, r0, #0
 	add r2, r4, #0
 	ldmia r3!, {r0, r1}
@@ -100,17 +100,17 @@ MOD05_021E59AC: ; 0x021E59AC
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x3c]
-	bl FUN_02058450
+	bl sub_02058450
 	str r0, [r4, #0xc]
 	mov r0, #6
 	lsl r0, r0, #0xc
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl FUN_02058B5C
+	bl sub_02058B5C
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_0206476C
+	bl sub_0206476C
 	mov r0, #0x3c
 	str r0, [r4, #0x30]
 	mov r0, #1
@@ -141,7 +141,7 @@ _021E5A0E:
 _021E5A16:
 	ldr r0, [r1, #0x3c]
 	add r1, sp, #0
-	bl FUN_02058B5C
+	bl sub_02058B5C
 	mov r0, #0xa
 	ldr r1, [sp, #8]
 	lsl r0, r0, #0xc
@@ -149,7 +149,7 @@ _021E5A16:
 	str r0, [sp, #8]
 	add r0, r4, #0
 	add r1, sp, #0
-	bl FUN_0206476C
+	bl sub_0206476C
 	add sp, #0xc
 	pop {r3, r4, pc}
 
@@ -177,7 +177,7 @@ _021E5A4E:
 	add r1, sp, #0x54
 	str r0, [r5]
 	add r0, r2, #0
-	bl FUN_0206477C
+	bl sub_0206477C
 	mov r0, #0x19
 	ldr r1, [sp, #0x58]
 	lsl r0, r0, #0xc
@@ -194,7 +194,7 @@ _021E5A4E:
 	add r0, sp, #0x24
 	mov r1, #0x5a
 	add r3, r2, #0
-	bl FUN_0201CB20
+	bl sub_0201CB20
 	add r0, r5, #0
 	add r1, sp, #0
 	bl MI_Copy36B
@@ -207,7 +207,7 @@ _021E5A4E:
 	add r0, #0xc
 	add r2, sp, #0x24
 	add r3, sp, #0x48
-	bl FUN_0201B2A8
+	bl sub_0201B2A8
 	add sp, #0x60
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

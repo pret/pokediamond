@@ -3,7 +3,7 @@
 #include "heap.h"
 #include "unk_02021FF8.h"
 
-struct UnkStruct_020220C4 * FUN_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, u32 a4)
+struct UnkStruct_020220C4 * sub_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, u32 a4)
 {
     struct UnkStruct_020220C4 * ret;
     s32 i;
@@ -20,7 +20,7 @@ struct UnkStruct_020220C4 * FUN_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u
         {
             for (i = 0; i < a1; i++)
             {
-                FUN_02022120(&ret->field_10[i]);
+                sub_02022120(&ret->field_10[i]);
             }
         }
         else
@@ -32,49 +32,49 @@ struct UnkStruct_020220C4 * FUN_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u
     return ret;
 }
 
-void FUN_02022120(struct UnkStruct_020220C4_sub * sub)
+void sub_02022120(struct UnkStruct_020220C4_sub * sub)
 {
     sub->field_0 = 0;
     sub->field_1 = 0;
     sub->field_2 = 0;
 }
 
-void FUN_0202212C(struct UnkStruct_020220C4 * unk)
+void sub_0202212C(struct UnkStruct_020220C4 * unk)
 {
     GF_ASSERT(unk != NULL);
     FreeToHeap(unk->field_10);
     FreeToHeap(unk);
 }
 
-extern u16 FUN_02020A98(void);
-extern u16 FUN_02020AA4(void);
-extern u8 FUN_02020A40(u8 * a0);
-extern u8 FUN_02020A6C(u8 * a0);
+extern u16 sub_02020A98(void);
+extern u16 sub_02020AA4(void);
+extern u8 sub_02020A40(u8 * a0);
+extern u8 sub_02020A6C(u8 * a0);
 
 s32 (*const UNK_020EE6CC[])(struct UnkStruct_020220C4_sub * a0, u32 a1, u32 a2) = {
-    FUN_020221EC,
-    FUN_02022208
+    sub_020221EC,
+    sub_02022208
 };
 
-void FUN_02022144(struct UnkStruct_020220C4 * unk)
+void sub_02022144(struct UnkStruct_020220C4 * unk)
 {
     u32 sp4;
-    u32 sp0 = FUN_02020A98();
+    u32 sp0 = sub_02020A98();
     s32 i;
     s32 r1;
     if (sp0 != 0)
     {
-        sp4 = FUN_02020AA4();
+        sp4 = sub_02020AA4();
         for (i = 0; i < unk->field_4; i++)
         {
             u8 res;
             if (unk->field_10[i].field_1 != 0)
             {
-                res = FUN_02020A40(&unk->field_0[4 * i]);
+                res = sub_02020A40(&unk->field_0[4 * i]);
             }
             else
             {
-                res = FUN_02020A6C(&unk->field_0[4 * i]);
+                res = sub_02020A6C(&unk->field_0[4 * i]);
             }
             unk->field_10[i].field_1 = res;
         }
@@ -97,18 +97,18 @@ void FUN_02022144(struct UnkStruct_020220C4 * unk)
     }
 }
 
-s32 FUN_020221EC(struct UnkStruct_020220C4_sub * a0, u32 a1, u32 a2)
+s32 sub_020221EC(struct UnkStruct_020220C4_sub * a0, u32 a1, u32 a2)
 {
 #pragma unused(a1)
     if (a0->field_1 && a2)
     {
-        FUN_0202223C(a0, 1);
+        sub_0202223C(a0, 1);
         return 0;
     }
     return -1;
 }
 
-s32 FUN_02022208(struct UnkStruct_020220C4_sub * a0, u32 a1, u32 a2)
+s32 sub_02022208(struct UnkStruct_020220C4_sub * a0, u32 a1, u32 a2)
 {
 #pragma unused(a2)
     if (a0->field_1)
@@ -119,14 +119,14 @@ s32 FUN_02022208(struct UnkStruct_020220C4_sub * a0, u32 a1, u32 a2)
     }
     else if (a1)
     {
-        FUN_0202223C(a0, 0);
+        sub_0202223C(a0, 0);
         return 3;
     }
-    FUN_0202223C(a0, 0);
+    sub_0202223C(a0, 0);
     return 1;
 }
 
-void FUN_0202223C(struct UnkStruct_020220C4_sub * a0, u8 a1)
+void sub_0202223C(struct UnkStruct_020220C4_sub * a0, u8 a1)
 {
     a0->field_0 = a1;
     a0->field_2 = 0;
