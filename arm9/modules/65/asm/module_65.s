@@ -970,7 +970,7 @@ MOD65_021D7C04: ; 0x021D7C04
 	ldr r2, [r6]
 	mov r0, #0
 	lsl r1, r1, #6
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0x1a
 	ldr r2, [r6]
 	mov r0, #4
@@ -3284,7 +3284,7 @@ MOD65_021D8E68: ; 0x021D8E68
 	ldr r2, [r4]
 	mov r0, #0
 	lsl r1, r1, #4
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	add sp, #8
 	pop {r4, pc}
 	nop

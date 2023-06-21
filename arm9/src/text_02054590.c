@@ -13,7 +13,7 @@ void FUN_02054590(enum GFPalLoadLocation location, u32 param1)
         ResetAllTextPrinters();
     }
     LoadFontPal0(location, GF_PAL_SLOT_OFFSET_13, 4);
-    FUN_02002EEC(location, GF_PAL_SLOT_OFFSET_12, 4);
+    LoadFontPal1(location, GF_PAL_SLOT_OFFSET_12, 4);
 }
 
 void FUN_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2)

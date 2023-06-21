@@ -593,7 +593,7 @@ void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
     FUN_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heap_id);
     LoadUserFrameGfx1(data->bgConfig, GF_BG_LYR_MAIN_0, 985, 3, 0, data->heap_id);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_5, data->heap_id);
-    FUN_02002EEC(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_6, data->heap_id);
+    LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_6, data->heap_id);
 
     struct BgTemplate bgTemplateSub = MOD59_021D9EBC;
     bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7800;

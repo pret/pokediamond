@@ -188,7 +188,7 @@ u32 GetStringWidth(struct FontData * ptr, const u16 * str, u32 letterSpacing)
 
     while (*str != EOS)
     {
-        if (*str == 0xFFFE)
+        if (*str == EXT_CTRL_CODE_BEGIN)
         {
             str = MsgArray_SkipControlCode(str);
             if (*str == EOS)
@@ -215,13 +215,13 @@ s32 GetStringWidthMultiline(struct FontData * r7, const u16 * arr, u32 r6)
 {
     s32 ret = 0;
     u32 r4 = 0;
-    while (*arr != 0xFFFF)
+    while (*arr != EOS)
     {
-        if (*arr == 0xFFFE)
+        if (*arr == EXT_CTRL_CODE_BEGIN)
         {
             arr = MsgArray_SkipControlCode(arr);
         }
-        else if (*arr == 0xE000) // newline
+        else if (*arr == CHAR_LF)
         {
             if (ret < r4 - r6)
                 ret = (int)(r4 - r6);
@@ -242,9 +242,9 @@ s32 GetStringWidthMultiline(struct FontData * r7, const u16 * arr, u32 r6)
 s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData * r6, const u16 * arr)
 {
     s32 ret = 0;
-    while (*arr != 0xFFFF)
+    while (*arr != EOS)
     {
-        if (*arr == 0xFFFE)
+        if (*arr == EXT_CTRL_CODE_BEGIN)
         {
             if (MsgArray_GetControlCode(arr) == 515)
             {

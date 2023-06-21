@@ -1655,7 +1655,7 @@ _0207A99E:
 	mov r0, #0x0
 	lsl r1, r1, #0x6
 	mov r2, #0x13
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0x93
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
@@ -4733,7 +4733,7 @@ FUN_0207C23C: ; 0x0207C23C
 	mov r0, #0x0
 	sub r1, #0xda
 	mov r2, #0x13
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0x93
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]

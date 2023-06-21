@@ -238,7 +238,7 @@
 .extern FUN_02002E14
 .extern GetFontAttribute
 .extern LoadFontPal0
-.extern FUN_02002EEC
+.extern LoadFontPal1
 .extern FUN_02002F08
 .extern FUN_02002F40
 .extern FUN_02002F90

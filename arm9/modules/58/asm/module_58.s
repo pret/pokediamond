@@ -594,12 +594,12 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x27
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0x1a
 	mov r0, #4
 	lsl r1, r1, #4
 	mov r2, #0x27
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #1
 	mov r1, #0x20
 	mov r2, #0

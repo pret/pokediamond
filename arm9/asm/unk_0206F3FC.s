@@ -1298,7 +1298,7 @@ FUN_0206FD24: ; 0x0206FD24
 	mov r0, #0x0
 	lsl r1, r1, #0x4
 	mov r2, #0xc
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r0, #0xc

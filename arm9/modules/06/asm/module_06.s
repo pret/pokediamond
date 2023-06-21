@@ -41729,7 +41729,7 @@ MOD06_0224DBCC: ; 0x0224DBCC
 	ldr r2, [r4, #0x18]
 	mov r0, #0
 	lsl r1, r1, #6
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r4, #0x18]

@@ -913,12 +913,12 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	ldr r2, [r4]
 	mov r0, #0
 	lsl r1, r1, #6
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #6
 	ldr r2, [r4]
 	mov r0, #4
 	lsl r1, r1, #6
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	add r0, r4, #0
 	add r0, #0x2c
 	mov r1, #0
