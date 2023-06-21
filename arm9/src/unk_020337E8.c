@@ -2,8 +2,8 @@
 #include "unk_020337E8.h"
 #include "heap.h"
 
-extern struct DWC_Struct *FUN_020286EC(struct SaveData *save);
-extern struct DWC_Struct *FUN_02028228(struct DWC_Struct *);
+extern struct DWC_Struct *sub_020286EC(struct SaveData *save);
+extern struct DWC_Struct *sub_02028228(struct DWC_Struct *);
 
 // DWC_init
 extern s32 DWC_Init(s32);
@@ -17,7 +17,7 @@ extern BOOL DWC_CheckValidConsole(struct DWC_Struct *);
 extern BOOL DWC_CheckUserData(struct DWC_Struct *);
 extern s32 DWC_GetGsProfileId(struct DWC_Struct *, struct DWC_token *);
 
-s32 FUN_020337E8(u32 heap_id)
+s32 sub_020337E8(u32 heap_id)
 {
     s32 ret = (s32)AllocFromHeap(heap_id, 0x720);
     s32 ret1 = DWC_Init((ret + 0x1F) & ~0x1F);
@@ -25,9 +25,9 @@ s32 FUN_020337E8(u32 heap_id)
     return ret1;
 }
 
-void FUN_0203380C(struct DWC_Struct *dwc)
+void sub_0203380C(struct DWC_Struct *dwc)
 {
-    struct DWC_Struct * dwc1 = FUN_02028228(dwc);
+    struct DWC_Struct * dwc1 = sub_02028228(dwc);
     if(!DWC_CheckUserData(dwc1))
     {
         DWC_CreateUserData(dwc1, 0x4144414A);
@@ -35,17 +35,17 @@ void FUN_0203380C(struct DWC_Struct *dwc)
     }
 }
 
-s32 FUN_02033830(struct DWC_Struct *dwc)
+s32 sub_02033830(struct DWC_Struct *dwc)
 {
     struct DWC_token token;
 
-    struct DWC_Struct * dwc1 = FUN_02028228(dwc);
+    struct DWC_Struct * dwc1 = sub_02028228(dwc);
     DWC_CreateExchangeToken(dwc1, &token);
     return DWC_GetGsProfileId(dwc1, &token);
 }
 
-BOOL FUN_0203384C(struct SaveData *save)
+BOOL sub_0203384C(struct SaveData *save)
 {
-    struct DWC_Struct * dwc = FUN_02028228(FUN_020286EC(save));
+    struct DWC_Struct * dwc = sub_02028228(sub_020286EC(save));
     return (DWC_CheckHasProfile(dwc) && DWC_CheckValidConsole(dwc));
 }

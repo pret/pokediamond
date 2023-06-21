@@ -27,7 +27,7 @@ const struct FontInfo gFontInfos[5] = {
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
 };
 
-void FUN_02002C14()
+void sub_02002C14()
 {
     UNK_02106FC8 = &UNK_02106FCC;
 
@@ -40,13 +40,13 @@ void FUN_02002C14()
     SetFontsPointer(&gFontInfos[0]);
 }
 
-void FUN_02002C50(u32 font_id, u32 heap_id)
+void sub_02002C50(u32 font_id, u32 heap_id)
 {
     UNK_02106FC8->unk94[font_id] =
         FontData_New(NARC_GRAPHIC_FONT, UNK_020ECB54[font_id][0], 1, UNK_020ECB54[font_id][1], heap_id);
 }
 
-void FUN_02002C84(s32 param0, u32 param1)
+void sub_02002C84(s32 param0, u32 param1)
 {
     GF_ASSERT(param0 < 4);
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
@@ -54,7 +54,7 @@ void FUN_02002C84(s32 param0, u32 param1)
     FontData_ModeSwitch(UNK_02106FC8->unk94[param0], 0, param1);
 }
 
-void FUN_02002CC0(s32 param0)
+void sub_02002CC0(s32 param0)
 {
     GF_ASSERT(param0 < 4);
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
@@ -62,7 +62,7 @@ void FUN_02002CC0(s32 param0)
     FontData_ModeSwitch(UNK_02106FC8->unk94[param0], 1, 0);
 }
 
-void FUN_02002CF8(int param0)
+void sub_02002CF8(int param0)
 {
 
     GF_ASSERT(param0 < 4);
@@ -94,7 +94,7 @@ void FUN_02002CF8(int param0)
     }
 }
 
-struct UnkStruct_02002C14_sub *FUN_02002D94(u32 param0, u32 param1)
+struct UnkStruct_02002C14_sub *sub_02002D94(u32 param0, u32 param1)
 {
     TryLoadGlyph(UNK_02106FC8->unk94[param0], param1, &UNK_02106FC8->unk00);
 
@@ -115,14 +115,14 @@ u32 FontFunc(u32 fontId, struct TextPrinter *printer)
     return RenderText(printer);
 }
 
-u32 FUN_02002DE0(u32 param0, u16 *str, u32 param2)
+u32 sub_02002DE0(u32 param0, u16 *str, u32 param2)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
     return GetStringWidth(UNK_02106FC8->unk94[param0], str, param2);
 }
 
-u32 FUN_02002E14(u32 param0, struct String *str, u32 param2)
+u32 sub_02002E14(u32 param0, struct String *str, u32 param2)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
@@ -173,16 +173,16 @@ void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotO
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0007_NCLR, location, palSlotOffset, 0x20, heapId);
 }
 
-s32 FUN_02002F08(u32 param0, struct String *str, u32 param2)
+s32 sub_02002F08(u32 param0, struct String *str, u32 param2)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
     return GetStringWidthMultiline(UNK_02106FC8->unk94[param0], String_c_str(str), param2);
 }
 
-u32 FUN_02002F40(u32 param0, struct String *str, u32 param2, u32 param3)
+u32 sub_02002F40(u32 param0, struct String *str, u32 param2, u32 param3)
 {
-    u32 r0 = FUN_02002E14(param0, str, param2);
+    u32 r0 = sub_02002E14(param0, str, param2);
     if (r0 < param3)
     {
         return (param3 - r0) / 2;
@@ -191,7 +191,7 @@ u32 FUN_02002F40(u32 param0, struct String *str, u32 param2, u32 param3)
     return 0;
 }
 
-u32 FUN_02002F58(const u16 *str)
+u32 sub_02002F58(const u16 *str)
 {
     u32 r5 = 1;
     while (*str != EOS)
@@ -215,12 +215,12 @@ u32 FUN_02002F58(const u16 *str)
     return r5;
 }
 
-u32 FUN_02002F90(struct String *str)
+u32 sub_02002F90(struct String *str)
 {
-    return FUN_02002F58(String_c_str(str));
+    return sub_02002F58(String_c_str(str));
 }
 
-s32 FUN_02002F9C(u32 param0, struct String *str)
+s32 sub_02002F9C(u32 param0, struct String *str)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 

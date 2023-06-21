@@ -4,6 +4,6 @@
 #include "save.h"
 #include "pokemon.h"
 
-void FUN_0202C144(struct SaveData * save, struct Pokemon * mon);
+void sub_0202C144(struct SaveData * save, struct Pokemon * mon);
 
 #endif //POKEDIAMOND_UNK_0202C144_H

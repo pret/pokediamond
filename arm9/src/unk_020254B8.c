@@ -4,17 +4,17 @@
 #include "heap.h"
 #include "unk_020254B8.h"
 
-u32 FUN_020254B8(void)
+u32 sub_020254B8(void)
 {
     return 16 * sizeof(struct UnkStruct_020254B8);
 }
 
-struct UnkStruct_020254B8 * FUN_020254C0(struct SaveData * save)
+struct UnkStruct_020254B8 * sub_020254C0(struct SaveData * save)
 {
     return (struct UnkStruct_020254B8 *)SaveArray_Get(save, 9);
 }
 
-void FUN_020254CC(struct UnkStruct_020254B8 * arr)
+void sub_020254CC(struct UnkStruct_020254B8 * arr)
 {
     s32 i;
 
@@ -25,22 +25,22 @@ void FUN_020254CC(struct UnkStruct_020254B8 * arr)
     }
 }
 
-u16 * FUN_020254F0(struct UnkStruct_020254B8 * arr, s32 i)
+u16 * sub_020254F0(struct UnkStruct_020254B8 * arr, s32 i)
 {
     return arr[i].field_00;
 }
 
-u8 FUN_020254F8(struct UnkStruct_020254B8 * unk, s32 i)
+u8 sub_020254F8(struct UnkStruct_020254B8 * unk, s32 i)
 {
     return unk->field_68[i];
 }
 
-BOOL FUN_02025500(struct UnkStruct_020254B8 * a, struct UnkStruct_020254B8 * b)
+BOOL sub_02025500(struct UnkStruct_020254B8 * a, struct UnkStruct_020254B8 * b)
 {
     return !StringNotEqual(a->field_00, b->field_00) && a->field_10 == b->field_10;
 }
 
-void FUN_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * sp4, s32 n, u32 heap_id)
+void sub_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * sp4, s32 n, u32 heap_id)
 {
     s32 sp18[5];
     s32 sp14;
@@ -52,7 +52,7 @@ void FUN_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * s
 
     // auto buffer = new UnkStruct_020254B8[16]
     sp10 = AllocFromHeap(heap_id, 16 * sizeof(struct UnkStruct_020254B8));
-    FUN_020254CC(sp10);
+    sub_020254CC(sp10);
 
     // Look up each element of sp4 in sp0
     for (sp14 = 0; sp14 < n; sp14++)
@@ -60,7 +60,7 @@ void FUN_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * s
         sp18[sp14] = -1;
         for (r4_2 = 0; r4_2 < 16; r4_2++)
         {
-            if (FUN_02025500(&sp0[r4_2], &sp4[sp14]))
+            if (sub_02025500(&sp0[r4_2], &sp4[sp14]))
                 sp18[sp14] = r4_2;
         }
     }
@@ -91,7 +91,7 @@ void FUN_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * s
     FreeToHeap(sp10);
 }
 
-s32 FUN_02025614(struct UnkStruct_020254B8 * a0, u32 a1)
+s32 sub_02025614(struct UnkStruct_020254B8 * a0, u32 a1)
 {
     s32 i, j;
 

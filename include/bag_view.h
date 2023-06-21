@@ -33,22 +33,22 @@ struct BagView
 
 struct BagView *BagView_New(u8 heap_id);
 u32 BagView_sizeof();
-void FUN_0206E30C(struct BagView *bag_view, u8 r1);
-void FUN_0206E314(
+void sub_0206E30C(struct BagView *bag_view, u8 r1);
+void sub_0206E314(
     struct BagView *bag_view, struct SaveData *save, u8 r2, struct UnkStruct_0206F164 *r3);
 void BagView_SetItem(struct BagView *bag_view, struct ItemSlot *slot, u8 pocket, u8 idx);
-void FUN_0206E340(struct BagView *bag_view);
-void FUN_0206E354(struct BagView *bag_view, u32 r1);
-void FUN_0206E358(struct BagView *bag_view, u8 r1);
-void FUN_0206E360(struct BagView *bag_view, u16 r1);
-u16 FUN_0206E37C(struct BagView *bag_view);
-u16 FUN_0206E384(struct BagView *bag_view);
-u8 FUN_0206E38C(struct BagView *bag_view);
-u8 FUN_0206E394(struct BagView *bag_view);
-u32 FUN_0206E3C8(struct SaveData *save);
-u32 FUN_0206E3D8(struct SaveData *save);
-u32 FUN_0206E3E8(struct SaveData *save);
+void sub_0206E340(struct BagView *bag_view);
+void sub_0206E354(struct BagView *bag_view, u32 r1);
+void sub_0206E358(struct BagView *bag_view, u8 r1);
+void sub_0206E360(struct BagView *bag_view, u16 r1);
+u16 sub_0206E37C(struct BagView *bag_view);
+u16 sub_0206E384(struct BagView *bag_view);
+u8 sub_0206E38C(struct BagView *bag_view);
+u8 sub_0206E394(struct BagView *bag_view);
+u32 sub_0206E3C8(struct SaveData *save);
+u32 sub_0206E3D8(struct SaveData *save);
+u32 sub_0206E3E8(struct SaveData *save);
 BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id);
-void FUN_0206E51C(PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
+void sub_0206E51C(PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
 
 #endif // POKEDIAMOND_BAG_VIEW_H

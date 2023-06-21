@@ -90,7 +90,7 @@ BuildAnalyzer &BuildAnalyzer::operator()() {
     if (analyzed) {
         reset();
     }
-    string pattern = srcbase.string() + "/{src,asm,lib/{src,asm},lib/*/{src,asm},modules/*/{asm,src}}/*.{c,s,cpp}";
+    string pattern = srcbase.string() + "/{src,asm,lib/{src,asm},lib/*/{src,asm},overlays/*/{asm,src}}/*.{c,s,cpp}";
     for (char const * & fname : Glob(pattern, GLOB_TILDE | GLOB_BRACE | GLOB_NOSORT)) {
         if (string(fname).find("lib/syscall/") == string::npos) {
             AnalyzeObject(fname);

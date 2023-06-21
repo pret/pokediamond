@@ -3,8 +3,8 @@
 
 	.section .text
 
-	arm_func_start FUN_03806474
-FUN_03806474: ;@ 0x03806474
+	arm_func_start sub_03806474
+sub_03806474: ;@ 0x03806474
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r4, _0380665C	;@ =wmspW
@@ -18,8 +18,8 @@ FUN_03806474: ;@ 0x03806474
 	ldrh	r0, [r0]
 	cmp	r0, #0
 	beq	_038064B0
-	bl	FUN_03806668
-	bl	FUN_03806670
+	bl	sub_03806668
+	bl	sub_03806670
 _038064B0:
 	add	r0, r4, #136	;@ 0x88
 	add	r1, sp, #0
@@ -50,15 +50,15 @@ _038064B0:
 	strh	r0, [r1]
 	b	_038064B0
 _03806520:
-	bl	FUN_03806678
-	bl	FUN_038068BC
+	bl	sub_03806678
+	bl	sub_038068BC
 	cmp	r0, #0
 	beq	_03806548
 	add	r0, r4, #136	;@ 0x88
 	mov	r1, #0
 	mov	r2, #1
 	bl	OS_SendMessage
-	bl	FUN_03806678
+	bl	sub_03806678
 	bl	OS_JoinThread
 _03806548:
 	add	r0, r4, #136	;@ 0x88
@@ -80,7 +80,7 @@ _03806548:
 	beq	_03806590
 	bl	OS_Terminate
 _03806590:
-	bl	FUN_03806680
+	bl	sub_03806680
 	add	r7, r4, #40	;@ 0x28
 	add	r6, sp, #0
 	mov	r5, #0
@@ -91,15 +91,15 @@ _038065A0:
 	bl	OS_ReceiveMessage
 	cmp	r0, #0
 	bne	_038065A0
-	bl	FUN_03806688
-	bl	FUN_038068BC
+	bl	sub_03806688
+	bl	sub_038068BC
 	cmp	r0, #0
 	beq	_038065E0
 	add	r0, r4, #40	;@ 0x28
 	mov	r1, #0
 	mov	r2, #1
 	bl	OS_SendMessage
-	bl	FUN_03806688
+	bl	sub_03806688
 	bl	OS_JoinThread
 _038065E0:
 	mov	r0, #1
@@ -116,7 +116,7 @@ _038065E0:
 	movne	r0, #0
 	strneh	r0, [r1]
 _03806614:
-	bl	FUN_03806970
+	bl	sub_03806970
 	mov	r6, #15
 	mov	r5, #131072	;@ 0x20000
 	mov	r4, #0
@@ -139,39 +139,39 @@ _0380665C:	.word	wmspW
 _03806660:	.word	_0601A960
 _03806664:	.word	_0380A3F0
 
-	arm_func_start FUN_03806668
-FUN_03806668: ;@ 0x03806668
+	arm_func_start sub_03806668
+sub_03806668: ;@ 0x03806668
 	ldr	pc, _0380666C	;@ =WMSP_CancelVAlarm
 _0380666C:	.word	WMSP_CancelVAlarm
 
-	arm_func_start FUN_03806670
-FUN_03806670: ;@ 0x03806670
+	arm_func_start sub_03806670
+sub_03806670: ;@ 0x03806670
 	ldr	pc, _03806674	;@ =WMSP_CancelAllAlarms
 _03806674:	.word	WMSP_CancelAllAlarms
 
-	arm_func_start FUN_03806678
-FUN_03806678: ;@ 0x03806678
+	arm_func_start sub_03806678
+sub_03806678: ;@ 0x03806678
 	ldr	pc, _0380667C	;@ =WMSP_GetRequestThread
 _0380667C:	.word	WMSP_GetRequestThread
 
-	arm_func_start FUN_03806680
-FUN_03806680: ;@ 0x03806680
+	arm_func_start sub_03806680
+sub_03806680: ;@ 0x03806680
 	ldr	pc, _03806684	;@ =WL_Terminate
 _03806684:	.word	WL_Terminate
 
-	arm_func_start FUN_03806688
-FUN_03806688: ;@ 0x03806688
+	arm_func_start sub_03806688
+sub_03806688: ;@ 0x03806688
 	ldr	pc, _0380668C	;@ =WMSP_GetIndicateThread
 _0380668C:	.word	WMSP_GetIndicateThread
 
-	arm_func_start FUN_03806690
-FUN_03806690: ;@ 0x03806690
+	arm_func_start sub_03806690
+sub_03806690: ;@ 0x03806690
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	bl	OS_DisableInterrupts
 	mov	r4, r0
 	ldr	r0, _03806738	;@ =_0380A400
-	bl	FUN_038068BC
+	bl	sub_038068BC
 	cmp	r0, #0
 	beq	_038066C0
 	mov	r0, r4
@@ -193,14 +193,14 @@ _038066E0:
 	mov	r0, r4
 	bl	OS_RestoreInterrupts
 	mov	r0, #10
-	ldr	r1, _03806740	;@ =FUN_03806920
+	ldr	r1, _03806740	;@ =sub_03806920
 	bl	PXI_SetFifoRecvCallback
 	mov	r0, #1024	;@ 0x400
 	str	r0, [sp]
 	mov	r0, #2
 	str	r0, [sp, #4]
 	ldr	r0, _03806738	;@ =_0380A400
-	ldr	r1, _03806744	;@ =FUN_03806474
+	ldr	r1, _03806744	;@ =sub_03806474
 	mov	r2, #0
 	ldr	r3, _03806748	;@ =_0380AA64
 	bl	OS_CreateThread
@@ -213,17 +213,17 @@ _0380672C:
 	bx	lr
 _03806738:	.word	_0380A400
 _0380673C:	.word	_0380A3F0
-_03806740:	.word	FUN_03806920
-_03806744:	.word	FUN_03806474
+_03806740:	.word	sub_03806920
+_03806744:	.word	sub_03806474
 _03806748:	.word	_0380AA64
 
-	arm_func_start FUN_0380674C
-FUN_0380674C: ;@ 0x0380674C
+	arm_func_start sub_0380674C
+sub_0380674C: ;@ 0x0380674C
 	stmdb	sp!, {r4, r5, r6, lr}
-	bl	FUN_038069B0
+	bl	sub_038069B0
 	ldr	r0, _038067A0	;@ =_0380A3F8
 	ldr	r0, [r0]
-	bl	FUN_038069EC
+	bl	sub_038069EC
 	mov	r6, #15
 	mov	r5, #65536	;@ 0x10000
 	mov	r4, #0
@@ -244,14 +244,14 @@ _0380676C:
 _038067A0:	.word	_0380A3F8
 _038067A4:	.word	_0380A3F0
 
-	arm_func_start FUN_038067A8
-FUN_038067A8: ;@ 0x038067A8
+	arm_func_start sub_038067A8
+sub_038067A8: ;@ 0x038067A8
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	bl	OS_DisableInterrupts
 	mov	r4, r0
 	ldr	r0, _03806844	;@ =_0380A400
-	bl	FUN_038068BC
+	bl	sub_038068BC
 	cmp	r0, #0
 	beq	_038067D8
 	mov	r0, r4
@@ -277,7 +277,7 @@ _038067F8:
 	mov	r0, #10
 	str	r0, [sp, #4]
 	ldr	r0, _03806844	;@ =_0380A400
-	ldr	r1, _0380684C	;@ =FUN_0380674C
+	ldr	r1, _0380684C	;@ =sub_0380674C
 	mov	r2, #0
 	ldr	r3, _03806850	;@ =_0380AA64
 	bl	OS_CreateThread
@@ -290,11 +290,11 @@ _03806838:
 	bx	lr
 _03806844:	.word	_0380A400
 _03806848:	.word	_0380A3F0
-_0380684C:	.word	FUN_0380674C
+_0380684C:	.word	sub_0380674C
 _03806850:	.word	_0380AA64
 
-	arm_func_start FUN_03806854
-FUN_03806854: ;@ 0x03806854
+	arm_func_start sub_03806854
+sub_03806854: ;@ 0x03806854
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	cmp	r4, #65536	;@ 0x10000
@@ -303,13 +303,13 @@ FUN_03806854: ;@ 0x03806854
 	beq	_03806884
 	b	_03806898
 _03806870:
-	bl	FUN_038067A8
+	bl	sub_038067A8
 	cmp	r0, #0
 	bne	_038068B4
 	orr	r4, r4, #5
 	b	_0380689C
 _03806884:
-	bl	FUN_03806690
+	bl	sub_03806690
 	cmp	r0, #0
 	bne	_038068B4
 	orr	r4, r4, #5
@@ -327,8 +327,8 @@ _038068B4:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_038068BC
-FUN_038068BC: ;@ 0x038068BC
+	arm_func_start sub_038068BC
+sub_038068BC: ;@ 0x038068BC
 	cmp	r0, #0
 	moveq	r0, #0
 	bxeq	lr
@@ -360,8 +360,8 @@ _0380690C:
 	bx	lr
 _0380691C:	.word	OSi_ThreadInfo
 
-	arm_func_start FUN_03806920
-FUN_03806920: ;@ 0x03806920
+	arm_func_start sub_03806920
+sub_03806920: ;@ 0x03806920
 	stmdb	sp!, {r4, r5, r6, lr}
 	movs	r6, r1
 	ldrh	r4, [r6]
@@ -385,8 +385,8 @@ _03806968:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_03806970
-FUN_03806970: ;@ 0x03806970
+	arm_func_start sub_03806970
+sub_03806970: ;@ 0x03806970
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _038069A8	;@ =_0380A3F4
@@ -405,8 +405,8 @@ _0380699C:
 _038069A8:	.word	_0380A3F4
 _038069AC:	.word	_0380A3FC
 
-	arm_func_start FUN_038069B0
-FUN_038069B0: ;@ 0x038069B0
+	arm_func_start sub_038069B0
+sub_038069B0: ;@ 0x038069B0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _038069E4	;@ =_0380A3F4
@@ -424,8 +424,8 @@ _038069D8:
 _038069E4:	.word	_0380A3F4
 _038069E8:	.word	_0380A3FC
 
-	arm_func_start FUN_038069EC
-FUN_038069EC: ;@ 0x038069EC
+	arm_func_start sub_038069EC
+sub_038069EC: ;@ 0x038069EC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #84	;@ 0x54
 	ldr	r1, _03806A84	;@ =_0380B064
@@ -460,7 +460,7 @@ FUN_038069EC: ;@ 0x038069EC
 	str	r0, [sp, #64]	;@ 0x40
 	add	r0, sp, #0
 	add	r1, sp, #52	;@ 0x34
-	bl	FUN_03806A90
+	bl	sub_03806A90
 	add	sp, sp, #84	;@ 0x54
 	ldmia	sp!, {lr}
 	bx	lr
@@ -468,8 +468,8 @@ _03806A84:	.word	_0380B064
 _03806A88:	.word	_0380B064
 _03806A8C:	.word	_0380A4A4
 
-	arm_func_start FUN_03806A90
-FUN_03806A90: ;@ 0x03806A90
+	arm_func_start sub_03806A90
+sub_03806A90: ;@ 0x03806A90
 	ldr	pc, _03806A94	;@ =WM_sp_init
 _03806A94:	.word	WM_sp_init
 
@@ -504,10 +504,10 @@ WVR_Init: ;@ 0x03806AD0
 	mov	r2, #164	;@ 0xa4
 	bl	MI_CpuFill8
 	mov	r0, #15
-	ldr	r1, _03806B2C	;@ =FUN_03806854
+	ldr	r1, _03806B2C	;@ =sub_03806854
 	bl	PXI_SetFifoRecvCallback
 	mov	r0, #10
-	ldr	r1, _03806B30	;@ =FUN_03806920
+	ldr	r1, _03806B30	;@ =sub_03806920
 	bl	PXI_SetFifoRecvCallback
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
@@ -515,8 +515,8 @@ WVR_Init: ;@ 0x03806AD0
 _03806B20:	.word	_0380A3F8
 _03806B24:	.word	_0380A3F0
 _03806B28:	.word	_0380A400
-_03806B2C:	.word	FUN_03806854
-_03806B30:	.word	FUN_03806920
+_03806B2C:	.word	sub_03806854
+_03806B30:	.word	sub_03806920
 
 	arm_func_start MATH_CountPopulation
 MATH_CountPopulation: ; 0x03806B34
@@ -1240,8 +1240,8 @@ _038072C8:
 	.word	0x00800000
 	.word	0x00000017
 
-	arm_func_start FUN_03807378
-FUN_03807378: ;@ 0x03807378
+	arm_func_start sub_03807378
+sub_03807378: ;@ 0x03807378
 	mov	ip, #67108864	;@ 0x4000000
 	str	ip, [ip, #520]	;@ 0x208
 	ldr	r1, _038073E0	;@ =0x0380FFFC
@@ -1279,10 +1279,10 @@ OSi_DoResetSystem: ;@ 0x038073EC
 	mov	r1, #0
 	ldr	r0, _03807400	;@ =0x04000208
 	strh	r1, [r0]
-	ldr	ip, _03807404	;@ =FUN_03807378
+	ldr	ip, _03807404	;@ =sub_03807378
 	bx	ip
 _03807400:	.word	0x04000208
-_03807404:	.word	FUN_03807378
+_03807404:	.word	sub_03807378
 
 	arm_func_start WMSP_GetAllowedChannel
 WMSP_GetAllowedChannel: ;@ 0x03807408
@@ -1385,7 +1385,7 @@ WMSP_GetBuffer4Callback2Wm9: ;@ 0x03807534
 	b	_03807558
 _03807550:
 	mov	r0, r5
-	bl	FUN_037F8CB4
+	bl	sub_037F8CB4
 _03807558:
 	ldrh	r0, [r4]
 	ands	r1, r0, #1
@@ -1413,7 +1413,7 @@ WMSP_ReturnResult2Wm9: ;@ 0x03807590
 	b	_038075B4
 _038075AC:
 	mov	r0, r6
-	bl	FUN_037F8CB4
+	bl	sub_037F8CB4
 _038075B4:
 	mov	r0, r5
 	mov	r1, r7

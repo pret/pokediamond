@@ -4,8 +4,8 @@
 #include "constants/pokemon.h"
 #include "event_data.h"
 
-extern void FUN_0205F54C(struct ScriptState* state);
-extern u16 FUN_0205F55C(struct ScriptState* state);
+extern void sub_0205F54C(struct ScriptState* state);
+extern u16 sub_0205F55C(struct ScriptState* state);
 
 static const u16 sAmitySquarePossibleAccessoriesByPokemon[6][10] = {
     { // Clefairy and Skitty
@@ -103,7 +103,7 @@ BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    FUN_0205F54C(state);
+    sub_0205F54C(state);
 
     return FALSE;
 }
@@ -113,7 +113,7 @@ BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    *ret_ptr = FUN_0205F55C(state);
+    *ret_ptr = sub_0205F55C(state);
     return FALSE;
 }
 

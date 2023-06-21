@@ -66,8 +66,8 @@ UNK_020FB4AC: ; 0x020FB4AC
 
 	.text
 
-	thumb_func_start FUN_0207D5BC
-FUN_0207D5BC: ; 0x0207D5BC
+	thumb_func_start sub_0207D5BC
+sub_0207D5BC: ; 0x0207D5BC
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	mov r5, #0x0
@@ -89,19 +89,19 @@ _0207D5C4:
 	cmp r5, #0x24
 	blo _0207D5C4
 	add r0, r7, #0x0
-	bl FUN_0207DB78
+	bl sub_0207DB78
 	add r0, r7, #0x0
-	bl FUN_0207D768
+	bl sub_0207D768
 	add r0, r7, #0x0
-	bl FUN_0207D800
+	bl sub_0207D800
 	add r0, r7, #0x0
-	bl FUN_0207D8A0
+	bl sub_0207D8A0
 	pop {r3-r7, pc}
 	.balign 4
 _0207D600: .word UNK_020FB4AC
 
-	thumb_func_start FUN_0207D604
-FUN_0207D604: ; 0x0207D604
+	thumb_func_start sub_0207D604
+sub_0207D604: ; 0x0207D604
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	ldr r0, _0207D6D8 ; =0x0000068C
@@ -228,8 +228,8 @@ _0207D6EC: .word UNK_020FB3CC
 _0207D6F0: .word UNK_020FB3AC
 _0207D6F4: .word UNK_020FB394
 
-	thumb_func_start FUN_0207D6F8
-FUN_0207D6F8: ; 0x0207D6F8
+	thumb_func_start sub_0207D6F8
+sub_0207D6F8: ; 0x0207D6F8
 	push {r3, lr}
 	add r1, r0, #0x0
 	ldr r0, _0207D748 ; =0x0000068C
@@ -275,11 +275,11 @@ _0207D744:
 	nop
 _0207D748: .word 0x0000068C
 
-	thumb_func_start FUN_0207D74C
-FUN_0207D74C: ; 0x0207D74C
+	thumb_func_start sub_0207D74C
+sub_0207D74C: ; 0x0207D74C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_0207D6F8
+	bl sub_0207D6F8
 	mov r4, #0x0
 	add r5, r5, #0x4
 _0207D758:
@@ -291,8 +291,8 @@ _0207D758:
 	blo _0207D758
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0207D768
-FUN_0207D768: ; 0x0207D768
+	thumb_func_start sub_0207D768
+sub_0207D768: ; 0x0207D768
 	push {r3-r5, lr}
 	sub sp, #0x10
 	mov r4, #0x89
@@ -336,7 +336,7 @@ FUN_0207D768: ; 0x0207D768
 	add r1, r5, r4
 	lsl r2, r2, #0xa
 	mov r3, #0x1
-	bl FUN_0207D998
+	bl sub_0207D998
 	b _0207D7E8
 _0207D7CA:
 	cmp r0, #0x1
@@ -351,7 +351,7 @@ _0207D7CA:
 	add r0, r5, #0x0
 	add r1, r5, r4
 	mov r3, #0x1
-	bl FUN_0207D998
+	bl sub_0207D998
 _0207D7E8:
 	add r0, r5, r4
 	bl ScheduleWindowCopyToVram
@@ -362,8 +362,8 @@ _0207D7F4: .word 0x000F0E00
 _0207D7F8: .word 0x00000674
 _0207D7FC: .word 0x00050600
 
-	thumb_func_start FUN_0207D800
-FUN_0207D800: ; 0x0207D800
+	thumb_func_start sub_0207D800
+sub_0207D800: ; 0x0207D800
 	push {r4-r6, lr}
 	sub sp, #0x10
 	mov r6, #0x85
@@ -386,7 +386,7 @@ FUN_0207D800: ; 0x0207D800
 	mov r1, #0x1
 	add r2, r5, r6
 	mov r3, #0x0
-	bl FUN_0200B9A8
+	bl sub_0200B9A8
 	ldr r0, _0207D894 ; =0x00000674
 	mov r1, #0x3
 	ldr r0, [r5, r0]
@@ -436,8 +436,8 @@ _0207D894: .word 0x00000674
 _0207D898: .word 0x0000067C
 _0207D89C: .word 0x00010200
 
-	thumb_func_start FUN_0207D8A0
-FUN_0207D8A0: ; 0x0207D8A0
+	thumb_func_start sub_0207D8A0
+sub_0207D8A0: ; 0x0207D8A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x81
@@ -481,7 +481,7 @@ _0207D8F2:
 	add r0, r5, #0x0
 	lsl r2, r2, #0x7
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	add r0, r5, #0x0
 	add r0, #0x64
 	bl ScheduleWindowCopyToVram
@@ -495,8 +495,8 @@ _0207D918: .word 0x0000025E
 _0207D91C: .word 0x0000067C
 _0207D920: .word 0x00000674
 
-	thumb_func_start FUN_0207D924
-FUN_0207D924: ; 0x0207D924
+	thumb_func_start sub_0207D924
+sub_0207D924: ; 0x0207D924
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x8d
@@ -511,7 +511,7 @@ FUN_0207D924: ; 0x0207D924
 	add r0, r5, #0x0
 	mov r1, #0x23
 	add r2, r4, #0x0
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x8d
 	lsl r0, r0, #0x2
 	add r0, r5, r0
@@ -520,8 +520,8 @@ FUN_0207D924: ; 0x0207D924
 	nop
 _0207D954: .word 0x000F0E00
 
-	thumb_func_start FUN_0207D958
-FUN_0207D958: ; 0x0207D958
+	thumb_func_start sub_0207D958
+sub_0207D958: ; 0x0207D958
 	push {r4, lr}
 	mov r3, #0x93
 	lsl r3, r3, #0x2
@@ -554,8 +554,8 @@ _0207D98E:
 	nop
 _0207D994: .word 0x00000684
 
-	thumb_func_start FUN_0207D998
-FUN_0207D998: ; 0x0207D998
+	thumb_func_start sub_0207D998
+sub_0207D998: ; 0x0207D998
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -577,7 +577,7 @@ _0207D9B4:
 	mov r0, #0x0
 	ldr r1, [r4, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
 	add r0, r6, #0x0
@@ -594,7 +594,7 @@ _0207D9D8:
 	mov r0, #0x0
 	ldr r1, [r4, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
 	add r0, r6, #0x0
@@ -622,8 +622,8 @@ _0207D9FE:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0207DA1C
-FUN_0207DA1C: ; 0x0207DA1C
+	thumb_func_start sub_0207DA1C
+sub_0207DA1C: ; 0x0207DA1C
 	push {r4-r6, lr}
 	add r6, r3, #0x0
 	ldr r3, _0207DA44 ; =0x00000674
@@ -640,13 +640,13 @@ FUN_0207DA1C: ; 0x0207DA1C
 	ldr r3, [sp, #0x10]
 	add r0, r5, #0x0
 	add r2, r6, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	pop {r4-r6, pc}
 	.balign 4
 _0207DA44: .word 0x00000674
 
-	thumb_func_start FUN_0207DA48
-FUN_0207DA48: ; 0x0207DA48
+	thumb_func_start sub_0207DA48
+sub_0207DA48: ; 0x0207DA48
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -681,8 +681,8 @@ FUN_0207DA48: ; 0x0207DA48
 _0207DA8C: .word 0x00000674
 _0207DA90: .word 0x0000067C
 
-	thumb_func_start FUN_0207DA94
-FUN_0207DA94: ; 0x0207DA94
+	thumb_func_start sub_0207DA94
+sub_0207DA94: ; 0x0207DA94
 	push {r3-r7, lr}
 	sub sp, #0x20
 	add r4, r0, #0x0
@@ -702,7 +702,7 @@ FUN_0207DA94: ; 0x0207DA94
 	mov r0, #0x0
 	ldr r1, [r4, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	add r1, sp, #0x48
 	ldrb r2, [r1, #0x0]
 	lsr r1, r0, #0x1
@@ -737,13 +737,13 @@ FUN_0207DA94: ; 0x0207DA94
 	ldrb r3, [r3, #0x1c]
 	ldr r1, [sp, #0x10]
 	add r0, r4, #0x0
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x1a
 	lsl r1, r1, #0x6
 	mov r0, #0x0
 	ldr r1, [r4, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	mov r12, r0
 	ldr r0, [sp, #0x1c]
 	mov r2, #0x1a
@@ -768,7 +768,7 @@ FUN_0207DA94: ; 0x0207DA94
 	ldrb r3, [r3, #0x1c]
 	ldr r1, [sp, #0x38]
 	add r0, r4, #0x0
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	ldr r0, [sp, #0x1c]
 	mov r2, #0x1a
 	str r0, [sp, #0x0]
@@ -789,8 +789,8 @@ FUN_0207DA94: ; 0x0207DA94
 _0207DB70: .word 0x00000674
 _0207DB74: .word 0x00010200
 
-	thumb_func_start FUN_0207DB78
-FUN_0207DB78: ; 0x0207DB78
+	thumb_func_start sub_0207DB78
+sub_0207DB78: ; 0x0207DB78
 	push {r4, lr}
 	sub sp, #0x10
 	ldr r3, _0207DD7C ; =0x000F0E00
@@ -798,154 +798,154 @@ FUN_0207DB78: ; 0x0207DB78
 	mov r2, #0x7
 	add r4, r0, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x1
 	mov r2, #0x17
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x2
 	mov r2, #0x6d
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x3
 	mov r2, #0x7e
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x4
 	mov r2, #0x80
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x9d
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x6
 	mov r2, #0x4
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x8
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x8
 	mov r2, #0xa
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x9
 	mov r2, #0xc
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0xa
 	mov r2, #0xd
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0xb
 	mov r2, #0xf
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0xc
 	mov r2, #0x11
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0xd
 	mov r2, #0x13
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0xf
 	mov r2, #0x6e
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x10
 	mov r2, #0x6f
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x11
 	mov r2, #0x70
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x12
 	mov r2, #0x71
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x13
 	mov r2, #0x72
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x14
 	mov r2, #0x73
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x15
 	mov r2, #0x74
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x16
 	mov r2, #0x7f
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	ldr r2, _0207DD80 ; =0x00000674
 	mov r1, #0x92
 	ldr r0, [r4, r2]
@@ -973,49 +973,49 @@ FUN_0207DB78: ; 0x0207DB78
 	add r0, r4, #0x0
 	mov r1, #0x19
 	mov r2, #0x95
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x1a
 	mov r2, #0x93
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x1b
 	mov r2, #0x94
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x1c
 	mov r2, #0xa2
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD84 ; =0x00010200
 	add r0, r4, #0x0
 	mov r1, #0x1d
 	mov r2, #0xa0
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD84 ; =0x00010200
 	add r0, r4, #0x0
 	mov r1, #0x1e
 	mov r2, #0xb6
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r1, #0x1f
 	mov r2, #0xb3
-	bl FUN_0207DA1C
+	bl sub_0207DA1C
 	add sp, #0x10
 	pop {r4, pc}
 	.balign 4
@@ -1023,8 +1023,8 @@ _0207DD7C: .word 0x000F0E00
 _0207DD80: .word 0x00000674
 _0207DD84: .word 0x00010200
 
-	thumb_func_start FUN_0207DD88
-FUN_0207DD88: ; 0x0207DD88
+	thumb_func_start sub_0207DD88
+sub_0207DD88: ; 0x0207DD88
 	push {r4, lr}
 	sub sp, #0x10
 	mov r2, #0x0
@@ -1074,50 +1074,50 @@ _0207DDD8: ; jump table (using 16-bit offset)
 	.short _0207DE2E - _0207DDD8 - 2; case 7
 _0207DDE8:
 	add r0, r4, #0x0
-	bl FUN_0207DE3C
+	bl sub_0207DE3C
 	add sp, #0x10
 	pop {r4, pc}
 _0207DDF2:
 	add r0, r4, #0x0
-	bl FUN_0207E190
+	bl sub_0207E190
 	add sp, #0x10
 	pop {r4, pc}
 _0207DDFC:
 	add r0, r4, #0x0
-	bl FUN_0207E200
+	bl sub_0207E200
 	add sp, #0x10
 	pop {r4, pc}
 _0207DE06:
 	add r0, r4, #0x0
-	bl FUN_0207E4A0
+	bl sub_0207E4A0
 	add sp, #0x10
 	pop {r4, pc}
 _0207DE10:
 	add r0, r4, #0x0
-	bl FUN_0207E594
+	bl sub_0207E594
 	add sp, #0x10
 	pop {r4, pc}
 _0207DE1A:
 	add r0, r4, #0x0
-	bl FUN_0207E650
+	bl sub_0207E650
 	add sp, #0x10
 	pop {r4, pc}
 _0207DE24:
 	add r0, r4, #0x0
-	bl FUN_0207E70C
+	bl sub_0207E70C
 	add sp, #0x10
 	pop {r4, pc}
 _0207DE2E:
 	add r0, r4, #0x0
-	bl FUN_0207E788
+	bl sub_0207E788
 _0207DE34:
 	add sp, #0x10
 	pop {r4, pc}
 	.balign 4
 _0207DE38: .word 0x0000068C
 
-	thumb_func_start FUN_0207DE3C
-FUN_0207DE3C: ; 0x0207DE3C
+	thumb_func_start sub_0207DE3C
+sub_0207DE3C: ; 0x0207DE3C
 	push {r3-r5, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -1188,7 +1188,7 @@ FUN_0207DE3C: ; 0x0207DE3C
 	add r1, #0x10
 	ldrh r1, [r4, r1]
 	ldr r0, [r0, #0x1c]
-	bl FUN_0206BB48
+	bl sub_0206BB48
 	add r2, r0, #0x0
 	beq _0207DEFE
 	mov r0, #0x2
@@ -1196,7 +1196,7 @@ FUN_0207DE3C: ; 0x0207DE3C
 	add r0, r4, #0x0
 	mov r1, #0x9
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	b _0207DF0C
 _0207DEFE:
 	ldr r2, _0207E0B4 ; =0x00000674
@@ -1217,7 +1217,7 @@ _0207DF0C:
 	ldr r2, _0207E0B8 ; =0x00010200
 	add r0, r4, #0x0
 	mov r3, #0x2
-	bl FUN_0207D998
+	bl sub_0207D998
 	b _0207DF36
 _0207DF28:
 	sub r1, #0x5c
@@ -1225,14 +1225,14 @@ _0207DF28:
 	ldr r2, _0207E0BC ; =0x00050600
 	add r0, r4, #0x0
 	mov r3, #0x2
-	bl FUN_0207D998
+	bl sub_0207D998
 _0207DF36:
 	mov r1, #0x25
 	lsl r1, r1, #0x4
 	mov r0, #0x0
 	ldr r1, [r4, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	mov r2, #0x91
 	lsl r2, r2, #0x2
 	ldr r3, [r4, r2]
@@ -1258,7 +1258,7 @@ _0207DF36:
 	mov r0, #0x0
 	ldr r1, [r4, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	mov r5, #0x91
 	lsl r5, r5, #0x2
 	ldr r2, [r4, r5]
@@ -1311,7 +1311,7 @@ _0207DFD0:
 	mov r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #0x5
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1319,7 +1319,7 @@ _0207DFD0:
 	add r0, r4, #0x0
 	add r1, #0x30
 	mov r3, #0x2
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x1
 	mov r2, #0x9a
 	str r0, [sp, #0x0]
@@ -1328,7 +1328,7 @@ _0207DFD0:
 	add r0, r4, #0x0
 	mov r1, #0x12
 	mov r3, #0x7
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1336,7 +1336,7 @@ _0207DFD0:
 	add r0, r4, #0x0
 	add r1, #0x40
 	mov r3, #0x2
-	bl FUN_0207D998
+	bl sub_0207D998
 	ldr r3, _0207E0C0 ; =0x00000262
 	ldrb r0, [r4, r3]
 	lsl r0, r0, #0x19
@@ -1354,7 +1354,7 @@ _0207DFD0:
 	mov r1, #0x15
 	sub r2, r5, r2
 	mov r3, #0x7
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	b _0207E058
 _0207E048:
 	mov r0, #0x1
@@ -1363,7 +1363,7 @@ _0207E048:
 	mov r1, #0x15
 	mov r2, #0x0
 	mov r3, #0x7
-	bl FUN_0207DA48
+	bl sub_0207DA48
 _0207E058:
 	mov r1, #0x91
 	lsl r1, r1, #0x2
@@ -1372,7 +1372,7 @@ _0207E058:
 	add r0, r4, #0x0
 	add r1, #0x50
 	mov r3, #0x2
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1410,15 +1410,15 @@ _0207E0B8: .word 0x00010200
 _0207E0BC: .word 0x00050600
 _0207E0C0: .word 0x00000262
 
-	thumb_func_start FUN_0207E0C4
-FUN_0207E0C4: ; 0x0207E0C4
+	thumb_func_start sub_0207E0C4
+sub_0207E0C4: ; 0x0207E0C4
 	push {r3-r5, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	mov r2, #0x13
-	bl FUN_0207FD00
+	bl sub_0207FD00
 	add r4, r0, #0x0
 	ldr r2, [r4, #0x18]
 	cmp r2, #0x0
@@ -1506,14 +1506,14 @@ _0207E15E:
 	bl AddTextPrinterParameterized2
 _0207E180:
 	add r0, r4, #0x0
-	bl FUN_02080094
+	bl sub_02080094
 	add sp, #0x10
 	pop {r3-r5, pc}
 	nop
 _0207E18C: .word 0x00010200
 
-	thumb_func_start FUN_0207E190
-FUN_0207E190: ; 0x0207E190
+	thumb_func_start sub_0207E190
+sub_0207E190: ; 0x0207E190
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x14
@@ -1524,10 +1524,10 @@ FUN_0207E190: ; 0x0207E190
 	mov r1, #0x0
 	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
-	bl FUN_0207B628
+	bl sub_0207B628
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0207D958
+	bl sub_0207D958
 	add r7, r0, #0x0
 	mov r0, #0x93
 	lsl r0, r0, #0x2
@@ -1546,7 +1546,7 @@ FUN_0207E190: ; 0x0207E190
 	ldr r0, [r5, r0]
 	add r1, r4, #0x0
 	add r2, r7, #0x0
-	bl FUN_0207E0C4
+	bl sub_0207E0C4
 	add r0, r4, #0x0
 	bl FreeToHeap
 	b _0207E1F4
@@ -1555,7 +1555,7 @@ _0207E1E8:
 	ldr r0, [r5, r0]
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_0207E0C4
+	bl sub_0207E0C4
 _0207E1F4:
 	mov r0, #0x91
 	lsl r0, r0, #0x2
@@ -1563,8 +1563,8 @@ _0207E1F4:
 	bl ScheduleWindowCopyToVram
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0207E200
-FUN_0207E200: ; 0x0207E200
+	thumb_func_start sub_0207E200
+sub_0207E200: ; 0x0207E200
 	push {r3-r5, lr}
 	sub sp, #0x18
 	add r4, r0, #0x0
@@ -1667,7 +1667,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	mov r3, #0x77
 	str r1, [sp, #0x14]
-	bl FUN_0207DA94
+	bl sub_0207DA94
 	mov r0, #0x0
 	mov r2, #0x9e
 	str r0, [sp, #0x0]
@@ -1676,7 +1676,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	mov r1, #0x78
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1684,7 +1684,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	add r1, #0x10
 	mov r3, #0x1
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r2, _0207E488 ; =0x0000027A
@@ -1692,7 +1692,7 @@ FUN_0207E200: ; 0x0207E200
 	ldrh r2, [r4, r2]
 	mov r1, #0x79
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1700,7 +1700,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	add r1, #0x20
 	mov r3, #0x1
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x0
 	mov r2, #0x9f
 	str r0, [sp, #0x0]
@@ -1709,7 +1709,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	mov r1, #0x7a
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1717,7 +1717,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	add r1, #0x30
 	mov r3, #0x1
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r2, _0207E48C ; =0x0000027E
@@ -1725,7 +1725,7 @@ FUN_0207E200: ; 0x0207E200
 	ldrh r2, [r4, r2]
 	mov r1, #0x7b
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1733,7 +1733,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	add r1, #0x40
 	mov r3, #0x1
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x0
 	mov r2, #0xa
 	str r0, [sp, #0x0]
@@ -1742,7 +1742,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	mov r1, #0x7c
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1750,7 +1750,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	add r1, #0x50
 	mov r3, #0x1
-	bl FUN_0207D998
+	bl sub_0207D998
 	ldr r2, _0207E490 ; =0x00000282
 	ldr r0, _0207E494 ; =0x0000067C
 	ldrb r2, [r4, r2]
@@ -1777,7 +1777,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	add r1, #0x60
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	ldr r2, _0207E49C ; =0x0000022A
 	mov r0, #0x1
 	mov r1, #0x1a
@@ -1799,7 +1799,7 @@ FUN_0207E200: ; 0x0207E200
 	add r0, r4, #0x0
 	add r1, #0x70
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1850,8 +1850,8 @@ _0207E494: .word 0x0000067C
 _0207E498: .word 0x00000674
 _0207E49C: .word 0x0000022A
 
-	thumb_func_start FUN_0207E4A0
-FUN_0207E4A0: ; 0x0207E4A0
+	thumb_func_start sub_0207E4A0
+sub_0207E4A0: ; 0x0207E4A0
 	push {r4, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -1889,7 +1889,7 @@ _0207E4C6:
 	add r0, r4, #0x0
 	add r1, #0x10
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	ldr r1, _0207E58C ; =0x0000029B
 	ldr r2, _0207E584 ; =0x00000674
 	ldrb r1, [r4, r1]
@@ -1942,7 +1942,7 @@ _0207E4C6:
 	ldr r2, _0207E588 ; =0x000F0E00
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1951,7 +1951,7 @@ _0207E4C6:
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	add r0, r4, #0x0
-	bl FUN_0207CFAC
+	bl sub_0207CFAC
 _0207E580:
 	add sp, #0x10
 	pop {r4, pc}
@@ -1961,8 +1961,8 @@ _0207E588: .word 0x000F0E00
 _0207E58C: .word 0x0000029B
 _0207E590: .word 0x00010200
 
-	thumb_func_start FUN_0207E594
-FUN_0207E594: ; 0x0207E594
+	thumb_func_start sub_0207E594
+sub_0207E594: ; 0x0207E594
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x44
@@ -1975,18 +1975,18 @@ FUN_0207E594: ; 0x0207E594
 	bne _0207E5B4
 	add r0, r4, #0x0
 	mov r1, #0x9b
-	bl FUN_0207D924
+	bl sub_0207D924
 	b _0207E5BC
 _0207E5B4:
 	add r0, r4, #0x0
 	mov r1, #0x81
-	bl FUN_0207D924
+	bl sub_0207D924
 _0207E5BC:
 	mov r1, #0x8d
 	lsl r1, r1, #0x2
 	add r0, r4, #0x0
 	add r1, r4, r1
-	bl FUN_0207CFAC
+	bl sub_0207CFAC
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2012,16 +2012,16 @@ _0207E5BC:
 	bl FillWindowPixelBuffer
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2044,8 +2044,8 @@ _0207E5BC:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0207E650
-FUN_0207E650: ; 0x0207E650
+	thumb_func_start sub_0207E650
+sub_0207E650: ; 0x0207E650
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x54
@@ -2058,18 +2058,18 @@ FUN_0207E650: ; 0x0207E650
 	bne _0207E670
 	add r0, r4, #0x0
 	mov r1, #0x9f
-	bl FUN_0207D924
+	bl sub_0207D924
 	b _0207E678
 _0207E670:
 	add r0, r4, #0x0
 	mov r1, #0x9e
-	bl FUN_0207D924
+	bl sub_0207D924
 _0207E678:
 	mov r1, #0x8d
 	lsl r1, r1, #0x2
 	add r0, r4, #0x0
 	add r1, r4, r1
-	bl FUN_0207CFAC
+	bl sub_0207CFAC
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2095,16 +2095,16 @@ _0207E678:
 	bl FillWindowPixelBuffer
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2127,8 +2127,8 @@ _0207E678:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0207E70C
-FUN_0207E70C: ; 0x0207E70C
+	thumb_func_start sub_0207E70C
+sub_0207E70C: ; 0x0207E70C
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -2152,14 +2152,14 @@ FUN_0207E70C: ; 0x0207E70C
 	ldrb r2, [r4, r2]
 	mov r1, #0xb7
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	ldr r2, _0207E784 ; =0x00010200
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2170,12 +2170,12 @@ FUN_0207E70C: ; 0x0207E70C
 	beq _0207E77A
 	add r0, r4, #0x0
 	mov r1, #0xb4
-	bl FUN_0207D924
+	bl sub_0207D924
 	mov r1, #0x8d
 	lsl r1, r1, #0x2
 	add r0, r4, #0x0
 	add r1, r4, r1
-	bl FUN_0207CFAC
+	bl sub_0207CFAC
 _0207E77A:
 	add sp, #0x4
 	pop {r3-r4, pc}
@@ -2183,8 +2183,8 @@ _0207E77A:
 _0207E780: .word 0x00000699
 _0207E784: .word 0x00010200
 
-	thumb_func_start FUN_0207E788
-FUN_0207E788: ; 0x0207E788
+	thumb_func_start sub_0207E788
+sub_0207E788: ; 0x0207E788
 	push {r4, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -2194,12 +2194,12 @@ FUN_0207E788: ; 0x0207E788
 	bl ScheduleWindowCopyToVram
 	add r0, r4, #0x0
 	mov r1, #0xa1
-	bl FUN_0207D924
+	bl sub_0207D924
 	mov r1, #0x8d
 	lsl r1, r1, #0x2
 	add r0, r4, #0x0
 	add r1, r4, r1
-	bl FUN_0207CFAC
+	bl sub_0207CFAC
 	mov r0, #0x93
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2228,7 +2228,7 @@ _0207E7BC:
 	add r0, r4, #0x0
 	add r1, #0x10
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	ldr r1, _0207E838 ; =0x0000029B
 	ldr r2, _0207E830 ; =0x00000674
 	ldrb r1, [r4, r1]
@@ -2268,8 +2268,8 @@ _0207E834: .word 0x000F0E00
 _0207E838: .word 0x0000029B
 _0207E83C: .word 0x00010200
 
-	thumb_func_start FUN_0207E840
-FUN_0207E840: ; 0x0207E840
+	thumb_func_start sub_0207E840
+sub_0207E840: ; 0x0207E840
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
@@ -2307,7 +2307,7 @@ FUN_0207E840: ; 0x0207E840
 	mov r0, #0x0
 	ldr r1, [r5, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	mov r0, #0x38
@@ -2338,7 +2338,7 @@ FUN_0207E840: ; 0x0207E840
 	mov r0, #0x0
 	add r1, r6, #0x0
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	sub r0, r4, r0
@@ -2394,7 +2394,7 @@ FUN_0207E840: ; 0x0207E840
 	mov r0, #0x0
 	ldr r1, [r5, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	sub r0, r4, r0
@@ -2427,8 +2427,8 @@ _0207E994: .word 0x00000674
 _0207E998: .word 0x0000067C
 _0207E99C: .word 0x00010200
 
-	thumb_func_start FUN_0207E9A0
-FUN_0207E9A0: ; 0x0207E9A0
+	thumb_func_start sub_0207E9A0
+sub_0207E9A0: ; 0x0207E9A0
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x91
@@ -2446,7 +2446,7 @@ FUN_0207E9A0: ; 0x0207E9A0
 	ldr r0, _0207EA34 ; =0x0000069A
 	mov r1, #0x3
 	ldrb r0, [r4, r0]
-	bl FUN_0207FC5C
+	bl sub_0207FC5C
 	ldr r2, _0207EA38 ; =0x00000678
 	add r1, r0, #0x0
 	ldr r0, [r4, r2]
@@ -2460,14 +2460,14 @@ FUN_0207E9A0: ; 0x0207E9A0
 	add r0, r4, #0x0
 	add r1, #0x20
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x93
 	lsl r0, r0, #0x2
 	ldr r1, _0207EA34 ; =0x0000069A
 	ldr r0, [r4, r0]
 	ldrb r1, [r4, r1]
 	ldr r0, [r0, #0x20]
-	bl FUN_0207FCC0
+	bl sub_0207FCC0
 	ldr r2, _0207EA38 ; =0x00000678
 	add r1, r0, #0x0
 	ldr r0, [r4, r2]
@@ -2481,7 +2481,7 @@ FUN_0207E9A0: ; 0x0207E9A0
 	add r0, r4, #0x0
 	add r1, #0x30
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2499,8 +2499,8 @@ _0207EA38: .word 0x00000678
 _0207EA3C: .word 0x000F0E00
 _0207EA40: .word 0x00010200
 
-	thumb_func_start FUN_0207EA44
-FUN_0207EA44: ; 0x0207EA44
+	thumb_func_start sub_0207EA44
+sub_0207EA44: ; 0x0207EA44
 	push {r4-r7, lr}
 	sub sp, #0x24
 	add r5, r0, #0x0
@@ -2596,7 +2596,7 @@ _0207EA88:
 	add r0, r5, #0x0
 	mov r2, #0x75
 	add r3, r7, #0x0
-	bl FUN_0207DA94
+	bl sub_0207DA94
 	add sp, #0x24
 	pop {r4-r7, pc}
 _0207EB10:
@@ -2610,7 +2610,7 @@ _0207EB10:
 	mov r0, #0x0
 	ldr r1, [r5, r1]
 	add r2, r0, #0x0
-	bl FUN_02002E14
+	bl sub_02002E14
 	add r3, r0, #0x0
 	mov r0, #0x10
 	str r0, [sp, #0x0]
@@ -2636,8 +2636,8 @@ _0207EB58: .word 0x000F0E00
 _0207EB5C: .word 0x00000674
 _0207EB60: .word 0x00010200
 
-	thumb_func_start FUN_0207EB64
-FUN_0207EB64: ; 0x0207EB64
+	thumb_func_start sub_0207EB64
+sub_0207EB64: ; 0x0207EB64
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
@@ -2691,7 +2691,7 @@ _0207EBD2:
 	add r0, r5, #0x0
 	mov r1, #0x96
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 _0207EBE0:
 	mov r1, #0x91
 	lsl r1, r1, #0x2
@@ -2700,7 +2700,7 @@ _0207EBE0:
 	add r0, r5, #0x0
 	add r1, #0x50
 	mov r3, #0x2
-	bl FUN_0207D998
+	bl sub_0207D998
 	add r0, r4, #0x0
 	mov r1, #0x4
 	bl GetWazaAttr
@@ -2719,7 +2719,7 @@ _0207EC0E:
 	add r0, r5, #0x0
 	mov r1, #0x97
 	mov r3, #0x3
-	bl FUN_0207DA48
+	bl sub_0207DA48
 _0207EC1C:
 	mov r1, #0x91
 	lsl r1, r1, #0x2
@@ -2728,7 +2728,7 @@ _0207EC1C:
 	add r0, r5, #0x0
 	add r1, #0x60
 	mov r3, #0x2
-	bl FUN_0207D998
+	bl sub_0207D998
 	ldr r2, _0207EC90 ; =0x0000024B
 	mov r0, #0x1
 	mov r1, #0x1a
@@ -2747,7 +2747,7 @@ _0207EC1C:
 	add r0, r5, #0x0
 	add r1, #0x70
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	mov r0, #0x91
@@ -2772,8 +2772,8 @@ _0207EC88: .word 0x00000674
 _0207EC8C: .word 0x00010200
 _0207EC90: .word 0x0000024B
 
-	thumb_func_start FUN_0207EC94
-FUN_0207EC94: ; 0x0207EC94
+	thumb_func_start sub_0207EC94
+sub_0207EC94: ; 0x0207EC94
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x65
@@ -2805,8 +2805,8 @@ FUN_0207EC94: ; 0x0207EC94
 	bl ClearWindowTilemapAndScheduleTransfer
 	pop {r4, pc}
 
-	thumb_func_start FUN_0207ECDC
-FUN_0207ECDC: ; 0x0207ECDC
+	thumb_func_start sub_0207ECDC
+sub_0207ECDC: ; 0x0207ECDC
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x93
@@ -2822,7 +2822,7 @@ FUN_0207ECDC: ; 0x0207ECDC
 	bl FillWindowPixelBuffer
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2835,8 +2835,8 @@ _0207ED0E:
 	bl ScheduleWindowCopyToVram
 	pop {r4, pc}
 
-	thumb_func_start FUN_0207ED18
-FUN_0207ED18: ; 0x0207ED18
+	thumb_func_start sub_0207ED18
+sub_0207ED18: ; 0x0207ED18
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x61
@@ -2848,8 +2848,8 @@ FUN_0207ED18: ; 0x0207ED18
 	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, pc}
 
-	thumb_func_start FUN_0207ED30
-FUN_0207ED30: ; 0x0207ED30
+	thumb_func_start sub_0207ED30
+sub_0207ED30: ; 0x0207ED30
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x91
@@ -2879,13 +2879,13 @@ FUN_0207ED30: ; 0x0207ED30
 	ldrb r1, [r4, r1]
 	lsl r1, r1, #0x1c
 	lsr r1, r1, #0x1c
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	ldr r1, _0207EDB0 ; =0x0000068D
 	add r0, r4, #0x0
 	ldrb r1, [r4, r1]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x1c
-	bl FUN_0207EA44
+	bl sub_0207EA44
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r1, [r4, r0]
@@ -2910,8 +2910,8 @@ FUN_0207ED30: ; 0x0207ED30
 	nop
 _0207EDB0: .word 0x0000068D
 
-	thumb_func_start FUN_0207EDB4
-FUN_0207EDB4: ; 0x0207EDB4
+	thumb_func_start sub_0207EDB4
+sub_0207EDB4: ; 0x0207EDB4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _0207EE20 ; =0x0000068C
@@ -2957,7 +2957,7 @@ _0207EDF6:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0207D998
+	bl sub_0207D998
 	add r0, r4, #0x0
 	bl ScheduleWindowCopyToVram
 	pop {r3-r5, pc}
@@ -2966,8 +2966,8 @@ _0207EE20: .word 0x0000068C
 _0207EE24: .word 0x00000674
 _0207EE28: .word 0x00010200
 
-	thumb_func_start FUN_0207EE2C
-FUN_0207EE2C: ; 0x0207EE2C
+	thumb_func_start sub_0207EE2C
+sub_0207EE2C: ; 0x0207EE2C
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
@@ -2981,7 +2981,7 @@ FUN_0207EE2C: ; 0x0207EE2C
 	add r0, r4, #0x0
 	mov r1, #0xa
 	bl GetWazaAttr
-	bl FUN_0208315C
+	bl sub_0208315C
 	add r4, r0, #0x0
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -3026,8 +3026,8 @@ FUN_0207EE2C: ; 0x0207EE2C
 	.balign 4
 _0207EEAC: .word 0x00010200
 
-	thumb_func_start FUN_0207EEB0
-FUN_0207EEB0: ; 0x0207EEB0
+	thumb_func_start sub_0207EEB0
+sub_0207EEB0: ; 0x0207EEB0
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x75
@@ -3041,8 +3041,8 @@ FUN_0207EEB0: ; 0x0207EEB0
 	bl ClearWindowTilemapAndScheduleTransfer
 	pop {r4, pc}
 
-	thumb_func_start FUN_0207EECC
-FUN_0207EECC: ; 0x0207EECC
+	thumb_func_start sub_0207EECC
+sub_0207EECC: ; 0x0207EECC
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0

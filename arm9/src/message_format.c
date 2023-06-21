@@ -130,7 +130,7 @@ void BufferPlayersName(MessageFormat *messageFormat, u32 idx, PlayerProfile *pro
 
 void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveData * save)
 {
-    u16 * name = GetRivalNamePtr(FUN_02024EC0(save));
+    u16 * name = GetRivalNamePtr(sub_02024EC0(save));
     CopyU16ArrayToString(messageFormat->buffer, name);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
@@ -615,8 +615,8 @@ void BufferSealNamePlural(MessageFormat *messageFormat, u32 idx, u32 seal)
 
 void BufferLocationName(MessageFormat *messageFormat, u32 idx, u16 location)
 {
-    u32 r6 = (u32)FUN_02015CC0(location);
-    u32 r4 = (u32)FUN_02015CE0(location);
+    u32 r6 = (u32)sub_02015CC0(location);
+    u32 r4 = (u32)sub_02015CE0(location);
     struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, UNK_020ECE64[r6], messageFormat->heap_id);
     if (msgData != NULL)
     {
@@ -686,11 +686,11 @@ void BufferContestBackgroundName(MessageFormat *messageFormat, u32 idx, u32 bg)
 
 void BufferGroupName(MessageFormat *messageFormat, struct SaveData * save, u32 r5, u32 idx, u32 sp28)
 {
-    void * r6 = FUN_0202881C(save);
-    u8 sp10 = FUN_020287F8(r6, r5);
-    u8 r7 = FUN_02028804(r6, r5);
+    void * r6 = sub_0202881C(save);
+    u8 sp10 = sub_020287F8(r6, r5);
+    u8 r7 = sub_02028804(r6, r5);
     struct String * r4 = String_New(64, 4);
-    CopyU16ArrayToString(r4, FUN_020287A8(r6, r5, sp28));
+    CopyU16ArrayToString(r4, sub_020287A8(r6, r5, sp28));
     BufferString(messageFormat, idx, r4, sp10, 1, r7);
     String_Delete(r4);
 }
@@ -803,12 +803,12 @@ void MessagePrinter_Delete(struct UnkStruct_0200B870 * a0)
     }
 }
 
-void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window *a2, int a3, int a4)
+void sub_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window *a2, int a3, int a4)
 {
     BlitBitmapRectToWindow(a2, a0->unk_4->unk_14 + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
 }
 
-void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y)
+void sub_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y)
 {
     ConvertUIntToDecimalString(string->data, value, mode, n);
     for (int i = 0; string->data[i] != EOS; i++)

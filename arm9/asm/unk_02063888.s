@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02063888
-FUN_02063888: ; 0x02063888
+	thumb_func_start sub_02063888
+sub_02063888: ; 0x02063888
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	mov r1, #0x18
@@ -32,14 +32,14 @@ _0206389C:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020638BC
-FUN_020638BC: ; 0x020638BC
+	thumb_func_start sub_020638BC
+sub_020638BC: ; 0x020638BC
 	push {r3-r6, lr}
 	sub sp, #0x1c
 	add r5, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r0, r5, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
@@ -55,7 +55,7 @@ _020638DA:
 	ldr r0, [r4, #0x0]
 	ldr r2, [r4, #0x10]
 	mov r1, #0x1
-	bl MOD06_0224666C
+	bl ov06_0224666C
 	str r0, [r4, #0x14]
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
@@ -63,17 +63,17 @@ _020638DA:
 	b _02063942
 _020638F8:
 	ldr r0, [r4, #0x14]
-	bl MOD06_022466A0
+	bl ov06_022466A0
 	cmp r0, #0x0
 	beq _02063942
 	ldr r0, [r4, #0x14]
-	bl MOD06_022466AC
+	bl ov06_022466AC
 	mov r1, #0xa
 	mov r2, #0xc
 	ldrh r0, [r4, #0x8]
 	ldrsh r1, [r4, r1]
 	ldrsh r2, [r4, r2]
-	bl FUN_02034F40
+	bl sub_02034F40
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	bne _02063920
@@ -81,7 +81,7 @@ _020638F8:
 _02063920:
 	add r0, r6, #0x0
 	add r1, sp, #0x8
-	bl FUN_02034E90
+	bl sub_02034E90
 	ldr r0, [sp, #0x14]
 	mov r2, #0x1
 	str r0, [sp, #0x0]
@@ -90,7 +90,7 @@ _02063920:
 	ldr r3, [sp, #0x10]
 	add r0, r5, #0x0
 	sub r2, r2, #0x2
-	bl FUN_020492BC
+	bl sub_020492BC
 	add r0, r4, #0x0
 	bl FreeToHeap
 _02063942:

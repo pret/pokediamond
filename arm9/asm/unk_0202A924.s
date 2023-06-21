@@ -3,15 +3,15 @@
 
 	.text
 
-	thumb_func_start FUN_0202A924
-FUN_0202A924: ; 0x0202A924
+	thumb_func_start sub_0202A924
+sub_0202A924: ; 0x0202A924
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202A92C
-FUN_0202A92C: ; 0x0202A92C
+	thumb_func_start sub_0202A92C
+sub_0202A92C: ; 0x0202A92C
 	push {r4, lr}
 	mov r2, #0x45
 	add r4, r0, #0x0
@@ -55,8 +55,8 @@ _0202A95A:
 _0202A980: .word 0x0000FFFF
 _0202A984: .word 0x0000010F
 
-	thumb_func_start FUN_0202A988
-FUN_0202A988: ; 0x0202A988
+	thumb_func_start sub_0202A988
+sub_0202A988: ; 0x0202A988
 	str r1, [r0, #0x0]
 	str r1, [r0, #0x4]
 	bx lr
@@ -81,8 +81,8 @@ _0202A9A4:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0202A9AC
-FUN_0202A9AC: ; 0x0202A9AC
+	thumb_func_start sub_0202A9AC
+sub_0202A9AC: ; 0x0202A9AC
 	add r0, #0xbc
 	bx lr
 
@@ -94,30 +94,30 @@ Save_Roamers_Get: ; 0x0202A9B0
 	nop
 _0202A9B8: .word SaveArray_Get
 
-	thumb_func_start FUN_0202A9BC
-FUN_0202A9BC: ; 0x0202A9BC
+	thumb_func_start sub_0202A9BC
+sub_0202A9BC: ; 0x0202A9BC
 	add r0, #0x10
 	bx lr
 
-	thumb_func_start FUN_0202A9C0
-FUN_0202A9C0: ; 0x0202A9C0
+	thumb_func_start sub_0202A9C0
+sub_0202A9C0: ; 0x0202A9C0
 	ldrb r0, [r0, #0x0]
 	bx lr
 
-	thumb_func_start FUN_0202A9C4
-FUN_0202A9C4: ; 0x0202A9C4
+	thumb_func_start sub_0202A9C4
+sub_0202A9C4: ; 0x0202A9C4
 	strb r0, [r1, #0x0]
 	bx lr
 
-	thumb_func_start FUN_0202A9C8
-FUN_0202A9C8: ; 0x0202A9C8
+	thumb_func_start sub_0202A9C8
+sub_0202A9C8: ; 0x0202A9C8
 	add r1, r1, #0x4
 	lsl r0, r0, #0x3
 	add r0, r1, r0
 	bx lr
 
-	thumb_func_start FUN_0202A9D0
-FUN_0202A9D0: ; 0x0202A9D0
+	thumb_func_start sub_0202A9D0
+sub_0202A9D0: ; 0x0202A9D0
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	bl Save_Roamers_Get
@@ -129,7 +129,7 @@ _0202A9E0:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	add r1, r6, #0x0
-	bl FUN_0202A9C8
+	bl sub_0202A9C8
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	beq _0202A9F8
@@ -143,8 +143,8 @@ _0202A9F8:
 	blt _0202A9E0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0202AA00
-FUN_0202AA00: ; 0x0202AA00
+	thumb_func_start sub_0202AA00
+sub_0202AA00: ; 0x0202AA00
 	push {r3, lr}
 	bl Save_Roamers_Get
 	ldr r1, _0202AA10 ; =0x0000010F
@@ -154,16 +154,16 @@ FUN_0202AA00: ; 0x0202AA00
 	nop
 _0202AA10: .word 0x0000010F
 
-	thumb_func_start FUN_0202AA14
-FUN_0202AA14: ; 0x0202AA14
+	thumb_func_start sub_0202AA14
+sub_0202AA14: ; 0x0202AA14
 	ldr r1, _0202AA1C ; =0x0000010F
 	ldrb r0, [r0, r1]
 	bx lr
 	nop
 _0202AA1C: .word 0x0000010F
 
-	thumb_func_start FUN_0202AA20
-FUN_0202AA20: ; 0x0202AA20
+	thumb_func_start sub_0202AA20
+sub_0202AA20: ; 0x0202AA20
 	add r2, r0, #0x0
 	add r2, #0xc8
 	ldr r3, [r2, #0x0]
@@ -178,15 +178,15 @@ _0202AA34:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202AA38
-FUN_0202AA38: ; 0x0202AA38
+	thumb_func_start sub_0202AA38
+sub_0202AA38: ; 0x0202AA38
 	add r0, #0xcc
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202AA40
-FUN_0202AA40: ; 0x0202AA40
+	thumb_func_start sub_0202AA40
+sub_0202AA40: ; 0x0202AA40
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -200,8 +200,8 @@ _0202AA4E:
 	ldrb r0, [r1, r0]
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0202AA58
-FUN_0202AA58: ; 0x0202AA58
+	thumb_func_start sub_0202AA58
+sub_0202AA58: ; 0x0202AA58
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -217,8 +217,8 @@ _0202AA68:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0202AA74
-FUN_0202AA74: ; 0x0202AA74
+	thumb_func_start sub_0202AA74
+sub_0202AA74: ; 0x0202AA74
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -234,8 +234,8 @@ _0202AA82:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0202AA90
-FUN_0202AA90: ; 0x0202AA90
+	thumb_func_start sub_0202AA90
+sub_0202AA90: ; 0x0202AA90
 	ldr r2, [r0, #0x0]
 	mov r1, #0x14
 	mov r0, #0x0
@@ -246,8 +246,8 @@ _0202AA96:
 	bne _0202AA96
 	bx lr
 
-	thumb_func_start FUN_0202AAA0
-FUN_0202AAA0: ; 0x0202AAA0
+	thumb_func_start sub_0202AAA0
+sub_0202AAA0: ; 0x0202AAA0
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -261,8 +261,8 @@ _0202AAAE:
 	add r0, r5, r0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0202AAB8
-FUN_0202AAB8: ; 0x0202AAB8
+	thumb_func_start sub_0202AAB8
+sub_0202AAB8: ; 0x0202AAB8
 	cmp r1, #0x8
 	bhi _0202AAF8
 	add r1, r1, r1
@@ -308,8 +308,8 @@ _0202AAF8:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202AAFC
-FUN_0202AAFC: ; 0x0202AAFC
+	thumb_func_start sub_0202AAFC
+sub_0202AAFC: ; 0x0202AAFC
 	cmp r1, #0x8
 	bhi _0202AB3C
 	add r1, r1, r1
@@ -355,23 +355,23 @@ _0202AB3C:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202AB40
-FUN_0202AB40: ; 0x0202AB40
+	thumb_func_start sub_0202AB40
+sub_0202AB40: ; 0x0202AB40
 	ldr r1, _0202AB48 ; =0x00000111
 	add r0, r0, r1
 	bx lr
 	nop
 _0202AB48: .word 0x00000111
 
-	thumb_func_start FUN_0202AB4C
-FUN_0202AB4C: ; 0x0202AB4C
+	thumb_func_start sub_0202AB4C
+sub_0202AB4C: ; 0x0202AB4C
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	add r0, r0, r1
 	bx lr
 
-	thumb_func_start FUN_0202AB54
-FUN_0202AB54: ; 0x0202AB54
+	thumb_func_start sub_0202AB54
+sub_0202AB54: ; 0x0202AB54
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	ldrb r0, [r0, r1]
@@ -384,8 +384,8 @@ _0202AB62:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202AB68
-FUN_0202AB68: ; 0x0202AB68
+	thumb_func_start sub_0202AB68
+sub_0202AB68: ; 0x0202AB68
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -399,16 +399,16 @@ _0202AB76:
 	.balign 4
 _0202AB7C: .word 0x00000112
 
-	thumb_func_start FUN_0202AB80
-FUN_0202AB80: ; 0x0202AB80
+	thumb_func_start sub_0202AB80
+sub_0202AB80: ; 0x0202AB80
 	ldr r1, _0202AB88 ; =0x00000112
 	ldrb r0, [r0, r1]
 	bx lr
 	nop
 _0202AB88: .word 0x00000112
 
-	thumb_func_start FUN_0202AB8C
-FUN_0202AB8C: ; 0x0202AB8C
+	thumb_func_start sub_0202AB8C
+sub_0202AB8C: ; 0x0202AB8C
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
@@ -419,8 +419,8 @@ FUN_0202AB8C: ; 0x0202AB8C
 	strh r0, [r4, #0x0]
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0202ABA0
-FUN_0202ABA0: ; 0x0202ABA0
+	thumb_func_start sub_0202ABA0
+sub_0202ABA0: ; 0x0202ABA0
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	bl Save_Roamers_Get

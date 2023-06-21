@@ -15,15 +15,15 @@ OS_DTCM;
 
 #define DTCM (*(OS_DTCM *)HW_DTCM)
 
-void FUN_02015EA0(void);
-void FUN_02015ED4(void);
-void FUN_02015EF4(void);
+void sub_02015EA0(void);
+void sub_02015ED4(void);
+void sub_02015EF4(void);
 void Main_SetVBlankIntrCB(void (*a0)(void *), void * a1);
-void FUN_02015F1C(void);
+void sub_02015F1C(void);
 BOOL Main_SetHBlankIntrCB(void (*a0)(void *), void * a1);
 void Main_CallHBlankCallback(void);
 void Main_ToggleHBlankInterrupt(BOOL enableFlag);
-void FUN_02015FC8(void);
+void sub_02015FC8(void);
 void InitSystemForTheGame(void);
 void InitGraphicMemory(void);
 void * AllocAndReadFile(u32 heap_id, const char * path);
@@ -34,9 +34,9 @@ int AddFileToCache(void * contents, u32 hash);
 void ClearFileCache(void);
 void * OpenFileCached(const s8 * str, u32 heap_id);
 void InitKeypadAndTouchpad(void);
-void FUN_02016438(u8 a0);
-void FUN_02016444(u8 a0);
-void FUN_02016454(u8 a0);
+void sub_02016438(u8 a0);
+void sub_02016444(u8 a0);
+void sub_02016454(u8 a0);
 void ReadKeypadAndTocuhpad(void);
 void ApplyButtonModeToInput(void);
 void SetKeyRepeatTimers(int continueDelay, int startDelay);

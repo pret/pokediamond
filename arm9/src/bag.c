@@ -380,79 +380,79 @@ struct Bag * Save_Bag_Get(struct SaveData * save)
     return (struct Bag *)SaveArray_Get(save, 3);
 }
 
-struct UnkStruct_0206F164 * FUN_0206F164(u32 heap_id)
+struct UnkStruct_0206F164 * sub_0206F164(u32 heap_id)
 {
     struct UnkStruct_0206F164 * ret = (struct UnkStruct_0206F164 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_0206F164));
     MI_CpuClear16(ret, sizeof(struct UnkStruct_0206F164));
     return ret;
 }
 
-void FUN_0206F17C(struct UnkStruct_0206F164 * a0, u32 a1, u8 * a2, u8 * a3)
+void sub_0206F17C(struct UnkStruct_0206F164 * a0, u32 a1, u8 * a2, u8 * a3)
 {
     *a2 = a0->unk_08[a1];
     *a3 = a0->unk_00[a1];
 }
 
-u16 FUN_0206F18C(struct UnkStruct_0206F164 * a0)
+u16 sub_0206F18C(struct UnkStruct_0206F164 * a0)
 {
     return a0->unk_10;
 }
 
-void FUN_0206F190(struct UnkStruct_0206F164 * a0, u32 a1, u8 a2, u8 a3)
+void sub_0206F190(struct UnkStruct_0206F164 * a0, u32 a1, u8 a2, u8 a3)
 {
     a0->unk_08[a1] = a2;
     a0->unk_00[a1] = a3;
 }
 
-void FUN_0206F19C(struct UnkStruct_0206F164 * a0, u16 a1)
+void sub_0206F19C(struct UnkStruct_0206F164 * a0, u16 a1)
 {
     a0->unk_10 = a1;
 }
 
-void FUN_0206F1A0(struct UnkStruct_0206F164 * a0, u32 a1, u8 * a2, u8 * a3)
+void sub_0206F1A0(struct UnkStruct_0206F164 * a0, u32 a1, u8 * a2, u8 * a3)
 {
     *a2 = a0->unk_19[a1];
     *a3 = a0->unk_14[a1];
 }
 
-u16 FUN_0206F1AC(struct UnkStruct_0206F164 * a0)
+u16 sub_0206F1AC(struct UnkStruct_0206F164 * a0)
 {
     return a0->unk_1e;
 }
 
-u16 FUN_0206F1B0(struct UnkStruct_0206F164 * a0)
+u16 sub_0206F1B0(struct UnkStruct_0206F164 * a0)
 {
     return a0->unk_20;
 }
 
-u16 FUN_0206F1B4(struct UnkStruct_0206F164 * a0)
+u16 sub_0206F1B4(struct UnkStruct_0206F164 * a0)
 {
     return a0->unk_22;
 }
 
-void FUN_0206F1B8(struct UnkStruct_0206F164 * a0, u32 a1, u8 a2, u8 a3)
+void sub_0206F1B8(struct UnkStruct_0206F164 * a0, u32 a1, u8 a2, u8 a3)
 {
     a0->unk_19[a1] = a2;
     a0->unk_14[a1] = a3;
 }
 
-void FUN_0206F1C0(struct UnkStruct_0206F164 * a0)
+void sub_0206F1C0(struct UnkStruct_0206F164 * a0)
 {
     u32 i;
     for (i = 0; i < 5; i++)
     {
-        FUN_0206F1B8(a0, i, 0, 0);
+        sub_0206F1B8(a0, i, 0, 0);
     }
-    FUN_0206F1EC(a0, 0);
+    sub_0206F1EC(a0, 0);
 }
 
-void FUN_0206F1E4(struct UnkStruct_0206F164 * a0, u16 a1, u16 a2)
+void sub_0206F1E4(struct UnkStruct_0206F164 * a0, u16 a1, u16 a2)
 {
     a0->unk_1e = a1;
     a0->unk_20 = a2;
 }
 
-void FUN_0206F1EC(struct UnkStruct_0206F164 * a0, u16 a1)
+void sub_0206F1EC(struct UnkStruct_0206F164 * a0, u16 a1)
 {
     a0->unk_22 = a1;
 }

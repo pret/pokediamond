@@ -3,15 +3,15 @@
 
 	.text
 
-	thumb_func_start FUN_02060344
-FUN_02060344: ; 0x02060344
+	thumb_func_start sub_02060344
+sub_02060344: ; 0x02060344
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	str r1, [sp, #0x0]
 	cmp r1, #0x0
 	ble _020603AE
-	bl FUN_02029ABC
-	bl FUN_02029ACC
+	bl sub_02029ABC
+	bl sub_02029ACC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl Save_PlayerData_GetProfileAddr
@@ -29,7 +29,7 @@ _0206036A:
 	beq _020603A4
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_02029AD0
+	bl sub_02029AD0
 	add r1, r0, #0x0
 	cmp r1, #0x0
 	ble _0206038C
@@ -50,7 +50,7 @@ _02060396:
 _0206039C:
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_02029AD8
+	bl sub_02029AD8
 _020603A4:
 	add r0, r5, #0x1
 	lsl r0, r0, #0x18

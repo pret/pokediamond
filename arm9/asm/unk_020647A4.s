@@ -42,15 +42,15 @@ UNK_020F7D84: ; 0x020F7D84
 
 	.text
 
-	thumb_func_start FUN_020647A4
-FUN_020647A4: ; 0x020647A4
+	thumb_func_start sub_020647A4
+sub_020647A4: ; 0x020647A4
 	push {r3-r7, lr}
 	sub sp, #0x30
 	add r4, r0, #0x0
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	mov r1, #0x7
-	bl FUN_020254A0
+	bl sub_020254A0
 	ldrh r1, [r0, #0x2]
 	ldrh r0, [r0, #0x0]
 	ldr r3, _0206485C ; =UNK_020F7D70
@@ -82,12 +82,12 @@ FUN_020647A4: ; 0x020647A4
 	ldr r0, [r0, #0x0]
 	ldr r1, [r4, #0x2c]
 	mov r3, r12
-	bl MOD05_021E7FBC
+	bl ov05_021E7FBC
 	add r0, r4, #0x0
 	add r0, #0xa0
 	ldr r0, [r0, #0x0]
 	ldr r1, _02064864 ; =0x00000102
-	bl MOD05_021E7ED8
+	bl ov05_021E7ED8
 	str r0, [sp, #0x14]
 	b _0206482C
 _0206480A:
@@ -102,18 +102,18 @@ _0206480A:
 	add r0, r4, #0x0
 	mov r2, #0x2
 	add r3, sp, #0x14
-	bl FUN_0204AA5C
+	bl sub_0204AA5C
 	cmp r0, #0x0
 	bne _0206482C
 	bl GF_AssertFail
 _0206482C:
 	ldr r1, [sp, #0x14]
 	add r0, sp, #0x18
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	ldr r0, [sp, #0x14]
 	add r1, sp, #0x18
 	str r5, [sp, #0x1c]
-	bl MOD05_021E7EB0
+	bl ov05_021E7EB0
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	str r5, [sp, #0x4]
@@ -124,7 +124,7 @@ _0206482C:
 	ldr r1, [r6, #0x8]
 	ldr r2, [r6, #0xc]
 	mov r0, #0x0
-	bl MOD05_021F44D8
+	bl ov05_021F44D8
 	add sp, #0x30
 	pop {r3-r7, pc}
 	nop
@@ -133,18 +133,18 @@ _02064860: .word UNK_020F7D64
 _02064864: .word 0x00000102
 _02064868: .word UNK_020F7D4C
 
-	thumb_func_start FUN_0206486C
-FUN_0206486C: ; 0x0206486C
+	thumb_func_start sub_0206486C
+sub_0206486C: ; 0x0206486C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	add r5, r0, #0x0
 	mov r1, #0x7
-	bl FUN_02025490
+	bl sub_02025490
 	add r0, r5, #0x0
 	mov r1, #0x7
-	bl FUN_020254A0
+	bl sub_020254A0
 	mov r3, #0x1
 	str r3, [r0, #0x4]
 	mov r2, #0x0
@@ -322,13 +322,13 @@ _020649A0:
 _020649A8: .word 0x00000123
 _020649AC: .word 0x00000125
 
-	thumb_func_start FUN_020649B0
-FUN_020649B0: ; 0x020649B0
+	thumb_func_start sub_020649B0
+sub_020649B0: ; 0x020649B0
 	push {r3, lr}
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	mov r1, #0x7
-	bl FUN_020254A0
+	bl sub_020254A0
 	ldr r0, [r0, #0x4]
 	cmp r0, #0x0
 	beq _020649CA
@@ -342,14 +342,14 @@ _020649CC:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020649D4
-FUN_020649D4: ; 0x020649D4
+	thumb_func_start sub_020649D4
+sub_020649D4: ; 0x020649D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	mov r1, #0x7
-	bl FUN_020254A0
+	bl sub_020254A0
 	add r4, r0, #0x0
 	ldrh r1, [r4, #0x2]
 	mov r0, #0x18
@@ -385,11 +385,11 @@ _020649FE:
 	add r3, r1, #0x0
 	mul r3, r0
 	ldr r0, _02064A60 ; =UNK_020F7D74
-	ldr r1, _02064A64 ; =FUN_02064A70
+	ldr r1, _02064A64 ; =sub_02064A70
 	ldr r0, [r0, r3]
 	str r0, [r2, #0x4]
 	ldr r0, [r5, #0x10]
-	bl FUN_0204640C
+	bl sub_0204640C
 	mov r0, #0x1
 	strh r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -397,11 +397,11 @@ _02064A3E:
 	add r3, r1, #0x0
 	mul r3, r0
 	ldr r0, _02064A68 ; =UNK_020F7D70
-	ldr r1, _02064A6C ; =FUN_02064B70
+	ldr r1, _02064A6C ; =sub_02064B70
 	ldr r0, [r0, r3]
 	str r0, [r2, #0x4]
 	ldr r0, [r5, #0x10]
-	bl FUN_0204640C
+	bl sub_0204640C
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
 _02064A54:
@@ -410,19 +410,19 @@ _02064A54:
 _02064A58: .word UNK_020F7D80
 _02064A5C: .word UNK_020F7D84
 _02064A60: .word UNK_020F7D74
-_02064A64: .word FUN_02064A70
+_02064A64: .word sub_02064A70
 _02064A68: .word UNK_020F7D70
-_02064A6C: .word FUN_02064B70
+_02064A6C: .word sub_02064B70
 
-	thumb_func_start FUN_02064A70
-FUN_02064A70: ; 0x02064A70
+	thumb_func_start sub_02064A70
+sub_02064A70: ; 0x02064A70
 	push {r4-r5, lr}
 	sub sp, #0x1c
 	add r4, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x3
@@ -441,9 +441,9 @@ _02064A96: ; jump table (using 16-bit offset)
 _02064A9E:
 	ldr r0, [r5, #0x38]
 	mov r1, #0x0
-	bl FUN_02055560
+	bl sub_02055560
 	ldr r0, [r4, #0xc]
-	bl FUN_02064C64
+	bl sub_02064C64
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -456,7 +456,7 @@ _02064AB4:
 	add r0, #0xa0
 	ldr r0, [r0, #0x0]
 	ldr r1, _02064B64 ; =0x00000102
-	bl MOD05_021E7ED8
+	bl ov05_021E7ED8
 	str r0, [sp, #0xc]
 	b _02064AEC
 _02064ACA:
@@ -471,14 +471,14 @@ _02064ACA:
 	add r0, r5, #0x0
 	mov r2, #0x2
 	add r3, sp, #0xc
-	bl FUN_0204AA5C
+	bl sub_0204AA5C
 	cmp r0, #0x0
 	bne _02064AEC
 	bl GF_AssertFail
 _02064AEC:
 	ldr r1, [sp, #0xc]
 	add r0, sp, #0x10
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	ldr r0, [r4, #0xc]
 	cmp r0, #0x0
 	bne _02064AFE
@@ -496,17 +496,17 @@ _02064B00:
 	blt _02064B1C
 	str r0, [sp, #0x14]
 	ldr r0, [r4, #0xc]
-	bl FUN_02064C84
+	bl sub_02064C84
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 _02064B1C:
 	ldr r0, [r5, #0x38]
 	ldr r1, [sp, #0x14]
-	bl FUN_02055540
+	bl sub_02055540
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x10
-	bl MOD05_021E7EB0
+	bl ov05_021E7EB0
 	b _02064B5C
 _02064B2E:
 	add r2, r5, #0x0
@@ -514,10 +514,10 @@ _02064B2E:
 	ldr r1, [r4, #0x4]
 	ldr r2, [r2, #0x0]
 	mov r0, #0x0
-	bl MOD05_021F4594
+	bl ov05_021F4594
 	ldr r0, [r5, #0x38]
 	mov r1, #0x1
-	bl FUN_0205557C
+	bl sub_0205557C
 	ldr r0, _02064B6C ; =0x0000061A
 	bl PlaySE
 	ldr r0, [r4, #0x0]
@@ -538,15 +538,15 @@ _02064B64: .word 0x00000102
 _02064B68: .word UNK_020F7D4C
 _02064B6C: .word 0x0000061A
 
-	thumb_func_start FUN_02064B70
-FUN_02064B70: ; 0x02064B70
+	thumb_func_start sub_02064B70
+sub_02064B70: ; 0x02064B70
 	push {r4-r5, lr}
 	sub sp, #0x1c
 	add r4, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x3
@@ -565,9 +565,9 @@ _02064B96: ; jump table (using 16-bit offset)
 _02064B9E:
 	ldr r0, [r5, #0x38]
 	mov r1, #0x0
-	bl FUN_02055560
+	bl sub_02055560
 	ldr r0, [r4, #0xc]
-	bl FUN_02064C64
+	bl sub_02064C64
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -580,7 +580,7 @@ _02064BB4:
 	add r0, #0xa0
 	ldr r0, [r0, #0x0]
 	ldr r1, _02064C58 ; =0x00000102
-	bl MOD05_021E7ED8
+	bl ov05_021E7ED8
 	str r0, [sp, #0xc]
 	b _02064BEC
 _02064BCA:
@@ -595,14 +595,14 @@ _02064BCA:
 	add r0, r5, #0x0
 	mov r2, #0x2
 	add r3, sp, #0xc
-	bl FUN_0204AA5C
+	bl sub_0204AA5C
 	cmp r0, #0x0
 	bne _02064BEC
 	bl GF_AssertFail
 _02064BEC:
 	ldr r1, [sp, #0xc]
 	add r0, sp, #0x10
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	mov r0, #0x1
 	ldr r1, [sp, #0x14]
 	lsl r0, r0, #0xc
@@ -613,17 +613,17 @@ _02064BEC:
 	bgt _02064C12
 	str r0, [sp, #0x14]
 	ldr r0, [r4, #0xc]
-	bl FUN_02064C84
+	bl sub_02064C84
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 _02064C12:
 	ldr r0, [r5, #0x38]
 	ldr r1, [sp, #0x14]
-	bl FUN_02055540
+	bl sub_02055540
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x10
-	bl MOD05_021E7EB0
+	bl ov05_021E7EB0
 	b _02064C52
 _02064C24:
 	add r2, r5, #0x0
@@ -631,10 +631,10 @@ _02064C24:
 	ldr r1, [r4, #0x4]
 	ldr r2, [r2, #0x0]
 	mov r0, #0x0
-	bl MOD05_021F4594
+	bl ov05_021F4594
 	ldr r0, [r5, #0x38]
 	mov r1, #0x1
-	bl FUN_0205557C
+	bl sub_0205557C
 	ldr r0, _02064C60 ; =0x0000061A
 	bl PlaySE
 	ldr r0, [r4, #0x0]
@@ -655,8 +655,8 @@ _02064C58: .word 0x00000102
 _02064C5C: .word UNK_020F7D4C
 _02064C60: .word 0x0000061A
 
-	thumb_func_start FUN_02064C64
-FUN_02064C64: ; 0x02064C64
+	thumb_func_start sub_02064C64
+sub_02064C64: ; 0x02064C64
 	push {r3, lr}
 	cmp r0, #0x0
 	bne _02064C72
@@ -671,19 +671,19 @@ _02064C72:
 _02064C7C: .word 0x00000611
 _02064C80: .word 0x00000614
 
-	thumb_func_start FUN_02064C84
-FUN_02064C84: ; 0x02064C84
+	thumb_func_start sub_02064C84
+sub_02064C84: ; 0x02064C84
 	push {r3, lr}
 	cmp r0, #0x0
 	bne _02064C94
 	ldr r0, _02064CA0 ; =0x00000611
 	mov r1, #0x0
-	bl FUN_020054F0
+	bl sub_020054F0
 	pop {r3, pc}
 _02064C94:
 	ldr r0, _02064CA4 ; =0x00000614
 	mov r1, #0x0
-	bl FUN_020054F0
+	bl sub_020054F0
 	pop {r3, pc}
 	nop
 _02064CA0: .word 0x00000611

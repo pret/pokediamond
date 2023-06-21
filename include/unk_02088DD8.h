@@ -19,9 +19,9 @@ typedef struct MoveRelearner
     u8 padding2[1];
 } MoveRelearner;
 
-MoveRelearner *FUN_02088DD8(u32 heap_id);
-void FUN_02088DF0(MoveRelearner *moveRelearner);
+MoveRelearner *sub_02088DD8(u32 heap_id);
+void sub_02088DF0(MoveRelearner *moveRelearner);
 u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id);
-BOOL FUN_02088EF8(u16 *r0);
+BOOL sub_02088EF8(u16 *r0);
 
 #endif

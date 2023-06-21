@@ -38,13 +38,13 @@ BOOL Save_SysInfo_MacAddressIsMine(struct SavSysInfo * unk);
 BOOL Save_SysInfo_RTCOffsetIsMine(struct SavSysInfo * unk);
 u8 Save_SysInfo_GetBirthMonth(struct SavSysInfo * unk);
 u8 Save_SysInfo_GetBirthDay(struct SavSysInfo * unk);
-u8 FUN_02023820(struct SavSysInfo * unk);
-void FUN_02023828(struct SavSysInfo * unk, u8 val);
-u32 FUN_02023830(struct SavSysInfo * unk);
-void FUN_02023834(struct SavSysInfo * unk, u32 val);
+u8 sub_02023820(struct SavSysInfo * unk);
+void sub_02023828(struct SavSysInfo * unk, u8 val);
+u32 sub_02023830(struct SavSysInfo * unk);
+void sub_02023834(struct SavSysInfo * unk, u32 val);
 void Save_SysInfo_RTC_Init(struct UnkSaveStruct_0202376C_sub * sub);
-BOOL FUN_02023874(struct UnkSaveStruct_0202376C_sub * sub);
-void FUN_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1);
-void FUN_020238A4(struct UnkSaveStruct_0202376C_sub * sub);
+BOOL sub_02023874(struct UnkSaveStruct_0202376C_sub * sub);
+void sub_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1);
+void sub_020238A4(struct UnkSaveStruct_0202376C_sub * sub);
 
 #endif //POKEDIAMOND_SAV_SYSTEM_INFO_H

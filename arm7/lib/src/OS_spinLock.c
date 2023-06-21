@@ -25,7 +25,7 @@ void OS_InitLock(void)
     lockp->extension = 0xbf;
 }
 
-void FUN_037F8CB4(s32 ct)
+void sub_037F8CB4(s32 ct)
 {
     SVC_WaitByLoop((u32)ct); //todo this should be linker generated, figure out why it broke
 }

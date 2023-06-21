@@ -33,10 +33,10 @@ u8 GetGenderBySpeciesAndPersonality_PreloadedPersonal(struct BaseStats * persona
 u8 BoxMonIsShiny(struct BoxPokemon * boxmon);
 u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
 void InitBoxMonMoveset(struct BoxPokemon * boxmon);
-u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move);
-void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
+u32 sub_020696A8(struct BoxPokemon * boxmon, u16 move);
+void sub_02069718(struct BoxPokemon * boxmon, u16 move);
 void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot);
-void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
+void sub_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
 s8 BoxMonGetFlavorPreference(struct BoxPokemon * boxmon, int flavor);
 s8 GetFlavorPreferenceFromPID(u32 personality, int flavor);
 u8 Party_MaskMonsWithPokerus(struct PlayerParty * party_p, u8 mask);
@@ -44,11 +44,11 @@ BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
 BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
 void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
-void FUN_0206A054(struct BoxPokemon *  boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
+void sub_0206A054(struct BoxPokemon *  boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
-BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1);
-BOOL FUN_0206A16C(u16 species, int forme, u32 a2);
-void FUN_0206A1CC(struct BoxPokemon * boxmon);
+BOOL sub_0206A144(struct BoxPokemon * boxmon, u32 a1);
+BOOL sub_0206A16C(u16 species, int forme, u32 a2);
+void sub_0206A1CC(struct BoxPokemon * boxmon);
 u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
 void LoadMonEvolutionTable(u16 species, struct Evolution * dest);
@@ -2171,12 +2171,12 @@ u32 GenerateShinyPersonality(u32 otid)
     return (u32)((r5 << 16) | r6);
 }
 
-void FUN_02068B68(struct SomeDrawPokemonStruct * spC, struct Pokemon * pokemon, u8 sp10)
+void sub_02068B68(struct SomeDrawPokemonStruct * spC, struct Pokemon * pokemon, u8 sp10)
 {
-    FUN_02068B70(spC, &pokemon->box, sp10);
+    sub_02068B70(spC, &pokemon->box, sp10);
 }
 
-void FUN_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon, u8 sp10)
+void sub_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon, u8 sp10)
 {
     BOOL decry = AcquireBoxMonLock(boxmon);
     u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
@@ -2193,11 +2193,11 @@ void FUN_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon
     }
     else
         forme = (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
-    FUN_02068C00(spC, species, gender, sp10, shiny, forme, personality);
+    sub_02068C00(spC, species, gender, sp10, shiny, forme, personality);
     ReleaseBoxMonLock(boxmon, decry);
 }
 
-void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 forme, u32 personality)
+void sub_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 forme, u32 personality)
 {
     spC->unk6 = 0;
     spC->unk8 = 0;
@@ -2293,12 +2293,12 @@ void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8
     }
 }
 
-u8 FUN_02068E14(struct Pokemon * pokemon, u32 a1)
+u8 sub_02068E14(struct Pokemon * pokemon, u32 a1)
 {
-    return FUN_02068E1C(&pokemon->box, a1);
+    return sub_02068E1C(&pokemon->box, a1);
 }
 
-u8 FUN_02068E1C(struct BoxPokemon * boxmon, u32 a1)
+u8 sub_02068E1C(struct BoxPokemon * boxmon, u32 a1)
 {
     u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
     u8 gender = GetBoxMonGender(boxmon);
@@ -2313,10 +2313,10 @@ u8 FUN_02068E1C(struct BoxPokemon * boxmon, u32 a1)
     }
     else
         forme = (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
-    return FUN_02068E88(species, gender, a1, forme, pid);
+    return sub_02068E88(species, gender, a1, forme, pid);
 }
 
-u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
+u8 sub_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
 {
 #pragma unused(pid)
     u8 ret;
@@ -2397,14 +2397,14 @@ u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
     return ret;
 }
 
-void FUN_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
+void sub_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
 {
     if (a2 == 2)
         a0->unk0 = NARC_POKETOOL_TRGRA_TRFGRA;
     else
     {
         a0->unk0 = NARC_POKETOOL_TRGRA_TRBGRA;
-        a1 = (u16)FUN_0206AA30(a1);
+        a1 = (u16)sub_0206AA30(a1);
     }
     a0->unk2 = (u16)(a1 * 2);
     a0->unk4 = (u16)(a1 * 2 + 1);
@@ -2413,14 +2413,14 @@ void FUN_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
     a0->unkC = 0;
 }
 
-void FUN_02069010(void * dest, int a1)
+void sub_02069010(void * dest, int a1)
 {
     struct Pokeanm buffer;
     ReadFromNarcMemberByIdPair(&buffer, NARC_POKETOOL_POKEANM_POKEANM, 0, (u32)(28 * a1), 28);
     MI_CpuCopy8(buffer.unk8, dest, 20);
 }
 
-void FUN_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6)
+void sub_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6)
 {
     struct UnkStruct_02069038 sp4;
     ReadFromNarcMemberByIdPair(&sp4.anim, NARC_POKETOOL_POKEANM_POKEANM, 0, (u32)(a2 * 28), 28);
@@ -2432,16 +2432,16 @@ void FUN_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6)
     }
     else
     {
-        a3 = FUN_02014C3C((u8)a4);
+        a3 = sub_02014C3C((u8)a4);
         GF_ASSERT(a3 < 3);
         sp4.unk0 = sp4.anim.unk0[a3 + 1].unk0;
         sp4.unk2 = sp4.anim.unk0[a3 + 1].unk1;
         sp4.unk4 = (u8)a5;
     }
-    FUN_02014C54((int)a0, (int)a1, &sp4, (u8)a6);
+    sub_02014C54((int)a0, (int)a1, &sp4, (u8)a6);
 }
 
-void FUN_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1)
+void sub_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1)
 {
     a0->unk0 = NARC_POKETOOL_TRGRA_TRFGRA;
     a0->unk2 = (u16)(a1 * 2);
@@ -2451,12 +2451,12 @@ void FUN_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1)
     a0->unkC = 0;
 }
 
-u32 FUN_020690C4(void)
+u32 sub_020690C4(void)
 {
     return sizeof(struct Pokemon);
 }
 
-u32 FUN_020690C8(void)
+u32 sub_020690C8(void)
 {
     return sizeof(struct BoxPokemon);
 }
@@ -2471,12 +2471,12 @@ u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon)
     return (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
 }
 
-struct BoxPokemon * FUN_020690E4(struct Pokemon * pokemon)
+struct BoxPokemon * sub_020690E4(struct Pokemon * pokemon)
 {
     return &pokemon->box;
 }
 
-BOOL FUN_020690E8(struct Pokemon * pokemon)
+BOOL sub_020690E8(struct Pokemon * pokemon)
 {
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     u8 level = (u8)(GetMonData(pokemon, MON_DATA_LEVEL, NULL) + 1);
@@ -2806,19 +2806,19 @@ void InitBoxMonMoveset(struct BoxPokemon * boxmon)
         if ((wotbl[i] & WOTBL_LVL_MASK) > (level << WOTBL_LVL_SHIFT))
             break;
         move = WOTBL_MOVE(wotbl[i]);
-        if (FUN_020696A8(boxmon, move) == 0xFFFF)
-            FUN_02069718(boxmon, move);
+        if (sub_020696A8(boxmon, move) == 0xFFFF)
+            sub_02069718(boxmon, move);
     }
     FreeToHeap(wotbl);
     ReleaseBoxMonLock(boxmon, decry);
 }
 
-u32 FUN_02069698(struct Pokemon * pokemon, u16 move)
+u32 sub_02069698(struct Pokemon * pokemon, u16 move)
 {
-    return FUN_020696A8(FUN_020690E4(pokemon), move);
+    return sub_020696A8(sub_020690E4(pokemon), move);
 }
 
-u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move)
+u32 sub_020696A8(struct BoxPokemon * boxmon, u16 move)
 {
     u32 ret = 0xFFFF;
     int i;
@@ -2843,12 +2843,12 @@ u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move)
     return ret;
 }
 
-void FUN_02069708(struct Pokemon * pokemon, u16 move)
+void sub_02069708(struct Pokemon * pokemon, u16 move)
 {
-    FUN_02069718(FUN_020690E4(pokemon), move);
+    sub_02069718(sub_020690E4(pokemon), move);
 }
 
-void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
+void sub_02069718(struct BoxPokemon * boxmon, u16 move)
 {
     BOOL decry = AcquireBoxMonLock(boxmon);
     int i;
@@ -2893,7 +2893,7 @@ void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot)
     SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot, &pp);
 }
 
-u32 FUN_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
+u32 sub_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
 {
     u32 ret = 0;
     u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
@@ -2921,18 +2921,18 @@ u32 FUN_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
     {
         *sp0 = WOTBL_MOVE(wotbl[*r5]);
         (*r5)++;
-        ret = FUN_02069698(pokemon, *sp0);
+        ret = sub_02069698(pokemon, *sp0);
     }
     FreeToHeap(wotbl);
     return ret;
 }
 
-void FUN_020698E0(struct Pokemon * pokemon, int slot1, int slot2)
+void sub_020698E0(struct Pokemon * pokemon, int slot1, int slot2)
 {
-    FUN_020698E8(&pokemon->box, slot1, slot2);
+    sub_020698E8(&pokemon->box, slot1, slot2);
 }
 
-void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2)
+void sub_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2)
 {
     u16 moves[2];
     u8 pp[2];
@@ -2953,7 +2953,7 @@ void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2)
     SetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot2, &ppUp[0]);
 }
 
-void FUN_020699A4(struct Pokemon * pokemon, u32 slot)
+void sub_020699A4(struct Pokemon * pokemon, u32 slot)
 {
     u16 move;
     u8 pp;
@@ -3303,32 +3303,32 @@ void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl)
     ReadWholeNarcMemberByIdPair(wotbl, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForme(species, forme));
 }
 
-void FUN_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, u32 sp20)
+void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, u32 sp20)
 {
     if (r4 == SPECIES_CHATOT)
     {
-        if (!FUN_02005F14((int)r5))
+        if (!sub_02005F14((int)r5))
         {
-            FUN_02005E80(1);
-            FUN_020056AC(r5, r4, r6, sp18, sp20);
+            sub_02005E80(1);
+            sub_020056AC(r5, r4, r6, sp18, sp20);
         }
         else
         {
             if (sp1C)
-                FUN_02005E80(1);
-            FUN_02005E90(r7, 0, sp18, r6);
+                sub_02005E80(1);
+            sub_02005E90(r7, 0, sp18, r6);
         }
     }
     else
     {
-        FUN_020056AC(r5, r4, r6, sp18, sp20);
+        sub_020056AC(r5, r4, r6, sp18, sp20);
     }
 }
 
-void FUN_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
+void sub_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
     u32 hp;
-    FUN_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heap_id);
+    sub_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heap_id);
     if (pokeball == ITEM_HEAL_BALL)
     {
         hp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
@@ -3338,15 +3338,15 @@ void FUN_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u3
     }
 }
 
-void FUN_0206A054(struct BoxPokemon * boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
+void sub_0206A054(struct BoxPokemon * boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
-    FUN_020808AC(boxmon, a1, 0, a3, heap_id);
+    sub_020808AC(boxmon, a1, 0, a3, heap_id);
     SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
     SetBoxMonData(boxmon, MON_DATA_POKEBALL, &pokeball);
     SetBoxMonData(boxmon, MON_DATA_ENCOUNTER_TYPE, &encounterType);
 }
 
-void FUN_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2)
+void sub_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2)
 {
     u32 chance;
     u16 species;
@@ -3380,19 +3380,19 @@ void FUN_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2)
     }
 }
 
-BOOL FUN_0206A13C(struct Pokemon * pokemon, u32 a1)
+BOOL sub_0206A13C(struct Pokemon * pokemon, u32 a1)
 {
-    return FUN_0206A144(&pokemon->box, a1);
+    return sub_0206A144(&pokemon->box, a1);
 }
 
-BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1)
+BOOL sub_0206A144(struct BoxPokemon * boxmon, u32 a1)
 {
     u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
     int forme = (int)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
-    return FUN_0206A16C(species, forme, a1);
+    return sub_0206A16C(species, forme, a1);
 }
 
-BOOL FUN_0206A16C(u16 species, int forme, u32 a2)
+BOOL sub_0206A16C(u16 species, int forme, u32 a2)
 {
     u32 r4;
     enum BaseStat r2;
@@ -3421,12 +3421,12 @@ BOOL FUN_0206A16C(u16 species, int forme, u32 a2)
     return !!(GetMonBaseStat_HandleFormeConversion(species, forme, r2) & r4);
 }
 
-void FUN_0206A1C4(struct Pokemon * pokemon)
+void sub_0206A1C4(struct Pokemon * pokemon)
 {
-    FUN_0206A1CC(&pokemon->box);
+    sub_0206A1CC(&pokemon->box);
 }
 
-void FUN_0206A1CC(struct BoxPokemon * boxmon)
+void sub_0206A1CC(struct BoxPokemon * boxmon)
 {
     BOOL decry = AcquireBoxMonLock(boxmon);
     int species = (int)GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
@@ -3446,7 +3446,7 @@ void FUN_0206A1CC(struct BoxPokemon * boxmon)
     ReleaseBoxMonLock(boxmon, decry);
 }
 
-void FUN_0206A23C(struct Pokemon * r5, u32 personality)
+void sub_0206A23C(struct Pokemon * r5, u32 personality)
 {
     PokemonDataBlockA * r4;
     PokemonDataBlockB * r6;
@@ -3674,13 +3674,13 @@ u16 GetLegendaryMon(u32 idx)
     return sLegendaryMonsList[idx];
 }
 
-BOOL FUN_0206A998(struct Pokemon * pokemon)
+BOOL sub_0206A998(struct Pokemon * pokemon)
 {
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     return IsPokemonLegendaryOrMythical(species);
 }
 
-BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, u32 heap_id)
+BOOL sub_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, u32 heap_id)
 {
     u32 myId = PlayerProfile_GetTrainerID(sb2);
     u32 otId = GetBoxMonData(boxmon, MON_DATA_OTID, NULL);
@@ -3697,7 +3697,7 @@ BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, u32 heap_id)
     return ret;
 }
 
-int FUN_0206AA30(int x)
+int sub_0206AA30(int x)
 {
     switch (x)
     {

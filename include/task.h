@@ -22,26 +22,26 @@ struct TaskManager
     u32 *unk1C;
 };
 
-extern void LoadOverlay_MODULE_05(void *);
-extern void FUN_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
-extern BOOL FUN_020373AC(void *);
-extern BOOL FUN_0203739C(struct FieldSystem *fieldSystem);
-extern BOOL FUN_020373C4(struct FieldSystem *fieldSystem);
+extern void LoadOverlay_OVERLAY_05(void *);
+extern void sub_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
+extern BOOL sub_020373AC(void *);
+extern BOOL sub_0203739C(struct FieldSystem *fieldSystem);
+extern BOOL sub_020373C4(struct FieldSystem *fieldSystem);
 
 struct TaskManager *FieldSys_CreateTask(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env);
-void FUN_020463CC(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env);
-void FUN_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
-void FUN_0204640C(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
-BOOL FUN_02046420(struct TaskManager *taskManager);
-BOOL FUN_0204646C(struct TaskManager *taskManager);
-BOOL FUN_0204647C(struct FieldSystem *fieldSystem);
-void FUN_0204649C(void * r0);
-BOOL FUN_020464A4(void * r0);
-BOOL FUN_020464B8(struct TaskManager *taskManager);
-void FUN_02046500(struct TaskManager *taskManager, u32 r5, u32 r4);
-void * FUN_0204652C(struct TaskManager *taskManager);
-u32 * FUN_02046530(struct TaskManager *taskManager);
-u32 FUN_02046534(struct TaskManager *taskManager);
-struct FieldSystem *FUN_02046528(struct TaskManager *taskManager);
+void sub_020463CC(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env);
+void sub_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
+void sub_0204640C(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
+BOOL sub_02046420(struct TaskManager *taskManager);
+BOOL sub_0204646C(struct TaskManager *taskManager);
+BOOL sub_0204647C(struct FieldSystem *fieldSystem);
+void sub_0204649C(void * r0);
+BOOL sub_020464A4(void * r0);
+BOOL sub_020464B8(struct TaskManager *taskManager);
+void sub_02046500(struct TaskManager *taskManager, u32 r5, u32 r4);
+void * sub_0204652C(struct TaskManager *taskManager);
+u32 * sub_02046530(struct TaskManager *taskManager);
+u32 sub_02046534(struct TaskManager *taskManager);
+struct FieldSystem *sub_02046528(struct TaskManager *taskManager);
 
 #endif //POKEDIAMOND_TASK_H

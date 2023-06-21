@@ -2,7 +2,7 @@
 #include "scrcmd.h"
 #include "bag.h"
 
-extern BOOL FUN_02054CB0(u16 item_id);
+extern BOOL sub_02054CB0(u16 item_id);
 
 BOOL ScrCmd_GiveItem(struct ScriptContext* ctx) //007B
 {
@@ -67,7 +67,7 @@ BOOL ScrCmd_ItemIdIsTMOrHM(struct ScriptContext* ctx) //007F
     u16 item_id = ScriptGetVar(ctx);
     u16* is_tm_or_hm = ScriptGetVarPointer(ctx);
 
-    *is_tm_or_hm = (u16)FUN_02054CB0(item_id);
+    *is_tm_or_hm = (u16)sub_02054CB0(item_id);
 
     return FALSE;
 }

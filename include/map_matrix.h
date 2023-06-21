@@ -48,7 +48,7 @@ u16 MapMatrix_MapData_GetData(struct MapData *map_data, s32 x, s32 y);
 
 u16 GetMapHeader(u32 file_id, u16 x, u16 y);
 u16 GetMapData(s32 map_id, struct MapMatrix *map_matrix);
-void FUN_02034678(struct MapMatrix *map_matrix);
-void FUN_020346CC(struct MapMatrix *map_matrix);
+void sub_02034678(struct MapMatrix *map_matrix);
+void sub_020346CC(struct MapMatrix *map_matrix);
 
 #endif // POKEDIAMOND_MAP_MATRIX_H

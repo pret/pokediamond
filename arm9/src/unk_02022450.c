@@ -26,7 +26,7 @@ static const char arc_name[] = "rom";
 #define MAKER_CODE_01_BE     '10'
 
 /*Replacing (HW_MAIN_MEM_SHARED + 0xC) or (HW_MAIN_MEM_SHARED + 0x10) or defining ADAJ or 01 constants causes match failure*/
-void FUN_02022450() {
+void sub_02022450() {
     if (!FS_IsAvailable()) {
         OS_Terminate();
     }

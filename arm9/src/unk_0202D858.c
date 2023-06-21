@@ -64,7 +64,7 @@ static const struct UnkStruct_0202D858 UNK_020EEB1E = { {
     0x00,
 } };
 
-u8 FUN_0202D858(u16 param0)
+u8 sub_0202D858(u16 param0)
 {
     struct UnkStruct_0202D858 st0 = UNK_020EEB04;
 
@@ -73,7 +73,7 @@ u8 FUN_0202D858(u16 param0)
     return st0.unk00[param0];
 }
 
-u8 FUN_0202D884(u16 param0)
+u8 sub_0202D884(u16 param0)
 {
     struct UnkStruct_0202D858 st0 = UNK_020EEB1E;
 
@@ -82,7 +82,7 @@ u8 FUN_0202D884(u16 param0)
     return st0.unk00[param0];
 }
 
-u32 FUN_0202D8B0(int param0)
+u32 sub_0202D8B0(int param0)
 {
     switch (param0)
     {

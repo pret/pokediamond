@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0208898C
-FUN_0208898C: ; 0x0208898C
+	thumb_func_start sub_0208898C
+sub_0208898C: ; 0x0208898C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -23,8 +23,8 @@ _020889AC:
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_020889B0
-FUN_020889B0: ; 0x020889B0
+	thumb_func_start sub_020889B0
+sub_020889B0: ; 0x020889B0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl OverlayManager_GetField18
@@ -46,7 +46,7 @@ FUN_020889B0: ; 0x020889B0
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x10]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206F164
+	bl sub_0206F164
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x1
@@ -62,8 +62,8 @@ _020889FA:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02088A00
-FUN_02088A00: ; 0x02088A00
+	thumb_func_start sub_02088A00
+sub_02088A00: ; 0x02088A00
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -90,28 +90,28 @@ _02088A2E:
 	add r1, r6, #0x0
 	add r0, r6, #0x0
 	add r1, #0x14
-	bl FUN_02088AAC
+	bl sub_02088AAC
 	str r0, [r4, #0x0]
 	b _02088A6A
 _02088A3C:
 	add r1, r6, #0x0
 	add r0, r6, #0x0
 	add r1, #0x14
-	bl FUN_02088AFC
+	bl sub_02088AFC
 	str r0, [r4, #0x0]
 	b _02088A6A
 _02088A4A:
 	add r1, r6, #0x0
 	add r0, r6, #0x0
 	add r1, #0x14
-	bl FUN_02088B28
+	bl sub_02088B28
 	str r0, [r4, #0x0]
 	b _02088A6A
 _02088A58:
 	add r1, r6, #0x0
 	add r0, r6, #0x0
 	add r1, #0x14
-	bl FUN_02088B48
+	bl sub_02088B48
 	str r0, [r4, #0x0]
 	b _02088A6A
 _02088A66:
@@ -127,8 +127,8 @@ _02088A74:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02088A78
-FUN_02088A78: ; 0x02088A78
+	thumb_func_start sub_02088A78
+sub_02088A78: ; 0x02088A78
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl OverlayManager_GetData

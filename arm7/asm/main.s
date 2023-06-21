@@ -3,8 +3,8 @@
 
     .text
 
-	arm_func_start FUN_037F8000
-FUN_037F8000: ; 0x037F8000
+	arm_func_start sub_037F8000
+sub_037F8000: ; 0x037F8000
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _037F8028	; =PMi_Initialized
@@ -18,16 +18,16 @@ _037F801C:
 	bx	lr
 _037F8028:	.word	PMi_Initialized
 
-	arm_func_start FUN_037F802C
-FUN_037F802C: ; 0x037F802C
+	arm_func_start sub_037F802C
+sub_037F802C: ; 0x037F802C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
 	mov	r8, #0
-	bl	FUN_037F81E8
+	bl	sub_037F81E8
 	cmp	r0, #0
 	beq	_037F80F8
-	bl	FUN_037F81C4
+	bl	sub_037F81C4
 	mov	r7, r0
 	mov	r9, r8
 	mov	r4, #1
@@ -38,7 +38,7 @@ _037F8060:
 	ldr	r0, _037F81B4	; =0x0000FFFF
 	mov	r1, r6
 	mov	r2, r5
-	bl	FUN_037F81B8
+	bl	sub_037F81B8
 	mov	r2, r6
 	ldrh	r1, [r2, #114]	; 0x72
 	cmp	r0, r1
@@ -49,7 +49,7 @@ _037F8060:
 	ldr	r0, _037F81B4	; =0x0000FFFF
 	add	r1, r6, #116	; 0x74
 	mov	r2, fp
-	bl	FUN_037F81B8
+	bl	sub_037F81B8
 	mov	r3, r6
 	ldrh	r1, [r3, #254]	; 0xfe
 	cmp	r0, r1
@@ -74,7 +74,7 @@ _037F80E0:
 	bcc	_037F8060
 	b	_037F8158
 _037F80F8:
-	bl	FUN_037F81C4
+	bl	sub_037F81C4
 	cmp	r0, #0
 	movne	r0, #3
 	bne	_037F81A8
@@ -86,7 +86,7 @@ _037F8118:
 	mov	r0, r6
 	add	r1, sl, r7, lsl #8
 	mov	r2, r5
-	bl	FUN_037F81B8
+	bl	sub_037F81B8
 	add	r2, sl, r7, lsl #8
 	ldrh	r1, [r2, #114]	; 0x72
 	cmp	r0, r1
@@ -130,14 +130,14 @@ _037F81A8:
 	bx	lr
 _037F81B4:	.word	0x0000FFFF
 
-	arm_func_start FUN_037F81B8
-FUN_037F81B8: ; 0x037F81B8
+	arm_func_start sub_037F81B8
+sub_037F81B8: ; 0x037F81B8
 	ldr	ip, _037F81C0	; =SVC_GetCRC16
 	bx	ip
 _037F81C0:	.word	SVC_GetCRC16
 
-	arm_func_start FUN_037F81C4
-FUN_037F81C4: ; 0x037F81C4
+	arm_func_start sub_037F81C4
+sub_037F81C4: ; 0x037F81C4
 	mov	r0, #0
 	ldr	r1, _037F81E4	; =0x027FFE1D
 	ldrb	r1, [r1]
@@ -148,8 +148,8 @@ FUN_037F81C4: ; 0x037F81C4
 	bx	lr
 _037F81E4:	.word	0x027FFE1D
 
-	arm_func_start FUN_037F81E8
-FUN_037F81E8: ; 0x037F81E8
+	arm_func_start sub_037F81E8
+sub_037F81E8: ; 0x037F81E8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #29
@@ -168,8 +168,8 @@ _037F821C:
 	ldmia	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_037F8228
-FUN_037F8228: ; 0x037F8228
+	arm_func_start sub_037F8228
+sub_037F8228: ; 0x037F8228
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #528	; 0x210
 	mov	r0, #32
@@ -188,7 +188,7 @@ FUN_037F8228: ; 0x037F8228
 	add	r2, sp, #272	; 0x110
 	bl	NVRAM_ReadDataBytes
 	add	r0, sp, #16
-	bl	FUN_037F802C
+	bl	sub_037F802C
 	cmp	r0, #3
 	blt	_037F8290
 	mvn	r0, #0
@@ -278,8 +278,8 @@ _037F83A4:	.word	0x027FFC80
 _037F83A8:	.word	0xFFFFFF2A
 _037F83AC:	.word	0xFFFFFF60
 
-	arm_func_start FUN_037F83B0
-FUN_037F83B0: ; 0x037F83B0
+	arm_func_start sub_037F83B0
+sub_037F83B0: ; 0x037F83B0
 	stmdb	sp!, {r4, lr}
 	mov	r0, #8
 	bl	OS_GetArenaHi
@@ -335,15 +335,15 @@ NitroSpMain: ; 0x037F8468
 	bl	WVR_ShelterExtWram
 	bl	OS_Init
 	bl	OS_InitThread
-	bl	FUN_037F8228
+	bl	sub_037F8228
 	bl	PXI_Init
-	bl	FUN_037F83B0
+	bl	sub_037F83B0
 	mov	r4, r0
 	mov	r0, #6
 	bl	SND_Init
 	bl	PAD_InitXYButton
 	mov	r0, #1
-	ldr	r1, _037F8524	; =FUN_037F8000
+	ldr	r1, _037F8524	; =sub_037F8000
 	bl	OS_SetIrqFunction
 	mov	r0, #1
 	bl	OS_EnableIrqMask
@@ -369,7 +369,7 @@ NitroSpMain: ; 0x037F8468
 	bl	SPI_Init
 	mov	r4, #0
 _037F84FC:
-	bl	FUN_037F8530
+	bl	sub_037F8530
 	bl	OS_IsResetOccurred
 	cmp	r0, #0
 	beq	_037F8518
@@ -380,12 +380,12 @@ _037F8518:
 	bl	CTRDG_CheckPullOut_Polling
 	bl	CARD_CheckPullOut_Polling
 	b	_037F84FC
-_037F8524:	.word	FUN_037F8000
+_037F8524:	.word	sub_037F8000
 _037F8528:	.word	0x04000004
 _037F852C:	.word	0x04000208
 
-	arm_func_start FUN_037F8530
-FUN_037F8530: ; 0x037F8530
+	arm_func_start sub_037F8530
+sub_037F8530: ; 0x037F8530
 	ldr	ip, _037F8538	; =SVC_Halt
 	bx	ip
 _037F8538:	.word	SVC_Halt

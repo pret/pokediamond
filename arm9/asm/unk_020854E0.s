@@ -5,20 +5,20 @@
 
 	.global UNK_020FCAA8
 UNK_020FCAA8: ; 0x020FCAA8
-	.word MOD61_021D74E0, MOD61_021D7550, MOD61_021D7568, SDK_OVERLAY_MODULE_61_ID
+	.word ov61_021D74E0, ov61_021D7550, ov61_021D7568, SDK_OVERLAY_OVERLAY_61_ID
 
 	.global UNK_020FCAB8
 UNK_020FCAB8: ; 0x020FCAB8
-	.word MOD15_021D74E0, MOD15_021D7558, MOD15_021D7608, SDK_OVERLAY_MODULE_15_ID
+	.word ov15_021D74E0, ov15_021D7558, ov15_021D7608, SDK_OVERLAY_OVERLAY_15_ID
 
 	.global UNK_020FCAC8
 UNK_020FCAC8: ; 0x020FCAC8
-	.word FUN_020857F8, FUN_0208585C, FUN_020859A0, 0xFFFFFFFF
+	.word sub_020857F8, sub_0208585C, sub_020859A0, 0xFFFFFFFF
 
 	.text
 
-	thumb_func_start FUN_020854E0
-FUN_020854E0: ; 0x020854E0
+	thumb_func_start sub_020854E0
+sub_020854E0: ; 0x020854E0
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -58,8 +58,8 @@ FUN_020854E0: ; 0x020854E0
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02085538
-FUN_02085538: ; 0x02085538
+	thumb_func_start sub_02085538
+sub_02085538: ; 0x02085538
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r5, r1, #0x0
@@ -89,8 +89,8 @@ FUN_02085538: ; 0x02085538
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02085578
-FUN_02085578: ; 0x02085578
+	thumb_func_start sub_02085578
+sub_02085578: ; 0x02085578
 	push {r3-r7, lr}
 	add r7, r2, #0x0
 	add r5, r0, #0x0
@@ -116,8 +116,8 @@ FUN_02085578: ; 0x02085578
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020855B0
-FUN_020855B0: ; 0x020855B0
+	thumb_func_start sub_020855B0
+sub_020855B0: ; 0x020855B0
 	push {r3-r7, lr}
 	add r7, r2, #0x0
 	add r5, r0, #0x0
@@ -141,18 +141,18 @@ FUN_020855B0: ; 0x020855B0
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020855E4
-FUN_020855E4: ; 0x020855E4
+	thumb_func_start sub_020855E4
+sub_020855E4: ; 0x020855E4
 	ldr r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start FUN_020855E8
-FUN_020855E8: ; 0x020855E8
+	thumb_func_start sub_020855E8
+sub_020855E8: ; 0x020855E8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_020855E4
+	bl sub_020855E4
 	cmp r0, #0x0
 	bne _020855FC
 	mov r0, #0x0
@@ -166,12 +166,12 @@ _020855FC:
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0208560C
-FUN_0208560C: ; 0x0208560C
+	thumb_func_start sub_0208560C
+sub_0208560C: ; 0x0208560C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020855E4
+	bl sub_020855E4
 	cmp r0, #0x0
 	bne _0208561E
 	mov r0, #0x0
@@ -184,8 +184,8 @@ _0208561E:
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0208562C
-FUN_0208562C: ; 0x0208562C
+	thumb_func_start sub_0208562C
+sub_0208562C: ; 0x0208562C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x14]
@@ -198,8 +198,8 @@ _0208563A:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02085644
-FUN_02085644: ; 0x02085644
+	thumb_func_start sub_02085644
+sub_02085644: ; 0x02085644
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	mov r1, #0x0
@@ -240,8 +240,8 @@ FUN_02085644: ; 0x02085644
 _0208569E:
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020856A0
-FUN_020856A0: ; 0x020856A0
+	thumb_func_start sub_020856A0
+sub_020856A0: ; 0x020856A0
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
@@ -277,8 +277,8 @@ _020856BC:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020856F0
-FUN_020856F0: ; 0x020856F0
+	thumb_func_start sub_020856F0
+sub_020856F0: ; 0x020856F0
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	add r4, r0, #0x0
@@ -348,8 +348,8 @@ _0208576A:
 	add r0, r6, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0208578C
-FUN_0208578C: ; 0x0208578C
+	thumb_func_start sub_0208578C
+sub_0208578C: ; 0x0208578C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x10]
@@ -362,8 +362,8 @@ _0208579A:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020857A4
-FUN_020857A4: ; 0x020857A4
+	thumb_func_start sub_020857A4
+sub_020857A4: ; 0x020857A4
 	push {r3-r7, lr}
 	add r7, r1, #0x0
 	add r4, r7, #0x0
@@ -388,8 +388,8 @@ _020857B0:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020857D4
-FUN_020857D4: ; 0x020857D4
+	thumb_func_start sub_020857D4
+sub_020857D4: ; 0x020857D4
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -408,8 +408,8 @@ _020857F4:
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_020857F8
-FUN_020857F8: ; 0x020857F8
+	thumb_func_start sub_020857F8
+sub_020857F8: ; 0x020857F8
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl OverlayManager_GetField18
@@ -430,7 +430,7 @@ FUN_020857F8: ; 0x020857F8
 	mov r1, #0x28
 	str r1, [r4, #0x0]
 	ldr r0, [r5, #0x14]
-	bl FUN_020856F0
+	bl sub_020856F0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x10]
 	bl Save_PlayerData_GetOptionsAddr
@@ -457,8 +457,8 @@ _02085850:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0208585C
-FUN_0208585C: ; 0x0208585C
+	thumb_func_start sub_0208585C
+sub_0208585C: ; 0x0208585C
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r5, r1, #0x0
@@ -499,7 +499,7 @@ _0208588E:
 _020858A6:
 	add r0, r4, #0x0
 	add r0, #0xc
-	bl FUN_020857D4
+	bl sub_020857D4
 	cmp r0, #0x0
 	beq _02085990
 	ldr r0, [r4, #0x10]
@@ -529,7 +529,7 @@ _020858D2:
 	cmp r0, #0x3
 	bne _020858F8
 	ldr r0, [r6, #0x14]
-	bl FUN_020857A4
+	bl sub_020857A4
 	ldr r0, [r6, #0x10]
 	bl Save_GameStats_Get
 	mov r1, #0x2
@@ -548,7 +548,7 @@ _02085900:
 	ldr r3, [r4, #0x0]
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_02085338
+	bl sub_02085338
 	str r0, [r4, #0x8]
 	ldr r0, [r4, #0x10]
 	add r1, r0, #0x0
@@ -578,7 +578,7 @@ _02085942:
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]
 	add r1, #0x14
-	bl FUN_020853BC
+	bl sub_020853BC
 	ldr r0, _0208599C ; =UNK_020FCAB8
 	ldr r1, [r4, #0x8]
 	ldr r2, [r4, #0x0]
@@ -590,11 +590,11 @@ _02085942:
 _0208595E:
 	add r0, r4, #0x0
 	add r0, #0xc
-	bl FUN_020857D4
+	bl sub_020857D4
 	cmp r0, #0x0
 	beq _02085990
 	ldr r0, [r4, #0x8]
-	bl FUN_020853E4
+	bl sub_020853E4
 	cmp r0, #0x0
 	bne _02085986
 	ldr r1, [r4, #0x10]
@@ -604,10 +604,10 @@ _0208595E:
 	add r2, #0x1a
 	lsl r1, r1, #0x3
 	add r1, r2, r1
-	bl FUN_020853FC
+	bl sub_020853FC
 _02085986:
 	ldr r0, [r4, #0x8]
-	bl FUN_020853A8
+	bl sub_020853A8
 	mov r0, #0x0
 	str r0, [r5, #0x0]
 _02085990:
@@ -618,14 +618,14 @@ _02085994: .word UNK_020FCAA8
 _02085998: .word 0x0000FFFF
 _0208599C: .word UNK_020FCAB8
 
-	thumb_func_start FUN_020859A0
-FUN_020859A0: ; 0x020859A0
+	thumb_func_start sub_020859A0
+sub_020859A0: ; 0x020859A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x10]
-	bl FUN_0208578C
+	bl sub_0208578C
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	ldr r0, [r4, #0x0]

@@ -6,13 +6,13 @@
 #include "unk_02008DEC.h"
 #include "oam.h"
 
-extern void FUN_0202134C(void *, u32);
-extern u32 FUN_0201FCB0(u32 *);
-extern void FUN_02021390(u32, u32 *);
-extern void FUN_0201D194(u32, u32, u32);
-extern void FUN_0201E068(u32, u32);
+extern void sub_0202134C(void *, u32);
+extern u32 sub_0201FCB0(u32 *);
+extern void sub_02021390(u32, u32 *);
+extern void sub_0201D194(u32, u32, u32);
+extern void sub_0201E068(u32, u32);
 
-void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
+void sub_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     s32 param1,
     s32 param2,
     s32 param3,
@@ -42,18 +42,18 @@ void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     GF_ASSERT(param11);
     GF_ASSERT(param0);
 
-    r7 = FUN_020094F0(param9, param1);
+    r7 = sub_020094F0(param9, param1);
     GF_ASSERT(r7);
 
-    st14 = FUN_020094F0(param10, param2);
+    st14 = sub_020094F0(param10, param2);
     GF_ASSERT(st14);
 
-    st10 = FUN_020094F0(param11, param3);
+    st10 = sub_020094F0(param11, param3);
     GF_ASSERT(st10);
 
     if (param12 != 0 && param4 != -1)
     {
-        stc = FUN_020094F0(param12, param4);
+        stc = sub_020094F0(param12, param4);
         GF_ASSERT(stc);
     }
 
@@ -61,38 +61,38 @@ void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     {
         if (param5 != -1)
         {
-            r4 = FUN_020094F0(param13, param5);
+            r4 = sub_020094F0(param13, param5);
         }
 
         if (param6 != -1)
         {
-            st8 = FUN_020094F0(param14, param6);
+            st8 = sub_020094F0(param14, param6);
         }
     }
 
     u32 r6;
     if (param7 != 0)
     {
-        r6 = FUN_02009C80(r7, st10);
+        r6 = sub_02009C80(r7, st10);
         GF_ASSERT(r6);
 
-        param0->unk04 = FUN_02009544(r7);
+        param0->unk04 = sub_02009544(r7);
     }
     else
     {
-        r6 = FUN_02009C5C(r7);
+        r6 = sub_02009C5C(r7);
         GF_ASSERT(r6);
 
         param0->unk04 = 0;
     }
 
-    param0->unk08 = FUN_02009E54(st14, r6);
+    param0->unk08 = sub_02009E54(st14, r6);
     param0->unk00 = r6;
-    param0->unk0C = FUN_02009574(st10);
+    param0->unk0C = sub_02009574(st10);
 
     if (stc != 0)
     {
-        param0->unk10 = FUN_0200958C(stc);
+        param0->unk10 = sub_0200958C(stc);
     }
     else
     {
@@ -101,8 +101,8 @@ void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
 
     if (r4 != 0)
     {
-        param0->unk14 = FUN_020095A4(r4);
-        param0->unk18 = FUN_020095BC(st8);
+        param0->unk14 = sub_020095A4(r4);
+        param0->unk18 = sub_020095BC(st8);
     }
     else
     {
@@ -114,7 +114,7 @@ void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     param0->unk20 = (u8)param8;
 }
 
-struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2 *param0,
+struct UnkStruct_02008AA4_1 *sub_02008BE0(struct UnkStruct_02008AA4_2 *param0,
     u32 param1,
     struct UnkStruct_02008DEC_1 *param2,
     struct UnkStruct_02008DEC_1 *param3,
@@ -136,7 +136,7 @@ struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2 *param0,
 
     for (int r7 = 0; r7 < r6->unk04; r7++)
     {
-        FUN_02008AA4(&r6->unk00[r7],
+        sub_02008AA4(&r6->unk00[r7],
             param0[r7].unk00,
             param0[r7].unk04,
             param0[r7].unk08,
@@ -156,7 +156,7 @@ struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2 *param0,
     return r6;
 }
 
-void FUN_02008C80(struct UnkStruct_02008AA4_1 *param0)
+void sub_02008C80(struct UnkStruct_02008AA4_1 *param0)
 {
     GF_ASSERT(param0);
 
@@ -167,9 +167,9 @@ void FUN_02008C80(struct UnkStruct_02008AA4_1 *param0)
     FreeToHeap(param0);
 }
 
-u32 FUN_02008C9C(u32 param0, void *param1, u32 param2)
+u32 sub_02008C9C(u32 param0, void *param1, u32 param2)
 {
-    FUN_0202134C(param1, 0xFFFFF000);
+    sub_0202134C(param1, 0xFFFFF000);
 
     u32 st10[3];
     u32 st0[4];
@@ -178,72 +178,72 @@ u32 FUN_02008C9C(u32 param0, void *param1, u32 param2)
     st0[1] = 0;
     st0[2] = 0xFF000;
     st0[3] = 0xC0000;
-    FUN_02009FD8(param1 + 0x98, st0, 1, (u32)param1);
+    sub_02009FD8(param1 + 0x98, st0, 1, (u32)param1);
 
     st0[0] = 0;
     st0[1] = 0xC0000;
     st0[2] = 0xFF000;
     st0[3] = 0xC0000;
 
-    FUN_02009FD8(param1 + 0xe0, st0, 2, (u32)param1);
+    sub_02009FD8(param1 + 0xe0, st0, 2, (u32)param1);
 
     st10[0] = param0;
     st10[1] = (u32)param1;
     st10[2] = param2;
 
-    return FUN_0201FCB0(st10);
+    return sub_0201FCB0(st10);
 }
 
-void FUN_02008D04(u32 param0, u32 param1, u32 param2)
+void sub_02008D04(u32 param0, u32 param1, u32 param2)
 {
     u32 st0[4];
     st0[0] = param1;
     st0[2] = 0xFF000;
     st0[3] = 0xC0000;
     st0[1] = param2;
-    FUN_02021390(param0 + 0x98, st0);
+    sub_02021390(param0 + 0x98, st0);
 }
 
-void FUN_02008D24(u32 param0, u32 param1, u32 param2)
+void sub_02008D24(u32 param0, u32 param1, u32 param2)
 {
     u32 st0[4];
     st0[0] = param1;
     st0[2] = 0xFF000;
     st0[3] = 0xC0000;
     st0[1] = param2;
-    FUN_02021390(param0 + 0xe0, st0);
+    sub_02021390(param0 + 0xe0, st0);
 }
 
-void FUN_02008D44(u32 param0, u32 param1)
+void sub_02008D44(u32 param0, u32 param1)
 {
     switch (param1)
     {
         case 0x10:
             if (GX_GetBankForOBJ() == 0x40 || GX_GetBankForOBJ() == 0x20)
             {
-                FUN_0201D194(0x3E00, 0x200, param0);
+                sub_0201D194(0x3E00, 0x200, param0);
                 return;
             }
 
-            FUN_0201D194(0x7E00, 0x200, param0);
+            sub_0201D194(0x7E00, 0x200, param0);
             return;
         case 0x00100010:
-            FUN_0201D194(0xfe00, 0x200, param0);
+            sub_0201D194(0xfe00, 0x200, param0);
             return;
         case 0x00200010:
             if (GX_GetBankForOBJ() == 0x30 || GX_GetBankForOBJ() == 0x50)
             {
-                FUN_0201D194(0x13E00, 0x200, param0);
+                sub_0201D194(0x13E00, 0x200, param0);
                 return;
             }
-            FUN_0201D194(0x1FE00, 0x200, param0);
+            sub_0201D194(0x1FE00, 0x200, param0);
             return;
     }
 
     GF_AssertFail();
 }
 
-void FUN_02008DDC(u32 param0)
+void sub_02008DDC(u32 param0)
 {
-    FUN_0201E068(0xC000, param0);
+    sub_0201E068(0xC000, param0);
 }

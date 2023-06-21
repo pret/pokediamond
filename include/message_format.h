@@ -106,7 +106,7 @@ void StringExpandPlaceholders(MessageFormat *messageFormat, struct String * dest
 void MessageFormat_ResetBuffers(MessageFormat *messageFormat);
 struct UnkStruct_0200B870 * MessagePrinter_New(u32 color1, u32 color2, u32 color3, u32 heap_id);
 void MessagePrinter_Delete(struct UnkStruct_0200B870 * a0);
-void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window * a2, int a3, int a4);
-void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y);
+void sub_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window * a2, int a3, int a4);
+void sub_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y);
 
 #endif // POKEDIAMOND_MESSAGE_FORMAT_H

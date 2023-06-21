@@ -30,12 +30,12 @@ UNK_020FF340: ; 0x020FF340
 
 	.global UNK_020FF368
 UNK_020FF368: ; 0x020FF368
-	.word FUN_02089498, FUN_020894D4, FUN_020895F0, 0xFFFFFFFF
+	.word sub_02089498, sub_020894D4, sub_020895F0, 0xFFFFFFFF
 
 	.text
 
-	thumb_func_start FUN_02089498
-FUN_02089498: ; 0x02089498
+	thumb_func_start sub_02089498
+sub_02089498: ; 0x02089498
 	push {r3-r5, lr}
 	mov r2, #0x2
 	add r5, r0, #0x0
@@ -63,8 +63,8 @@ FUN_02089498: ; 0x02089498
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020894D4
-FUN_020894D4: ; 0x020894D4
+	thumb_func_start sub_020894D4
+sub_020894D4: ; 0x020894D4
 	push {r3-r6, lr}
 	sub sp, #0xc
 	add r5, r1, #0x0
@@ -88,17 +88,17 @@ _020894F4: ; jump table (using 16-bit offset)
 _020894FC:
 	ldr r0, _020895E0 ; =0x00000495
 	add r1, r6, #0x0
-	bl FUN_02005350
+	bl sub_02005350
 	add r0, r6, #0x0
-	bl FUN_0200516C
+	bl sub_0200516C
 	add r0, r6, #0x0
-	bl FUN_0200415C
+	bl sub_0200415C
 	add r0, r6, #0x0
 	add r1, r0, #0x0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	mov r0, #0x1
 	add r1, r6, #0x0
-	bl FUN_0200E3A0
+	bl sub_0200E3A0
 	add r0, r6, #0x0
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
@@ -121,10 +121,10 @@ _020894FC:
 	mov r1, #0x8
 	bl SetKeyRepeatTimers
 	add r0, r4, #0x0
-	bl FUN_0208961C
+	bl sub_0208961C
 	add r0, r4, #0x0
-	bl FUN_02089734
-	ldr r0, _020895EC ; =FUN_02089610
+	bl sub_02089734
+	ldr r0, _020895EC ; =sub_02089610
 	add r1, r4, #0x0
 	bl Main_SetVBlankIntrCB
 	bl GX_BothDispOn
@@ -149,7 +149,7 @@ _02089588:
 	str r0, [r5, #0x0]
 	b _020895DA
 _02089596:
-	bl FUN_02089790
+	bl sub_02089790
 	cmp r0, #0x1
 	bne _020895DA
 	mov r0, #0x6
@@ -171,9 +171,9 @@ _020895BC:
 	cmp r0, #0x1
 	bne _020895DA
 	add r0, r4, #0x0
-	bl FUN_0208977C
+	bl sub_0208977C
 	add r0, r4, #0x0
-	bl FUN_020896E0
+	bl sub_020896E0
 	add r0, r6, #0x0
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
@@ -186,10 +186,10 @@ _020895DA:
 _020895E0: .word 0x00000495
 _020895E4: .word 0xFFFFE0FF
 _020895E8: .word 0x04001000
-_020895EC: .word FUN_02089610
+_020895EC: .word sub_02089610
 
-	thumb_func_start FUN_020895F0
-FUN_020895F0: ; 0x020895F0
+	thumb_func_start sub_020895F0
+sub_020895F0: ; 0x020895F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl OverlayManager_GetData
@@ -203,16 +203,16 @@ FUN_020895F0: ; 0x020895F0
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02089610
-FUN_02089610: ; 0x02089610
-	ldr r3, _02089618 ; =FUN_0201AB60
+	thumb_func_start sub_02089610
+sub_02089610: ; 0x02089610
+	ldr r3, _02089618 ; =sub_0201AB60
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
 _02089618: .word DoScheduledBgGpuUpdates
 
-	thumb_func_start FUN_0208961C
-FUN_0208961C: ; 0x0208961C
+	thumb_func_start sub_0208961C
+sub_0208961C: ; 0x0208961C
 	push {r4-r5, lr}
 	sub sp, #0x5c
 	ldr r5, _020896C8 ; =UNK_020FF340
@@ -263,7 +263,7 @@ _02089628:
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0x14]
 	mov r3, #0x2
-	bl FUN_0200CD68
+	bl sub_0200CD68
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -297,8 +297,8 @@ _020896D4: .word 0x000001E2
 _020896D8: .word 0x000001D9
 _020896DC: .word 0x00006C21
 
-	thumb_func_start FUN_020896E0
-FUN_020896E0: ; 0x020896E0
+	thumb_func_start sub_020896E0
+sub_020896E0: ; 0x020896E0
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x0
@@ -332,8 +332,8 @@ FUN_020896E0: ; 0x020896E0
 	bl FreeToHeap
 	pop {r4, pc}
 
-	thumb_func_start FUN_02089734
-FUN_02089734: ; 0x02089734
+	thumb_func_start sub_02089734
+sub_02089734: ; 0x02089734
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -366,8 +366,8 @@ FUN_02089734: ; 0x02089734
 	nop
 _02089778: .word UNK_020FF304
 
-	thumb_func_start FUN_0208977C
-FUN_0208977C: ; 0x0208977C
+	thumb_func_start sub_0208977C
+sub_0208977C: ; 0x0208977C
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x1c
@@ -377,8 +377,8 @@ FUN_0208977C: ; 0x0208977C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02089790
-FUN_02089790: ; 0x02089790
+	thumb_func_start sub_02089790
+sub_02089790: ; 0x02089790
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -404,7 +404,7 @@ _020897B8:
 	add r1, r5, #0x0
 	mov r2, #0x1
 	mov r3, #0x4
-	bl FUN_0208989C
+	bl sub_0208989C
 	cmp r0, #0x1
 	bne _02089888
 	mov r0, #0x1
@@ -423,7 +423,7 @@ _020897B8:
 _020897E2:
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x0]
-	bl FUN_020021AC
+	bl sub_020021AC
 	cmp r0, #0x0
 	beq _020897F6
 	sub r1, r5, #0x2
@@ -442,7 +442,7 @@ _02089802:
 	mov r1, #0x1
 	add r2, r1, #0x0
 	mov r3, #0x4
-	bl FUN_0208989C
+	bl sub_0208989C
 	cmp r0, #0x1
 	bne _02089888
 	mov r0, #0x1
@@ -461,7 +461,7 @@ _02089802:
 _0208982C:
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x0]
-	bl FUN_020021AC
+	bl sub_020021AC
 	cmp r0, #0x0
 	beq _02089840
 	sub r1, r5, #0x2
@@ -480,7 +480,7 @@ _0208984C:
 	mov r1, #0x2
 	mov r2, #0x1
 	add r3, r5, #0x0
-	bl FUN_0208989C
+	bl sub_0208989C
 	cmp r0, #0x1
 	bne _02089888
 	add r0, r4, #0x0
@@ -493,9 +493,9 @@ _0208984C:
 	b _02089888
 _0208986C:
 	ldr r0, [r4, #0x30]
-	bl FUN_0202263C
+	bl sub_0202263C
 	ldr r0, [r4, #0x34]
-	bl FUN_0200DBFC
+	bl sub_0200DBFC
 	mov r0, #0x6
 	str r0, [r4, #0x4]
 	b _02089888
@@ -513,8 +513,8 @@ _02089890: .word UNK_020FF30C
 _02089894: .word 0x000001D9
 _02089898: .word 0x000001E2
 
-	thumb_func_start FUN_0208989C
-FUN_0208989C: ; 0x0208989C
+	thumb_func_start sub_0208989C
+sub_0208989C: ; 0x0208989C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -581,7 +581,7 @@ _02089920:
 	ldr r0, [r5, #0xc]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_0201BD70
+	bl sub_0201BD70
 	cmp r0, #0x0
 	bne _02089950
 	ldr r0, [r5, #0x10]

@@ -193,7 +193,7 @@ u16 GetMapData(s32 map_id, struct MapMatrix *map_matrix)
     return MapMatrix_GetMapData(map_id, map_matrix);
 }
 
-void FUN_02034678(struct MapMatrix *map_matrix)
+void sub_02034678(struct MapMatrix *map_matrix)
 {
     u16 *maps = map_matrix->data.maps.data;
     u8 *altitudes = map_matrix->data.altitudes;
@@ -214,7 +214,7 @@ void FUN_02034678(struct MapMatrix *map_matrix)
     altitudes[width * 0x16 + 0x18] = 2;
 }
 
-void FUN_020346CC(struct MapMatrix *map_matrix)
+void sub_020346CC(struct MapMatrix *map_matrix)
 {
     u16 *maps = map_matrix->data.maps.data;
     u8 width = map_matrix->width;

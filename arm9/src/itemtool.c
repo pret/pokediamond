@@ -732,12 +732,12 @@ u16 UpConvertItemId_Gen3to4(u16 a0)
     return 0;
 }
 
-int FUN_0206E708()
+int sub_0206E708()
 {
     return 1;
 }
 
-int FUN_0206E70C()
+int sub_0206E70C()
 {
     return 0;
 }

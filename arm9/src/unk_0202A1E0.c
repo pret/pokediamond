@@ -107,7 +107,7 @@ void SaveStruct23_Substruct1_SetField(struct SaveStruct23_Substruct1 *substruct1
     }
 }
 
-void FUN_0202A36C(struct SaveStruct23_Substruct1 *substruct1, s32 arg1, s32 arg2, s32 arg3)
+void sub_0202A36C(struct SaveStruct23_Substruct1 *substruct1, s32 arg1, s32 arg2, s32 arg3)
 {
     if (substruct1->u_3 + arg1 < 0xff)
     {
@@ -282,7 +282,7 @@ u16 SaveStruct23_Substruct2_GetField_0x16(struct SaveStruct23_Substruct2 *substr
     return substruct2->u_16;
 }
 
-u8 FUN_0202A524(struct SaveStruct23_Substruct2 *substruct2)
+u8 sub_0202A524(struct SaveStruct23_Substruct2 *substruct2)
 {
     return (u8)(substruct2->u_16 / 1000);
 }
@@ -453,13 +453,13 @@ void SaveStruct23_Substruct4_SetSubstruct1(struct SaveStruct23_Substruct4 *subst
     substruct4->u_FE = 1;
 }
 
-void FUN_0202A784(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dst)
+void sub_0202A784(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dst)
 {
     dst->u_0 = substruct4->u_101;
     dst->u_1 = substruct4->u_100;
 }
 
-void FUN_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798 *arg1, u32 arg2)
+void sub_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798 *arg1, u32 arg2)
 {
     struct Unk0202A798_substruct *unk_substruct = &arg1->u_0;
     u8 *var1 = arg1->u_30;
@@ -486,7 +486,7 @@ void FUN_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798
     MI_CpuCopy8(substruct4_substruct1->u_0, var1, 168);
 }
 
-void FUN_0202A838(struct SaveStruct23_Substruct4 *substruct4, struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2, u8 arg2, u8 arg3)
+void sub_0202A838(struct SaveStruct23_Substruct4 *substruct4, struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2, u8 arg2, u8 arg3)
 {
     MI_CpuCopy8(substruct4_substruct2, &substruct4->substruct2, sizeof(struct SaveStruct23_Substruct4_Substruct2));
     substruct4->u_103 = arg2;
@@ -494,13 +494,13 @@ void FUN_0202A838(struct SaveStruct23_Substruct4 *substruct4, struct SaveStruct2
     substruct4->u_FF = 1;
 }
 
-void FUN_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dst)
+void sub_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dst)
 {
     dst->u_0 = substruct4->u_103;
     dst->u_1 = substruct4->u_102;
 }
 
-struct SaveStruct23_Substruct4_Substruct2 *FUN_0202A878(struct SaveStruct23_Substruct4 *substruct4, u32 heap_id)
+struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, u32 heap_id)
 {
     struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2 = AllocFromHeap(heap_id, sizeof(struct SaveStruct23_Substruct4_Substruct2) /* 1020 */);
     MI_CpuCopy8(&substruct4->substruct2, substruct4_substruct2, sizeof(struct SaveStruct23_Substruct4_Substruct2));

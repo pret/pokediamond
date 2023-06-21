@@ -7,18 +7,18 @@
 #include "unk_0202C144.h"
 
 extern struct PCStorage* GetStoragePCPointer(struct SaveData* save);
-extern void* FUN_02022528(struct SaveData* save);
-extern void FUN_0202BEDC(struct Pokemon* pokemon);
-extern void FUN_0202BFD8(void* a0, s32 a1, struct Pokemon* pokemon);
-extern u16 FUN_0202C000(struct Pokemon* pokemon);
-extern void FUN_0204B9EC(struct FieldSystem*);
-extern u32 FUN_0204BA1C(struct FieldSystem*);
-extern u16 FUN_0204BAC4(struct FieldSystem*);
-extern u16 FUN_0204BAD4(struct FieldSystem*);
-extern u16 FUN_0204BAE4(struct FieldSystem*);
-extern void FUN_0205F224(struct ScriptState* state);
-extern void FUN_0205F234(struct ScriptState* state);
-extern void FUN_0208089C(struct Pokemon* pokemon, PlayerProfile* player, u32 a2, u32 a3, u32 heap_id);
+extern void* sub_02022528(struct SaveData* save);
+extern void sub_0202BEDC(struct Pokemon* pokemon);
+extern void sub_0202BFD8(void* a0, s32 a1, struct Pokemon* pokemon);
+extern u16 sub_0202C000(struct Pokemon* pokemon);
+extern void sub_0204B9EC(struct FieldSystem*);
+extern u32 sub_0204BA1C(struct FieldSystem*);
+extern u16 sub_0204BAC4(struct FieldSystem*);
+extern u16 sub_0204BAD4(struct FieldSystem*);
+extern u16 sub_0204BAE4(struct FieldSystem*);
+extern void sub_0205F224(struct ScriptState* state);
+extern void sub_0205F234(struct ScriptState* state);
+extern void sub_0208089C(struct Pokemon* pokemon, PlayerProfile* player, u32 a2, u32 a3, u32 heap_id);
 
 BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 {
@@ -27,13 +27,13 @@ BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 
     if (unk == 0)
     {
-        FUN_0205F224(state);
-        FUN_0204B9EC(ctx->fieldSystem);
+        sub_0205F224(state);
+        sub_0204B9EC(ctx->fieldSystem);
     }
     else if (unk == 1)
     {
-        FUN_0205F234(state);
-        FUN_0204BA1C(ctx->fieldSystem);
+        sub_0205F234(state);
+        sub_0204BA1C(ctx->fieldSystem);
     }
     else
     {
@@ -45,11 +45,11 @@ BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 
 BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 {
-    void* unk = FUN_02022528(ctx->fieldSystem->saveData);
+    void* unk = sub_02022528(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = AllocMonZeroed(32);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
-    u16 eggs = FUN_0202C000(unk);
+    u16 eggs = sub_0202C000(unk);
     if (eggs == 6) {
         *ret_ptr = 1;
     } else {
@@ -63,7 +63,7 @@ BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 
 BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
 {
-    void* unk = FUN_02022528(ctx->fieldSystem->saveData);
+    void* unk = sub_02022528(ctx->fieldSystem->saveData);
     struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = AllocMonZeroed(32);
     PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
@@ -71,17 +71,17 @@ BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
 
     for (s32 i = 0; i < PARTY_SIZE; i++)
     {
-        FUN_0202BFD8(unk, i, pokemon);
-        FUN_0208089C(pokemon, player, 2, 0, 32);
+        sub_0202BFD8(unk, i, pokemon);
+        sub_0208089C(pokemon, player, 2, 0, 32);
 
-        struct BoxPokemon* box_mon = FUN_020690E4(pokemon);
+        struct BoxPokemon* box_mon = sub_020690E4(pokemon);
         GF_ASSERT(PCStorage_PlaceMonInFirstEmptySlotInAnyBox(pc, box_mon));
 
-        FUN_0202C144(ctx->fieldSystem->saveData, pokemon);
+        sub_0202C144(ctx->fieldSystem->saveData, pokemon);
     }
 
     FreeToHeap(pokemon);
-    FUN_0202BEDC(unk);
+    sub_0202BEDC(unk);
 
     return FALSE;
 }
@@ -94,17 +94,17 @@ BOOL ScrCmd_Unk0256(struct ScriptContext* ctx) //0256
     switch (unk)
     {
     case 0:
-        *ret_ptr = FUN_0204BAC4(ctx->fieldSystem);
+        *ret_ptr = sub_0204BAC4(ctx->fieldSystem);
         break;
     case 1:
-        *ret_ptr = FUN_0204BAD4(ctx->fieldSystem);
+        *ret_ptr = sub_0204BAD4(ctx->fieldSystem);
         break;
     case 2:
-        *ret_ptr = FUN_0204BAE4(ctx->fieldSystem);
+        *ret_ptr = sub_0204BAE4(ctx->fieldSystem);
         break;
     case 3:
-        // For some reason, mwcc puts the FUN_0204BAD4 call before the FUN_0204BAC4 and FUN_0204BAE4 calls.
-        *ret_ptr = (u16)(FUN_0204BAC4(ctx->fieldSystem) + FUN_0204BAE4(ctx->fieldSystem) + FUN_0204BAD4(ctx->fieldSystem));
+        // For some reason, mwcc puts the sub_0204BAD4 call before the sub_0204BAC4 and sub_0204BAE4 calls.
+        *ret_ptr = (u16)(sub_0204BAC4(ctx->fieldSystem) + sub_0204BAE4(ctx->fieldSystem) + sub_0204BAD4(ctx->fieldSystem));
         break;
     }
 

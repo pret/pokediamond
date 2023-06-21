@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start FUN_02066840
-FUN_02066840: ; 0x02066840
+	thumb_func_start sub_02066840
+sub_02066840: ; 0x02066840
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r6, r0, #0x0
@@ -16,7 +16,7 @@ FUN_02066840: ; 0x02066840
 	bl Save_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02029AFC
+	bl sub_02029AFC
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl SaveStruct23_GetSubstruct2
@@ -47,12 +47,12 @@ FUN_02066840: ; 0x02066840
 	add r0, #0xb9
 	strb r1, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02029B38
+	bl sub_02029B38
 	add r1, r7, #0x0
 	add r1, #0xba
 	strb r0, [r1, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02029B3C
+	bl sub_02029B3C
 	add r1, r7, #0x0
 	add r1, #0xbb
 	strb r0, [r1, #0x0]
@@ -80,7 +80,7 @@ FUN_02066840: ; 0x02066840
 	mov r2, #0x1
 	lsl r0, r0, #0x1e
 	lsr r0, r0, #0x1f
-	bl FUN_020536D0
+	bl sub_020536D0
 	add r1, r7, #0x0
 	add r1, #0xc9
 	strb r0, [r1, #0x0]

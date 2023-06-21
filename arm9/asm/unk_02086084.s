@@ -7,18 +7,18 @@
 
 	.global UNK_020FCE14
 UNK_020FCE14: ; 0x020FCE14
-	.word FUN_02086084, FUN_02086168, FUN_020861DC, 0xFFFFFFFF
+	.word sub_02086084, sub_02086168, sub_020861DC, 0xFFFFFFFF
 
 	.text
 
-	thumb_func_start FUN_02086084
-FUN_02086084: ; 0x02086084
+	thumb_func_start sub_02086084
+sub_02086084: ; 0x02086084
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
-	bl FUN_02015F1C
+	bl sub_02015F1C
 	mov r2, #0x1
 	mov r0, #0x3
 	mov r1, #0x47
@@ -42,27 +42,27 @@ FUN_02086084: ; 0x02086084
 	ldr r0, [r0, #0x10]
 	bl Options_GetFrame
 	str r0, [r4, #0x14]
-	bl FUN_02086468
+	bl sub_02086468
 	str r0, [r4, #0x38]
 	mov r0, #0x47
-	bl FUN_02006D98
+	bl sub_02006D98
 	str r0, [r4, #0x3c]
 	mov r0, #0x47
 	bl BgConfig_Alloc
 	str r0, [r4, #0x4]
 	mov r0, #0x40
 	mov r1, #0x47
-	bl FUN_0201C24C
+	bl sub_0201C24C
 	mov r0, #0x47
 	mov r1, #0x1
 	mov r2, #0x0
-	bl FUN_02014BF4
+	bl sub_02014BF4
 	str r0, [r4, #0x54]
 	mov r0, #0x47
-	bl FUN_02002FD0
+	bl sub_02002FD0
 	str r0, [r4, #0x8]
 	mov r1, #0x1
-	bl FUN_020038F0
+	bl sub_020038F0
 	mov r2, #0x2
 	ldr r0, [r4, #0x8]
 	mov r1, #0x0
@@ -85,24 +85,24 @@ FUN_02086084: ; 0x02086084
 	lsl r2, r2, #0x8
 	mov r3, #0x47
 	bl PaletteData_AllocBuffers
-	bl FUN_02086414
-	bl FUN_0208643C
-	bl FUN_0208650C
+	bl sub_02086414
+	bl sub_0208643C
+	bl sub_0208650C
 	ldr r0, [r4, #0x4]
-	bl FUN_0208654C
+	bl sub_0208654C
 	add r0, r4, #0x4
-	bl FUN_02086E48
-	bl FUN_0200541C
-	ldr r0, _02086164 ; =FUN_02086664
+	bl sub_02086E48
+	bl sub_0200541C
+	ldr r0, _02086164 ; =sub_02086664
 	add r1, r4, #0x0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	nop
-_02086164: .word FUN_02086664
+_02086164: .word sub_02086664
 
-	thumb_func_start FUN_02086168
-FUN_02086168: ; 0x02086168
+	thumb_func_start sub_02086168
+sub_02086168: ; 0x02086168
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	bl OverlayManager_GetData
@@ -137,7 +137,7 @@ _020861A4:
 	str r0, [r4, #0x58]
 	b _020861D2
 _020861AA:
-	bl FUN_02086FA8
+	bl sub_02086FA8
 	cmp r0, #0x0
 	bne _020861BA
 	ldr r0, [r5, #0x0]
@@ -146,8 +146,8 @@ _020861AA:
 	b _020861D2
 _020861BA:
 	ldr r0, [r4, #0x3c]
-	bl FUN_02006ED4
-	bl FUN_02086698
+	bl sub_02006ED4
+	bl sub_02086698
 	b _020861D2
 _020861C6:
 	bl IsPaletteFadeFinished
@@ -161,14 +161,14 @@ _020861D2:
 	nop
 _020861D8: .word 0x000001EA
 
-	thumb_func_start FUN_020861DC
-FUN_020861DC: ; 0x020861DC
+	thumb_func_start sub_020861DC
+sub_020861DC: ; 0x020861DC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_020223BC
+	bl sub_020223BC
 	mov r0, #0x1
 	mov r1, #0x0
 	bl GX_EngineAToggleLayers
@@ -194,7 +194,7 @@ FUN_020861DC: ; 0x020861DC
 	mov r1, #0x3
 	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x8]
-	bl FUN_02002FEC
+	bl sub_02002FEC
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
 	bl FreeBgTilemapBuffer
@@ -209,13 +209,13 @@ FUN_020861DC: ; 0x020861DC
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x4]
 	bl FreeToHeap
-	bl FUN_0201C29C
+	bl sub_0201C29C
 	ldr r0, [r4, #0x3c]
-	bl FUN_020072E8
+	bl sub_020072E8
 	ldr r0, [r4, #0x54]
-	bl FUN_02014C28
+	bl sub_02014C28
 	add r0, r4, #0x4
-	bl FUN_02086ED4
+	bl sub_02086ED4
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	mov r0, #0x47
@@ -224,12 +224,12 @@ FUN_020861DC: ; 0x020861DC
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02086280
-FUN_02086280: ; 0x02086280
+	thumb_func_start sub_02086280
+sub_02086280: ; 0x02086280
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x6
@@ -253,9 +253,9 @@ _020862A0: ; jump table (using 16-bit offset)
 _020862AE:
 	ldr r0, [r4, #0xc]
 	mov r1, #0xb
-	bl MOD05_021ED940
+	bl ov05_021ED940
 	add r0, r5, #0x0
-	bl FUN_0204AF3C
+	bl sub_0204AF3C
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -264,14 +264,14 @@ _020862C4:
 	ldr r1, _020863D4 ; =UNK_020FCE14
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_02046500
+	bl sub_02046500
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _020863CE
 _020862D6:
 	add r0, r5, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r6, r0, #0x0
 	ldr r5, [r4, #0xc]
 	bl ScriptEnvironment_GetSavePtr
@@ -293,7 +293,7 @@ _020862D6:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x6
-	bl FUN_0208089C
+	bl sub_0208089C
 	add r0, r5, #0x0
 	mov r1, #0xb2
 	mov r2, #0x0
@@ -301,7 +301,7 @@ _020862D6:
 	add r0, r6, #0x0
 	bl ScriptEnvironment_GetSavePtr
 	ldr r1, [r4, #0xc]
-	bl FUN_0202C144
+	bl sub_0202C144
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x1
 	bne _02086334
@@ -314,7 +314,7 @@ _02086334:
 	b _020863CE
 _0208633A:
 	add r0, r5, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x5
@@ -329,7 +329,7 @@ _0208633A:
 	mov r1, #0x1
 	add r2, r7, #0x0
 	mov r3, #0xa
-	bl FUN_02077A84
+	bl sub_02077A84
 	str r0, [r4, #0x8]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x6f
@@ -346,7 +346,7 @@ _0208633A:
 	ldr r1, _020863D8 ; =UNK_020FA5FC
 	ldr r2, [r4, #0x8]
 	add r0, r5, #0x0
-	bl FUN_02046500
+	bl sub_02046500
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -362,14 +362,14 @@ _02086396:
 	bl SetMonData
 _020863A8:
 	ldr r0, [r4, #0x8]
-	bl FUN_02077AC4
+	bl sub_02077AC4
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _020863CE
 _020863B6:
 	add r0, r5, #0x0
-	bl FUN_0204AF84
+	bl sub_0204AF84
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -387,8 +387,8 @@ _020863CE:
 _020863D4: .word UNK_020FCE14
 _020863D8: .word UNK_020FA5FC
 
-	thumb_func_start FUN_020863DC
-FUN_020863DC: ; 0x020863DC
+	thumb_func_start sub_020863DC
+sub_020863DC: ; 0x020863DC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -410,9 +410,9 @@ _020863F2:
 	stmia r3!, {r0-r1}
 	ldmia r4!, {r0-r1}
 	stmia r3!, {r0-r1}
-	ldr r1, _02086410 ; =FUN_02086280
+	ldr r1, _02086410 ; =sub_02086280
 	add r0, r5, #0x0
-	bl FUN_0204640C
+	bl sub_0204640C
 	pop {r3-r5, pc}
 	.balign 4
-_02086410: .word FUN_02086280
+_02086410: .word sub_02086280

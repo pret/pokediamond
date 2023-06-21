@@ -40,7 +40,7 @@ void StopScript(struct ScriptContext *ctx)
     ctx->scriptPtr = 0;
 }
 
-void FUN_02038B6C(struct ScriptContext *ctx, struct TaskManager *taskManager)
+void sub_02038B6C(struct ScriptContext *ctx, struct TaskManager *taskManager)
 {
     ctx->taskManager = taskManager;
 }

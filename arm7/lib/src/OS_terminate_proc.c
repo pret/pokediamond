@@ -4,7 +4,7 @@
 #include "code32.h"
 
 extern void CTRDG_VibPulseEdgeUpdate(u32 param);
-extern void FUN_037F8530(void); //SVC_Halt thunk
+extern void sub_037F8530(void); //SVC_Halt thunk
 
 void OS_Terminate(void)
 {
@@ -12,6 +12,6 @@ void OS_Terminate(void)
     while (TRUE)
     {
         (void)OS_DisableInterrupts();
-        FUN_037F8530(); //SVC_Halt
+        sub_037F8530(); //SVC_Halt
     }
 }

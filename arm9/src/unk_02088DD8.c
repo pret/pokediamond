@@ -5,13 +5,13 @@
 
 extern void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 
-MoveRelearner *FUN_02088DD8(u32 heap_id) {
+MoveRelearner *sub_02088DD8(u32 heap_id) {
     MoveRelearner *returnPointer = AllocFromHeap(heap_id, sizeof(MoveRelearner));
     __builtin__clear(returnPointer, sizeof(MoveRelearner));
     return returnPointer;
 }
 
-void FUN_02088DF0(MoveRelearner *moveRelearner) {
+void sub_02088DF0(MoveRelearner *moveRelearner) {
     FreeToHeap(moveRelearner);
 }
 
@@ -71,6 +71,6 @@ u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
     return returnTable;
 }
 
-BOOL FUN_02088EF8(u16 *r0) {
+BOOL sub_02088EF8(u16 *r0) {
     return *r0 != 0xFFFF;
 }

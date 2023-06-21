@@ -11,10 +11,10 @@ u8 UNK_021C3DE0[0x7d0];
 
 const u8 UNK_020ECB8C[] = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-extern void FUN_02005454();
-extern void FUN_0200541C();
-extern void FUN_0200521C(int);
-extern void FUN_0200538C(u32, u16, u32);
+extern void sub_02005454();
+extern void sub_0200541C();
+extern void sub_0200521C(int);
+extern void sub_0200538C(u32, u16, u32);
 extern void NNS_SndPlayerPause(u32 *, u8);
 extern void NNS_SndPlayerMoveVolume(u32 *, s32, s32);
 extern void NNS_SndPlayerSetInitialVolume(u32 *, s32);
@@ -43,65 +43,65 @@ extern void NNS_SndCaptureStopEffect();
 extern void NNS_SndPlayerSetTrackPitch(u32 *, u32, s32);
 extern void NNS_SndPlayerSetTrackPan(u32 *, u32, s32);
 extern void NNS_SndSetMonoFlag(u32 param0);
-extern void FUN_020053CC(u32, u32);
+extern void sub_020053CC(u32, u32);
 extern u32 NNS_SndArcGetFileAddress(u32);
 extern u32 SND_GetWaveDataAddress(u32, u32);
 extern u32 NNS_SndPlayerGetTick(u32 *);
 extern void NNS_SndPlayerSetAllocatableChannel(u32, u32);
-extern BOOL FUN_02005404(void);
+extern BOOL sub_02005404(void);
 extern void NNS_SndPlayerSetPlayerVolume(u32, u8);
 
-void FUN_020040F4(u8 param0)
+void sub_020040F4(u8 param0)
 {
-    u8 *ptr = FUN_02003D38(5);
+    u8 *ptr = sub_02003D38(5);
     *ptr = param0;
 }
 
-u8 FUN_02004104(void)
+u8 sub_02004104(void)
 {
-    u8 *ptr = FUN_02003D38(5);
+    u8 *ptr = sub_02003D38(5);
 
     return *ptr;
 }
 
-void FUN_02004110(u16 param0)
+void sub_02004110(u16 param0)
 {
-    u16 *ptr = FUN_02003D38(9);
+    u16 *ptr = sub_02003D38(9);
     *ptr = param0;
 
-    FUN_02004130(0);
+    sub_02004130(0);
 }
 
-u16 FUN_02004124(void)
+u16 sub_02004124(void)
 {
-    u16 *ptr = FUN_02003D38(9);
+    u16 *ptr = sub_02003D38(9);
 
     return *ptr;
 }
 
-void FUN_02004130(u16 param0)
+void sub_02004130(u16 param0)
 {
-    u16 *ptr = FUN_02003D38(10);
+    u16 *ptr = sub_02003D38(10);
     *ptr = param0;
 }
 
-u16 FUN_02004140(void)
+u16 sub_02004140(void)
 {
-    u16 *ptr = FUN_02003D38(10);
+    u16 *ptr = sub_02003D38(10);
 
     return *ptr;
 }
 
-void FUN_0200414C(u16 param0)
+void sub_0200414C(u16 param0)
 {
-    u16 *ptr = FUN_02003D38(31);
+    u16 *ptr = sub_02003D38(31);
     *ptr = param0;
 }
 
-void FUN_0200415C(u8 param0)
+void sub_0200415C(u8 param0)
 {
-    u8 *ptr = FUN_02003D38(20);
-    u8 *ptr2 = FUN_02003D38(21);
+    u8 *ptr = sub_02003D38(20);
+    u8 *ptr2 = sub_02003D38(21);
 
     if (param0 < 51)
     {
@@ -114,7 +114,7 @@ void FUN_0200415C(u8 param0)
     }
 }
 
-BOOL FUN_02004180(s32 param0)
+BOOL sub_02004180(s32 param0)
 {
     BOOL res;
     switch (param0)
@@ -208,11 +208,11 @@ BOOL FUN_02004180(s32 param0)
     return res;
 }
 
-BOOL FUN_0200433C(u8 param0, int param1, u32 param2)
+BOOL sub_0200433C(u8 param0, int param1, u32 param2)
 {
-    u8 *st0 = FUN_02003D38(20);
-    u8 *st4 = FUN_02003D38(21);
-    u16 *r7 = FUN_02003D38(13);
+    u8 *st0 = sub_02003D38(20);
+    u8 *st4 = sub_02003D38(21);
+    u16 *r7 = sub_02003D38(13);
 
     if (param0 < 51)
     {
@@ -229,26 +229,26 @@ BOOL FUN_0200433C(u8 param0, int param1, u32 param2)
         }
     }
 
-    FUN_0200415C(param0);
+    sub_0200415C(param0);
 
     switch (param0)
     {
         case 4:
-            FUN_0200516C(0);
-            FUN_020044D4(param1, param2);
+            sub_0200516C(0);
+            sub_020044D4(param1, param2);
             *r7 = 0;
             break;
         case 5:
-            FUN_02004648(param1, param2);
+            sub_02004648(param1, param2);
             break;
         case 11:
-            FUN_02004680(param1, param2);
+            sub_02004680(param1, param2);
             break;
         case 6:
-            FUN_020046A0(param1, param2);
+            sub_020046A0(param1, param2);
             break;
         case 7:
-            FUN_020046C4(param1, param2);
+            sub_020046C4(param1, param2);
             break;
         case 57:
         case 53:
@@ -267,19 +267,19 @@ BOOL FUN_0200433C(u8 param0, int param1, u32 param2)
         case 65:
         case 66:
         case 67:
-            FUN_020046E8(param0);
+            sub_020046E8(param0);
             break;
         case 1:
-            FUN_0200516C(1);
-            FUN_02004704(param0, param1, param2);
+            sub_0200516C(1);
+            sub_02004704(param0, param1, param2);
             break;
         case 14:
-            FUN_0200516C(2);
-            FUN_02004704(param0, param1, param2);
+            sub_0200516C(2);
+            sub_02004704(param0, param1, param2);
             break;
         case 2:
-            FUN_0200516C(0);
-            FUN_02004704(param0, param1, param2);
+            sub_0200516C(0);
+            sub_02004704(param0, param1, param2);
             break;
         case 3:
         case 8:
@@ -287,75 +287,75 @@ BOOL FUN_0200433C(u8 param0, int param1, u32 param2)
         case 10:
         case 12:
         case 13:
-            FUN_02004704(param0, param1, param2);
+            sub_02004704(param0, param1, param2);
             break;
     }
 
     return TRUE;
 }
 
-void FUN_020044A8(s32 param0)
+void sub_020044A8(s32 param0)
 {
-    int *ptr = FUN_02003D38(23);
+    int *ptr = sub_02003D38(23);
     GF_Snd_RestoreState(*ptr);
 
-    int *ptr2 = FUN_02003D38(24);
+    int *ptr2 = sub_02003D38(24);
     GF_Snd_SaveState(ptr2);
 
-    FUN_02004180(param0);
+    sub_02004180(param0);
 
-    int *ptr3 = FUN_02003D38(25);
+    int *ptr3 = sub_02003D38(25);
     GF_Snd_SaveState(ptr3);
 }
 
-void FUN_020044D4(int seqNo, u32 param1)
+void sub_020044D4(int seqNo, u32 param1)
 {
 #pragma unused(param1)
 
-    u8 *ptr = FUN_02003D38(11);
+    u8 *ptr = sub_02003D38(11);
 
-    FUN_02003D38(23);
-    FUN_02003D38(31);
+    sub_02003D38(23);
+    sub_02003D38(31);
     u32 r4 = GF_SndPlayerGetSeqNo(GetSoundPlayer(0));
 
-    if (*ptr == 0 && r4 == seqNo && FUN_02004140() != 1152)
+    if (*ptr == 0 && r4 == seqNo && sub_02004140() != 1152)
     {
         return;
     }
 
-    FUN_02004DBC(1);
-    FUN_02005454();
+    sub_02004DBC(1);
+    sub_02005454();
 
     if (r4 != seqNo)
     {
-        FUN_020047C8(1, 0);
-        FUN_0200541C();
+        sub_020047C8(1, 0);
+        sub_0200541C();
     }
 
     if (*ptr == 1)
     {
-        GF_Snd_RestoreState(FUN_02004748(2));
-        FUN_02004180(4);
-        GF_Snd_SaveState((int *)FUN_02003D38(25));
+        GF_Snd_RestoreState(sub_02004748(2));
+        sub_02004180(4);
+        GF_Snd_SaveState((int *)sub_02003D38(25));
 
         if (r4 != seqNo)
         {
-            FUN_020047C8(1, 0);
+            sub_020047C8(1, 0);
         }
-        FUN_02004568(seqNo, (u16)r4);
+        sub_02004568(seqNo, (u16)r4);
         return;
     }
 
-    FUN_0200521C(seqNo);
+    sub_0200521C(seqNo);
 }
 
-void FUN_02004568(int seqNo, u16 param1)
+void sub_02004568(int seqNo, u16 param1)
 {
 #pragma unused(param1)
 
-    u16 *ptr = FUN_02003D38(31);
+    u16 *ptr = sub_02003D38(31);
 
-    u32 r0 = FUN_02004900(*ptr);
+    u32 r0 = sub_02004900(*ptr);
     if (r0 != 1001 && r0 != 1003)
     {
         GF_Snd_LoadSeqEx(seqNo, 4);
@@ -366,30 +366,30 @@ void FUN_02004568(int seqNo, u16 param1)
         GF_Snd_LoadSeqEx(*ptr, 6);
     }
 
-    GF_Snd_SaveState((int *)FUN_02003D38(26));
-    FUN_020047C8(1, 0);
-    FUN_0200538C(0x7f, 0x28, 0);
-    FUN_02004DBC(0);
+    GF_Snd_SaveState((int *)sub_02003D38(26));
+    sub_020047C8(1, 0);
+    sub_0200538C(0x7f, 0x28, 0);
+    sub_02004DBC(0);
 }
 
-void FUN_020045C4(int seqNo, u32 param1)
+void sub_020045C4(int seqNo, u32 param1)
 {
-    u8 *ptr = FUN_02003D38(18);
-    u16 *ptr2 = FUN_02003D38(31);
+    u8 *ptr = sub_02003D38(18);
+    u16 *ptr2 = sub_02003D38(31);
 
     if (*ptr != 1 && param1 != 0)
     {
         return;
     }
 
-    GF_Snd_RestoreState(FUN_02004748(1));
+    GF_Snd_RestoreState(sub_02004748(1));
     GF_Snd_LoadSeqEx(*ptr2, 2);
-    GF_Snd_SaveState((int *)FUN_02003D38(24));
+    GF_Snd_SaveState((int *)sub_02003D38(24));
 
-    FUN_02004180(4);
-    GF_Snd_SaveState((int *)FUN_02003D38(25));
+    sub_02004180(4);
+    GF_Snd_SaveState((int *)sub_02003D38(25));
 
-    u32 r0 = FUN_02004900(*ptr2);
+    u32 r0 = sub_02004900(*ptr2);
     if (r0 != 1001 && r0 != 1003)
     {
         GF_Snd_LoadSeqEx(seqNo, 4);
@@ -400,126 +400,126 @@ void FUN_020045C4(int seqNo, u32 param1)
         GF_Snd_LoadSeqEx(*ptr2, 4);
     }
 
-    GF_Snd_SaveState((int *)FUN_02003D38(26));
+    GF_Snd_SaveState((int *)sub_02003D38(26));
 }
 
-void FUN_02004648(int param0, u32 param1)
+void sub_02004648(int param0, u32 param1)
 {
 #pragma unused(param1)
-    FUN_02003D38(23);
-    FUN_020051AC();
+    sub_02003D38(23);
+    sub_020051AC();
 
-    GF_Snd_RestoreState(FUN_02004748(2));
-    FUN_02004180(5);
-    GF_Snd_SaveState((int *)FUN_02003D38(25));
-    FUN_02004DBC(1);
-    FUN_0200521C(param0);
+    GF_Snd_RestoreState(sub_02004748(2));
+    sub_02004180(5);
+    GF_Snd_SaveState((int *)sub_02003D38(25));
+    sub_02004DBC(1);
+    sub_0200521C(param0);
 }
 
-void FUN_02004680(int param0, u32 param1)
+void sub_02004680(int param0, u32 param1)
 {
 #pragma unused(param1)
-    FUN_02003D38(23);
-    FUN_0200541C();
-    FUN_02004810();
-    FUN_020044A8(4);
-    FUN_0200521C(param0);
+    sub_02003D38(23);
+    sub_0200541C();
+    sub_02004810();
+    sub_020044A8(4);
+    sub_0200521C(param0);
 }
 
-void FUN_020046A0(int param0, u32 param1)
+void sub_020046A0(int param0, u32 param1)
 {
 #pragma unused(param1)
-    FUN_02003D38(23);
-    FUN_0200541C();
-    FUN_020044A8(6);
-    FUN_02004DBC(1);
-    FUN_0200521C(param0);
+    sub_02003D38(23);
+    sub_0200541C();
+    sub_020044A8(6);
+    sub_02004DBC(1);
+    sub_0200521C(param0);
 }
 
-void FUN_020046C4(int param0, u32 param1)
+void sub_020046C4(int param0, u32 param1)
 {
 #pragma unused(param1)
-    FUN_02003D38(23);
-    FUN_0200541C();
-    FUN_020044A8(7);
-    FUN_02004DBC(1);
-    FUN_0200521C(param0);
+    sub_02003D38(23);
+    sub_0200541C();
+    sub_020044A8(7);
+    sub_02004DBC(1);
+    sub_0200521C(param0);
 }
 
-void FUN_020046E8(s32 param0)
+void sub_020046E8(s32 param0)
 {
-    FUN_02004738();
-    FUN_02004180(param0);
-    GF_Snd_SaveState((int *)FUN_02003D38(27));
+    sub_02004738();
+    sub_02004180(param0);
+    GF_Snd_SaveState((int *)sub_02003D38(27));
 }
 
-void FUN_02004704(s32 param0, int param1, u32 param2)
+void sub_02004704(s32 param0, int param1, u32 param2)
 {
 #pragma unused(param2)
-    FUN_02003D38(23);
-    FUN_0200541C();
-    FUN_020044A8(param0);
-    FUN_0200521C(param1);
+    sub_02003D38(23);
+    sub_0200541C();
+    sub_020044A8(param0);
+    sub_0200521C(param1);
 }
 
-void FUN_02004724(int param0)
+void sub_02004724(int param0)
 {
     GetSoundDataPointer();
-    FUN_020051AC();
-    FUN_0200521C(param0);
+    sub_020051AC();
+    sub_0200521C(param0);
 }
 
-void FUN_02004738(void)
+void sub_02004738(void)
 {
-    GF_Snd_RestoreState(FUN_02004748(4));
+    GF_Snd_RestoreState(sub_02004748(4));
 }
 
-int FUN_02004748(s32 param0)
+int sub_02004748(s32 param0)
 {
     GetSoundDataPointer();
 
     if (param0 >= 7)
     {
         GF_AssertFail();
-        return *(int *)FUN_02003D38(26);
+        return *(int *)sub_02003D38(26);
     }
 
     int *r5;
     switch (param0)
     {
         case 0:
-            r5 = FUN_02003D38(22);
+            r5 = sub_02003D38(22);
             break;
         case 1:
-            r5 = FUN_02003D38(23);
+            r5 = sub_02003D38(23);
             break;
         case 2:
-            r5 = FUN_02003D38(24);
+            r5 = sub_02003D38(24);
             break;
         case 3:
-            r5 = FUN_02003D38(25);
+            r5 = sub_02003D38(25);
             break;
         case 4:
-            r5 = FUN_02003D38(26);
+            r5 = sub_02003D38(26);
             break;
         case 5:
-            r5 = FUN_02003D38(27);
+            r5 = sub_02003D38(27);
             break;
         case 6:
-            r5 = FUN_02003D38(28);
+            r5 = sub_02003D38(28);
             break;
     }
 
     return *r5;
 }
 
-void FUN_020047C8(u8 param0, u8 param1)
+void sub_020047C8(u8 param0, u8 param1)
 {
     u8 *ptr;
     int r4;
     if (param0 == 1)
     {
-        ptr = FUN_02003D38(11);
+        ptr = sub_02003D38(11);
         r4 = 0;
     }
     else
@@ -529,23 +529,23 @@ void FUN_020047C8(u8 param0, u8 param1)
             return;
         }
 
-        ptr = FUN_02003D38(12);
+        ptr = sub_02003D38(12);
         r4 = 7;
     }
 
     if (param1 == 0)
     {
-        FUN_02004110((u16)GF_SndPlayerGetSeqNo(GetSoundPlayer(r4)));
+        sub_02004110((u16)GF_SndPlayerGetSeqNo(GetSoundPlayer(r4)));
     }
 
     NNS_SndPlayerPause(GetSoundPlayer(r4), param1);
     *ptr = param1;
 }
 
-void FUN_02004810(void)
+void sub_02004810(void)
 {
-    u8 *ptr = FUN_02003D38(11);
-    u8 *ptr2 = FUN_02003D38(12);
+    u8 *ptr = sub_02003D38(11);
+    u8 *ptr2 = sub_02003D38(12);
     *ptr = 0;
     *ptr2 = 0;
 }
@@ -570,7 +570,7 @@ void GF_SndPlayerSetInitialVolume(int playerNo, s32 param1)
     NNS_SndPlayerSetInitialVolume(GetSoundPlayer(playerNo), param1);
 }
 
-void FUN_02004858(u32 param0, int playerNo)
+void sub_02004858(u32 param0, int playerNo)
 {
     u8 *ret = NNS_SndArcGetSeqParam(param0);
     u8 r4;
@@ -588,15 +588,15 @@ void FUN_02004858(u32 param0, int playerNo)
         r4 = ret[2];
     }
 
-    if (FUN_020313EC() == 1)
+    if (sub_020313EC() == 1)
     {
         GF_SndPlayerSetInitialVolume(playerNo, r4 / 5);
     }
 }
 
-void FUN_0200488C(u16 param0, u16 param1)
+void sub_0200488C(u16 param0, u16 param1)
 {
-    GF_SndPlayerSetInitialVolume(FUN_02004018(FUN_020048D0(param0)), param1);
+    GF_SndPlayerSetInitialVolume(sub_02004018(sub_020048D0(param0)), param1);
 }
 
 void GF_SndArcPlayerStartSeqEx(int playerNo, u32 param1, u32 param2)
@@ -611,7 +611,7 @@ u16 GF_SndPlayerCountPlayingSeqByPlayerNo(int playerNo)
     return NNS_SndPlayerCountPlayingSeqByPlayerNo(playerNo);
 }
 
-u8 FUN_020048D0(u16 param0)
+u8 sub_020048D0(u16 param0)
 {
     if (param0 == 0)
     {
@@ -632,12 +632,12 @@ u32 GF_SndPlayerGetSeqNo(u32 *param0)
     return NNS_SndPlayerGetSeqNo(param0);
 }
 
-u32 FUN_020048F4(u16 param0)
+u32 sub_020048F4(u16 param0)
 {
-    return NNS_SndArcGetBankInfo(FUN_02004900(param0));
+    return NNS_SndArcGetBankInfo(sub_02004900(param0));
 }
 
-u16 FUN_02004900(u32 param0)
+u16 sub_02004900(u32 param0)
 {
     u16 *ptr = NNS_SndArcGetSeqParam(param0);
     if (ptr == NULL)
@@ -664,35 +664,35 @@ u32 GF_MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3)
     return MIC_DoSamplingAsync(param0, param1, param2, param3);
 }
 
-void *FUN_02004930(u32 param0)
+void *sub_02004930(u32 param0)
 {
     GetSoundDataPointer();
-    u8 *ptr = FUN_02003D38(15);
-    u8 *ptr2 = FUN_02003D38(16);
+    u8 *ptr = sub_02003D38(15);
+    u8 *ptr2 = sub_02003D38(16);
     GF_ASSERT(param0 == 14 || param0 == 15);
     GF_ASSERT(param0 != 14 || *ptr != 0);
     GF_ASSERT(param0 != 15 || *ptr2 != 0);
 
     if (param0 == 14)
     {
-        return FUN_02003D38(0);
+        return sub_02003D38(0);
     }
 
-    return FUN_02003D38(1);
+    return sub_02003D38(1);
 }
 
-BOOL FUN_02004984(u32 param0)
+BOOL sub_02004984(u32 param0)
 {
     GetSoundDataPointer();
-    u8 *ptr = FUN_02003D38(15);
-    u8 *ptr2 = FUN_02003D38(16);
+    u8 *ptr = sub_02003D38(15);
+    u8 *ptr2 = sub_02003D38(16);
     GF_ASSERT(param0 == 14 || param0 == 15);
 
     if (param0 == 14)
     {
         if (*ptr == 0)
         {
-            u32 *r4 = FUN_02003D38(0);
+            u32 *r4 = sub_02003D38(0);
             *r4 = NNS_SndWaveOutAllocChannel(param0);
             if (*r4 == 0)
             {
@@ -709,7 +709,7 @@ BOOL FUN_02004984(u32 param0)
     {
         if (*ptr2 == 0)
         {
-            u32 *r6 = FUN_02003D38(1);
+            u32 *r6 = sub_02003D38(1);
             *r6 = NNS_SndWaveOutAllocChannel(param0);
             if (*r6 == 0)
             {
@@ -727,11 +727,11 @@ BOOL FUN_02004984(u32 param0)
     return TRUE;
 }
 
-void FUN_02004A04(u32 param0)
+void sub_02004A04(u32 param0)
 {
     GetSoundDataPointer();
-    u8 *ptr = FUN_02003D38(15);
-    u8 *ptr2 = FUN_02003D38(16);
+    u8 *ptr = sub_02003D38(15);
+    u8 *ptr2 = sub_02003D38(16);
     if (param0 != 14 && param0 != 15)
     {
         GF_AssertFail();
@@ -742,7 +742,7 @@ void FUN_02004A04(u32 param0)
     {
         if (*ptr == 1)
         {
-            NNS_SndWaveOutFreeChannel(*(u32 *)FUN_02004930(param0));
+            NNS_SndWaveOutFreeChannel(*(u32 *)sub_02004930(param0));
             *ptr = 0;
             return;
         }
@@ -755,7 +755,7 @@ void FUN_02004A04(u32 param0)
 
     if (*ptr2 == 1)
     {
-        NNS_SndWaveOutFreeChannel(*(u32 *)FUN_02004930(param0));
+        NNS_SndWaveOutFreeChannel(*(u32 *)sub_02004930(param0));
         *ptr2 = 0;
         return;
     }
@@ -765,7 +765,7 @@ void FUN_02004A04(u32 param0)
     }
 }
 
-u32 FUN_02004A6C(struct UnkStruct_020040F4_1 *param0, u32 param1)
+u32 sub_02004A6C(struct UnkStruct_020040F4_1 *param0, u32 param1)
 {
     u32 res = NNS_SndWaveOutStart(*(u32 *)param0->unk00,
         param0->unk04,
@@ -779,53 +779,53 @@ u32 FUN_02004A6C(struct UnkStruct_020040F4_1 *param0, u32 param1)
         param0->unk24);
     if (res == 0)
     {
-        FUN_02004A04(param1);
+        sub_02004A04(param1);
     }
 
     return res;
 }
 
-void FUN_02004AAC(u32 param0)
+void sub_02004AAC(u32 param0)
 {
-    NNS_SndWaveOutStop(*(u32 *)FUN_02004930(param0));
+    NNS_SndWaveOutStop(*(u32 *)sub_02004930(param0));
 }
 
-BOOL FUN_02004ABC(u32 param0)
+BOOL sub_02004ABC(u32 param0)
 {
-    return NNS_SndWaveOutIsPlaying(*(u32 *)FUN_02004930(param0));
+    return NNS_SndWaveOutIsPlaying(*(u32 *)sub_02004930(param0));
 }
 
-void FUN_02004ACC(u32 param0, u32 param1)
+void sub_02004ACC(u32 param0, u32 param1)
 {
     if (param1 > 127)
     {
         param1 = 127;
     }
 
-    NNS_SndWaveOutSetPan(*(u32 *)FUN_02004930(param0), param1);
+    NNS_SndWaveOutSetPan(*(u32 *)sub_02004930(param0), param1);
 }
 
-void FUN_02004AE4(u32 param0, u32 param1)
+void sub_02004AE4(u32 param0, u32 param1)
 {
-    NNS_SndWaveOutSetSpeed(*(u32 *)FUN_02004930(param0), param1);
+    NNS_SndWaveOutSetSpeed(*(u32 *)sub_02004930(param0), param1);
 }
 
-void FUN_02004AF8(u32 param0, s32 param1)
+void sub_02004AF8(u32 param0, s32 param1)
 {
-    if (FUN_020313EC() == 1)
+    if (sub_020313EC() == 1)
     {
-        NNS_SndWaveOutSetVolume(*(u32 *)FUN_02004930(param0), param1 / 5);
+        NNS_SndWaveOutSetVolume(*(u32 *)sub_02004930(param0), param1 / 5);
         return;
     }
 
-    NNS_SndWaveOutSetVolume(*(u32 *)FUN_02004930(param0), param1);
+    NNS_SndWaveOutSetVolume(*(u32 *)sub_02004930(param0), param1);
 }
 
-u32 FUN_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4)
+u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4)
 {
     GetSoundDataPointer();
 
-    void **r4 = FUN_02003D38(33);
+    void **r4 = sub_02003D38(33);
     GF_ASSERT(param3 == 14 || param3 == 15);
 
     struct WaveArcInfo *r7 = NNS_SndArcGetWaveArcInfo(param0);
@@ -859,10 +859,10 @@ u32 FUN_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4)
             return 0;
         }
 
-        FUN_02004C1C(*r4, r6);
+        sub_02004C1C(*r4, r6);
     }
 
-    void *res = FUN_02004930(param3);
+    void *res = sub_02004930(param3);
 
     struct UnkStruct_020040F4_1 st8;
     st8.unk04 = 0;
@@ -876,15 +876,15 @@ u32 FUN_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4)
     st8.unk24 = param2;
     st8.unk14 = r6;
 
-    u32 ret = FUN_02004A6C(&st8, param3);
-    FUN_02004AF8(param3, param1);
-    u8 *r0 = FUN_02003D38(14);
+    u32 ret = sub_02004A6C(&st8, param3);
+    sub_02004AF8(param3, param1);
+    u8 *r0 = sub_02003D38(14);
     *r0 = 1;
 
     return ret;
 }
 
-void FUN_02004C1C(u8 *param0, u32 param1)
+void sub_02004C1C(u8 *param0, u32 param1)
 {
     for (u32 r5 = 0; r5 < param1 / 2; r5++)
     {
@@ -894,15 +894,15 @@ void FUN_02004C1C(u8 *param0, u32 param1)
     }
 }
 
-void FUN_02004C3C(u32 param0)
+void sub_02004C3C(u32 param0)
 {
     GetSoundDataPointer();
-    u8 *ptr = FUN_02003D38(14);
-    void **ptr2 = FUN_02003D38(33);
+    u8 *ptr = sub_02003D38(14);
+    void **ptr2 = sub_02003D38(33);
 
     GF_ASSERT(param0 == 14 || param0 == 15);
 
-    FUN_02004AAC(param0);
+    sub_02004AAC(param0);
 
     if (*ptr == 1)
     {
@@ -920,7 +920,7 @@ u32 GF_SndCaptureStartReverb(u32 param0)
 {
     GetSoundDataPointer();
 
-    return NNS_SndCaptureStartReverb(FUN_02003D38(3), 0x1000, 0, 0x3E80, param0);
+    return NNS_SndCaptureStartReverb(sub_02003D38(3), 0x1000, 0, 0x3E80, param0);
 }
 
 void GF_SndCaptureStopReverb(u32 param0)
@@ -933,16 +933,16 @@ void GF_SndCaptureSetReverbVolume(u32 param0, u32 param1)
     NNS_SndCaptureSetReverbVolume(param0, param1);
 }
 
-void FUN_02004CB4(void)
+void sub_02004CB4(void)
 {
     GetSoundDataPointer();
 
-    MI_CpuFill8(FUN_02003D38(4), 0, 0x1c);
+    MI_CpuFill8(sub_02003D38(4), 0, 0x1c);
 
-    void *r4 = FUN_02003D38(3);
-    void *st8 = FUN_02003D38(4);
+    void *r4 = sub_02003D38(3);
+    void *st8 = sub_02003D38(4);
 
-    NNS_SndCaptureStartEffect(r4, 0x1000, 0, 0x55F0, 2, FUN_02005068, st8);
+    NNS_SndCaptureStartEffect(r4, 0x1000, 0, 0x55F0, 2, sub_02005068, st8);
 }
 
 void GF_SndCaptureStopEffect(void)
@@ -950,9 +950,9 @@ void GF_SndCaptureStopEffect(void)
     NNS_SndCaptureStopEffect();
 }
 
-void FUN_02004D04(s32 param0)
+void sub_02004D04(s32 param0)
 {
-    u8 *ptr = FUN_02003D38(19);
+    u8 *ptr = sub_02003D38(19);
 
     if (param0 > 8)
     {
@@ -971,9 +971,9 @@ void GF_SndPlayerSetTrackPitch(int playerNo, u32 param1, s32 param2)
     NNS_SndPlayerSetTrackPitch(GetSoundPlayer(playerNo), param1, param2);
 }
 
-void FUN_02004D34(u16 param0, u32 param1, s32 param2)
+void sub_02004D34(u16 param0, u32 param1, s32 param2)
 {
-    GF_SndPlayerSetTrackPitch(FUN_02004018(FUN_020048D0(param0)), param1, param2);
+    GF_SndPlayerSetTrackPitch(sub_02004018(sub_020048D0(param0)), param1, param2);
 }
 
 void GF_SndPlayerSetTrackPan(int playerNo, u32 param1, s32 param2)
@@ -987,19 +987,19 @@ void GF_SndSetMonoFlag(u32 param0)
     UNK_021C3DD8[0] = param0;
 }
 
-void FUN_02004D74(s32 param0)
+void sub_02004D74(s32 param0)
 {
-    *(s32 *)FUN_02003D38(6) = param0;
+    *(s32 *)sub_02003D38(6) = param0;
 }
 
-void FUN_02004D84(u32 param0)
+void sub_02004D84(u32 param0)
 {
-    *(u32 *)FUN_02003D38(7) = param0;
+    *(u32 *)sub_02003D38(7) = param0;
 }
 
-u16 FUN_02004D94(void)
+u16 sub_02004D94(void)
 {
-    u16 *ptr = FUN_02003D38(7);
+    u16 *ptr = sub_02003D38(7);
 
     if (*ptr == 0)
     {
@@ -1010,55 +1010,55 @@ u16 FUN_02004D94(void)
     return --(*ptr);
 }
 
-u8 *FUN_02004DB4(void)
+u8 *sub_02004DB4(void)
 {
     return UNK_021C3DE0;
 }
 
-void FUN_02004DBC(u8 param0)
+void sub_02004DBC(u8 param0)
 {
-    *(u8 *)FUN_02003D38(18) = param0;
+    *(u8 *)sub_02003D38(18) = param0;
 }
 
-u32 FUN_02004DCC(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
+u32 sub_02004DCC(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
 {
-    u8 *ptr = FUN_02003D38(21);
+    u8 *ptr = sub_02003D38(21);
 
-    FUN_02004E44(param0, param1, param2, param3, param4, param5);
+    sub_02004E44(param0, param1, param2, param3, param4, param5);
 
     *ptr = 0;
-    FUN_02003CE8(5);
+    sub_02003CE8(5);
     return 1;
 }
 
-u32 FUN_02004E08(
+u32 sub_02004E08(
     u32 param0, u16 param1, u32 param2, u32 param3, u32 param35, u8 param4, u32 param5)
 {
-    u32 *ptr = FUN_02003D38(8);
+    u32 *ptr = sub_02003D38(8);
 
-    FUN_02004E44(param0, param1, param2, param3, param4, param5);
+    sub_02004E44(param0, param1, param2, param3, param4, param5);
 
     *ptr = param35;
-    FUN_02003CE8(6);
+    sub_02003CE8(6);
     return 1;
 }
 
-void FUN_02004E44(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
+void sub_02004E44(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
 {
 #pragma unused(param0)
 #pragma unused(param5)
-    u32 *ptr = FUN_02003D38(2);
+    u32 *ptr = sub_02003D38(2);
 
-    FUN_020053CC(0, param2);
-    FUN_02004110(0);
-    FUN_02004130(param1);
-    FUN_02004D84(param3);
-    *ptr = FUN_020048F4(param1);
+    sub_020053CC(0, param2);
+    sub_02004110(0);
+    sub_02004130(param1);
+    sub_02004D84(param3);
+    *ptr = sub_020048F4(param1);
 
-    FUN_02004DBC(param4);
+    sub_02004DBC(param4);
 }
 
-u32 FUN_02004E80(u32 param0)
+u32 sub_02004E80(u32 param0)
 {
     if (param0 == 0)
     {
@@ -1068,7 +1068,7 @@ u32 FUN_02004E80(u32 param0)
     return param0 + 12;
 }
 
-u32 FUN_02004E8C(u32 *param0)
+u32 sub_02004E8C(u32 *param0)
 {
     if (param0 == NULL)
     {
@@ -1078,9 +1078,9 @@ u32 FUN_02004E8C(u32 *param0)
     return param0[2];
 }
 
-u32 FUN_02004E98(s32 param0)
+u32 sub_02004E98(s32 param0)
 {
-    GF_Snd_RestoreState(FUN_02004748(5));
+    GF_Snd_RestoreState(sub_02004748(5));
 
     u16 r4 = (u16)param0;
 
@@ -1090,12 +1090,12 @@ u32 FUN_02004E98(s32 param0)
     }
 
     GF_Snd_LoadWaveArc(r4);
-    return FUN_02004ED0(r4);
+    return sub_02004ED0(r4);
 }
 
-u32 FUN_02004ED0(s32 param0)
+u32 sub_02004ED0(s32 param0)
 {
-    u32 *ptr = FUN_02003D38(32);
+    u32 *ptr = sub_02003D38(32);
 
     u16 r4 = (u16)param0;
 
@@ -1122,7 +1122,7 @@ u32 FUN_02004ED0(s32 param0)
     return *ptr;
 }
 
-u32 FUN_02004F28(u32 param0, struct UnkStruct_020040F4_2 *param1, s32 param2)
+u32 sub_02004F28(u32 param0, struct UnkStruct_020040F4_2 *param1, s32 param2)
 {
 #pragma unused(param0)
     u32 r4 = GF_SndPlayerGetTick(1);
@@ -1157,13 +1157,13 @@ u32 GF_SndPlayerGetTick(int playerNo)
     return NNS_SndPlayerGetTick(GetSoundPlayer(playerNo));
 }
 
-void FUN_02004F70(
+void sub_02004F70(
     struct UnkStruct_020040F4_2 *param0, u8 *param1, int param2, s32 param3)
 {
     int r0;
     s32 r1;
     int i, j;
-    u32 r12 = FUN_02004F28(1, param0, param3);
+    u32 r12 = sub_02004F28(1, param0, param3);
     r1 = (s32)r12 - 100;
     if (r1 < 0)
     {
@@ -1262,11 +1262,11 @@ void FUN_02004F70(
     }
 }
 
-void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, void *param4)
+void sub_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, void *param4)
 {
     s16 st10[8][2];
     s16(*st0)[2] = param4;
-    u8 *r7 = FUN_02003D38(19);
+    u8 *r7 = sub_02003D38(19);
 
     int r0;
     int i, j;
@@ -1316,44 +1316,44 @@ void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, void *param4
     DC_FlushRange(param1, param2);
 }
 
-void FUN_02005160(u32 param0)
+void sub_02005160(u32 param0)
 {
     NNS_SndPlayerSetAllocatableChannel(7, param0);
 }
 
-void FUN_0200516C(u32 param0)
+void sub_0200516C(u32 param0)
 {
     if (param0 == 0)
     {
-        FUN_02005160(0x7ff);
+        sub_02005160(0x7ff);
         GF_SndCaptureStopReverb(0);
     }
     else if (param0 == 1)
     {
-        FUN_02005160(0x7fff);
+        sub_02005160(0x7fff);
         GF_SndCaptureStartReverb(30);
     }
     else
     {
-        FUN_02005160(0x7fff);
+        sub_02005160(0x7fff);
         GF_SndCaptureStartReverb(15);
     }
 
     GF_SndCaptureIsActive();
 }
 
-void FUN_020051AC(void)
+void sub_020051AC(void)
 {
-    if (FUN_02005404() == FALSE && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
-        FUN_02004124() != 0x47e)
+    if (sub_02005404() == FALSE && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
+        sub_02004124() != 0x47e)
     {
 
-        FUN_02005454();
-        FUN_020047C8(1, 1);
+        sub_02005454();
+        sub_020047C8(1, 1);
         return;
     }
 
-    FUN_0200541C();
+    sub_0200541C();
 }
 
 void GF_SndPlayerSetPlayerVolume(u32 param0, u8 param1)

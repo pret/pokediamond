@@ -17,7 +17,7 @@ root
    `- lib
       `- src
       `- include
-   `- modules
+   `- overlays
       `- 00
          `- asm
          `- src
@@ -47,8 +47,8 @@ In the above structure, ASM files (.s) in the asm/ directories contains the mach
 **Decompilation** entails writing C code which the project compiler (mwccarm) will translate to the exact same assembly code. For example, consider this ASM function:
 
 ```armasm
-    thumb_func_start FUN_0201B578
-FUN_0201B578: ; 0x0201B578
+    thumb_func_start sub_0201B578
+sub_0201B578: ; 0x0201B578
     lsl r0, r0, #0x5
     add r0, #0x34
     bx lr
@@ -57,7 +57,7 @@ FUN_0201B578: ; 0x0201B578
 
 Without knowing anything else about the function prototypes, we can make an educated guess as to what C code would produce this function. Function arguments are passed in registers r0-r2 or r0-r3, and the return value (if any) is held in r0. The `LSL` instruction means "logical shift left", which is equivalent to multiplying the input operand by a power of 2. In this case, the input operand is being shifted left by 5 bits (multiplied by 20h). The following instruction (`ADD r0, #0x34`) adds 34h to that value, and the final instruction `BX lr` returns to the parent routine with the result of the ADD instruction held in r0. Thus we can surmise that the C function
 ```c
-s32 FUN_0201B578(s32 arg0)
+s32 sub_0201B578(s32 arg0)
 {
     return 32 * arg0 + 52;
 }
@@ -81,12 +81,12 @@ Section link order is specified in the Linker Spec File, arm9/arm9.lsf. Only the
 
 After placing your C file into the LSF as described above, test your build by running `make`. Here are some common errors you may encounter and how to resolve them:
 
-    Unknown identifier, FUN_0201B578
+    Unknown identifier, sub_0201B578
 
-Append the line `.extern FUN_0201B578` to arm9/global.inc and recompile.
+Append the line `.extern sub_0201B578` to arm9/global.inc and recompile.
 
     build/arm9.sbin: FAILED
-    build/MODULE_00.sbin: FAILED
+    build/OVERLAY_00.sbin: FAILED
     ...
 
 Your attempt was incorrect. Don't be discouraged, this is all part of the process. The following bash script will allow you to compare your code to the original ROM; save it as arm9/asmdiff.sh
@@ -109,7 +109,7 @@ Place a clean version of the ARM9 binary as arm9/baserom.sbin (arm9/build/arm9.b
 
 **This section describes a target repository specification and does not reflect the current state of the project.**
 
-ASM files may own one or more data/RAM sections. The types of these sections is not guaranteed to be accurate. When decompiling data, you are expected to translate the raw bytes into the actual structures used by the source code. These may be simple values (char, short, word, or pointer), or they could be C structs or unions. Some overlay modules are suspected to contain C++ classes, the handling of which is not yet described.
+ASM files may own one or more data/RAM sections. The types of these sections is not guaranteed to be accurate. When decompiling data, you are expected to translate the raw bytes into the actual structures used by the source code. These may be simple values (char, short, word, or pointer), or they could be C structs or unions. Some overlays are suspected to contain C++ classes, the handling of which is not yet described.
 
 Because the Nintendo DS architecture is ARM, all data is aligned. This means 16-bit integers are aligned to 2 bytes within a structure, and anything 4 bytes or wider is aligned to 4 bytes (long, long long, float, double, struct, union, void *). All data requiring alignment are padded with 0. For example:
 ```armasm

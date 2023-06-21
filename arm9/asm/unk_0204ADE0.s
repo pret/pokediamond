@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0204ADE0
-FUN_0204ADE0: ; 0x0204ADE0
+	thumb_func_start sub_0204ADE0
+sub_0204ADE0: ; 0x0204ADE0
 	mov r3, #0x0
 	add r2, r3, #0x0
 _0204ADE4:
@@ -25,8 +25,8 @@ _0204ADE4:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0204AE04
-FUN_0204AE04: ; 0x0204AE04
+	thumb_func_start sub_0204AE04
+sub_0204AE04: ; 0x0204AE04
 	push {r4, lr}
 	add r4, r0, #0x0
 	asr r0, r1, #0x4
@@ -73,8 +73,8 @@ _0204AE58:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204AE5C
-FUN_0204AE5C: ; 0x0204AE5C
+	thumb_func_start sub_0204AE5C
+sub_0204AE5C: ; 0x0204AE5C
 	push {r4, lr}
 	add r4, r0, #0x0
 	lsl r0, r1, #0x18

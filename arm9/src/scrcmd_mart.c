@@ -3,9 +3,9 @@
 #include "constants/seal_constants.h"
 #include "constants/decorations.h"
 #include "scrcmd.h"
-#include "module_06.h"
+#include "overlay_06.h"
 
-extern void FUN_02038AD0(struct TaskManager *);
+extern void sub_02038AD0(struct TaskManager *);
 
 static const u16 UNK_020F40A6[] = {
     ITEM_AIR_MAIL,
@@ -394,7 +394,7 @@ BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pokemart?
         }
     }
     martItems[martIdx] = 0xFFFF; // terminator
-    MOD06_0223D3D0(ctx->taskManager, ctx->fieldSystem, martItems, MART_ITEMS, 0);
+    ov06_0223D3D0(ctx->taskManager, ctx->fieldSystem, martItems, MART_ITEMS, 0);
     return TRUE;
 }
 
@@ -409,7 +409,7 @@ BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
     else
         sp0 = 0;
 
-    MOD06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sSpecialMartPointers[whichMart], MART_ITEMS, sp0);
+    ov06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sSpecialMartPointers[whichMart], MART_ITEMS, sp0);
     return TRUE;
 }
 
@@ -423,7 +423,7 @@ BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
     else
         sp0 = 0;
 
-    MOD06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sDecorationMartPointers[whichMart], MART_DECORATIONS, sp0);
+    ov06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sDecorationMartPointers[whichMart], MART_DECORATIONS, sp0);
     return TRUE;
 }
 
@@ -431,12 +431,12 @@ BOOL ScrCmd_SealsMart(struct ScriptContext * ctx) //014A
 {
     u16 whichMart = ScriptGetVar(ctx);
 
-    MOD06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sSealsMartPointers[whichMart], MART_SEALS, 0);
+    ov06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sSealsMartPointers[whichMart], MART_SEALS, 0);
     return TRUE;
 }
 
 BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx) //0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
 {
-    FUN_02038AD0(ctx->fieldSystem->taskManager);
+    sub_02038AD0(ctx->fieldSystem->taskManager);
     return TRUE;
 }

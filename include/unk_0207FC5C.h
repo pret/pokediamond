@@ -82,8 +82,8 @@
 #define RIBBON_CLASSIC                78
 #define RIBBON_PREMIER                79
 
-u32 FUN_0207FC5C(u8 a0, u32 a1);
-int FUN_0207FCC0(u8 * a0, u32 a1);
-u8 FUN_0207FCE0(u32 a0);
+u32 sub_0207FC5C(u8 a0, u32 a1);
+int sub_0207FCC0(u8 * a0, u32 a1);
+u8 sub_0207FCE0(u32 a0);
 
 #endif //POKEDIAMOND_UNK_0207FC5C_H

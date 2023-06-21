@@ -3,27 +3,27 @@
 #include "event_data.h"
 #include "pokedex.h"
 
-extern void* FUN_02034E20(void*);
+extern void* sub_02034E20(void*);
 extern void* Save_LocalFieldData_Get(void*);
-extern BOOL FUN_02055474(void*);
-extern void FUN_02055488(void*, u32);
-extern void FUN_0205ECD4(struct ScriptState* state);
-extern BOOL FUN_0205ECE0(struct ScriptState* state);
-extern void FUN_0205ECFC(struct ScriptState* state);
-extern BOOL FUN_0205ED0C(struct ScriptState* state);
-extern void FUN_0205ED1C(struct ScriptState* state);
-extern void FUN_0205ED2C(struct ScriptState* state);
-extern BOOL FUN_0205ED3C(struct ScriptState* state);
-extern void FUN_0205ED4C(struct ScriptState* state);
-extern void FUN_0205ED5C(struct ScriptState* state);
-extern BOOL FUN_0205ED6C(struct ScriptState* state);
-extern BOOL FUN_0205F264(struct ScriptState* state, u32);
-extern void FUN_0205F274(struct ScriptState* state);
-extern void FUN_0205F284(struct ScriptState* state);
-extern BOOL FUN_0205F294(struct ScriptState* state);
-extern void FUN_0205F2A4(struct ScriptState* state);
-extern void FUN_0205F2B4(struct ScriptState* state);
-extern BOOL FUN_0205F2C4(struct ScriptState* state);
+extern BOOL sub_02055474(void*);
+extern void sub_02055488(void*, u32);
+extern void sub_0205ECD4(struct ScriptState* state);
+extern BOOL sub_0205ECE0(struct ScriptState* state);
+extern void sub_0205ECFC(struct ScriptState* state);
+extern BOOL sub_0205ED0C(struct ScriptState* state);
+extern void sub_0205ED1C(struct ScriptState* state);
+extern void sub_0205ED2C(struct ScriptState* state);
+extern BOOL sub_0205ED3C(struct ScriptState* state);
+extern void sub_0205ED4C(struct ScriptState* state);
+extern void sub_0205ED5C(struct ScriptState* state);
+extern BOOL sub_0205ED6C(struct ScriptState* state);
+extern BOOL sub_0205F264(struct ScriptState* state, u32);
+extern void sub_0205F274(struct ScriptState* state);
+extern void sub_0205F284(struct ScriptState* state);
+extern BOOL sub_0205F294(struct ScriptState* state);
+extern void sub_0205F2A4(struct ScriptState* state);
+extern void sub_0205F2B4(struct ScriptState* state);
+extern BOOL sub_0205F2C4(struct ScriptState* state);
 
 const u8 UNK_020F457F[8] = {
     0, 1, 2, 3, 4, 5, 6, 7,
@@ -52,9 +52,9 @@ BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     void* unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    void* unk = FUN_02034E20(unk_sav_ptr);
+    void* unk = sub_02034E20(unk_sav_ptr);
 
-    *ret_ptr = (u16)FUN_02055474(unk);
+    *ret_ptr = (u16)sub_02055474(unk);
 
     return FALSE;
 }
@@ -62,9 +62,9 @@ BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 BOOL ScrCmd_GiveRunningShoes(struct ScriptContext* ctx) //015A
 {
     void* unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    void* unk = FUN_02034E20(unk_sav_ptr);
+    void* unk = sub_02034E20(unk_sav_ptr);
 
-    FUN_02055488(unk, 1);
+    sub_02055488(unk, 1);
 
     return FALSE;
 }
@@ -97,7 +97,7 @@ BOOL ScrCmd_HasBag(struct ScriptContext* ctx) //015E
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    *ret_ptr = (u16)FUN_0205ECE0(state);
+    *ret_ptr = (u16)sub_0205ECE0(state);
 
     return FALSE;
 }
@@ -126,7 +126,7 @@ BOOL ScrCmd_GiveBag(struct ScriptContext* ctx) //015F
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
     
-    FUN_0205ECD4(state);
+    sub_0205ECD4(state);
 
     return FALSE;
 }
@@ -136,7 +136,7 @@ BOOL ScrCmd_Unk0160(struct ScriptContext* ctx) //0160 - todo: HasPartner? CheckP
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    *ret_ptr = (u16)FUN_0205ED3C(state);
+    *ret_ptr = (u16)sub_0205ED3C(state);
 
     return FALSE;
 }
@@ -145,7 +145,7 @@ BOOL ScrCmd_Unk0161(struct ScriptContext* ctx) //0161 - todo: GivePartner? SetPa
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    FUN_0205ED1C(state);
+    sub_0205ED1C(state);
 
     return FALSE;
 }
@@ -154,7 +154,7 @@ BOOL ScrCmd_Unk0162(struct ScriptContext* ctx) //0162 - todo: RemovePartner? Cle
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    FUN_0205ED2C(state);
+    sub_0205ED2C(state);
 
     return FALSE;
 }
@@ -164,7 +164,7 @@ BOOL ScrCmd_Unk0163(struct ScriptContext* ctx) //0163 - todo: GetSteps? CheckSte
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    *ret_ptr = (u16)FUN_0205ED6C(state);
+    *ret_ptr = (u16)sub_0205ED6C(state);
 
     return FALSE;
 }
@@ -173,7 +173,7 @@ BOOL ScrCmd_Unk0164(struct ScriptContext* ctx) //0164 - todo: SetStepFlag?
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    FUN_0205ED4C(state);
+    sub_0205ED4C(state);
 
     return 0;
 }
@@ -182,7 +182,7 @@ BOOL ScrCmd_Unk0165(struct ScriptContext* ctx) //0165 - todo: ClearStepFlag?
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    FUN_0205ED5C(state);
+    sub_0205ED5C(state);
 
     return 0;
 }
@@ -192,7 +192,7 @@ BOOL ScrCmd_CheckGameCompleted(struct ScriptContext* ctx) //0166
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    *ret_ptr = (u16)FUN_0205ED0C(state);
+    *ret_ptr = (u16)sub_0205ED0C(state);
 
     return FALSE;
 }
@@ -201,7 +201,7 @@ BOOL ScrCmd_SetGameCompleted(struct ScriptContext* ctx) //0167
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
-    FUN_0205ECFC(state);
+    sub_0205ECFC(state);
 
     return 0;
 }
@@ -215,14 +215,14 @@ BOOL ScrCmd_GetSetStrength(struct ScriptContext* ctx) //01CF - todo: Strength?
     switch (option)
     {
     case 1: //set strength to on
-        FUN_0205F264(state, 1);
+        sub_0205F264(state, 1);
         break;
     case 0: //set strength to off
-        FUN_0205F264(state, 0);
+        sub_0205F264(state, 0);
         break;
     case 2: //get whether strength is on or off
         ret_ptr = ScriptGetVarPointer(ctx);
-        *ret_ptr = (u16)FUN_0205F264(state, 2);
+        *ret_ptr = (u16)sub_0205F264(state, 2);
         break;
     default:
         GF_ASSERT(FALSE);
@@ -241,14 +241,14 @@ BOOL ScrCmd_GetSetFlash(struct ScriptContext* ctx) //01D0 - todo Flash?
     switch (option)
     {
     case 1: //set flash to on
-        FUN_0205F274(state);
+        sub_0205F274(state);
         break;
     case 0: //set flash to off
-        FUN_0205F284(state);
+        sub_0205F284(state);
         break;
     case 2: //get whether flash is on or off
         ret_ptr = ScriptGetVarPointer(ctx);
-        *ret_ptr = (u16)FUN_0205F294(state);
+        *ret_ptr = (u16)sub_0205F294(state);
         break;
     default:
         GF_ASSERT(FALSE);
@@ -267,14 +267,14 @@ BOOL ScrCmd_GetSetDefog(struct ScriptContext* ctx) //01D1 - todo: Defog
     switch (option)
     {
     case 1: //set defog to on
-        FUN_0205F2A4(state);
+        sub_0205F2A4(state);
         break;
     case 0: //set defog to off
-        FUN_0205F2B4(state);
+        sub_0205F2B4(state);
         break;
     case 2: //get whether defog is on or off
         ret_ptr = ScriptGetVarPointer(ctx);
-        *ret_ptr = (u16)FUN_0205F2C4(state);
+        *ret_ptr = (u16)sub_0205F2C4(state);
         break;
     default:
         GF_ASSERT(FALSE);

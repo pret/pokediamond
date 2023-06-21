@@ -15,8 +15,8 @@ UNK_021C5C58: ; 0x021C5C58
 
 	.text
 
-	thumb_func_start FUN_020893E0
-FUN_020893E0: ; 0x020893E0
+	thumb_func_start sub_020893E0
+sub_020893E0: ; 0x020893E0
 	mov r1, #0x0
 	ldr r0, _020893EC ; =UNK_02106154
 	mvn r1, r1
@@ -25,8 +25,8 @@ FUN_020893E0: ; 0x020893E0
 	nop
 _020893EC: .word UNK_02106154
 
-	thumb_func_start FUN_020893F0
-FUN_020893F0: ; 0x020893F0
+	thumb_func_start sub_020893F0
+sub_020893F0: ; 0x020893F0
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x3
@@ -46,8 +46,8 @@ _0208940A:
 _02089410: .word UNK_021C5C58
 _02089414: .word UNK_02106154
 
-	thumb_func_start FUN_02089418
-FUN_02089418: ; 0x02089418
+	thumb_func_start sub_02089418
+sub_02089418: ; 0x02089418
 	push {r3, lr}
 	mov r3, #0x3
 	lsl r3, r3, #0xc
@@ -70,8 +70,8 @@ _02089438:
 _0208943C: .word UNK_02106154
 _02089440: .word UNK_021C5C58
 
-	thumb_func_start FUN_02089444
-FUN_02089444: ; 0x02089444
+	thumb_func_start sub_02089444
+sub_02089444: ; 0x02089444
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x3
@@ -91,8 +91,8 @@ _0208945E:
 _02089464: .word UNK_021C5C58
 _02089468: .word UNK_02106154
 
-	thumb_func_start FUN_0208946C
-FUN_0208946C: ; 0x0208946C
+	thumb_func_start sub_0208946C
+sub_0208946C: ; 0x0208946C
 	push {r3, lr}
 	mov r3, #0x3
 	lsl r3, r3, #0xc

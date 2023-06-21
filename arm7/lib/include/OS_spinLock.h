@@ -6,7 +6,7 @@
 #include "syscall.h"
 
 void OS_InitLock(void);
-void FUN_037F8CB4(s32 ct);
+void sub_037F8CB4(s32 ct);
 s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void), BOOL disableFiq);
 s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void), BOOL disableFIQ);
 s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void), BOOL disableFiq);
@@ -22,7 +22,7 @@ void OS_ReleaseLockID(register u16 lockID);
 
 static inline void OSi_WaitByLoop(void)
 {
-    FUN_037F8CB4(0x1000 / 4);
+    sub_037F8CB4(0x1000 / 4);
 }
 
 #endif //POKEDIAMOND_ARM7_OS_SPINLOCK_H

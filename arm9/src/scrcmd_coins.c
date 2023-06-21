@@ -4,9 +4,9 @@
 
 extern void * FieldSysGetAttrAddr(struct FieldSystem* arg, u8 idx);
 
-extern Window *MOD05_021E2950(struct FieldSystem* arg, u8 xVal, u8 yVal);
-extern void MOD05_021E29B4(Window *coinBox);
-extern void MOD05_021E29C8(struct FieldSystem *arg, Window *coinBox);
+extern Window *ov05_021E2950(struct FieldSystem* arg, u8 xVal, u8 yVal);
+extern void ov05_021E29B4(Window *coinBox);
+extern void ov05_021E29C8(struct FieldSystem *arg, Window *coinBox);
 
 BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
 {
@@ -15,7 +15,7 @@ BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
     u16 yVal = ScriptGetVar(ctx);
     Window **coinBoxPtr = (Window **)FieldSysGetAttrAddr(sav_ptr, SCRIPTENV_COIN_BOX);
 
-    Window *coinBox = MOD05_021E2950(ctx->fieldSystem, (u8)xVal, (u8)yVal);
+    Window *coinBox = ov05_021E2950(ctx->fieldSystem, (u8)xVal, (u8)yVal);
     *coinBoxPtr = coinBox;
 
     return FALSE;
@@ -24,7 +24,7 @@ BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
 BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx) //0076
 {
     Window **coinBoxPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_COIN_BOX);
-    MOD05_021E29B4(*coinBoxPtr);
+    ov05_021E29B4(*coinBoxPtr);
 
     return FALSE;
 }
@@ -32,7 +32,7 @@ BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx) //0076
 BOOL ScrCmd_UpdateCoinBox(struct ScriptContext * ctx) //0077
 {
     Window **coinBoxPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_COIN_BOX);
-    MOD05_021E29C8(ctx->fieldSystem, *coinBoxPtr);
+    ov05_021E29C8(ctx->fieldSystem, *coinBoxPtr);
 
     return FALSE;
 }

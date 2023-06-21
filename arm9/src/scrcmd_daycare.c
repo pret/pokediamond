@@ -6,17 +6,17 @@
 
 extern void* FieldSysGetAttrAddr(struct FieldSystem*, int idx);
 
-extern void MOD05_021EC57C(struct PlayerParty* party, u8 idx, struct DayCare* daycare, struct SaveData* save);
-extern u16 MOD05_021EC71C(struct PlayerParty* party, MessageFormat *messageFormat, struct DayCare* daycare, u8 idx);
-extern u16 MOD05_021EC854(struct DayCare* daycare, u8 idx, MessageFormat *messageFormat);
-extern u8 MOD05_021EC864(struct DayCare* daycare, int idx, MessageFormat *messageFormat);
-extern void MOD05_021ECD64(struct DayCare* daycare);
-extern void MOD05_DayCare_GiveEggToPlayer(struct DayCare* daycare, struct PlayerParty* party, PlayerProfile* player);
-extern void MOD05_021ED4E0(struct DayCare* daycare, MessageFormat *messageFormat);
-extern void MOD05_021ED52C(struct DayCare* daycare, u8 idx1, u8 idx2, u8 idx3, u8 idx4, MessageFormat *messageFormat);
-extern u16 MOD05_021ED5C4(struct PlayerParty* party, int idx, MessageFormat *messageFormat);
-extern u16 MOD05_021ED5EC(struct DayCare* daycare);
-extern u32 MOD05_021ED644(struct DayCare* daycare);
+extern void ov05_021EC57C(struct PlayerParty* party, u8 idx, struct DayCare* daycare, struct SaveData* save);
+extern u16 ov05_021EC71C(struct PlayerParty* party, MessageFormat *messageFormat, struct DayCare* daycare, u8 idx);
+extern u16 ov05_021EC854(struct DayCare* daycare, u8 idx, MessageFormat *messageFormat);
+extern u8 ov05_021EC864(struct DayCare* daycare, int idx, MessageFormat *messageFormat);
+extern void ov05_021ECD64(struct DayCare* daycare);
+extern void ov05_DayCare_GiveEggToPlayer(struct DayCare* daycare, struct PlayerParty* party, PlayerProfile* player);
+extern void ov05_021ED4E0(struct DayCare* daycare, MessageFormat *messageFormat);
+extern void ov05_021ED52C(struct DayCare* daycare, u8 idx1, u8 idx2, u8 idx3, u8 idx4, MessageFormat *messageFormat);
+extern u16 ov05_021ED5C4(struct PlayerParty* party, int idx, MessageFormat *messageFormat);
+extern u16 ov05_021ED5EC(struct DayCare* daycare);
+extern u32 ov05_021ED644(struct DayCare* daycare);
 
 BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext* ctx) //016D
 {
@@ -24,7 +24,7 @@ BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext* ctx) //016D
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     struct DayCare* daycare = Save_DayCare_Get(save);
 
-    MOD05_021ED4E0(daycare, *messageFormat);
+    ov05_021ED4E0(daycare, *messageFormat);
 
     return FALSE;
 }
@@ -36,7 +36,7 @@ BOOL ScrCmd_GetDaycareStatus(struct ScriptContext* ctx) //016E
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct DayCare* daycare = SaveArray_Get(save, 8);
 
-    *ret_ptr = MOD05_021ED5EC(daycare);
+    *ret_ptr = ov05_021ED5EC(daycare);
 
     return FALSE;
 }
@@ -44,7 +44,7 @@ BOOL ScrCmd_GetDaycareStatus(struct ScriptContext* ctx) //016E
 BOOL ScrCmd_DeleteDaycareEgg(struct ScriptContext* ctx) //01A8
 {
     struct DayCare* daycare = SaveArray_Get(ctx->fieldSystem->saveData, 8);
-    MOD05_021ECD64(daycare);
+    ov05_021ECD64(daycare);
 
     return FALSE;
 }
@@ -57,7 +57,7 @@ BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx) //01A9
     struct SaveData* save = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
     PlayerProfile* player = Save_PlayerData_GetProfileAddr(save);
 
-    MOD05_DayCare_GiveEggToPlayer(daycare, party, player);
+    ov05_DayCare_GiveEggToPlayer(daycare, party, player);
 
     return FALSE;
 }
@@ -72,7 +72,7 @@ BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx) //01A4
     struct DayCare* daycare = SaveArray_Get(save, 8);
     struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
 
-    *ret_ptr = MOD05_021EC71C(party, *messageFormat, daycare, (u8)idx);
+    *ret_ptr = ov05_021EC71C(party, *messageFormat, daycare, (u8)idx);
 
     return FALSE;
 }
@@ -86,7 +86,7 @@ BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx) //01AA
     u16 idx = ScriptGetVar(ctx);
     struct DayCare* daycare = SaveArray_Get(save, 8);
 
-    *ret_ptr = MOD05_021EC854(daycare, (u8)idx, *messageFormat);
+    *ret_ptr = ov05_021EC854(daycare, (u8)idx, *messageFormat);
 
     return FALSE;
 }
@@ -99,7 +99,7 @@ BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx) //01AE
     u16 idx = ScriptGetVar(ctx);
     struct DayCare* daycare = SaveArray_Get(save, 8);
 
-    *ret_ptr = MOD05_021EC864(daycare, idx, *messageFormat);
+    *ret_ptr = ov05_021EC864(daycare, idx, *messageFormat);
 
     return FALSE;
 }
@@ -113,7 +113,7 @@ BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx) //01AF
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
 
-    *ret_ptr = MOD05_021ED5C4(party, idx, *messageFormat);
+    *ret_ptr = ov05_021ED5C4(party, idx, *messageFormat);
 
     return FALSE;
 }
@@ -126,7 +126,7 @@ BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx) //01B0
     struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
     struct DayCare* daycare = SaveArray_Get(save, 8);
 
-    MOD05_021EC57C(party, (u8)idx, daycare, save);
+    ov05_021EC57C(party, (u8)idx, daycare, save);
 
     return FALSE;
 }
@@ -141,7 +141,7 @@ BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx) //01BC
     u16 idx4 = ScriptGetVar(ctx);
     struct DayCare* daycare = Save_DayCare_Get(save);
 
-    MOD05_021ED52C(daycare, (u8)idx1, (u8)idx2, (u8)idx3, (u8)idx4, *messageFormat);
+    ov05_021ED52C(daycare, (u8)idx1, (u8)idx2, (u8)idx3, (u8)idx4, *messageFormat);
 
     return FALSE;
 }
@@ -152,7 +152,7 @@ BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx) //01BE
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct DayCare* daycare = SaveArray_Get(save, 8);
 
-    *ret_ptr = (u16)MOD05_021ED644(daycare);
+    *ret_ptr = (u16)ov05_021ED644(daycare);
 
     return FALSE;
 }

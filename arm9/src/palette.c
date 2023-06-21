@@ -6,7 +6,7 @@
 #include "unk_0200CA44.h"
 #include "unk_020222E8.h"
 
-struct PaletteData *FUN_02002FD0(u32 heap_id)
+struct PaletteData *sub_02002FD0(u32 heap_id)
 {
     struct PaletteData *ptr = AllocFromHeap(heap_id, sizeof(struct PaletteData));
     MI_CpuFill8(ptr, 0, sizeof(struct PaletteData));
@@ -14,7 +14,7 @@ struct PaletteData *FUN_02002FD0(u32 heap_id)
     return ptr;
 }
 
-void FUN_02002FEC(struct PaletteData *ptr)
+void sub_02002FEC(struct PaletteData *ptr)
 {
     FreeToHeap(ptr);
 }
@@ -85,7 +85,7 @@ void PaletteData_LoadNarc(struct PaletteData *paletteData,
     PaletteData_LoadFromNarc(paletteData, narcId, memberId, heap_id, index, size, offset, 0);
 }
 
-void FUN_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size)
+void sub_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size)
 {
     GF_ASSERT(offset * 2 + size <= paletteData->pltt[index].bufSize);
 
@@ -93,16 +93,16 @@ void FUN_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 si
     switch (index)
     {
         case 0:
-            ptr = FUN_020222E8();
+            ptr = sub_020222E8();
             break;
         case 1:
-            ptr = FUN_020222F8();
+            ptr = sub_020222F8();
             break;
         case 2:
-            ptr = FUN_02022308();
+            ptr = sub_02022308();
             break;
         case 3:
-            ptr = FUN_02022310();
+            ptr = sub_02022310();
             break;
         default:
             GF_ASSERT(FALSE);
@@ -156,7 +156,7 @@ u16 *PaletteData_GetFadedBuf(struct PaletteData *paletteData, u32 index)
     return paletteData->pltt[index].fadedBuf;
 }
 
-u32 FUN_02003210(struct PaletteData *paletteData,
+u32 sub_02003210(struct PaletteData *paletteData,
     u16 param1,
     u16 param2,
     s16 delay,
@@ -180,19 +180,19 @@ u32 FUN_02003210(struct PaletteData *paletteData,
             continue;
         }
 
-        FUN_02003368(i, &paletteData->pltt[i], &param2);
+        sub_02003368(i, &paletteData->pltt[i], &param2);
 
-        FUN_020033A4(&paletteData->pltt[i].fadeCtrl, param2, delay, startY, targetY, color);
+        sub_020033A4(&paletteData->pltt[i].fadeCtrl, param2, delay, startY, targetY, color);
 
-        FUN_02003328(paletteData, i);
+        sub_02003328(paletteData, i);
 
         if (i >= 4)
         {
-            FUN_0200359C(paletteData, i, 0x100);
+            sub_0200359C(paletteData, i, 0x100);
         }
         else
         {
-            FUN_0200359C(paletteData, i, 0x10);
+            sub_0200359C(paletteData, i, 0x10);
         }
 
         param2 = stc;
@@ -209,7 +209,7 @@ u32 FUN_02003210(struct PaletteData *paletteData,
             paletteData->unk118_0 = 1;
             paletteData->unk11c = 0;
 
-            FUN_0200CA44((void (*)(u32, void *))FUN_02003464,
+            sub_0200CA44((void (*)(u32, void *))sub_02003464,
                 (void *)paletteData,
                 (u32)(-2));
         }
@@ -229,7 +229,7 @@ u8 IsPaletteSelected(u16 selectedPalettes, u16 index)
     return (u8)r3;
 }
 
-void FUN_02003328(struct PaletteData *param0, u16 param1)
+void sub_02003328(struct PaletteData *param0, u16 param1)
 {
     if (IsPaletteSelected(param0->unk11a_0, param1) != 1)
     {
@@ -237,7 +237,7 @@ void FUN_02003328(struct PaletteData *param0, u16 param1)
     }
 }
 
-void FUN_02003368(s32 param0, struct Palette *param1, u16 *param2)
+void sub_02003368(s32 param0, struct Palette *param1, u16 *param2)
 {
     u8 r0;
     if (param0 < 4)
@@ -258,7 +258,7 @@ void FUN_02003368(s32 param0, struct Palette *param1, u16 *param2)
     *param2 &= r4;
 }
 
-void FUN_020033A4(struct PaletteFadeControl *paletteFade,
+void sub_020033A4(struct PaletteFadeControl *paletteFade,
     u16 selectedPalettes,
     s16 delay,
     u8 startY,
@@ -291,7 +291,7 @@ void FUN_020033A4(struct PaletteFadeControl *paletteFade,
     paletteFade->yDec = 1;
 }
 
-void FUN_02003464(u32 param0, struct PaletteData *param1)
+void sub_02003464(u32 param0, struct PaletteData *param1)
 {
     if (param1->unk11c == 1)
     {
@@ -299,41 +299,41 @@ void FUN_02003464(u32 param0, struct PaletteData *param1)
         param1->unk11a_0 = 0;
         param1->activeFadePalettes = 0;
         param1->unk11a_e = 0;
-        FUN_0200CAB4((s32)param0);
+        sub_0200CAB4((s32)param0);
         return;
     }
 
     if (param1->unk118_0 == 1)
     {
         param1->unk11a_0 = param1->activeFadePalettes;
-        FUN_02003500(param1);
-        FUN_02003520(param1);
+        sub_02003500(param1);
+        sub_02003520(param1);
 
         if (param1->activeFadePalettes == 0)
         {
             param1->unk11a_e = 0;
-            FUN_0200CAB4((s32)param0);
+            sub_0200CAB4((s32)param0);
         }
     }
 }
 
-void FUN_02003500(struct PaletteData *param0)
+void sub_02003500(struct PaletteData *param0)
 {
     for (u8 i = 0; i < 4; i++)
     {
-        FUN_02003540(param0, i, 0x10);
+        sub_02003540(param0, i, 0x10);
     }
 }
 
-void FUN_02003520(struct PaletteData *param0)
+void sub_02003520(struct PaletteData *param0)
 {
     for (u8 i = 4; i < 14; i++)
     {
-        FUN_02003540(param0, i, 0x100);
+        sub_02003540(param0, i, 0x100);
     }
 }
 
-void FUN_02003540(struct PaletteData *paletteData, u8 index, u32 param2)
+void sub_02003540(struct PaletteData *paletteData, u8 index, u32 param2)
 {
     if (IsPaletteSelected(paletteData->activeFadePalettes, index) != 0)
     {
@@ -345,28 +345,28 @@ void FUN_02003540(struct PaletteData *paletteData, u8 index, u32 param2)
         }
 
         paletteData->pltt[index].fadeCtrl.delayCounter = 0;
-        FUN_0200359C(paletteData, index, param2);
+        sub_0200359C(paletteData, index, param2);
     }
 }
 
-void FUN_0200359C(struct PaletteData *paletteData, u32 index, u32 param2)
+void sub_0200359C(struct PaletteData *paletteData, u32 index, u32 param2)
 {
 
     for (u32 i = 0; i < 0x10; i++)
     {
         if (IsPaletteSelected(paletteData->pltt[index].fadeCtrl.selectedPalettes, (u16)i) != 0)
         {
-            FUN_020035F8(paletteData->pltt[index].unfadedBuf + param2 * i,
+            sub_020035F8(paletteData->pltt[index].unfadedBuf + param2 * i,
                 paletteData->pltt[index].fadedBuf + param2 * i,
                 &paletteData->pltt[index].fadeCtrl,
                 param2);
         }
     }
 
-    FUN_02003684(paletteData, (u8)index, &paletteData->pltt[index].fadeCtrl);
+    sub_02003684(paletteData, (u8)index, &paletteData->pltt[index].fadeCtrl);
 }
 
-void FUN_020035F8(
+void sub_020035F8(
     u16 *src, u16 *dest, struct PaletteFadeControl *fadeCtrl, u32 numEntries)
 {
     for (u32 i = 0; i < numEntries; i++)
@@ -387,7 +387,7 @@ void FUN_020035F8(
     }
 }
 
-void FUN_02003684(
+void sub_02003684(
     struct PaletteData *paletteData, u8 index, struct PaletteFadeControl *fadeCtrl)
 {
     if (fadeCtrl->y == fadeCtrl->targetY)
@@ -426,7 +426,7 @@ void FUN_02003684(
     fadeCtrl->y = val;
 }
 
-void FUN_0200372C(struct PaletteData *paletteData)
+void sub_0200372C(struct PaletteData *paletteData)
 {
     if (paletteData->unk11a_f == 0 && paletteData->unk118_0 != 1)
     {
@@ -526,12 +526,12 @@ void FUN_0200372C(struct PaletteData *paletteData)
     }
 }
 
-u16 FUN_020038E4(struct PaletteData *paletteData)
+u16 sub_020038E4(struct PaletteData *paletteData)
 {
     return paletteData->activeFadePalettes;
 }
 
-void FUN_020038F0(struct PaletteData *paletteData, u32 param1)
+void sub_020038F0(struct PaletteData *paletteData, u32 param1)
 {
     paletteData->unk11a_f = param1;
 }
@@ -665,7 +665,7 @@ void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 b
     }
 }
 
-void FUN_02003B40(struct PaletteData *paletteData,
+void sub_02003B40(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
     u32 heap_id,

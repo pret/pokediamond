@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0201C620
-FUN_0201C620: ; 0x0201C620
+	thumb_func_start sub_0201C620
+sub_0201C620: ; 0x0201C620
 	ldrb r3, [r0, #0x0]
 	strb r3, [r1, #0x0]
 	ldrb r0, [r0, #0x1]
@@ -12,8 +12,8 @@ FUN_0201C620: ; 0x0201C620
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0201C62C
-FUN_0201C62C: ; 0x0201C62C
+	thumb_func_start sub_0201C62C
+sub_0201C62C: ; 0x0201C62C
 	ldrb r3, [r0, #0x2]
 	strb r3, [r1, #0x0]
 	ldrb r0, [r0, #0x3]
@@ -21,8 +21,8 @@ FUN_0201C62C: ; 0x0201C62C
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0201C638
-FUN_0201C638: ; 0x0201C638
+	thumb_func_start sub_0201C638
+sub_0201C638: ; 0x0201C638
 	push {r4-r5}
 	ldr r5, _0201C6B0 ; =0xFFFFFFF8
 	ldr r4, [sp, #0xc]

@@ -240,7 +240,7 @@ void *AllocFromHeapInternal(NNSFndHeapHandle heap, u32 size, s32 alignment, u32 
 
 void AllocFail()
 {
-    if (FUN_02031810() != 0)
+    if (sub_02031810() != 0)
     {
         PrintErrorMessageAndReset();
     }

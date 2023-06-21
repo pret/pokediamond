@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0202134C
-FUN_0202134C: ; 0x0202134C
+	thumb_func_start sub_0202134C
+sub_0202134C: ; 0x0202134C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -13,8 +13,8 @@ FUN_0202134C: ; 0x0202134C
 	str r4, [r5, #0x0]
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0202135C
-FUN_0202135C: ; 0x0202135C
+	thumb_func_start sub_0202135C
+sub_0202135C: ; 0x0202135C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -41,8 +41,8 @@ _0202138C:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02021390
-FUN_02021390: ; 0x02021390
+	thumb_func_start sub_02021390
+sub_02021390: ; 0x02021390
 	add r3, r0, #0x0
 	add r2, r1, #0x0
 	ldmia r2!, {r0-r1}
@@ -52,8 +52,8 @@ FUN_02021390: ; 0x02021390
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_020213A0
-FUN_020213A0: ; 0x020213A0
+	thumb_func_start sub_020213A0
+sub_020213A0: ; 0x020213A0
 	push {r3-r7, lr}
 	sub sp, #0x60
 	add r5, r1, #0x0

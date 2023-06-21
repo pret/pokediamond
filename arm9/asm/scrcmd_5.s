@@ -26,7 +26,7 @@ ScrCmd_Unk024E: ; 0x02041194
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0205F5D8
+	bl sub_0205F5D8
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -103,7 +103,7 @@ _0204123C:
 	lsl r1, r1, #0x10
 	ldr r0, [sp, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_02041354
+	bl sub_02041354
 	cmp r0, #0x0
 	beq _0204127C
 	ldr r1, [sp, #0x1c]
@@ -150,7 +150,7 @@ _02041290:
 	lsl r1, r1, #0x10
 	ldr r0, [sp, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_02041354
+	bl sub_02041354
 	cmp r0, #0x0
 	beq _020412E0
 	cmp r6, r0
@@ -220,12 +220,12 @@ ScrCmd_Unk0250: ; 0x02041340
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F5FC
+	bl sub_0205F5FC
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02041354
-FUN_02041354: ; 0x02041354
+	thumb_func_start sub_02041354
+sub_02041354: ; 0x02041354
 	push {r4-r7, lr}
 	sub sp, #0xc
 	mov r6, #0x0

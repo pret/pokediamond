@@ -14,33 +14,33 @@ UNK_020F7E54: ; 0x020F7E54
 
 	.text
 
-	thumb_func_start FUN_02064CA8
-FUN_02064CA8: ; 0x02064CA8
+	thumb_func_start sub_02064CA8
+sub_02064CA8: ; 0x02064CA8
 	push {r4, lr}
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x1
-	bl FUN_02025490
+	bl sub_02025490
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_020254A0
+	bl sub_020254A0
 	mov r1, #0x1
 	strb r1, [r0, #0x0]
 	pop {r4, pc}
 
-	thumb_func_start FUN_02064CC8
-FUN_02064CC8: ; 0x02064CC8
+	thumb_func_start sub_02064CC8
+sub_02064CC8: ; 0x02064CC8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x2
-	bl FUN_02025490
+	bl sub_02025490
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_020254A0
+	bl sub_020254A0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0xc]
@@ -48,7 +48,7 @@ FUN_02064CC8: ; 0x02064CC8
 	bne _02064D08
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205ECEC
+	bl sub_0205ECEC
 	cmp r0, #0x0
 	beq _02064D02
 	mov r0, #0x0
@@ -64,17 +64,17 @@ _02064D08:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02064D10
-FUN_02064D10: ; 0x02064D10
+	thumb_func_start sub_02064D10
+sub_02064D10: ; 0x02064D10
 	push {r4-r6, lr}
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x3
-	bl FUN_02025490
+	bl sub_02025490
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_020254A0
+	bl sub_020254A0
 	ldr r5, _02064D48 ; =UNK_020F7E54
 	add r6, r0, #0x0
 	mov r4, #0x0
@@ -83,7 +83,7 @@ _02064D30:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	add r2, r6, #0x0
-	bl FUN_02064DEC
+	bl sub_02064DEC
 	add r4, r4, #0x1
 	add r5, r5, #0x1
 	cmp r4, #0x18
@@ -92,17 +92,17 @@ _02064D30:
 	nop
 _02064D48: .word UNK_020F7E54
 
-	thumb_func_start FUN_02064D4C
-FUN_02064D4C: ; 0x02064D4C
+	thumb_func_start sub_02064D4C
+sub_02064D4C: ; 0x02064D4C
 	push {r4-r6, lr}
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x4
-	bl FUN_02025490
+	bl sub_02025490
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_020254A0
+	bl sub_020254A0
 	ldr r5, _02064D84 ; =UNK_020F7E48
 	add r6, r0, #0x0
 	mov r4, #0x0
@@ -111,7 +111,7 @@ _02064D6C:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	add r2, r6, #0x0
-	bl FUN_02064DEC
+	bl sub_02064DEC
 	add r4, r4, #0x1
 	add r5, r5, #0x1
 	cmp r4, #0xc
@@ -120,8 +120,8 @@ _02064D6C:
 	nop
 _02064D84: .word UNK_020F7E48
 
-	thumb_func_start FUN_02064D88
-FUN_02064D88: ; 0x02064D88
+	thumb_func_start sub_02064D88
+sub_02064D88: ; 0x02064D88
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	add r7, r0, #0x0
@@ -131,13 +131,13 @@ FUN_02064D88: ; 0x02064D88
 _02064D96:
 	add r0, r7, #0x0
 	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02024ED8
+	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x5
-	bl FUN_02025490
+	bl sub_02025490
 	add r0, r4, #0x0
 	mov r1, #0x5
-	bl FUN_020254A0
+	bl sub_020254A0
 	add r4, r0, #0x0
 	str r5, [r4, #0x4]
 	cmp r5, #0x0
@@ -174,8 +174,8 @@ _02064DDE:
 _02064DEA:
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02064DEC
-FUN_02064DEC: ; 0x02064DEC
+	thumb_func_start sub_02064DEC
+sub_02064DEC: ; 0x02064DEC
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0

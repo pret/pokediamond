@@ -14,9 +14,9 @@
 #include "seal.h"
 #include "unk_0202A1E0.h"
 
-extern u32 *FUN_0202708C(SaveFashionData *);
-extern u32 FUN_02027168(u32 *);
-extern u16 FUN_02027184(u32 *);
+extern u32 *sub_0202708C(SaveFashionData *);
+extern u32 sub_02027168(u32 *);
+extern u16 sub_02027184(u32 *);
 extern SaveFashionData *Save_FashionData_Get(struct SaveData *save);
 extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
 
@@ -37,15 +37,15 @@ u32 BagView_sizeof()
     return sizeof(struct BagView);
 }
 
-void FUN_0206E30C(struct BagView *bag_view, u8 r1)
+void sub_0206E30C(struct BagView *bag_view, u8 r1)
 {
     bag_view->unk65 = r1;
 }
 
-void FUN_0206E314(
+void sub_0206E314(
     struct BagView *bag_view, struct SaveData *save, u8 r2, struct UnkStruct_0206F164 *r3)
 {
-    FUN_0206E30C(bag_view, r2);
+    sub_0206E30C(bag_view, r2);
 
     bag_view->save = save;
     bag_view->unk6C = r3;
@@ -58,42 +58,42 @@ void BagView_SetItem(struct BagView *bag_view, struct ItemSlot *slot, u8 pocket,
     bag_view->slots[idx].pocket = pocket;
 }
 
-void FUN_0206E340(struct BagView *bag_view)
+void sub_0206E340(struct BagView *bag_view)
 {
     bag_view->unk76 = 1;
 }
 
-void FUN_0206E354(struct BagView *bag_view, u32 r1)
+void sub_0206E354(struct BagView *bag_view, u32 r1)
 {
     bag_view->unk70 = r1;
 }
 
-void FUN_0206E358(struct BagView *bag_view, u8 r1)
+void sub_0206E358(struct BagView *bag_view, u8 r1)
 {
     bag_view->unk74 = r1;
 }
 
-void FUN_0206E360(struct BagView *bag_view, u16 r1)
+void sub_0206E360(struct BagView *bag_view, u16 r1)
 {
     bag_view->unk76_2 = r1;
 }
 
-u16 FUN_0206E37C(struct BagView *bag_view)
+u16 sub_0206E37C(struct BagView *bag_view)
 {
     return bag_view->unk66;
 }
 
-u16 FUN_0206E384(struct BagView *bag_view)
+u16 sub_0206E384(struct BagView *bag_view)
 {
     return bag_view->unk68;
 }
 
-u8 FUN_0206E38C(struct BagView *bag_view)
+u8 sub_0206E38C(struct BagView *bag_view)
 {
     return bag_view->unk74;
 }
 
-u8 FUN_0206E394(struct BagView *bag_view)
+u8 sub_0206E394(struct BagView *bag_view)
 {
     return bag_view->unk75;
 }
@@ -118,17 +118,17 @@ static u32 GetSealCount(struct SaveData *save)
 }
 
 //todo: do these match up with HG?
-u32 FUN_0206E3C8(struct SaveData *save)
+u32 sub_0206E3C8(struct SaveData *save)
 {
-    return FUN_02027168(FUN_0202708C(Save_FashionData_Get(save)));
+    return sub_02027168(sub_0202708C(Save_FashionData_Get(save)));
 }
 
-u32 FUN_0206E3D8(struct SaveData *save)
+u32 sub_0206E3D8(struct SaveData *save)
 {
-    return FUN_02027184(FUN_0202708C(Save_FashionData_Get(save)));
+    return sub_02027184(sub_0202708C(Save_FashionData_Get(save)));
 }
 
-u32 FUN_0206E3E8(struct SaveData *save)
+u32 sub_0206E3E8(struct SaveData *save)
 {
     return SaveStruct23_Substruct2_SetField_0x0(SaveStruct23_GetSubstruct2(save), 0, DATA_GET);
 }
@@ -147,7 +147,7 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00097); // Saved Battle Points {STRVAR_1 53, 0}BP
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E3E8(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, sub_0206E3E8(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_SEAL_CASE)
     {
@@ -159,8 +159,8 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00093); // Accessories: {STRVAR_1 52, 0} Backdrops: {STRVAR_1 51, 1}
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E3C8(save), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
-        BufferIntegerAsString(messageFormat, 1, FUN_0206E3D8(save), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, sub_0206E3C8(save), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 1, sub_0206E3D8(save), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_COIN_CASE)
     {
@@ -184,7 +184,7 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
     return TRUE;
 }
 
-void FUN_0206E51C( //todo: sync with HG
+void sub_0206E51C( //todo: sync with HG
     PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id)
 {
 #pragma unused(r2)

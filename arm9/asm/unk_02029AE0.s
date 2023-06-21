@@ -3,15 +3,15 @@
 
 	.text
 
-	thumb_func_start FUN_02029AE0
-FUN_02029AE0: ; 0x02029AE0
+	thumb_func_start sub_02029AE0
+sub_02029AE0: ; 0x02029AE0
 	ldr r0, _02029AE4 ; =0x00000FF8
 	bx lr
 	.balign 4
 _02029AE4: .word 0x00000FF8
 
-	thumb_func_start FUN_02029AE8
-FUN_02029AE8: ; 0x02029AE8
+	thumb_func_start sub_02029AE8
+sub_02029AE8: ; 0x02029AE8
 	ldr r3, _02029AF4 ; =MIi_CpuClear32
 	add r1, r0, #0x0
 	mov r0, #0x0
@@ -21,16 +21,16 @@ FUN_02029AE8: ; 0x02029AE8
 _02029AF4: .word MIi_CpuClear32
 _02029AF8: .word 0x00000FF8
 
-	thumb_func_start FUN_02029AFC
-FUN_02029AFC: ; 0x02029AFC
+	thumb_func_start sub_02029AFC
+sub_02029AFC: ; 0x02029AFC
 	ldr r3, _02029B04 ; =SaveArray_Get
 	mov r1, #0x1e
 	bx r3
 	nop
 _02029B04: .word SaveArray_Get
 
-	thumb_func_start FUN_02029B08
-FUN_02029B08: ; 0x02029B08
+	thumb_func_start sub_02029B08
+sub_02029B08: ; 0x02029B08
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	mov r0, #0x1
@@ -51,22 +51,22 @@ _02029B24:
 	add r2, r4, #0x0
 	mov r3, #0x3
 	strb r4, [r6, #0x6]
-	bl FUN_02029B90
+	bl sub_02029B90
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02029B38
-FUN_02029B38: ; 0x02029B38
+	thumb_func_start sub_02029B38
+sub_02029B38: ; 0x02029B38
 	ldrb r0, [r0, #0x5]
 	bx lr
 
-	thumb_func_start FUN_02029B3C
-FUN_02029B3C: ; 0x02029B3C
+	thumb_func_start sub_02029B3C
+sub_02029B3C: ; 0x02029B3C
 	ldrb r0, [r0, #0x6]
 	bx lr
 
-	thumb_func_start FUN_02029B40
-FUN_02029B40: ; 0x02029B40
+	thumb_func_start sub_02029B40
+sub_02029B40: ; 0x02029B40
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	mov r0, #0x1
@@ -109,8 +109,8 @@ _02029B64:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02029B90
-FUN_02029B90: ; 0x02029B90
+	thumb_func_start sub_02029B90
+sub_02029B90: ; 0x02029B90
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r5, r1, #0x0
@@ -164,22 +164,22 @@ _02029BB6:
 	beq _02029BFE
 	add r0, r7, #0x0
 	mov r1, #0x1
-	bl FUN_02029C04
+	bl sub_02029C04
 _02029BFE:
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02029C00
-FUN_02029C00: ; 0x02029C00
+	thumb_func_start sub_02029C00
+sub_02029C00: ; 0x02029C00
 	ldrb r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start FUN_02029C04
-FUN_02029C04: ; 0x02029C04
+	thumb_func_start sub_02029C04
+sub_02029C04: ; 0x02029C04
 	strb r1, [r0, #0x4]
 	bx lr
 
-	thumb_func_start FUN_02029C08
-FUN_02029C08: ; 0x02029C08
+	thumb_func_start sub_02029C08
+sub_02029C08: ; 0x02029C08
 	push {r3-r7, lr}
 	mov lr, r0
 	mov r0, #0x3

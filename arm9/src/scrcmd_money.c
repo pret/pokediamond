@@ -4,9 +4,9 @@
 
 extern void * FieldSysGetAttrAddr(struct FieldSystem *fieldSystem, u8 idx);
 
-extern Window *MOD05_021E27E8(struct FieldSystem *fieldSystem, u8 xVal, u8 yVal);
-extern void MOD05_021E288C(Window *moneyBox);
-extern void MOD05_021E28A0(struct FieldSystem *fieldSystem, Window *moneyBox);
+extern Window *ov05_021E27E8(struct FieldSystem *fieldSystem, u8 xVal, u8 yVal);
+extern void ov05_021E288C(Window *moneyBox);
+extern void ov05_021E28A0(struct FieldSystem *fieldSystem, Window *moneyBox);
 
 BOOL ScrCmd_GiveMoney(struct ScriptContext * ctx) //006F
 {
@@ -90,7 +90,7 @@ BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx) //0072
     u16 yVal = ScriptGetVar(ctx);
     Window **moneyBox = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MONEY_BOX);
 
-    *moneyBox = MOD05_021E27E8(ctx->fieldSystem, (u8)xVal, (u8)yVal);
+    *moneyBox = ov05_021E27E8(ctx->fieldSystem, (u8)xVal, (u8)yVal);
 
     return FALSE;
 }
@@ -98,7 +98,7 @@ BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx) //0072
 BOOL ScrCmd_HideMoneyBox(struct ScriptContext * ctx) //0073
 {
     Window **moneyBox = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MONEY_BOX);
-    MOD05_021E288C(*moneyBox);
+    ov05_021E288C(*moneyBox);
 
     return FALSE;
 }
@@ -106,7 +106,7 @@ BOOL ScrCmd_HideMoneyBox(struct ScriptContext * ctx) //0073
 BOOL ScrCmd_UpdateMoneyBox(struct ScriptContext * ctx) //0074
 {
     Window **moneyBox = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MONEY_BOX);
-    MOD05_021E28A0(ctx->fieldSystem, *moneyBox);
+    ov05_021E28A0(ctx->fieldSystem, *moneyBox);
 
     return FALSE;
 }

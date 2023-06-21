@@ -16,8 +16,8 @@ UNK_02105FA8: ; 0x02105FA8
 
 	.text
 
-	thumb_func_start FUN_0205F7A0
-FUN_0205F7A0: ; 0x0205F7A0
+	thumb_func_start sub_0205F7A0
+sub_0205F7A0: ; 0x0205F7A0
 	push {r3-r7, lr}
 	sub sp, #0x10
 	str r0, [sp, #0x0]
@@ -29,7 +29,7 @@ FUN_0205F7A0: ; 0x0205F7A0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DCC
+	bl sub_02034DCC
 	mov r2, #0x5
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0
@@ -77,7 +77,7 @@ _0205F812:
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034E0C
+	bl sub_02034E0C
 	str r0, [sp, #0x8]
 	ldr r0, [r0, #0x0]
 	mov r1, #0x6
@@ -115,7 +115,7 @@ _0205F85A:
 _0205F872:
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl FUN_0205F524
+	bl sub_0205F524
 	cmp r0, #0x0
 	beq _0205F888
 	mov r0, #0x1
@@ -133,7 +133,7 @@ _0205F892:
 	ldrb r2, [r6, #0x0]
 	add r0, r7, #0x0
 	mov r1, #0x2
-	bl FUN_0205F2E4
+	bl sub_0205F2E4
 	mov r1, #0x49
 	add r2, r5, r4
 	lsl r1, r1, #0x2
@@ -145,7 +145,7 @@ _0205F892:
 	ldr r0, [sp, #0x0]
 	ldr r2, _0205F8C4 ; =UNK_02105FA8
 	add r1, r5, #0x0
-	bl FUN_0205F8CC
+	bl sub_0205F8CC
 	ldr r1, _0205F8C8 ; =0x00000139
 	ldr r0, [sp, #0x4]
 	strb r0, [r5, r1]
@@ -156,8 +156,8 @@ _0205F8C0: .word UNK_020F7440
 _0205F8C4: .word UNK_02105FA8
 _0205F8C8: .word 0x00000139
 
-	thumb_func_start FUN_0205F8CC
-FUN_0205F8CC: ; 0x0205F8CC
+	thumb_func_start sub_0205F8CC
+sub_0205F8CC: ; 0x0205F8CC
 	push {r3-r7, lr}
 	sub sp, #0x70
 	add r7, r0, #0x0
@@ -231,7 +231,7 @@ _0205F962:
 	ldrb r2, [r6, #0x1]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x2
-	bl FUN_0205F2E4
+	bl sub_0205F2E4
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1e
@@ -278,7 +278,7 @@ _0205F9BE:
 	ldrb r2, [r6, #0x3]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x2
-	bl FUN_0205F2E4
+	bl sub_0205F2E4
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1e

@@ -19,13 +19,13 @@ struct UnkStruct_02088AAC
     u32 unk20;
 };
 
-u32 FUN_02088AAC(struct UnkStruct_02088AAC *r0, u32 *r1);
-u32 FUN_02088AFC(struct UnkStruct_02088AAC *r0);
-u32 FUN_02088B28(struct UnkStruct_02088AAC *r0);
-u32 FUN_02088B48(void);
-u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0);
-u32 FUN_02088BA8(struct UnkStruct_02088AAC *r0);
-u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0);
-u32 FUN_02088CDC(struct UnkStruct_02088AAC *r0);
+u32 sub_02088AAC(struct UnkStruct_02088AAC *r0, u32 *r1);
+u32 sub_02088AFC(struct UnkStruct_02088AAC *r0);
+u32 sub_02088B28(struct UnkStruct_02088AAC *r0);
+u32 sub_02088B48(void);
+u32 sub_02088B4C(struct UnkStruct_02088AAC *r0);
+u32 sub_02088BA8(struct UnkStruct_02088AAC *r0);
+u32 sub_02088C3C(struct UnkStruct_02088AAC *r0);
+u32 sub_02088CDC(struct UnkStruct_02088AAC *r0);
 
 #endif // POKEDIAMOND_UNK_02088AAC_H

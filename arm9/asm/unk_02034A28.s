@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02034A28
-FUN_02034A28: ; 0x02034A28
+	thumb_func_start sub_02034A28
+sub_02034A28: ; 0x02034A28
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x14]
@@ -21,8 +21,8 @@ _02034A38:
 	.balign 4
 _02034A44: .word 0x00000AC8
 
-	thumb_func_start FUN_02034A48
-FUN_02034A48: ; 0x02034A48
+	thumb_func_start sub_02034A48
+sub_02034A48: ; 0x02034A48
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x14]
@@ -35,8 +35,8 @@ _02034A56:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02034A60
-FUN_02034A60: ; 0x02034A60
+	thumb_func_start sub_02034A60
+sub_02034A60: ; 0x02034A60
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x14]
@@ -47,23 +47,23 @@ FUN_02034A60: ; 0x02034A60
 _02034A70:
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0x0
-	bl FUN_02034A98
+	bl sub_02034A98
 	ldr r0, [r5, #0x14]
-	bl FUN_02034C50
+	bl sub_02034C50
 	mov r0, #0x92
 	ldr r1, [r5, #0x14]
 	lsl r0, r0, #0x4
 	add r0, r1, r0
 	add r1, r4, #0x0
-	bl FUN_02034CB4
+	bl sub_02034CB4
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0x0
-	bl FUN_02034CEC
+	bl sub_02034CEC
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02034A98
-FUN_02034A98: ; 0x02034A98
+	thumb_func_start sub_02034A98
+sub_02034A98: ; 0x02034A98
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
@@ -86,8 +86,8 @@ _02034AB8:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02034AC8
-FUN_02034AC8: ; 0x02034AC8
+	thumb_func_start sub_02034AC8
+sub_02034AC8: ; 0x02034AC8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x14]
@@ -104,27 +104,27 @@ _02034AD8:
 	ldr r1, [r1, #0x0]
 	ldr r3, [r3, #0x14]
 	add r2, r4, #0x0
-	bl FUN_02057BAC
+	bl sub_02057BAC
 _02034AEC:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02034AF0
-FUN_02034AF0: ; 0x02034AF0
+	thumb_func_start sub_02034AF0
+sub_02034AF0: ; 0x02034AF0
 	ldr r0, [r0, #0x14]
 	ldr r0, [r0, #0x10]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034AF8
-FUN_02034AF8: ; 0x02034AF8
+	thumb_func_start sub_02034AF8
+sub_02034AF8: ; 0x02034AF8
 	ldr r0, [r0, #0x14]
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034B00
-FUN_02034B00: ; 0x02034B00
+	thumb_func_start sub_02034B00
+sub_02034B00: ; 0x02034B00
 	ldr r2, [r0, #0x14]
 	ldr r0, [r2, #0x8]
 	cmp r1, r0
@@ -139,8 +139,8 @@ _02034B0C:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034B18
-FUN_02034B18: ; 0x02034B18
+	thumb_func_start sub_02034B18
+sub_02034B18: ; 0x02034B18
 	push {r4-r7}
 	ldr r5, [r0, #0x14]
 	mov r3, #0x0
@@ -175,36 +175,36 @@ _02034B4A:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034B54
-FUN_02034B54: ; 0x02034B54
+	thumb_func_start sub_02034B54
+sub_02034B54: ; 0x02034B54
 	ldr r0, [r0, #0x14]
 	ldr r0, [r0, #0xc]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034B5C
-FUN_02034B5C: ; 0x02034B5C
+	thumb_func_start sub_02034B5C
+sub_02034B5C: ; 0x02034B5C
 	ldr r0, [r0, #0x14]
 	ldr r0, [r0, #0x1c]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034B64
-FUN_02034B64: ; 0x02034B64
+	thumb_func_start sub_02034B64
+sub_02034B64: ; 0x02034B64
 	ldr r0, [r0, #0x14]
 	ldr r0, [r0, #0x4]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034B6C
-FUN_02034B6C: ; 0x02034B6C
+	thumb_func_start sub_02034B6C
+sub_02034B6C: ; 0x02034B6C
 	ldr r0, [r0, #0x14]
 	ldr r0, [r0, #0x14]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034B74
-FUN_02034B74: ; 0x02034B74
+	thumb_func_start sub_02034B74
+sub_02034B74: ; 0x02034B74
 	push {r3-r7, lr}
 	ldr r0, [r0, #0x14]
 	add r4, r1, #0x0
@@ -236,8 +236,8 @@ _02034BA4:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02034BAC
-FUN_02034BAC: ; 0x02034BAC
+	thumb_func_start sub_02034BAC
+sub_02034BAC: ; 0x02034BAC
 	push {r4-r6, lr}
 	ldr r0, [r0, #0x14]
 	mov r3, #0x0
@@ -265,8 +265,8 @@ _02034BD4:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02034BDC
-FUN_02034BDC: ; 0x02034BDC
+	thumb_func_start sub_02034BDC
+sub_02034BDC: ; 0x02034BDC
 	push {r4-r6, lr}
 	ldr r0, [r0, #0x14]
 	mov r3, #0x0
@@ -294,8 +294,8 @@ _02034C04:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02034C0C
-FUN_02034C0C: ; 0x02034C0C
+	thumb_func_start sub_02034C0C
+sub_02034C0C: ; 0x02034C0C
 	push {r3-r4}
 	ldr r0, [r0, #0x14]
 	ldr r4, [r0, #0x18]
@@ -309,8 +309,8 @@ FUN_02034C0C: ; 0x02034C0C
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034C24
-FUN_02034C24: ; 0x02034C24
+	thumb_func_start sub_02034C24
+sub_02034C24: ; 0x02034C24
 	ldr r0, [r0, #0x14]
 	ldr r3, [r0, #0x18]
 	mov r0, #0xc
@@ -320,13 +320,13 @@ FUN_02034C24: ; 0x02034C24
 	mov r0, #0x1
 	bx lr
 
-	thumb_func_start FUN_02034C34
-FUN_02034C34: ; 0x02034C34
+	thumb_func_start sub_02034C34
+sub_02034C34: ; 0x02034C34
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_02034AF0
+	bl sub_02034AF0
 	mov r1, #0x14
 	mul r1, r5
 	add r0, r0, r1
@@ -336,8 +336,8 @@ FUN_02034C34: ; 0x02034C34
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02034C50
-FUN_02034C50: ; 0x02034C50
+	thumb_func_start sub_02034C50
+sub_02034C50: ; 0x02034C50
 	add r1, r0, #0x0
 	ldr r2, [r0, #0x20]
 	add r1, #0x20
@@ -396,8 +396,8 @@ _02034CAE:
 	str r1, [r0, #0x1c]
 	bx lr
 
-	thumb_func_start FUN_02034CB4
-FUN_02034CB4: ; 0x02034CB4
+	thumb_func_start sub_02034CB4
+sub_02034CB4: ; 0x02034CB4
 	push {r3-r5, lr}
 	mov r2, #0x6a
 	add r4, r1, #0x0
@@ -422,8 +422,8 @@ FUN_02034CB4: ; 0x02034CB4
 _02034CDE:
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02034CE0
-FUN_02034CE0: ; 0x02034CE0
+	thumb_func_start sub_02034CE0
+sub_02034CE0: ; 0x02034CE0
 	ldr r1, [r0, #0x14]
 	mov r0, #0x92
 	lsl r0, r0, #0x4
@@ -431,8 +431,8 @@ FUN_02034CE0: ; 0x02034CE0
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034CEC
-FUN_02034CEC: ; 0x02034CEC
+	thumb_func_start sub_02034CEC
+sub_02034CEC: ; 0x02034CEC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
@@ -462,8 +462,8 @@ _02034D1C:
 	bl ReadWholeNarcMemberByIdPair
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02034D2C
-FUN_02034D2C: ; 0x02034D2C
+	thumb_func_start sub_02034D2C
+sub_02034D2C: ; 0x02034D2C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x14]
@@ -477,8 +477,8 @@ _02034D3A:
 	add r0, r1, r0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02034D44
-FUN_02034D44: ; 0x02034D44
+	thumb_func_start sub_02034D44
+sub_02034D44: ; 0x02034D44
 	push {r4-r7}
 	ldr r0, [r0, #0x14]
 	mov r3, #0x0

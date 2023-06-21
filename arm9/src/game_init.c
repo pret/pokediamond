@@ -21,26 +21,26 @@ static struct {
 struct Main gSystem;
 
 void Main_ToggleHBlankInterrupt(BOOL enableFlag);
-void FUN_0201B5CC(void *);
+void sub_0201B5CC(void *);
 
-void FUN_02015EA0(void)
+void sub_02015EA0(void)
 {
     DTCM.intr_check |= 1;
     MI_WaitDma(3);
-    FUN_0201B5CC(gSystem.unk1C);
+    sub_0201B5CC(gSystem.unk1C);
     gSystem.unk30++;
 }
 
-void FUN_02015ED4(void)
+void sub_02015ED4(void)
 {
     DTCM.intr_check |= 1;
     MI_WaitDma(3);
 }
 
-void FUN_02015EF4(void)
+void sub_02015EF4(void)
 {
     OS_DisableIrqMask(1);
-    OS_SetIrqFunction(1, FUN_02015ED4);
+    OS_SetIrqFunction(1, sub_02015ED4);
     OS_EnableIrqMask(1);
 }
 
@@ -50,7 +50,7 @@ void Main_SetVBlankIntrCB(void (*a0)(void *), void * a1)
     gSystem.vBlankIntrArg = a1;
 }
 
-void FUN_02015F1C(void)
+void sub_02015F1C(void)
 {
     Main_ToggleHBlankInterrupt(FALSE);
     gSystem.hBlankIntr = NULL;
@@ -111,7 +111,7 @@ const struct HeapParam UNK_020EDB10[] = {
     { 0x10D800, OS_ARENA_MAIN }
 };
 
-void FUN_02015FC8(void)
+void sub_02015FC8(void)
 {
     u32 data[8];
     u8 digest[16];
@@ -137,21 +137,21 @@ void InitSystemForTheGame(void)
     reg_GX_POWCNT = (REGType16v)((reg_GX_POWCNT & ~(REG_GX_POWCNT_GE_MASK | REG_GX_POWCNT_RE_MASK | REG_GX_POWCNT_E2DG_MASK | REG_GX_POWCNT_E2DGB_MASK)) | (REG_GX_POWCNT_GE_MASK | REG_GX_POWCNT_RE_MASK | REG_GX_POWCNT_E2DG_MASK | REG_GX_POWCNT_E2DGB_MASK));
     GX_Init();
     OS_InitTick();
-    FUN_02015FC8();
-    gSystem.unk18 = FUN_0201B580(0xa0, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0xa0), 4));
-    gSystem.unk1C = FUN_0201B580(0x10, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x10), 4));
-    gSystem.unk20 = FUN_0201B580(0x20, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x20), 4));
-    gSystem.unk24 = FUN_0201B580(0x04, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x04), 4));
+    sub_02015FC8();
+    gSystem.unk18 = sub_0201B580(0xa0, OS_AllocFromArenaLo(OS_ARENA_MAIN, sub_0201B578(0xa0), 4));
+    gSystem.unk1C = sub_0201B580(0x10, OS_AllocFromArenaLo(OS_ARENA_MAIN, sub_0201B578(0x10), 4));
+    gSystem.unk20 = sub_0201B580(0x20, OS_AllocFromArenaLo(OS_ARENA_MAIN, sub_0201B578(0x20), 4));
+    gSystem.unk24 = sub_0201B580(0x04, OS_AllocFromArenaLo(OS_ARENA_MAIN, sub_0201B578(0x04), 4));
     GX_DispOff();
     reg_GXS_DB_DISPCNT &= ~0x10000;
     reg_GX_POWCNT |= REG_GX_POWCNT_DSEL_MASK;
-    OS_SetIrqFunction(1, FUN_02015EA0);
+    OS_SetIrqFunction(1, sub_02015EA0);
     OS_EnableIrqMask(1);
     OS_EnableIrqMask(0x40000);
     (void)OS_EnableIrq();
     GX_VBlankIntr(TRUE);
     FS_Init(1);
-    FUN_02022450();
+    sub_02022450();
     u32 size = FS_TryLoadTable(NULL, 0);
     void * table = OS_AllocFromArenaLo(OS_ARENA_MAIN, size, 4);
     GF_ASSERT(table != NULL);
@@ -353,17 +353,17 @@ void InitKeypadAndTouchpad(void)
     }
 }
 
-void FUN_02016438(u8 a0)
+void sub_02016438(u8 a0)
 {
     gSystem.unk66 = a0;
 }
 
-void FUN_02016444(u8 a0)
+void sub_02016444(u8 a0)
 {
     gSystem.unk67 |= a0;
 }
 
-void FUN_02016454(u8 a0)
+void sub_02016454(u8 a0)
 {
     gSystem.unk67 &= ~a0;
 }

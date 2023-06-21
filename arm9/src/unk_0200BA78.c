@@ -2,7 +2,7 @@
 #include "unk_0200BA78.h"
 #include "message_format.h"
 
-void FUN_0200BA78(struct UnkStruct_0200B870 *param0,
+void sub_0200BA78(struct UnkStruct_0200B870 *param0,
     int param1,
     u32 value,
     u32 n,
@@ -11,11 +11,11 @@ void FUN_0200BA78(struct UnkStruct_0200B870 *param0,
     int x,
     int y)
 {
-    FUN_0200B9A8(param0, param1, window, x, y);
-    FUN_0200B9EC(param0, value, n, mode, window, x + 16, y);
+    sub_0200B9A8(param0, param1, window, x, y);
+    sub_0200B9EC(param0, value, n, mode, window, x + 16, y);
 }
 
-void FUN_0200BAAC(
+void sub_0200BAAC(
     struct UnkStruct_0200B870 *param0, u32 value, u32 n, enum PrintingMode mode, void *dest)
 {
     u8 st0 = (u8)((param0->unk_28 << 4) | param0->unk_28);

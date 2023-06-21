@@ -13,8 +13,8 @@ UNK_020F5880: ; 0x020F5880
 
 	.text
 
-	thumb_func_start FUN_02050E48
-FUN_02050E48: ; 0x02050E48
+	thumb_func_start sub_02050E48
+sub_02050E48: ; 0x02050E48
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r7, r0, #0x0
@@ -33,12 +33,12 @@ FUN_02050E48: ; 0x02050E48
 	bl Save_PlayerData_GetProfileAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0207C2A4
+	bl sub_0207C2A4
 	add r0, r6, #0x0
 	bl SaveArray_IsNatDexEnabled
 	str r0, [r4, #0x1c]
 	add r0, r6, #0x0
-	bl FUN_02079C70
+	bl sub_02079C70
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
 	bl Save_PlayerData_GetOptionsAddr
@@ -57,15 +57,15 @@ FUN_02050E48: ; 0x02050E48
 	ldr r0, [sp, #0x20]
 	strb r0, [r4, #0x12]
 	add r0, r6, #0x0
-	bl FUN_0202A918
+	bl sub_0202A918
 	str r0, [r4, #0x20]
 	ldr r1, _02050ECC ; =UNK_020F5880
 	add r0, r4, #0x0
-	bl FUN_0207B000
+	bl sub_0207B000
 	ldr r1, _02050ED0 ; =UNK_020FA6E8
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_020373D4
+	bl sub_020373D4
 	str r4, [r7, #0x0]
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -73,8 +73,8 @@ FUN_02050E48: ; 0x02050E48
 _02050ECC: .word UNK_020F5880
 _02050ED0: .word UNK_020FA6E8
 
-	thumb_func_start FUN_02050ED4
-FUN_02050ED4: ; 0x02050ED4
+	thumb_func_start sub_02050ED4
+sub_02050ED4: ; 0x02050ED4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
@@ -114,7 +114,7 @@ FUN_02050ED4: ; 0x02050ED4
 	cmp r0, #0x0
 	beq _02050F64
 	mov r1, #0x1
-	bl FUN_02023B0C
+	bl sub_02023B0C
 	add r1, r4, #0x0
 	add r1, #0x32
 	ldrb r1, [r1, #0x0]
@@ -187,18 +187,18 @@ _02050FA2:
 	ldr r0, [r5, #0x24]
 	ldr r1, _02050FC4 ; =UNK_020F96DC
 	add r2, r4, #0x0
-	bl FUN_020373D4
+	bl sub_020373D4
 	str r4, [r5, #0x4]
 	pop {r3-r5, pc}
 	nop
 _02050FC4: .word UNK_020F96DC
 
-	thumb_func_start FUN_02050FC8
-FUN_02050FC8: ; 0x02050FC8
+	thumb_func_start sub_02050FC8
+sub_02050FC8: ; 0x02050FC8
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_0204647C
+	bl sub_0204647C
 	cmp r0, #0x0
 	beq _02050FDA
 	mov r0, #0x0
@@ -241,12 +241,12 @@ _02051006:
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_02051020
-FUN_02051020: ; 0x02051020
+	thumb_func_start sub_02051020
+sub_02051020: ; 0x02051020
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_0204647C
+	bl sub_0204647C
 	cmp r0, #0x0
 	beq _02051032
 	mov r0, #0x0
@@ -265,16 +265,16 @@ _02051032:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0205104C
-FUN_0205104C: ; 0x0205104C
+	thumb_func_start sub_0205104C
+sub_0205104C: ; 0x0205104C
 	push {r3, lr}
 	ldr r0, [r0, #0x24]
-	bl FUN_020464A4
+	bl sub_020464A4
 	cmp r0, #0x0
 	beq _02051066
 	mov r0, #0x1
-	bl MOD05_021D7CA4
-	bl FUN_0204CC9C
+	bl ov05_021D7CA4
+	bl sub_0204CC9C
 	mov r0, #0x1
 	pop {r3, pc}
 _02051066:
@@ -282,17 +282,17 @@ _02051066:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0205106C
-FUN_0205106C: ; 0x0205106C
+	thumb_func_start sub_0205106C
+sub_0205106C: ; 0x0205106C
 	push {r3-r5, lr}
-	bl FUN_02030F20
+	bl sub_02030F20
 	add r5, r0, #0x0
 	mov r4, #0x0
 	cmp r5, #0x0
 	ble _0205108E
 _0205107A:
 	add r0, r4, #0x0
-	bl FUN_020315FC
+	bl sub_020315FC
 	cmp r0, #0x5e
 	bne _02051088
 	mov r0, #0x1
@@ -306,15 +306,15 @@ _0205108E:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051094
-FUN_02051094: ; 0x02051094
+	thumb_func_start sub_02051094
+sub_02051094: ; 0x02051094
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	ldr r1, [r4, #0x34]
 	cmp r1, #0x2c
 	bls _020510AE
@@ -387,7 +387,7 @@ _02051114:
 	bne _020511DC
 	mov r0, #0x1
 	str r0, [r4, #0x34]
-	bl FUN_0204ECC0
+	bl sub_0204ECC0
 	b _020517B8
 _02051136:
 	ldr r0, [r4, #0x2c]
@@ -396,7 +396,7 @@ _02051136:
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x2
 	str r0, [r4, #0x34]
@@ -405,24 +405,24 @@ _02051150:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _020511DC
 	mov r0, #0x5d
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x3
 	str r0, [r4, #0x34]
 	b _020517B8
 _0205116A:
 	mov r0, #0x5d
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _0205118A
 	mov r0, #0x7
 	str r0, [r4, #0x34]
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0x34]
-	bl FUN_02058768
+	bl sub_02058768
 	ldr r1, [r4, #0x50]
 	ldr r2, [r4, #0x8]
 	mov r0, #0x1
@@ -437,21 +437,21 @@ _0205118A:
 	mov r0, #0x4
 	str r0, [r4, #0x34]
 	mov r0, #0x5c
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x5
 	add r4, #0x43
 	strb r0, [r4, #0x0]
 	b _020517B8
 _020511A6:
 	mov r0, #0x5d
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _020511C4
 	mov r0, #0x7
 	str r0, [r4, #0x34]
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0x34]
-	bl FUN_02058768
+	bl sub_02058768
 	ldr r1, [r4, #0x50]
 	ldr r2, [r4, #0x8]
 	mov r0, #0x1
@@ -477,7 +477,7 @@ _020511DE:
 	b _020517B8
 _020511E4:
 	add r0, r4, #0x0
-	bl FUN_02051998
+	bl sub_02051998
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0x8
@@ -485,16 +485,16 @@ _020511E4:
 	pop {r3-r5, pc}
 _020511F6:
 	add r0, r4, #0x0
-	bl FUN_02051998
+	bl sub_02051998
 	add r0, r4, #0x0
 	bl FreeToHeap
-	bl FUN_0204F7FC
+	bl sub_0204F7FC
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _0205120C:
 	mov r0, #0x5d
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _02051224
 	mov r0, #0x5
@@ -535,21 +535,21 @@ _0205123E:
 _02051256:
 	ldr r0, [r0, #0x38]
 	bl PlayerAvatar_GetMapObject
-	bl FUN_0205AE28
+	bl sub_0205AE28
 	cmp r0, #0x0
 	beq _020512FA
 	mov r0, #0xb
 	str r0, [r4, #0x34]
 	b _020517B8
 _0205126A:
-	bl FUN_0204ECC0
+	bl sub_0204ECC0
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0xd
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0xc
 	str r0, [r4, #0x34]
@@ -558,7 +558,7 @@ _02051288:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _020512FA
 	mov r0, #0xd
@@ -566,7 +566,7 @@ _02051288:
 	b _020517B8
 _0205129C:
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0xe
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -583,24 +583,24 @@ _020512A8:
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _020512FA
-	bl FUN_0204ECC0
+	bl sub_0204ECC0
 	mov r0, #0xf
 	str r0, [r4, #0x34]
 	b _020517B8
 _020512CA:
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02051810
+	bl sub_02051810
 	add r0, r4, #0x0
 	mov r1, #0xb
-	bl FUN_02050ED4
+	bl sub_02050ED4
 	mov r0, #0x10
 	str r0, [r4, #0x34]
 	b _020517B8
 _020512E0:
 	ldr r1, [r4, #0x24]
 	add r0, r4, #0x0
-	bl FUN_02050FC8
+	bl sub_02050FC8
 	cmp r0, #0x0
 	beq _020512FA
 	ldr r0, [r4, #0x38]
@@ -638,14 +638,14 @@ _0205130E:
 	ldrb r3, [r3, #0x0]
 	ldr r1, [r4, #0x24]
 	add r0, r4, #0x0
-	bl FUN_02050E48
+	bl sub_02050E48
 	mov r0, #0x12
 	str r0, [r4, #0x34]
 	b _020517B8
 _02051334:
 	ldr r1, [r4, #0x24]
 	add r0, r4, #0x0
-	bl FUN_02051020
+	bl sub_02051020
 	cmp r0, #0x0
 	beq _02051410
 	mov r0, #0xf
@@ -653,7 +653,7 @@ _02051334:
 	b _020517B8
 _02051346:
 	ldr r0, [r4, #0x24]
-	bl FUN_0204649C
+	bl sub_0204649C
 	add r0, r4, #0x0
 	add r0, #0x88
 	ldrb r0, [r0, #0x0]
@@ -673,9 +673,9 @@ _02051364:
 _0205136A:
 	add r0, r4, #0x0
 	add r0, #0x3d
-	bl FUN_02033564
+	bl sub_02033564
 	add r0, r4, #0x0
-	bl FUN_0205104C
+	bl sub_0205104C
 	cmp r0, #0x0
 	beq _02051410
 	add r0, r4, #0x0
@@ -687,7 +687,7 @@ _0205136A:
 	b _020517B8
 _0205138A:
 	ldr r0, [r4, #0x24]
-	bl FUN_0204649C
+	bl sub_0204649C
 	add r0, r4, #0x0
 	add r0, #0x88
 	ldrb r0, [r0, #0x0]
@@ -702,7 +702,7 @@ _020513A0:
 	b _020517B8
 _020513A6:
 	add r0, r4, #0x0
-	bl FUN_0205104C
+	bl sub_0205104C
 	cmp r0, #0x0
 	beq _02051410
 	mov r0, #0x8
@@ -725,14 +725,14 @@ _020513B6:
 	str r0, [r4, #0x34]
 	b _020517B8
 _020513D4:
-	bl FUN_0204ECC0
+	bl sub_0204ECC0
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0x13
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x19
 	str r0, [r4, #0x34]
@@ -741,7 +741,7 @@ _020513F2:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _02051410
 	mov r0, #0xd
@@ -749,13 +749,13 @@ _020513F2:
 	b _020517B8
 _02051406:
 	add r0, r4, #0x0
-	bl FUN_0205104C
+	bl sub_0205104C
 	cmp r0, #0x0
 	bne _02051412
 _02051410:
 	b _020517B8
 _02051412:
-	bl FUN_0205106C
+	bl sub_0205106C
 	cmp r0, #0x0
 	beq _02051420
 	mov r0, #0x5
@@ -777,9 +777,9 @@ _0205142C:
 	add r1, #0x82
 	ldrb r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020519F0
+	bl sub_020519F0
 	mov r0, #0x0
-	bl FUN_02031588
+	bl sub_02031588
 	ldr r0, [r4, #0x28]
 	ldr r2, [r4, #0x74]
 	mov r1, #0x0
@@ -794,7 +794,7 @@ _0205142C:
 	bl StringExpandPlaceholders
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x1b
 	str r0, [r4, #0x34]
@@ -803,10 +803,10 @@ _02051472:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _02051574
-	bl FUN_0205106C
+	bl sub_0205106C
 	cmp r0, #0x0
 	beq _0205148E
 	mov r0, #0x5
@@ -814,11 +814,11 @@ _02051472:
 	b _020517B8
 _0205148E:
 	mov r0, #0x0
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _02051574
 	add r0, r4, #0x0
-	bl FUN_02051A38
+	bl sub_02051A38
 	mov r0, #0x1c
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -826,21 +826,21 @@ _0205148E:
 _020514A4: .word gSystem
 _020514A8:
 	add r0, r4, #0x0
-	bl FUN_02051A80
+	bl sub_02051A80
 	cmp r0, #0x0
 	beq _02051574
 	mov r0, #0x1
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x1d
 	str r0, [r4, #0x34]
 	b _020517B8
 _020514BE:
 	mov r0, #0x1
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _02051574
 	add r0, r4, #0x0
-	bl FUN_02051A90
+	bl sub_02051A90
 	add r1, r4, #0x0
 	add r1, #0x83
 	strb r0, [r1, #0x0]
@@ -860,7 +860,7 @@ _020514BE:
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x1e
 	str r0, [r4, #0x34]
@@ -873,7 +873,7 @@ _02051508:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _02051574
 	add r0, r4, #0x0
@@ -886,7 +886,7 @@ _02051508:
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -899,22 +899,22 @@ _02051540:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _02051574
 	add r0, r4, #0x0
-	bl FUN_02051AF0
+	bl sub_02051AF0
 	add r1, r4, #0x0
 	add r1, #0x84
 	ldrb r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_02051B68
+	bl sub_02051B68
 	mov r0, #0x20
 	str r0, [r4, #0x34]
 	b _020517B8
 _02051566:
 	add r0, r4, #0x0
-	bl FUN_02051D54
+	bl sub_02051D54
 	cmp r0, #0x1
 	beq _02051576
 	cmp r0, #0x2
@@ -923,7 +923,7 @@ _02051574:
 	b _020517B8
 _02051576:
 	add r0, r4, #0x0
-	bl FUN_02051E24
+	bl sub_02051E24
 	mov r0, #0x81
 	ldrsb r1, [r4, r0]
 	add r0, r4, #0x0
@@ -934,7 +934,7 @@ _02051576:
 	b _020517B8
 _0205158C:
 	add r0, r4, #0x0
-	bl FUN_02051E24
+	bl sub_02051E24
 	add r0, r4, #0x0
 	mov r1, #0xff
 	add r0, #0x84
@@ -945,10 +945,10 @@ _0205158C:
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x2
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x27
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -958,7 +958,7 @@ _020515BA:
 	ldrb r1, [r1, #0x0]
 	ldr r0, [r4, #0x50]
 	bl GetPartyMonByIndex
-	bl FUN_020690E4
+	bl sub_020690E4
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x28]
 	mov r1, #0x1
@@ -973,7 +973,7 @@ _020515BA:
 	bl StringExpandPlaceholders
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x25
 	str r0, [r4, #0x34]
@@ -982,31 +982,31 @@ _020515F8:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _0205168E
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02051C88
+	bl sub_02051C88
 	mov r0, #0x26
 	str r0, [r4, #0x34]
 	b _020517B8
 _02051614:
 	add r0, r4, #0x0
-	bl FUN_02051D54
+	bl sub_02051D54
 	cmp r0, #0x1
 	beq _02051642
 	cmp r0, #0x2
 	bne _0205168E
 	add r0, r4, #0x0
-	bl FUN_02051E24
+	bl sub_02051E24
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0x11
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x1f
 	str r0, [r4, #0x34]
@@ -1017,7 +1017,7 @@ _02051642:
 	cmp r0, #0x1
 	bne _0205167A
 	add r0, r4, #0x0
-	bl FUN_02051E24
+	bl sub_02051E24
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0xe
@@ -1028,16 +1028,16 @@ _02051642:
 	bl StringExpandPlaceholders
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	mov r0, #0x2
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x27
 	str r0, [r4, #0x34]
 	b _020517B8
 _0205167A:
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0x21
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -1050,7 +1050,7 @@ _0205168E:
 _02051690:
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02051810
+	bl sub_02051810
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0xb
@@ -1061,24 +1061,24 @@ _02051690:
 	ldr r1, [r4, #0x24]
 	ldr r2, [r4, #0x50]
 	add r0, r4, #0x0
-	bl FUN_02050E48
+	bl sub_02050E48
 	mov r0, #0x22
 	str r0, [r4, #0x34]
 	b _020517B8
 _020516B6:
 	ldr r1, [r4, #0x24]
 	add r0, r4, #0x0
-	bl FUN_02051020
+	bl sub_02051020
 	cmp r0, #0x0
 	beq _020517B8
 	ldr r0, [r4, #0x24]
-	bl FUN_0204649C
+	bl sub_0204649C
 	mov r0, #0x23
 	str r0, [r4, #0x34]
 	b _020517B8
 _020516CE:
 	add r0, r4, #0x0
-	bl FUN_0205104C
+	bl sub_0205104C
 	cmp r0, #0x0
 	beq _020517B8
 	mov r0, #0x24
@@ -1088,21 +1088,21 @@ _020516DE:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _020517B8
 	mov r0, #0x2
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _020517B8
 	add r0, r4, #0x0
-	bl FUN_02051AA4
+	bl sub_02051AA4
 	mov r0, #0x29
 	str r0, [r4, #0x34]
 	b _020517B8
 _02051702:
 	add r0, r4, #0x0
-	bl FUN_02051AE0
+	bl sub_02051AE0
 	cmp r0, #0x0
 	beq _020517B8
 	add r0, r4, #0x0
@@ -1111,7 +1111,7 @@ _02051702:
 	cmp r0, #0xff
 	bne _02051722
 	mov r0, #0x4
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x2c
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -1126,9 +1126,9 @@ _02051722:
 	b _020517B8
 _02051732:
 	add r0, r4, #0x0
-	bl FUN_02051B1C
+	bl sub_02051B1C
 	mov r0, #0x5d
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x2
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -1139,7 +1139,7 @@ _02051744:
 	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020517C0
+	bl sub_020517C0
 	str r0, [r4, #0x30]
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -1152,7 +1152,7 @@ _02051766:
 	ldr r0, [r4, #0x30]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _020517B8
 	add r0, r4, #0x0
@@ -1168,13 +1168,13 @@ _02051766:
 	cmp r0, #0x3c
 	bls _020517B8
 	mov r0, #0x4
-	bl FUN_02031588
+	bl sub_02031588
 	mov r0, #0x2c
 	str r0, [r4, #0x34]
 	b _020517B8
 _02051798:
 	mov r0, #0x4
-	bl FUN_020315D8
+	bl sub_020315D8
 	cmp r0, #0x0
 	beq _020517B8
 	add r0, r4, #0x0
@@ -1193,8 +1193,8 @@ _020517B8:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020517C0
-FUN_020517C0: ; 0x020517C0
+	thumb_func_start sub_020517C0
+sub_020517C0: ; 0x020517C0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r5, #0x0
@@ -1208,17 +1208,17 @@ FUN_020517C0: ; 0x020517C0
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x8]
 	mov r2, #0x3
-	bl FUN_020545B8
+	bl sub_020545B8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02054608
+	bl sub_02054608
 	b _020517F8
 _020517F2:
 	add r0, r4, #0x0
-	bl FUN_0205464C
+	bl sub_0205464C
 _020517F8:
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
@@ -1227,12 +1227,12 @@ _020517F8:
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	mov r3, #0x1
-	bl FUN_02054658
+	bl sub_02054658
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051810
-FUN_02051810: ; 0x02051810
+	thumb_func_start sub_02051810
+sub_02051810: ; 0x02051810
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x14
@@ -1283,8 +1283,8 @@ _02051862:
 _0205187E:
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02051880
-FUN_02051880: ; 0x02051880
+	thumb_func_start sub_02051880
+sub_02051880: ; 0x02051880
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x10]
@@ -1335,7 +1335,7 @@ _0205188E:
 	mov r0, #0xb
 	bl ListMenuCursorNew
 	str r0, [r4, #0x78]
-	bl FUN_02033534
+	bl sub_02033534
 	add r1, r4, #0x0
 	add r1, #0x88
 	strb r0, [r1, #0x0]
@@ -1346,7 +1346,7 @@ _0205188E:
 	str r1, [r4, #0x50]
 	add r0, #0x89
 	strb r1, [r0, #0x0]
-	bl FUN_02031190
+	bl sub_02031190
 	add r1, r4, #0x0
 	add r1, #0x86
 	strh r0, [r1, #0x0]
@@ -1355,7 +1355,7 @@ _0205188E:
 	ldrh r1, [r0, #0x0]
 	mov r0, #0x1
 	eor r0, r1
-	bl FUN_0202DFA4
+	bl sub_0202DFA4
 	str r0, [r4, #0x74]
 	add r0, r4, #0x0
 	add r0, #0x88
@@ -1366,7 +1366,7 @@ _0205188E:
 	beq _0205196E
 	b _02051974
 _02051938:
-	bl FUN_02051E54
+	bl sub_02051E54
 	add r6, r0, #0x0
 	mov r0, #0xb
 	add r1, r6, #0x0
@@ -1405,17 +1405,17 @@ _02051984:
 	mov r0, #0x0
 	str r0, [r4, #0x34]
 _02051988:
-	ldr r1, _02051994 ; =FUN_02051094
+	ldr r1, _02051994 ; =sub_02051094
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_020463CC
+	bl sub_020463CC
 _02051992:
 	pop {r4-r6, pc}
 	.balign 4
-_02051994: .word FUN_02051094
+_02051994: .word sub_02051094
 
-	thumb_func_start FUN_02051998
-FUN_02051998: ; 0x02051998
+	thumb_func_start sub_02051998
+sub_02051998: ; 0x02051998
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x50]
@@ -1445,20 +1445,20 @@ _020519BA:
 	bl DestroyListMenuCursorObj
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02051810
+	bl sub_02051810
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020519E4
-FUN_020519E4: ; 0x020519E4
-	ldr r3, _020519EC ; =FUN_0204652C
+	thumb_func_start sub_020519E4
+sub_020519E4: ; 0x020519E4
+	ldr r3, _020519EC ; =sub_0204652C
 	ldr r0, [r0, #0x10]
 	bx r3
 	nop
-_020519EC: .word FUN_0204652C
+_020519EC: .word sub_0204652C
 
-	thumb_func_start FUN_020519F0
-FUN_020519F0: ; 0x020519F0
+	thumb_func_start sub_020519F0
+sub_020519F0: ; 0x020519F0
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	ldr r0, [r7, #0x24]
@@ -1467,7 +1467,7 @@ FUN_020519F0: ; 0x020519F0
 	bl SaveArray_PlayerParty_Get
 	str r0, [sp, #0x0]
 	ldr r4, [r7, #0x4c]
-	bl FUN_020690C4
+	bl sub_020690C4
 	add r6, r0, #0x0
 	lsl r0, r6, #0x1
 	add r0, r6, r0
@@ -1494,8 +1494,8 @@ _02051A34:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051A38
-FUN_02051A38: ; 0x02051A38
+	thumb_func_start sub_02051A38
+sub_02051A38: ; 0x02051A38
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x89
@@ -1504,7 +1504,7 @@ FUN_02051A38: ; 0x02051A38
 	tst r1, r0
 	bne _02051A7C
 	ldr r4, [r5, #0x4c]
-	bl FUN_02051E54
+	bl sub_02051E54
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x86
@@ -1513,12 +1513,12 @@ FUN_02051A38: ; 0x02051A38
 	bne _02051A62
 	mov r0, #0x6a
 	add r1, r4, #0x0
-	bl FUN_02030B3C
+	bl sub_02030B3C
 	b _02051A6A
 _02051A62:
 	mov r0, #0x6a
 	add r1, r4, #0x0
-	bl FUN_02030A78
+	bl sub_02030A78
 _02051A6A:
 	cmp r0, #0x0
 	beq _02051A7C
@@ -1533,8 +1533,8 @@ _02051A7C:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051A80
-FUN_02051A80: ; 0x02051A80
+	thumb_func_start sub_02051A80
+sub_02051A80: ; 0x02051A80
 	add r0, #0x89
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x3
@@ -1545,11 +1545,11 @@ _02051A8C:
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_02051A90
-FUN_02051A90: ; 0x02051A90
+	thumb_func_start sub_02051A90
+sub_02051A90: ; 0x02051A90
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_020690C4
+	bl sub_020690C4
 	lsl r1, r0, #0x1
 	ldr r2, [r4, #0x48]
 	add r0, r0, r1
@@ -1557,8 +1557,8 @@ FUN_02051A90: ; 0x02051A90
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051AA4
-FUN_02051AA4: ; 0x02051AA4
+	thumb_func_start sub_02051AA4
+sub_02051AA4: ; 0x02051AA4
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x86
@@ -1569,14 +1569,14 @@ FUN_02051AA4: ; 0x02051AA4
 	mov r0, #0x6b
 	add r1, #0x84
 	mov r2, #0x1
-	bl FUN_02030BC4
+	bl sub_02030BC4
 	b _02051ACA
 _02051ABE:
 	add r1, r4, #0x0
 	mov r0, #0x6b
 	add r1, #0x84
 	mov r2, #0x1
-	bl FUN_02030ADC
+	bl sub_02030ADC
 _02051ACA:
 	cmp r0, #0x0
 	beq _02051ADC
@@ -1591,8 +1591,8 @@ _02051ADC:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051AE0
-FUN_02051AE0: ; 0x02051AE0
+	thumb_func_start sub_02051AE0
+sub_02051AE0: ; 0x02051AE0
 	add r0, #0x89
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x3
@@ -1603,11 +1603,11 @@ _02051AEC:
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_02051AF0
-FUN_02051AF0: ; 0x02051AF0
+	thumb_func_start sub_02051AF0
+sub_02051AF0: ; 0x02051AF0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl FUN_020690C4
+	bl sub_020690C4
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3
@@ -1626,11 +1626,11 @@ _02051B04:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051B1C
-FUN_02051B1C: ; 0x02051B1C
+	thumb_func_start sub_02051B1C
+sub_02051B1C: ; 0x02051B1C
 	push {r4-r6, lr}
 	add r6, r0, #0x0
-	bl FUN_020690C4
+	bl sub_020690C4
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r0, #0x84
@@ -1664,8 +1664,8 @@ _02051B52:
 	blt _02051B52
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02051B68
-FUN_02051B68: ; 0x02051B68
+	thumb_func_start sub_02051B68
+sub_02051B68: ; 0x02051B68
 	push {r4-r7, lr}
 	sub sp, #0x24
 	add r5, r0, #0x0
@@ -1682,7 +1682,7 @@ FUN_02051B68: ; 0x02051B68
 	mov r3, #0x4
 	bl NewMsgDataFromNarc
 	str r0, [sp, #0x18]
-	bl FUN_020690C4
+	bl sub_020690C4
 	str r0, [sp, #0x1c]
 	mov r0, #0x9
 	str r0, [sp, #0x0]
@@ -1798,8 +1798,8 @@ _02051C34:
 	.balign 4
 _02051C84: .word 0x0000016A
 
-	thumb_func_start FUN_02051C88
-FUN_02051C88: ; 0x02051C88
+	thumb_func_start sub_02051C88
+sub_02051C88: ; 0x02051C88
 	push {r3-r7, lr}
 	sub sp, #0x18
 	add r5, r0, #0x0
@@ -1896,8 +1896,8 @@ _02051D0A:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051D54
-FUN_02051D54: ; 0x02051D54
+	thumb_func_start sub_02051D54
+sub_02051D54: ; 0x02051D54
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -2004,8 +2004,8 @@ _02051DE0:
 _02051E1C: .word gSystem
 _02051E20: .word 0x000005DC
 
-	thumb_func_start FUN_02051E24
-FUN_02051E24: ; 0x02051E24
+	thumb_func_start sub_02051E24
+sub_02051E24: ; 0x02051E24
 	ldr r3, _02051E2C ; =ClearFrameAndWindow1
 	ldr r0, [r0, #0x7c]
 	mov r1, #0x1
@@ -2013,12 +2013,12 @@ FUN_02051E24: ; 0x02051E24
 	.balign 4
 _02051E2C: .word ClearFrameAndWindow1
 
-	thumb_func_start FUN_02051E30
-FUN_02051E30: ; 0x02051E30
+	thumb_func_start sub_02051E30
+sub_02051E30: ; 0x02051E30
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r3, #0x0
-	bl FUN_020519E4
+	bl sub_020519E4
 	add r1, r0, #0x0
 	add r1, #0x86
 	ldrh r1, [r1, #0x0]
@@ -2034,22 +2034,22 @@ FUN_02051E30: ; 0x02051E30
 _02051E52:
 	pop {r4, pc}
 
-	thumb_func_start FUN_02051E54
-FUN_02051E54: ; 0x02051E54
+	thumb_func_start sub_02051E54
+sub_02051E54: ; 0x02051E54
 	push {r3, lr}
-	bl FUN_020690C4
+	bl sub_020690C4
 	lsl r1, r0, #0x1
 	add r0, r0, r1
 	add r0, r0, #0x4
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051E64
-FUN_02051E64: ; 0x02051E64
+	thumb_func_start sub_02051E64
+sub_02051E64: ; 0x02051E64
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_020519E4
+	bl sub_020519E4
 	add r1, r0, #0x0
 	add r1, #0x86
 	ldrh r1, [r1, #0x0]
@@ -2061,13 +2061,13 @@ _02051E7C:
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02051E80
-FUN_02051E80: ; 0x02051E80
+	thumb_func_start sub_02051E80
+sub_02051E80: ; 0x02051E80
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r3, #0x0
 	add r4, r2, #0x0
-	bl FUN_020519E4
+	bl sub_020519E4
 	add r1, r0, #0x0
 	add r1, #0x86
 	ldrh r1, [r1, #0x0]
@@ -2088,19 +2088,19 @@ _02051EAC:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02051EB0
-FUN_02051EB0: ; 0x02051EB0
+	thumb_func_start sub_02051EB0
+sub_02051EB0: ; 0x02051EB0
 	push {r4-r6, lr}
 	add r4, r0, #0x0
-	bl FUN_02046528
+	bl sub_02046528
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0204652C
+	bl sub_0204652C
 	add r4, r0, #0x0
 	mov r1, #0x0
 	ldr r0, [r4, #0x24]
 	add r2, r1, #0x0
-	bl FUN_02050BF8
+	bl sub_02050BF8
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x28]
 	cmp r0, #0x7
@@ -2146,7 +2146,7 @@ _02051EF2:
 	add r1, r1, #0x2
 	bl ReadMsgDataIntoString
 	ldr r0, [r4, #0x24]
-	bl FUN_0202DFA4
+	bl sub_0202DFA4
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x18]
 	mov r1, #0x0
@@ -2159,13 +2159,13 @@ _02051EF2:
 	ldr r0, [r5, #0x8]
 	add r1, #0x8
 	mov r2, #0x3
-	bl FUN_020545B8
+	bl sub_020545B8
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
-	bl FUN_02054608
+	bl sub_02054608
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
@@ -2173,7 +2173,7 @@ _02051EF2:
 	ldr r1, [r4, #0x4]
 	add r0, #0x8
 	mov r3, #0x1
-	bl FUN_02054658
+	bl sub_02054658
 	str r0, [r4, #0x20]
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
@@ -2183,7 +2183,7 @@ _02051F7C:
 	ldr r0, [r4, #0x20]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020546C8
+	bl sub_020546C8
 	cmp r0, #0x0
 	beq _0205203A
 	ldr r0, _02052040 ; =gSystem
@@ -2207,7 +2207,7 @@ _02051F7C:
 	add r0, #0x8
 	bl RemoveWindow
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
 	str r0, [r4, #0x28]
@@ -2223,14 +2223,14 @@ _02051FCC:
 _02051FDC:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl FUN_02038680
+	bl sub_02038680
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
 	str r0, [r4, #0x28]
 	b _0205203A
 _02051FEC:
 	add r0, r5, #0x0
-	bl FUN_0204647C
+	bl sub_0204647C
 	cmp r0, #0x0
 	bne _0205203A
 	ldr r0, [r4, #0x28]
@@ -2239,25 +2239,25 @@ _02051FEC:
 	b _0205203A
 _02051FFE:
 	add r0, r5, #0x0
-	bl FUN_0204649C
+	bl sub_0204649C
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
 	str r0, [r4, #0x28]
 	b _0205203A
 _0205200C:
 	add r0, r5, #0x0
-	bl FUN_020464A4
+	bl sub_020464A4
 	cmp r0, #0x0
 	bne _0205203A
 	mov r0, #0x1
-	bl MOD05_021D7CA4
-	bl FUN_0204CC9C
+	bl ov05_021D7CA4
+	bl sub_0204CC9C
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
 	str r0, [r4, #0x28]
 	b _0205203A
 _02052028:
-	bl FUN_0204F7FC
+	bl sub_0204F7FC
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1
@@ -2271,30 +2271,30 @@ _0205203A:
 	nop
 _02052040: .word gSystem
 
-	thumb_func_start FUN_02052044
-FUN_02052044: ; 0x02052044
+	thumb_func_start sub_02052044
+sub_02052044: ; 0x02052044
 	push {r3-r7, lr}
 	str r0, [sp, #0x0]
-	bl FUN_02031190
+	bl sub_02031190
 	add r5, r0, #0x0
-	bl FUN_0204E4D4
+	bl sub_0204E4D4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0204E50C
+	bl sub_0204E50C
 	add r6, r0, #0x0
 	mov r4, #0x0
-	bl FUN_02030F20
+	bl sub_02030F20
 	cmp r0, #0x0
 	ble _020520A6
 _02052066:
 	cmp r4, r5
 	beq _0205209C
 	add r0, r4, #0x0
-	bl FUN_0204E3EC
+	bl sub_0204E3EC
 	cmp r7, r0
 	bne _0205209C
 	add r0, r4, #0x0
-	bl FUN_0204E440
+	bl sub_0204E440
 	cmp r6, r0
 	bne _0205209C
 	mov r0, #0xb
@@ -2305,16 +2305,16 @@ _02052066:
 	mov r0, #0x0
 	str r0, [r2, #0x28]
 	ldr r0, [sp, #0x0]
-	ldr r1, _020520A8 ; =FUN_02051EB0
-	bl FUN_020463CC
-	bl FUN_02037760
+	ldr r1, _020520A8 ; =sub_02051EB0
+	bl sub_020463CC
+	bl sub_02037760
 	pop {r3-r7, pc}
 _0205209C:
 	add r4, r4, #0x1
-	bl FUN_02030F20
+	bl sub_02030F20
 	cmp r4, r0
 	blt _02052066
 _020520A6:
 	pop {r3-r7, pc}
 	.balign 4
-_020520A8: .word FUN_02051EB0
+_020520A8: .word sub_02051EB0

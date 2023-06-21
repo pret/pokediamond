@@ -31,7 +31,7 @@
 .extern CARD_GetRomHeader
 .extern CARD_Init
 .extern CARD_InitPulledOutCallback
-.extern FUN_03800E0C
+.extern sub_03800E0C
 .extern OS_IrqHandler_ThreadSwitch
 .extern OSi_EnterTimerCallback
 .extern OSi_IrqVBlank
@@ -83,9 +83,9 @@
 .extern OS_TryLockCartridge
 .extern OS_UnlockCartridge
 .extern OS_LockCartridge
-.extern FUN_037F8000
-.extern FUN_037F8530
-.extern FUN_037F8CB4
+.extern sub_037F8000
+.extern sub_037F8530
+.extern sub_037F8CB4
 .extern OS_Sleep
 .extern OS_WakeupThreadDirect
 .extern OS_WakeupThread
@@ -230,8 +230,8 @@
 .extern SPIi_ReturnResult
 .extern SPIi_SetEntry
 .extern SPI_Init
-.extern FUN_03801660
-.extern FUN_038016A8
+.extern sub_03801660
+.extern sub_038016A8
 .extern PMi_ResetControl
 .extern PMi_SetControl
 .extern PMi_SetLED
@@ -335,7 +335,7 @@
 .extern NVRAM_SoftwareReset
 .extern NVRAM_ReadDataBytes
 .extern NVRAM_ReadStatusRegister
-.extern FUN_03806F8C
+.extern sub_03806F8C
 .extern WMSP_GetAllowedChannel
 .extern WMSP_GetBuffer4Callback2Wm9
 .extern WMSP_ReturnResult2Wm9

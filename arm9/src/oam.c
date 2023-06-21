@@ -4,20 +4,20 @@
 #include "MI_memory.h"
 #include "heap.h"
 
-extern void FUN_020213A0(void);
-extern void FUN_0202135C(void *param0,
+extern void sub_020213A0(void);
+extern void sub_0202135C(void *param0,
     u32 *param1,
     u32 (*param2)(u32, u32),
     u32 (*param3)(u32),
     void (*param4)(void),
     u32 param5,
     u32 param6);
-extern void FUN_020203CC(u32 heap_id);
-extern void FUN_02020404(u32 heap_id);
+extern void sub_020203CC(u32 heap_id);
+extern void sub_02020404(u32 heap_id);
 
 struct OamData *oamData;
 
-void FUN_02009EAC(s32 param0,
+void sub_02009EAC(s32 param0,
     s32 param1,
     s32 param2,
     s32 param3,
@@ -93,24 +93,24 @@ void DeinitOamData(void)
 {
     GF_ASSERT(oamData);
 
-    FUN_0200A064(oamData->heap_id);
-    FUN_0200A06C(oamData->heap_id);
+    sub_0200A064(oamData->heap_id);
+    sub_0200A06C(oamData->heap_id);
 
     FreeToHeap(oamData);
     oamData = NULL;
 }
 
-void FUN_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3)
+void sub_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3)
 {
     GF_ASSERT(oamData);
 
     if (param2 == 1)
     {
-        FUN_0202135C(param0, param1, EntryOamManagerOamWithAffineIdxMainScreen, EntryOamManagerAffineMainScreen, FUN_020213A0, param2, param3);
+        sub_0202135C(param0, param1, EntryOamManagerOamWithAffineIdxMainScreen, EntryOamManagerAffineMainScreen, sub_020213A0, param2, param3);
         return;
     }
 
-    FUN_0202135C(param0, param1, EntryOamManagerOamWithAffineIdxSubScreen, EntryOamManagerAffineSubScreen, FUN_020213A0, param2, param3);
+    sub_0202135C(param0, param1, EntryOamManagerOamWithAffineIdxSubScreen, EntryOamManagerAffineSubScreen, sub_020213A0, param2, param3);
 }
 
 NNSG2dOamManager *GetOamManager(u32 screen)
@@ -126,14 +126,14 @@ NNSG2dOamManager *GetOamManager(u32 screen)
     }
 }
 
-void FUN_0200A064(u32 heap_id)
+void sub_0200A064(u32 heap_id)
 {
-    FUN_020203CC(heap_id);
+    sub_020203CC(heap_id);
 }
 
-void FUN_0200A06C(u32 heap_id)
+void sub_0200A06C(u32 heap_id)
 {
-    FUN_02020404(heap_id);
+    sub_02020404(heap_id);
 }
 
 u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1)

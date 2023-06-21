@@ -2,7 +2,7 @@
 #include "constants/moves.h"
 #include "itemtool.h"
 #include "map_header.h"
-#include "module_05.h"
+#include "overlay_05.h"
 #include "party.h"
 #include "save.h"
 #include "scrcmd.h"
@@ -12,7 +12,7 @@
 #include "unk_02022504.h"
 #include "unk_0207FC5C.h"
 
-extern u16 FUN_02054DEC(struct SaveData* save);
+extern u16 sub_02054DEC(struct SaveData* save);
 
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePokemon?
 {
@@ -92,8 +92,8 @@ BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
         struct Pokemon* egg = AllocMonZeroed(11);
         ZeroMonData(egg);
 
-        s32 met_loc = FUN_02015CF8(1, unk);
-        MOD05_SetEggStats(egg, species, 1, player, 3, met_loc);
+        s32 met_loc = sub_02015CF8(1, unk);
+        ov05_SetEggStats(egg, species, 1, player, 3, met_loc);
 
         AddMonToParty(party, egg);
         FreeToHeap(egg);
@@ -383,7 +383,7 @@ BOOL ScrCmd_GetLeadingPartyMonSlot(struct ScriptContext* ctx) //0247
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
-    *ret_ptr = FUN_02054DEC(ctx->fieldSystem->saveData);
+    *ret_ptr = sub_02054DEC(ctx->fieldSystem->saveData);
     return FALSE;
 }
 
@@ -622,7 +622,7 @@ BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx) //01C9
     struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
-    FUN_020699A4(party_mon, move_slot);
+    sub_020699A4(party_mon, move_slot);
 
     return FALSE;
 }
@@ -704,7 +704,7 @@ BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx) //022E
     u16 ribbons;
     for (ribbon_idx = 0, ribbons = 0; ribbon_idx < 80; ribbon_idx++)
     {
-        BOOL party_mon_has_ribbon = (BOOL)GetMonData(party_mon, FUN_0207FC5C((u8)ribbon_idx, 0), NULL);
+        BOOL party_mon_has_ribbon = (BOOL)GetMonData(party_mon, sub_0207FC5C((u8)ribbon_idx, 0), NULL);
         if (party_mon_has_ribbon)
         {
             ribbons++;
@@ -739,7 +739,7 @@ BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
                 break;
             }
 
-            BOOL party_mon_has_ribbon = (BOOL)GetMonData(party_mon, FUN_0207FC5C((u8)ribbon_idx, 0), NULL);
+            BOOL party_mon_has_ribbon = (BOOL)GetMonData(party_mon, sub_0207FC5C((u8)ribbon_idx, 0), NULL);
             if (party_mon_has_ribbon)
             {
                 ribbons++;
@@ -760,7 +760,7 @@ BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx) //0230
     struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
-    *ret_ptr = (u16)GetMonData(party_mon, FUN_0207FC5C((u8)ribbon_idx, 0), NULL);
+    *ret_ptr = (u16)GetMonData(party_mon, sub_0207FC5C((u8)ribbon_idx, 0), NULL);
     return FALSE;
 }
 
@@ -772,7 +772,7 @@ BOOL ScrCmd_GivePartyMonRibbon(struct ScriptContext* ctx) //0231
     struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
-    SetMonData(party_mon, (s32)FUN_0207FC5C((u8)ribbon_idx, 0), &mon_has_ribbon);
+    SetMonData(party_mon, (s32)sub_0207FC5C((u8)ribbon_idx, 0), &mon_has_ribbon);
 
     return FALSE;
 }

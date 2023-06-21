@@ -27,8 +27,8 @@ _038099A8: ;0x038099A8
 
 	.section .text
 
-	arm_func_start FUN_03800E54
-FUN_03800E54: ; 0x03800E54
+	arm_func_start sub_03800E54
+sub_03800E54: ; 0x03800E54
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #0
@@ -92,7 +92,7 @@ _03800F1C:
 	beq	_03800F44
 	mov	r0, #17
 	mov	r1, #100	; 0x64
-	bl	FUN_03800E0C
+	bl	sub_03800E0C
 _03800F44:
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
@@ -171,14 +171,14 @@ _0380102C:
 _03801040:	.word	_038099A8
 _03801044:	.word	0x027FFC1F
 
-	arm_func_start FUN_03801048
-FUN_03801048: ; 0x03801048
+	arm_func_start sub_03801048
+sub_03801048: ; 0x03801048
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	and	r0, r1, #63	; 0x3f
 	cmp	r0, #1
 	bne	_03801064
-	bl	FUN_03800E54
+	bl	sub_03800E54
 	b	_03801068
 _03801064:
 	bl	OS_Terminate
@@ -207,11 +207,11 @@ _038010A0:
 	cmp	r0, #0
 	beq	_038010A0
 	mov	r0, #14
-	ldr	r1, _038010D0	; =FUN_03801048
+	ldr	r1, _038010D0	; =sub_03801048
 	bl	PXI_SetFifoRecvCallback
 _038010C0:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _038010CC:	.word	_038099A4
-_038010D0:	.word	FUN_03801048
+_038010D0:	.word	sub_03801048
