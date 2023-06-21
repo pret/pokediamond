@@ -739,12 +739,12 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x34
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #6
 	mov r0, #0
 	lsl r1, r1, #6
 	mov r2, #0x34
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r1, _021D7BE4 ; =0x000052D8
 	add r0, sp, #0x10
 	strh r1, [r0]

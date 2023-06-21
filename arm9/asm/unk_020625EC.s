@@ -1151,7 +1151,7 @@ FUN_02062DB0: ; 0x02062DB0
 	ldr r2, [r4, #0x0]
 	mov r0, #0x0
 	lsl r1, r1, #0x6
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0x13
 	str r0, [sp, #0x0]
 	mov r0, #0x1b

@@ -4671,7 +4671,7 @@ MOD17_021D9918: ; 0x021D9918
 	mov r0, #0
 	mov r1, #0xe0
 	mov r2, #0xe
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	str r4, [sp]
 	add r0, sp, #0x20
 	ldrb r1, [r0, #0x10]
@@ -11774,7 +11774,7 @@ MOD17_021DCC38: ; 0x021DCC38
 	mov r0, #4
 	mov r1, #0x40
 	mov r2, #0xe
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	add sp, #8
 	pop {r4, pc}
 	thumb_func_end MOD17_021DCC38

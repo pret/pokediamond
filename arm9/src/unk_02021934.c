@@ -180,7 +180,7 @@ int StringCountLines(volatile struct String * str)
     int i, nline;
     for (i = 0, nline = 1; i < str->size; i++)
     {
-        if (str->data[i] == 0xE000)
+        if (str->data[i] == CHAR_LF)
             nline++;
     }
     return nline;
@@ -196,7 +196,7 @@ void StringGetLineN(struct String * dest, volatile struct String * src, u32 n)
     {
         for (i = 0; i < src->size; i++)
         {
-            if (src->data[i] == 0xE000 && --n == 0)
+            if (src->data[i] == CHAR_LF && --n == 0)
             {
                 i++;
                 break;
@@ -207,7 +207,7 @@ void StringGetLineN(struct String * dest, volatile struct String * src, u32 n)
     for (; i < src->size; i++)
     {
         u16 c = src->data[i];
-        if (c == 0xE000)
+        if (c == CHAR_LF)
             break;
         StrAddChar(dest, c);
     }

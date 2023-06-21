@@ -2312,7 +2312,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x1a
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #9
@@ -2357,7 +2357,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0
 	mov r1, #0x40
 	mov r2, #0x1a
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0
 	mov r1, #0x60
 	mov r2, #0x1a
@@ -2407,7 +2407,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #4
 	mov r1, #0x40
 	mov r2, #0x1a
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #4
 	mov r1, #0x60
 	mov r2, #0x1a

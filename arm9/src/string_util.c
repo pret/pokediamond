@@ -61,16 +61,11 @@ u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num)
     return dest + num;
 }
 
-u32 StringLength(const u16 *s)
+u32 StringLength(const u16 *str)
 {
-    u16 c = *s;
-    u32 len = 0;
-    while (c != EOS) {
-        s++;
-        c = *s;
-        len++;
-    }
-    return len;
+    int i;
+    for (i = 0; str[i] != EOS; i++) {}
+    return i;
 }
 
 BOOL StringNotEqual(const u16 *s1, const u16 *s2)
@@ -128,11 +123,11 @@ u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u3
         u16 res = (u16)(value / x);
         value = value - x * res;
         if (mode == PRINTING_MODE_LEADING_ZEROS) {
-            *dest = res >= 10 ? (u16)NON_DIGIT : gDigitTable[res];
+            *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
             dest++;
         } else if (res != 0 || x == 1) {
             mode = PRINTING_MODE_LEADING_ZEROS;
-            *dest = res >= 10 ? (u16)NON_DIGIT : gDigitTable[res];
+            *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
             dest++;
         } else if (mode == PRINTING_MODE_RIGHT_ALIGN) {
             *dest = 1;

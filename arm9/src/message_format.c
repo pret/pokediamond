@@ -813,9 +813,9 @@ void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum Pri
     ConvertUIntToDecimalString(string->data, value, mode, n);
     for (int i = 0; string->data[i] != EOS; i++)
     {
-        if (string->data[i] >= CHAR_0 && string->data[i] <= CHAR_9)
+        if (string->data[i] >= CHAR_JP_0 && string->data[i] <= CHAR_JP_9)
         {
-            BlitBitmapRectToWindow(window, string->unk_4->unk_14 + (string->data[i] - CHAR_0) * 32, 0, 0, 8, 8, (u16)x, (u16)y, 8, 8);
+            BlitBitmapRectToWindow(window, string->unk_4->unk_14 + (string->data[i] - CHAR_JP_0) * 32, 0, 0, 8, 8, (u16)x, (u16)y, 8, 8);
         }
         else
         {

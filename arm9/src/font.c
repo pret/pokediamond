@@ -163,15 +163,14 @@ s32 GetFontAttribute(u8 fontId, s32 attr)
     return ret;
 }
 
-void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heap_id)
+void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heapId)
 {
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, location, palSlotOffset, 0x20, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, location, palSlotOffset, 0x20, heapId);
 }
 
-void FUN_02002EEC(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heap_id)
+void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heapId)
 {
-    GfGfxLoader_GXLoadPal(
-        NARC_GRAPHIC_FONT, NARC_font_narc_0007_NCLR, location, palSlotOffset, 0x20, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0007_NCLR, location, palSlotOffset, 0x20, heapId);
 }
 
 s32 FUN_02002F08(u32 param0, struct String *str, u32 param2)
@@ -197,13 +196,13 @@ u32 FUN_02002F58(const u16 *str)
     u32 r5 = 1;
     while (*str != EOS)
     {
-        if (*str == 0xFFFE)
+        if (*str == EXT_CTRL_CODE_BEGIN)
         {
             str = MsgArray_SkipControlCode(str);
             continue;
         }
 
-        if (*str == 0xE000)
+        if (*str == CHAR_LF)
         {
             r5++;
             str++;

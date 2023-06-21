@@ -782,12 +782,12 @@ MOD53_021D7B60: ; 0x021D7B60
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x27
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0x1a
 	mov r0, #4
 	lsl r1, r1, #4
 	mov r2, #0x27
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2

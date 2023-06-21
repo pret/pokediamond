@@ -4,18 +4,6 @@
 #include "global.h"
 #include "bg_window.h"
 
-
-#define CHAR_0        0x00A2
-#define CHAR_1        0x00A3
-#define CHAR_2        0x00A4
-#define CHAR_3        0x00A5
-#define CHAR_4        0x00A6
-#define CHAR_5        0x00A7
-#define CHAR_6        0x00A8
-#define CHAR_7        0x00A9
-#define CHAR_8        0x00AA
-#define CHAR_9        0x00AB
-
 union StrbufForPrint
 {
     struct String * wrapped;

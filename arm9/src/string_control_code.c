@@ -1,31 +1,31 @@
 #include "global.h"
 #include "string_control_code.h"
 
-const u16 * MsgArray_SkipControlCode(const u16 * r4)
+const u16 * MsgArray_SkipControlCode(const u16 *arr)
 {
-    GF_ASSERT(*r4 == 0xFFFE);
-    if (*r4 == 0xFFFE) {
-        u16 r0 = r4[2];
-        r4 += 3;
-        r4 += r0;
+    GF_ASSERT(*arr == EXT_CTRL_CODE_BEGIN);
+    if (*arr == EXT_CTRL_CODE_BEGIN) {
+        u16 size = arr[2];
+        arr += 3;
+        arr += size;
     }
-    return r4;
+    return arr;
 }
 
-u32 MsgArray_GetControlCode(const u16 * r4)
+u32 MsgArray_GetControlCode(const u16 *arr)
 {
-    GF_ASSERT(*r4 == 0xFFFE);
-    return r4[1];
+    GF_ASSERT(*arr == EXT_CTRL_CODE_BEGIN);
+    return arr[1];
 }
 
-BOOL MsgArray_ControlCodeIsStrVar(const u16 * r4)
+BOOL MsgArray_ControlCodeIsStrVar(const u16 *arr)
 {
-    return (MsgArray_GetControlCode(r4) & 0xFF00) == 0x100;
+    return (MsgArray_GetControlCode(arr) & 0xFF00) == 0x100;
 }
 
-u32 MsgArray_ControlCodeGetField(const u16 * r5, u32 r4)
+u32 MsgArray_ControlCodeGetField(const u16 *arr, u32 fieldno)
 {
-    GF_ASSERT(*r5 == 0xFFFE);
-    GF_ASSERT(r4 < r5[2]);
-    return r5[3 + r4];
+    GF_ASSERT(*arr == EXT_CTRL_CODE_BEGIN);
+    GF_ASSERT(fieldno < arr[2]);
+    return arr[3 + fieldno];
 }
