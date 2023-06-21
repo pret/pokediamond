@@ -221,6 +221,19 @@ extern void sub_02031C54(void);
 extern void sub_02031C64(void);
 extern void sub_02052B74(u16 param0);
 extern void sub_02052D08(MessageFormat *messageFormat, u32 unk0, u16 objId, PlayerProfile *playerProfile, SaveEasyChat *easyChat);
+extern void sub_0208881C(FieldSystem *fieldSystem);
+extern void sub_02052F74(u32 param0);
+extern void sub_02031B50(void);
+extern u16 sub_020527A8(u32 param0);
+extern u16 sub_02052A10(u32 param0, u32 objectId, u32 param2, MessageFormat *messageFormat);
+extern u16 sub_020524CC(u32 param0, u32 objectId);
+extern u16 sub_02052544(u32 param0, u32 objectId, u32 param2);
+extern u32 sub_02052604(u32 param0);
+extern void sub_020534DC(u32 param0, u32 param1);
+extern void sub_02031C2C(void);
+extern void sub_0205265C(u32 param0, u32 param1, u32 param2);
+extern u32 sub_02052608(u32 param0);
+extern void sub_02052E10(u32 param0);
 
 u8 UNK_021C5A0C[4];
 
@@ -257,6 +270,9 @@ static BOOL sub_0203C9F8(ScriptContext *ctx);
 static BOOL sub_0203CCF8(ScriptContext *ctx);
 static BOOL sub_0203CD90(ScriptContext *ctx);
 static BOOL sub_0203D314(ScriptContext *ctx);
+static BOOL sub_0203D47C(ScriptContext *ctx);
+static BOOL sub_0203D5CC(ScriptContext *ctx);
+static BOOL sub_0203D688(ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -2897,5 +2913,119 @@ BOOL ScrCmd_Unk013C(ScriptContext *ctx) { //013C
         objId = 0;
     }
     sub_02052D08(*messageFormat, unk0, objId, playerProfile, easyChat);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk013D(ScriptContext *ctx) { //013D
+    sub_0208881C(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk013E(ScriptContext *ctx) { //013E
+    sub_02052F74(ctx->fieldSystem->unk7C);
+    sub_02031B50();
+    SetupNativeScript(ctx, sub_0203D47C);
+    return TRUE;
+}
+
+static BOOL sub_0203D47C(ScriptContext *ctx) {
+    return sub_02030F20() < 2;
+}
+
+BOOL ScrCmd_Unk013F(ScriptContext *ctx) { //013F
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    u16 unk0 = ScriptReadHalfword(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    *var = sub_02052A10(ctx->fieldSystem->unk78, MapObject_GetID(*lastInteracted), unk0, *messageFormat);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk02BA(ScriptContext *ctx) { //02BA
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = sub_020527A8(ctx->fieldSystem->unk78);
+    if (*var) {
+        void **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+        FreeToHeap(*runningAppData);
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0140(ScriptContext *ctx) { //0140
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = sub_020524CC(fieldSystem->unk78, MapObject_GetID(*lastInteracted));
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0146(ScriptContext *ctx) { //0146
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = sub_02052544(fieldSystem->unk78, MapObject_GetID(*lastInteracted), unk0);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0141(ScriptContext *ctx) { //0141
+    ctx->data[0] = ScriptReadHalfword(ctx);
+    SetupNativeScript(ctx, sub_0203D5CC);
+    return TRUE;
+}
+
+static BOOL sub_0203D5CC(ScriptContext *ctx) {
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u32 unk0 = sub_02052604(fieldSystem->unk78);
+    u16 *var = GetVarPointer(fieldSystem, ctx->data[0]);
+    if (unk0 == 0) {
+        return FALSE;
+    } else {
+        *var = unk0;
+        return TRUE;
+    }
+}
+
+BOOL ScrCmd_Unk0142(ScriptContext *ctx) { //0142
+    sub_020534DC(ctx->fieldSystem->unk34, ctx->fieldSystem->unk7C);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk013A(ScriptContext *ctx) { //013A
+    sub_02052B74(4);
+    sub_02031C2C();
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk013B(ScriptContext *ctx) { //013B
+    sub_02031C64();
+    sub_02031B50();
+    sub_02052B74(0);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0143(ScriptContext *ctx) { //0143
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    sub_0205265C(fieldSystem->unk78, unk0, unk1);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0144(ScriptContext *ctx) { //0144
+    ctx->data[0] = ScriptReadHalfword(ctx);
+    SetupNativeScript(ctx, sub_0203D688);
+    return TRUE;
+}
+
+static BOOL sub_0203D688(ScriptContext *ctx) {
+    u16 *var = GetVarPointer(ctx->fieldSystem, ctx->data[0]);
+    u32 unk0 = sub_02052608(ctx->fieldSystem->unk78);
+    if (unk0 >= 1) {
+        *var = unk0;
+        sub_02052E10(ctx->fieldSystem->unk78);
+        return TRUE;
+    }
+    *var = 0;
     return FALSE;
 }

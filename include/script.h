@@ -117,7 +117,8 @@ typedef struct FieldSystem //todo move to field_system.c
     u32 unk60;
     u8 padding5[0x14];
     u32 unk78;
-    u8 padding6[0x14];
+    u32 unk7C;
+    u8 padding6[0x10];
     u32 unk90;
     u8 padding7[0x4];
     u32 *unk98;

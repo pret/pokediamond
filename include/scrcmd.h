@@ -267,6 +267,18 @@ BOOL ScrCmd_Unk0137(ScriptContext *ctx);
 BOOL ScrCmd_Unk0138(ScriptContext *ctx);
 BOOL ScrCmd_Unk0139(ScriptContext *ctx);
 BOOL ScrCmd_Unk013C(ScriptContext *ctx);
+BOOL ScrCmd_Unk013D(ScriptContext *ctx);
+BOOL ScrCmd_Unk013E(ScriptContext *ctx);
+BOOL ScrCmd_Unk013F(ScriptContext *ctx);
+BOOL ScrCmd_Unk02BA(ScriptContext *ctx);
+BOOL ScrCmd_Unk0140(ScriptContext *ctx);
+BOOL ScrCmd_Unk0146(ScriptContext *ctx);
+BOOL ScrCmd_Unk0141(ScriptContext *ctx);
+BOOL ScrCmd_Unk0142(ScriptContext *ctx);
+BOOL ScrCmd_Unk013A(ScriptContext *ctx);
+BOOL ScrCmd_Unk013B(ScriptContext *ctx);
+BOOL ScrCmd_Unk0143(ScriptContext *ctx);
+BOOL ScrCmd_Unk0144(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
