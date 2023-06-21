@@ -47,7 +47,7 @@ sub_020647A4: ; 0x020647A4
 	push {r3-r7, lr}
 	sub sp, #0x30
 	add r4, r0, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #0x7
 	bl sub_020254A0
@@ -137,7 +137,7 @@ _02064868: .word UNK_020F7D4C
 sub_0206486C: ; 0x0206486C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	add r5, r0, #0x0
 	mov r1, #0x7
@@ -325,7 +325,7 @@ _020649AC: .word 0x00000125
 	thumb_func_start sub_020649B0
 sub_020649B0: ; 0x020649B0
 	push {r3, lr}
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #0x7
 	bl sub_020254A0
@@ -346,7 +346,7 @@ _020649CC:
 sub_020649D4: ; 0x020649D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #0x7
 	bl sub_020254A0
@@ -389,7 +389,7 @@ _020649FE:
 	ldr r0, [r0, r3]
 	str r0, [r2, #0x4]
 	ldr r0, [r5, #0x10]
-	bl sub_0204640C
+	bl TaskManager_Call
 	mov r0, #0x1
 	strh r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -401,7 +401,7 @@ _02064A3E:
 	ldr r0, [r0, r3]
 	str r0, [r2, #0x4]
 	ldr r0, [r5, #0x10]
-	bl sub_0204640C
+	bl TaskManager_Call
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
 _02064A54:
@@ -419,7 +419,7 @@ sub_02064A70: ; 0x02064A70
 	push {r4-r5, lr}
 	sub sp, #0x1c
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -543,7 +543,7 @@ sub_02064B70: ; 0x02064B70
 	push {r4-r5, lr}
 	sub sp, #0x1c
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C

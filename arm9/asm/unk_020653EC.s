@@ -55,7 +55,7 @@ sub_020653EC: ; 0x020653EC
 	bl MI_CpuFill8
 	add r0, r5, #0x0
 	str r6, [r4, #0x4]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	mov r1, #0x5b
 	lsl r1, r1, #0x2
 	str r5, [r4, r1]
@@ -1807,7 +1807,7 @@ sub_020661F8: ; 0x020661F8
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl SaveArray_PlayerParty_Get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
@@ -2376,19 +2376,19 @@ _02066676:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl SaveArray_PlayerParty_Get
 	str r0, [r4, #0x0]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_Bag_Get
 	str r0, [r4, #0x4]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x5b
@@ -2541,7 +2541,7 @@ _020667D0:
 sub_020667D4: ; 0x020667D4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -2577,7 +2577,7 @@ _02066814:
 	thumb_func_start sub_02066818
 sub_02066818: ; 0x02066818
 	push {r4, lr}
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x8
@@ -2588,7 +2588,7 @@ sub_02066818: ; 0x02066818
 	str r0, [r2, #0x4]
 	ldr r0, [r4, #0x10]
 	ldr r1, _0206683C ; =sub_020667D4
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	nop
 _0206683C: .word sub_020667D4

@@ -28,7 +28,7 @@ sub_02046030: ; 0x02046030
 	strb r0, [r2, #0xb]
 	ldr r0, [r4, #0x10]
 	ldr r1, _02046064 ; =sub_02046068
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	nop
 _02046064: .word sub_02046068 
@@ -38,7 +38,7 @@ sub_02046068: ; 0x02046068
 	push {r4-r6, lr}
 	sub sp, #0x38
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C

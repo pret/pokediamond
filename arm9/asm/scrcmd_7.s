@@ -366,7 +366,7 @@ ScrCmd_Unk00E7: ; 0x02041970
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
 	bl sub_020395F4
-	bl Field_TrainerIsDoubleBattle
+	bl TrainerIsDoubleBattle
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _020419D2
@@ -430,7 +430,7 @@ ScrCmd_Unk00E8: ; 0x020419F8
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
 	bl sub_020395F4
-	bl Field_TrainerIsDoubleBattle
+	bl TrainerIsDoubleBattle
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _02041A5A
@@ -478,7 +478,7 @@ ScrCmd_Unk00E9: ; 0x02041A80
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
 	bl sub_020395F4
-	bl Field_TrainerIsDoubleBattle
+	bl TrainerIsDoubleBattle
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -503,7 +503,7 @@ ScrCmd_Unk00EA: ; 0x02041AB4
 ScrCmd_Unk00EB: ; 0x02041AD4
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
-	bl sub_02048498
+	bl CallFieldTask_BlackOut
 	mov r0, #0x1
 	pop {r3, pc}
 

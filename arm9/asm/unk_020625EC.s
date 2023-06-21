@@ -1960,7 +1960,7 @@ sub_020634DC: ; 0x020634DC
 sub_02063524: ; 0x02063524
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -2108,7 +2108,7 @@ _0206364C: .word gSystem
 sub_02063650: ; 0x02063650
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0xc
@@ -2120,7 +2120,7 @@ sub_02063650: ; 0x02063650
 	str r0, [r2, #0x8]
 	ldr r0, [r4, #0x10]
 	ldr r1, _02063678 ; =sub_02063524
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r5, pc}
 	nop
 _02063678: .word sub_02063524

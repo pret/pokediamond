@@ -249,17 +249,17 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ReleaseAllEvents
 	.word ScrCmd_LockEvent
 	.word ScrCmd_ReleaseEvent
-	.word ScrCmd_AddOverworldEvent
-	.word ScrCmd_RemoveOverworldEvent
+	.word ScrCmd_AddObjectEvent
+	.word ScrCmd_RemoveObjectEvent
 	.word ScrCmd_LockCamera
 	.word ScrCmd_ReleaseCamera
 	.word ScrCmd_FacePlayer
 	.word ScrCmd_GetPlayerPosition
-	.word ScrCmd_GetOverworldEventPosition
+	.word ScrCmd_GetObjectEventPosition
 	.word ScrCmd_Unk006B
-	.word ScrCmd_KeepOverworldEvent
-	.word ScrCmd_SetOverworldEventMovement
-	.word ScrCmd_OverworldEventStopFollowing
+	.word ScrCmd_KeepObjectEvent
+	.word ScrCmd_SetObjectEventMovement
+	.word ScrCmd_ObjectEventStopFollowing
 	.word ScrCmd_GiveMoney
 	.word ScrCmd_TakeMoneyImmediate
 	.word ScrCmd_HasEnoughMoneyImmediate
@@ -480,8 +480,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_SpecialMart
 	.word ScrCmd_GoodsMart
 	.word ScrCmd_SealsMart
-	.word ScrCmd_Unk014B
-	.word ScrCmd_Unk014C
+	.word ScrCmd_DummyBlackOut
+	.word ScrCmd_SetSpawn
 	.word ScrCmd_GetPlayerGender
 	.word ScrCmd_HealParty
 	.word ScrCmd_Unk014F
@@ -491,7 +491,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0153
 	.word ScrCmd_Unk0154
 	.word ScrCmd_Unk0155
-	.word ScrCmd_Unk0156
+	.word ScrCmd_SetPlayerAvatar
 	.word ScrCmd_HasSinnohDex
 	.word ScrCmd_GiveSinnohDex
 	.word ScrCmd_HasRunningShoes
@@ -527,7 +527,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_CountPartyMons
 	.word ScrCmd_ShowBagScreen
 	.word ScrCmd_GetBagScreenSelection
-	.word ScrCmd_Unk017A
+	.word ScrCmd_CheckPocketNotEmpty
 	.word ScrCmd_GetBerryName
 	.word ScrCmd_GetNatureName
 	.word ScrCmd_GetBerryTreeGrowth
@@ -539,8 +539,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_SetBerryTreeType
 	.word ScrCmd_Unk0184
 	.word ScrCmd_TakeBerryTreeBerries
-	.word ScrCmd_Unk0186
-	.word ScrCmd_Unk0187
+	.word ScrCmd_SetObjectEventSpawnPosition
+	.word ScrCmd_MoveObjectEvent
 	.word ScrCmd_Unk0188
 	.word ScrCmd_Unk0189
 	.word ScrCmd_Unk018A
@@ -834,7 +834,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02AA
 	.word ScrCmd_Unk02AB
 	.word ScrCmd_Unk02AC
-	.word ScrCmd_GetOverworldEventMovement
+	.word ScrCmd_GetObjectEventMovement
 	.word ScrCmd_Unk02AE
 	.word ScrCmd_Unk02AF
 	.word ScrCmd_Unk02B0
@@ -930,7 +930,7 @@ sub_02038CD8: ; 0x02038CD8
 	add r7, r1, #0x0
 	str r2, [sp, #0x4]
 	add r5, r3, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	str r0, [sp, #0x8]
 	bl CreateFieldContext
 	add r4, r0, #0x0
@@ -943,7 +943,7 @@ sub_02038CD8: ; 0x02038CD8
 	ldr r1, _02038D0C ; =sub_02038D48
 	add r0, r6, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -956,7 +956,7 @@ sub_02038D10: ; 0x02038D10
 	add r5, r0, #0x0
 	add r6, r1, #0x0
 	add r7, r2, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	str r0, [sp, #0x4]
 	bl CreateFieldContext
 	add r4, r0, #0x0
@@ -984,7 +984,7 @@ sub_02038D48: ; 0x02038D48
 	bl sub_0204652C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	ldrb r1, [r4, #0x4]
 	str r0, [sp, #0x0]
 	cmp r1, #0x0
@@ -2139,8 +2139,8 @@ _02039622:
 	nop
 _02039628: .word 0x00001388
 
-	thumb_func_start Field_TrainerIsDoubleBattle
-Field_TrainerIsDoubleBattle: ; 0x0203962C
+	thumb_func_start TrainerIsDoubleBattle
+TrainerIsDoubleBattle: ; 0x0203962C
 	push {r3, lr}
 	mov r1, #0x9
 	bl TrainerData_GetAttr

@@ -12,7 +12,7 @@
 struct ov59_UnkPlayerStruct
 {
     u8 padding[0x4];
-    GenderEnum gender;
+    PlayerGender gender;
     u8 padding2[0x10];
     struct String *name;
 };
@@ -46,7 +46,7 @@ typedef struct ov59_IntroOverlayData
     u32 fadeCounter;
     fx32 alphaBlend1;
     fx32 alphaBlend2;
-    GenderEnum selectedGender;
+    PlayerGender selectedGender;
     u8 scrnDataIndexMain;
     u8 spriteDataIndex0;
     u8 spriteDataIndex1;

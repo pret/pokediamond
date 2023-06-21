@@ -37,7 +37,7 @@ sub_020638BC: ; 0x020638BC
 	push {r3-r6, lr}
 	sub sp, #0x1c
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r0, r5, #0x0
 	bl sub_0204652C
 	add r4, r0, #0x0

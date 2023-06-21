@@ -146,7 +146,7 @@ sub_0204FC5C: ; 0x0204FC5C
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
 	bne _0204FC9A
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02031824
 	add r0, r4, #0x0
 	bl sub_0204FBB0
@@ -444,7 +444,7 @@ sub_0204FEB0: ; 0x0204FEB0
 	cmp r0, #0x0
 	bne _0204FEE8
 	add r0, r5, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	mov r1, #0x0
 	add r3, r5, #0x0
 	str r1, [sp, #0x0]
@@ -475,7 +475,7 @@ sub_0204FEF0: ; 0x0204FEF0
 	cmp r0, #0x0
 	bne _0204FF28
 	add r0, r5, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	mov r1, #0x0
 	add r3, r5, #0x0
 	str r1, [sp, #0x0]

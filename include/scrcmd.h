@@ -4,9 +4,9 @@
 #include "global.h"
 #include "script.h"
 
-extern u16 VarGet(struct FieldSystem *fieldSystem, u16);
-extern u16* GetVarPointer(struct FieldSystem *fieldSystem, u16);
-extern struct SaveData* ScriptEnvironment_GetSavePtr(struct FieldSystem *fieldSystem);
+extern u16 VarGet(FieldSystem *fieldSystem, u16);
+extern u16* GetVarPointer(FieldSystem *fieldSystem, u16);
+extern SaveData* FieldSystem_GetSaveDataPtr(FieldSystem *fieldSystem);
 
 static inline u16 ScriptGetVar(ScriptContext *ctx)
 {
@@ -131,19 +131,19 @@ BOOL ScrCmd_LockAllEvents2(ScriptContext *ctx);
 BOOL ScrCmd_ReleaseAllEvents(ScriptContext *ctx);
 BOOL ScrCmd_LockEvent(ScriptContext *ctx);
 BOOL ScrCmd_ReleaseEvent(ScriptContext *ctx);
-BOOL ScrCmd_AddOverworldEvent(ScriptContext *ctx);
-BOOL ScrCmd_RemoveOverworldEvent(ScriptContext *ctx);
+BOOL ScrCmd_AddObjectEvent(ScriptContext *ctx);
+BOOL ScrCmd_RemoveObjectEvent(ScriptContext *ctx);
 BOOL ScrCmd_LockCamera(ScriptContext *ctx);
 BOOL ScrCmd_ReleaseCamera(ScriptContext *ctx);
 BOOL ScrCmd_FacePlayer(ScriptContext *ctx);
 BOOL ScrCmd_GetPlayerPosition(ScriptContext *ctx);
-BOOL ScrCmd_GetOverworldEventPosition(ScriptContext *ctx);
+BOOL ScrCmd_GetObjectEventPosition(ScriptContext *ctx);
 BOOL ScrCmd_GetPlayerDirection(ScriptContext *ctx);
 BOOL ScrCmd_Unk006B(ScriptContext *ctx);
-BOOL ScrCmd_KeepOverworldEvent(ScriptContext *ctx);
-BOOL ScrCmd_SetOverworldEventMovement(ScriptContext *ctx);
-BOOL ScrCmd_GetOverworldEventMovement(ScriptContext *ctx);
-BOOL ScrCmd_OverworldEventStopFollowing(ScriptContext *ctx);
+BOOL ScrCmd_KeepObjectEvent(ScriptContext *ctx);
+BOOL ScrCmd_SetObjectEventMovement(ScriptContext *ctx);
+BOOL ScrCmd_GetObjectEventMovement(ScriptContext *ctx);
+BOOL ScrCmd_ObjectEventStopFollowing(ScriptContext *ctx);
 BOOL ScrCmd_Unk02AB(ScriptContext *ctx);
 BOOL ScrCmd_GetSealCountFromId(ScriptContext *ctx);
 BOOL ScrCmd_GiveSeals(ScriptContext *ctx);
@@ -279,13 +279,31 @@ BOOL ScrCmd_Unk013A(ScriptContext *ctx);
 BOOL ScrCmd_Unk013B(ScriptContext *ctx);
 BOOL ScrCmd_Unk0143(ScriptContext *ctx);
 BOOL ScrCmd_Unk0144(ScriptContext *ctx);
+BOOL ScrCmd_Unk0145(ScriptContext *ctx);
+BOOL ScrCmd_Unk0153(ScriptContext *ctx);
+BOOL ScrCmd_Unk0154(ScriptContext *ctx);
+BOOL ScrCmd_Unk0155(ScriptContext *ctx);
+BOOL ScrCmd_Unk029C(ScriptContext *ctx);
+BOOL ScrCmd_SetPlayerAvatar(ScriptContext *ctx);
+BOOL ScrCmd_DummyBlackOut(ScriptContext *ctx);
+BOOL ScrCmd_SetSpawn(ScriptContext *ctx);
+BOOL ScrCmd_GetPlayerGender(ScriptContext *ctx);
+BOOL ScrCmd_HealParty(ScriptContext *ctx);
+BOOL ScrCmd_Unk014F(ScriptContext *ctx);
+BOOL ScrCmd_Unk0150(ScriptContext *ctx);
+BOOL ScrCmd_Unk02BB(ScriptContext *ctx);
+BOOL ScrCmd_Unk0151(ScriptContext *ctx);
+BOOL ScrCmd_Unk0152(ScriptContext *ctx);
+BOOL ScrCmd_CheckPocketNotEmpty(ScriptContext *ctx);
+BOOL ScrCmd_SetObjectEventSpawnPosition(ScriptContext *ctx);
+BOOL ScrCmd_MoveObjectEvent(ScriptContext *ctx);
 
 // scrcmd_mart.c
-BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
-BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx);
-BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx);
-BOOL ScrCmd_SealsMart(struct ScriptContext * ctx);
-BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx);
+BOOL ScrCmd_NormalMart(ScriptContext *ctx);
+BOOL ScrCmd_SpecialMart(ScriptContext *ctx);
+BOOL ScrCmd_GoodsMart(ScriptContext *ctx);
+BOOL ScrCmd_SealsMart(ScriptContext *ctx);
+BOOL ScrCmd_AccessoriesShop(ScriptContext *ctx);
 
 //scrcmd_4.c
 BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx);

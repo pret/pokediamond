@@ -7,7 +7,7 @@
 sub_0204653C: ; 0x0204653C
 	push {r4-r6, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -42,12 +42,12 @@ _02046580:
 
 	thumb_func_start sub_02046584
 sub_02046584: ; 0x02046584
-	ldr r3, _0204658C ; =sub_0204640C
+	ldr r3, _0204658C ; =TaskManager_Call
 	add r2, r1, #0x0
 	ldr r1, _02046590 ; =sub_0204653C
 	bx r3
 	.balign 4
-_0204658C: .word sub_0204640C
+_0204658C: .word TaskManager_Call
 _02046590: .word sub_0204653C
 
 	thumb_func_start sub_02046594
@@ -115,7 +115,7 @@ _020465F4:
 sub_020465F8: ; 0x020465F8
 	push {r3-r7, lr}
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0204652C
@@ -247,7 +247,7 @@ sub_020466FC: ; 0x020466FC
 	add r2, r0, #0x0
 	ldr r1, _02046718 ; =sub_020465F8
 	add r0, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	.balign 4
 _02046718: .word sub_020465F8
@@ -291,7 +291,7 @@ _02046754:
 sub_02046758: ; 0x02046758
 	push {r3-r7, lr}
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C
@@ -371,7 +371,7 @@ _020467F6:
 sub_020467FC: ; 0x020467FC
 	push {r3-r7, lr}
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0204652C
@@ -430,7 +430,7 @@ _02046874:
 sub_02046878: ; 0x02046878
 	push {r3-r7, lr}
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C
@@ -525,7 +525,7 @@ sub_02046928: ; 0x02046928
 	add r2, r0, #0x0
 	ldr r1, _02046944 ; =sub_02046878
 	add r0, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	.balign 4
 _02046944: .word sub_02046878
@@ -536,7 +536,7 @@ sub_02046948: ; 0x02046948
 	add r4, r1, #0x0
 	add r7, r0, #0x0
 	add r5, r2, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl ov06_02244558
@@ -682,7 +682,7 @@ _02046A84: .word sub_02046A88
 sub_02046A88: ; 0x02046A88
 	push {r4-r6, lr}
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C
@@ -757,7 +757,7 @@ _02046AFE:
 	add r5, #0x90
 	ldr r0, [r5, #0x0]
 	bl sub_0205DD40
-	ldr r1, _02046C18 ; =sub_0204837C
+	ldr r1, _02046C18 ; =FieldTask_BlackOut
 	add r0, r6, #0x0
 	mov r2, #0x0
 	bl sub_020463EC
@@ -862,14 +862,14 @@ _02046C12:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_02046C18: .word sub_0204837C
+_02046C18: .word FieldTask_BlackOut
 
 	thumb_func_start sub_02046C1C
 sub_02046C1C: ; 0x02046C1C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0204652C
@@ -1058,7 +1058,7 @@ SetupAndStartHoneyTreeBattle: ; 0x02046DB4
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r6, r1, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, #0x90
 	ldr r0, [r0, #0x0]
@@ -1104,7 +1104,7 @@ SetupAndStartWildBattle: ; 0x02046E18
 	add r7, r1, #0x0
 	str r2, [sp, #0x8]
 	add r6, r3, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, #0x90
 	ldr r0, [r0, #0x0]
@@ -1152,7 +1152,7 @@ _02046E60:
 sub_02046E8C: ; 0x02046E8C
 	push {r3-r7, lr}
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0204652C
@@ -1287,7 +1287,7 @@ SetupAndStartFirstBattle: ; 0x02046FA0
 	str r0, [sp, #0x4]
 	add r6, r1, #0x0
 	add r7, r2, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x0
@@ -1331,7 +1331,7 @@ sub_02047004: ; 0x02047004
 	bl sub_0204652C
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02046530
@@ -1413,7 +1413,7 @@ _020470A6:
 SetupAndStartTutorialBattle: ; 0x020470AC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r1, r0, #0x0
 	mov r0, #0xb
 	bl sub_02047814
@@ -1430,7 +1430,7 @@ SetupAndStartTutorialBattle: ; 0x020470AC
 	add r2, r0, #0x0
 	ldr r1, _020470E4 ; =sub_02047004
 	add r0, r5, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4-r6, pc}
 	nop
 _020470E4: .word sub_02047004
@@ -1443,7 +1443,7 @@ sub_020470E8: ; 0x020470E8
 	add r6, r1, #0x0
 	add r5, r2, #0x0
 	str r3, [sp, #0x8]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	cmp r5, #0x0
 	beq _02047110
@@ -1508,7 +1508,7 @@ sub_02047174: ; 0x02047174
 	add r5, r2, #0x0
 	add r7, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	mov r0, #0xb
 	add r1, r5, #0x0
@@ -1530,7 +1530,7 @@ sub_02047174: ; 0x02047174
 	add r2, r0, #0x0
 	ldr r1, _020471BC ; =sub_02046758
 	add r0, r7, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r7, pc}
 	nop
 _020471BC: .word sub_02046758
@@ -1542,7 +1542,7 @@ sub_020471C0: ; 0x020471C0
 	add r5, r1, #0x0
 	add r6, r2, #0x0
 	add r4, r3, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	cmp r4, #0x0
 	beq _020471DE
@@ -1574,7 +1574,7 @@ _020471E6:
 	ldr r0, [sp, #0x0]
 	ldr r1, _0204721C ; =sub_020467FC
 	str r5, [r2, #0xc]
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r7, pc}
 	nop
 _0204721C: .word sub_020467FC
@@ -1583,7 +1583,7 @@ _0204721C: .word sub_020467FC
 sub_02047220: ; 0x02047220
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -1601,7 +1601,7 @@ _02047246:
 	ldr r1, _02047268 ; =sub_02046758
 	add r0, r5, #0x0
 	add r2, r7, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

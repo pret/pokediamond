@@ -530,7 +530,7 @@ ov05_021E63D4: ; 0x021E63D4
 	ldr r0, [r6, #0x10]
 	ldr r1, _021E640C ; =ov05_021E6484
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021E640C: .word ov05_021E6484
@@ -541,7 +541,7 @@ CallFieldTask_Surf: ; 0x021E6410
 	sub sp, #0x10
 	add r6, r2, #0
 	add r5, r1, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r1, r6, #0
 	bl ov05_021E72E8
@@ -1076,7 +1076,7 @@ _021E682A:
 	cmp r0, #1
 	bne _021E68A2
 	add r0, r6, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r1, sp, #8
 	str r0, [sp, #4]
 	bl ov06_0223C08C
@@ -1207,7 +1207,7 @@ ov05_021E6954: ; 0x021E6954
 	ldr r0, [r6, #0x10]
 	ldr r1, _021E698C ; =ov05_021E69FC
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021E698C: .word ov05_021E69FC
@@ -1218,7 +1218,7 @@ CallFieldTask_RockClimb: ; 0x021E6990
 	sub sp, #0x10
 	add r6, r2, #0
 	add r5, r1, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r1, r6, #0
 	bl ov05_021E72E8
@@ -1539,7 +1539,7 @@ CallFieldTask_Waterfall: ; 0x021E6BF4
 	add r7, r2, #0
 	add r5, r0, #0
 	add r6, r1, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r1, r7, #0
 	bl ov05_021E72E8
@@ -1554,7 +1554,7 @@ CallFieldTask_Waterfall: ; 0x021E6BF4
 	add r2, r0, #0
 	ldr r1, _021E6C2C ; =ov05_021E6C30
 	add r0, r5, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -2082,7 +2082,7 @@ _021E7004:
 	thumb_func_start ov05_021E7030
 ov05_021E7030: ; 0x021E7030
 	push {r3, lr}
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	bl ov05_021E703C
 	pop {r3, pc}
 
@@ -2104,7 +2104,7 @@ ov05_021E703C: ; 0x021E703C
 	ldr r0, [r5, #0x10]
 	ldr r1, _021E7068 ; =ov05_021E706C
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 _021E7068: .word ov05_021E706C

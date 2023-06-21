@@ -161,7 +161,7 @@ _0206090A:
 	ldr r0, [r5, #0x10]
 	ldr r1, _02060920 ; =sub_020609A0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0x28
 	pop {r3-r7, pc}
 	.balign 4
@@ -183,7 +183,7 @@ sub_02060924: ; 0x02060924
 	strb r4, [r2, #0x0]
 	ldr r0, [r5, #0x10]
 	ldr r1, _02060944 ; =sub_02060948
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4-r6, pc}
 	.balign 4
 _02060944: .word sub_02060948
@@ -192,7 +192,7 @@ _02060944: .word sub_02060948
 sub_02060948: ; 0x02060948
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -238,7 +238,7 @@ sub_020609A0: ; 0x020609A0
 	push {r3-r6, lr}
 	sub sp, #0xc
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C

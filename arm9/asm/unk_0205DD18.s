@@ -833,7 +833,7 @@ _0205E308: .word UNK_020F7374
 sub_0205E30C: ; 0x0205E30C
 	push {r3-r7, lr}
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0204652C

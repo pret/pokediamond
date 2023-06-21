@@ -13,7 +13,7 @@ UNK_020F943C: ; 0x020F943C
 sub_0206F1F0: ; 0x0206F1F0
 	push {r4-r6, lr}
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C
@@ -262,7 +262,7 @@ sub_0206F3B8: ; 0x0206F3B8
 	str r1, [r0, #0x4]
 	ldr r1, _0206F3D4 ; =sub_0206F1F0
 	add r0, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	nop
 _0206F3D4: .word sub_0206F1F0
@@ -280,7 +280,7 @@ sub_0206F3D8: ; 0x0206F3D8
 	ldr r1, _0206F3F8 ; =sub_0206F1F0
 	add r0, r5, #0x0
 	str r4, [r2, #0x8]
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r5, pc}
 	nop
 _0206F3F8: .word sub_0206F1F0

@@ -31,7 +31,7 @@ extern BOOL sub_020373C4(struct FieldSystem *fieldSystem);
 struct TaskManager *FieldSys_CreateTask(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env);
 void sub_020463CC(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env);
 void sub_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
-void sub_0204640C(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
+void TaskManager_Call(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
 BOOL sub_02046420(struct TaskManager *taskManager);
 BOOL sub_0204646C(struct TaskManager *taskManager);
 BOOL sub_0204647C(struct FieldSystem *fieldSystem);
@@ -42,6 +42,6 @@ void sub_02046500(struct TaskManager *taskManager, u32 r5, u32 r4);
 void * sub_0204652C(struct TaskManager *taskManager);
 u32 * sub_02046530(struct TaskManager *taskManager);
 u32 sub_02046534(struct TaskManager *taskManager);
-struct FieldSystem *sub_02046528(struct TaskManager *taskManager);
+struct FieldSystem *TaskManager_GetFieldSystem(struct TaskManager *taskManager);
 
 #endif //POKEDIAMOND_TASK_H

@@ -9,457 +9,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0145
-ScrCmd_Unk0145: ; 0x0203D6C4
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	str r0, [r4, #0x64]
-	ldr r1, _0203D6DC ; =sub_0203D6E0
-	add r0, r4, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r4, pc}
-	nop
-_0203D6DC: .word sub_0203D6E0 
-
-	thumb_func_start sub_0203D6E0
-sub_0203D6E0: ; 0x0203D6E0
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	ldr r1, [r5, #0x64]
-	add r0, #0x80
-	lsl r1, r1, #0x10
-	ldr r0, [r0, #0x0]
-	lsr r1, r1, #0x10
-	bl GetVarPointer
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0x78]
-	bl sub_02052648
-	ldr r1, _0203D724 ; =gSystem
-	ldr r2, [r1, #0x48]
-	mov r1, #0x2
-	tst r1, r2
-	beq _0203D716
-	add r5, #0x80
-	ldr r0, [r5, #0x0]
-	mov r1, #0x8
-	ldr r0, [r0, #0x78]
-	bl sub_02052718
-_0203D716:
-	cmp r0, #0x0
-	beq _0203D720
-	strh r0, [r4, #0x0]
-	mov r0, #0x1
-	pop {r3-r5, pc}
-_0203D720:
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-_0203D724: .word gSystem
-
-	thumb_func_start ScrCmd_Unk0153
-ScrCmd_Unk0153: ; 0x0203D728
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0x10]
-	bl sub_02049EA4
-	mov r0, #0x1
-	pop {r3, pc}
-
-	thumb_func_start ScrCmd_Unk0154
-ScrCmd_Unk0154: ; 0x0203D738
-	push {r4-r6, lr}
-	add r4, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSavePtr
-	bl Save_PlayerData_GetProfileAddr
-	add r4, #0x80
-	add r5, r0, #0x0
-	ldr r0, [r4, #0x0]
-	mov r1, #0xf
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl PlayerProfile_GetTrainerID
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl PlayerProfile_GetTrainerGender
-	add r1, r0, #0x0
-	ldr r2, [r4, #0x0]
-	add r0, r6, #0x0
-	bl sub_0205363C
-	mov r0, #0x0
-	pop {r4-r6, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk0155
-ScrCmd_Unk0155: ; 0x0203D774
-	push {r3-r7, lr}
-	add r4, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSavePtr
-	bl Save_PlayerData_GetProfileAddr
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r7, r0, #0x0
-	add r0, r4, #0x0
-	bl ScriptReadHalfword
-	add r4, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x0]
-	bl GetVarPointer
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl PlayerProfile_GetTrainerID
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl PlayerProfile_GetTrainerGender
-	add r1, r0, #0x0
-	add r0, r6, #0x0
-	add r2, r7, #0x0
-	bl sub_02053678
-	strh r0, [r4, #0x0]
-	add r0, r5, #0x0
-	bl PlayerProfile_GetTrainerGender
-	ldrh r1, [r4, #0x0]
-	mov r2, #0x2
-	bl sub_020536D0
-	strh r0, [r4, #0x0]
-	mov r0, #0x0
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk029C
-ScrCmd_Unk029C: ; 0x0203D7DC
-	push {r3-r7, lr}
-	add r4, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSavePtr
-	bl Save_PlayerData_GetProfileAddr
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r7, r0, #0x0
-	add r0, r4, #0x0
-	bl ScriptReadHalfword
-	add r4, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x0]
-	bl GetVarPointer
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl PlayerProfile_GetTrainerID
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl PlayerProfile_GetTrainerGender
-	add r1, r0, #0x0
-	add r0, r6, #0x0
-	add r2, r7, #0x0
-	bl sub_02053678
-	strh r0, [r4, #0x0]
-	mov r0, #0x0
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk0156
-ScrCmd_Unk0156: ; 0x0203D834
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSavePtr
-	bl Save_PlayerData_GetProfileAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r5, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl VarGet
-	add r1, r0, #0x0
-	lsl r1, r1, #0x18
-	add r0, r4, #0x0
-	lsr r1, r1, #0x18
-	bl PlayerProfile_SetAvatar
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk014B
-ScrCmd_Unk014B: ; 0x0203D868
-	push {r3, lr}
-	ldr r0, [r0, #0x74]
-	bl sub_02048498
-	mov r0, #0x1
-	pop {r3, pc}
-
-	thumb_func_start ScrCmd_Unk014C
-ScrCmd_Unk014C: ; 0x0203D874
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	ldr r0, [r0, #0xc]
-	bl Save_LocalFieldData_Get
-	add r1, r4, #0x0
-	bl sub_02034E04
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_GetPlayerGender
-ScrCmd_GetPlayerGender: ; 0x0203D8A0
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSavePtr
-	bl Save_PlayerData_GetProfileAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r5, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl GetVarPointer
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl PlayerProfile_GetTrainerGender
-	strh r0, [r5, #0x0]
-	mov r0, #0x0
-	pop {r3-r5, pc}
-
-	thumb_func_start ScrCmd_HealParty
-ScrCmd_HealParty: ; 0x0203D8D0
-	push {r3, lr}
-	ldr r0, [r0, #0x74]
-	bl sub_02046528
-	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
-	bl HealParty
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk014F
-ScrCmd_Unk014F: ; 0x0203D8E8
-	mov r0, #0x0
-	bx lr
-
-	thumb_func_start ScrCmd_Unk0150
-ScrCmd_Unk0150: ; 0x0203D8EC
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl sub_02050024
-	ldr r1, _0203D900 ; =sub_0203D904
-	add r0, r4, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r4, pc}
-	.balign 4
-_0203D900: .word sub_0203D904 
-
-	thumb_func_start sub_0203D904
-sub_0203D904: ; 0x0203D904
-	push {r3, lr}
-	bl sub_02031810
-	cmp r0, #0x1
-	beq _0203D91A
-	bl sub_0202EDF8
-	cmp r0, #0x1
-	beq _0203D91A
-	mov r0, #0x1
-	pop {r3, pc}
-_0203D91A:
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk02BB
-ScrCmd_Unk02BB: ; 0x0203D920
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl sub_02050048
-	ldr r1, _0203D934 ; =sub_0203D904
-	add r0, r4, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r4, pc}
-	.balign 4
-_0203D934: .word sub_0203D904 
-
-	thumb_func_start ScrCmd_Unk0151
-ScrCmd_Unk0151: ; 0x0203D938
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl sub_0204FF5C
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk0152
-ScrCmd_Unk0152: ; 0x0203D948
-	push {r3, lr}
-	bl ScriptReadHalfword
-	bl sub_0204F6DC
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk017A
-ScrCmd_Unk017A: ; 0x0203D958
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	ldr r0, [r0, #0xc]
-	bl Save_Bag_Get
-	add r1, r6, #0x0
-	bl Bag_PocketNotEmpty
-	strh r0, [r4, #0x0]
-	mov r0, #0x0
-	pop {r4-r6, pc}
-
-	thumb_func_start ScrCmd_Unk0186
-ScrCmd_Unk0186: ; 0x0203D998
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r5, #0x80
-	add r3, r0, #0x0
-	ldr r0, [r5, #0x0]
-	add r1, r4, #0x0
-	add r2, r6, #0x0
-	bl sub_02034B74
-	mov r0, #0x0
-	pop {r4-r6, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk0187
-ScrCmd_Unk0187: ; 0x0203D9E8
-	push {r4-r7, lr}
-	sub sp, #0xc
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	str r0, [sp, #0x4]
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	str r0, [sp, #0x8]
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	add r1, r6, #0x0
-	ldr r0, [r0, #0x34]
-	bl sub_02058060
-	ldr r2, [sp, #0x4]
-	ldr r3, [sp, #0x8]
-	add r5, r0, #0x0
-	add r1, r7, #0x0
-	str r4, [sp, #0x0]
-	bl sub_02058E28
-	add r0, r5, #0x0
-	bl sub_02059D1C
-	mov r0, #0x0
-	add sp, #0xc
-	pop {r4-r7, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk0188
 ScrCmd_Unk0188: ; 0x0203DA78
 	push {r3-r5, lr}
@@ -482,7 +31,7 @@ ScrCmd_Unk0188: ; 0x0203DA78
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
-	bl sub_02034BDC
+	bl SetObjectEventMovement
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -607,7 +156,7 @@ ScrCmd_Unk018C: ; 0x0203DB88
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r5, r0, #0x0
 	bne _0203DBC6
 	bl GF_AssertFail
@@ -1030,7 +579,7 @@ ScrCmd_Unk01B1: ; 0x0203DEC4
 	bl VarGet
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0x0
 	bne _0203DEEC
 	bl GF_AssertFail
@@ -1055,7 +604,7 @@ ScrCmd_Unk01B2: ; 0x0203DEF8
 	bl VarGet
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0x0
 	bne _0203DF20
 	bl GF_AssertFail
@@ -2637,7 +2186,7 @@ ScrCmd_GiveWallpaper: ; 0x0203EBE4
 	add r0, #0x80
 	ldr r6, [r0, #0x0]
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
@@ -3267,7 +2816,7 @@ ScrCmd_Unk0269: ; 0x0203F07C
 	ldr r0, [r0, #0x0]
 	add r1, r7, #0x0
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r7, r0, #0x0
 	bne _0203F0FA
 	bl GF_AssertFail
@@ -3315,7 +2864,7 @@ ScrCmd_Unk026A: ; 0x0203F110
 	ldr r0, [r0, #0x0]
 	add r1, r5, #0x0
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r5, r0, #0x0
 	bne _0203F164
 	bl GF_AssertFail
@@ -4679,7 +4228,7 @@ ScrCmd_Unk02B6: ; 0x0203FC1C
 	ldr r0, [r5, #0x0]
 	ldrb r4, [r2, #0x0]
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r5, r0, #0x0
 	bne _0203FC4C
 	bl GF_AssertFail

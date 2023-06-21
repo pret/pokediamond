@@ -1101,7 +1101,7 @@ sub_0204D328: ; 0x0204D328
 	ldr r0, [r0, #0x54]
 	add r1, r5, r1
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	cmp r0, #0x0
 	beq _0204D37C
 	bl sub_02057654
@@ -2315,13 +2315,13 @@ sub_0204DCB4: ; 0x0204DCB4
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02026CC4
 	add r4, r0, #0x0
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02026CB4
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r1, [r0, #0x0]
@@ -4108,7 +4108,7 @@ _0204E9B8:
 	cmp r0, #0x0
 	bne _0204EA7C
 	ldr r0, [r1, #0x54]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02026CB4
 	add r1, r4, #0x0
 	bl sub_02026908
@@ -4644,7 +4644,7 @@ _0204EE36:
 	str r2, [r3, r0]
 	ldr r5, [r1, #0x0]
 	ldr r0, [r5, #0x54]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02026CC4
 	mov r1, #0x29
 	add r2, r5, r4
@@ -5229,7 +5229,7 @@ sub_0204F2D8: ; 0x0204F2D8
 	add r5, r2, #0x0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02026CB4
 	add r4, r0, #0x0
 	ldrb r0, [r5, #0x0]
@@ -5466,7 +5466,7 @@ _0204F4D2:
 	ldr r0, _0204F5E0 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02026CB4
 	add r4, r0, #0x0
 	bl sub_020269A0

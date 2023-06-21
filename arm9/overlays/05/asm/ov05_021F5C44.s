@@ -31,7 +31,7 @@ _021F5C58:
 ov05_021F5C70: ; 0x021F5C70
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r6, #0
 	bl sub_0204652C

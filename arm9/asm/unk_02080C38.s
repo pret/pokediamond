@@ -55,7 +55,7 @@ sub_02080C38: ; 0x02080C38
 	ldr r1, _02080C5C ; =sub_02080C60
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r5, pc}
 	nop
 _02080C5C: .word sub_02080C60
@@ -65,7 +65,7 @@ sub_02080C60: ; 0x02080C60
 	push {r3-r7, lr}
 	sub sp, #0x28
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -111,7 +111,7 @@ _02080CB4:
 	bl GetPartyMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r0, [sp, #0x0]
@@ -289,13 +289,13 @@ _02080E36:
 	ldr r1, _02080E54 ; =sub_02080E5C
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4-r6, pc}
 _02080E42:
 	ldr r1, _02080E58 ; =sub_02081000
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4-r6, pc}
 	nop
 _02080E50: .word 0x00000121
@@ -306,7 +306,7 @@ _02080E58: .word sub_02081000
 sub_02080E5C: ; 0x02080E5C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r0, r5, #0x0
 	bl sub_0204652C
 	add r4, r0, #0x0
@@ -521,7 +521,7 @@ sub_02081000: ; 0x02081000
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r0, r5, #0x0
 	bl sub_0204652C
 	add r4, r0, #0x0

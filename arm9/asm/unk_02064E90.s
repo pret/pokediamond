@@ -14,7 +14,7 @@ sub_02064E90: ; 0x02064E90
 	add r0, r6, #0x0
 	str r3, [sp, #0x1c]
 	ldr r5, [sp, #0xbc]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	str r0, [sp, #0x20]
 	bl Save_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
@@ -218,7 +218,7 @@ _02065074: .word FreeToHeap
 	thumb_func_start sub_02065078
 sub_02065078: ; 0x02065078
 	push {r3-r7, lr}
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	add r7, r0, #0x0
 	bl Save_GameStats_Get
 	add r6, r0, #0x0
@@ -597,7 +597,7 @@ sub_02065344: ; 0x02065344
 	ldr r0, [r5, #0x10]
 	ldr r1, _0206536C ; =sub_02065370
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r5, pc}
 	nop
 _0206536C: .word sub_02065370
@@ -606,7 +606,7 @@ _0206536C: .word sub_02065370
 sub_02065370: ; 0x02065370
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C

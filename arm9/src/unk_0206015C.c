@@ -41,12 +41,12 @@ void sub_0206015C(struct FieldSystem *fieldSystem)
     unkStruct->unkC = 0;
     unkStruct->unkD = 0;
 
-    sub_0204640C(fieldSystem->taskManager, sub_02060194, (u32 *)unkStruct);
+    TaskManager_Call(fieldSystem->taskManager, sub_02060194, (u32 *)unkStruct);
 }
 
 BOOL sub_02060194(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)sub_0204652C(taskManager);
 
     switch (unkStruct1->action)

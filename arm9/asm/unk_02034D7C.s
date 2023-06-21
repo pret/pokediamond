@@ -109,8 +109,8 @@ sub_02034DFC: ; 0x02034DFC
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02034E04
-sub_02034E04: ; 0x02034E04
+	thumb_func_start LocalFieldData_SetBlackoutSpawn
+LocalFieldData_SetBlackoutSpawn: ; 0x02034E04
 	add r0, #0x68
 	strh r1, [r0, #0x0]
 	bx lr

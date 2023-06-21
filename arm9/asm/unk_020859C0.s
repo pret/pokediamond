@@ -631,7 +631,7 @@ sub_02085DA4: ; 0x02085DA4
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	ldr r7, [r6, #0x8]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	str r0, [sp, #0x4]
 	ldr r0, [r6, #0x14]
 	cmp r0, #0x6
@@ -862,7 +862,7 @@ _02085F5E:
 	ldr r1, _02085FA8 ; =sub_02085DA4
 	add r0, r6, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4-r6, pc}
 	nop
 _02085FA8: .word sub_02085DA4

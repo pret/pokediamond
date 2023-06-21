@@ -309,7 +309,7 @@ ov06_022398D8: ; 0x022398D8
 	push {r4, lr}
 	ldr r0, [r0, #0x34]
 	add r4, r2, #0
-	bl sub_02058060
+	bl GetMapObjectByID
 	cmp r4, #1
 	bne _022398F0
 	mov r1, #1
@@ -327,7 +327,7 @@ _022398F0:
 ov06_022398FC: ; 0x022398FC
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r0, r4, #0
 	bl sub_0204652C
 	add r4, r0, #0
@@ -364,7 +364,7 @@ ov06_02239944: ; 0x02239944
 	push {r4, r5, r6, lr}
 	sub sp, #8
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	mov r0, #4
 	mov r1, #0x10
@@ -393,7 +393,7 @@ _02239960:
 	ldr r1, _02239994 ; =ov06_022398FC
 	add r0, r6, #0
 	add r2, r5, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	nop
@@ -427,7 +427,7 @@ _022399C4:
 ov06_022399C8: ; 0x022399C8
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r0, r4, #0
 	bl sub_0204652C
 	add r4, r0, #0
@@ -542,7 +542,7 @@ ov06_02239AAC: ; 0x02239AAC
 	push {r4, r5, r6, lr}
 	sub sp, #8
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	mov r0, #4
 	mov r1, #0x10
@@ -575,7 +575,7 @@ _02239AC8:
 	ldr r1, _02239B04 ; =ov06_022399C8
 	add r0, r6, #0
 	add r2, r5, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1121,7 +1121,7 @@ ov06_02239F04: ; 0x02239F04
 	ldr r0, [r1, #0x34]
 	mov r1, #5
 	add r4, r2, #0
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r5, r0, #0
 	bne _02239F18
 	bl GF_AssertFail
@@ -3115,7 +3115,7 @@ ov06_0223ADB4: ; 0x0223ADB4
 	add r4, r0, #0
 	ldr r0, [r1, #0x34]
 	add r1, r2, #0
-	bl sub_02058060
+	bl GetMapObjectByID
 	str r0, [r4]
 	cmp r0, #0
 	bne _0223ADCA
@@ -4672,7 +4672,7 @@ ov06_0223B8EC: ; 0x0223B8EC
 	add r0, #0xd8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r1, sp, #0
 	bl sub_02058B5C
 	ldr r1, [sp]
@@ -5042,7 +5042,7 @@ _0223BBDA:
 	cmp r0, #0xc
 	blt _0223BBDA
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5479,7 +5479,7 @@ _0223BF7E:
 	cmp r0, #0xc
 	blt _0223BF7E
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5789,7 +5789,7 @@ _0223C222:
 	cmp r0, #0xc
 	blt _0223C222
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5930,7 +5930,7 @@ _0223C350:
 	cmp r0, #1
 	bne _0223C38C
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerID
 	str r0, [sp]
@@ -8188,7 +8188,7 @@ _0223D472:
 	ldr r1, _0223D48C ; =ov06_0223D4AC
 	add r0, r7, #0
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223D488: .word 0x0000023E
@@ -8216,7 +8216,7 @@ _0223D4A8:
 ov06_0223D4AC: ; 0x0223D4AC
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r6, #0
 	bl sub_0204652C
@@ -11153,7 +11153,7 @@ ov06_0223ECF0: ; 0x0223ECF0
 	cmp r0, #0
 	beq _0223ED46
 	add r0, r6, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r6, #0
 	bl sub_0204652C
@@ -11442,7 +11442,7 @@ _0223EF28:
 	str r0, [r2, #0x74]
 	ldr r0, [r1]
 	ldr r0, [r0, #0x68]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetProfileAddr
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r1, [r1]
@@ -15378,7 +15378,7 @@ _02240FE8: .word 0x000005F3
 ov06_02240FEC: ; 0x02240FEC
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r0, r4, #0
 	bl sub_0204652C
 	add r4, r0, #0
@@ -15630,13 +15630,13 @@ ov06_022411F4: ; 0x022411F4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	bl ov06_02241188
 	add r2, r0, #0
 	ldr r1, _02241210 ; =ov06_02240FEC
 	add r0, r5, #0
 	str r4, [r2, #0x70]
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02241210: .word ov06_02240FEC
@@ -15699,7 +15699,7 @@ ov06_02241230: ; 0x02241230
 	cmp r0, #0
 	beq _022412E0
 	add r0, r4, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #1
 	bl sub_020254A0
@@ -15715,7 +15715,7 @@ ov06_02241230: ; 0x02241230
 	bne _022412B4
 	ldr r0, [r4, #0x10]
 	ldr r1, _022412E8 ; =ov06_0224158C
-	bl sub_0204640C
+	bl TaskManager_Call
 	mov r0, #2
 	add sp, #0x2c
 	strb r0, [r5]
@@ -15725,7 +15725,7 @@ _022412B4:
 	bne _022412C8
 	ldr r0, [r4, #0x10]
 	ldr r1, _022412EC ; =ov06_02241428
-	bl sub_0204640C
+	bl TaskManager_Call
 	mov r0, #1
 	add sp, #0x2c
 	strb r0, [r5]
@@ -15735,7 +15735,7 @@ _022412C8:
 	bne _022412DC
 	ldr r0, [r4, #0x10]
 	ldr r1, _022412F0 ; =ov06_02241348
-	bl sub_0204640C
+	bl TaskManager_Call
 	mov r0, #0
 	add sp, #0x2c
 	strb r0, [r5]
@@ -15800,7 +15800,7 @@ ov06_02241348: ; 0x02241348
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
 	bl sub_0204652C
@@ -15907,7 +15907,7 @@ ov06_02241428: ; 0x02241428
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x28
 	add r5, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
 	bl sub_0204652C
@@ -16079,7 +16079,7 @@ ov06_0224158C: ; 0x0224158C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
 	bl sub_0204652C
@@ -16188,7 +16188,7 @@ ov06_02241670: ; 0x02241670
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x2c
 	add r4, r0, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #1
 	bl sub_020254A0
@@ -16412,7 +16412,7 @@ ov06_0224186C: ; 0x0224186C
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0x24
 	add r5, r0, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #2
 	bl sub_020254A0
@@ -16499,7 +16499,7 @@ ov06_02241914: ; 0x02241914
 	mov r0, #0
 	str r0, [r6]
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #2
 	bl sub_020254A0
@@ -16513,7 +16513,7 @@ ov06_02241914: ; 0x02241914
 	bne _0224195A
 	ldr r1, _0224196C ; =ov06_02241974
 	add r2, r6, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	mov r0, #1
 	add sp, #0xc
 	strb r0, [r4]
@@ -16521,7 +16521,7 @@ ov06_02241914: ; 0x02241914
 _0224195A:
 	ldr r1, _02241970 ; =ov06_02241A44
 	add r2, r6, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	mov r0, #0
 	strb r0, [r4]
 	add sp, #0xc
@@ -16535,7 +16535,7 @@ ov06_02241974: ; 0x02241974
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -16634,7 +16634,7 @@ ov06_02241A44: ; 0x02241A44
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -16820,7 +16820,7 @@ ov06_02241BB0: ; 0x02241BB0
 	add r5, r0, #0
 	ldr r0, [r5]
 	add r4, r1, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #3
 	bl sub_020254A0
@@ -17142,7 +17142,7 @@ ov06_02241E58: ; 0x02241E58
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -17282,7 +17282,7 @@ ov06_02241F7C: ; 0x02241F7C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -17441,7 +17441,7 @@ ov06_022420CC: ; 0x022420CC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -17604,7 +17604,7 @@ ov06_02242224: ; 0x02242224
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x5c
 	add r6, r0, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #3
 	bl sub_020254A0
@@ -17830,7 +17830,7 @@ _02242400: .word 0x000076A0
 ov06_02242404: ; 0x02242404
 	push {r4, lr}
 	add r4, r0, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	bl sub_020254B4
 	cmp r0, #3
@@ -17989,7 +17989,7 @@ ov06_0224252C: ; 0x0224252C
 	add r5, r0, #0
 	ldr r0, [r5]
 	add r4, r1, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #4
 	bl sub_020254A0
@@ -18060,7 +18060,7 @@ ov06_022425C8: ; 0x022425C8
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x24
 	str r0, [sp, #8]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #4
 	bl sub_020254A0
@@ -18173,7 +18173,7 @@ ov06_02242698: ; 0x02242698
 ov06_022426AC: ; 0x022426AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	bl sub_020254B4
 	cmp r0, #4
@@ -18257,7 +18257,7 @@ ov06_02242744: ; 0x02242744
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -18472,7 +18472,7 @@ ov06_022428D8: ; 0x022428D8
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x2c
 	add r5, r0, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #5
 	bl sub_020254A0
@@ -18652,7 +18652,7 @@ ov06_02242A38: ; 0x02242A38
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	add r5, r1, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #5
 	bl sub_020254A0
@@ -18729,7 +18729,7 @@ _02242ACE:
 	ldr r0, [r7, #0x10]
 	ldr r1, _02242AE8 ; =ov06_02242AEC
 	ldr r2, [sp]
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _02242AE4: .word 0x0000063F
@@ -18740,7 +18740,7 @@ ov06_02242AEC: ; 0x02242AEC
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	str r0, [sp, #8]
 	add r0, r4, #0
 	bl sub_0204652C
@@ -18875,7 +18875,7 @@ ov06_02242BE0: ; 0x02242BE0
 	add r5, r0, #0
 	add r6, r1, #0
 	str r3, [sp, #4]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	ldr r0, _02242C70 ; =0x0000067C
 	bl PlaySE
@@ -18926,7 +18926,7 @@ _02242C0E:
 	ldr r1, _02242C74 ; =ov06_02242EC0
 	add r0, r5, #0
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -23652,7 +23652,7 @@ _02245098:
 	cmp r0, #0xc
 	blo _02245098
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -23816,7 +23816,7 @@ ov06_022451F4: ; 0x022451F4
 	push {r3, r4, lr}
 	sub sp, #0x14
 	add r4, r0, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -23871,7 +23871,7 @@ ov06_0224525C: ; 0x0224525C
 	add r7, r0, #0
 	add r6, r1, #0
 	str r2, [sp]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -23978,7 +23978,7 @@ _02245326:
 	ldr r0, [r7, #0x10]
 	ldr r1, _0224533C ; =ov06_02245360
 	add r2, r5, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _02245334: .word ov06_02245478
@@ -23989,7 +23989,7 @@ _0224533C: .word ov06_02245360
 ov06_02245340: ; 0x02245340
 	push {r4, lr}
 	add r4, r1, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -24007,7 +24007,7 @@ ov06_02245360: ; 0x02245360
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x24
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -38569,7 +38569,7 @@ ov06_0224C27C: ; 0x0224C27C
 	str r0, [r4, #8]
 	ldr r0, [r5, #0x10]
 	ldr r1, _0224C2F0 ; =ov06_0224C2F4
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0x20
 	pop {r4, r5, r6, pc}
 _0224C2E8:
@@ -38584,7 +38584,7 @@ ov06_0224C2F4: ; 0x0224C2F4
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x38
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -38862,7 +38862,7 @@ ov06_0224C520: ; 0x0224C520
 	strb r0, [r2, #2]
 	ldr r0, [r5, #0x10]
 	ldr r1, _0224C55C ; =ov06_0224C560
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, r5, r6, pc}
 _0224C552:
 	bl GF_AssertFail
@@ -38876,7 +38876,7 @@ ov06_0224C560: ; 0x0224C560
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -39095,7 +39095,7 @@ ov06_0224C700: ; 0x0224C700
 ov06_0224C720: ; 0x0224C720
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r6, #0
 	bl sub_0204652C
@@ -39320,7 +39320,7 @@ ov06_0224C8C8: ; 0x0224C8C8
 ov06_0224C8E8: ; 0x0224C8E8
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r5, #0
 	bl sub_0204652C
@@ -39547,7 +39547,7 @@ ov06_0224CA88: ; 0x0224CA88
 ov06_0224CAAC: ; 0x0224CAAC
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r6, #0
 	bl sub_0204652C
@@ -39636,7 +39636,7 @@ ov06_0224CB30: ; 0x0224CB30
 ov06_0224CB54: ; 0x0224CB54
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r6, #0
 	bl sub_0204652C
@@ -40785,7 +40785,7 @@ ov06_0224D3E8: ; 0x0224D3E8
 	ldr r1, _0224D40C ; =ov06_0224D410
 	add r0, r5, #0
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, pc}
 	nop
 _0224D40C: .word ov06_0224D410
@@ -40794,7 +40794,7 @@ _0224D40C: .word ov06_0224D410
 ov06_0224D410: ; 0x0224D410
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -40845,7 +40845,7 @@ ov06_0224D46C: ; 0x0224D46C
 	bl sub_020377A8
 	add r5, r0, #0
 	add r0, r4, #0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	str r0, [sp, #0x1c]
 	mov r0, #0xb
 	mov r1, #0x18
@@ -42968,7 +42968,7 @@ ov06_0224E554: ; 0x0224E554
 	str r0, [r4, #8]
 	ldr r0, [r5, #0x10]
 	ldr r1, _0224E5CC ; =ov06_0224E5D0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0x20
 	pop {r4, r5, r6, pc}
 _0224E5C0:
@@ -42984,7 +42984,7 @@ ov06_0224E5D0: ; 0x0224E5D0
 	push {r4, r5, r6, lr}
 	sub sp, #0x30
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -43222,20 +43222,20 @@ _0224E794:
 
 	thumb_func_start ov06_0224E7C4
 ov06_0224E7C4: ; 0x0224E7C4
-	ldr r3, _0224E7D0 ; =sub_0204640C
+	ldr r3, _0224E7D0 ; =TaskManager_Call
 	ldr r0, [r0, #0x10]
 	ldr r1, _0224E7D4 ; =ov06_0224E7D8
 	mov r2, #0
 	bx r3
 	nop
-_0224E7D0: .word sub_0204640C
+_0224E7D0: .word TaskManager_Call
 _0224E7D4: .word ov06_0224E7D8
 
 	thumb_func_start ov06_0224E7D8
 ov06_0224E7D8: ; 0x0224E7D8
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_02046530
@@ -43298,7 +43298,7 @@ ov06_0224E858: ; 0x0224E858
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
 	add r7, r2, #0
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r6, r0, #0
 	add r1, sp, #0
 	bl sub_02058B5C
