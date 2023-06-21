@@ -910,7 +910,7 @@
 .extern GetECWordIndexByPair
 .extern FUN_02013B28
 .extern FUN_02013B2C
-.extern FUN_02013B5C
+.extern Save_EasyChat_Get
 .extern FUN_02013B68
 .extern FUN_02013B74
 .extern FUN_02013BC8
@@ -2922,9 +2922,9 @@
 .extern ScrCmd_CheckSaveStatus
 .extern ScrCmd_SaveGame
 .extern ScrCmd_GivePoketch
-.extern ScrCmd_Unk0132
-.extern ScrCmd_Unk0133
-.extern ScrCmd_Unk0134
+.extern ScrCmd_CheckPoketch
+.extern ScrCmd_UnlockPoketchApp
+.extern ScrCmd_CheckPoketchApp
 .extern ScrCmd_Unk0135
 .extern ScrCmd_Unk0136
 .extern ScrCmd_Unk0137
@@ -4022,7 +4022,7 @@
 .extern FUN_02058424
 .extern FUN_0205842C
 .extern FUN_02058444
-.extern FUN_02058448
+.extern MapObject_GetID
 .extern FUN_02058450
 .extern FUN_02058454
 .extern FUN_02058458

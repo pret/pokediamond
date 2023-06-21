@@ -32700,7 +32700,7 @@ MOD06_0224954C: ; 0x0224954C
 	bl FUN_02058458
 	str r0, [r4]
 	ldr r0, [r4, #0x1c]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
 	bl FUN_020589CC
@@ -33074,7 +33074,7 @@ MOD06_02249834: ; 0x02249834
 	bl FUN_02064754
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0x20]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4]
 	ldr r0, [r4, #0x20]
 	bl FUN_02058450
@@ -34310,7 +34310,7 @@ _0224A1AC:
 	sub r2, r2, #1
 	bne _0224A1AC
 	ldr r0, [r4, #0x68]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x68]
 	bl FUN_020589CC
@@ -34536,7 +34536,7 @@ MOD06_0224A354: ; 0x0224A354
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #0x18]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4]
 	ldr r0, [r4, #0x18]
 	bl FUN_02058450
@@ -35065,7 +35065,7 @@ MOD06_0224A710: ; 0x0224A710
 	add r0, #0x18
 	bl NNS_G3dRenderObjAddAnmObj
 	ldr r0, [r5, #0x18]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r5, #4]
 	ldr r0, [r5, #0x18]
 	bl FUN_02058450
@@ -35292,7 +35292,7 @@ MOD06_0224A918: ; 0x0224A918
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #0x14]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x14]
 	bl FUN_02058450
@@ -35482,7 +35482,7 @@ MOD06_0224AA84: ; 0x0224AA84
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #0x14]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x14]
 	bl FUN_02058450
@@ -35708,7 +35708,7 @@ MOD06_0224AC38: ; 0x0224AC38
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	add r0, r4, #0
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r5, #0xc]
 	add r0, r4, #0
 	bl FUN_02058450
@@ -36945,7 +36945,7 @@ MOD06_0224B5D0: ; 0x0224B5D0
 	bl FUN_0205845C
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x30]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
 	bl FUN_02058450
@@ -37516,7 +37516,7 @@ MOD06_0224BA30: ; 0x0224BA30
 	bl FUN_0205845C
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x20]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x20]
 	bl FUN_02058450
@@ -37770,7 +37770,7 @@ MOD06_0224BC50: ; 0x0224BC50
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	ldr r0, [r4, #0x1c]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
 	bl FUN_02058450
@@ -37983,7 +37983,7 @@ MOD06_0224BDF8: ; 0x0224BDF8
 	bl FUN_0205845C
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x30]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
 	bl FUN_02058450
@@ -38310,7 +38310,7 @@ MOD06_0224C0A0: ; 0x0224C0A0
 	bl FUN_0205845C
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x30]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
 	bl FUN_02058450
@@ -40171,7 +40171,7 @@ MOD06_0224CF3C: ; 0x0224CF3C
 	ldr r0, [r3]
 	str r0, [r2]
 	add r0, r4, #0
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r5, #8]
 	add r0, r4, #0
 	bl FUN_02058450
@@ -40702,7 +40702,7 @@ MOD06_0224D344: ; 0x0224D344
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	ldr r0, [r4, #0x1c]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
 	bl FUN_02058450

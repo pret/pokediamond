@@ -11,7 +11,7 @@ struct UnkStruct_02085338 * FUN_02085338(u8 r5, u8 r7, struct SaveData * save, u
     ret->unk_00 = r5;
     ret->unk_01 = r7;
     ret->unk_0c = Save_Pokedex_Get(save);
-    ret->unk_10 = FUN_02013B5C(save);
+    ret->unk_10 = Save_EasyChat_Get(save);
     ret->unk_04 = (u8)FUN_0205ED0C(SaveArray_Flags_Get(save));
     ret->unk_05 = 0;
     ret->unk_02 = 1;
@@ -109,7 +109,7 @@ struct Pokedex * FUN_02085418(struct UnkStruct_02085338 * ptr)
     return ptr->unk_0c;
 }
 
-struct UnkStruct_02013B28 * FUN_0208541C(struct UnkStruct_02085338 * ptr)
+struct SaveEasyChat * FUN_0208541C(struct UnkStruct_02085338 * ptr)
 {
     return ptr->unk_10;
 }

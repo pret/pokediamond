@@ -15,7 +15,7 @@ void FUN_0202C144(struct SaveData * save, struct Pokemon * mon)
         GameStats_IncSpeciesCaught(unk, pokedex, (u16) species);
         Pokedex_SetMonCaughtFlag(pokedex, mon);
 
-        struct SavePoketch * poketch = Save_Poketch_Get(save);
+        struct Poketch * poketch = Save_Poketch_Get(save);
         Save_Poketch_PokemonHistoryAddMon(poketch, &mon->box);
     }
 }

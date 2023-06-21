@@ -130,7 +130,7 @@ MOD05_021EDA98: ; 0x021EDA98
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	ldr r0, [r4, #0x1c]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
 	bl FUN_02058450

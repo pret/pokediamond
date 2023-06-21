@@ -630,7 +630,7 @@ ScrCmd_Unk00F0: ; 0x02041BC4
 	bl MapObject_GetFieldSysPtr
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	add r1, r0, #0x0
 	lsl r1, r1, #0x10
 	add r0, r4, #0x0
@@ -655,7 +655,7 @@ ScrCmd_Unk00F1: ; 0x02041BF0
 	bl MapObject_GetFieldSysPtr
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	add r1, r0, #0x0
 	lsl r1, r1, #0x10
 	add r0, r7, #0x0

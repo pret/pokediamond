@@ -455,9 +455,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_CheckContestPortraitSlot
 	.word ScrCmd_Unk0130
 	.word ScrCmd_GivePoketch
-	.word ScrCmd_Unk0132
-	.word ScrCmd_Unk0133
-	.word ScrCmd_Unk0134
+	.word ScrCmd_CheckPoketch
+	.word ScrCmd_UnlockPoketchApp
+	.word ScrCmd_CheckPoketchApp
 	.word ScrCmd_Unk0135
 	.word ScrCmd_Unk0136
 	.word ScrCmd_Unk0137
@@ -1135,7 +1135,7 @@ FUN_02038E60: ; 0x02038E60
 	cmp r6, #0x0
 	beq _02038E92
 	add r0, r6, #0x0
-	bl FUN_02058448
+	bl MapObject_GetID
 	ldr r1, [sp, #0x0]
 	strh r0, [r1, #0x0]
 _02038E92:

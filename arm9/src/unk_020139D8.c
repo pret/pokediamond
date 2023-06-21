@@ -159,10 +159,10 @@ void GetCategoryAndMsgNoByECWordIdx(u32 wordIdx, s32 * msgBank_p, s32 * msgNo_p)
 
 u32 FUN_02013B28(void)
 {
-    return sizeof(struct UnkStruct_02013B28);
+    return sizeof(struct SaveEasyChat);
 }
 
-void FUN_02013B2C(struct UnkStruct_02013B28 * unk)
+void FUN_02013B2C(struct SaveEasyChat * unk)
 {
     u32 i;
     unk->unk_0 = 0;
@@ -177,17 +177,17 @@ void FUN_02013B2C(struct UnkStruct_02013B28 * unk)
     }
 }
 
-struct UnkStruct_02013B28 * FUN_02013B5C(struct SaveData * save)
+struct SaveEasyChat * Save_EasyChat_Get(struct SaveData * save)
 {
-    return (struct UnkStruct_02013B28 *)SaveArray_Get(save, 34);
+    return (struct SaveEasyChat *)SaveArray_Get(save, 34);
 }
 
-BOOL FUN_02013B68(struct UnkStruct_02013B28 * unk, u32 a1)
+BOOL FUN_02013B68(struct SaveEasyChat * unk, u32 a1)
 {
     return (BOOL)((unk->unk_4 >> a1) & 1);
 }
 
-s32 FUN_02013B74(struct UnkStruct_02013B28 * unk)
+s32 FUN_02013B74(struct SaveEasyChat * unk)
 {
     u32 i;
     u32 count;
@@ -216,7 +216,7 @@ s32 FUN_02013B74(struct UnkStruct_02013B28 * unk)
     return 32;
 }
 
-BOOL FUN_02013BC8(struct UnkStruct_02013B28 * unk)
+BOOL FUN_02013BC8(struct SaveEasyChat * unk)
 {
     u32 i;
     for (i = 0; i < 32; i++)
@@ -236,12 +236,12 @@ u16 FUN_02013BE4(u16 a0)
     return (u16)(skip + a0);
 }
 
-BOOL FUN_02013C0C(struct UnkStruct_02013B28 * unk, u32 a1)
+BOOL FUN_02013C0C(struct SaveEasyChat * unk, u32 a1)
 {
     return (BOOL)((unk->unk_0 >> a1) & 1);
 }
 
-void FUN_02013C18(struct UnkStruct_02013B28 * unk, u32 a1)
+void FUN_02013C18(struct SaveEasyChat * unk, u32 a1)
 {
     unk->unk_0 |= (1 << a1);
 }

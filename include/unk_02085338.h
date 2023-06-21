@@ -15,7 +15,7 @@ struct UnkStruct_02085338
     u8 unk_05;
     u32 unk_08;
     struct Pokedex * unk_0c;
-    struct UnkStruct_02013B28 * unk_10;
+    struct SaveEasyChat * unk_10;
     struct MailMessage unk_14;
     u16 unk_1c[2];
     u8 padding_20[4];
@@ -37,7 +37,7 @@ u8 FUN_0208540C(struct UnkStruct_02085338 * ptr);
 u8 FUN_02085410(struct UnkStruct_02085338 * ptr);
 u32 FUN_02085414(struct UnkStruct_02085338 * ptr);
 struct Pokedex * FUN_02085418(struct UnkStruct_02085338 * ptr);
-struct UnkStruct_02013B28 * FUN_0208541C(struct UnkStruct_02085338 * ptr);
+struct SaveEasyChat * FUN_0208541C(struct UnkStruct_02085338 * ptr);
 u8 FUN_02085420(struct UnkStruct_02085338 * ptr);
 u8 FUN_02085424(struct UnkStruct_02085338 * ptr);
 void FUN_02085428(struct UnkStruct_02085338 * ptr, u16 * a1, struct MailMessage * a2);

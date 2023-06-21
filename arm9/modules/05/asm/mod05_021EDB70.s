@@ -107,7 +107,7 @@ MOD05_021EDC14: ; 0x021EDC14
 	mvn r1, r1
 	add r4, r0, #0
 	str r1, [r5, #4]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r5, #0x14]
 	add r0, r4, #0
 	bl FUN_02058450
