@@ -5,7 +5,7 @@
 extern void sub_02037394(struct FieldSystem *);
 extern u32 IsPaletteFadeFinished(void);
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
-extern void MOD05_021E331C(struct FieldSystem *);
+extern void ov05_021E331C(struct FieldSystem *);
 
 BOOL sub_0204AF24(struct TaskManager *taskManager)
 {
@@ -118,7 +118,7 @@ BOOL sub_0204B0A0(struct TaskManager *taskManager)
             r4[0]++;
             break;
         case 1:
-            MOD05_021E331C(fieldSystem);
+            ov05_021E331C(fieldSystem);
             sub_0204B00C(taskManager);
             r4[0]++;
             break;

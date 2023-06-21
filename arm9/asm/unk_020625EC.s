@@ -1255,7 +1255,7 @@ sub_02062F3C: ; 0x02062F3C
 	ldr r3, [r6, #0x0]
 	add r0, r6, r0
 	mov r2, #0x2
-	bl MOD05_021D959C
+	bl ov05_021D959C
 	mov r0, #0x3
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -1268,7 +1268,7 @@ sub_02062F3C: ; 0x02062F3C
 	add r0, r6, r0
 	mov r1, #0x82
 	add r3, r2, #0x0
-	bl MOD05_021D967C
+	bl ov05_021D967C
 	ldr r0, _02062FF4 ; =0x000034D8
 	mov r1, #0x82
 	str r0, [sp, #0x0]
@@ -1277,7 +1277,7 @@ sub_02062F3C: ; 0x02062F3C
 	add r0, r6, r0
 	mov r2, #0x2
 	mov r3, #0x0
-	bl MOD05_021D96F4
+	bl ov05_021D96F4
 	ldr r0, _02062FF4 ; =0x000034D8
 	mov r1, #0x82
 	str r0, [sp, #0x0]
@@ -1286,7 +1286,7 @@ sub_02062F3C: ; 0x02062F3C
 	add r0, r6, r0
 	mov r2, #0x3
 	mov r3, #0x0
-	bl MOD05_021D9708
+	bl ov05_021D9708
 	mov r2, #0x1
 	ldr r0, _02062FF4 ; =0x000034D8
 	str r2, [sp, #0x0]
@@ -1296,7 +1296,7 @@ sub_02062F3C: ; 0x02062F3C
 	add r0, r6, r0
 	mov r1, #0x82
 	mov r3, #0x0
-	bl MOD05_021D971C
+	bl ov05_021D971C
 	ldr r4, _02062FF8 ; =UNK_020F7C7C
 	mov r7, #0x0
 	add r5, r6, #0x0
@@ -1305,7 +1305,7 @@ _02062FC4:
 	lsl r0, r0, #0x2
 	add r0, r6, r0
 	add r1, r4, #0x0
-	bl MOD05_021D9820
+	bl ov05_021D9820
 	mov r1, #0xa6
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -1346,7 +1346,7 @@ _02063012:
 	mov r0, #0x4d
 	lsl r0, r0, #0x2
 	add r0, r7, r0
-	bl MOD05_021D99F8
+	bl ov05_021D99F8
 	pop {r3-r7, pc}
 	.balign 4
 

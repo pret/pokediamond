@@ -33,7 +33,7 @@ ScrCmd_Unk01DA: ; 0x02042354
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	add r0, #0xa8
-	bl MOD06_022434BC
+	bl ov06_022434BC
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -52,7 +52,7 @@ ScrCmd_Unk01DB: ; 0x02042364
 	bl ScriptEnvironment_GetSavePtr
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl MOD06_022434D0
+	bl ov06_022434D0
 	add r5, #0x80
 	ldr r1, [r5, #0x0]
 	add r1, #0xa8
@@ -68,7 +68,7 @@ ScrCmd_Unk01DC: ; 0x02042394
 	ldr r0, [r0, #0x0]
 	add r0, #0xa8
 	ldr r0, [r0, #0x0]
-	bl MOD06_02243694
+	bl ov06_02243694
 	add r4, #0x80
 	ldr r1, [r4, #0x0]
 	mov r0, #0x0
@@ -221,7 +221,7 @@ _02042406: ; jump table (using 16-bit offset)
 	.short _020426E6 - _02042406 - 2; case 100
 _020424D0:
 	add r0, r6, #0x0
-	bl MOD06_0224312C
+	bl ov06_0224312C
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020424DA:
@@ -229,76 +229,76 @@ _020424DA:
 	bne _020424EA
 	ldrb r0, [r5, #0xe]
 	ldr r1, [r1, #0xc]
-	bl MOD06_022432E4
+	bl ov06_022432E4
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020424EA:
 	ldr r1, [r1, #0xc]
 	add r0, r6, #0x0
-	bl MOD06_022432E4
+	bl ov06_022432E4
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020424F6:
-	bl MOD06_0224339C
+	bl ov06_0224339C
 	b _020426FA
 _020424FC:
 	ldr r0, [r1, #0xc]
 	bl SaveStruct23_GetSubstruct1
-	bl MOD06_022433A8
+	bl ov06_022433A8
 	b _020426FA
 _02042508:
 	ldr r0, [r1, #0xc]
 	bl SaveStruct23_GetSubstruct1
-	bl MOD06_022433B0
+	bl ov06_022433B0
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042516:
 	add r0, r1, #0x0
-	bl MOD06_022433B8
+	bl ov06_022433B8
 	b _020426FA
 _0204251E:
 	add r0, r1, #0x0
-	bl MOD06_022433F8
+	bl ov06_022433F8
 	b _020426FA
 _02042526:
 	ldr r0, [r1, #0xc]
 	add r1, r6, #0x0
-	bl MOD06_02243408
+	bl ov06_02243408
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042532:
 	ldr r1, [r1, #0xc]
 	mov r0, #0x0
 	mov r2, #0x2
-	bl MOD06_02243E74
+	bl ov06_02243E74
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042540:
 	mov r0, #0x0
 	ldr r1, [r1, #0xc]
 	add r2, r0, #0x0
-	bl MOD06_02243E74
+	bl ov06_02243E74
 	strh r0, [r4, #0x0]
 	b _020426FA
 _0204254E:
 	ldr r0, [r1, #0xc]
 	lsl r1, r6, #0x18
 	lsr r1, r1, #0x18
-	bl MOD06_02243428
+	bl ov06_02243428
 	b _020426FA
 _0204255A:
 	ldr r0, [r1, #0xc]
-	bl MOD06_02243448
+	bl ov06_02243448
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042564:
 	ldr r0, [r1, #0xc]
-	bl MOD06_0224345C
+	bl ov06_0224345C
 	strh r0, [r4, #0x0]
 	b _020426FA
 _0204256E:
 	ldr r0, [r1, #0xc]
-	bl MOD06_022434AC
+	bl ov06_022434AC
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042578:
@@ -317,7 +317,7 @@ _0204258A:
 	add r2, r0, #0x0
 	ldr r1, [r7, #0x74]
 	add r0, r5, #0x0
-	bl MOD06_022436C8
+	bl ov06_022436C8
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -330,60 +330,60 @@ _020425A2:
 	add r1, r0, #0x0
 	ldr r2, [r2, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_022436E8
+	bl ov06_022436E8
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020425BC:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_02243780
+	bl ov06_02243780
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020425C8:
 	add r0, r5, #0x0
-	bl MOD06_022438DC
+	bl ov06_022438DC
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020425D2:
 	add r0, r5, #0x0
-	bl MOD06_022438E0
+	bl ov06_022438E0
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020425DC:
 	add r0, r5, #0x0
-	bl MOD06_022438FC
+	bl ov06_022438FC
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020425E6:
 	add r0, r5, #0x0
-	bl MOD06_02243920
+	bl ov06_02243920
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020425F0:
 	add r0, r5, #0x0
-	bl MOD06_022439F8
+	bl ov06_022439F8
 	b _020426FA
 _020425F8:
 	add r0, r5, #0x0
-	bl MOD06_02243AD8
+	bl ov06_02243AD8
 	b _020426FA
 _02042600:
 	add r0, r5, #0x0
-	bl MOD06_02243BA8
+	bl ov06_02243BA8
 	b _020426FA
 _02042608:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_02243C5C
+	bl ov06_02243C5C
 	b _020426FA
 _02042612:
 	add r0, r5, #0x0
-	bl MOD06_02243D3C
+	bl ov06_02243D3C
 	b _020426FA
 _0204261A:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl MOD06_02243DA0
+	bl ov06_02243DA0
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042626:
@@ -395,45 +395,45 @@ _02042626:
 	ldr r0, [r7, #0x0]
 	add r1, r5, #0x0
 	ldr r0, [r0, #0x10]
-	bl MOD06_02243DB8
+	bl ov06_02243DB8
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _02042642:
 	add r0, r5, #0x0
-	bl MOD06_02243DC0
+	bl ov06_02243DC0
 	strh r0, [r4, #0x0]
 	b _020426FA
 _0204264C:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl MOD06_02243DC4
+	bl ov06_02243DC4
 	b _020426FA
 _02042656:
 	add r0, r5, #0x0
-	bl MOD06_02243DD8
+	bl ov06_02243DD8
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042660:
 	add r0, r5, #0x0
-	bl MOD06_02243DE0
+	bl ov06_02243DE0
 	strh r0, [r4, #0x0]
 	b _020426FA
 _0204266A:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_02243E34
+	bl ov06_02243E34
 	b _020426FA
 _02042674:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_02243F18
+	bl ov06_02243F18
 	strh r0, [r4, #0x0]
 	b _020426FA
 _02042680:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_02243F50
+	bl ov06_02243F50
 	strh r0, [r4, #0x0]
 	b _020426FA
 _0204268C:
@@ -456,7 +456,7 @@ _020426A0:
 _020426AA:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_02243838
+	bl ov06_02243838
 	b _020426FA
 _020426B4:
 	add r0, r5, r6
@@ -468,7 +468,7 @@ _020426BE:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
 	mov r2, #0x1
-	bl MOD06_02243E74
+	bl ov06_02243E74
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020426CC:
@@ -481,7 +481,7 @@ _020426CC:
 _020426DA:
 	ldr r1, [r1, #0xc]
 	add r0, r5, #0x0
-	bl MOD06_02243F9C
+	bl ov06_02243F9C
 	strh r0, [r4, #0x0]
 	b _020426FA
 _020426E6:
@@ -644,14 +644,14 @@ _0204281E:
 	add r0, #0xa8
 	ldr r0, [r0, #0x0]
 	ldr r1, [r1, #0xc]
-	bl MOD06_022446FC
+	bl ov06_022446FC
 	b _0204284C
 _02042830:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	add r0, #0xa8
 	ldr r0, [r0, #0x0]
-	bl MOD06_02244758
+	bl ov06_02244758
 	b _0204284C
 _0204283E:
 	add r5, #0x80
@@ -659,7 +659,7 @@ _0204283E:
 	add r1, r7, #0x0
 	add r0, #0xa8
 	ldr r0, [r0, #0x0]
-	bl MOD06_02244770
+	bl ov06_02244770
 _0204284C:
 	bl sub_02031190
 	ldr r1, _02042860 ; =0x0000083E
@@ -812,7 +812,7 @@ ScrCmd_Unk0294: ; 0x02042950
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl MOD05_021E2A70
+	bl ov05_021E2A70
 	str r0, [r7, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -825,7 +825,7 @@ ScrCmd_Unk0295: ; 0x02042980
 	mov r1, #0x26
 	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
-	bl MOD05_021E29B4
+	bl ov05_021E29B4
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -842,7 +842,7 @@ ScrCmd_Unk0296: ; 0x02042998
 	add r4, #0x80
 	ldr r0, [r4, #0x0]
 	ldr r1, [r1, #0x0]
-	bl MOD05_021E2AD4
+	bl ov05_021E2AD4
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4

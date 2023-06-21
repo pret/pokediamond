@@ -137,7 +137,7 @@ sub_0204B410: ; 0x0204B410
 	add r5, r1, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x11
-	bl MOD05_021E4C54
+	bl ov05_021E4C54
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl AllocFromHeap
@@ -145,7 +145,7 @@ sub_0204B410: ; 0x0204B410
 	ldr r2, [r5, #0x60]
 	add r0, r4, #0x0
 	mov r1, #0x11
-	bl MOD05_021E4C60
+	bl ov05_021E4C60
 	add r0, r5, #0x0
 	add r1, r5, #0x0
 	add r5, #0x60
@@ -157,11 +157,11 @@ sub_0204B410: ; 0x0204B410
 
 	thumb_func_start sub_0204B444
 sub_0204B444: ; 0x0204B444
-	ldr r3, _0204B44C ; =MOD05_021E4C00
+	ldr r3, _0204B44C ; =ov05_021E4C00
 	ldr r0, [r0, #0x60]
 	bx r3
 	nop
-_0204B44C: .word MOD05_021E4C00
+_0204B44C: .word ov05_021E4C00
 
 	thumb_func_start sub_0204B450
 sub_0204B450: ; 0x0204B450

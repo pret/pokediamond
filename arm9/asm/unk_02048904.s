@@ -833,7 +833,7 @@ _02048F9A:
 	str r1, [r6, #0x0]
 	add r0, r4, #0x0
 	add r2, r6, #0x0
-	bl MOD05_021E7750
+	bl ov05_021E7750
 	ldr r0, [r5, #0x0]
 	add r0, r0, #0x1
 	str r0, [r5, #0x0]
@@ -1404,7 +1404,7 @@ _02049408:
 	str r0, [r4, #0x0]
 	b _0204942C
 _02049416:
-	bl MOD05_021E331C
+	bl ov05_021E331C
 	add r0, r5, #0x0
 	bl sub_02049430
 	ldr r0, [r4, #0x0]
@@ -1438,7 +1438,7 @@ _02049452:
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl MOD06_022483BC
+	bl ov06_022483BC
 	str r0, [r4, #0x4]
 	ldr r1, _02049470 ; =sub_02049474
 	add r0, r6, #0x0
@@ -1454,11 +1454,11 @@ sub_02049474: ; 0x02049474
 	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
-	bl MOD06_022483E0
+	bl ov06_022483E0
 	cmp r0, #0x1
 	bne _02049490
 	ldr r0, [r4, #0x4]
-	bl MOD06_022483EC
+	bl ov06_022483EC
 	mov r0, #0x1
 	pop {r4, pc}
 _02049490:
@@ -1654,7 +1654,7 @@ _020495F0:
 	b _02049616
 _020495FE:
 	add r0, r6, #0x0
-	bl MOD05_021E331C
+	bl ov05_021E331C
 	add r0, r5, #0x0
 	bl sub_0204961C
 	ldr r0, [r4, #0x0]
@@ -1688,14 +1688,14 @@ _0204963E:
 	ldr r2, [r6, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl MOD06_0224C8C8
+	bl ov06_0224C8C8
 	add r2, r0, #0x0
-	ldr r1, _02049654 ; =MOD06_0224C8E8
+	ldr r1, _02049654 ; =ov06_0224C8E8
 	add r0, r5, #0x0
 	bl sub_0204640C
 	pop {r4-r6, pc}
 	.balign 4
-_02049654: .word MOD06_0224C8E8
+_02049654: .word ov06_0224C8E8
 
 	thumb_func_start sub_02049658
 sub_02049658: ; 0x02049658
@@ -1729,7 +1729,7 @@ _0204968E:
 	add r0, r7, #0x0
 	mov r1, #0x1
 	add r2, r4, #0x4
-	bl MOD05_021E7750
+	bl ov05_021E7750
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1773,7 +1773,7 @@ _020496EA:
 	str r1, [r4, #0x4]
 	add r0, r7, #0x0
 	add r2, r4, #0x4
-	bl MOD05_021E7750
+	bl ov05_021E7750
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2096,9 +2096,9 @@ _02049976:
 	add r0, r5, #0x0
 	mov r1, #0xb
 	mov r2, #0x3
-	bl MOD05_021E8588
+	bl ov05_021E8588
 	str r0, [r4, #0x20]
-	bl MOD05_021E84F4
+	bl ov05_021E84F4
 	add r3, r4, #0x0
 	mov r2, #0x0
 	ldr r1, _02049AC4 ; =0x000007D5
@@ -2120,9 +2120,9 @@ _020499A2:
 	b _02049AB2
 _020499B2:
 	ldr r0, [r4, #0x20]
-	bl MOD05_021E856C
+	bl ov05_021E856C
 	ldr r0, [r4, #0x20]
-	bl MOD05_021E85E4
+	bl ov05_021E85E4
 	ldrh r0, [r4, #0x1c]
 	cmp r0, #0x0
 	bne _020499CA
@@ -2169,7 +2169,7 @@ _02049A06:
 _02049A14:
 	mov r0, #0x1
 	str r0, [r5, #0x6c]
-	ldr r0, _02049AC8 ; =SDK_OVERLAY_MODULE_18_ID
+	ldr r0, _02049AC8 ; =SDK_OVERLAY_OVERLAY_18_ID
 	mov r1, #0x2
 	bl HandleLoadOverlay
 	add r0, r5, #0x0
@@ -2209,7 +2209,7 @@ _02049A64:
 	beq _02049AB2
 	bl sub_0204FCA0
 	add r0, r5, #0x0
-	bl MOD18_02244824
+	bl ov18_02244824
 	mov r1, #0x0
 	str r0, [r5, #0x68]
 	mov r0, #0x2
@@ -2229,7 +2229,7 @@ _02049A96:
 	cmp r0, #0x0
 	beq _02049AB2
 	mov r0, #0x1
-	bl MOD18_02247970
+	bl ov18_02247970
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0x8
@@ -2244,7 +2244,7 @@ _02049AB8: .word 0x000003D9
 _02049ABC: .word UNK_020F46D8
 _02049AC0: .word 0x000007F2
 _02049AC4: .word 0x000007D5
-_02049AC8: .word SDK_OVERLAY_MODULE_18_ID
+_02049AC8: .word SDK_OVERLAY_OVERLAY_18_ID
 
 	thumb_func_start sub_02049ACC
 sub_02049ACC: ; 0x02049ACC
@@ -2276,10 +2276,10 @@ _02049AF2: ; jump table (using 16-bit offset)
 	.short _02049BD2 - _02049AF2 - 2; case 7
 _02049B02:
 	mov r0, #0x0
-	bl MOD18_02247970
+	bl ov18_02247970
 	bl sub_0204FCD8
 	ldr r0, [r5, #0x68]
-	bl MOD18_0224484C
+	bl ov18_0224484C
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	mov r0, #0x1e
@@ -2330,7 +2330,7 @@ _02049B68:
 _02049B76:
 	mov r0, #0x0
 	str r0, [r5, #0x6c]
-	ldr r0, _02049BE4 ; =SDK_OVERLAY_MODULE_18_ID
+	ldr r0, _02049BE4 ; =SDK_OVERLAY_OVERLAY_18_ID
 	bl UnloadOverlayByID
 	ldr r0, [r4, #0x14]
 	mov r2, #0x1
@@ -2379,7 +2379,7 @@ _02049BDC:
 	add sp, #0x8
 	pop {r4-r6, pc}
 	nop
-_02049BE4: .word SDK_OVERLAY_MODULE_18_ID
+_02049BE4: .word SDK_OVERLAY_OVERLAY_18_ID
 
 	thumb_func_start sub_02049BE8
 sub_02049BE8: ; 0x02049BE8
@@ -2558,7 +2558,7 @@ _02049D30:
 	add r0, r7, #0x0
 	mov r1, #0x1
 	add r2, r5, #0x4
-	bl MOD05_021E7750
+	bl ov05_021E7750
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2712,7 +2712,7 @@ _02049E74:
 	str r1, [r5, #0x4]
 	add r0, r7, #0x0
 	add r2, r5, #0x4
-	bl MOD05_021E7750
+	bl ov05_021E7750
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

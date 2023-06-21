@@ -929,7 +929,7 @@ ScrCmd_Unk018C: ; 0x0203DB88
 _0203DBC6:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl MOD05_021F1EC0
+	bl ov05_021F1EC0
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -992,7 +992,7 @@ ScrCmd_Unk0168: ; 0x0203DC00
 	ldr r0, [r5, #0x0]
 	add r1, r7, r1
 	add r2, r2, r4
-	bl MOD05_021DAE40
+	bl ov05_021DAE40
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -1006,7 +1006,7 @@ ScrCmd_Unk0169: ; 0x0203DC58
 	add r0, #0x80
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
-	bl MOD05_021DAF78
+	bl ov05_021DAF78
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -1020,7 +1020,7 @@ ScrCmd_Unk016A: ; 0x0203DC70
 	add r0, #0x80
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
-	bl MOD05_021DAF98
+	bl ov05_021DAF98
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1034,7 +1034,7 @@ ScrCmd_Unk016B: ; 0x0203DC88
 	add r0, #0x80
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
-	bl MOD05_021DAED4
+	bl ov05_021DAED4
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1048,7 +1048,7 @@ ScrCmd_Unk016C: ; 0x0203DCA0
 	add r0, #0x80
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
-	bl MOD05_021DAF28
+	bl ov05_021DAF28
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1068,7 +1068,7 @@ ScrCmd_Unk0170: ; 0x0203DCC8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl MOD06_02241230
+	bl ov06_02241230
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -1088,7 +1088,7 @@ ScrCmd_Unk0172: ; 0x0203DCE8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl MOD06_02241914
+	bl ov06_02241914
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -1140,7 +1140,7 @@ ScrCmd_Unk0176: ; 0x0203DD34
 	str r1, [r0, #0x8]
 	ldrb r1, [r2, #0x0]
 	add r0, r3, #0x0
-	bl MOD06_02242A38
+	bl ov06_02242A38
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -1188,7 +1188,7 @@ ScrCmd_Unk019E: ; 0x0203DD60
 	add r2, r0, #0x0
 	ldr r1, [r1, #0x0]
 	add r0, r7, #0x0
-	bl MOD18_0224CA54
+	bl ov18_0224CA54
 	str r0, [r4, #0x0]
 	ldr r1, _0203DDBC ; =sub_0203DDC0
 	add r0, r5, #0x0
@@ -1216,7 +1216,7 @@ sub_0203DDC0: ; 0x0203DDC0
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl MOD18_0224CA2C
+	bl ov18_0224CA2C
 	strh r0, [r5, #0x0]
 	ldrh r1, [r5, #0x0]
 	ldr r0, _0203DDFC ; =0x0000FFFE
@@ -1246,7 +1246,7 @@ ScrCmd_Unk019F: ; 0x0203DE00
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl VarGet
-	bl MOD18_0224CA58
+	bl ov18_0224CA58
 	strb r0, [r4, #0x0]
 	ldr r1, _0203DE34 ; =sub_0203DE38
 	add r0, r5, #0x0
@@ -1270,7 +1270,7 @@ sub_0203DE38: ; 0x0203DE38
 	thumb_func_start ScrCmd_Unk01A0
 ScrCmd_Unk01A0: ; 0x0203DE4C
 	push {r3, lr}
-	bl MOD11_0224CA94
+	bl ov11_0224CA94
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -1290,7 +1290,7 @@ ScrCmd_Unk01A1: ; 0x0203DE58
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl MOD18_0224CAA0
+	bl ov18_0224CAA0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1310,7 +1310,7 @@ ScrCmd_Unk01A2: ; 0x0203DE80
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl MOD18_0224CAB4
+	bl ov18_0224CAB4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1325,7 +1325,7 @@ ScrCmd_Unk003F: ; 0x0203DEA8
 	mov r1, #0x1
 	ldr r0, [r0, #0x74]
 	add r2, r1, #0x0
-	bl MOD06_02242BE0
+	bl ov06_02242BE0
 	mov r0, #0x1
 	add sp, #0x8
 	pop {r3, pc}
@@ -1516,7 +1516,7 @@ ScrCmd_Unk01C1: ; 0x0203E018
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl MOD05_021F3A18
+	bl ov05_021F3A18
 	strh r0, [r6, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -1536,7 +1536,7 @@ ScrCmd_Unk01C2: ; 0x0203E054
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl MOD05_021F3AB4
+	bl ov05_021F3AB4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -1574,7 +1574,7 @@ ScrCmd_Unk01C3: ; 0x0203E078
 	add r0, r4, #0x0
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
-	bl MOD05_021F3B7C
+	bl ov05_021F3B7C
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
@@ -1612,7 +1612,7 @@ ScrCmd_Unk01C4: ; 0x0203E0CC
 	add r0, r4, #0x0
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
-	bl MOD05_021F3B4C
+	bl ov05_021F3B4C
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
@@ -2046,7 +2046,7 @@ ScrCmd_Unk01EC: ; 0x0203E4A0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl MOD06_0224CBB0
+	bl ov06_0224CBB0
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -2064,7 +2064,7 @@ ScrCmd_Unk01ED: ; 0x0203E4B0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl MOD06_0224CC24
+	bl ov06_0224CC24
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2294,7 +2294,7 @@ ScrCmd_Unk020D: ; 0x0203E684
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
-	bl MOD06_022456E8
+	bl ov06_022456E8
 	strh r0, [r6, #0x0]
 	mov r0, #0x1
 	pop {r4-r6, pc}
@@ -2332,7 +2332,7 @@ ScrCmd_Unk020F: ; 0x0203E6C4
 	ldrh r1, [r4, #0x0]
 	ldr r0, [r5, #0x0]
 	add r2, r6, #0x0
-	bl MOD06_0224525C
+	bl ov06_0224525C
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
@@ -2353,7 +2353,7 @@ ScrCmd_Unk0210: ; 0x0203E6FC
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
-	bl MOD06_02245340
+	bl ov06_02245340
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -2537,7 +2537,7 @@ ScrCmd_Unk0226: ; 0x0203E870
 	str r0, [r5, #0x8]
 	ldrb r1, [r1, #0x0]
 	mov r0, #0xb
-	bl MOD06_0224884C
+	bl ov06_0224884C
 	str r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2559,7 +2559,7 @@ ScrCmd_Unk0227: ; 0x0203E894
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl MOD06_022488EC
+	bl ov06_022488EC
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2582,7 +2582,7 @@ ScrCmd_Unk0228: ; 0x0203E8C4
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl MOD06_022488F4
+	bl ov06_022488F4
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2621,7 +2621,7 @@ ScrCmd_Unk022A: ; 0x0203E928
 	mov r1, #0x14
 	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
-	bl MOD06_022488CC
+	bl ov06_022488CC
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -2796,7 +2796,7 @@ ScrCmd_Unk0239: ; 0x0203EA90
 	bl GetVarPointer
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x74]
-	bl MOD06_022411F4
+	bl ov06_022411F4
 	mov r0, #0x1
 	pop {r4, pc}
 
@@ -2839,10 +2839,10 @@ ScrCmd_Unk023A: ; 0x0203EAB0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r5, #0x0
-	bl MOD05_021F61E8
+	bl ov05_021F61E8
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl MOD05_021F61DC
+	bl ov05_021F61DC
 	strh r0, [r6, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -2863,7 +2863,7 @@ ScrCmd_Unk023B: ; 0x0203EB20
 	lsl r1, r1, #0x18
 	ldr r0, [r4, #0x0]
 	lsr r1, r1, #0x18
-	bl MOD06_0224C27C
+	bl ov06_0224C27C
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
@@ -2893,7 +2893,7 @@ ScrCmd_Unk023C: ; 0x0203EB48
 	ldr r0, [r5, #0x0]
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
-	bl MOD06_0224C520
+	bl ov06_0224C520
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -3001,7 +3001,7 @@ ScrCmd_GiveWallpaper: ; 0x0203EBE4
 	ldr r2, [sp, #0x8]
 	ldr r3, [sp, #0xc]
 	add r1, r7, #0x0
-	bl MOD06_0224D14C
+	bl ov06_0224D14C
 	add r5, r0, #0x0
 	mov r0, #0x0
 	mvn r0, r0
@@ -3067,7 +3067,7 @@ ScrCmd_Unk024B: ; 0x0203ECD8
 	str r1, [r0, #0x8]
 	ldrb r1, [r2, #0x0]
 	add r0, r3, #0x0
-	bl MOD06_0224C678
+	bl ov06_0224C678
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -3083,7 +3083,7 @@ ScrCmd_Unk024C: ; 0x0203ECF4
 	str r1, [r0, #0x8]
 	ldrb r1, [r2, #0x0]
 	add r0, r3, #0x0
-	bl MOD06_0224C6E8
+	bl ov06_0224C6E8
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -3099,7 +3099,7 @@ ScrCmd_Unk024D: ; 0x0203ED10
 	str r1, [r0, #0x8]
 	ldrb r1, [r2, #0x0]
 	add r0, r3, #0x0
-	bl MOD06_0224C6F4
+	bl ov06_0224C6F4
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -3173,7 +3173,7 @@ ScrCmd_Unk0258: ; 0x0203EDA4
 	add r5, #0x80
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x0]
-	bl MOD05_021E7184
+	bl ov05_021E7184
 	str r0, [r4, #0x0]
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -3187,7 +3187,7 @@ ScrCmd_Unk0259: ; 0x0203EDC8
 	mov r1, #0x16
 	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
-	bl MOD05_021E71E8
+	bl ov05_021E71E8
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -3207,7 +3207,7 @@ ScrCmd_Unk025A: ; 0x0203EDE0
 	lsl r1, r1, #0x18
 	ldr r0, [r4, #0x0]
 	lsr r1, r1, #0x18
-	bl MOD06_0224E554
+	bl ov06_0224E554
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
@@ -3263,7 +3263,7 @@ ScrCmd_Unk025E: ; 0x0203EE58
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl MOD06_0224E764
+	bl ov06_0224E764
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -3273,7 +3273,7 @@ ScrCmd_Unk025F: ; 0x0203EE68
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl MOD06_0224E7C4
+	bl ov06_0224E7C4
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
@@ -4597,17 +4597,17 @@ ScrCmd_Unk029E: ; 0x0203F8C0
 _0203F8FC:
 	mov r2, #0x0
 	mov r3, #0x20
-	bl MOD06_0224F12C
+	bl ov06_0224F12C
 	b _0203F91E
 _0203F906:
 	mov r2, #0x1
 	mov r3, #0x20
-	bl MOD06_0224F12C
+	bl ov06_0224F12C
 	b _0203F91E
 _0203F910:
 	mov r2, #0x2
 	mov r3, #0x20
-	bl MOD06_0224F12C
+	bl ov06_0224F12C
 	b _0203F91E
 _0203F91A:
 	bl GF_AssertFail
@@ -4654,13 +4654,13 @@ ScrCmd_Unk029F: ; 0x0203F954
 	add r4, #0x80
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x10]
-	bl MOD06_02239944
+	bl ov06_02239944
 	b _0203F982
 _0203F978:
 	add r4, #0x80
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x10]
-	bl MOD06_02239AAC
+	bl ov06_02239AAC
 _0203F982:
 	mov r0, #0x1
 	pop {r4, pc}
@@ -5041,9 +5041,9 @@ ScrCmd_Unk02C1: ; 0x0203FC80
 	add r0, r5, #0x0
 	mov r1, #0x4
 	mov r2, #0x3
-	bl MOD05_021E8588
+	bl ov05_021E8588
 	str r0, [r4, #0x0]
-	bl MOD05_021E84F4
+	bl ov05_021E84F4
 _0203FCAA:
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -5063,9 +5063,9 @@ ScrCmd_Unk02C2: ; 0x0203FCB0
 	cmp r0, #0x0
 	bne _0203FCD6
 	ldr r0, [r4, #0x0]
-	bl MOD05_021E856C
+	bl ov05_021E856C
 	ldr r0, [r4, #0x0]
-	bl MOD05_021E85E4
+	bl ov05_021E85E4
 _0203FCD6:
 	mov r0, #0x0
 	pop {r3-r5, pc}

@@ -87,7 +87,7 @@ _02055118:
 	add r0, r4, #0x0
 	bl sub_02058578
 	add r0, r5, #0x0
-	bl MOD05_021EDBC8
+	bl ov05_021EDBC8
 	add r0, r5, #0x0
 	bl PlayerAvatar_GetState
 	cmp r0, #0x2
@@ -106,7 +106,7 @@ _02055118:
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl MOD06_0224ABAC
+	bl ov06_0224ABAC
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02055450

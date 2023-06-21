@@ -2002,7 +2002,7 @@ sub_0205BB90: ; 0x0205BB90
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	mov r2, #0x1
-	bl MOD05_021E7AC0
+	bl ov05_021E7AC0
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
 	bl sub_02058700
@@ -2015,7 +2015,7 @@ sub_0205BBB4: ; 0x0205BBB4
 	bl sub_02058600
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
-	bl MOD05_021E799C
+	bl ov05_021E799C
 	cmp r0, #0x1
 	bne _0205BBD8
 	ldr r0, [r4, #0x4]
@@ -2339,7 +2339,7 @@ _0205BDFE:
 	add r0, r4, #0x0
 	bl sub_02058B94
 	add r0, r4, #0x0
-	bl MOD06_0224D2E0
+	bl ov06_0224D2E0
 	ldr r1, _0205BE34 ; =0x00010004
 	add r0, r4, #0x0
 	bl sub_02058410

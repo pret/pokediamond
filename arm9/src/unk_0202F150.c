@@ -15,16 +15,16 @@ extern u32 sub_0200CA60(void (*param0)(), u32 param1, u32 param2);
 extern void sub_0202D394(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2);
 extern void sub_0202D804(u8 *param0);
 extern void sub_0202D330(void (*param0)(int));
-extern void MOD04_021D83C0();
+extern void ov04_021D83C0();
 extern void sub_0202DBA4();
 extern void sub_0200CAB4(u32 param0);
 extern void sub_0202D824(u8 *param0);
-extern u32 MOD04_021D78FC(void *param0, u32 param1);
+extern u32 ov04_021D78FC(void *param0, u32 param1);
 extern u32 sub_0202CBD4();
 extern void sub_0202D4BC(void *param0);
 extern int sub_0202D400(struct UnkStruct0202F150_sub1 *param0, void *param1, u32 param2);
 extern u32 sub_0202D0D0(u8 *param0, u16 param1, u32 param2, void (*param3)(u32));
-extern u32 MOD04_021D79B4(void *param0, u32 param1);
+extern u32 ov04_021D79B4(void *param0, u32 param1);
 extern void sub_0202D3A4(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2, u32 param3);
 extern int sub_0202D498(void *param0);
 extern u16 sub_0202CB8C();
@@ -38,11 +38,11 @@ extern u32 sub_0202D41C(struct UnkStruct0202F150_sub1 *param0);
 extern s16 sub_0202D9A0(u32 param0);
 extern u32 sub_0202DA04(u32 param0);
 extern void *sub_0202DA40(u32 param0, u32 param1, u16 param2);
-extern u32 MOD04_021D8018();
+extern u32 ov04_021D8018();
 extern u16 sub_0202D19C();
 extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
 extern void sub_0202D830(u8 *param0, u32 param1);
-extern u32 MOD04_021D8624();
+extern u32 ov04_021D8624();
 
 u32 sub_0202F150(u32 param0, u32 param1)
 {
@@ -451,7 +451,7 @@ void sub_0202FA5C()
     {
         if (sub_02033534() >= 0x13)
         {
-            MOD04_021D83C0();
+            ov04_021D83C0();
             r4 = 1;
         }
         else
@@ -622,7 +622,7 @@ void sub_0202FCCC()
     {
         if (sub_02033534() >= 0x13)
         {
-            if (UNK_021C59F8->unk687 == 0 || MOD04_021D78FC(UNK_021C59F8, 0x26) == 0)
+            if (UNK_021C59F8->unk687 == 0 || ov04_021D78FC(UNK_021C59F8, 0x26) == 0)
             {
                 return;
             }
@@ -683,7 +683,7 @@ void sub_0202FCCC()
             }
         }
 
-        if (MOD04_021D78FC(UNK_021C59F8, 0x26) == 0)
+        if (ov04_021D78FC(UNK_021C59F8, 0x26) == 0)
         {
             return;
         }
@@ -929,7 +929,7 @@ void sub_02030074()
     {
         if (sub_02033534() >= 0x13)
         {
-            if (sub_02030E7C(0) != 0 && MOD04_021D79B4(UNK_021C59F8->unk154, 0x4c) != 0)
+            if (sub_02030E7C(0) != 0 && ov04_021D79B4(UNK_021C59F8->unk154, 0x4c) != 0)
             {
                 UNK_021C59F8->unk683 = 0;
                 return;
@@ -984,7 +984,7 @@ void sub_02030074()
                 UNK_02105D59 = 2;
             }
 
-            if (MOD04_021D79B4(UNK_021C59F8->unk154, 0x4c) == 0)
+            if (ov04_021D79B4(UNK_021C59F8->unk154, 0x4c) == 0)
             {
                 return;
             }
@@ -1955,7 +1955,7 @@ BOOL sub_02030E7C(u16 param0)
 
     if (sub_02033534() >= 0x13)
     {
-        if (UNK_021C59F8->unk687 != 0 && MOD04_021D8018() != 0xffffffff)
+        if (UNK_021C59F8->unk687 != 0 && ov04_021D8018() != 0xffffffff)
         {
             if (param0 == 0)
             {
@@ -2173,7 +2173,7 @@ u16 sub_02031190()
     {
         if (sub_02033534() >= 0x13)
         {
-            u32 res = MOD04_021D8018();
+            u32 res = ov04_021D8018();
             if (res != 0xffffffff)
             {
                 return (u16)res;
@@ -2418,7 +2418,7 @@ u32 sub_020313EC()
         return 0;
     }
 
-    return MOD04_021D8624();
+    return ov04_021D8624();
 }
 
 void sub_02031400(u32 param0)

@@ -40,10 +40,10 @@ sub_0206BF90: ; 0x0206BF90
 	strb r0, [r6, #0x4]
 	add r0, r5, #0x0
 	add r1, r4, #0x4
-	bl MOD11_02231344
+	bl ov11_02231344
 	add r0, r5, #0x0
 	add r1, r6, #0x4
-	bl MOD11_02231350
+	bl ov11_02231350
 	ldr r0, _0206BFE8 ; =sub_0206C550
 	add r1, r4, #0x0
 	mov r2, #0x0
@@ -226,13 +226,13 @@ sub_0206C0C8: ; 0x0206C0C8
 	bl AllocFromHeap
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl MOD11_022300D4
+	bl ov11_022300D4
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl MOD11_022300F4
+	bl ov11_022300F4
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl MOD11_02230100
+	bl ov11_02230100
 	mov r12, r0
 	add r0, sp, #0x10
 	ldrh r3, [r4, #0x0]
@@ -292,13 +292,13 @@ sub_0206C154: ; 0x0206C154
 	add r0, r3, #0x0
 	add r5, r1, #0x0
 	add r6, r2, #0x0
-	bl MOD11_022300DC
+	bl ov11_022300DC
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl MOD11_02230118
+	bl ov11_02230118
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl MOD11_02230124
+	bl ov11_02230124
 	ldrh r1, [r4, #0x0]
 	add r2, r1, r5
 	add r3, r2, #0x1
@@ -850,16 +850,16 @@ sub_0206C550: ; 0x0206C550
 	add r5, r1, #0x0
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x0]
-	bl MOD11_022300D4
+	bl ov11_022300D4
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl MOD11_022300E8
+	bl ov11_022300E8
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl MOD11_022300F4
+	bl ov11_022300F4
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x0]
-	bl MOD11_02230100
+	bl ov11_02230100
 	add r7, r0, #0x0
 	ldrb r0, [r5, #0x4]
 	cmp r0, #0x0
@@ -918,16 +918,16 @@ sub_0206C5DC: ; 0x0206C5DC
 	add r5, r1, #0x0
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x0]
-	bl MOD11_022300DC
+	bl ov11_022300DC
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl MOD11_0223010C
+	bl ov11_0223010C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl MOD11_02230118
+	bl ov11_02230118
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl MOD11_02230124
+	bl ov11_02230124
 	ldrb r1, [r5, #0x4]
 	cmp r1, #0x0
 	beq _0206C60A
@@ -948,7 +948,7 @@ _0206C61E:
 	ldrh r1, [r4, #0x0]
 	ldr r0, [r5, #0x0]
 	add r1, r6, r1
-	bl MOD11_022567E0
+	bl ov11_022567E0
 	ldrh r0, [r4, #0x0]
 	add r1, r0, #0x2
 	ldrb r2, [r6, r1]
@@ -974,13 +974,13 @@ sub_0206C64C: ; 0x0206C64C
 	add r4, r3, #0x0
 	add r0, r4, #0x0
 	mov r1, #0xff
-	bl MOD11_0223135C
+	bl ov11_0223135C
 	add r0, r4, #0x0
 	mov r1, #0xff
-	bl MOD11_02231368
+	bl ov11_02231368
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl MOD11_02231374
+	bl ov11_02231374
 	pop {r4, pc}
 	.balign 4
 

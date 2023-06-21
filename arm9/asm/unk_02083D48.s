@@ -262,7 +262,7 @@ sub_02083E4C: ; 0x02083E4C
 	add r0, r4, #0x0
 	mov r1, #0x3
 	mov r2, #0x0
-	bl MOD53_021D8B64
+	bl ov53_021D8B64
 	ldr r1, _02083E8C ; =0x000043D0
 	mov r2, #0xe1
 	mov r0, #0x0
@@ -327,7 +327,7 @@ _02083ED0:
 	ldr r1, [r4, r1]
 	cmp r1, r0
 	bne _02083EFE
-	bl MOD53_021D917C
+	bl ov53_021D917C
 	mov r1, #0xc6
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -383,7 +383,7 @@ _02083F3C:
 	add r0, r4, #0x0
 	mov r1, #0x9
 	add r2, r6, #0x0
-	bl MOD53_021D8B64
+	bl ov53_021D8B64
 	add sp, #0x4
 	pop {r3-r6, pc}
 _02083F5A:
@@ -393,14 +393,14 @@ _02083F5A:
 	ldrb r2, [r5, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x8
-	bl MOD53_021D8B64
+	bl ov53_021D8B64
 	add sp, #0x4
 	pop {r3-r6, pc}
 _02083F6E:
 	ldrb r2, [r5, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x15
-	bl MOD53_021D8B64
+	bl ov53_021D8B64
 _02083F78:
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -420,7 +420,7 @@ sub_02083F88: ; 0x02083F88
 	add r4, r3, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl MOD53_021D8B64
+	bl ov53_021D8B64
 	bl sub_02031190
 	cmp r0, #0x0
 	bne _02083FB6
@@ -460,7 +460,7 @@ sub_02083FC4: ; 0x02083FC4
 	add r0, r4, #0x0
 	mov r1, #0xf
 	mov r2, #0x0
-	bl MOD53_021D8B64
+	bl ov53_021D8B64
 _02083FDA:
 	pop {r4, pc}
 

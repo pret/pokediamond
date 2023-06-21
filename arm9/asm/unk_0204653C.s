@@ -539,7 +539,7 @@ sub_02046948: ; 0x02046948
 	bl sub_02046528
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl MOD06_02244558
+	bl ov06_02244558
 	add r4, r0, #0x0
 	bl sub_020475A0
 	add r6, r0, #0x0
@@ -815,7 +815,7 @@ _02046BA0:
 _02046BAE:
 	ldr r1, [r4, #0x10]
 	add r0, r5, #0x0
-	bl MOD06_02248724
+	bl ov06_02248724
 	add r0, r6, #0x0
 	bl sub_0204B00C
 	ldr r0, [r4, #0x0]
@@ -1077,7 +1077,7 @@ SetupAndStartHoneyTreeBattle: ; 0x02046DB4
 	str r1, [r4, r0]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl MOD06_0223CCDC
+	bl ov06_0223CCDC
 	ldr r0, [r5, #0xc]
 	bl Save_GameStats_Get
 	mov r1, #0x7
@@ -1119,7 +1119,7 @@ SetupAndStartWildBattle: ; 0x02046E18
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	add r3, r4, #0x0
-	bl MOD06_0223CD7C
+	bl ov06_0223CD7C
 	ldr r0, [sp, #0x20]
 	cmp r0, #0x0
 	beq _02046E60
@@ -1299,7 +1299,7 @@ SetupAndStartFirstBattle: ; 0x02046FA0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	add r3, r4, #0x0
-	bl MOD06_0223CD7C
+	bl ov06_0223CD7C
 	mov r0, #0x63
 	mov r1, #0x1
 	lsl r0, r0, #0x2

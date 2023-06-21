@@ -269,7 +269,7 @@ _0208A566:
 	cmp r0, #0x0
 	beq _0208A5B0
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0x5
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -310,7 +310,7 @@ _0208A5BE:
 	cmp r0, #0x0
 	beq _0208A6C8
 	mov r0, #0x1
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0x8
 	str r0, [r4, #0x54]
 	b _0208A6C8

@@ -5,7 +5,7 @@
 
 	.global UNK_020F7630
 UNK_020F7630: ; 0x020F7630
-	.word MOD81_02237E40, MOD81_02238064, MOD81_02238004, SDK_OVERLAY_MODULE_81_ID
+	.word ov81_02237E40, ov81_02238064, ov81_02238004, SDK_OVERLAY_OVERLAY_81_ID
 
 	.text
 
@@ -62,11 +62,11 @@ _02060704:
 	ldr r1, [r4, #0x0]
 	ldr r2, [r4, #0x8]
 	add r0, r6, #0x0
-	bl MOD06_0224891C
+	bl ov06_0224891C
 	ldr r1, [r4, #0x0]
 	ldr r2, [r4, #0x8]
 	add r0, r6, #0x0
-	bl MOD06_022488FC
+	bl ov06_022488FC
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]

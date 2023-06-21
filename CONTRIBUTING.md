@@ -17,7 +17,7 @@ root
    `- lib
       `- src
       `- include
-   `- modules
+   `- overlays
       `- 00
          `- asm
          `- src
@@ -86,7 +86,7 @@ After placing your C file into the LSF as described above, test your build by ru
 Append the line `.extern sub_0201B578` to arm9/global.inc and recompile.
 
     build/arm9.sbin: FAILED
-    build/MODULE_00.sbin: FAILED
+    build/OVERLAY_00.sbin: FAILED
     ...
 
 Your attempt was incorrect. Don't be discouraged, this is all part of the process. The following bash script will allow you to compare your code to the original ROM; save it as arm9/asmdiff.sh
@@ -109,7 +109,7 @@ Place a clean version of the ARM9 binary as arm9/baserom.sbin (arm9/build/arm9.b
 
 **This section describes a target repository specification and does not reflect the current state of the project.**
 
-ASM files may own one or more data/RAM sections. The types of these sections is not guaranteed to be accurate. When decompiling data, you are expected to translate the raw bytes into the actual structures used by the source code. These may be simple values (char, short, word, or pointer), or they could be C structs or unions. Some overlay modules are suspected to contain C++ classes, the handling of which is not yet described.
+ASM files may own one or more data/RAM sections. The types of these sections is not guaranteed to be accurate. When decompiling data, you are expected to translate the raw bytes into the actual structures used by the source code. These may be simple values (char, short, word, or pointer), or they could be C structs or unions. Some overlays are suspected to contain C++ classes, the handling of which is not yet described.
 
 Because the Nintendo DS architecture is ARM, all data is aligned. This means 16-bit integers are aligned to 2 bytes within a structure, and anything 4 bytes or wider is aligned to 4 bytes (long, long long, float, double, struct, union, void *). All data requiring alignment are padded with 0. For example:
 ```armasm

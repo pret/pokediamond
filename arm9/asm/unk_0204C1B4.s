@@ -71,7 +71,7 @@ sub_0204C1F4: ; 0x0204C1F4
 _0204C214:
 	ldr r0, [r5, #0x4]
 	ldr r0, [r0, #0x1c]
-	bl MOD05_021F4608
+	bl ov05_021F4608
 	ldr r0, [r4, #0x14]
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x18]
@@ -93,7 +93,7 @@ _0204C23C:
 	beq _0204C258
 	ldr r0, [r5, #0x4]
 	ldr r0, [r0, #0x1c]
-	bl MOD05_021F45E8
+	bl ov05_021F45E8
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0xc
@@ -333,7 +333,7 @@ _0204C41E:
 	add r0, r7, #0x0
 	bl sub_0204AD8C
 	add r0, r7, #0x0
-	bl MOD05_021E331C
+	bl ov05_021E331C
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	ldr r1, [r4, #0x20]
@@ -415,7 +415,7 @@ _0204C4C8: ; jump table (using 16-bit offset)
 	.short _0204C510 - _0204C4C8 - 2; case 2
 	.short _0204C51E - _0204C4C8 - 2; case 3
 _0204C4D0:
-	bl MOD05_021DA5B8
+	bl ov05_021DA5B8
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
 	bl GetPlayerXCoord
@@ -425,7 +425,7 @@ _0204C4D0:
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
-	bl MOD05_021DA5D0
+	bl ov05_021DA5D0
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -433,11 +433,11 @@ _0204C4D0:
 _0204C4F6:
 	ldr r1, [r4, #0x1c]
 	add r0, r5, #0x0
-	bl MOD05_021DA5D8
+	bl ov05_021DA5D8
 	cmp r0, #0x0
 	beq _0204C522
 	ldr r0, [r4, #0x1c]
-	bl MOD05_021DA5C8
+	bl ov05_021DA5C8
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -475,7 +475,7 @@ sub_0204C528: ; 0x0204C528
 	beq _0204C598
 	b _0204C59C
 _0204C54A:
-	bl MOD05_021DA5B8
+	bl ov05_021DA5B8
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
 	bl GetPlayerXCoord
@@ -485,7 +485,7 @@ _0204C54A:
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
-	bl MOD05_021DA5D0
+	bl ov05_021DA5D0
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -499,11 +499,11 @@ _0204C570:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	lsr r2, r2, #0x18
-	bl MOD05_021DAC70
+	bl ov05_021DAC70
 	cmp r0, #0x0
 	beq _0204C59C
 	ldr r0, [r4, #0x1c]
-	bl MOD05_021DA5C8
+	bl ov05_021DA5C8
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -579,7 +579,7 @@ _0204C61C:
 	ldr r0, _0204C640 ; =0x00000603
 	bl PlaySE
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -614,9 +614,9 @@ sub_0204C644: ; 0x0204C644
 	beq _0204C67E
 	b _0204C682
 _0204C668:
-	bl MOD05_021DB030
+	bl ov05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C688 ; =MOD05_021DB1D0
+	ldr r1, _0204C688 ; =ov05_021DB1D0
 	add r0, r5, #0x0
 	bl sub_0204640C
 	ldr r0, [r4, #0x4]
@@ -630,7 +630,7 @@ _0204C682:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_0204C688: .word MOD05_021DB1D0
+_0204C688: .word ov05_021DB1D0
 
 	thumb_func_start sub_0204C68C
 sub_0204C68C: ; 0x0204C68C
@@ -650,9 +650,9 @@ sub_0204C68C: ; 0x0204C68C
 	beq _0204C6C6
 	b _0204C6CA
 _0204C6B0:
-	bl MOD05_021DB030
+	bl ov05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C6D0 ; =MOD05_021DB144
+	ldr r1, _0204C6D0 ; =ov05_021DB144
 	add r0, r5, #0x0
 	bl sub_0204640C
 	ldr r0, [r4, #0x4]
@@ -666,7 +666,7 @@ _0204C6CA:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_0204C6D0: .word MOD05_021DB144
+_0204C6D0: .word ov05_021DB144
 
 	thumb_func_start sub_0204C6D4
 sub_0204C6D4: ; 0x0204C6D4
@@ -714,16 +714,16 @@ _0204C700:
 	str r0, [r5, #0x4]
 	b _0204C798
 _0204C736:
-	bl MOD05_021DB030
+	bl ov05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C79C ; =MOD05_021DB250
+	ldr r1, _0204C79C ; =ov05_021DB250
 	add r0, r6, #0x0
 	bl sub_0204640C
 	mov r0, #0x3
 	str r0, [r5, #0x4]
 	b _0204C798
 _0204C74A:
-	bl MOD05_021DA5B8
+	bl ov05_021DA5B8
 	str r0, [r5, #0x1c]
 	ldr r0, [r4, #0x38]
 	bl GetPlayerXCoord
@@ -733,7 +733,7 @@ _0204C74A:
 	add r1, r0, #0x0
 	ldr r2, [r5, #0x1c]
 	add r0, r6, #0x0
-	bl MOD05_021DA5D0
+	bl ov05_021DA5D0
 	ldr r0, [r5, #0x4]
 	add r0, r0, #0x1
 	str r0, [r5, #0x4]
@@ -742,11 +742,11 @@ _0204C770:
 	ldr r5, [r5, #0x1c]
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl MOD05_021DA7B4
+	bl ov05_021DA7B4
 	cmp r0, #0x0
 	beq _0204C798
 	add r0, r5, #0x0
-	bl MOD05_021DA5C8
+	bl ov05_021DA5C8
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x0
@@ -760,7 +760,7 @@ _0204C798:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
-_0204C79C: .word MOD05_021DB250
+_0204C79C: .word ov05_021DB250
 
 	thumb_func_start sub_0204C7A0
 sub_0204C7A0: ; 0x0204C7A0
@@ -804,9 +804,9 @@ _0204C7BE:
 	bl sub_020463EC
 	b _0204C818
 _0204C7FE:
-	bl MOD05_021DB030
+	bl ov05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C820 ; =MOD05_021DB380
+	ldr r1, _0204C820 ; =ov05_021DB380
 	add r0, r6, #0x0
 	bl sub_0204640C
 	ldr r0, [r4, #0x4]
@@ -821,7 +821,7 @@ _0204C818:
 	pop {r3-r7, pc}
 	.balign 4
 _0204C81C: .word sub_0204C6D4
-_0204C820: .word MOD05_021DB380
+_0204C820: .word ov05_021DB380
 
 	thumb_func_start sub_0204C824
 sub_0204C824: ; 0x0204C824
@@ -841,7 +841,7 @@ sub_0204C824: ; 0x0204C824
 	beq _0204C894
 	b _0204C898
 _0204C846:
-	bl MOD05_021DA5B8
+	bl ov05_021DA5B8
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
 	bl GetPlayerXCoord
@@ -851,7 +851,7 @@ _0204C846:
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
-	bl MOD05_021DA5D0
+	bl ov05_021DA5D0
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -865,11 +865,11 @@ _0204C86C:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	lsr r2, r2, #0x18
-	bl MOD05_021DAAA4
+	bl ov05_021DAAA4
 	cmp r0, #0x0
 	beq _0204C898
 	ldr r0, [r4, #0x1c]
-	bl MOD05_021DA5C8
+	bl ov05_021DA5C8
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -906,7 +906,7 @@ _0204C8C0: ; jump table (using 16-bit offset)
 	.short _0204C932 - _0204C8C0 - 2; case 3
 _0204C8C8:
 	mov r0, #0x1
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0x0
@@ -979,9 +979,9 @@ sub_0204C93C: ; 0x0204C93C
 	beq _0204C976
 	b _0204C97A
 _0204C960:
-	bl MOD05_021DB030
+	bl ov05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C980 ; =MOD05_021DB040
+	ldr r1, _0204C980 ; =ov05_021DB040
 	add r0, r5, #0x0
 	bl sub_0204640C
 	ldr r0, [r4, #0x4]
@@ -995,7 +995,7 @@ _0204C97A:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_0204C980: .word MOD05_021DB040
+_0204C980: .word ov05_021DB040
 
 	thumb_func_start sub_0204C984
 sub_0204C984: ; 0x0204C984

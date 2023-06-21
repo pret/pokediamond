@@ -924,7 +924,7 @@ ScrCmd_Unk0113: ; 0x02040638
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
 	ldr r0, [r0, #0x1c]
-	bl MOD05_021F4608
+	bl ov05_021F4608
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -936,7 +936,7 @@ ScrCmd_Unk0114: ; 0x0204064C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
 	ldr r0, [r0, #0x1c]
-	bl MOD05_021F45E8
+	bl ov05_021F45E8
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -995,6 +995,6 @@ _020406BA:
 ScrCmd_Unk0116: ; 0x020406C0
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
-	bl MOD06_0224D3E8
+	bl ov06_0224D3E8
 	mov r0, #0x1
 	pop {r3, pc}

@@ -82,12 +82,12 @@ sub_020647A4: ; 0x020647A4
 	ldr r0, [r0, #0x0]
 	ldr r1, [r4, #0x2c]
 	mov r3, r12
-	bl MOD05_021E7FBC
+	bl ov05_021E7FBC
 	add r0, r4, #0x0
 	add r0, #0xa0
 	ldr r0, [r0, #0x0]
 	ldr r1, _02064864 ; =0x00000102
-	bl MOD05_021E7ED8
+	bl ov05_021E7ED8
 	str r0, [sp, #0x14]
 	b _0206482C
 _0206480A:
@@ -109,11 +109,11 @@ _0206480A:
 _0206482C:
 	ldr r1, [sp, #0x14]
 	add r0, sp, #0x18
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	ldr r0, [sp, #0x14]
 	add r1, sp, #0x18
 	str r5, [sp, #0x1c]
-	bl MOD05_021E7EB0
+	bl ov05_021E7EB0
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	str r5, [sp, #0x4]
@@ -124,7 +124,7 @@ _0206482C:
 	ldr r1, [r6, #0x8]
 	ldr r2, [r6, #0xc]
 	mov r0, #0x0
-	bl MOD05_021F44D8
+	bl ov05_021F44D8
 	add sp, #0x30
 	pop {r3-r7, pc}
 	nop
@@ -456,7 +456,7 @@ _02064AB4:
 	add r0, #0xa0
 	ldr r0, [r0, #0x0]
 	ldr r1, _02064B64 ; =0x00000102
-	bl MOD05_021E7ED8
+	bl ov05_021E7ED8
 	str r0, [sp, #0xc]
 	b _02064AEC
 _02064ACA:
@@ -478,7 +478,7 @@ _02064ACA:
 _02064AEC:
 	ldr r1, [sp, #0xc]
 	add r0, sp, #0x10
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	ldr r0, [r4, #0xc]
 	cmp r0, #0x0
 	bne _02064AFE
@@ -506,7 +506,7 @@ _02064B1C:
 	bl sub_02055540
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x10
-	bl MOD05_021E7EB0
+	bl ov05_021E7EB0
 	b _02064B5C
 _02064B2E:
 	add r2, r5, #0x0
@@ -514,7 +514,7 @@ _02064B2E:
 	ldr r1, [r4, #0x4]
 	ldr r2, [r2, #0x0]
 	mov r0, #0x0
-	bl MOD05_021F4594
+	bl ov05_021F4594
 	ldr r0, [r5, #0x38]
 	mov r1, #0x1
 	bl sub_0205557C
@@ -580,7 +580,7 @@ _02064BB4:
 	add r0, #0xa0
 	ldr r0, [r0, #0x0]
 	ldr r1, _02064C58 ; =0x00000102
-	bl MOD05_021E7ED8
+	bl ov05_021E7ED8
 	str r0, [sp, #0xc]
 	b _02064BEC
 _02064BCA:
@@ -602,7 +602,7 @@ _02064BCA:
 _02064BEC:
 	ldr r1, [sp, #0xc]
 	add r0, sp, #0x10
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	mov r0, #0x1
 	ldr r1, [sp, #0x14]
 	lsl r0, r0, #0xc
@@ -623,7 +623,7 @@ _02064C12:
 	bl sub_02055540
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x10
-	bl MOD05_021E7EB0
+	bl ov05_021E7EB0
 	b _02064C52
 _02064C24:
 	add r2, r5, #0x0
@@ -631,7 +631,7 @@ _02064C24:
 	ldr r1, [r4, #0x4]
 	ldr r2, [r2, #0x0]
 	mov r0, #0x0
-	bl MOD05_021F4594
+	bl ov05_021F4594
 	ldr r0, [r5, #0x38]
 	mov r1, #0x1
 	bl sub_0205557C

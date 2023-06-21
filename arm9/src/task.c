@@ -73,7 +73,7 @@ BOOL sub_0204647C(struct FieldSystem *fieldSystem)
 
 void sub_0204649C(void * r0)
 {
-    LoadOverlay_MODULE_05(r0);
+    LoadOverlay_OVERLAY_05(r0);
 }
 
 BOOL sub_020464A4(void * r0)

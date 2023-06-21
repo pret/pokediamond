@@ -7,7 +7,7 @@
 
 	.global UNK_020FCAD8
 UNK_020FCAD8: ; 0x020FCAD8
-	.word sub_020859C0, sub_02085BB0, sub_02085C08, SDK_OVERLAY_MODULE_62_ID
+	.word sub_020859C0, sub_02085BB0, sub_02085C08, SDK_OVERLAY_OVERLAY_62_ID
 
 	.global UNK_020FCAE8
 UNK_020FCAE8: ; 0x020FCAE8
@@ -186,8 +186,8 @@ sub_020859C0: ; 0x020859C0
 	lsl r2, r2, #0x12
 	bl CreateHeap
 	mov r0, #0x35
-	bl MOD62_02230F3C
-	bl MOD62_0222F7E0
+	bl ov62_02230F3C
+	bl ov62_0222F7E0
 	ldr r1, _02085BA0 ; =0x0000042C
 	add r0, r5, #0x0
 	mov r2, #0x35
@@ -196,7 +196,7 @@ sub_020859C0: ; 0x020859C0
 	mov r1, #0x0
 	add r4, r0, #0x0
 	bl memset
-	bl MOD62_0222E2BC
+	bl ov62_0222E2BC
 	mov r1, #0x23
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -332,8 +332,8 @@ _02085A9A:
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
-	bl MOD62_02230F80
-	bl MOD62_0222E360
+	bl ov62_02230F80
+	bl ov62_0222E360
 	mov r0, #0x35
 	bl sub_02006D98
 	mov r1, #0x69
@@ -357,7 +357,7 @@ _02085A9A:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r1, #0x0]
 	add r2, r5, #0x0
-	bl MOD62_0222ED34
+	bl ov62_0222ED34
 	add r0, r4, #0x0
 	add r1, r4, #0x0
 	add r0, #0xe4
@@ -365,20 +365,20 @@ _02085A9A:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r1, #0x0]
 	add r2, r5, #0x0
-	bl MOD62_0222EDBC
+	bl ov62_0222EDBC
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl MOD62_0222E7E8
+	bl ov62_0222E7E8
 	bl sub_0201CC08
 	mov r0, #0x4
 	bl sub_0201CC24
 	add r0, r4, #0x0
-	bl MOD62_022300E4
-	ldr r0, _02085BAC ; =MOD62_022310CC
+	bl ov62_022300E4
+	ldr r0, _02085BAC ; =ov62_022310CC
 	add r1, r4, #0x0
 	bl Main_SetVBlankIntrCB
 	add r0, r4, #0x0
-	bl MOD62_0222DD1C
+	bl ov62_0222DD1C
 	mov r1, #0x0
 	mov r0, #0x3b
 	add r2, r1, #0x0
@@ -389,7 +389,7 @@ _02085A9A:
 _02085BA0: .word 0x0000042C
 _02085BA4: .word 0x00000428
 _02085BA8: .word 0x0000041C
-_02085BAC: .word MOD62_022310CC
+_02085BAC: .word ov62_022310CC
 
 	thumb_func_start sub_02085BB0
 sub_02085BB0: ; 0x02085BB0
@@ -413,7 +413,7 @@ _02085BCA:
 	str r0, [r5, #0x0]
 	b _02085C02
 _02085BD8:
-	bl MOD12_0222F990
+	bl ov12_0222F990
 	cmp r0, #0x0
 	bne _02085BE6
 	mov r0, #0x2
@@ -424,7 +424,7 @@ _02085BE6:
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	bl sub_02006ED4
-	bl MOD62_0222E3A0
+	bl ov62_0222E3A0
 	b _02085C02
 _02085BF6:
 	bl IsPaletteFadeFinished
@@ -541,7 +541,7 @@ sub_02085C08: ; 0x02085C08
 	ldr r0, [r4, r0]
 	bl FreeToHeap
 	add r0, r4, #0x0
-	bl MOD62_0222DAEC
+	bl ov62_0222DAEC
 	mov r0, #0x73
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -555,29 +555,29 @@ sub_02085C08: ; 0x02085C08
 	ldr r0, [r4, r0]
 	bl sub_02014C28
 	add r0, r4, #0x0
-	bl MOD62_0222DD38
+	bl ov62_0222DD38
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl MOD62_0222E874
+	bl ov62_0222E874
 	bl sub_0201C29C
 	mov r0, #0x23
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	bl sub_020223BC
 	mov r0, #0x35
-	bl MOD62_02230F70
+	bl ov62_02230F70
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	bl sub_0201CD04
 	mov r0, #0x35
 	bl DestroyHeap
-	ldr r0, _02085D68 ; =SDK_OVERLAY_MODULE_08_ID
+	ldr r0, _02085D68 ; =SDK_OVERLAY_OVERLAY_08_ID
 	bl UnloadOverlayByID
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	nop
 _02085D64: .word 0x00000428
-_02085D68: .word SDK_OVERLAY_MODULE_08_ID
+_02085D68: .word SDK_OVERLAY_OVERLAY_08_ID
 
 	thumb_func_start sub_02085D6C
 sub_02085D6C: ; 0x02085D6C

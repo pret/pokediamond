@@ -66,17 +66,17 @@ _0203732E:
 sub_02037334: ; 0x02037334
 	push {r3, lr}
 	bl sub_020374B0
-	ldr r0, _02037348 ; =SDK_OVERLAY_MODULE_63_ID
-	ldr r1, _0203734C ; =MOD63_021DBAB8
+	ldr r0, _02037348 ; =SDK_OVERLAY_OVERLAY_63_ID
+	ldr r1, _0203734C ; =ov63_021DBAB8
 	bl RegisterMainOverlay
 	mov r0, #0x1
 	pop {r3, pc}
 	nop
-_02037348: .word SDK_OVERLAY_MODULE_63_ID
-_0203734C: .word MOD63_021DBAB8
+_02037348: .word SDK_OVERLAY_OVERLAY_63_ID
+_0203734C: .word ov63_021DBAB8
 
-	thumb_func_start LoadOverlay_MODULE_05
-LoadOverlay_MODULE_05: ; 0x02037350
+	thumb_func_start LoadOverlay_OVERLAY_05
+LoadOverlay_OVERLAY_05: ; 0x02037350
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -91,7 +91,7 @@ _02037360:
 	beq _0203736C
 	bl GF_AssertFail
 _0203736C:
-	ldr r0, _0203738C ; =SDK_OVERLAY_MODULE_05_ID
+	ldr r0, _0203738C ; =SDK_OVERLAY_OVERLAY_05_ID
 	mov r1, #0x2
 	bl HandleLoadOverlay
 	mov r1, #0x0
@@ -99,15 +99,15 @@ _0203736C:
 	ldr r0, [r4, #0x0]
 	mov r2, #0xb
 	str r1, [r0, #0x8]
-	ldr r0, _02037390 ; =UNK05_021F64C8
+	ldr r0, _02037390 ; =ov05_021F64C8
 	add r1, r4, #0x0
 	bl OverlayManager_New
 	ldr r1, [r4, #0x0]
 	str r0, [r1, #0x0]
 	pop {r4, pc}
 	.balign 4
-_0203738C: .word SDK_OVERLAY_MODULE_05_ID
-_02037390: .word UNK05_021F64C8
+_0203738C: .word SDK_OVERLAY_OVERLAY_05_ID
+_02037390: .word ov05_021F64C8
 
 	thumb_func_start sub_02037394
 sub_02037394: ; 0x02037394
@@ -322,7 +322,7 @@ sub_02037524: ; 0x02037524
 	mov r1, #0x0
 	add r0, r4, #0x0
 	add r2, r1, #0x0
-	bl MOD05_021EFA9C
+	bl ov05_021EFA9C
 _02037546:
 	ldr r0, [r4, #0x0]
 	ldr r1, [r0, #0x0]
@@ -333,7 +333,7 @@ _02037546:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _0203756E
-	ldr r0, _02037590 ; =SDK_OVERLAY_MODULE_05_ID
+	ldr r0, _02037590 ; =SDK_OVERLAY_OVERLAY_05_ID
 	bl UnloadOverlayByID
 	b _0203756E
 _02037562:
@@ -362,7 +362,7 @@ _0203758C:
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_02037590: .word SDK_OVERLAY_MODULE_05_ID
+_02037590: .word SDK_OVERLAY_OVERLAY_05_ID
 
 	thumb_func_start sub_02037594
 sub_02037594: ; 0x02037594
@@ -395,7 +395,7 @@ _020375B4:
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl MOD05_021D8164
+	bl ov05_021D8164
 _020375D4:
 	ldr r0, [r4, #0x1c]
 	ldr r2, [r4, #0x6c]
@@ -427,7 +427,7 @@ _020375FC:
 	beq _02037610
 	add r0, sp, #0x8
 	add r1, r4, #0x0
-	bl MOD05_021D85FC
+	bl ov05_021D85FC
 _02037610:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -442,7 +442,7 @@ _0203761C:
 	beq _02037638
 	add r0, sp, #0x8
 	add r1, r4, #0x0
-	bl MOD04_021D865C
+	bl ov04_021D865C
 	cmp r0, #0x1
 	bne _0203763A
 	mov r5, #0x0
@@ -462,7 +462,7 @@ _02037646:
 _0203764C:
 	add r0, sp, #0x8
 	add r1, r4, #0x0
-	bl MOD05_021D8758
+	bl ov05_021D8758
 	cmp r0, #0x1
 	beq _02037754
 	add r3, sp, #0x8
@@ -482,21 +482,21 @@ _02037672:
 	beq _02037754
 	add r0, sp, #0x8
 	add r1, r4, #0x0
-	bl MOD05_021D8820
+	bl ov05_021D8820
 	cmp r0, #0x1
 	bne _020376A6
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0x8]
-	bl MOD05_021E32F0
+	bl ov05_021E32F0
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl MOD05_021E81BC
+	bl ov05_021E81BC
 	ldr r0, [r4, #0x38]
-	bl MOD05_021E7138
+	bl ov05_021E7138
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x1
-	bl MOD05_021EFA9C
+	bl ov05_021EFA9C
 	add sp, #0x10
 	pop {r3-r5, pc}
 _020376A6:
@@ -507,13 +507,13 @@ _020376A6:
 	beq _020376B8
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0x8]
-	bl MOD05_021E32F0
+	bl ov05_021E32F0
 _020376B8:
 	mov r5, #0x0
 	bl sub_02037790
 	cmp r0, #0x0
 	beq _020376C8
-	bl MOD20_02252534
+	bl ov20_02252534
 	add r5, r0, #0x0
 _020376C8:
 	add r3, sp, #0x8
@@ -533,23 +533,23 @@ _020376E2:
 	beq _02037754
 	add r0, sp, #0x8
 	add r1, r4, #0x0
-	bl MOD05_021D8320
+	bl ov05_021D8320
 	cmp r0, #0x1
 	bne _0203771C
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0x8]
-	bl MOD05_021E32F0
+	bl ov05_021E32F0
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl MOD05_021E81BC
+	bl ov05_021E81BC
 	ldr r0, [r4, #0x38]
 	bl sub_02055B14
 	ldr r0, [r4, #0x38]
-	bl MOD05_021E7138
+	bl ov05_021E7138
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x1
-	bl MOD05_021EFA9C
+	bl ov05_021EFA9C
 	add sp, #0x10
 	pop {r3-r5, pc}
 _0203771C:
@@ -560,13 +560,13 @@ _0203771C:
 	beq _0203772E
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0x8]
-	bl MOD05_021E32F0
+	bl ov05_021E32F0
 _0203772E:
 	mov r5, #0x0
 	bl sub_02037790
 	cmp r0, #0x0
 	beq _0203773E
-	bl MOD20_02252534
+	bl ov20_02252534
 	add r5, r0, #0x0
 _0203773E:
 	add r3, sp, #0x8

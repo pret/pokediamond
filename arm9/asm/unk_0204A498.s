@@ -58,7 +58,7 @@ sub_0204A4A4: ; 0x0204A4A4
 	ldr r2, [r2, #0x0]
 	add r0, r7, #0x0
 	add r3, sp, #0x28
-	bl MOD05_021F4520
+	bl ov05_021F4520
 	str r0, [sp, #0x20]
 	lsr r0, r7, #0x5
 	str r0, [sp, #0x18]
@@ -82,7 +82,7 @@ sub_0204A4A4: ; 0x0204A4A4
 	mul r0, r1
 	ldr r1, [sp, #0xc]
 	add r0, r7, r0
-	bl MOD05_021EF620
+	bl ov05_021EF620
 	ldr r2, [sp, #0x14]
 	add r1, r0, #0x0
 	add r3, r2, #0x0
@@ -91,7 +91,7 @@ sub_0204A4A4: ; 0x0204A4A4
 	mul r3, r0
 	ldr r0, [sp, #0x18]
 	add r0, r0, r3
-	bl MOD05_021EF654
+	bl ov05_021EF654
 	add r1, r0, #0x0
 	cmp r1, #0x3
 	bls _0204A53C
@@ -101,14 +101,14 @@ _0204A53C:
 	lsl r1, r1, #0x18
 	ldr r0, [sp, #0x8]
 	lsr r1, r1, #0x18
-	bl MOD05_021EF8C8
+	bl ov05_021EF8C8
 	add r3, r0, #0x0
 	add r0, sp, #0x30
 	str r0, [sp, #0x0]
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x2c]
 	ldr r2, [sp, #0x34]
-	bl MOD05_021F3DA4
+	bl ov05_021F3DA4
 	add r4, r0, #0x0
 _0204A558:
 	ldr r0, [sp, #0x20]
@@ -118,7 +118,7 @@ _0204A558:
 	add r5, #0x9c
 	ldrb r0, [r0, #0x0]
 	ldr r1, [r5, #0x0]
-	bl MOD05_021F4568
+	bl ov05_021F4568
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	beq _0204A59E
@@ -181,7 +181,7 @@ sub_0204A5C0: ; 0x0204A5C0
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	mov r3, #0x0
-	bl MOD05_021EF844
+	bl ov05_021EF844
 	ldr r1, [sp, #0x8]
 	cmp r1, #0x0
 	beq _0204A5EE
@@ -208,7 +208,7 @@ sub_0204A5F4: ; 0x0204A5F4
 	add r3, sp, #0x0
 	add r5, r1, #0x0
 	add r6, r2, #0x0
-	bl MOD05_021EF844
+	bl ov05_021EF844
 	cmp r0, #0x0
 	bne _0204A612
 	mov r0, #0xff
@@ -219,7 +219,7 @@ _0204A612:
 	add r1, sp, #0x0
 	ldrb r1, [r1, #0x0]
 	add r0, r7, #0x0
-	bl MOD05_021EF8DC
+	bl ov05_021EF8DC
 	lsr r2, r5, #0x1f
 	lsl r1, r5, #0x1b
 	sub r1, r1, r2
@@ -564,7 +564,7 @@ sub_0204A87C: ; 0x0204A87C
 	add r4, r2, #0x0
 	add r0, sp, #0x0
 	add r1, r3, #0x0
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	ldr r1, [sp, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r2, [sp, #0x8]
@@ -609,11 +609,11 @@ _0204A8D4:
 	ldr r0, [sp, #0x8]
 	ldr r1, [r1, #0x24]
 	add r2, sp, #0xc
-	bl MOD05_021EF604
+	bl ov05_021EF604
 	ldr r0, [sp, #0x0]
 	ldr r1, [sp, #0x8]
 	ldr r0, [r0, #0x24]
-	bl MOD05_021EF824
+	bl ov05_021EF824
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x28]
@@ -626,7 +626,7 @@ _0204A8D4:
 _0204A900:
 	ldr r0, [sp, #0xc]
 	add r1, r5, #0x0
-	bl MOD05_021E7ED0
+	bl ov05_021E7ED0
 	add r1, r7, #0x0
 	add r2, sp, #0x10
 	add r4, r0, #0x0
@@ -634,7 +634,7 @@ _0204A900:
 	cmp r0, #0x0
 	beq _0204A92E
 	add r0, r4, #0x0
-	bl MOD05_021E7EC4
+	bl ov05_021E7EC4
 	cmp r0, r6
 	bne _0204A92E
 	ldr r0, [sp, #0x4]
@@ -677,11 +677,11 @@ _0204A95C:
 	ldr r0, [sp, #0x8]
 	ldr r1, [r1, #0x24]
 	add r2, sp, #0xc
-	bl MOD05_021EF604
+	bl ov05_021EF604
 	ldr r0, [sp, #0x0]
 	ldr r1, [sp, #0x8]
 	ldr r0, [r0, #0x24]
-	bl MOD05_021EF824
+	bl ov05_021EF824
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x28]
@@ -694,7 +694,7 @@ _0204A95C:
 _0204A988:
 	ldr r0, [sp, #0xc]
 	add r1, r6, #0x0
-	bl MOD05_021E7ED0
+	bl ov05_021E7ED0
 	ldr r1, [sp, #0x4]
 	add r2, sp, #0x10
 	add r7, r0, #0x0
@@ -702,7 +702,7 @@ _0204A988:
 	cmp r0, #0x0
 	beq _0204A9D2
 	add r0, r7, #0x0
-	bl MOD05_021E7EC4
+	bl ov05_021E7EC4
 	mov r1, #0x0
 	cmp r4, #0x0
 	bls _0204A9D2
@@ -761,14 +761,14 @@ _0204A9FE:
 	add r0, r7, #0x0
 	ldr r1, [r1, #0x24]
 	add r2, sp, #0xc
-	bl MOD05_021EF604
+	bl ov05_021EF604
 	mov r4, #0x0
 _0204AA0C:
 	ldr r0, [sp, #0xc]
 	add r1, r4, #0x0
-	bl MOD05_021E7ED0
+	bl ov05_021E7ED0
 	add r6, r0, #0x0
-	bl MOD05_021E7EC4
+	bl ov05_021E7EC4
 	cmp r0, r5
 	bne _0204AA40
 	ldr r0, [sp, #0x4]
@@ -782,7 +782,7 @@ _0204AA26:
 	ldr r0, [sp, #0x0]
 	add r1, r7, #0x0
 	ldr r0, [r0, #0x24]
-	bl MOD05_021EF824
+	bl ov05_021EF824
 	ldr r1, [sp, #0x8]
 	str r0, [r1, #0x0]
 _0204AA3A:
@@ -820,14 +820,14 @@ _0204AA6C:
 	ldr r0, [sp, #0x8]
 	ldr r1, [r1, #0x24]
 	add r2, sp, #0xc
-	bl MOD05_021EF604
+	bl ov05_021EF604
 	mov r6, #0x0
 _0204AA7A:
 	ldr r0, [sp, #0xc]
 	add r1, r6, #0x0
-	bl MOD05_021E7ED0
+	bl ov05_021E7ED0
 	add r7, r0, #0x0
-	bl MOD05_021E7EC4
+	bl ov05_021E7EC4
 	mov r1, #0x0
 	cmp r4, #0x0
 	bls _0204AAB6

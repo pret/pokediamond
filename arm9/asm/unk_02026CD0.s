@@ -63,9 +63,9 @@ sub_02026D34: ; 0x02026D34
 	add r0, r4, #0x0
 	add r1, sp, #0x4
 	add r2, sp, #0x8
-	bl MOD17_021DB858
+	bl ov17_021DB858
 	add r0, r4, #0x0
-	bl MOD17_021DB7E8
+	bl ov17_021DB7E8
 	add r4, r0, #0x0
 	mov r0, #0x1
 	ldr r1, [sp, #0x4]

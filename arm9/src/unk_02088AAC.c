@@ -4,15 +4,15 @@
 #include "overlay_manager.h"
 #include "unk_020851B8.h"
 
-extern BOOL MOD68_021D74E0(struct OverlayManager *, u32 *);
-extern BOOL MOD68_021D75D8(struct OverlayManager *, u32 *);
-extern BOOL MOD68_021D762C(struct OverlayManager *, u32 *);
-extern BOOL MOD73_021D74F0(struct OverlayManager *, u32 *);
-extern BOOL MOD73_021D758C(struct OverlayManager *, u32 *);
-extern BOOL MOD73_021D7640(struct OverlayManager *, u32 *);
-extern BOOL MOD75_021E6BA0(struct OverlayManager *, u32 *);
-extern BOOL MOD75_021E6D6C(struct OverlayManager *, u32 *);
-extern BOOL MOD75_021E6F00(struct OverlayManager *, u32 *);
+extern BOOL ov68_021D74E0(struct OverlayManager *, u32 *);
+extern BOOL ov68_021D75D8(struct OverlayManager *, u32 *);
+extern BOOL ov68_021D762C(struct OverlayManager *, u32 *);
+extern BOOL ov73_021D74F0(struct OverlayManager *, u32 *);
+extern BOOL ov73_021D758C(struct OverlayManager *, u32 *);
+extern BOOL ov73_021D7640(struct OverlayManager *, u32 *);
+extern BOOL ov75_021E6BA0(struct OverlayManager *, u32 *);
+extern BOOL ov75_021E6D6C(struct OverlayManager *, u32 *);
+extern BOOL ov75_021E6F00(struct OverlayManager *, u32 *);
 
 extern BOOL sub_0208898C(struct OverlayManager **r0);
 
@@ -43,14 +43,14 @@ u32 sub_02088AAC(struct UnkStruct_02088AAC *r0, u32 *r1)
 
 u32 sub_02088AFC(struct UnkStruct_02088AAC *r0)
 {
-    FS_EXTERN_OVERLAY(MODULE_73);
+    FS_EXTERN_OVERLAY(OVERLAY_73);
 
     const struct OverlayManagerTemplate OVERLAY_73_MANAGER =
     {
-        .initFunc = MOD73_021D74F0,
-        .mainFunc = MOD73_021D758C,
-        .exitFunc = MOD73_021D7640,
-        .ovly = FS_OVERLAY_ID(MODULE_73)
+        .initFunc = ov73_021D74F0,
+        .mainFunc = ov73_021D758C,
+        .exitFunc = ov73_021D7640,
+        .ovly = FS_OVERLAY_ID(OVERLAY_73)
     };
     r0->ovly_data = OverlayManager_New(&OVERLAY_73_MANAGER, (s32 *)r0, r0->heap_id);
 
@@ -79,15 +79,15 @@ u32 sub_02088B48()
 
 u32 sub_02088B4C(struct UnkStruct_02088AAC *r0)
 {
-    FS_EXTERN_OVERLAY(MODULE_75);
+    FS_EXTERN_OVERLAY(OVERLAY_75);
 
     static const u8 UNK_020FD6F4[] = { 0x04, 0xFF };
     const struct OverlayManagerTemplate OVERLAY_75_MANAGER =
         {
-            .initFunc = MOD75_021E6BA0,
-            .mainFunc = MOD75_021E6D6C,
-            .exitFunc = MOD75_021E6F00,
-            .ovly = FS_OVERLAY_ID(MODULE_75)
+            .initFunc = ov75_021E6BA0,
+            .mainFunc = ov75_021E6D6C,
+            .exitFunc = ov75_021E6F00,
+            .ovly = FS_OVERLAY_ID(OVERLAY_75)
         };
     struct BagView *bag_view = CreateBagView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heap_id);
 
@@ -136,15 +136,15 @@ u32 sub_02088BA8(struct UnkStruct_02088AAC *r0)
 
 u32 sub_02088C3C(struct UnkStruct_02088AAC *r0)
 {
-    FS_EXTERN_OVERLAY(MODULE_68);
+    FS_EXTERN_OVERLAY(OVERLAY_68);
 
     struct Bag *bag = r0->poffinCaseAppData->bag;
     const struct OverlayManagerTemplate OVERLAY_68_MANAGER =
         {
-            .initFunc = MOD68_021D74E0,
-            .mainFunc = MOD68_021D75D8,
-            .exitFunc = MOD68_021D762C,
-            .ovly = FS_OVERLAY_ID(MODULE_68)
+            .initFunc = ov68_021D74E0,
+            .mainFunc = ov68_021D75D8,
+            .exitFunc = ov68_021D762C,
+            .ovly = FS_OVERLAY_ID(OVERLAY_68)
         };
 
     r0->ovly_param = sub_020851B8((u8)r0->heap_id);

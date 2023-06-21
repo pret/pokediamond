@@ -253,7 +253,7 @@ _020862A0: ; jump table (using 16-bit offset)
 _020862AE:
 	ldr r0, [r4, #0xc]
 	mov r1, #0xb
-	bl MOD05_021ED940
+	bl ov05_021ED940
 	add r0, r5, #0x0
 	bl sub_0204AF3C
 	ldr r0, [r4, #0x0]

@@ -12,40 +12,40 @@ UNK_020FD6D4: ; 0x020FD6D4
 	thumb_func_start sub_02088858
 sub_02088858: ; 0x02088858
 	ldr r3, _02088860 ; =HandleLoadOverlay
-	ldr r0, _02088864 ; =SDK_OVERLAY_MODULE_04_ID
+	ldr r0, _02088864 ; =SDK_OVERLAY_OVERLAY_04_ID
 	mov r1, #0x2
 	bx r3
 	.balign 4
 _02088860: .word HandleLoadOverlay
-_02088864: .word SDK_OVERLAY_MODULE_04_ID
+_02088864: .word SDK_OVERLAY_OVERLAY_04_ID
 
 	thumb_func_start sub_02088868
 sub_02088868: ; 0x02088868
 	ldr r3, _02088870 ; =UnloadOverlayByID
-	ldr r0, _02088874 ; =SDK_OVERLAY_MODULE_04_ID
+	ldr r0, _02088874 ; =SDK_OVERLAY_OVERLAY_04_ID
 	bx r3
 	nop
 _02088870: .word UnloadOverlayByID
-_02088874: .word SDK_OVERLAY_MODULE_04_ID
+_02088874: .word SDK_OVERLAY_OVERLAY_04_ID
 
 	thumb_func_start sub_02088878
 sub_02088878: ; 0x02088878
 	ldr r3, _02088880 ; =HandleLoadOverlay
-	ldr r0, _02088884 ; =SDK_OVERLAY_MODULE_13_ID
+	ldr r0, _02088884 ; =SDK_OVERLAY_OVERLAY_13_ID
 	mov r1, #0x2
 	bx r3
 	.balign 4
 _02088880: .word HandleLoadOverlay
-_02088884: .word SDK_OVERLAY_MODULE_13_ID
+_02088884: .word SDK_OVERLAY_OVERLAY_13_ID
 
 	thumb_func_start sub_02088888
 sub_02088888: ; 0x02088888
 	ldr r3, _02088890 ; =UnloadOverlayByID
-	ldr r0, _02088894 ; =SDK_OVERLAY_MODULE_13_ID
+	ldr r0, _02088894 ; =SDK_OVERLAY_OVERLAY_13_ID
 	bx r3
 	nop
 _02088890: .word UnloadOverlayByID
-_02088894: .word SDK_OVERLAY_MODULE_13_ID
+_02088894: .word SDK_OVERLAY_OVERLAY_13_ID
 
 	thumb_func_start sub_02088898
 sub_02088898: ; 0x02088898
@@ -54,7 +54,7 @@ sub_02088898: ; 0x02088898
 	bl sub_02088858
 	bl sub_02088878
 	add r0, r4, #0x0
-	bl MOD07_02211E60
+	bl ov07_02211E60
 	bl sub_02088888
 	bl sub_02088868
 	mov r0, #0x0
@@ -65,21 +65,21 @@ sub_02088898: ; 0x02088898
 	thumb_func_start sub_020888BC
 sub_020888BC: ; 0x020888BC
 	ldr r3, _020888C4 ; =HandleLoadOverlay
-	ldr r0, _020888C8 ; =SDK_OVERLAY_MODULE_79_ID
+	ldr r0, _020888C8 ; =SDK_OVERLAY_OVERLAY_79_ID
 	mov r1, #0x2
 	bx r3
 	.balign 4
 _020888C4: .word HandleLoadOverlay
-_020888C8: .word SDK_OVERLAY_MODULE_79_ID
+_020888C8: .word SDK_OVERLAY_OVERLAY_79_ID
 
 	thumb_func_start sub_020888CC
 sub_020888CC: ; 0x020888CC
 	ldr r3, _020888D4 ; =UnloadOverlayByID
-	ldr r0, _020888D8 ; =SDK_OVERLAY_MODULE_79_ID
+	ldr r0, _020888D8 ; =SDK_OVERLAY_OVERLAY_79_ID
 	bx r3
 	nop
 _020888D4: .word UnloadOverlayByID
-_020888D8: .word SDK_OVERLAY_MODULE_79_ID
+_020888D8: .word SDK_OVERLAY_OVERLAY_79_ID
 
 	thumb_func_start sub_020888DC
 sub_020888DC: ; 0x020888DC

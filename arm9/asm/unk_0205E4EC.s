@@ -744,7 +744,7 @@ sub_0205EA64: ; 0x0205EA64
 	bl sub_0205EB20
 	cmp r0, #0x0
 	beq _0205EA72
-	bl MOD05_021E4DE4
+	bl ov05_021E4DE4
 _0205EA72:
 	pop {r3, pc}
 
@@ -787,7 +787,7 @@ sub_0205EAB0: ; 0x0205EAB0
 	cmp r1, #0x0
 	bne _0205EACA
 	ldrb r1, [r4, #0x1]
-	bl MOD06_0224CECC
+	bl ov06_0224CECC
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0205EB14
@@ -819,7 +819,7 @@ sub_0205EAE0: ; 0x0205EAE0
 	bne _0205EB0E
 	ldrb r1, [r4, #0x1]
 	add r0, r5, #0x0
-	bl MOD06_0224CECC
+	bl ov06_0224CECC
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0205EB14

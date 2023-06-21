@@ -11,9 +11,9 @@ extern void sub_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[
 extern void sub_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, PlayerProfile *player_data);
 extern u32 *sub_02038790(struct FieldSystem *fieldSystem, u16 param1, u16 param2);
 extern u16 *GetVarPointer(struct FieldSystem *fieldSystem, u16);
-extern u16 MOD06_02244660(struct FieldSystem *fieldSystem, u8 *param1);
-extern u16 MOD06_022446BC(struct FieldSystem *fieldSystem, u8 *param1);
-extern u16 MOD06_022446E0(struct FieldSystem *fieldSystem, u8 *param1);
+extern u16 ov06_02244660(struct FieldSystem *fieldSystem, u8 *param1);
+extern u16 ov06_022446BC(struct FieldSystem *fieldSystem, u8 *param1);
+extern u16 ov06_022446E0(struct FieldSystem *fieldSystem, u8 *param1);
 extern u32 sub_02026CC4(struct SaveData *save);
 extern u32 sub_02025D94(u32 param0, u32 param1);
 
@@ -284,13 +284,13 @@ BOOL sub_0205FD70(struct TaskManager *taskManager)
     switch (res2[0])
     {
     case 0:
-        *var = MOD06_02244660(fieldSystem, res3);
+        *var = ov06_02244660(fieldSystem, res3);
         break;
     case 1:
-        *var = MOD06_022446BC(fieldSystem, res3);
+        *var = ov06_022446BC(fieldSystem, res3);
         break;
     case 2:
-        *var = MOD06_022446E0(fieldSystem, res3);
+        *var = ov06_022446E0(fieldSystem, res3);
         break;
     }
 

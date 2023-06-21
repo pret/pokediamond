@@ -635,710 +635,710 @@ Autoload EXT
 	Address 0x02400000
 }
 
-Overlay MODULE_00
+Overlay OVERLAY_00
 {
 	After arm9
 }
 
-Overlay MODULE_01
+Overlay OVERLAY_01
 {
 	After arm9
-	Object module_01.o
+	Object overlay_01.o
 }
 
-Overlay MODULE_02
+Overlay OVERLAY_02
 {
-	After MODULE_01
+	After OVERLAY_01
 }
 
-Overlay MODULE_03
+Overlay OVERLAY_03
 {
 	After ITCM
 }
 
-Overlay MODULE_04
+Overlay OVERLAY_04
 {
 	After arm9
-	Object mod04_021D74E0.o
-	Object mod04_021D868C.o
-	Object mod04_021D8D18.o
-	Object mod04_021D9C2C.o
-	Object mod04_021DA260.o
-	Object mod04_021DB730.o
-	Object mod04_021DC8A4.o
-	Object mod04_021DCCC8.o
-	Object mod04_021DD36C.o
-	Object mod04_0220C680_certs.o
-	Object mod04_021DD6B0.o
-	Object mod04_021DD82C.o
-	Object mod04_021DD984.o
-	Object mod04_021DDF40.o
-	Object mod04_021DE2D0.o
-	Object mod04_021DE89C.o
-	Object mod04_021DEB90.o
-	Object mod04_021E05FC.o
-	Object mod04_021E10F8.o
-	Object mod04_021E26D0.o
+	Object ov04_021D74E0.o
+	Object ov04_021D868C.o
+	Object ov04_021D8D18.o
+	Object ov04_021D9C2C.o
+	Object ov04_021DA260.o
+	Object ov04_021DB730.o
+	Object ov04_021DC8A4.o
+	Object ov04_021DCCC8.o
+	Object ov04_021DD36C.o
+	Object ov04_0220C680_certs.o
+	Object ov04_021DD6B0.o
+	Object ov04_021DD82C.o
+	Object ov04_021DD984.o
+	Object ov04_021DDF40.o
+	Object ov04_021DE2D0.o
+	Object ov04_021DE89C.o
+	Object ov04_021DEB90.o
+	Object ov04_021E05FC.o
+	Object ov04_021E10F8.o
+	Object ov04_021E26D0.o
 	Object arm_04.o
 }
 
-Overlay MODULE_05
+Overlay OVERLAY_05
 {
 	##Overworld##
 	After arm9
-	Object mod05_021D74E0.o
-	Object mod05_021D7F4C.o
-	Object mod05_021D80E8.o
-	Object mod05_021D9320.o
-	Object mod05_021D9A48.o
-	Object mod05_021DA5B8.o
-	Object mod05_021DB44C.o
-	Object mod05_021DB900.o
-	Object mod05_021DBA00.o
-	Object mod05_021DBABC.o
-	Object mod05_021DBD84.o
-	Object mod05_021DBE04.o
-	Object mod05_021DBEF4.o
-	Object mod05_021DC0B8.o
-	Object mod05_021E1374.o
-	Object mod05_021E1AD8.o
-	Object mod05_021E2B80.o
-	Object mod05_021E2E88.o
-	Object mod05_021E3340.o
-	Object mod05_021E3444.o
-	Object mod05_021E4AE4.o
-	Object mod05_021E52A8.o
-	Object mod05_021E5300.o
-	Object mod05_021E5564.o
-	Object mod05_021E55BC.o
-	Object mod05_021E577C.o
-	Object mod05_021E5918.o
-	Object mod05_021E5AB4.o
-	Object mod05_021E5C8C.o
-	Object mod05_021E5E10.o
-	Object mod05_021E5FD8.o
-	Object mod05_021E72FC.o
-	Object mod05_021E7504.o
-	Object mod05_021E779C.o
-	Object mod05_021E7C00.o
-	Object mod05_021E80F8.o
-	Object mod05_021E8310.o
-	Object mod05_021E8648.o
-	Object mod05_021E8860.o
-	Object mod05_021E88E8.o
-	Object mod05_021EC458.o
-	Object mod05_021ED9C0.o
-	Object mod05_021EDB70.o
-	Object mod05_021EDE34.o
-	Object mod05_021EFA9C.o
-	Object mod05_021EFBF8.o
-	Object mod05_021F0318.o
-	Object mod05_021F0514.o
-	Object mod05_021F1B0C.o
-	Object mod05_021F1CB8.o
-	Object mod05_021F1F04.o
-	Object mod05_021F3780.o
-	Object mod05_021F3854.o
-	Object mod05_021F38CC.o
-	Object mod05_021F3BC0.o
-	Object mod05_021F3C98.o
-	Object mod05_021F3FE0.o
-	Object mod05_021F445C.o
-	Object mod05_021F45B4.o
-	Object mod05_021F46C8.o
-	Object mod05_021F4968.o
-	Object mod05_021F4CF8.o
-	Object mod05_021F5268.o
-	Object mod05_021F5518.o
-	Object mod05_021F5990.o
-	Object mod05_021F5B9C.o
-	Object mod05_021F5C44.o
-	Object mod05_021F61DC.o
-	Object mod05_021F61F4.o
-	Object mod05_021F6360.o
+	Object ov05_021D74E0.o
+	Object ov05_021D7F4C.o
+	Object ov05_021D80E8.o
+	Object ov05_021D9320.o
+	Object ov05_021D9A48.o
+	Object ov05_021DA5B8.o
+	Object ov05_021DB44C.o
+	Object ov05_021DB900.o
+	Object ov05_021DBA00.o
+	Object ov05_021DBABC.o
+	Object ov05_021DBD84.o
+	Object ov05_021DBE04.o
+	Object ov05_021DBEF4.o
+	Object ov05_021DC0B8.o
+	Object ov05_021E1374.o
+	Object ov05_021E1AD8.o
+	Object ov05_021E2B80.o
+	Object ov05_021E2E88.o
+	Object ov05_021E3340.o
+	Object ov05_021E3444.o
+	Object ov05_021E4AE4.o
+	Object ov05_021E52A8.o
+	Object ov05_021E5300.o
+	Object ov05_021E5564.o
+	Object ov05_021E55BC.o
+	Object ov05_021E577C.o
+	Object ov05_021E5918.o
+	Object ov05_021E5AB4.o
+	Object ov05_021E5C8C.o
+	Object ov05_021E5E10.o
+	Object ov05_021E5FD8.o
+	Object ov05_021E72FC.o
+	Object ov05_021E7504.o
+	Object ov05_021E779C.o
+	Object ov05_021E7C00.o
+	Object ov05_021E80F8.o
+	Object ov05_021E8310.o
+	Object ov05_021E8648.o
+	Object ov05_021E8860.o
+	Object ov05_021E88E8.o
+	Object ov05_021EC458.o
+	Object ov05_021ED9C0.o
+	Object ov05_021EDB70.o
+	Object ov05_021EDE34.o
+	Object ov05_021EFA9C.o
+	Object ov05_021EFBF8.o
+	Object ov05_021F0318.o
+	Object ov05_021F0514.o
+	Object ov05_021F1B0C.o
+	Object ov05_021F1CB8.o
+	Object ov05_021F1F04.o
+	Object ov05_021F3780.o
+	Object ov05_021F3854.o
+	Object ov05_021F38CC.o
+	Object ov05_021F3BC0.o
+	Object ov05_021F3C98.o
+	Object ov05_021F3FE0.o
+	Object ov05_021F445C.o
+	Object ov05_021F45B4.o
+	Object ov05_021F46C8.o
+	Object ov05_021F4968.o
+	Object ov05_021F4CF8.o
+	Object ov05_021F5268.o
+	Object ov05_021F5518.o
+	Object ov05_021F5990.o
+	Object ov05_021F5B9C.o
+	Object ov05_021F5C44.o
+	Object ov05_021F61DC.o
+	Object ov05_021F61F4.o
+	Object ov05_021F6360.o
 }
 
-Overlay MODULE_06
+Overlay OVERLAY_06
 {
 	##Overworld##
-	After MODULE_05
-	Object module_06.o
+	After OVERLAY_05
+	Object overlay_06.o
 }
 
-Overlay MODULE_07
+Overlay OVERLAY_07
 {
-	After MODULE_04
-	Object module_07.o
+	After OVERLAY_04
+	Object overlay_07.o
 }
 
-Overlay MODULE_08
+Overlay OVERLAY_08
 {
-	After MODULE_04
-	Object module_08.o
+	After OVERLAY_04
+	Object overlay_08.o
 }
 
-Overlay MODULE_09
+Overlay OVERLAY_09
 {
-	After MODULE_04
-	Object module_09.o
+	After OVERLAY_04
+	Object overlay_09.o
 }
 
-Overlay MODULE_10
+Overlay OVERLAY_10
 {
 	After arm9
 }
 
-Overlay MODULE_11
+Overlay OVERLAY_11
 {
 	##Battles##
-	After MODULE_08
-	Object mod11_0222D5C0_1.o
-	Object mod11_0222D5C0_2.o
-	Object mod11_0222D5C0_3.o
-	Object mod11_0222FF68.o
-	Object mod11_02232264.o
-	Object mod11_0223D1DC.o
-	Object mod11_02242B78.o
-	Object mod11_0224CA64.o
-	Object mod11_0224D550.o
-	Object mod11_0225464C.o
-	Object mod11_02254710.o
-	Object mod11_02256C08.o
-	Object mod11_02258238.o
-	Object mod11_02258428.o
-	Object mod11_0225C91C.o
-	Object mod11_0225D3EC.o
-	Object mod11_0225D6A4.o
+	After OVERLAY_08
+	Object ov11_0222D5C0_1.o
+	Object ov11_0222D5C0_2.o
+	Object ov11_0222D5C0_3.o
+	Object ov11_0222FF68.o
+	Object ov11_02232264.o
+	Object ov11_0223D1DC.o
+	Object ov11_02242B78.o
+	Object ov11_0224CA64.o
+	Object ov11_0224D550.o
+	Object ov11_0225464C.o
+	Object ov11_02254710.o
+	Object ov11_02256C08.o
+	Object ov11_02258238.o
+	Object ov11_02258428.o
+	Object ov11_0225C91C.o
+	Object ov11_0225D3EC.o
+	Object ov11_0225D6A4.o
 }
 
-Overlay MODULE_12
+Overlay OVERLAY_12
 {
-	After MODULE_08
-	Object module_12.o
+	After OVERLAY_08
+	Object overlay_12.o
 }
 
-Overlay MODULE_13
+Overlay OVERLAY_13
 {
-	After MODULE_04
-	Object module_13_init.o
-	Object module_13_arm1.o
-	Object module_13_thumb.o
-	Object module_13_arm2.o
+	After OVERLAY_04
+	Object overlay_13_init.o
+	Object overlay_13_arm1.o
+	Object overlay_13_thumb.o
+	Object overlay_13_arm2.o
 }
 
-Overlay MODULE_14
+Overlay OVERLAY_14
 {
 	##PC##
 	After arm9
-	Object module_14.o
+	Object overlay_14.o
 }
 
-Overlay MODULE_15
+Overlay OVERLAY_15
 {
 	After arm9
-	Object module_15.o
+	Object overlay_15.o
 }
 
-Overlay MODULE_16
+Overlay OVERLAY_16
 {
 	##Pokedex/Battle Sprites##
 	After arm9
-	Object module_16.o
+	Object overlay_16.o
 }
 
-Overlay MODULE_17
+Overlay OVERLAY_17
 {
 	After arm9
-	Object module_17.o
+	Object overlay_17.o
 }
 
-Overlay MODULE_18
+Overlay OVERLAY_18
 {
-	After MODULE_05
-	Object module_18.o
+	After OVERLAY_05
+	Object overlay_18.o
 }
 
-Overlay MODULE_19
+Overlay OVERLAY_19
 {
 	##Bottom screen before Pokétch##
-	After MODULE_06
-	Object module_19.o
+	After OVERLAY_06
+	Object overlay_19.o
 }
 
-Overlay MODULE_20
+Overlay OVERLAY_20
 {
 	##Pokétch##
-	After MODULE_06
-	Object mod20_02252440.o
-	Object mod20_02252C5C.o
-	Object mod20_022536F4.o
-	Object mod20_02253BA4.o
-	Object mod20_02254130.o
-	Object mod20_02254420.o
+	After OVERLAY_06
+	Object ov20_02252440.o
+	Object ov20_02252C5C.o
+	Object ov20_022536F4.o
+	Object ov20_02253BA4.o
+	Object ov20_02254130.o
+	Object ov20_02254420.o
 }
 
-Overlay MODULE_21
+Overlay OVERLAY_21
 {
 	##Pokétch Clock##
-	After MODULE_20
-	Object mod21_02254854.o
-	Object mod21_02254A6C.o
+	After OVERLAY_20
+	Object ov21_02254854.o
+	Object ov21_02254A6C.o
 }
 
-Overlay MODULE_22
+Overlay OVERLAY_22
 {
-	After MODULE_20
-	Object module_22_sinit.o
-	Object module_22.o
+	After OVERLAY_20
+	Object overlay_22_sinit.o
+	Object overlay_22.o
 }
 
-Overlay MODULE_23
+Overlay OVERLAY_23
 {
 	##Pokétch Calculator##
-	After MODULE_20
-	Object module_23_sinit.o
-	Object module_23.o
+	After OVERLAY_20
+	Object overlay_23_sinit.o
+	Object overlay_23.o
 }
 
-Overlay MODULE_24
+Overlay OVERLAY_24
 {
 	##Memo Pad##
-	After MODULE_20
-	Object module_24_sinit.o
-	Object module_24.o
+	After OVERLAY_20
+	Object overlay_24_sinit.o
+	Object overlay_24.o
 }
 
-Overlay MODULE_25
+Overlay OVERLAY_25
 {
 	##Analogue Watch##
-	After MODULE_20
-	Object module_25_sinit.o
-	Object module_25.o
+	After OVERLAY_20
+	Object overlay_25_sinit.o
+	Object overlay_25.o
 }
 
-Overlay MODULE_26
+Overlay OVERLAY_26
 {
 	##Dot Artist##
-	After MODULE_20
-	Object module_26_sinit.o
-	Object mod26_02254854.o
-	Object mod26_02254BD4.o
+	After OVERLAY_20
+	Object overlay_26_sinit.o
+	Object ov26_02254854.o
+	Object ov26_02254BD4.o
 }
 
-Overlay MODULE_27
+Overlay OVERLAY_27
 {
 	##Pokétch Party##
-	After MODULE_20
-	Object module_27_sinit.o
-	Object module_27.o
+	After OVERLAY_20
+	Object overlay_27_sinit.o
+	Object overlay_27.o
 }
 
-Overlay MODULE_28
+Overlay OVERLAY_28
 {
 	##Friendship Checker##
-	After MODULE_20
-	Object module_28_sinit.o
-	Object module_28.o
+	After OVERLAY_20
+	Object overlay_28_sinit.o
+	Object overlay_28.o
 }
 
-Overlay MODULE_29
+Overlay OVERLAY_29
 {
 	##Dowsing Machine##
-	After MODULE_20
-	Object module_29_sinit.o
-	Object module_29.o
+	After OVERLAY_20
+	Object overlay_29_sinit.o
+	Object overlay_29.o
 }
 
-Overlay MODULE_30
+Overlay OVERLAY_30
 {
-	After MODULE_20
-	Object module_30_sinit.o
-	Object module_30.o
+	After OVERLAY_20
+	Object overlay_30_sinit.o
+	Object overlay_30.o
 }
 
-Overlay MODULE_31
+Overlay OVERLAY_31
 {
 	##Pokétch Counter##
-	After MODULE_20
-	Object module_31_sinit.o
-	Object module_31.o
+	After OVERLAY_20
+	Object overlay_31_sinit.o
+	Object overlay_31.o
 }
 
-Overlay MODULE_32
+Overlay OVERLAY_32
 {
-	After MODULE_20
-	Object module_32_sinit.o
-	Object module_32.o
+	After OVERLAY_20
+	Object overlay_32_sinit.o
+	Object overlay_32.o
 }
 
-Overlay MODULE_33
+Overlay OVERLAY_33
 {
-	After MODULE_20
-	Object module_33_sinit.o
-	Object mod33_02254854.o
-	Object mod33_022549AC.o
+	After OVERLAY_20
+	Object overlay_33_sinit.o
+	Object ov33_02254854.o
+	Object ov33_022549AC.o
 }
 
-Overlay MODULE_34
+Overlay OVERLAY_34
 {
-	After MODULE_20
-	Object module_34_sinit.o
-	Object module_34.o
+	After OVERLAY_20
+	Object overlay_34_sinit.o
+	Object overlay_34.o
 }
 
-Overlay MODULE_35
+Overlay OVERLAY_35
 {
 	##Daycare Checker##
-	After MODULE_20
-	Object module_35_sinit.o
-	Object module_35.o
+	After OVERLAY_20
+	Object overlay_35_sinit.o
+	Object overlay_35.o
 }
 
-Overlay MODULE_36
+Overlay OVERLAY_36
 {
-	After MODULE_20
-	Object module_36_sinit.o
-	Object module_36.o
+	After OVERLAY_20
+	Object overlay_36_sinit.o
+	Object overlay_36.o
 }
 
-Overlay MODULE_37
+Overlay OVERLAY_37
 {
 	##Coin Toss##
-	After MODULE_20
-	Object module_37_sinit.o
-	Object module_37.o
+	After OVERLAY_20
+	Object overlay_37_sinit.o
+	Object overlay_37.o
 }
 
-Overlay MODULE_38
+Overlay OVERLAY_38
 {
 	##Move Checker##
-	After MODULE_20
-	Object module_38_sinit.o
-	Object module_38.o
+	After OVERLAY_20
+	Object overlay_38_sinit.o
+	Object overlay_38.o
 }
 
-Overlay MODULE_39
+Overlay OVERLAY_39
 {
-	After MODULE_20
-	Object module_39_sinit.o
-	Object module_39.o
+	After OVERLAY_20
+	Object overlay_39_sinit.o
+	Object overlay_39.o
 }
 
-Overlay MODULE_40
+Overlay OVERLAY_40
 {
-	After MODULE_20
-	Object module_40_sinit.o
-	Object module_40.o
+	After OVERLAY_20
+	Object overlay_40_sinit.o
+	Object overlay_40.o
 }
 
-Overlay MODULE_41
+Overlay OVERLAY_41
 {
-	After MODULE_20
-	Object module_41_sinit.o
-	Object module_41.o
+	After OVERLAY_20
+	Object overlay_41_sinit.o
+	Object overlay_41.o
 }
 
-Overlay MODULE_42
+Overlay OVERLAY_42
 {
 	##Marking Map##
-	After MODULE_20
-	Object module_42_sinit.o
-	Object module_42.o
+	After OVERLAY_20
+	Object overlay_42_sinit.o
+	Object overlay_42.o
 }
 
-Overlay MODULE_43
+Overlay OVERLAY_43
 {
 	##Berry Searcher##
-	After MODULE_20
-	Object module_43_sinit.o
-	Object module_43.o
+	After OVERLAY_20
+	Object overlay_43_sinit.o
+	Object overlay_43.o
 }
 
-Overlay MODULE_44
+Overlay OVERLAY_44
 {
-	After MODULE_20
-	Object module_44_sinit.o
-	Object mod44_02254854.o
-	Object mod44_02254A54.o
+	After OVERLAY_20
+	Object overlay_44_sinit.o
+	Object ov44_02254854.o
+	Object ov44_02254A54.o
 }
 
-Overlay MODULE_45
+Overlay OVERLAY_45
 {
-	After MODULE_20
-	Object module_45_sinit.o
-	Object module_45.o
+	After OVERLAY_20
+	Object overlay_45_sinit.o
+	Object overlay_45.o
 }
 
-Overlay MODULE_46
+Overlay OVERLAY_46
 {
-	After MODULE_20
-	Object module_46_sinit.o
-	Object mod46_02254854.o
-	Object mod46_022549AC.o
+	After OVERLAY_20
+	Object overlay_46_sinit.o
+	Object ov46_02254854.o
+	Object ov46_022549AC.o
 }
 
-Overlay MODULE_47
+Overlay OVERLAY_47
 {
 	##Link Searcher##
-	After MODULE_20
-	Object module_47_sinit.o
-	Object module_47.o
+	After OVERLAY_20
+	Object overlay_47_sinit.o
+	Object overlay_47.o
 }
 
-Overlay MODULE_48
+Overlay OVERLAY_48
 {
-	After MODULE_20
-	Object module_48_sinit.o
-	Object module_48.o
+	After OVERLAY_20
+	Object overlay_48_sinit.o
+	Object overlay_48.o
 }
 
-Overlay MODULE_49
+Overlay OVERLAY_49
 {
 	##Pokemon History##
-	After MODULE_20
-	Object module_49_sinit.o
-	Object module_49.o
+	After OVERLAY_20
+	Object overlay_49_sinit.o
+	Object overlay_49.o
 }
 
-Overlay MODULE_50
+Overlay OVERLAY_50
 {
-	After MODULE_20
-	Object module_50_sinit.o
-	Object mod50_02254854.o
-	Object mod50_022549AC.o
+	After OVERLAY_20
+	Object overlay_50_sinit.o
+	Object ov50_02254854.o
+	Object ov50_022549AC.o
 }
 
-Overlay MODULE_51
+Overlay OVERLAY_51
 {
-	After MODULE_20
-	Object module_51.o
+	After OVERLAY_20
+	Object overlay_51.o
 }
 
-Overlay MODULE_52
+Overlay OVERLAY_52
 {
 	##Some kind of transition overlay for intro##
 	After arm9
-	Object module_52.o
+	Object overlay_52.o
 }
 
-Overlay MODULE_53
+Overlay OVERLAY_53
 {
 	After arm9
-	Object module_53.o
+	Object overlay_53.o
 }
 
-Overlay MODULE_54
+Overlay OVERLAY_54
 {
 	After arm9
-	Object module_54.o
+	Object overlay_54.o
 }
 
-Overlay MODULE_55
+Overlay OVERLAY_55
 {
 	After arm9
-	Object module_55.o
+	Object overlay_55.o
 }
 
-Overlay MODULE_56
+Overlay OVERLAY_56
 {
-	After MODULE_04
-	Object module_56.o
+	After OVERLAY_04
+	Object overlay_56.o
 }
 
-Overlay MODULE_57
+Overlay OVERLAY_57
 {
 	##Trainer card##
 	After arm9
-	Object module_57.o
+	Object overlay_57.o
 }
 
-Overlay MODULE_58
+Overlay OVERLAY_58
 {
-	After MODULE_57
-	Object module_58.o
+	After OVERLAY_57
+	Object overlay_58.o
 }
 
-Overlay MODULE_59
+Overlay OVERLAY_59
 {
 	##Rowan's intro + TV intro##
 	After arm9
-	Object mod59_Intro.o
-	Object mod59_TV.o
+	Object ov59_Intro.o
+	Object ov59_TV.o
 }
 
-Overlay MODULE_60
+Overlay OVERLAY_60
 {
 	##Options##
 	After arm9
-	Object module_60.o
+	Object overlay_60.o
 }
 
-Overlay MODULE_61
+Overlay OVERLAY_61
 {
 	After arm9
-	Object module_61.o
+	Object overlay_61.o
 }
 
-Overlay MODULE_62
+Overlay OVERLAY_62
 {
-	After MODULE_08
-	Object module_62_sinit.o
-	Object module_62.o
+	After OVERLAY_08
+	Object overlay_62_sinit.o
+	Object overlay_62.o
 }
 
-Overlay MODULE_63
+Overlay OVERLAY_63
 {
 	### Title Demo ###
 	After arm9
-	Object mod63_021D74E0.o
-	Object mod63_021D8890.o
-	Object mod63_021DA640.o
-	Object mod63_021DAE5C.o
-	Object mod63_021DB450.o
+	Object ov63_021D74E0.o
+	Object ov63_021D8890.o
+	Object ov63_021DA640.o
+	Object ov63_021DAE5C.o
+	Object ov63_021DB450.o
 }
 
-Overlay MODULE_64
+Overlay OVERLAY_64
 {
 	##Pokemon Selection##
 	After arm9
-	Object module_64.o
+	Object overlay_64.o
 }
 
-Overlay MODULE_65
+Overlay OVERLAY_65
 {
 	After arm9
-	Object module_65.o
+	Object overlay_65.o
 }
 
-Overlay MODULE_66
+Overlay OVERLAY_66
 {
 	##Fly Map##
 	After arm9
-	Object module_66.o
+	Object overlay_66.o
 }
 
-Overlay MODULE_67
+Overlay OVERLAY_67
 {
 	After arm9
-	Object module_67.o
+	Object overlay_67.o
 }
 
-Overlay MODULE_68
+Overlay OVERLAY_68
 {
 	After arm9
-	Object module_68.o
+	Object overlay_68.o
 }
 
-Overlay MODULE_69
+Overlay OVERLAY_69
 {
 	##Hall of Fame##
-	After MODULE_08
-	Object module_69.o
+	After OVERLAY_08
+	Object overlay_69.o
 }
 
-Overlay MODULE_70
+Overlay OVERLAY_70
 {
 	After arm9
-	Object module_70.o
+	Object overlay_70.o
 }
 
-Overlay MODULE_71
+Overlay OVERLAY_71
 {
-	After MODULE_08
-	Object module_71.o
+	After OVERLAY_08
+	Object overlay_71.o
 }
 
-Overlay MODULE_72
-{
-	After arm9
-}
-
-Overlay MODULE_73
+Overlay OVERLAY_72
 {
 	After arm9
-	Object module_73.o
 }
 
-Overlay MODULE_74
+Overlay OVERLAY_73
 {
 	After arm9
-	Object module_74.o
+	Object overlay_73.o
 }
 
-Overlay MODULE_75
+Overlay OVERLAY_74
+{
+	After arm9
+	Object overlay_74.o
+}
+
+Overlay OVERLAY_75
 {
 	### Player's bag ###
-	After MODULE_14
-	Object module_75.o
+	After OVERLAY_14
+	Object overlay_75.o
 }
 
-Overlay MODULE_76
+Overlay OVERLAY_76
 {
 	After arm9
-	Object module_76.o
+	Object overlay_76.o
 }
 
-Overlay MODULE_77
+Overlay OVERLAY_77
 {
 	After arm9
-	Object module_77.o
+	Object overlay_77.o
 }
 
-Overlay MODULE_78
+Overlay OVERLAY_78
 {
 	After arm9
-	Object module_78.o
+	Object overlay_78.o
 }
 
-Overlay MODULE_79
+Overlay OVERLAY_79
 {
-	After MODULE_04
-	Object module_79_thumb.o
-	Object module_79_arm.o
+	After OVERLAY_04
+	Object overlay_79_thumb.o
+	Object overlay_79_arm.o
 }
 
-Overlay MODULE_80
+Overlay OVERLAY_80
 {
-	After MODULE_08
-	Object module_80.o
+	After OVERLAY_08
+	Object overlay_80.o
 }
 
-Overlay MODULE_81
+Overlay OVERLAY_81
 {
-	After MODULE_80
-	Object module_81.o
+	After OVERLAY_80
+	Object overlay_81.o
 }
 
-Overlay MODULE_82
+Overlay OVERLAY_82
 {
-	After MODULE_08
-	Object module_82.o
+	After OVERLAY_08
+	Object overlay_82.o
 }
 
-Overlay MODULE_83
+Overlay OVERLAY_83
 {
 	##Load Screen##
-	After MODULE_08
-	Object module_83.o
+	After OVERLAY_08
+	Object overlay_83.o
 }
 
-Overlay MODULE_84
+Overlay OVERLAY_84
 {
 	##Credits##
 	After arm9
-	Object module_84_thumb1.o
-	Object module_84_arm.o
-	Object module_84_thumb2.o
+	Object overlay_84_thumb1.o
+	Object overlay_84_arm.o
+	Object overlay_84_thumb2.o
 }
 
-Overlay MODULE_85
+Overlay OVERLAY_85
 {
 	After arm9
-	Object module_85.o
+	Object overlay_85.o
 }
 
-Overlay MODULE_86
+Overlay OVERLAY_86
 {
 	After arm9
-	Object module_86.o
+	Object overlay_86.o
 }

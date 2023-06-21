@@ -2,7 +2,7 @@
 #include "constants/moves.h"
 #include "itemtool.h"
 #include "map_header.h"
-#include "module_05.h"
+#include "overlay_05.h"
 #include "party.h"
 #include "save.h"
 #include "scrcmd.h"
@@ -93,7 +93,7 @@ BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
         ZeroMonData(egg);
 
         s32 met_loc = sub_02015CF8(1, unk);
-        MOD05_SetEggStats(egg, species, 1, player, 3, met_loc);
+        ov05_SetEggStats(egg, species, 1, player, 3, met_loc);
 
         AddMonToParty(party, egg);
         FreeToHeap(egg);

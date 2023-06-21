@@ -88,7 +88,7 @@ _0204756A:
 	cmp r0, r1
 	bne _0204757C
 	add r0, r4, #0x0
-	bl MOD05_021E495C
+	bl ov05_021E495C
 _0204757C:
 	pop {r3-r5, pc}
 	nop

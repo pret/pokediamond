@@ -29,28 +29,28 @@ extern void sub_02020130(u32 param0, u32 param1);
 extern u32 sub_0202022C(u32 param0);
 extern void sub_020201E4(u32 param0, u32 param1);
 extern void sub_0201FDEC(u32 param0);
-extern void MOD05_021D99F8(struct UnkStruct_0200CABC_2 *param0);
+extern void ov05_021D99F8(struct UnkStruct_0200CABC_2 *param0);
 extern void *sub_0201B6C8(BOOL);
-extern void MOD05_021D959C(
+extern void ov05_021D959C(
     struct UnkStruct_0200CABC_2 *param0, void *param1, u32 param2, u32 param3);
-extern void MOD05_021D967C(struct UnkStruct_0200CABC_2 *param0,
+extern void ov05_021D967C(struct UnkStruct_0200CABC_2 *param0,
     NarcId narcId,
     s32 memberId,
     u32 param3,
     u32 param4,
     u32 param5,
     u32 param6);
-extern void MOD05_021D96F4(
+extern void ov05_021D96F4(
     struct UnkStruct_0200CABC_2 *param0, NarcId narcId, s32 memberId, u32 param3, u32 param4);
-extern void MOD05_021D9708(
+extern void ov05_021D9708(
     struct UnkStruct_0200CABC_2 *param0, NarcId narcId, s32 memberId, u32 param3, u32 param4);
-extern void MOD05_021D971C(struct UnkStruct_0200CABC_2 *param0,
+extern void ov05_021D971C(struct UnkStruct_0200CABC_2 *param0,
     NarcId narcId,
     s32 memberId,
     u32 param3,
     u32 param4,
     u32 param5);
-extern u32 *MOD05_021D9820(struct UnkStruct_0200CABC_2 *param0, void *);
+extern u32 *ov05_021D9820(struct UnkStruct_0200CABC_2 *param0, void *);
 extern void sub_02012400(u16, u16, u16, void *, void *);
 extern u32 NNS_G2dGetImageLocation(u32, u32);
 extern void *sub_02012470(u16, u16, u16);
@@ -705,7 +705,7 @@ void sub_0200DCF8(u32 param0, void *param1)
         case 1:
             ClearFramed10x10Square(unk);
             sub_0200C3DC(unk->unk164);
-            MOD05_021D99F8(unk);
+            ov05_021D99F8(unk);
             sub_0200621C((s32)param0);
             return;
         case 2:
@@ -748,15 +748,15 @@ void sub_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1)
         0x00,
         0x00,
     };
-    MOD05_021D959C(param0, UNK_020ECEA8, 1, param1);
+    ov05_021D959C(param0, UNK_020ECEA8, 1, param1);
 }
 
 void sub_0200DDD8(struct UnkStruct_0200CABC_2 *param0)
 {
-    MOD05_021D967C(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0049_NCLR, 0, 1, 1, 0x15CD5);
-    MOD05_021D96F4(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0047_NCER, 0, 0x15CD5);
-    MOD05_021D9708(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0046_NANR, 0, 0x15CD5);
-    MOD05_021D971C(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0048_NCGR, 0, 1, 0x15CD5);
+    ov05_021D967C(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0049_NCLR, 0, 1, 1, 0x15CD5);
+    ov05_021D96F4(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0047_NCER, 0, 0x15CD5);
+    ov05_021D9708(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0046_NANR, 0, 0x15CD5);
+    ov05_021D971C(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0048_NCGR, 0, 1, 0x15CD5);
 }
 
 void sub_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2)
@@ -778,7 +778,7 @@ void sub_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2)
     };
     ((u16 *)UNK_020ECEC0)[0] = (u16)((param1 + 5) * 8);
     ((u16 *)UNK_020ECEC0)[1] = (u16)((param2 + 5) * 8);
-    param0->unk164 = MOD05_021D9820(param0, UNK_020ECEC0);
+    param0->unk164 = ov05_021D9820(param0, UNK_020ECEC0);
     sub_0201FDEC(param0->unk000);
     GX_EngineBToggleLayers(0x10, GX_LAYER_TOGGLE_ON);
 }

@@ -73,7 +73,7 @@ sub_0208A2C4: ; 0x0208A2C4
 	cmp r0, #0x0
 	beq _0208A2F6
 	mov r0, #0x1
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	ldr r1, _0208A2F8 ; =0x0223D4AD
 	add r0, r5, #0x0
 	add r2, r4, #0x0
@@ -84,5 +84,5 @@ sub_0208A2C4: ; 0x0208A2C4
 _0208A2F6:
 	pop {r4-r6, pc}
 	.balign 4
-_0208A2F8: .word MOD06_0223D4AC
+_0208A2F8: .word ov06_0223D4AC
 _0208A2FC: .word 0x0000022F

@@ -4,7 +4,7 @@
 #include "task.h"
 #include "unk_020040F4.h"
 
-extern void MOD05_021E3444(u32, struct FieldSystem *, u32);
+extern void ov05_021E3444(u32, struct FieldSystem *, u32);
 
 BOOL sub_0204AEA8(struct TaskManager *taskManager)
 {
@@ -14,7 +14,7 @@ BOOL sub_0204AEA8(struct TaskManager *taskManager)
     switch (v1[0])
     {
         case 0:
-            MOD05_021E3444(v1[2], fieldSystem, (u32)v1 + 4);
+            ov05_021E3444(v1[2], fieldSystem, (u32)v1 + 4);
             sub_0200433C(5, (u16)v1[3], 1);
             v1[0]++;
             break;

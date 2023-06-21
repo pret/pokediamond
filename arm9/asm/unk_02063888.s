@@ -55,7 +55,7 @@ _020638DA:
 	ldr r0, [r4, #0x0]
 	ldr r2, [r4, #0x10]
 	mov r1, #0x1
-	bl MOD06_0224666C
+	bl ov06_0224666C
 	str r0, [r4, #0x14]
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
@@ -63,11 +63,11 @@ _020638DA:
 	b _02063942
 _020638F8:
 	ldr r0, [r4, #0x14]
-	bl MOD06_022466A0
+	bl ov06_022466A0
 	cmp r0, #0x0
 	beq _02063942
 	ldr r0, [r4, #0x14]
-	bl MOD06_022466AC
+	bl ov06_022466AC
 	mov r1, #0xa
 	mov r2, #0xc
 	ldrh r0, [r4, #0x8]

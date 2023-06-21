@@ -36,9 +36,9 @@ arm*/baserom.*
 *.lcf.template
 
 # Working files
-arm9/modules/module_*.s
-arm9/modules/module_*.sbin
-arm9/modules/module_*.cfg
+arm9/overlays/overlay_*.s
+arm9/overlays/overlay_*.sbin
+arm9/overlays/overlay_*.cfg
 
 # Dism scripts
 dism.sh

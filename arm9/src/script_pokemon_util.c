@@ -6,7 +6,7 @@
 #include "save.h"
 #include "unk_02015CC0.h"
 #include "unk_0202C144.h"
-#include "module_05.h"
+#include "overlay_05.h"
 #include "script_pokemon_util.h"
 #include "constants/items.h"
 #include "constants/script_pokemon_util.h"
@@ -48,7 +48,7 @@ BOOL GiveEgg(u32 heapId, struct SaveData * save, u16 species, int level, int met
     struct PlayerParty * party = SaveArray_PlayerParty_Get(save);
     struct Pokemon * mon = AllocMonZeroed(32);
     ZeroMonData(mon);
-    MOD05_SetEggStats(mon, species, level, data, 4, sub_02015CF8(metLocIndex, a3));
+    ov05_SetEggStats(mon, species, level, data, 4, sub_02015CF8(metLocIndex, a3));
     BOOL isAdded = AddMonToParty(party, mon);
     FreeToHeap(mon);
     return isAdded;

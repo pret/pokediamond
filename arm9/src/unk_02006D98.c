@@ -5,7 +5,7 @@
 #include "NNS_g2d.h"
 #include "filesystem.h"
 #include "heap.h"
-#include "mod63_021DB450.h"
+#include "ov63_021DB450.h"
 #include "palette.h"
 #include "poketool/pokegra/otherpoke.naix"
 #include "registers.h"

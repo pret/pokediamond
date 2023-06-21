@@ -12,18 +12,18 @@
     in the return type / parameters. They are right for this code
     but they might not be for every code, please do not blindly
     trust these prototypes if you are decompiling these functions. */
-extern u32  MOD06_02244DB0(u32);
-extern void MOD06_02244DBC(void*);
-extern void MOD06_02244DC4(void*, void*);
-extern void MOD06_02244EF8(void*);
-extern void MOD06_02244F18(void*);
-extern BOOL MOD06_02244F24(void*);
-extern void MOD06_02244F2C(void*);
-extern void * MOD06_02245088(struct FieldSystem *fieldSystem);
-extern u32  MOD06_02245114(u32, struct FieldSystem *);
-extern void MOD06_02245190(u32);
-extern void MOD06_02245198(u8, u32);
-extern u32  MOD06_022451F0(u32);
+extern u32  ov06_02244DB0(u32);
+extern void ov06_02244DBC(void*);
+extern void ov06_02244DC4(void*, void*);
+extern void ov06_02244EF8(void*);
+extern void ov06_02244F18(void*);
+extern BOOL ov06_02244F24(void*);
+extern void ov06_02244F2C(void*);
+extern void * ov06_02245088(struct FieldSystem *fieldSystem);
+extern u32  ov06_02245114(u32, struct FieldSystem *);
+extern void ov06_02245190(u32);
+extern void ov06_02245198(u8, u32);
+extern u32  ov06_022451F0(u32);
 
 extern void sub_02049160(struct TaskManager *taskManager, u32);
 extern void sub_0204C1B4(struct TaskManager *taskManager, u32,u32,u32,u32,u32,u32,u32);
@@ -36,8 +36,8 @@ extern void sub_0206367C(struct FieldSystem *, u32);
 void sub_0206015C(struct FieldSystem *fieldSystem)
 {
     struct UnkStruct_0206015C *unkStruct = AllocFromHeapAtEnd(0xb, 0x10);
-    unkStruct->unk0 = MOD06_02244DB0(0xb);
-    unkStruct->unk4 = MOD06_02245114(0xb, fieldSystem);
+    unkStruct->unk0 = ov06_02244DB0(0xb);
+    unkStruct->unk4 = ov06_02245114(0xb, fieldSystem);
     unkStruct->unkC = 0;
     unkStruct->unkD = 0;
 
@@ -53,8 +53,8 @@ BOOL sub_02060194(struct TaskManager *taskManager)
     {
     case 0:
         sub_0206367C(fieldSystem, 1);
-        MOD06_02245198(unkStruct1->unkD, unkStruct1->unk4);
-        unkStruct1->unk8 = MOD06_022451F0(unkStruct1->unk4);
+        ov06_02245198(unkStruct1->unkD, unkStruct1->unk4);
+        unkStruct1->unk8 = ov06_022451F0(unkStruct1->unk4);
         sub_0204AFC8(taskManager);
         unkStruct1->action = 1;
         break;
@@ -89,10 +89,10 @@ BOOL sub_02060194(struct TaskManager *taskManager)
         unkStruct1->unkD += 1;
         if (unkStruct1->unkD <= 5)
         {
-            void *unkAddr = MOD06_02245088(fieldSystem);
+            void *unkAddr = ov06_02245088(fieldSystem);
             sub_0205889C(unk0, 1);
-            MOD06_02244DC4(unkStruct1->unk0, unkAddr);
-            MOD06_02244EF8(unkStruct1->unk0);
+            ov06_02244DC4(unkStruct1->unk0, unkAddr);
+            ov06_02244EF8(unkStruct1->unk0);
             unkStruct1->unkE = 0;
             PlaySE(SEQ_SE_DP_KASYA);
             sub_0204C1B4(taskManager, 0x3, 0x11, 0x0000FFFF, 0, 6, 1, 0xb);
@@ -111,8 +111,8 @@ BOOL sub_02060194(struct TaskManager *taskManager)
         if (unkStruct1->unkE < 0x3c && !(gSystem.newKeys & 1))
             break;
 
-        MOD06_02245198(unkStruct1->unkD, unkStruct1->unk4);
-        unkStruct1->unk8 = MOD06_022451F0(unkStruct1->unk4);
+        ov06_02245198(unkStruct1->unkD, unkStruct1->unk4);
+        unkStruct1->unk8 = ov06_022451F0(unkStruct1->unk4);
 
         PlaySE(SEQ_SE_DP_KASYA);
         sub_0204C1B4(taskManager, 0x3, 0x10, 0x0000FFFF, 0, 6, 1, 0xb);
@@ -120,22 +120,22 @@ BOOL sub_02060194(struct TaskManager *taskManager)
         break;
 
     case 6:
-        MOD06_02244F18(unkStruct1->unk0);
+        ov06_02244F18(unkStruct1->unk0);
         unkStruct1->action = 7;
         break;
 
     case 7:
-        if (MOD06_02244F24(unkStruct1->unk0))
+        if (ov06_02244F24(unkStruct1->unk0))
         {
-            MOD06_02244F2C(unkStruct1->unk0);
+            ov06_02244F2C(unkStruct1->unk0);
             unkStruct1->action = 1;
         }
         break;
 
     case 8:
         sub_0206367C(fieldSystem, 0);
-        MOD06_02245190(unkStruct1->unk4);
-        MOD06_02244DBC(unkStruct1->unk0);
+        ov06_02245190(unkStruct1->unk4);
+        ov06_02244DBC(unkStruct1->unk0);
         FreeToHeap(unkStruct1);
         return TRUE;
 

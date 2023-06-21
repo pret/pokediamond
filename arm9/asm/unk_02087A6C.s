@@ -5,7 +5,7 @@
 
 	.global UNK_020FD144
 UNK_020FD144: ; 0x020FD144
-	.word MOD59_IntroInit, MOD59_IntroMain, MOD59_IntroExit, SDK_OVERLAY_MODULE_59_ID
+	.word ov59_IntroInit, ov59_IntroMain, ov59_IntroExit, SDK_OVERLAY_OVERLAY_59_ID
 
 	.text
 

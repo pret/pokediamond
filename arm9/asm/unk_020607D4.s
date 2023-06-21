@@ -292,23 +292,23 @@ _020609EC:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x1
 	mov r2, #0x0
-	bl MOD05_021DA4EC
+	bl ov05_021DA4EC
 	ldr r0, [r5, #0x50]
 	mov r1, #0x2
 	mov r2, #0x0
-	bl MOD05_021DA4EC
+	bl ov05_021DA4EC
 	ldr r0, _02060B08 ; =0x000006DE
 	bl PlaySE
 	b _02060B00
 _02060A2C:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x1
-	bl MOD05_021DA58C
+	bl ov05_021DA58C
 	cmp r0, #0x0
 	beq _02060B00
 	ldr r0, [r5, #0x50]
 	mov r1, #0x2
-	bl MOD05_021DA58C
+	bl ov05_021DA58C
 	cmp r0, #0x0
 	beq _02060B00
 	cmp r6, #0x0
@@ -354,11 +354,11 @@ _02060A8A:
 	ldr r0, [r5, #0x4c]
 	ldr r1, [r5, #0x50]
 	mov r2, #0x1
-	bl MOD05_021DA54C
+	bl ov05_021DA54C
 	ldr r0, [r5, #0x4c]
 	ldr r1, [r5, #0x50]
 	mov r2, #0x2
-	bl MOD05_021DA54C
+	bl ov05_021DA54C
 _02060AA8:
 	add r0, r6, #0x0
 	bl sub_0204AF3C
@@ -416,7 +416,7 @@ sub_02060B0C: ; 0x02060B0C
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x30]
 	add r0, sp, #0x0
-	bl MOD05_021E7EA0
+	bl ov05_021E7EA0
 	ldrb r0, [r4, #0x1]
 	cmp r0, #0x3
 	bhi _02060B7C
@@ -496,7 +496,7 @@ _02060B86:
 _02060BA6:
 	ldr r0, [r4, #0x30]
 	add r1, sp, #0x0
-	bl MOD05_021E7EB0
+	bl ov05_021E7EB0
 	ldr r1, [r4, #0x14]
 	ldr r0, [r4, #0x7c]
 	add r1, r1, r0
@@ -554,7 +554,7 @@ _02060BF6:
 	beq _02060C6A
 	ldr r1, [r5, #0x2c]
 	add r0, r4, #0x0
-	bl MOD05_021F4BD0
+	bl ov05_021F4BD0
 	ldr r0, [r0, #0x0]
 	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
@@ -572,10 +572,10 @@ _02060BF6:
 	bl GF_AssertFail
 _02060C38:
 	ldr r0, [sp, #0x20]
-	bl MOD05_021E7EC8
+	bl ov05_021E7EC8
 	str r0, [sp, #0x1c]
 	ldr r0, [r5, #0x2c]
-	bl MOD05_021F4C88
+	bl ov05_021F4C88
 	ldr r1, [sp, #0x1c]
 	add r2, sp, #0x24
 	str r1, [sp, #0x0]
@@ -591,7 +591,7 @@ _02060C38:
 	ldr r0, [r5, #0x4c]
 	ldr r1, [r5, #0x50]
 	add r3, r4, #0x0
-	bl MOD05_021DA464
+	bl ov05_021DA464
 	b _02060C6E
 _02060C6A:
 	bl GF_AssertFail

@@ -77,21 +77,21 @@ sub_02083BAC: ; 0x02083BAC
 	add r0, r4, #0x0
 	mov r1, #0x1b
 	mov r2, #0x0
-	bl MOD71_0222F440
+	bl ov71_0222F440
 	b _02083C14
 _02083BF6:
 	bl sub_02031190
 	ldr r1, _02083C20 ; =0x00002218
 	ldr r2, [r4, #0x50]
 	ldr r1, [r4, r1]
-	bl MOD71_0222F480
+	bl ov71_0222F480
 	b _02083C14
 _02083C06:
 	bl sub_02031190
 	ldr r1, _02083C20 ; =0x00002218
 	ldr r2, [r4, #0x50]
 	ldr r1, [r4, r1]
-	bl MOD71_0222F480
+	bl ov71_0222F480
 _02083C14:
 	ldr r0, [r4, #0x50]
 	add r0, r0, #0x1

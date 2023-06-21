@@ -67,7 +67,7 @@ _02041E68:
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl MOD06_02248CD0
+	bl ov06_02248CD0
 	strh r0, [r5, #0x0]
 	b _02041FD2
 _02041E88:
@@ -95,7 +95,7 @@ _02041E88:
 	strh r0, [r5, #0x0]
 	ldr r0, [r4, #0x0]
 	add r1, r7, #0x0
-	bl MOD06_02249038
+	bl ov06_02249038
 	strh r0, [r6, #0x0]
 	b _02041FD2
 _02041ECA:
@@ -134,12 +134,12 @@ _02041ECA:
 	ldr r1, [r5, #0x0]
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl MOD06_022490A0
+	bl ov06_022490A0
 	b _02041FD2
 _02041F24:
 	add r4, #0x80
 	ldr r0, [r4, #0x0]
-	bl MOD06_02248CC0
+	bl ov06_02248CC0
 	b _02041FD2
 _02041F2E:
 	add r0, r4, #0x0
@@ -163,7 +163,7 @@ _02041F2E:
 	add r4, #0x80
 	strh r0, [r5, #0x0]
 	ldr r0, [r4, #0x0]
-	bl MOD06_022491FC
+	bl ov06_022491FC
 	strh r0, [r6, #0x0]
 	b _02041FD2
 _02041F68:
@@ -195,7 +195,7 @@ _02041F68:
 	ldr r0, [r4, #0x0]
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl MOD06_02248F70
+	bl ov06_02248F70
 	strh r0, [r5, #0x0]
 	b _02041FD2
 _02041FB4:
@@ -209,7 +209,7 @@ _02041FB4:
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl MOD06_02248FE0
+	bl ov06_02248FE0
 	strh r0, [r5, #0x0]
 _02041FD2:
 	mov r0, #0x0
@@ -564,7 +564,7 @@ sub_020422A8: ; 0x020422A8
 	ldr r0, [r0, #0x4]
 	add r4, r1, #0x0
 	ldr r0, [r0, #0x14]
-	bl MOD20_02252538
+	bl ov20_02252538
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0

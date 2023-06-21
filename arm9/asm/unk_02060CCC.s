@@ -175,7 +175,7 @@ sub_02060CF8: ; 0x02060CF8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B6C
+	bl ov06_02248B6C
 	add r4, r0, #0x0
 	cmp r4, #0x0
 	ble _02060D0E
@@ -291,13 +291,13 @@ sub_02060DCC: ; 0x02060DCC
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	add r4, r1, #0x0
-	bl MOD06_02248B5C
+	bl ov06_02248B5C
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B54
+	bl ov06_02248B54
 	str r0, [sp, #0x8]
 	add r0, r6, #0x0
-	bl MOD06_02248B58
+	bl ov06_02248B58
 	str r0, [sp, #0x0]
 	mov r0, #0x1
 	str r0, [sp, #0x4]
@@ -715,7 +715,7 @@ sub_020610F8: ; 0x020610F8
 	add r6, r2, #0x0
 	add r0, r6, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0x0
@@ -797,7 +797,7 @@ sub_020611A8: ; 0x020611A8
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -831,7 +831,7 @@ sub_020611E8: ; 0x020611E8
 	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x6]
 	add r0, r4, #0x0
@@ -874,7 +874,7 @@ sub_0206123C: ; 0x0206123C
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -910,7 +910,7 @@ sub_02061288: ; 0x02061288
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
@@ -977,10 +977,10 @@ sub_02061304: ; 0x02061304
 	add r4, r2, #0x0
 	add r0, r4, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl MOD06_02248B58
+	bl ov06_02248B58
 	str r0, [sp, #0x0]
 	mov r1, #0x1
 	add r0, r5, #0x0
@@ -1004,10 +1004,10 @@ sub_0206133C: ; 0x0206133C
 	add r4, r2, #0x0
 	add r0, r4, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl MOD06_02248B58
+	bl ov06_02248B58
 	str r0, [sp, #0x0]
 	mov r1, #0x1
 	add r0, r5, #0x0
@@ -1051,7 +1051,7 @@ sub_0206139C: ; 0x0206139C
 	add r6, r2, #0x0
 	add r0, r6, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldrh r2, [r4, #0x2]
 	add r0, r5, #0x0
@@ -1103,7 +1103,7 @@ sub_02061404: ; 0x02061404
 	add r6, r2, #0x0
 	add r0, r6, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldrh r2, [r4, #0x6]
 	add r0, r5, #0x0
@@ -1132,7 +1132,7 @@ sub_02061444: ; 0x02061444
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -1176,7 +1176,7 @@ sub_02061498: ; 0x02061498
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1224,7 +1224,7 @@ sub_020614FC: ; 0x020614FC
 	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x0]
 	add r0, r4, #0x0
@@ -1253,7 +1253,7 @@ sub_02061534: ; 0x02061534
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1315,7 +1315,7 @@ sub_020615B0: ; 0x020615B0
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1351,7 +1351,7 @@ sub_020615F8: ; 0x020615F8
 	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x0]
 	add r0, r4, #0x0
@@ -1391,7 +1391,7 @@ sub_02061648: ; 0x02061648
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1420,7 +1420,7 @@ sub_02061688: ; 0x02061688
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -1473,7 +1473,7 @@ sub_020616E8: ; 0x020616E8
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1503,7 +1503,7 @@ sub_02061728: ; 0x02061728
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1524,7 +1524,7 @@ sub_02061750: ; 0x02061750
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1589,7 +1589,7 @@ sub_020617D8: ; 0x020617D8
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1629,7 +1629,7 @@ sub_02061834: ; 0x02061834
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -1657,7 +1657,7 @@ sub_02061868: ; 0x02061868
 	add r6, r2, #0x0
 	add r0, r6, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	bl PlayerProfile_sizeof
 	ldr r1, [r4, #0x0]
@@ -1771,7 +1771,7 @@ sub_0206193C: ; 0x0206193C
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1811,7 +1811,7 @@ sub_02061990: ; 0x02061990
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -1861,7 +1861,7 @@ sub_020619F0: ; 0x020619F0
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -1917,7 +1917,7 @@ sub_02061A70: ; 0x02061A70
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -1954,7 +1954,7 @@ sub_02061AB0: ; 0x02061AB0
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2012,7 +2012,7 @@ sub_02061B24: ; 0x02061B24
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2060,7 +2060,7 @@ sub_02061B80: ; 0x02061B80
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2125,7 +2125,7 @@ sub_02061C00: ; 0x02061C00
 	add r6, r2, #0x0
 	add r0, r6, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	mov r1, #0x0
 	add r4, r0, #0x0
 	str r1, [sp, #0x0]
@@ -2208,7 +2208,7 @@ sub_02061CA8: ; 0x02061CA8
 	add r6, r2, #0x0
 	add r0, r6, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldrb r0, [r4, #0x5]
 	cmp r0, #0x0
@@ -2270,7 +2270,7 @@ sub_02061D30: ; 0x02061D30
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -2287,7 +2287,7 @@ sub_02061D4C: ; 0x02061D4C
 	ldr r0, [r5, #0x4]
 	add r4, r1, #0x0
 	ldr r0, [r0, #0x14]
-	bl MOD20_02252538
+	bl ov20_02252538
 	str r0, [sp, #0x0]
 	add r0, sp, #0x0
 	strh r4, [r0, #0x4]
@@ -2306,7 +2306,7 @@ sub_02061D74: ; 0x02061D74
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2362,7 +2362,7 @@ sub_02061DE4: ; 0x02061DE4
 	add r6, r2, #0x0
 	add r0, r6, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldrb r0, [r4, #0x5]
 	mov r1, #0x0
@@ -2417,7 +2417,7 @@ sub_02061E60: ; 0x02061E60
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -2455,7 +2455,7 @@ sub_02061EAC: ; 0x02061EAC
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2477,7 +2477,7 @@ sub_02061EDC: ; 0x02061EDC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -2504,7 +2504,7 @@ sub_02061F0C: ; 0x02061F0C
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2547,7 +2547,7 @@ sub_02061F60: ; 0x02061F60
 	add r7, r2, #0x0
 	add r0, r7, #0x0
 	add r5, r1, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r6, r0, #0x0
 	ldrb r4, [r6, #0x1]
 	add r0, r5, #0x0
@@ -2630,7 +2630,7 @@ sub_02061FF8: ; 0x02061FF8
 	add r6, r2, #0x0
 	add r5, r1, #0x0
 	add r0, r6, #0x0
-	bl MOD06_02248B60
+	bl ov06_02248B60
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

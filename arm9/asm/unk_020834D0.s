@@ -148,11 +148,11 @@ sub_020835A0: ; 0x020835A0
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r3, r0]
-	ldr r3, _020835AC ; =MOD12_0223D1CC
+	ldr r3, _020835AC ; =ov12_0223D1CC
 	add r1, r2, #0x0
 	bx r3
 	.balign 4
-_020835AC: .word MOD12_0223D1CC
+_020835AC: .word ov12_0223D1CC
 
 	thumb_func_start sub_020835B0
 sub_020835B0: ; 0x020835B0

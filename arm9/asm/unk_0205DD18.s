@@ -318,7 +318,7 @@ _0205DF4C:
 	beq _0205DF6E
 	add r0, r5, #0x0
 	mov r3, #0x2
-	bl MOD06_0224B818
+	bl ov06_0224B818
 	str r0, [r4, #0x34]
 	b _0205DF90
 _0205DF6E:
@@ -327,13 +327,13 @@ _0205DF6E:
 	bne _0205DF80
 	add r0, r5, #0x0
 	mov r3, #0x0
-	bl MOD06_0224B818
+	bl ov06_0224B818
 	str r0, [r4, #0x34]
 	b _0205DF90
 _0205DF80:
 	add r0, r5, #0x0
 	mov r3, #0x1
-	bl MOD06_0224B818
+	bl ov06_0224B818
 	str r0, [r4, #0x34]
 	b _0205DF90
 _0205DF8C:
@@ -360,7 +360,7 @@ _0205DFA4:
 	ldr r0, [r5, #0x34]
 	cmp r0, #0x0
 	beq _0205DFCA
-	bl MOD06_0224B86C
+	bl ov06_0224B86C
 	cmp r0, #0x0
 	beq _0205DFD0
 	ldr r0, [r5, #0x34]
@@ -700,7 +700,7 @@ sub_0205E1F0: ; 0x0205E1F0
 	ldr r2, [r5, #0x8]
 	lsl r1, r1, #0x2
 	strh r2, [r4, r1]
-	bl MOD06_02245844
+	bl ov06_02245844
 	add r0, r5, #0x0
 	add r0, #0xd0
 	ldrb r0, [r0, #0x0]

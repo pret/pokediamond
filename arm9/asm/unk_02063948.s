@@ -106,7 +106,7 @@ _020639B6:
 	ldr r0, [r5, #0x38]
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	bl MOD05_021E643C
+	bl ov05_021E643C
 	cmp r0, #0x0
 	beq _020639FE
 	ldrh r1, [r4, #0xc]
@@ -118,7 +118,7 @@ _020639FE:
 	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl MOD05_021E69BC
+	bl ov05_021E69BC
 	cmp r0, #0x0
 	beq _02063A18
 	ldrh r1, [r4, #0xc]
@@ -1099,18 +1099,18 @@ sub_02064174: ; 0x02064174
 	ldr r1, [r4, #0x0]
 	add r0, r6, #0x0
 	mov r2, #0x4
-	bl MOD06_0224CB30
+	bl ov06_0224CB30
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl FreeToHeap
-	ldr r1, _020641A8 ; =MOD06_0224CB54
+	ldr r1, _020641A8 ; =ov06_0224CB54
 	add r0, r5, #0x0
 	add r2, r6, #0x0
 	bl sub_020463EC
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_020641A8: .word MOD06_0224CB54
+_020641A8: .word ov06_0224CB54
 
 	thumb_func_start sub_020641AC
 sub_020641AC: ; 0x020641AC
@@ -1191,7 +1191,7 @@ sub_02064230: ; 0x02064230
 	ldr r1, [r6, #0x0]
 	add r0, r4, #0x0
 	mov r2, #0xb
-	bl MOD06_0224CA88
+	bl ov06_0224CA88
 	ldr r1, [r4, #0x1c]
 	add r7, r0, #0x0
 	ldr r1, [r1, #0x0]
@@ -1207,14 +1207,14 @@ sub_02064230: ; 0x02064230
 	bl sub_02028AD4
 	add r0, r6, #0x0
 	bl FreeToHeap
-	ldr r1, _02064280 ; =MOD06_0224CAAC
+	ldr r1, _02064280 ; =ov06_0224CAAC
 	add r0, r5, #0x0
 	add r2, r7, #0x0
 	bl sub_020463EC
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	nop
-_02064280: .word MOD06_0224CAAC
+_02064280: .word ov06_0224CAAC
 
 	thumb_func_start sub_02064284
 sub_02064284: ; 0x02064284
@@ -1265,7 +1265,7 @@ sub_020642B4: ; 0x020642B4
 	add r0, r5, #0x0
 	bl sub_0204649C
 	mov r0, #0x72
-	ldr r1, _0206430C ; =MOD05_021F6360
+	ldr r1, _0206430C ; =ov05_021F6360
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	add r0, #0x30
@@ -1286,7 +1286,7 @@ sub_020642B4: ; 0x020642B4
 	bl sub_02028AD4
 	pop {r4-r6, pc}
 	.balign 4
-_0206430C: .word MOD05_021F6360
+_0206430C: .word ov05_021F6360
 
 	thumb_func_start sub_02064310
 sub_02064310: ; 0x02064310

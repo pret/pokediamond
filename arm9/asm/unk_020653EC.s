@@ -2301,12 +2301,12 @@ _020665E6:
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	mov r1, #0x5a
-	bl MOD06_0224C678
+	bl ov06_0224C678
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	mov r1, #0x5a
-	bl MOD06_0224C6E8
+	bl ov06_0224C6E8
 	ldrh r0, [r4, #0x12]
 	add r0, r0, #0x1
 	strh r0, [r4, #0x12]
@@ -2317,7 +2317,7 @@ _02066614:
 	ldr r0, [r4, r0]
 	mov r1, #0x5a
 	ldr r0, [r0, #0x50]
-	bl MOD05_021DA58C
+	bl ov05_021DA58C
 	cmp r0, #0x0
 	beq _0206662E
 	mov r0, #0x0
@@ -2338,7 +2338,7 @@ sub_02066634: ; 0x02066634
 	add r4, r1, #0x0
 	ldr r0, [r5, r0]
 	mov r1, #0x5a
-	bl MOD05_021DAF98
+	bl ov05_021DAF98
 	cmp r4, #0x0
 	bne _02066652
 	add r0, r5, #0x0

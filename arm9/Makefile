@@ -57,11 +57,11 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 # Directories containing source files
 
 # sorting wildcards required for versions of make >= 3.8.2 and < 4.3 for consistent builds
-SRC_DIRS := src lib lib/libnns/src lib/NitroSDK/src lib/libc/src $(sort $(wildcard modules/*/src))
-ASM_DIRS := asm data files $(sort $(wildcard modules/*/asm))
+SRC_DIRS := src lib lib/libnns/src lib/NitroSDK/src lib/libc/src $(sort $(wildcard overlays/*/src))
+ASM_DIRS := asm data files $(sort $(wildcard overlays/*/asm))
 LIBASM_DIRS := lib/syscall
 INCLUDE_RECURSIVE_DIRS := ../include-mw lib/libc/include lib/libnns/include lib/NitroSDK/include
-INCLUDE_DIRS := ../include $(sort $(wildcard modules/*/include)) ../files
+INCLUDE_DIRS := ../include $(sort $(wildcard overlays/*/include)) ../files
 
 C_FILES    := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
 CXX_FILES  := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.cpp)))
@@ -79,7 +79,7 @@ O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
 GLOBAL_ASM_C_FILES != grep -rl 'GLOBAL_ASM(' $(C_FILES)
 GLOBAL_ASM_O_FILES = $(addprefix $(BUILD_DIR)/,$(GLOBAL_ASM_C_FILES:.c=.o))
 
-# Overlay modules
+# Overlays
 OVERLAYS := $(shell grep -oE "Overlay \w+" $(LD_SPEC) | cut -d' ' -f2)
 
 .SECONDARY:

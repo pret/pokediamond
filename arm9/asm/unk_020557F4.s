@@ -57,7 +57,7 @@ _02055812:
 	cmp r0, #0x1
 	bne _0205584E
 	add r0, r5, #0x0
-	bl MOD05_021E7138
+	bl ov05_021E7138
 	pop {r3-r7, pc}
 _0205584E:
 	add r0, r5, #0x0
@@ -70,14 +70,14 @@ _0205584E:
 	cmp r0, #0x0
 	beq _0205586C
 	add r0, r5, #0x0
-	bl MOD05_021E7138
+	bl ov05_021E7138
 	b _02055878
 _0205586C:
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0x1
 	bne _02055878
 	add r0, r5, #0x0
-	bl MOD05_021E70F0
+	bl ov05_021E70F0
 _02055878:
 	add r0, sp, #0x8
 	ldrh r0, [r0, #0x10]

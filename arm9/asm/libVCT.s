@@ -1818,7 +1818,7 @@ _020AA144:
 	ldr r2, [r6, #0x0]
 	str r3, [r7, #0x8cc]
 	and r0, r0, #0xff
-	bl MOD04_021EAE90
+	bl ov04_021EAE90
 	ldr r0, [r7, #0x8cc]
 	cmp r0, #0x0
 	bne _020AA1A0
@@ -4475,7 +4475,7 @@ sub_020AC554:
 _020AC57C:
 	ldrb r0, [r0, #0x4]
 	mov r2, #0x10
-	bl MOD04_021EB044
+	bl ov04_021EB044
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
@@ -4554,7 +4554,7 @@ _020AC654:
 	mov r1, r10
 	mov r2, r6
 	strb r8, [r10, #0x9]
-	bl MOD04_021EB044
+	bl ov04_021EB044
 	cmp r0, #0x0
 	addne r9, r9, #0x1
 _020AC694:

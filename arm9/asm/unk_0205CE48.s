@@ -1128,7 +1128,7 @@ sub_0205D6BC: ; 0x0205D6BC
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204649C
-	bl MOD05_021F57EC
+	bl ov05_021F57EC
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	mov r0, #0xb
@@ -1138,7 +1138,7 @@ sub_0205D6BC: ; 0x0205D6BC
 	add r7, r0, #0x0
 	bl memset
 	mov r0, #0x72
-	ldr r1, _0205D710 ; =MOD05_021F57F0
+	ldr r1, _0205D710 ; =ov05_021F57F0
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	add r0, #0x30
@@ -1153,7 +1153,7 @@ sub_0205D6BC: ; 0x0205D6BC
 	bl Bag_TakeItem
 	pop {r3-r7, pc}
 	.balign 4
-_0205D710: .word MOD05_021F57F0
+_0205D710: .word ov05_021F57F0
 
 	thumb_func_start sub_0205D714
 sub_0205D714: ; 0x0205D714
@@ -1202,13 +1202,13 @@ sub_0205D74C: ; 0x0205D74C
 	add r0, r5, #0x0
 	bl sub_0204649C
 	mov r0, #0x72
-	ldr r1, _0205D784 ; =MOD05_021F5C70
+	ldr r1, _0205D784 ; =ov05_021F5C70
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	add r0, r5, #0x0
 	mov r1, #0xb
 	mov r2, #0x0
-	bl MOD05_021F5C44
+	bl ov05_021F5C44
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1216,7 +1216,7 @@ sub_0205D74C: ; 0x0205D74C
 	strh r0, [r4, #0x2a]
 	pop {r3-r5, pc}
 	.balign 4
-_0205D784: .word MOD05_021F5C70
+_0205D784: .word ov05_021F5C70
 
 	thumb_func_start sub_0205D788
 sub_0205D788: ; 0x0205D788
@@ -1225,15 +1225,15 @@ sub_0205D788: ; 0x0205D788
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
 	mov r2, #0x0
-	bl MOD05_021F5C44
+	bl ov05_021F5C44
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
-	ldr r1, _0205D7A4 ; =MOD05_021F5C70
+	ldr r1, _0205D7A4 ; =ov05_021F5C70
 	bl sub_020463CC
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_0205D7A4: .word MOD05_021F5C70
+_0205D7A4: .word ov05_021F5C70
 
 	thumb_func_start sub_0205D7A8
 sub_0205D7A8: ; 0x0205D7A8
@@ -1248,13 +1248,13 @@ sub_0205D7A8: ; 0x0205D7A8
 	add r0, r5, #0x0
 	bl sub_0204649C
 	mov r0, #0x72
-	ldr r1, _0205D7E0 ; =MOD05_021F5C70
+	ldr r1, _0205D7E0 ; =ov05_021F5C70
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	add r0, r5, #0x0
 	mov r1, #0xb
 	mov r2, #0x1
-	bl MOD05_021F5C44
+	bl ov05_021F5C44
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1262,7 +1262,7 @@ sub_0205D7A8: ; 0x0205D7A8
 	strh r0, [r4, #0x2a]
 	pop {r3-r5, pc}
 	.balign 4
-_0205D7E0: .word MOD05_021F5C70
+_0205D7E0: .word ov05_021F5C70
 
 	thumb_func_start sub_0205D7E4
 sub_0205D7E4: ; 0x0205D7E4
@@ -1271,15 +1271,15 @@ sub_0205D7E4: ; 0x0205D7E4
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
 	mov r2, #0x1
-	bl MOD05_021F5C44
+	bl ov05_021F5C44
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
-	ldr r1, _0205D800 ; =MOD05_021F5C70
+	ldr r1, _0205D800 ; =ov05_021F5C70
 	bl sub_020463CC
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_0205D800: .word MOD05_021F5C70
+_0205D800: .word ov05_021F5C70
 
 	thumb_func_start sub_0205D804
 sub_0205D804: ; 0x0205D804
@@ -1294,13 +1294,13 @@ sub_0205D804: ; 0x0205D804
 	add r0, r5, #0x0
 	bl sub_0204649C
 	mov r0, #0x72
-	ldr r1, _0205D83C ; =MOD05_021F5C70
+	ldr r1, _0205D83C ; =ov05_021F5C70
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	add r0, r5, #0x0
 	mov r1, #0xb
 	mov r2, #0x2
-	bl MOD05_021F5C44
+	bl ov05_021F5C44
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1308,7 +1308,7 @@ sub_0205D804: ; 0x0205D804
 	strh r0, [r4, #0x2a]
 	pop {r3-r5, pc}
 	.balign 4
-_0205D83C: .word MOD05_021F5C70
+_0205D83C: .word ov05_021F5C70
 
 	thumb_func_start sub_0205D840
 sub_0205D840: ; 0x0205D840
@@ -1317,15 +1317,15 @@ sub_0205D840: ; 0x0205D840
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
 	mov r2, #0x2
-	bl MOD05_021F5C44
+	bl ov05_021F5C44
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
-	ldr r1, _0205D85C ; =MOD05_021F5C70
+	ldr r1, _0205D85C ; =ov05_021F5C70
 	bl sub_020463CC
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_0205D85C: .word MOD05_021F5C70
+_0205D85C: .word ov05_021F5C70
 
 	thumb_func_start sub_0205D860
 sub_0205D860: ; 0x0205D860
@@ -1611,7 +1611,7 @@ sub_0205DAAC: ; 0x0205DAAC
 	add r4, r0, #0x0
 	bl sub_02046528
 	mov r1, #0xb
-	bl MOD06_0224C700
+	bl ov06_0224C700
 	add r2, r0, #0x0
 	ldr r1, _0205DAC8 ; =0x0224C721
 	add r0, r4, #0x0
@@ -1619,7 +1619,7 @@ sub_0205DAAC: ; 0x0205DAAC
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_0205DAC8: .word MOD06_0224C720
+_0205DAC8: .word ov06_0224C720
 
 	thumb_func_start sub_0205DACC
 sub_0205DACC: ; 0x0205DACC
@@ -1831,7 +1831,7 @@ _0205DC68:
 	ldr r0, [r5, #0x34]
 	bl sub_02058780
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0x1
 	add r4, #0x2a
 	strb r0, [r4, #0x0]
@@ -1879,7 +1879,7 @@ _0205DCC4:
 	ldr r0, [r5, #0x34]
 	bl sub_02058780
 	mov r0, #0x1
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0x4
 	add r4, #0x2a
 	strb r0, [r4, #0x0]

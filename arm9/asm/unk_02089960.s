@@ -142,14 +142,14 @@ sub_02089A40: ; 0x02089A40
 	bl OverlayManager_FreeData
 	add r0, r4, #0x0
 	bl DestroyHeap
-	ldr r0, _02089A64 ; =SDK_OVERLAY_MODULE_83_ID
-	ldr r1, _02089A68 ; =MOD83_0223A360
+	ldr r0, _02089A64 ; =SDK_OVERLAY_OVERLAY_83_ID
+	ldr r1, _02089A68 ; =ov83_0223A360
 	bl RegisterMainOverlay
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	nop
-_02089A64: .word SDK_OVERLAY_MODULE_83_ID
-_02089A68: .word MOD83_0223A360
+_02089A64: .word SDK_OVERLAY_OVERLAY_83_ID
+_02089A68: .word ov83_0223A360
 
 	thumb_func_start sub_02089A6C
 sub_02089A6C: ; 0x02089A6C

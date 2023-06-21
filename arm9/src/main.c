@@ -17,12 +17,12 @@
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
 #include "wfc_user_info_warning.h"
-#include "module_52.h"
+#include "overlay_52.h"
 #include "font.h"
 #include "brightness.h"
 
-FS_EXTERN_OVERLAY(MODULE_52);
-FS_EXTERN_OVERLAY(MODULE_63);
+FS_EXTERN_OVERLAY(OVERLAY_52);
+FS_EXTERN_OVERLAY(OVERLAY_63);
 
 #define SOFT_RESET_KEY (PAD_BUTTON_L | PAD_BUTTON_R | PAD_BUTTON_START | PAD_BUTTON_SELECT)
 
@@ -40,7 +40,7 @@ extern void PlayTimerUpdate(void);
 extern void sub_020222C4(void);
 extern void sub_0200E2D8(void);
 
-extern struct OverlayManagerTemplate MOD63_021DBE18;
+extern struct OverlayManagerTemplate ov63_021DBE18;
 
 extern u8 SDK_STATIC_BSS_START[];
 
@@ -81,12 +81,12 @@ void NitroMain(void)
         case 0:
             // Title Demo
             UNK_02016FA8.unk14 = 0;
-            RegisterMainOverlay(FS_OVERLAY_ID(MODULE_63), &MOD63_021DBE18);
+            RegisterMainOverlay(FS_OVERLAY_ID(OVERLAY_63), &ov63_021DBE18);
             break;
         case 1:
             // Reset transition?
             UNK_02016FA8.unk14 = 1;
-            RegisterMainOverlay(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76C8);
+            RegisterMainOverlay(FS_OVERLAY_ID(OVERLAY_52), &ov52_021D76C8);
             break;
         default:
             GF_ASSERT(0);

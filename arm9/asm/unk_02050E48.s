@@ -273,7 +273,7 @@ sub_0205104C: ; 0x0205104C
 	cmp r0, #0x0
 	beq _02051066
 	mov r0, #0x1
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	bl sub_0204CC9C
 	mov r0, #0x1
 	pop {r3, pc}
@@ -566,7 +566,7 @@ _02051288:
 	b _020517B8
 _0205129C:
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0xe
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -1037,7 +1037,7 @@ _02051642:
 	b _020517B8
 _0205167A:
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	mov r0, #0x21
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -2207,7 +2207,7 @@ _02051F7C:
 	add r0, #0x8
 	bl RemoveWindow
 	mov r0, #0x0
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
 	str r0, [r4, #0x28]
@@ -2250,7 +2250,7 @@ _0205200C:
 	cmp r0, #0x0
 	bne _0205203A
 	mov r0, #0x1
-	bl MOD05_021D7CA4
+	bl ov05_021D7CA4
 	bl sub_0204CC9C
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
