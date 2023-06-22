@@ -63,7 +63,7 @@ void sub_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16
 
     moveRelearner->pokemon = pokemon;
 
-    struct SaveData* save = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
+    struct SaveData* save = FieldSystem_GetSaveDataPtr(ctx->fieldSystem);
     moveRelearner->player = Save_PlayerData_GetProfileAddr(save);
 
     moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);

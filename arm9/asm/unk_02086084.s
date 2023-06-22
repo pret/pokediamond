@@ -271,10 +271,10 @@ _020862C4:
 	b _020863CE
 _020862D6:
 	add r0, r5, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r5, [r4, #0xc]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
@@ -299,7 +299,7 @@ _020862D6:
 	mov r2, #0x0
 	bl SetMonData
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	ldr r1, [r4, #0xc]
 	bl sub_0202C144
 	ldr r0, [r4, #0x4]
@@ -314,7 +314,7 @@ _02086334:
 	b _020863CE
 _0208633A:
 	add r0, r5, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x5
@@ -322,7 +322,7 @@ _0208633A:
 	bl GetMonData
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x0]
 	mov r0, #0xb
@@ -412,7 +412,7 @@ _020863F2:
 	stmia r3!, {r0-r1}
 	ldr r1, _02086410 ; =sub_02086280
 	add r0, r5, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r5, pc}
 	.balign 4
 _02086410: .word sub_02086280

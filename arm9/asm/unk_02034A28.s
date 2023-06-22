@@ -203,8 +203,8 @@ sub_02034B6C: ; 0x02034B6C
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02034B74
-sub_02034B74: ; 0x02034B74
+	thumb_func_start SetObjectEventXYPos
+SetObjectEventXYPos: ; 0x02034B74
 	push {r3-r7, lr}
 	ldr r0, [r0, #0x14]
 	add r4, r1, #0x0
@@ -265,8 +265,8 @@ _02034BD4:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start sub_02034BDC
-sub_02034BDC: ; 0x02034BDC
+	thumb_func_start SetObjectEventMovement
+SetObjectEventMovement: ; 0x02034BDC
 	push {r4-r6, lr}
 	ldr r0, [r0, #0x14]
 	mov r3, #0x0

@@ -13,7 +13,7 @@ UNK_020F7630: ; 0x020F7630
 sub_020606B0: ; 0x020606B0
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r0, r4, #0x0
 	bl sub_0204652C
 	add r2, r0, #0x0
@@ -30,7 +30,7 @@ sub_020606D0: ; 0x020606D0
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -148,7 +148,7 @@ sub_02060790: ; 0x02060790
 	ldr r1, _020607D0 ; =sub_020606D0
 	add r0, r7, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r7, pc}
 	.balign 4
 _020607D0: .word sub_020606D0

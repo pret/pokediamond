@@ -8,7 +8,7 @@ ov05_021E3340: ; 0x021E3340
 	push {r3, r4, r5, r6, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -122,7 +122,7 @@ Field_GivePoketch: ; 0x021E3424
 	str r0, [r2]
 	ldr r1, _021E3440 ; =ov05_021E3340
 	add r0, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	.balign 4, 0
 _021E3440: .word ov05_021E3340

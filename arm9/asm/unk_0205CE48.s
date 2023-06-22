@@ -162,7 +162,7 @@ sub_0205CF34: ; 0x0205CF34
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r2, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl sub_0204652C
@@ -212,7 +212,7 @@ _0205CF9C: .word sub_0205CFA0
 sub_0205CFA0: ; 0x0205CFA0
 	push {r3-r7, lr}
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0204652C
@@ -275,7 +275,7 @@ sub_0205D024: ; 0x0205D024
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x0]
 	bl sub_0204652C
@@ -341,7 +341,7 @@ sub_0205D0BC: ; 0x0205D0BC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -380,7 +380,7 @@ sub_0205D104: ; 0x0205D104
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -517,7 +517,7 @@ sub_0205D21C: ; 0x0205D21C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -553,7 +553,7 @@ _0205D260: .word sub_0205D264
 sub_0205D264: ; 0x0205D264
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02046530
@@ -720,7 +720,7 @@ sub_0205D3B8: ; 0x0205D3B8
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -758,7 +758,7 @@ sub_0205D400: ; 0x0205D400
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x0]
 	bl sub_0204652C
@@ -824,7 +824,7 @@ sub_0205D498: ; 0x0205D498
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl sub_0204652C
@@ -864,7 +864,7 @@ sub_0205D4E8: ; 0x0205D4E8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r4, r1, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	ldr r0, [r5, #0x0]
 	bl sub_0204652C
 	ldrh r1, [r4, #0x10]
@@ -899,7 +899,7 @@ sub_0205D528: ; 0x0205D528
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -940,7 +940,7 @@ sub_0205D574: ; 0x0205D574
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -982,7 +982,7 @@ sub_0205D5C4: ; 0x0205D5C4
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -1121,7 +1121,7 @@ sub_0205D6BC: ; 0x0205D6BC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl sub_0204652C
@@ -1194,7 +1194,7 @@ sub_0205D74C: ; 0x0205D74C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -1240,7 +1240,7 @@ sub_0205D7A8: ; 0x0205D7A8
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -1286,7 +1286,7 @@ sub_0205D804: ; 0x0205D804
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl sub_0204652C
@@ -1412,7 +1412,7 @@ _0205D900: .word sub_0205D904
 sub_0205D904: ; 0x0205D904
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -1489,7 +1489,7 @@ sub_0205D9A8: ; 0x0205D9A8
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x0]
 	bl sub_0204652C
@@ -1554,7 +1554,7 @@ sub_0205DA3C: ; 0x0205DA3C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl sub_0204652C
@@ -1609,7 +1609,7 @@ _0205DAA6:
 sub_0205DAAC: ; 0x0205DAAC
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	mov r1, #0xb
 	bl ov06_0224C700
 	add r2, r0, #0x0
@@ -1806,7 +1806,7 @@ _0205DC34: .word sub_0205D904
 sub_0205DC38: ; 0x0205DC38
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C

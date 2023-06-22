@@ -1069,7 +1069,7 @@ _021DAE10: .word 0x00000615
 ov05_021DAE14: ; 0x021DAE14
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -1255,7 +1255,7 @@ ov05_021DAF78: ; 0x021DAF78
 	strb r4, [r2]
 	ldr r0, [r5, #0x10]
 	ldr r1, _021DAF94 ; =ov05_021DAE14
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 _021DAF94: .word ov05_021DAE14
@@ -1348,7 +1348,7 @@ ov05_021DB040: ; 0x021DB040
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r4, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
 	bl sub_0204652C
@@ -1469,7 +1469,7 @@ ov05_021DB144: ; 0x021DB144
 	push {r4, r5, lr}
 	sub sp, #0xc
 	add r5, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
 	bl sub_0204652C
@@ -1536,7 +1536,7 @@ ov05_021DB1D0: ; 0x021DB1D0
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
 	add r5, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r5, #0
 	bl sub_0204652C
@@ -1599,7 +1599,7 @@ ov05_021DB250: ; 0x021DB250
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x18
 	str r0, [sp, #0x10]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	ldr r0, [sp, #0x10]
 	bl sub_0204652C
@@ -1750,7 +1750,7 @@ ov05_021DB380: ; 0x021DB380
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r7, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r7, #0
 	bl sub_0204652C

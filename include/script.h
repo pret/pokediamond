@@ -99,6 +99,10 @@ typedef struct RoamerSaveData {
 
 } RoamerSaveData; //todo: fill out and move to own file
 
+typedef struct MapObjectManager {
+
+} MapObjectManager; //todo: fill out
+
 typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;
@@ -111,13 +115,14 @@ typedef struct FieldSystem //todo move to field_system.c
     struct Camera *camera;
     u32 unk24;
     u8 padding3[0xC];
-    u32 unk34;
+    MapObjectManager *mapObjectManager;
     struct PlayerAvatar *playerAvatar;
     u8 padding4[0x24];
     u32 unk60;
     u8 padding5[0x14];
     u32 unk78;
-    u8 padding6[0x14];
+    u32 unk7C;
+    u8 padding6[0x10];
     u32 unk90;
     u8 padding7[0x4];
     u32 *unk98;

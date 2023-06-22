@@ -63,7 +63,7 @@ sub_020484F8: ; 0x020484F8
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -258,7 +258,7 @@ CallTask_GameClear: ; 0x02048694
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x3c
@@ -327,7 +327,7 @@ _0204871E:
 	ldr r1, _02048760 ; =sub_020484F8
 	add r0, r7, #0x0
 	add r2, r5, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4

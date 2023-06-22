@@ -55,7 +55,7 @@ BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - todo: GetPart
 BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx) //0199 - todo: CheckPartyPokemonTraded?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct SaveData* save = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct SaveData* save = FieldSystem_GetSaveDataPtr(fieldSystem);
     PlayerProfile* player = Save_PlayerData_GetProfileAddr(save);
 
     u16* mon_slot = ScriptGetVarPointer(ctx);

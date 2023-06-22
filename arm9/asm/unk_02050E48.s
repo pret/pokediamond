@@ -314,7 +314,7 @@ sub_02051094: ; 0x02051094
 	bl sub_0204652C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	ldr r1, [r4, #0x34]
 	cmp r1, #0x2c
 	bls _020510AE
@@ -2092,7 +2092,7 @@ _02051EAC:
 sub_02051EB0: ; 0x02051EB0
 	push {r4-r6, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C

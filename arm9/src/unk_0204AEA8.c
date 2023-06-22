@@ -8,7 +8,7 @@ extern void ov05_021E3444(u32, struct FieldSystem *, u32);
 
 BOOL sub_0204AEA8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     u32 *v1 = sub_0204652C(taskManager);
 
     switch (v1[0])
@@ -39,5 +39,5 @@ void sub_0204AEF8(struct TaskManager *taskManager, u32 a1, u32 a2)
     v0[2] = a1;
     v0[3] = a2;
     
-    sub_0204640C(taskManager, sub_0204AEA8, v0);
+    TaskManager_Call(taskManager, sub_0204AEA8, v0);
 }

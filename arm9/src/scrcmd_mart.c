@@ -5,7 +5,7 @@
 #include "scrcmd.h"
 #include "overlay_06.h"
 
-extern void sub_02038AD0(struct TaskManager *);
+extern void sub_02038AD0(TaskManager *);
 
 static const u16 UNK_020F40A6[] = {
     ITEM_AIR_MAIL,
@@ -344,7 +344,7 @@ const u16 *sSealsMartPointers[] = {
     UNK_020F41B2,
 };
 
-BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pokemart?
+BOOL ScrCmd_NormalMart(ScriptContext * ctx) //0147 - todo: Pokemart?
 {
     u16 whichMart = ScriptGetVar(ctx);
     s32 param;
@@ -398,7 +398,7 @@ BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pokemart?
     return TRUE;
 }
 
-BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
+BOOL ScrCmd_SpecialMart(ScriptContext * ctx) //0148
 {
     u16 whichMart = ScriptGetVar(ctx);
     u32 sp0;
@@ -413,7 +413,7 @@ BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
     return TRUE;
 }
 
-BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
+BOOL ScrCmd_GoodsMart(ScriptContext * ctx) //0149
 {
     u16 whichMart = ScriptGetVar(ctx);
     u32 sp0;
@@ -427,7 +427,7 @@ BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
     return TRUE;
 }
 
-BOOL ScrCmd_SealsMart(struct ScriptContext * ctx) //014A
+BOOL ScrCmd_SealsMart(ScriptContext * ctx) //014A
 {
     u16 whichMart = ScriptGetVar(ctx);
 
@@ -435,7 +435,7 @@ BOOL ScrCmd_SealsMart(struct ScriptContext * ctx) //014A
     return TRUE;
 }
 
-BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx) //0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
+BOOL ScrCmd_AccessoriesShop(ScriptContext * ctx) //0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
 {
     sub_02038AD0(ctx->fieldSystem->taskManager);
     return TRUE;

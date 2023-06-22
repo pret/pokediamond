@@ -554,7 +554,7 @@ sub_02037A78: ; 0x02037A78
 sub_02037A7C: ; 0x02037A7C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -654,7 +654,7 @@ sub_02037B44: ; 0x02037B44
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	add r7, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xc
@@ -696,7 +696,7 @@ sub_02037B44: ; 0x02037B44
 	ldr r1, _02037BAC ; =sub_02037A7C
 	add r0, r7, #0x0
 	str r5, [r4, #0x4]
-	bl sub_0204640C
+	bl TaskManager_Call
 	add r0, r5, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -921,7 +921,7 @@ sub_02037D70: ; 0x02037D70
 	bl sub_0204652C
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x0
 	beq _02037D9A
@@ -1002,7 +1002,7 @@ sub_02037E18: ; 0x02037E18
 	str r1, [sp, #0x4]
 	add r5, r2, #0x0
 	add r6, r3, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x10
@@ -1037,7 +1037,7 @@ _02037E6C:
 	ldr r0, [sp, #0x0]
 	ldr r1, _02037E7C ; =sub_02037D70
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
@@ -1115,7 +1115,7 @@ sub_02037EF8: ; 0x02037EF8
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r5, #0x0
@@ -1140,7 +1140,7 @@ sub_02037F2C: ; 0x02037F2C
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	mov r1, #0xb
 	str r1, [sp, #0x0]
 	add r1, r4, #0x0
@@ -1164,13 +1164,13 @@ sub_02037F58: ; 0x02037F58
 	add r6, r3, #0x0
 	cmp r5, #0x3
 	bne _02037F74
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl sub_020855B0
 	b _02037F82
 _02037F74:
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	add r3, r6, #0x0
@@ -1189,7 +1189,7 @@ sub_02037F90: ; 0x02037F90
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r5, r0, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl sub_02085578
@@ -1216,7 +1216,7 @@ sub_02037FC4: ; 0x02037FC4
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r0, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	add r1, r5, #0x0
 	bl sub_02087D00
 	add r5, r0, #0x0
@@ -1295,7 +1295,7 @@ sub_0203800C: ; 0x0203800C
 sub_02038070: ; 0x02038070
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -1373,7 +1373,7 @@ _020380E8:
 	add r0, r6, #0x0
 	add r2, r4, #0x0
 	str r5, [r4, #0x4]
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
@@ -1490,7 +1490,7 @@ sub_020381FC: ; 0x020381FC
 	push {r4-r7, lr}
 	sub sp, #0x34
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C
@@ -1725,7 +1725,7 @@ sub_020383D8: ; 0x020383D8
 	str r0, [r2, #0x0]
 	ldr r1, _020383F4 ; =sub_020381FC
 	add r0, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	.balign 4
 _020383F4: .word sub_020381FC
@@ -1800,7 +1800,7 @@ _02038478: .word UNK_020F2D54
 sub_0203847C: ; 0x0203847C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -1904,7 +1904,7 @@ _02038548: .word UNK_020FA5FC
 sub_0203854C: ; 0x0203854C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -1971,7 +1971,7 @@ CreateNamingScreen: ; 0x020385CC
 	str r2, [sp, #0x8]
 	str r3, [sp, #0xc]
 	ldr r5, [sp, #0x2c]
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x14
@@ -2040,7 +2040,7 @@ _0203866E:
 	ldr r0, [sp, #0x4]
 	ldr r1, _0203867C ; =sub_0203847C
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -2373,7 +2373,7 @@ sub_02038914: ; 0x02038914
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Flags_Get
@@ -2455,7 +2455,7 @@ sub_020389CC: ; 0x020389CC
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r6, r1, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -2492,7 +2492,7 @@ sub_020389CC: ; 0x020389CC
 	ldr r1, _02038A38 ; =sub_02038914
 	add r0, r7, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r7, pc}
 	.balign 4
 _02038A38: .word sub_02038914
@@ -2574,7 +2574,7 @@ _02038ACA:
 sub_02038AD0: ; 0x02038AD0
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r2, r0, #0x0
 	ldr r1, [r2, #0xc]
 	ldr r2, [r2, #0x8]
@@ -2583,7 +2583,7 @@ sub_02038AD0: ; 0x02038AD0
 	add r2, r0, #0x0
 	ldr r1, _02038AF0 ; =sub_02038AB0
 	add r0, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, pc}
 	.balign 4
 _02038AF0: .word sub_02038AB0

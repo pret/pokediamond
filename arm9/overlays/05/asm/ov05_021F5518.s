@@ -392,7 +392,7 @@ ov05_021F57EC: ; 0x021F57EC
 ov05_021F57F0: ; 0x021F57F0
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r6, #0
 	bl sub_0204652C

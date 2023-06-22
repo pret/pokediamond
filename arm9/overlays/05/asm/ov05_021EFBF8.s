@@ -659,7 +659,7 @@ ov05_021F0128: ; 0x021F0128
 ov05_021F0130: ; 0x021F0130
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	ldr r0, [r4, #0x48]
 	cmp r0, #0xc
 	bhi _021F01E8
@@ -876,7 +876,7 @@ _021F02F2:
 	ldr r1, _021F0300 ; =ov05_021F0128
 	add r0, r5, #0
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4, r5, r6, pc}
 	nop
 _021F0300: .word ov05_021F0128

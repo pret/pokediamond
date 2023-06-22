@@ -36,7 +36,7 @@ void sub_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
     }
 }
 
-void sub_0204640C(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
+void TaskManager_Call(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
 {
     struct TaskManager *taskManager2 = FieldSys_CreateTask(taskManager->fieldSystem, taskFunc, env);
     taskManager2->prev = taskManager;
@@ -83,7 +83,7 @@ BOOL sub_020464A4(void * r0)
 
 BOOL sub_020464B8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     u32 * r4_2 = sub_0204652C(taskManager);
     switch (r4_2[0])
     {
@@ -108,10 +108,10 @@ void sub_02046500(struct TaskManager *taskManager, u32 r5, u32 r4)
     r2[0] = 0;
     r2[1] = r5;
     r2[2] = r4;
-    sub_0204640C(taskManager, sub_020464B8, r2);
+    TaskManager_Call(taskManager, sub_020464B8, r2);
 }
 
-struct FieldSystem *sub_02046528(struct TaskManager *taskManager)
+struct FieldSystem *TaskManager_GetFieldSystem(struct TaskManager *taskManager)
 {
     return taskManager->fieldSystem;
 }

@@ -7,7 +7,7 @@
 sub_0208A258: ; 0x0208A258
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C
@@ -63,7 +63,7 @@ _0208A2A6:
 sub_0208A2C4: ; 0x0208A2C4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204652C

@@ -152,7 +152,7 @@ u32 sub_0205FBC0(
 
 BOOL sub_0205FBE8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct1_0205FA2C *res2 =
         (struct UnkCallbackStruct1_0205FA2C *)sub_0204652C(taskManager);
     switch (res2->unk04)
@@ -186,7 +186,7 @@ void sub_0205FC50(struct TaskManager *taskManager,
     u8 param6,
     u8 param7)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
 
     struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct1_0205FA2C));
@@ -200,7 +200,7 @@ void sub_0205FC50(struct TaskManager *taskManager,
     ptr->unk0d = param7;
     ptr->unk14 = param1;
 
-    sub_0204640C(fieldSystem->taskManager, &sub_0205FBE8, ptr);
+    TaskManager_Call(fieldSystem->taskManager, &sub_0205FBE8, ptr);
 }
 
 u32 sub_0205FC9C(
@@ -233,7 +233,7 @@ u32 sub_0205FCC4(
 
 BOOL sub_0205FCE8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct2_0205FA2C *res2 =
         (struct UnkCallbackStruct2_0205FA2C *)sub_0204652C(taskManager);
 
@@ -258,7 +258,7 @@ BOOL sub_0205FCE8(struct TaskManager *taskManager)
 
 void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct2_0205FA2C));
@@ -267,12 +267,12 @@ void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 p
     ptr->unk14 = param3;
     ptr->unk10 = param2;
 
-    sub_0204640C(fieldSystem->taskManager, &sub_0205FCE8, (u32 *)ptr);
+    TaskManager_Call(fieldSystem->taskManager, &sub_0205FCE8, (u32 *)ptr);
 }
 
 BOOL sub_0205FD70(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     u16 *res2 = (u16 *)sub_0204652C(taskManager);
     u8 *res3 = sub_020316E0(1 - sub_02031190());
     if (res3 == NULL)
@@ -301,7 +301,7 @@ BOOL sub_0205FD70(struct TaskManager *taskManager)
 
 void sub_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
 {
-    struct FieldSystem *fieldSystem = sub_02046528(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
 
     u16 *ptr = AllocFromHeap(0xb, 2 * sizeof(u16));
     MI_CpuFill8(ptr, 0, 2 * sizeof(u16));
@@ -309,7 +309,7 @@ void sub_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
     ptr[0] = param1;
     ptr[1] = param2;
 
-    sub_0204640C(fieldSystem->taskManager, &sub_0205FD70, (u32 *)ptr);
+    TaskManager_Call(fieldSystem->taskManager, &sub_0205FD70, (u32 *)ptr);
 }
 
 u32 sub_0205FE10(struct SaveData *save)

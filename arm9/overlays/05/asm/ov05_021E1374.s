@@ -9,7 +9,7 @@ ov05_021E1374: ; 0x021E1374
 	str r0, [sp]
 	add r5, r1, #0
 	add r6, r2, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	mov r1, #0x47
 	add r7, r0, #0
 	mov r0, #4
@@ -36,7 +36,7 @@ _021E1396:
 	ldr r0, [sp]
 	ldr r1, _021E13C0 ; =ov05_021E13C4
 	add r2, r4, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 _021E13C0: .word ov05_021E13C4
@@ -295,7 +295,7 @@ _021E15A6:
 	add r1, r6, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0
 	beq _021E161A
 	bl sub_02058488
@@ -447,7 +447,7 @@ ov05_021E16C8: ; 0x021E16C8
 _021E16D6:
 	ldr r0, [r6, #0x34]
 	add r1, r5, #0
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0
 	beq _021E16F2
 	bl sub_02058480
@@ -869,7 +869,7 @@ ov05_021E19E0: ; 0x021E19E0
 _021E19F0:
 	ldr r0, [r6, #0x34]
 	add r1, r5, #0
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0
 	beq _021E1A16
 	bl sub_02058854
@@ -915,7 +915,7 @@ ov05_021E1A30: ; 0x021E1A30
 	str r0, [sp, #0xc]
 	bl sub_020395F4
 	str r0, [sp, #8]
-	bl Field_TrainerIsDoubleBattle
+	bl TrainerIsDoubleBattle
 	cmp r0, #0
 	bne _021E1A60
 	add sp, #0x10
@@ -929,7 +929,7 @@ _021E1A66:
 	ldr r0, [sp]
 	add r1, r4, #0
 	ldr r0, [r0, #0x34]
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r5, r0, #0
 	beq _021E1ACC
 	ldr r1, [sp, #4]

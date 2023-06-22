@@ -7,7 +7,7 @@
 ov05_021F6360: ; 0x021F6360
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	str r0, [sp]
 	add r0, r7, #0
 	bl sub_0204652C
@@ -84,7 +84,7 @@ _021F6402:
 	ldr r1, _021F6428 ; =ov05_021F57F0
 	ldr r2, [r5, #4]
 	add r0, r7, #0
-	bl sub_0204640C
+	bl TaskManager_Call
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]

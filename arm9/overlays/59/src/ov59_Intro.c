@@ -1335,7 +1335,7 @@ void ov59_ResetPlayerAnimation(ov59_IntroOverlayData *data)
 void ov59_AnimatePlayerSprite(ov59_IntroOverlayData *data)
 {
     u32 timer;
-    if (data->selectedGender == Male)
+    if (data->selectedGender == PLAYER_GENDER_MALE)
     {
         if (data->maleAnimTimer != 0)
         {
@@ -1400,7 +1400,7 @@ BOOL ov59_PlayerShrinkAnimation(ov59_IntroOverlayData *data)
     struct ov59_CharStruct021D9E70 charStruct;
     struct ov59_CharStruct021D9E70 charStruct2;
     const struct ov59_CharStruct021D9E70 *addr;
-    if (data->selectedGender == Male)
+    if (data->selectedGender == PLAYER_GENDER_MALE)
     {
         charStruct = ov59_021D9E88;
         addr = &charStruct;
@@ -2487,7 +2487,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             {
                 break;
             }
-            data->selectedGender = Male;
+            data->selectedGender = PLAYER_GENDER_MALE;
             data->controllerCounter = 67;
             break;
 
@@ -2497,7 +2497,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
                 data->alphaBlend1 = 6;
                 data->alphaBlend2 = 10;
                 data->fadeCounter = 2;
-                if (data->selectedGender == Male)
+                if (data->selectedGender == PLAYER_GENDER_MALE)
                 {
                     data->controllerCounter = 68;
                 }
@@ -2509,7 +2509,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             }
             if ((gSystem.newKeys & PAD_KEY_LEFT) == 0x20 || (gSystem.newKeys & PAD_KEY_RIGHT) == 0x10)
             {
-                data->selectedGender = (data->selectedGender == Male ? Female : Male);
+                data->selectedGender = (data->selectedGender == PLAYER_GENDER_MALE ? PLAYER_GENDER_FEMALE : PLAYER_GENDER_MALE);
                 PlaySE(SEQ_SE_DP_SELECT);
             }
             ov59_AnimatePlayerSprite(data); //animate sprite
@@ -2550,7 +2550,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             break;
 
         case 72: //All right, so you’re a boy/girl?
-            u32 msgNo = data->selectedGender == Male ? narc_0341_00022 : narc_0341_00023;
+            u32 msgNo = data->selectedGender == PLAYER_GENDER_MALE ? narc_0341_00022 : narc_0341_00023;
             if (ov59_DisplayMessage(data, msgNo, TRUE) != TRUE)
             {
                 break;
@@ -2578,7 +2578,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             break;
 
         case 74: //reset blend
-            enum GFBgLayer layer = ((data->selectedGender == Male) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
+            enum GFBgLayer layer = ((data->selectedGender == PLAYER_GENDER_MALE) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
             if (ov59_FadeController(data, layer, 1) != TRUE)
             {
                 break;
@@ -2604,7 +2604,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
-            if (data->selectedGender == Male)
+            if (data->selectedGender == PLAYER_GENDER_MALE)
             {
                 ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
                 BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
@@ -2627,7 +2627,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             break;
 
         case 79: //Your name is {STRVAR_1 3, 0}?
-            u32 messageNumber = (data->selectedGender == Male ? narc_0341_00025 : narc_0341_00026); //no idea why these are different strings, they contain the same thing
+            u32 messageNumber = (data->selectedGender == PLAYER_GENDER_MALE ? narc_0341_00025 : narc_0341_00026); //no idea why these are different strings, they contain the same thing
             if (ov59_DisplayMessage(data, messageNumber, TRUE) != TRUE)
             {
                 break;
@@ -2658,7 +2658,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             break;
 
         case 81: //blend adjust
-            enum GFBgLayer layer2 = ((data->selectedGender == Male) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
+            enum GFBgLayer layer2 = ((data->selectedGender == PLAYER_GENDER_MALE) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
             if (ov59_FadeController(data, layer2, 1) != TRUE)
             {
                 break;
@@ -2886,7 +2886,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             break;
 
         case 104: //load sprite
-            if (data->selectedGender == Male)
+            if (data->selectedGender == PLAYER_GENDER_MALE)
             {
                 data->spriteDataIndex0 = 2;
                 data->spriteDataIndex1 = 0;

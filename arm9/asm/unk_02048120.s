@@ -96,7 +96,7 @@ _0204817A:
 	add r1, #0xc
 	bl AddWindow
 	add r0, r5, #0x0
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x20]
@@ -126,7 +126,7 @@ _020481F2:
 	ldr r1, _02048210 ; =sub_02048214
 	add r0, r6, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4-r6, pc}
 	nop
 _02048208: .word UNK_020F4628
@@ -305,12 +305,12 @@ sub_020482F4: ; 0x020482F4
 	.balign 4
 _02048378: .word 0x000F0200
 
-	thumb_func_start sub_0204837C
-sub_0204837C: ; 0x0204837C
+	thumb_func_start FieldTask_BlackOut
+FieldTask_BlackOut: ; 0x0204837C
 	push {r3-r7, lr}
 	sub sp, #0x18
 	add r5, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02046530
@@ -437,12 +437,12 @@ _02048488:
 _02048490: .word 0x000007E4
 _02048494: .word 0x000007E5
 
-	thumb_func_start sub_02048498
-sub_02048498: ; 0x02048498
-	ldr r3, _020484A0 ; =sub_0204640C
-	ldr r1, _020484A4 ; =sub_0204837C
+	thumb_func_start CallFieldTask_BlackOut
+CallFieldTask_BlackOut: ; 0x02048498
+	ldr r3, _020484A0 ; =TaskManager_Call
+	ldr r1, _020484A4 ; =FieldTask_BlackOut
 	mov r2, #0x0
 	bx r3
 	.balign 4
-_020484A0: .word sub_0204640C
-_020484A4: .word sub_0204837C
+_020484A0: .word TaskManager_Call
+_020484A4: .word FieldTask_BlackOut

@@ -139,7 +139,7 @@ void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData * 
 {
     PlayerProfile *profile = Save_PlayerData_GetProfileAddr(save);
     struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heap_id);
-    if (PlayerProfile_GetTrainerGender(profile) == Male)
+    if (PlayerProfile_GetTrainerGender(profile) == PLAYER_GENDER_MALE)
     {
         ReadMsgDataIntoString(msgData, narc_0497_00001, messageFormat->buffer); //Dawn
     }

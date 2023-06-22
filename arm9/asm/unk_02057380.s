@@ -1505,8 +1505,8 @@ _02058058:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start sub_02058060
-sub_02058060: ; 0x02058060
+	thumb_func_start GetMapObjectByID
+GetMapObjectByID: ; 0x02058060
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r6, r1, #0x0

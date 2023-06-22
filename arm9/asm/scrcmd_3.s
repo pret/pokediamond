@@ -78,7 +78,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSavePtr
+	bl FieldSystem_GetSaveDataPtr
 	bl Save_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0

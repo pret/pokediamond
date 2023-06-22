@@ -654,7 +654,7 @@ sub_0204B800: ; 0x0204B800
 sub_0204B818: ; 0x0204B818
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0204652C
@@ -854,7 +854,7 @@ sub_0204B9A0: ; 0x0204B9A0
 	ldr r0, [r5, #0x10]
 	ldr r1, _0204B9C8 ; =sub_0204B818
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r3-r5, pc}
 	.balign 4
 _0204B9C8: .word sub_0204B818

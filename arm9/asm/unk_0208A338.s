@@ -9,7 +9,7 @@
 sub_0208A338: ; 0x0208A338
 	push {r4-r6, lr}
 	add r6, r0, #0x0
-	bl sub_02046528
+	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x6c
@@ -60,7 +60,7 @@ sub_0208A338: ; 0x0208A338
 	ldr r1, _0208A3C4 ; =sub_0208A458
 	add r0, r6, #0x0
 	add r2, r4, #0x0
-	bl sub_0204640C
+	bl TaskManager_Call
 	pop {r4-r6, pc}
 	.balign 4
 _0208A3C0: .word 0x00000171

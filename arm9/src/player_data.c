@@ -109,14 +109,14 @@ u16 PlayerProfile_GetTrainerID_VisibleHalf(PlayerProfile * data)
     return (u16)data->playerId;
 }
 
-void PlayerProfile_SetTrainerGender(PlayerProfile * data, GenderEnum gender)
+void PlayerProfile_SetTrainerGender(PlayerProfile * data, PlayerGender gender)
 {
     data->gender = gender;
 }
 
-GenderEnum PlayerProfile_GetTrainerGender(PlayerProfile * data)
+PlayerGender PlayerProfile_GetTrainerGender(PlayerProfile * data)
 {
-    return (GenderEnum)data->gender;
+    return (PlayerGender)data->gender;
 }
 
 BOOL PlayerProfile_TestBadgeFlag(PlayerProfile * data, u32 badgeno)

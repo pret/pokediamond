@@ -423,7 +423,7 @@ sub_020531E4: ; 0x020531E4
 _02053206:
 	ldr r0, [sp, #0x4]
 	add r1, r7, #0x1
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r5, r0, #0x0
 	bne _02053216
 	bl GF_AssertFail
@@ -758,7 +758,7 @@ sub_020534A0: ; 0x020534A0
 _020534AC:
 	add r0, r7, #0x0
 	add r1, r5, #0x0
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0x0
 	bne _020534BC
 	bl GF_AssertFail
@@ -784,7 +784,7 @@ sub_020534DC: ; 0x020534DC
 	add r5, r1, #0x0
 	mov r1, #0x0
 	add r7, r0, #0x0
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0x0
 	bne _020534F0
 	bl GF_AssertFail
@@ -808,7 +808,7 @@ _0205350E:
 	bne _02053578
 	add r0, r7, #0x0
 	add r1, r6, #0x1
-	bl sub_02058060
+	bl GetMapObjectByID
 	add r4, r0, #0x0
 	bne _02053524
 	bl GF_AssertFail
