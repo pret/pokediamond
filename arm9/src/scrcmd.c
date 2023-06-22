@@ -159,8 +159,8 @@ extern void sub_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u16
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern void sub_0200E388(u32 param0);
 extern BOOL IsPaletteFadeFinished(void);
-extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
-extern void sub_02049F98(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
+extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 x, u16 y, u16 dir);
+extern void sub_02049F98(TaskManager *taskManager, u16 mapId, s32 param2, u16 x, u16 y, u16 dir);
 extern void sub_02049FFC(TaskManager *taskManager);
 extern LocalFieldData *Save_LocalFieldData_Get(SaveData *save);
 extern Location *sub_02034DC8(LocalFieldData *localFieldData);
@@ -249,8 +249,12 @@ extern u32 sub_0202EDF8(void);
 extern void sub_02050048(void);
 extern void sub_0204FF5C(FieldSystem *fieldSystem);
 extern void sub_0204F6DC(u16 param0);
-extern void SetObjectEventXYPos(FieldSystem *fieldSystem, u16 objectId, u16 x, u16 y);
+extern void SetEventDefaultXYPos(FieldSystem *fieldSystem, u16 objectId, u16 x, u16 y);
 extern void sub_02058E28(LocalMapObject *object, u16 x, u16 z, u16 y, u16 direction);
+extern void SetEventDefaultDirection(FieldSystem *fieldSystem, u16 objectId, u16 direction);
+extern void SetWarpXYPos(FieldSystem *fieldSystem, u16 warpId, u16 x, u16 y);
+extern void SetBgEventXYPos(FieldSystem *fieldSystem, u16 bgEventId, u16 x, u16 y);
+extern void SetEventDefaultMovement(FieldSystem *fieldSystem, u16 objectId, u16 movement);
 
 u8 UNK_021C5A0C[4];
 
@@ -1674,7 +1678,7 @@ BOOL ScrCmd_ReleaseEvent(ScriptContext *ctx) { //0063
     return FALSE;
 }
 
-BOOL ScrCmd_AddObjectEvent(ScriptContext *ctx) { //0064
+BOOL ScrCmd_AddEvent(ScriptContext *ctx) { //0064
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
     u32 unk0 = sub_02034B64(fieldSystem);
@@ -1685,7 +1689,7 @@ BOOL ScrCmd_AddObjectEvent(ScriptContext *ctx) { //0064
     return FALSE;
 }
 
-BOOL ScrCmd_RemoveObjectEvent(ScriptContext *ctx) { //0065
+BOOL ScrCmd_RemoveEvent(ScriptContext *ctx) { //0065
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
     sub_02057688(GetMapObjectByID(fieldSystem->mapObjectManager, eventId));
@@ -1731,25 +1735,25 @@ BOOL ScrCmd_FacePlayer(ScriptContext *ctx) { //0068
 BOOL ScrCmd_GetPlayerPosition(ScriptContext *ctx) { //0069
     FieldSystem *fieldSystem = ctx->fieldSystem;
 
-    u16 *xVar = ScriptGetVarPointer(ctx);
-    u16 *yVar = ScriptGetVarPointer(ctx);
+    u16 *x = ScriptGetVarPointer(ctx);
+    u16 *y = ScriptGetVarPointer(ctx);
 
-    *xVar = GetPlayerXCoord(fieldSystem->playerAvatar);
-    *yVar = GetPlayerYCoord(fieldSystem->playerAvatar);
+    *x = GetPlayerXCoord(fieldSystem->playerAvatar);
+    *y = GetPlayerYCoord(fieldSystem->playerAvatar);
 
     return FALSE;
 }
 
-BOOL ScrCmd_GetObjectEventPosition(ScriptContext *ctx) { //006A
+BOOL ScrCmd_GetEventPosition(ScriptContext *ctx) { //006A
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
     LocalMapObject *event = GetMapObjectByID(fieldSystem->mapObjectManager, eventId);
 
-    u16 *xVar = ScriptGetVarPointer(ctx);
-    u16 *yVar = ScriptGetVarPointer(ctx);
+    u16 *x = ScriptGetVarPointer(ctx);
+    u16 *y = ScriptGetVarPointer(ctx);
 
-    *xVar = (u16)sub_02058B2C(event);
-    *yVar = (u16)sub_02058B4C(event);
+    *x = (u16)sub_02058B2C(event);
+    *y = (u16)sub_02058B4C(event);
     return FALSE;
 }
 
@@ -1775,14 +1779,14 @@ BOOL ScrCmd_Unk006B(ScriptContext *ctx) { //006B - todo: CheckPersonPosition?
     return FALSE;
 }
 
-BOOL ScrCmd_KeepObjectEvent(ScriptContext *ctx) { //006C
+BOOL ScrCmd_KeepEvent(ScriptContext *ctx) { //006C
     u16 eventId = ScriptGetVar(ctx);
     LocalMapObject *event = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     sub_02058994(event, ScriptReadByte(ctx));
     return FALSE;
 }
 
-BOOL ScrCmd_SetObjectEventMovement(ScriptContext *ctx) { //006D
+BOOL ScrCmd_SetEventMovement(ScriptContext *ctx) { //006D
     u16 eventId = ScriptGetVar(ctx);
     LocalMapObject *event = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     u16 movement = ScriptReadHalfword(ctx);
@@ -1790,7 +1794,7 @@ BOOL ScrCmd_SetObjectEventMovement(ScriptContext *ctx) { //006D
     return FALSE;
 }
 
-BOOL ScrCmd_GetObjectEventMovement(ScriptContext *ctx) { //02AD
+BOOL ScrCmd_GetEventMovement(ScriptContext *ctx) { //02AD
     u16 *variable = ScriptGetVarPointer(ctx);
     *variable = 0;
     u16 eventId = ScriptGetVar(ctx);
@@ -1802,7 +1806,7 @@ BOOL ScrCmd_GetObjectEventMovement(ScriptContext *ctx) { //02AD
     return FALSE;
 }
 
-BOOL ScrCmd_ObjectEventStopFollowing(ScriptContext *ctx) { //006E
+BOOL ScrCmd_EventStopFollowing(ScriptContext *ctx) { //006E
     LocalMapObject *event = sub_020580B4(ctx->fieldSystem->mapObjectManager, 0x30);
     sub_02058EB0(event, 0xFE);
     return FALSE;
@@ -2429,20 +2433,20 @@ static BOOL sub_0203C71C(ScriptContext *ctx) {
 BOOL ScrCmd_Warp(ScriptContext *ctx) { //00BE
     u16 mapId = ScriptReadHalfword(ctx);
     u16 door = ScriptReadHalfword(ctx); //unused?
-    u16 xVar = ScriptGetVar(ctx);
-    u16 yVar = ScriptGetVar(ctx);
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
     u16 dir = ScriptReadHalfword(ctx);
-    CallTask_ScriptWarp(ctx->taskManager, mapId, -1, xVar, yVar, dir);
+    CallTask_ScriptWarp(ctx->taskManager, mapId, -1, x, y, dir);
     return TRUE;
 }
 
 BOOL ScrCmd_BattleRoomWarp(ScriptContext *ctx) { //0203
     u16 mapId = ScriptReadHalfword(ctx);
     u16 door = ScriptReadHalfword(ctx); //unused?
-    u16 xVar = ScriptGetVar(ctx);
-    u16 yVar = ScriptGetVar(ctx);
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
     u16 dir = ScriptReadHalfword(ctx);
-    sub_02049F98(ctx->fieldSystem->taskManager, mapId, -1, xVar, yVar, dir);
+    sub_02049F98(ctx->fieldSystem->taskManager, mapId, -1, x, y, dir);
     return TRUE;
 }
 
@@ -2488,9 +2492,9 @@ BOOL ScrCmd_Waterfall(ScriptContext *ctx) { //00C1
 
 BOOL ScrCmd_Fly(ScriptContext *ctx) { //00C2
     u16 mapId = ScriptReadHalfword(ctx);
-    u16 xVar = ScriptGetVar(ctx);
-    u16 yVar = ScriptGetVar(ctx);
-    sub_02049274(ctx->fieldSystem, mapId, -1, xVar, yVar, DIR_SOUTH); //fly function
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
+    sub_02049274(ctx->fieldSystem, mapId, -1, x, y, DIR_SOUTH); //fly function
     return TRUE;
 }
 
@@ -3171,22 +3175,52 @@ BOOL ScrCmd_CheckPocketNotEmpty(ScriptContext *ctx) { //017A
     return FALSE;
 }
 
-BOOL ScrCmd_SetObjectEventSpawnPosition(ScriptContext *ctx) { //0186
+BOOL ScrCmd_SetEventDefaultPosition(ScriptContext *ctx) { //0186
     u16 eventId = ScriptGetVar(ctx);
-    u16 xVar = ScriptGetVar(ctx);
-    u16 yVar = ScriptGetVar(ctx);
-    SetObjectEventXYPos(ctx->fieldSystem, eventId, xVar, yVar);
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
+    SetEventDefaultXYPos(ctx->fieldSystem, eventId, x, y);
     return FALSE;
 }
 
-BOOL ScrCmd_MoveObjectEvent(ScriptContext *ctx) { //0187
+BOOL ScrCmd_SetEventPosition(ScriptContext *ctx) { //0187
     u16 eventId = ScriptGetVar(ctx);
-    u16 xVar = ScriptGetVar(ctx);
-    u16 zVar = ScriptGetVar(ctx);
-    u16 yVar = ScriptGetVar(ctx);
+    u16 x = ScriptGetVar(ctx);
+    u16 z = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
     u16 direction = ScriptGetVar(ctx);
     LocalMapObject *object = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
-    sub_02058E28(object, xVar, zVar, yVar, direction);
+    sub_02058E28(object, x, z, y, direction);
     sub_02059D1C(object);
+    return FALSE;
+}
+
+BOOL ScrCmd_SetEventDefaultMovement(ScriptContext *ctx) { //0188
+    u16 eventId = ScriptGetVar(ctx);
+    u16 movementId = ScriptGetVar(ctx);
+    SetEventDefaultMovement(ctx->fieldSystem, eventId, movementId);
+    return FALSE;
+}
+
+BOOL ScrCmd_SetEventDefaultDirection(ScriptContext *ctx) { //0189
+    u16 eventId = ScriptGetVar(ctx);
+    u16 direction = ScriptGetVar(ctx);
+    SetEventDefaultDirection(ctx->fieldSystem, eventId, direction);
+    return FALSE;
+}
+
+BOOL ScrCmd_SetWarpPosition(ScriptContext *ctx) { //018A
+    u16 warpId = ScriptGetVar(ctx);
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
+    SetWarpXYPos(ctx->fieldSystem, warpId, x, y);
+    return FALSE;
+}
+
+BOOL ScrCmd_SetBgEventPosition(ScriptContext *ctx) { //018B
+    u16 bgEventId = ScriptGetVar(ctx);
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
+    SetBgEventXYPos(ctx->fieldSystem, bgEventId, x, y);
     return FALSE;
 }

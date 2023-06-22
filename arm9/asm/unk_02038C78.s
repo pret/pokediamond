@@ -249,17 +249,17 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ReleaseAllEvents
 	.word ScrCmd_LockEvent
 	.word ScrCmd_ReleaseEvent
-	.word ScrCmd_AddObjectEvent
-	.word ScrCmd_RemoveObjectEvent
+	.word ScrCmd_AddEvent
+	.word ScrCmd_RemoveEvent
 	.word ScrCmd_LockCamera
 	.word ScrCmd_ReleaseCamera
 	.word ScrCmd_FacePlayer
 	.word ScrCmd_GetPlayerPosition
-	.word ScrCmd_GetObjectEventPosition
+	.word ScrCmd_GetEventPosition
 	.word ScrCmd_Unk006B
-	.word ScrCmd_KeepObjectEvent
-	.word ScrCmd_SetObjectEventMovement
-	.word ScrCmd_ObjectEventStopFollowing
+	.word ScrCmd_KeepEvent
+	.word ScrCmd_SetEventMovement
+	.word ScrCmd_EventStopFollowing
 	.word ScrCmd_GiveMoney
 	.word ScrCmd_TakeMoneyImmediate
 	.word ScrCmd_HasEnoughMoneyImmediate
@@ -539,12 +539,12 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_SetBerryTreeType
 	.word ScrCmd_Unk0184
 	.word ScrCmd_TakeBerryTreeBerries
-	.word ScrCmd_SetObjectEventSpawnPosition
-	.word ScrCmd_MoveObjectEvent
-	.word ScrCmd_Unk0188
-	.word ScrCmd_Unk0189
-	.word ScrCmd_Unk018A
-	.word ScrCmd_Unk018B
+	.word ScrCmd_SetEventDefaultPosition
+	.word ScrCmd_SetEventPosition
+	.word ScrCmd_SetEventDefaultMovement
+	.word ScrCmd_SetEventDefaultDirection
+	.word ScrCmd_SetWarpPosition
+	.word ScrCmd_SetBgEventPosition
 	.word ScrCmd_Unk018C
 	.word ScrCmd_ShowWaitingIcon
 	.word ScrCmd_HideWaitingIcon
@@ -834,7 +834,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02AA
 	.word ScrCmd_Unk02AB
 	.word ScrCmd_Unk02AC
-	.word ScrCmd_GetObjectEventMovement
+	.word ScrCmd_GetEventMovement
 	.word ScrCmd_Unk02AE
 	.word ScrCmd_Unk02AF
 	.word ScrCmd_Unk02B0

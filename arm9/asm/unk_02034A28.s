@@ -203,8 +203,8 @@ sub_02034B6C: ; 0x02034B6C
 	bx lr
 	.balign 4
 
-	thumb_func_start SetObjectEventXYPos
-SetObjectEventXYPos: ; 0x02034B74
+	thumb_func_start SetEventDefaultXYPos
+SetEventDefaultXYPos: ; 0x02034B74
 	push {r3-r7, lr}
 	ldr r0, [r0, #0x14]
 	add r4, r1, #0x0
@@ -236,8 +236,8 @@ _02034BA4:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start sub_02034BAC
-sub_02034BAC: ; 0x02034BAC
+	thumb_func_start SetEventDefaultDirection
+SetEventDefaultDirection: ; 0x02034BAC
 	push {r4-r6, lr}
 	ldr r0, [r0, #0x14]
 	mov r3, #0x0
@@ -265,8 +265,8 @@ _02034BD4:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start SetObjectEventMovement
-SetObjectEventMovement: ; 0x02034BDC
+	thumb_func_start SetEventDefaultMovement
+SetEventDefaultMovement: ; 0x02034BDC
 	push {r4-r6, lr}
 	ldr r0, [r0, #0x14]
 	mov r3, #0x0
@@ -294,8 +294,8 @@ _02034C04:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start sub_02034C0C
-sub_02034C0C: ; 0x02034C0C
+	thumb_func_start SetWarpXYPos
+SetWarpXYPos: ; 0x02034C0C
 	push {r3-r4}
 	ldr r0, [r0, #0x14]
 	ldr r4, [r0, #0x18]
@@ -320,8 +320,8 @@ sub_02034C24: ; 0x02034C24
 	mov r0, #0x1
 	bx lr
 
-	thumb_func_start sub_02034C34
-sub_02034C34: ; 0x02034C34
+	thumb_func_start SetBgEventXYPos
+SetBgEventXYPos: ; 0x02034C34
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
