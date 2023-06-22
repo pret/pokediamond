@@ -545,7 +545,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_SetEventDefaultDirection
 	.word ScrCmd_SetWarpPosition
 	.word ScrCmd_SetBgEventPosition
-	.word ScrCmd_Unk018C
+	.word ScrCmd_SetEventDirection
 	.word ScrCmd_ShowWaitingIcon
 	.word ScrCmd_HideWaitingIcon
 	.word ScrCmd_Unk018F

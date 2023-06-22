@@ -3224,3 +3224,12 @@ BOOL ScrCmd_SetBgEventPosition(ScriptContext *ctx) { //018B
     SetBgEventXYPos(ctx->fieldSystem, bgEventId, x, y);
     return FALSE;
 }
+
+BOOL ScrCmd_SetEventDirection(ScriptContext *ctx) { //018C
+    u16 eventId = ScriptGetVar(ctx);
+    u16 direction = ScriptGetVar(ctx);
+    LocalMapObject *localMapObject = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    GF_ASSERT(localMapObject);
+    ov05_021F1EC0(localMapObject, direction);
+    return FALSE;
+}

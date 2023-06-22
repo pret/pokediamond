@@ -2965,7 +2965,7 @@
 .extern ScrCmd_SetEventDefaultDirection
 .extern ScrCmd_SetWarpPosition
 .extern ScrCmd_SetBgEventPosition
-.extern ScrCmd_Unk018C
+.extern ScrCmd_SetEventDirection
 .extern ScrCmd_Unk018F
 .extern ScrCmd_Unk0168
 .extern ScrCmd_Unk0169

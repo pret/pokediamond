@@ -301,6 +301,7 @@ BOOL ScrCmd_SetEventDefaultMovement(ScriptContext *ctx);
 BOOL ScrCmd_SetEventDefaultDirection(ScriptContext *ctx);
 BOOL ScrCmd_SetWarpPosition(ScriptContext *ctx);
 BOOL ScrCmd_SetBgEventPosition(ScriptContext *ctx);
+BOOL ScrCmd_SetEventDirection(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

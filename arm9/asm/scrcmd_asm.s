@@ -9,41 +9,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk018C
-ScrCmd_Unk018C: ; 0x0203DB88
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	add r1, r6, #0x0
-	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
-	add r5, r0, #0x0
-	bne _0203DBC6
-	bl GF_AssertFail
-_0203DBC6:
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl ov05_021F1EC0
-	mov r0, #0x0
-	pop {r4-r6, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk018F
 ScrCmd_Unk018F: ; 0x0203DBD4
 	push {r3-r5, lr}
