@@ -277,7 +277,7 @@ ov05_021F1EDC: ; 0x021F1EDC
 	push {r4, lr}
 	mov r1, #1
 	add r4, r0, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #0x14

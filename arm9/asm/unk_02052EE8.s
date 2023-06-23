@@ -534,7 +534,7 @@ _020532DA:
 	strb r0, [r4, #0x15]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl sub_020588B8
@@ -668,7 +668,7 @@ _020533CC:
 	bl sub_0205ADDC
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl sub_020588B8
@@ -765,7 +765,7 @@ _020534AC:
 _020534BC:
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl sub_020588B8
@@ -824,7 +824,7 @@ _02053524:
 	bl sub_0205ADDC
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl sub_020588B8

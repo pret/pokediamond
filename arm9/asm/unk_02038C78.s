@@ -582,14 +582,14 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetDaycareLevel
 	.word ScrCmd_Unk01AF
 	.word ScrCmd_Unk01B0
-	.word ScrCmd_Unk01B1
-	.word ScrCmd_Unk01B2
-	.word ScrCmd_Unk01B3
-	.word ScrCmd_Unk01B4
+	.word ScrCmd_HideEvent
+	.word ScrCmd_ShowEvent
+	.word ScrCmd_ShowMailbox
+	.word ScrCmd_CountMail
 	.word ScrCmd_Unk01B5
-	.word ScrCmd_Unk01B6
-	.word ScrCmd_Unk01B7
-	.word ScrCmd_Unk01B8
+	.word ScrCmd_GetTimeOfDay
+	.word ScrCmd_Random
+	.word ScrCmd_DummyRandom
 	.word ScrCmd_GetPartyMonFriendship
 	.word ScrCmd_AddPartyMonFriendship
 	.word ScrCmd_SubtractPartyMonFriendship
@@ -598,11 +598,11 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01BE
 	.word ScrCmd_Unk01BF
 	.word ScrCmd_CheckPartyForSpecies
-	.word ScrCmd_Unk01C1
-	.word ScrCmd_Unk01C2
-	.word ScrCmd_Unk01C3
-	.word ScrCmd_Unk01C4
-	.word ScrCmd_Unk01C5
+	.word ScrCmd_CheckPokemonSizeRecord
+	.word ScrCmd_SetPokemonSizeRecord
+	.word ScrCmd_BufferPartyPokemonSize
+	.word ScrCmd_BufferPokemonRecordSize
+	.word ScrCmd_InitPokemonRecordSize
 	.word ScrCmd_Unk01C6
 	.word ScrCmd_Unk01C7
 	.word ScrCmd_CountPartyMonMoves
@@ -637,10 +637,10 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01E5
 	.word ScrCmd_Unk01E6
 	.word ScrCmd_Unk01E7
-	.word ScrCmd_Unk01E8
-	.word ScrCmd_Unk01E9
-	.word ScrCmd_Unk01EA
-	.word ScrCmd_Unk01EB
+	.word ScrCmd_CheckSinnohDexComplete
+	.word ScrCmd_CheckNationalDexComplete
+	.word ScrCmd_RegisterSinnohPokedex
+	.word ScrCmd_RegisterNationalPokedex
 	.word ScrCmd_Unk01EC
 	.word ScrCmd_Unk01ED
 	.word ScrCmd_GetPartyMonHeldItem

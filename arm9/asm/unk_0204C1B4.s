@@ -709,7 +709,7 @@ _0204C700:
 	beq _0204C736
 	add r0, r7, #0x0
 	mov r1, #0x1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #0x1
 	str r0, [r5, #0x4]
 	b _0204C798
@@ -750,7 +750,7 @@ _0204C770:
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0204C794:
@@ -795,7 +795,7 @@ _0204C7BE:
 	beq _0204C7FE
 	add r0, r7, #0x0
 	mov r1, #0x1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #0x1
 	str r0, [r4, #0x4]
 	ldr r1, _0204C81C ; =sub_0204C6D4

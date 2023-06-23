@@ -862,10 +862,10 @@ ScrCmd_Unk0297: ; 0x020429B8
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl SaveStruct23_Substruct2_SetField_0x0
+	bl FrontierData_SetField_0x0
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -885,10 +885,10 @@ ScrCmd_Unk0298: ; 0x020429E8
 	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	add r1, r5, #0x0
 	mov r2, #0x5
-	bl SaveStruct23_Substruct2_SetField_0x0
+	bl FrontierData_SetField_0x0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -908,10 +908,10 @@ ScrCmd_Unk0299: ; 0x02042A18
 	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	add r1, r5, #0x0
 	mov r2, #0x6
-	bl SaveStruct23_Substruct2_SetField_0x0
+	bl FrontierData_SetField_0x0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -939,10 +939,10 @@ ScrCmd_Unk029A: ; 0x02042A48
 	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl SaveStruct23_Substruct2_SetField_0x0
+	bl FrontierData_SetField_0x0
 	cmp r0, r6
 	bhs _02042A8E
 	mov r0, #0x0

@@ -1272,7 +1272,7 @@ sub_0203800C: ; 0x0203800C
 	bl sub_02027008
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl sub_0202708C
+	bl Save_FashionData_GetFashionCase
 	str r7, [r4, #0x4]
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
@@ -2193,7 +2193,7 @@ sub_02038790: ; 0x02038790
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl SaveStruct23_GetSubstruct4

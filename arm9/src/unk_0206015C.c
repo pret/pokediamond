@@ -27,8 +27,8 @@ extern u32  ov06_022451F0(u32);
 
 extern void sub_02049160(struct TaskManager *taskManager, u32);
 extern void sub_0204C1B4(struct TaskManager *taskManager, u32,u32,u32,u32,u32,u32,u32);
-extern struct Vecx32 *PlayerAvatar_GetMapObject(struct PlayerAvatar *playerAvatar);
-extern void sub_0205889C(struct Vecx32 *param0, u32);
+extern LocalMapObject *PlayerAvatar_GetMapObject(struct PlayerAvatar *playerAvatar);
+extern LocalMapObject *MapObject_SetVisible(LocalMapObject *target, BOOL visible);
 extern void sub_0205F1C4(struct ScriptState *);
 extern void sub_0205F1D4(struct ScriptState *);
 extern void sub_0206367C(struct FieldSystem *, u32);
@@ -85,12 +85,12 @@ BOOL sub_02060194(struct TaskManager *taskManager)
         break;
 
     case 4:
-        struct Vecx32 *unk0 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
+        LocalMapObject *playerObject = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
         unkStruct1->unkD += 1;
         if (unkStruct1->unkD <= 5)
         {
             void *unkAddr = ov06_02245088(fieldSystem);
-            sub_0205889C(unk0, 1);
+            MapObject_SetVisible(playerObject, TRUE);
             ov06_02244DC4(unkStruct1->unk0, unkAddr);
             ov06_02244EF8(unkStruct1->unk0);
             unkStruct1->unkE = 0;
@@ -100,7 +100,7 @@ BOOL sub_02060194(struct TaskManager *taskManager)
         }
         else
         {
-            sub_0205889C(unk0, 0);
+            MapObject_SetVisible(playerObject, FALSE);
             sub_0204B00C(taskManager);
             unkStruct1->action = 8;
         }

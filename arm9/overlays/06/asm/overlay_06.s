@@ -3138,7 +3138,7 @@ ov06_0223ADD4: ; 0x0223ADD4
 	str r0, [r5, #0x28]
 	ldr r0, [r5]
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r4, #0
 	mov r1, #0
 	bl ov06_0223AEF8
@@ -19965,26 +19965,26 @@ _02243414:
 ov06_02243428: ; 0x02243428
 	push {r4, lr}
 	add r4, r1, #0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	cmp r4, #0
 	bne _0224343E
 	mov r1, #5
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	pop {r4, pc}
 _0224343E:
 	mov r1, #5
 	mov r2, #1
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	pop {r4, pc}
 
 	thumb_func_start ov06_02243448
 ov06_02243448: ; 0x02243448
 	push {r3, lr}
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	mov r1, #5
 	mov r2, #0
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r3, pc}
@@ -19996,7 +19996,7 @@ ov06_0224345C: ; 0x0224345C
 	bl SaveStruct23_GetSubstruct1
 	add r4, r0, #0
 	add r0, r5, #0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	mov r1, #0
 	add r6, r0, #0
 	add r0, r4, #0
@@ -20015,11 +20015,11 @@ _02243484:
 	add r0, r6, #0
 	lsr r1, r1, #0x10
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	add r0, r6, #0
 	add r1, r4, #0
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetField_0xC
+	bl FrontierData_SetField_0xC
 	cmp r4, #4
 	beq _022434A8
 	add r0, r5, #0
@@ -20075,7 +20075,7 @@ ov06_022434D0: ; 0x022434D0
 	bl SaveStruct23_GetSubstruct1
 	str r0, [r4, #0x70]
 	add r0, r6, #0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	str r0, [r4, #0x74]
 	ldr r0, _02243688 ; =0x12345678
 	mov r1, #0
@@ -20226,7 +20226,7 @@ _0224362A:
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	beq _02243668
@@ -20244,7 +20244,7 @@ _02243668:
 	ldrb r1, [r4, #0xf]
 	ldr r0, [r4, #0x74]
 	mov r2, #0
-	bl SaveStruct23_Substruct2_SetField_0xC
+	bl FrontierData_SetField_0xC
 	strh r0, [r4, #0x1c]
 _0224367E:
 	add r0, r4, #0
@@ -20717,7 +20717,7 @@ _022439B8:
 	bl SaveStruct23_Substruct1_SetField
 	ldr r0, [r5, #0x74]
 	ldr r1, [r5, #0x70]
-	bl SaveStruct23_Substruct2_SetField_0x16
+	bl FrontierData_SetField_0x16
 _022439F6:
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -20771,7 +20771,7 @@ _02243A52:
 	add r1, #8
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	beq _02243A74
@@ -20793,7 +20793,7 @@ _02243A7E:
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	ldrb r2, [r5, #0xd]
 	ldr r0, [sp, #4]
 	mov r1, #0x1d
@@ -20801,7 +20801,7 @@ _02243A7E:
 	ldrb r1, [r5, #0xf]
 	ldr r0, [r5, #0x74]
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetField_0xC
+	bl FrontierData_SetField_0xC
 	ldr r0, [sp, #8]
 	bl Save_GameStats_Get
 	mov r1, #0xf
@@ -20849,7 +20849,7 @@ ov06_02243AD8: ; 0x02243AD8
 	lsr r1, r1, #0x10
 	mov r2, #0
 	add r4, #0x35
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	beq _02243B1A
@@ -20872,7 +20872,7 @@ _02243B26:
 	add r1, #8
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	add r0, r6, #0
 	add r1, r4, #0
 	bl GameStats_GetCapped
@@ -20887,7 +20887,7 @@ _02243B26:
 	ldrb r1, [r5, #0xf]
 	ldr r0, [r5, #0x74]
 	mov r2, #3
-	bl SaveStruct23_Substruct2_SetField_0xC
+	bl FrontierData_SetField_0xC
 	add r0, r6, #0
 	mov r1, #0xf
 	mov r2, #1
@@ -21234,13 +21234,13 @@ _02243DEE:
 	ldr r0, [r4, #0x74]
 	bne _02243E00
 	mov r1, #0
-	bl SaveStruct23_Substruct2_SetField_0x3
+	bl FrontierData_SetField_0x3
 	ldr r1, _02243E2C ; =0x02250C5C
 	ldrb r5, [r1, r0]
 	b _02243E1E
 _02243E00:
 	mov r2, #0
-	bl SaveStruct23_Substruct2_SetField_0xC
+	bl FrontierData_SetField_0xC
 	ldrb r1, [r4, #0x10]
 	lsl r1, r1, #0x1d
 	lsr r1, r1, #0x1e
@@ -21259,7 +21259,7 @@ _02243E1E:
 	ldr r0, [r4, #0x74]
 	add r1, r5, #0
 	mov r2, #5
-	bl SaveStruct23_Substruct2_SetField_0x0
+	bl FrontierData_SetField_0x0
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -21283,7 +21283,7 @@ _02243E48:
 	blo _02243E5E
 	mov r1, #1
 	mov r2, #0
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	cmp r0, #0
 	beq _02243E6E
 	mov r0, #0
@@ -21291,7 +21291,7 @@ _02243E48:
 _02243E5E:
 	mov r1, #0
 	add r2, r1, #0
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	cmp r0, #0
 	beq _02243E6E
 	mov r0, #0
@@ -21307,7 +21307,7 @@ ov06_02243E74: ; 0x02243E74
 	add r6, r0, #0
 	add r0, r1, #0
 	add r5, r2, #0
-	bl SaveStruct23_GetSubstruct2
+	bl Save_FrontierData_Get
 	add r4, r0, #0
 	cmp r5, #0
 	beq _02243E90
@@ -21318,15 +21318,15 @@ ov06_02243E74: ; 0x02243E74
 	b _02243F10
 _02243E90:
 	mov r1, #0
-	bl SaveStruct23_Substruct2_SetField_0x3
+	bl FrontierData_SetField_0x3
 	pop {r4, r5, r6, pc}
 _02243E98:
 	mov r1, #4
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	add r0, r4, #0
 	mov r1, #0
-	bl SaveStruct23_Substruct2_SetField_0x3
+	bl FrontierData_SetField_0x3
 	add r5, r0, #0
 	cmp r5, #0xa
 	bne _02243EB2
@@ -21335,7 +21335,7 @@ _02243E98:
 _02243EB2:
 	add r0, r4, #0
 	mov r1, #3
-	bl SaveStruct23_Substruct2_SetField_0x3
+	bl FrontierData_SetField_0x3
 	add r0, r5, #1
 	cmp r0, #5
 	blt _02243EC8
@@ -21348,11 +21348,11 @@ _02243EC8:
 	pop {r4, r5, r6, pc}
 _02243ECC:
 	mov r1, #3
-	bl SaveStruct23_Substruct2_SetField_0x2
+	bl FrontierData_SetField_0x2
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0
-	bl SaveStruct23_Substruct2_SetField_0x3
+	bl FrontierData_SetField_0x3
 	cmp r0, #1
 	bne _02243EE4
 	mov r0, #0
@@ -21365,14 +21365,14 @@ _02243EE4:
 	blo _02243F0C
 	add r0, r4, #0
 	mov r1, #4
-	bl SaveStruct23_Substruct2_SetField_0x3
+	bl FrontierData_SetField_0x3
 	add r0, r4, #0
 	mov r1, #2
-	bl SaveStruct23_Substruct2_SetField_0x2
+	bl FrontierData_SetField_0x2
 	add r0, r4, #0
 	mov r1, #4
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _02243F0C:
@@ -21476,7 +21476,7 @@ ov06_02243F9C: ; 0x02243F9C
 	add r1, #8
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	bne _02243FC0
@@ -21749,7 +21749,7 @@ _022441B8:
 	ldr r0, [r6, #0x74]
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
-	bl SaveStruct23_Substruct2_SetArray
+	bl FrontierData_SetArray
 	ldr r0, [sp, #4]
 	mov r1, #0
 	mov r2, #0xa8
@@ -22424,7 +22424,7 @@ _0224471C:
 	ldr r0, [r6, #0x74]
 	mov r1, #3
 	mov r2, #0
-	bl SaveStruct23_Substruct2_SetField_0xC
+	bl FrontierData_SetField_0xC
 	ldr r1, _02244754 ; =0x00000844
 	strh r0, [r6, r1]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -26512,7 +26512,7 @@ ov06_02246658: ; 0x02246658
 	add r4, r1, #0
 	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	pop {r4, pc}
 	.align 2, 0
 
@@ -30718,7 +30718,7 @@ ov06_02248654: ; 0x02248654
 	bl sub_02058914
 	add r0, r5, #0
 	add r1, r4, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov06_02248670
@@ -32179,7 +32179,7 @@ ov06_02249184: ; 0x02249184
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl Save_Pokedex_Get
-	bl Pokedex_HasCompletedSinnohDex
+	bl Pokedex_SinnohDexIsComplete
 	pop {r3, pc}
 	.align 2, 0
 
@@ -41159,7 +41159,7 @@ ov06_0224D70C: ; 0x0224D70C
 	str r6, [r4, #8]
 	add r0, r6, #0
 	bl Save_FashionData_Get
-	bl sub_0202708C
+	bl Save_FashionData_GetFashionCase
 	str r0, [r4, #0xc]
 	add r0, r6, #0
 	bl Save_Bag_Get

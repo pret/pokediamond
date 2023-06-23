@@ -49,7 +49,7 @@ struct SaveStruct23_Substruct1
     /* 0x02C */ s32 u_2C[4];
 }; // total size = 0x3C (60)
 
-struct SaveStruct23_Substruct2
+struct FrontierData
 {
     /* 0x000 */ u16 u_0;
     /* 0x002 */ u8 u_2;
@@ -118,7 +118,7 @@ struct SaveStruct23_Substruct4
 struct SaveStruct23 // Struct fetched with SaveArray_Get(save, 23)
 {
     /* 0x000 */ struct SaveStruct23_Substruct1 substruct1;
-    /* 0x03C */ struct SaveStruct23_Substruct2 substruct2;
+    /* 0x03C */ struct FrontierData frontierData;
     /* 0x1A4 */ struct SaveStruct23_Messages messages;
     /* 0x1C4 */ struct SaveStruct23_Substruct4 substruct4;
 }; // total size = 0xD00 (3328)
@@ -166,7 +166,7 @@ struct Unk0202A798
 
 s32 SaveStruct23_Substruct4_Substruct1_sizeof();
 void SaveStruct23_Substruct1_Init(struct SaveStruct23_Substruct1 *substruct1);
-void SaveStruct23_Substruct2_Init(struct SaveStruct23_Substruct2 *substruct2);
+void FrontierData_Init(struct FrontierData *frontierData);
 void SaveStruct23_Messages_Init(struct SaveStruct23_Messages *mailStruct);
 void SaveStruct23_Substruct4_Init(struct SaveStruct23_Substruct4 *substruct4);
 u32 SaveStruct23_Substruct1_GetField(struct SaveStruct23_Substruct1 *substruct1, SaveStruct23_Substruct1_Field field, void *dst);
@@ -174,18 +174,18 @@ void SaveStruct23_Substruct1_SetField(struct SaveStruct23_Substruct1 *substruct1
 void sub_0202A36C(struct SaveStruct23_Substruct1 *substruct1, s32 arg1, s32 arg2, s32 arg3);
 BOOL SaveStruct23_Substruct1_GetFlag1(struct SaveStruct23_Substruct1 *substruct1);
 void SaveStruct23_Substruct1_SetFlag1(struct SaveStruct23_Substruct1 *substruct1, BOOL arg1);
-u16 SaveStruct23_Substruct2_SetField_0x0(struct SaveStruct23_Substruct2 *substruct2, u16 value, DataSetMode mode);
-u8 SaveStruct23_Substruct2_SetField_0x2(struct SaveStruct23_Substruct2 *substruct2, DataSetMode mode);
-u8 SaveStruct23_Substruct2_SetField_0x3(struct SaveStruct23_Substruct2 *substruct2, DataSetMode mode);
-void SaveStruct23_Substruct2_SetArray(struct SaveStruct23_Substruct2 *substruct2, s32 mode, void *src);
-void SaveStruct23_Substruct2_GetArray(struct SaveStruct23_Substruct2 *substruct2, s32 mode, void *dst);
-u16 SaveStruct23_Substruct2_SetField_0x16(struct SaveStruct23_Substruct2 *substruct2, struct Unk0202A4B8 *arg1);
-u16 SaveStruct23_Substruct2_GetField_0x16(struct SaveStruct23_Substruct2 *substruct2);
-u8 sub_0202A524(struct SaveStruct23_Substruct2 *substruct2);
-u16 SaveStruct23_Substruct2_SetField_0xC(struct SaveStruct23_Substruct2 *substruct2, u16 arg1, DataSetMode mode);
-BOOL SaveStruct23_Substruct2_SetFlag(struct SaveStruct23_Substruct2 *substruct2, u16 flagNumber, DataSetMode mode);
-void SaveStruct23_Substruct2_SetField_0x4(struct SaveStruct23_Substruct2 *substruct2, u32 arg1);
-u32 SaveStruct23_Substruct2_GetField_0x4(struct SaveStruct23_Substruct2 *substruct2);
+u16 FrontierData_SetField_0x0(struct FrontierData *frontierData, u16 value, DataSetMode mode);
+u8 FrontierData_SetField_0x2(struct FrontierData *frontierData, DataSetMode mode);
+u8 FrontierData_SetField_0x3(struct FrontierData *frontierData, DataSetMode mode);
+void FrontierData_SetArray(struct FrontierData *frontierData, s32 mode, void *src);
+void FrontierData_GetArray(struct FrontierData *frontierData, s32 mode, void *dst);
+u16 FrontierData_SetField_0x16(struct FrontierData *frontierData, struct Unk0202A4B8 *arg1);
+u16 FrontierData_GetField_0x16(struct FrontierData *frontierData);
+u8 sub_0202A524(struct FrontierData *frontierData);
+u16 FrontierData_SetField_0xC(struct FrontierData *frontierData, u16 arg1, DataSetMode mode);
+BOOL FrontierData_SetFlag(struct FrontierData *frontierData, u16 flagNumber, DataSetMode mode);
+void FrontierData_SetField_0x4(struct FrontierData *frontierData, u32 arg1);
+u32 FrontierData_GetField_0x4(struct FrontierData *frontierData);
 void SaveStruct23_SetMessage(struct SaveData *save, u32 index, struct MailMessage *message);
 struct MailMessage *SaveStruct23_GetMessage(struct SaveData *save, u32 index);
 void SaveStruct23_Substruct4_SetArrayFlag(struct SaveStruct23_Substruct4 *substruct4, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
@@ -203,7 +203,7 @@ struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Subs
 s32 SaveStruct23_sizeof();
 void SaveStruct23_Init(struct SaveStruct23 *saveStruct23);
 struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveData* save);
-struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveData* save);
+struct FrontierData *Save_FrontierData_Get(struct SaveData* save);
 struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveData* save);
 
 #endif //POKEDIAMOND_UNK_0202A1E0_H
