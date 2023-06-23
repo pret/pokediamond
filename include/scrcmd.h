@@ -302,6 +302,22 @@ BOOL ScrCmd_SetEventDefaultDirection(ScriptContext *ctx);
 BOOL ScrCmd_SetWarpPosition(ScriptContext *ctx);
 BOOL ScrCmd_SetBgEventPosition(ScriptContext *ctx);
 BOOL ScrCmd_SetEventDirection(ScriptContext *ctx);
+BOOL ScrCmd_Unk018F(ScriptContext *ctx);
+BOOL ScrCmd_PrepareDoorAnimation(ScriptContext *ctx);
+BOOL ScrCmd_WaitDoorAnimation(ScriptContext *ctx);
+BOOL ScrCmd_FreeDoorAnimation(ScriptContext *ctx);
+BOOL ScrCmd_OpenDoorAnimation(ScriptContext *ctx);
+BOOL ScrCmd_CloseDoorAnimation(ScriptContext *ctx);
+BOOL ScrCmd_InitPastoriaGym(ScriptContext *ctx);
+BOOL ScrCmd_CheckPastoriaGymButton(ScriptContext *ctx);
+BOOL ScrCmd_InitHearthomeGym(ScriptContext *ctx);
+BOOL ScrCmd_MoveHearthomeGymElevator(ScriptContext *ctx);
+BOOL ScrCmd_InitCanalaveGym(ScriptContext *ctx);
+BOOL ScrCmd_InitVeilstoneGym(ScriptContext *ctx);
+BOOL ScrCmd_InitSunyshoreGym(ScriptContext *ctx);
+BOOL ScrCmd_RotateSunyshoreGymGear(ScriptContext *ctx);
+BOOL ScrCmd_HatchEgg(ScriptContext *ctx);
+BOOL ScrCmd_Unk019E(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

@@ -255,10 +255,27 @@ extern void SetEventDefaultDirection(FieldSystem *fieldSystem, u16 objectId, u16
 extern void SetWarpXYPos(FieldSystem *fieldSystem, u16 warpId, u16 x, u16 y);
 extern void SetBgEventXYPos(FieldSystem *fieldSystem, u16 bgEventId, u16 x, u16 y);
 extern void SetEventDefaultMovement(FieldSystem *fieldSystem, u16 objectId, u16 movement);
+extern void ov05_021DAE40(FieldSystem *fieldSystem, u32 x, u32 y, u8 doorId);
+extern void ov05_021DAF78(FieldSystem *fieldSystem, u8 doorId);
+extern void ov05_021DAF98(FieldSystem *fieldSystem, u8 doorId);
+extern void ov05_021DAED4(FieldSystem *fieldSystem, u8 doorId);
+extern void ov05_021DAF28(FieldSystem *fieldSystem, u8 doorId);
+extern void InitPastoriaGym(FieldSystem *fieldSystem);
+extern void CheckPastoriaGymButton(FieldSystem *fieldSystem);
+extern void InitHearthomeGym(FieldSystem *fieldSystem);
+extern void MoveHearthomeGymElevator(FieldSystem *fieldSystem);
+extern void InitCanalaveGym(FieldSystem *fieldSystem);
+extern void InitVeilstoneGym(FieldSystem *fieldSystem);
+extern void InitSunyshoreGym(FieldSystem *fieldSystem, u8 room);
+extern void RotateSunyshoreGymGear(FieldSystem *fieldSystem, u8 rotation);
+extern void HatchEggInParty(FieldSystem *fieldSystem);
+extern void *ov18_0224CA54(u16 param0, FieldSystem *fieldSystem, u32 mapObjectId);
 
 u8 UNK_021C5A0C[4];
 
 extern u8 *UNK_020F34E0;
+
+extern BOOL sub_0203DDC0(ScriptContext *ctx);
 
 static BOOL RunPauseTimer(ScriptContext *ctx);
 static u32 Compare(u16 a, u16 b);
@@ -3232,4 +3249,106 @@ BOOL ScrCmd_SetEventDirection(ScriptContext *ctx) { //018C
     GF_ASSERT(localMapObject);
     ov05_021F1EC0(localMapObject, direction);
     return FALSE;
+}
+
+BOOL ScrCmd_Unk018F(ScriptContext *ctx) { //018F
+    u16 **unk0 = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_UNKNOWN_12);
+    u16 unk1 = ScriptGetVar(ctx);
+    if (*unk0 != NULL) {
+        **unk0 = unk1;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_PrepareDoorAnimation(ScriptContext *ctx) { //0168
+    u16 matrixX = ScriptReadHalfword(ctx);
+    u16 matrixY = ScriptReadHalfword(ctx);
+    u16 mapX = ScriptGetVar(ctx);
+    u16 mapY = ScriptGetVar(ctx);
+    u8 doorId = ScriptReadByte(ctx);
+    ov05_021DAE40(ctx->fieldSystem, mapX + 32 * matrixX, mapY + 32 * matrixY, doorId); //Field_PrepareDoorAnimation?
+    return FALSE;
+}
+
+BOOL ScrCmd_WaitDoorAnimation(ScriptContext *ctx) { //0169
+    u8 doorId = ScriptReadByte(ctx);
+    ov05_021DAF78(ctx->fieldSystem, doorId); //Field_WaitDoorAnimation?
+    return TRUE;
+}
+
+BOOL ScrCmd_FreeDoorAnimation(ScriptContext *ctx) { //016A
+    u8 doorId = ScriptReadByte(ctx);
+    ov05_021DAF98(ctx->fieldSystem, doorId); //Field_FreeDoorAnimation?
+    return FALSE;
+}
+
+BOOL ScrCmd_OpenDoorAnimation(ScriptContext *ctx) { //016B
+    u8 doorId = ScriptReadByte(ctx);
+    ov05_021DAED4(ctx->fieldSystem, doorId); //Field_OpenDoorAnimation?
+    return FALSE;
+}
+
+BOOL ScrCmd_CloseDoorAnimation(ScriptContext *ctx) { //016C
+    u8 doorId = ScriptReadByte(ctx);
+    ov05_021DAF28(ctx->fieldSystem, doorId); //Field_CloseDoorAnimation?
+    return FALSE;
+}
+
+BOOL ScrCmd_InitPastoriaGym(ScriptContext *ctx) { //016F
+    InitPastoriaGym(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_CheckPastoriaGymButton(ScriptContext *ctx) { //0170
+    CheckPastoriaGymButton(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_InitHearthomeGym(ScriptContext *ctx) { //0171
+    InitHearthomeGym(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_MoveHearthomeGymElevator(ScriptContext *ctx) { //0172
+    MoveHearthomeGymElevator(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_InitCanalaveGym(ScriptContext *ctx) { //0173
+    InitCanalaveGym(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_InitVeilstoneGym(ScriptContext *ctx) { //0174
+    InitVeilstoneGym(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_InitSunyshoreGym(ScriptContext *ctx) { //0175
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u8 room = ScriptReadByte(ctx);
+    InitSunyshoreGym(fieldSystem, room);
+    return FALSE;
+}
+
+BOOL ScrCmd_RotateSunyshoreGymGear(ScriptContext *ctx) { //0176
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u8 rotation = ScriptReadByte(ctx);
+    RotateSunyshoreGymGear(fieldSystem, rotation);
+    return TRUE;
+}
+
+BOOL ScrCmd_HatchEgg(ScriptContext *ctx) { //01AC
+    HatchEggInParty(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk019E(ScriptContext *ctx) { //019E
+    void **miscDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR); //todo: identify what this is
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    u16 unk0 = ScriptGetVar(ctx);
+    ctx->data[0] = ScriptReadHalfword(ctx);
+    *miscDataPtr = ov18_0224CA54(unk0, ctx->fieldSystem, MapObject_GetID(*lastInteracted));
+    SetupNativeScript(ctx, sub_0203DDC0);
+    return TRUE;
 }

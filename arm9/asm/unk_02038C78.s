@@ -509,21 +509,21 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0165
 	.word ScrCmd_CheckGameCompleted
 	.word ScrCmd_SetGameCompleted
-	.word ScrCmd_Unk0168
-	.word ScrCmd_Unk0169
-	.word ScrCmd_Unk016A
-	.word ScrCmd_Unk016B
-	.word ScrCmd_Unk016C
+	.word ScrCmd_PrepareDoorAnimation
+	.word ScrCmd_WaitDoorAnimation
+	.word ScrCmd_FreeDoorAnimation
+	.word ScrCmd_OpenDoorAnimation
+	.word ScrCmd_CloseDoorAnimation
 	.word ScrCmd_GetDaycarePokemonNames
 	.word ScrCmd_GetDaycareStatus
-	.word ScrCmd_Unk016F
-	.word ScrCmd_Unk0170
-	.word ScrCmd_Unk0171
-	.word ScrCmd_Unk0172
-	.word ScrCmd_Unk0173
-	.word ScrCmd_Unk0174
-	.word ScrCmd_Unk0175
-	.word ScrCmd_Unk0176
+	.word ScrCmd_InitPastoriaGym
+	.word ScrCmd_CheckPastoriaGymButton
+	.word ScrCmd_InitHearthomeGym
+	.word ScrCmd_MoveHearthomeGymElevator
+	.word ScrCmd_InitCanalaveGym
+	.word ScrCmd_InitVeilstoneGym
+	.word ScrCmd_InitSunyshoreGym
+	.word ScrCmd_RotateSunyshoreGymGear
 	.word ScrCmd_CountPartyMons
 	.word ScrCmd_ShowBagScreen
 	.word ScrCmd_GetBagScreenSelection
@@ -577,7 +577,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GiveDaycareEgg
 	.word ScrCmd_Unk01AA
 	.word ScrCmd_HasEnoughMoneyAddress
-	.word ScrCmd_Unk01AC
+	.word ScrCmd_HatchEgg
 	.word ScrCmd_Unk01AD
 	.word ScrCmd_GetDaycareLevel
 	.word ScrCmd_Unk01AF

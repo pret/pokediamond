@@ -2323,8 +2323,8 @@ sub_0203888C: ; 0x0203888C
 	nop
 _020388B0: .word UNK_020F2D84
 
-	thumb_func_start sub_020388B4
-sub_020388B4: ; 0x020388B4
+	thumb_func_start HatchEggInParty
+HatchEggInParty: ; 0x020388B4
 	push {r3-r5, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0

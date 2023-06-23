@@ -15661,8 +15661,8 @@ ov06_02241220: ; 0x02241220
 	bx lr
 	.align 2, 0
 
-	thumb_func_start ov06_02241230
-ov06_02241230: ; 0x02241230
+	thumb_func_start CheckPastoriaGymButton
+CheckPastoriaGymButton: ; 0x02241230
 	push {r4, r5, lr}
 	sub sp, #0x2c
 	ldr r3, _022412E4 ; =0x0224F7B0
@@ -16487,8 +16487,8 @@ _022418DC:
 _0224190C: .word ov06_0224F7A4
 _02241910: .word 0x00000102
 
-	thumb_func_start ov06_02241914
-ov06_02241914: ; 0x02241914
+	thumb_func_start MoveHearthomeGymElevator
+MoveHearthomeGymElevator: ; 0x02241914
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r5, r0, #0
@@ -18647,8 +18647,8 @@ _02242A2C: .word ov06_022522FC
 _02242A30: .word ov06_02252300
 _02242A34: .word ov06_0224F774
 
-	thumb_func_start ov06_02242A38
-ov06_02242A38: ; 0x02242A38
+	thumb_func_start RotateSunyshoreGymGear
+RotateSunyshoreGymGear: ; 0x02242A38
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	add r5, r1, #0
