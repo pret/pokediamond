@@ -1025,7 +1025,7 @@ _02043502:
 _02043512:
 	ldr r0, [r5, #0xc]
 	bl Save_FashionData_Get
-	bl sub_0202708C
+	bl Save_FashionData_GetFashionCase
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl sub_020271A4
@@ -1033,7 +1033,7 @@ _02043512:
 _02043526:
 	ldr r0, [r5, #0xc]
 	bl Save_FashionData_Get
-	bl sub_0202708C
+	bl Save_FashionData_GetFashionCase
 	add r1, r4, #0x0
 	bl sub_02027264
 	pop {r3-r5, pc}

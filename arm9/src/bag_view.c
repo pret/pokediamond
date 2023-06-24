@@ -14,9 +14,9 @@
 #include "seal.h"
 #include "unk_0202A1E0.h"
 
-extern u32 *sub_0202708C(SaveFashionData *);
-extern u32 sub_02027168(u32 *);
-extern u16 sub_02027184(u32 *);
+extern FashionCase *Save_FashionData_GetFashionCase(SaveFashionData *);
+extern u32 FashionCase_CountAccessories(FashionCase *fashionCase);
+extern u16 FashionCase_CountWallpapers(FashionCase *fashionCase);
 extern SaveFashionData *Save_FashionData_Get(struct SaveData *save);
 extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
 
@@ -118,19 +118,19 @@ static u32 GetSealCount(struct SaveData *save)
 }
 
 //todo: do these match up with HG?
-u32 sub_0206E3C8(struct SaveData *save)
+u32 GetNumFashionAccessories(struct SaveData *save)
 {
-    return sub_02027168(sub_0202708C(Save_FashionData_Get(save)));
+    return FashionCase_CountAccessories(Save_FashionData_GetFashionCase(Save_FashionData_Get(save)));
 }
 
-u32 sub_0206E3D8(struct SaveData *save)
+u32 GetNumFashionBackgrounds(struct SaveData *save)
 {
-    return sub_02027184(sub_0202708C(Save_FashionData_Get(save)));
+    return FashionCase_CountWallpapers(Save_FashionData_GetFashionCase(Save_FashionData_Get(save)));
 }
 
-u32 sub_0206E3E8(struct SaveData *save)
+u32 GetNumBattlePoints(struct SaveData *save)
 {
-    return SaveStruct23_Substruct2_SetField_0x0(SaveStruct23_GetSubstruct2(save), 0, DATA_GET);
+    return FrontierData_SetField_0x0(Save_FrontierData_Get(save), 0, DATA_GET);
 }
 
 BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id)
@@ -147,7 +147,7 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00097); // Saved Battle Points {STRVAR_1 53, 0}BP
 
-        BufferIntegerAsString(messageFormat, 0, sub_0206E3E8(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, GetNumBattlePoints(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_SEAL_CASE)
     {
@@ -159,8 +159,8 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00093); // Accessories: {STRVAR_1 52, 0} Backdrops: {STRVAR_1 51, 1}
 
-        BufferIntegerAsString(messageFormat, 0, sub_0206E3C8(save), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
-        BufferIntegerAsString(messageFormat, 1, sub_0206E3D8(save), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, GetNumFashionAccessories(save), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 1, GetNumFashionBackgrounds(save), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_COIN_CASE)
     {

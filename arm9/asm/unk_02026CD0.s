@@ -527,8 +527,8 @@ _02027080: .word 0x000004FC
 _02027084: .word 0x00001234
 _02027088: .word 0x00002345
 
-	thumb_func_start sub_0202708C
-sub_0202708C: ; 0x0202708C
+	thumb_func_start Save_FashionData_GetFashionCase
+Save_FashionData_GetFashionCase: ; 0x0202708C
 	ldr r1, _02027094 ; =0x000007F4
 	add r0, r0, r1
 	bx lr
@@ -653,8 +653,8 @@ _0202715A:
 	bl sub_02026EF4
 	pop {r3-r5, pc}
 
-	thumb_func_start sub_02027168
-sub_02027168: ; 0x02027168
+	thumb_func_start FashionCase_CountAccessories
+FashionCase_CountAccessories: ; 0x02027168
 	push {r4-r6, lr}
 	mov r5, #0x0
 	add r6, r0, #0x0
@@ -670,8 +670,8 @@ _02027170:
 	add r0, r5, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start sub_02027184
-sub_02027184: ; 0x02027184
+	thumb_func_start FashionCase_CountWallpapers
+FashionCase_CountWallpapers: ; 0x02027184
 	push {r4-r6, lr}
 	mov r5, #0x0
 	add r6, r0, #0x0

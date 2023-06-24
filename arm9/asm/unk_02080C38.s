@@ -1326,7 +1326,7 @@ _02081624:
 	str r0, [r4, #0x14]
 	ldr r0, _02081660 ; =0x0000199C
 	ldr r0, [r5, r0]
-	bl sub_0202708C
+	bl Save_FashionData_GetFashionCase
 	ldr r1, _02081664 ; =0x000019A0
 	str r0, [r4, #0x18]
 	add r0, r5, r1
@@ -3234,7 +3234,7 @@ _0208241C:
 	ldr r0, _02082440 ; =0x0000198C
 	ldr r0, [r5, r0]
 	bl Save_FashionData_Get
-	bl sub_0202708C
+	bl Save_FashionData_GetFashionCase
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl sub_020270D8

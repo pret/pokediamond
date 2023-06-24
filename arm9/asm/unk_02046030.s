@@ -241,7 +241,7 @@ sub_02046214: ; 0x02046214
 	add r4, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	pop {r4, pc}
 
 	thumb_func_start sub_02046224

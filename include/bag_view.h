@@ -45,9 +45,9 @@ u16 sub_0206E37C(struct BagView *bag_view);
 u16 sub_0206E384(struct BagView *bag_view);
 u8 sub_0206E38C(struct BagView *bag_view);
 u8 sub_0206E394(struct BagView *bag_view);
-u32 sub_0206E3C8(struct SaveData *save);
-u32 sub_0206E3D8(struct SaveData *save);
-u32 sub_0206E3E8(struct SaveData *save);
+u32 GetNumFashionAccessories(struct SaveData *save);
+u32 GetNumFashionBackgrounds(struct SaveData *save);
+u32 GetNumBattlePoints(struct SaveData *save);
 BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id);
 void sub_0206E51C(PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
 

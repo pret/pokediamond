@@ -542,7 +542,7 @@ sub_02054FE4: ; 0x02054FE4
 	add r4, r0, #0x0
 	ldrb r1, [r4, #0x9]
 	ldr r0, [r4, #0x0]
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	ldrb r1, [r4, #0x8]
 	add r0, r1, #0x1
 	strb r0, [r4, #0x8]

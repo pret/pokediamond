@@ -239,7 +239,7 @@ sub_02065078: ; 0x02065078
 _020650A8:
 	add r0, r7, #0x0
 	bl Save_Pokedex_Get
-	bl Pokedex_HasCompletedNationalDex
+	bl Pokedex_NationalDexIsComplete
 	cmp r0, #0x0
 	beq _020650BC
 	add r0, r4, #0x1

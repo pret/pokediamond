@@ -427,12 +427,12 @@ u16 Pokedex_CountSinnohDexSeen(struct Pokedex * pokedex)
     return (u16)count;
 }
 
-BOOL Pokedex_HasCompletedNationalDex(struct Pokedex * pokedex)
+BOOL Pokedex_NationalDexIsComplete(struct Pokedex * pokedex)
 {
     return Pokedex_CountNationalDexOwned_OmitMythicals(pokedex) >= 482;
 }
 
-BOOL Pokedex_HasCompletedSinnohDex(struct Pokedex * pokedex)
+BOOL Pokedex_SinnohDexIsComplete(struct Pokedex * pokedex)
 {
     return Pokedex_CountSinnohDexSeen_OmitMythicals(pokedex) >= 150;
 }

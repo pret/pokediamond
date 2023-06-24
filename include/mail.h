@@ -13,7 +13,7 @@ union MailPatternData
     } bits;
 };
 
-struct Mail
+typedef struct Mail
 {
     u32 author_otId; // author otid
     u8 author_gender; // author gender
@@ -24,7 +24,7 @@ struct Mail
     union MailPatternData unk_18[3];
     u8 padding_1E[2];
     struct MailMessage unk_20[3];
-};
+} Mail;
 
 struct Mail * Mail_New(u32 heap_id);
 

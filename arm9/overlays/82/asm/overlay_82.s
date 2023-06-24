@@ -1400,7 +1400,7 @@ ov82_0222E050: ; 0x0222E050
 	ldr r0, [r4]
 	mov r1, #0
 	ldr r0, [r0]
-	bl SaveStruct23_Substruct2_SetField_0x3
+	bl FrontierData_SetField_0x3
 	str r0, [r4, #0x38]
 	str r0, [r4, #0x3c]
 	mov r0, #1
@@ -2995,7 +2995,7 @@ _0222ED32:
 	mov r1, #5
 	ldr r0, [r0]
 	mov r2, #2
-	bl SaveStruct23_Substruct2_SetFlag
+	bl FrontierData_SetFlag
 	add r0, r4, #0
 	mov r1, #0x25
 	mov r2, #0x1a

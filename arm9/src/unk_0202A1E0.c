@@ -14,10 +14,10 @@ void SaveStruct23_Substruct1_Init(struct SaveStruct23_Substruct1 *substruct1)
     MI_CpuFill8(substruct1, 0, sizeof(struct SaveStruct23_Substruct1));
 }
 
-void SaveStruct23_Substruct2_Init(struct SaveStruct23_Substruct2 *substruct2)
+void FrontierData_Init(struct FrontierData *frontierData)
 {
-    MI_CpuFill8(substruct2, 0, sizeof(struct SaveStruct23_Substruct2));
-    substruct2->u_3 = 1;
+    MI_CpuFill8(frontierData, 0, sizeof(struct FrontierData));
+    frontierData->u_3 = 1;
 }
 
 void SaveStruct23_Messages_Init(struct SaveStruct23_Messages *messages)
@@ -135,118 +135,118 @@ void SaveStruct23_Substruct1_SetFlag1(struct SaveStruct23_Substruct1 *substruct1
     substruct1->flag1 = flag;
 }
 
-u16 SaveStruct23_Substruct2_SetField_0x0(struct SaveStruct23_Substruct2 *substruct2, u16 value, DataSetMode mode)
+u16 FrontierData_SetField_0x0(struct FrontierData *frontierData, u16 value, DataSetMode mode)
 {
     switch (mode)
     {
         case DATA_SET:
             if (value > 9999)
             {
-                substruct2->u_0 = 9999;
+                frontierData->u_0 = 9999;
             }
             else
             {
-                substruct2->u_0 = value;
+                frontierData->u_0 = value;
             }
             break;
         case DATA_ADD:
-            if (substruct2->u_0 + value > 9999)
+            if (frontierData->u_0 + value > 9999)
             {
-                substruct2->u_0 = 9999;
+                frontierData->u_0 = 9999;
             }
             else
             {
-                substruct2->u_0 += value;
+                frontierData->u_0 += value;
             }
             break;
         case DATA_SUBSTRACT:
-            if (substruct2->u_0 < value)
+            if (frontierData->u_0 < value)
             {
-                substruct2->u_0 = 0;
+                frontierData->u_0 = 0;
             }
             else
             {
-                substruct2->u_0 -= value;
+                frontierData->u_0 -= value;
             }
             break;
         case DATA_GET:
         default:
             break;
     }
-    return substruct2->u_0;
+    return frontierData->u_0;
 }
 
-u8 SaveStruct23_Substruct2_SetField_0x2(struct SaveStruct23_Substruct2 *substruct2, DataSetMode mode)
+u8 FrontierData_SetField_0x2(struct FrontierData *frontierData, DataSetMode mode)
 {
     switch (mode)
     {
         case DATA_RESET:
-            substruct2->u_2 = 0;
-            substruct2->flag4 = 0;
+            frontierData->u_2 = 0;
+            frontierData->flag4 = 0;
             break;
         case DATA_INCREMENT:
-            if (substruct2->flag4)
+            if (frontierData->flag4)
             {
-                substruct2->u_2++;
+                frontierData->u_2++;
             }
             else
             {
-                substruct2->u_2 = 1;
-                substruct2->flag4 = 1;
+                frontierData->u_2 = 1;
+                frontierData->flag4 = 1;
             }
             break;
     }
-    return substruct2->u_2;
+    return frontierData->u_2;
 }
 
-u8 SaveStruct23_Substruct2_SetField_0x3(struct SaveStruct23_Substruct2 *substruct2, DataSetMode mode)
+u8 FrontierData_SetField_0x3(struct FrontierData *frontierData, DataSetMode mode)
 {
     switch (mode)
     {
         case DATA_RESET:
-            substruct2->u_3 = 1;
+            frontierData->u_3 = 1;
             break;
         case DATA_INCREMENT:
-            if (substruct2->u_3 < 10)
+            if (frontierData->u_3 < 10)
             {
-                substruct2->u_3++;
+                frontierData->u_3++;
             }
             break;
         case DATA_DECREMENT:
-            if (substruct2->u_3 > 1)
+            if (frontierData->u_3 > 1)
             {
-                substruct2->u_3--;
+                frontierData->u_3--;
             }
             break;
     }
-    return substruct2->u_3;
+    return frontierData->u_3;
 }
 
-void SaveStruct23_Substruct2_SetArray(struct SaveStruct23_Substruct2 *substruct2, s32 mode, void *src)
+void FrontierData_SetArray(struct FrontierData *frontierData, s32 mode, void *src)
 {
     if (mode == 0)
     {
-        MI_CpuCopy8(src, substruct2->u_C0, 168);
+        MI_CpuCopy8(src, frontierData->u_C0, 168);
     }
     else
     {
-        MI_CpuCopy8(src, substruct2->u_18, 168);
+        MI_CpuCopy8(src, frontierData->u_18, 168);
     }
 }
 
-void SaveStruct23_Substruct2_GetArray(struct SaveStruct23_Substruct2 *substruct2, s32 mode, void *dst)
+void FrontierData_GetArray(struct FrontierData *frontierData, s32 mode, void *dst)
 {
     if (mode == 0)
     {
-        MI_CpuCopy8(substruct2->u_C0, dst, 168);
+        MI_CpuCopy8(frontierData->u_C0, dst, 168);
     }
     else
     {
-        MI_CpuCopy8(substruct2->u_18, dst, 168);
+        MI_CpuCopy8(frontierData->u_18, dst, 168);
     }
 }
 
-u16 SaveStruct23_Substruct2_SetField_0x16(struct SaveStruct23_Substruct2 *substruct2, struct Unk0202A4B8 *arg1) 
+u16 FrontierData_SetField_0x16(struct FrontierData *frontierData, struct Unk0202A4B8 *arg1) 
 {
     u16 var1, var2, var3, var4, var5, total;
 
@@ -273,21 +273,21 @@ u16 SaveStruct23_Substruct2_SetField_0x16(struct SaveStruct23_Substruct2 *substr
     }
 
     total = (u16) (var1 + var4 + var5);
-    substruct2->u_16 = total;
+    frontierData->u_16 = total;
     return total;
 }
 
-u16 SaveStruct23_Substruct2_GetField_0x16(struct SaveStruct23_Substruct2 *substruct2)
+u16 FrontierData_GetField_0x16(struct FrontierData *frontierData)
 {
-    return substruct2->u_16;
+    return frontierData->u_16;
 }
 
-u8 sub_0202A524(struct SaveStruct23_Substruct2 *substruct2)
+u8 sub_0202A524(struct FrontierData *frontierData)
 {
-    return (u8)(substruct2->u_16 / 1000);
+    return (u8)(frontierData->u_16 / 1000);
 }
 
-u16 SaveStruct23_Substruct2_SetField_0xC(struct SaveStruct23_Substruct2 *substruct2, u16 arg1, DataSetMode mode)
+u16 FrontierData_SetField_0xC(struct FrontierData *frontierData, u16 arg1, DataSetMode mode)
 {
     if (arg1 == 5)
     {
@@ -296,18 +296,18 @@ u16 SaveStruct23_Substruct2_SetField_0xC(struct SaveStruct23_Substruct2 *substru
 
     switch(mode) {
         case DATA_RESET:
-            substruct2->u_C[arg1] = 0;
+            frontierData->u_C[arg1] = 0;
             break;
         case DATA_INCREMENT:
-            if (substruct2->u_C[arg1] < 0xfffe) {
-                substruct2->u_C[arg1]++;
+            if (frontierData->u_C[arg1] < 0xfffe) {
+                frontierData->u_C[arg1]++;
             }
             break;
     }
-    return substruct2->u_C[arg1];    
+    return frontierData->u_C[arg1];    
 }
 
-BOOL SaveStruct23_Substruct2_SetFlag(struct SaveStruct23_Substruct2 *substruct2, u16 flagNumber, DataSetMode mode) 
+BOOL FrontierData_SetFlag(struct FrontierData *frontierData, u16 flagNumber, DataSetMode mode) 
 {
     u16 i;
     u16 flag = 1;
@@ -321,27 +321,27 @@ BOOL SaveStruct23_Substruct2_SetFlag(struct SaveStruct23_Substruct2 *substruct2,
     {
         case DATA_RESET:
             flag = (u16) (flag ^ 0xffff);
-            substruct2->flags &= flag;
+            frontierData->flags &= flag;
             break;
         case DATA_SET:
-            substruct2->flags |= flag;
+            frontierData->flags |= flag;
             break;
         case DATA_GET:
-            return (BOOL) ((substruct2->flags >> flagNumber) & 1);
+            return (BOOL) ((frontierData->flags >> flagNumber) & 1);
     }
 
     return FALSE;
 }
 
 
-void SaveStruct23_Substruct2_SetField_0x4(struct SaveStruct23_Substruct2 *substruct2, u32 value)
+void FrontierData_SetField_0x4(struct FrontierData *frontierData, u32 value)
 {
-    substruct2->u_4 = value;
+    frontierData->u_4 = value;
 }
 
-u32 SaveStruct23_Substruct2_GetField_0x4(struct SaveStruct23_Substruct2 *substruct2)
+u32 FrontierData_GetField_0x4(struct FrontierData *frontierData)
 {
-    return substruct2->u_4;
+    return frontierData->u_4;
 }
 
 
@@ -515,7 +515,7 @@ s32 SaveStruct23_sizeof()
 void SaveStruct23_Init(struct SaveStruct23 *saveStruct23)
 {
     SaveStruct23_Substruct1_Init(&saveStruct23->substruct1);
-    SaveStruct23_Substruct2_Init(&saveStruct23->substruct2);
+    FrontierData_Init(&saveStruct23->frontierData);
     SaveStruct23_Messages_Init(&saveStruct23->messages);
     SaveStruct23_Substruct4_Init(&saveStruct23->substruct4);
 }
@@ -525,9 +525,9 @@ struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveData* save
     return &((struct SaveStruct23 *)SaveArray_Get(save, 23))->substruct1;
 }
 
-struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveData* save)
+struct FrontierData *Save_FrontierData_Get(struct SaveData* save)
 {
-    return &((struct SaveStruct23 *)SaveArray_Get(save, 23))->substruct2;
+    return &((struct SaveStruct23 *)SaveArray_Get(save, 23))->frontierData;
 }
 
 struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveData* save)

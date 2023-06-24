@@ -321,15 +321,15 @@ u32 sub_0205FE10(struct SaveData *save)
         return 0;
     }
 
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
+    struct FrontierData *frontierData = Save_FrontierData_Get(save);
 
-    BOOL flagD = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_GET);
-    BOOL flag0 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_GET);
-    BOOL flag1 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 1, DATA_GET);
+    BOOL flagD = (u8)FrontierData_SetFlag(frontierData, 0xd, DATA_GET);
+    BOOL flag0 = (u8)FrontierData_SetFlag(frontierData, 0, DATA_GET);
+    BOOL flag1 = (u8)FrontierData_SetFlag(frontierData, 1, DATA_GET);
 
-    BOOL flagE = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xe, DATA_GET);
-    BOOL flag2 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 2, DATA_GET);
-    BOOL flag3 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 3, DATA_GET);
+    BOOL flagE = (u8)FrontierData_SetFlag(frontierData, 0xe, DATA_GET);
+    BOOL flag2 = (u8)FrontierData_SetFlag(frontierData, 2, DATA_GET);
+    BOOL flag3 = (u8)FrontierData_SetFlag(frontierData, 3, DATA_GET);
 
     if (flagD && flag0 && flag1)
     {
@@ -341,13 +341,13 @@ u32 sub_0205FE10(struct SaveData *save)
     {
         if (sub_02025D94(res9, 0x55) != 0)
         {
-            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_SET);
+            FrontierData_SetFlag(frontierData, 0xd, DATA_SET);
             return 1;
         }
 
         if (!flagE)
         {
-            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xe, DATA_SET);
+            FrontierData_SetFlag(frontierData, 0xe, DATA_SET);
         }
 
         return 4;
@@ -362,13 +362,13 @@ u32 sub_0205FE10(struct SaveData *save)
     {
         if (sub_02025D94(res9, 0x56) != 0)
         {
-            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_SET);
+            FrontierData_SetFlag(frontierData, 0, DATA_SET);
             return 2;
         }
 
         if (!flag2)
         {
-            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 2, DATA_SET);
+            FrontierData_SetFlag(frontierData, 2, DATA_SET);
         }
 
         return 4;
@@ -381,13 +381,13 @@ u32 sub_0205FE10(struct SaveData *save)
 
     if (sub_02025D94(res9, 0x57) != 0)
     {
-        SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 1, DATA_SET);
+        FrontierData_SetFlag(frontierData, 1, DATA_SET);
         return 3;
     }
 
     if (!flag3)
     {
-        SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 3, DATA_SET);
+        FrontierData_SetFlag(frontierData, 3, DATA_SET);
     }
 
     return 4;
@@ -401,15 +401,15 @@ u32 sub_0205FF5C(struct SaveData *save)
         return 0;
     }
 
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
+    struct FrontierData *frontierData = Save_FrontierData_Get(save);
 
-    BOOL flagD = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_GET);
-    BOOL flag0 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_GET);
-    BOOL flag1 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 1, DATA_GET);
+    BOOL flagD = (u8)FrontierData_SetFlag(frontierData, 0xd, DATA_GET);
+    BOOL flag0 = (u8)FrontierData_SetFlag(frontierData, 0, DATA_GET);
+    BOOL flag1 = (u8)FrontierData_SetFlag(frontierData, 1, DATA_GET);
 
-    BOOL flagE = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xe, DATA_GET);
-    BOOL flag2 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 2, DATA_GET);
-    BOOL flag3 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 3, DATA_GET);
+    BOOL flagE = (u8)FrontierData_SetFlag(frontierData, 0xe, DATA_GET);
+    BOOL flag2 = (u8)FrontierData_SetFlag(frontierData, 2, DATA_GET);
+    BOOL flag3 = (u8)FrontierData_SetFlag(frontierData, 3, DATA_GET);
 
     if (flagD && flag0 && flag1)
     {
@@ -482,18 +482,18 @@ u32 sub_0206007C(struct SaveData *save)
 {
     u32 res = sub_02060070(sub_020287A4(sub_0202881C(save)));
 
-    SaveStruct23_Substruct2_SetField_0x4(SaveStruct23_GetSubstruct2(save), res);
+    FrontierData_SetField_0x4(Save_FrontierData_Get(save), res);
 
     return res;
 }
 
 u32 sub_020600A0(struct SaveData *save)
 {
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
+    struct FrontierData *frontierData = Save_FrontierData_Get(save);
 
-    u32 res2 = sub_02060070(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
+    u32 res2 = sub_02060070(FrontierData_GetField_0x4(frontierData));
 
-    SaveStruct23_Substruct2_SetField_0x4(saveStruct23_substruct2, res2);
+    FrontierData_SetField_0x4(frontierData, res2);
     u32 res3 = sub_02060064(res2);
 
     SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(save), FIELD_0x28, &res3);
@@ -503,14 +503,14 @@ u32 sub_020600A0(struct SaveData *save)
 
 u32 sub_020600DC(struct SaveData *save)
 {
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
+    struct FrontierData *frontierData = Save_FrontierData_Get(save);
 
     struct SaveStruct23_Substruct1 *saveStruct23_substruct1 = SaveStruct23_GetSubstruct1(save);
 
-    u32 res3 = sub_02060064(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
+    u32 res3 = sub_02060064(FrontierData_GetField_0x4(frontierData));
 
     int i = 0;
-    int res4 = SaveStruct23_Substruct2_SetField_0xC(saveStruct23_substruct2, (u16)SaveStruct23_Substruct1_GetField(saveStruct23_substruct1, FIELD_0x0_2, 0), DATA_GET) * 0x18;
+    int res4 = FrontierData_SetField_0xC(frontierData, (u16)SaveStruct23_Substruct1_GetField(saveStruct23_substruct1, FIELD_0x0_2, 0), DATA_GET) * 0x18;
 
     for (i = 0; i < res4; i++)
     {

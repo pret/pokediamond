@@ -2908,8 +2908,8 @@ sub_02058890: ; 0x02058890
 	.balign 4
 _02058898: .word sub_0205842C
 
-	thumb_func_start sub_0205889C
-sub_0205889C: ; 0x0205889C
+	thumb_func_start MapObject_SetVisible
+MapObject_SetVisible: ; 0x0205889C
 	push {r3, lr}
 	cmp r1, #0x1
 	bne _020588AC

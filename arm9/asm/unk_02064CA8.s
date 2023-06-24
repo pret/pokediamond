@@ -14,8 +14,8 @@ UNK_020F7E54: ; 0x020F7E54
 
 	.text
 
-	thumb_func_start sub_02064CA8
-sub_02064CA8: ; 0x02064CA8
+	thumb_func_start InitPastoriaGym
+InitPastoriaGym: ; 0x02064CA8
 	push {r4, lr}
 	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
@@ -29,8 +29,8 @@ sub_02064CA8: ; 0x02064CA8
 	strb r1, [r0, #0x0]
 	pop {r4, pc}
 
-	thumb_func_start sub_02064CC8
-sub_02064CC8: ; 0x02064CC8
+	thumb_func_start InitHearthomeGym
+InitHearthomeGym: ; 0x02064CC8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl FieldSystem_GetSaveDataPtr
@@ -64,8 +64,8 @@ _02064D08:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start sub_02064D10
-sub_02064D10: ; 0x02064D10
+	thumb_func_start InitCanalaveGym
+InitCanalaveGym: ; 0x02064D10
 	push {r4-r6, lr}
 	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
@@ -92,8 +92,8 @@ _02064D30:
 	nop
 _02064D48: .word UNK_020F7E54
 
-	thumb_func_start sub_02064D4C
-sub_02064D4C: ; 0x02064D4C
+	thumb_func_start InitVeilstoneGym
+InitVeilstoneGym: ; 0x02064D4C
 	push {r4-r6, lr}
 	bl FieldSystem_GetSaveDataPtr
 	bl sub_02024ED8
@@ -120,8 +120,8 @@ _02064D6C:
 	nop
 _02064D84: .word UNK_020F7E48
 
-	thumb_func_start sub_02064D88
-sub_02064D88: ; 0x02064D88
+	thumb_func_start InitSunyshoreGym
+InitSunyshoreGym: ; 0x02064D88
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	add r7, r0, #0x0

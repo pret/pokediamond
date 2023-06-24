@@ -161,8 +161,8 @@ _021F3A0C: .word ov05_021FC5A8
 _021F3A10: .word ov05_021FC5A6
 _021F3A14: .word ov05_021FC5A4
 
-	thumb_func_start ov05_021F3A18
-ov05_021F3A18: ; 0x021F3A18
+	thumb_func_start Field_CheckPokemonSizeRecord
+Field_CheckPokemonSizeRecord: ; 0x021F3A18
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r4, r0, #0
@@ -231,8 +231,8 @@ _021F3AAE:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 
-	thumb_func_start ov05_021F3AB4
-ov05_021F3AB4: ; 0x021F3AB4
+	thumb_func_start Field_SetPokemonSizeRecord
+Field_SetPokemonSizeRecord: ; 0x021F3AB4
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
@@ -300,8 +300,8 @@ ov05_021F3AE0: ; 0x021F3AE0
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 
-	thumb_func_start ov05_021F3B4C
-ov05_021F3B4C: ; 0x021F3B4C
+	thumb_func_start Field_BufferPokemonRecordSize
+Field_BufferPokemonRecordSize: ; 0x021F3B4C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r5, r0, #0
@@ -324,8 +324,8 @@ ov05_021F3B4C: ; 0x021F3B4C
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 
-	thumb_func_start ov05_021F3B7C
-ov05_021F3B7C: ; 0x021F3B7C
+	thumb_func_start Field_BufferPartyPokemonSize
+Field_BufferPartyPokemonSize: ; 0x021F3B7C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0

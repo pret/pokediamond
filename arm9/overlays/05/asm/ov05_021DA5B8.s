@@ -197,7 +197,7 @@ _021DA714:
 	bl sub_0205AE50
 	add r0, r6, #0
 	mov r1, #1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	ldr r0, [r5, #0x50]
 	mov r1, #1
 	bl ov05_021DA5AC
@@ -432,7 +432,7 @@ _021DA8F6:
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -1377,13 +1377,13 @@ _021DB06E:
 	bne _021DB08C
 	add r0, r6, #0
 	mov r1, #1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #1
 	b _021DB096
 _021DB08C:
 	add r0, r6, #0
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #3
 _021DB096:
 	str r0, [r4]
@@ -1414,7 +1414,7 @@ _021DB0CA:
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r6, #0
 	mov r1, #0xd
 	bl sub_0205ADDC
@@ -1484,7 +1484,7 @@ _021DB164:
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetMapObject
 	mov r1, #1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #0
 	str r0, [r5, #8]
 	strb r0, [r5, #4]
@@ -1630,13 +1630,13 @@ _021DB27E:
 	bne _021DB2A0
 	ldr r0, [sp, #0x14]
 	mov r1, #1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #1
 	b _021DB2AA
 _021DB2A0:
 	ldr r0, [sp, #0x14]
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #3
 _021DB2AA:
 	str r0, [r4]
@@ -1696,7 +1696,7 @@ _021DB30C:
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r6, #0
 	mov r1, #0xd
 	bl sub_0205ADDC
@@ -1781,13 +1781,13 @@ _021DB3AE:
 	bne _021DB3D0
 	add r0, r6, #0
 	mov r1, #1
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #1
 	b _021DB3DA
 _021DB3D0:
 	add r0, r6, #0
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	mov r0, #3
 _021DB3DA:
 	str r0, [r4]
@@ -1808,7 +1808,7 @@ _021DB3F6:
 	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	mov r1, #0
-	bl sub_0205889C
+	bl MapObject_SetVisible
 	add r0, r5, #0
 	mov r1, #0xd
 	bl sub_0205ADDC
