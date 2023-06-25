@@ -5693,7 +5693,7 @@ ov16_021D9F58: ; 0x021D9F58
 	bl ov16_021D9DE8
 	add r4, r0, #0
 	ldr r0, [r5]
-	bl sub_02024D58
+	bl Pokedex_GetForeignEntriesFlag
 	cmp r0, #0
 	bne _021D9F72
 	mov r0, #0
@@ -5709,11 +5709,11 @@ _021D9F72:
 
 	thumb_func_start ov16_021D9F80
 ov16_021D9F80: ; 0x021D9F80
-	ldr r3, _021D9F88 ; =sub_02024CC4
+	ldr r3, _021D9F88 ; =Pokedex_GetGenderEntriesFlag
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9F88: .word sub_02024CC4
+_021D9F88: .word Pokedex_GetGenderEntriesFlag
 	thumb_func_end ov16_021D9F80
 
 	thumb_func_start ov16_021D9F8C

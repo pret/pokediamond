@@ -323,6 +323,10 @@ extern u16 sub_0205F594(SaveVarsFlags *varsFlags);
 extern void sub_0202AA00(SaveData *saveData);
 extern void Save_CreateRoamerByID(SaveData *saveData, u8 roamer);
 extern NPCTradeAppData *NPCTradeApp_Init(HeapID heapId, u8 tradeId);
+extern u16 NPCTradeApp_GetOfferedSpecies(NPCTradeAppData *npcTradeAppData);
+extern u16 NPCTradeApp_GetRequestedSpecies(NPCTradeAppData *npcTradeAppData);
+extern void CallTask_NPCTrade(TaskManager *taskManager, NPCTradeAppData *npcTradeAppData, u16 partyPosition, HeapID heapId);
+extern void NPCTradeApp_Delete(NPCTradeAppData *npcTradeAppData);
 
 u8 UNK_021C5A0C[4];
 
@@ -3847,5 +3851,57 @@ BOOL ScrCmd_NPCTradeInit(ScriptContext *ctx) { //0226
     NPCTradeAppData **tradeAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u8 tradeId = ScriptReadByte(ctx);
     *tradeAppData = NPCTradeApp_Init(HEAP_ID_FIELD, tradeId);
+    return FALSE;
+}
+
+BOOL ScrCmd_NPCTradeGetOfferedSpecies(ScriptContext *ctx) { //0227
+    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = NPCTradeApp_GetOfferedSpecies(*tradeData);
+    return FALSE;
+}
+
+BOOL ScrCmd_NPCTradeGetRequestedSpecies(ScriptContext *ctx) { //0228
+    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = NPCTradeApp_GetRequestedSpecies(*tradeData);
+    return FALSE;
+}
+
+BOOL ScrCmd_NPCTradeExecute(ScriptContext *ctx) { //0229
+    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    u16 partyPosition = ScriptGetVar(ctx);
+    CallTask_NPCTrade(ctx->taskManager, *tradeData, partyPosition, HEAP_ID_FIELD);
+    return TRUE;
+}
+
+BOOL ScrCmd_NPCTradeEnd(ScriptContext *ctx) { //022A
+    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    NPCTradeApp_Delete(*tradeData);
+    return FALSE;
+}
+
+BOOL ScrCmd_UnlockForeignEntries(ScriptContext *ctx) { //022B
+    Pokedex_SetForeignEntriesFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData));
+    return FALSE;
+}
+
+BOOL ScrCmd_UnlockGenderEntries(ScriptContext *ctx) { //022C
+    Pokedex_SetGenderEntriesFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData));
+    return FALSE;
+}
+
+BOOL ScrCmd_NationalDex(ScriptContext *ctx) { //022D
+    u8 action = ScriptReadByte(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = 0;
+    if (action == 1) {
+        Pokedex_SetNatDexFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData));
+        PlayerProfile_SetNatDexFlag(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData));
+    } else if (action == 2) {
+        *var = Pokedex_GetNatDexFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData));
+    } else {
+        GF_ASSERT(FALSE);
+    }
     return FALSE;
 }

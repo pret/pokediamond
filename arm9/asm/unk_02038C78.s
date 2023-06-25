@@ -700,13 +700,13 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0224
 	.word ScrCmd_Unk0225
 	.word ScrCmd_NPCTradeInit
-	.word ScrCmd_Unk0227
-	.word ScrCmd_Unk0228
-	.word ScrCmd_Unk0229
-	.word ScrCmd_Unk022A
-	.word ScrCmd_Unk022B
-	.word ScrCmd_Unk022C
-	.word ScrCmd_Unk022D
+	.word ScrCmd_NPCTradeGetOfferedSpecies
+	.word ScrCmd_NPCTradeGetRequestedSpecies
+	.word ScrCmd_NPCTradeExecute
+	.word ScrCmd_NPCTradeEnd
+	.word ScrCmd_UnlockForeignEntries
+	.word ScrCmd_UnlockGenderEntries
+	.word ScrCmd_NationalDex
 	.word ScrCmd_CountPartyMonRibbons
 	.word ScrCmd_CountTotalPartyRibbons
 	.word ScrCmd_PartyMonHasRibbon

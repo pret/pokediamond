@@ -368,6 +368,13 @@ BOOL ScrCmd_Unk021A(ScriptContext *ctx);
 BOOL ScrCmd_Unk021B(ScriptContext *ctx);
 BOOL ScrCmd_CreateRoamer(ScriptContext *ctx);
 BOOL ScrCmd_NPCTradeInit(ScriptContext *ctx);
+BOOL ScrCmd_NPCTradeGetOfferedSpecies(ScriptContext *ctx);
+BOOL ScrCmd_NPCTradeGetRequestedSpecies(ScriptContext *ctx);
+BOOL ScrCmd_NPCTradeExecute(ScriptContext *ctx);
+BOOL ScrCmd_NPCTradeEnd(ScriptContext *ctx);
+BOOL ScrCmd_UnlockForeignEntries(ScriptContext *ctx);
+BOOL ScrCmd_UnlockGenderEntries(ScriptContext *ctx);
+BOOL ScrCmd_NationalDex(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);
