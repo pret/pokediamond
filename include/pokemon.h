@@ -121,7 +121,7 @@ typedef union {
     PokemonDataBlockD blockD;
 } PokemonDataBlock;
 
-struct BoxPokemon {
+typedef struct BoxPokemon {
     /* 0x000 */ u32 pid;
     /* 0x004 */ u16 party_lock:1;
                 u16 box_lock:1;
@@ -129,7 +129,7 @@ struct BoxPokemon {
                 u16 Unused:13;    // Might be used for validity checks
     /* 0x006 */ u16 checksum;  // Stored checksum of pokemon
     /* 0x008 */ PokemonDataBlock substructs[4];
-};
+} BoxPokemon;
 
 struct PartyPokemon
 {
@@ -203,7 +203,7 @@ typedef struct PlayerParty
 void ZeroMonData(struct Pokemon * pokemon);
 void ZeroBoxMonData(struct BoxPokemon * boxmon);
 u32 SizeOfStructPokemon(void);
-struct Pokemon * AllocMonZeroed(u32 heap_id);
+struct Pokemon * AllocMonZeroed(HeapID heapId);
 BOOL AcquireMonLock(struct Pokemon * mon);
 BOOL ReleaseMonLock(struct Pokemon * mon, BOOL decrypt_result);
 BOOL AcquireBoxMonLock(struct BoxPokemon * mon);
@@ -226,7 +226,7 @@ u32 GetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 void SetMonData(struct Pokemon * pokemon, int attr, void * ptr);
 void SetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 void AddMonData(struct Pokemon * pokemon, int attr, int amount);
-struct BaseStats * AllocAndLoadMonPersonal(int species, u32 heap_id);
+struct BaseStats * AllocAndLoadMonPersonal(int species, HeapID heapId);
 int GetPersonalAttr(struct BaseStats * baseStats, enum BaseStat attr);
 void FreeMonPersonal(struct BaseStats * personal);
 int GetMonBaseStat_HandleFormeConversion(int species, int form, enum BaseStat stat_id);
@@ -295,8 +295,8 @@ void Party_SpreadPokerus(struct PlayerParty * party);
 BOOL Pokemon_HasPokerus(struct Pokemon * pokemon);
 BOOL Pokemon_IsImmuneToPokerus(struct Pokemon * pokemon);
 void Pokemon_UpdateArceusForme(struct Pokemon * pokemon);
-void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, u32 sp20);
-void sub_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
+void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, HeapID heapId);
+void sub_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
 void sub_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2);
 BOOL sub_0206A13C(struct Pokemon * pokemon, u32 a1);
 void sub_0206A1C4(struct Pokemon * pokemon);
@@ -305,7 +305,7 @@ int LowestFlagNo(u32 mask);
 BOOL IsPokemonLegendaryOrMythical(u16 species);
 u16 GetLegendaryMon(u32 idx);
 BOOL sub_0206A998(struct Pokemon * pokemon);
-BOOL sub_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, u32 heap_id);
+BOOL sub_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, HeapID heapId);
 void Pokemon_RemoveCapsule(struct Pokemon * pokemon);
 void RestoreBoxMonPP(struct BoxPokemon * boxmon);
 

@@ -6,9 +6,9 @@
 #include "unk_0200CA44.h"
 #include "unk_020222E8.h"
 
-struct PaletteData *sub_02002FD0(u32 heap_id)
+struct PaletteData *sub_02002FD0(HeapID heapId)
 {
-    struct PaletteData *ptr = AllocFromHeap(heap_id, sizeof(struct PaletteData));
+    struct PaletteData *ptr = AllocFromHeap(heapId, sizeof(struct PaletteData));
     MI_CpuFill8(ptr, 0, sizeof(struct PaletteData));
 
     return ptr;
@@ -28,10 +28,10 @@ void PaletteData_SetBuffers(
 }
 
 void PaletteData_AllocBuffers(
-    struct PaletteData *paletteData, u32 index, u32 size, u32 heap_id)
+    struct PaletteData *paletteData, u32 index, u32 size, HeapID heapId)
 {
-    void *ptr = AllocFromHeap(heap_id, size);
-    void *ptr2 = AllocFromHeap(heap_id, size);
+    void *ptr = AllocFromHeap(heapId, size);
+    void *ptr2 = AllocFromHeap(heapId, size);
 
     PaletteData_SetBuffers(paletteData, index, ptr, ptr2, size);
 }
@@ -52,14 +52,14 @@ void PaletteData_LoadPalette(
 void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    u32 heap_id,
+    HeapID heapId,
     u32 index,
     u32 size,
     u16 offset,
     u16 param7)
 {
     NNSG2dPaletteData *pltData;
-    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);
+    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapId);
 
     GF_ASSERT(ptr != NULL);
 
@@ -77,12 +77,12 @@ void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
 void PaletteData_LoadNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    u32 heap_id,
+    HeapID heapId,
     u32 index,
     u32 size,
     u16 offset)
 {
-    PaletteData_LoadFromNarc(paletteData, narcId, memberId, heap_id, index, size, offset, 0);
+    PaletteData_LoadFromNarc(paletteData, narcId, memberId, heapId, index, size, offset, 0);
 }
 
 void sub_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size)
@@ -113,11 +113,11 @@ void sub_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 si
 }
 
 void CopyPaletteFromNarc(
-    NarcId narcId, s32 memberId, u32 heap_id, u32 size, u16 offset, void *dest)
+    NarcId narcId, s32 memberId, HeapID heapId, u32 size, u16 offset, void *dest)
 {
     NNSG2dPaletteData *pltData;
 
-    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);
+    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapId);
     GF_ASSERT(ptr != NULL);
 
     if (size == 0)
@@ -668,7 +668,7 @@ void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 b
 void sub_02003B40(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    u32 heap_id,
+    HeapID heapId,
     u32 index,
     u32 size,
     u16 offset,
@@ -677,7 +677,7 @@ void sub_02003B40(struct PaletteData *paletteData,
     s32 bTone)
 {
     NNSG2dPaletteData *pltData;
-    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);
+    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapId);
     GF_ASSERT(ptr != NULL);
 
     if (size == 0)

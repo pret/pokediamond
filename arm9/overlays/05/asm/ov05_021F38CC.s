@@ -186,7 +186,7 @@ Field_CheckPokemonSizeRecord: ; 0x021F3A18
 	bl ov05_021F39A0
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]
@@ -244,7 +244,7 @@ Field_SetPokemonSizeRecord: ; 0x021F3AB4
 	add r1, sp, #0
 	strh r0, [r1]
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r1, sp, #0
 	ldrh r1, [r1]
 	bl sub_0205F3F8
@@ -309,7 +309,7 @@ Field_BufferPokemonRecordSize: ; 0x021F3B4C
 	add r4, r1, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]

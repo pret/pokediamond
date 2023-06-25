@@ -8,7 +8,7 @@
 
 typedef struct ov59_TVOverlayData2
 {
-    u32 heap_id;
+    HeapID heapId;
     struct BgConfig *bgConfig;
     struct MsgData *msgData;
     u32 unk0C;

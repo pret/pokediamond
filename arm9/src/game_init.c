@@ -175,7 +175,7 @@ void InitGraphicMemory(void)
     MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
 }
 
-void * AllocAndReadFile(u32 heap_id, const char * path)
+void * AllocAndReadFile(HeapID heapId, const char * path)
 {
     void * ret;
 
@@ -184,12 +184,12 @@ void * AllocAndReadFile(u32 heap_id, const char * path)
     if (FS_OpenFile(&file, path))
     {
         u32 size = file.prop.file.bottom - file.prop.file.top;
-        ret = AllocFromHeap(heap_id, size);
+        ret = AllocFromHeap(heapId, size);
         if (ret != NULL)
         {
             if (size != FS_ReadFile(&file, ret, (s32)size))
             {
-                FreeToHeapExplicit(heap_id, ret);
+                FreeToHeapExplicit(heapId, ret);
                 ret = NULL;
             }
         }
@@ -275,7 +275,7 @@ void ClearFileCache(void)
     }
 }
 
-void * OpenFileCached(const s8 * str, u32 heap_id)
+void * OpenFileCached(const s8 * str, HeapID heapId)
 {
     s8 filenameBuf[32];
     FSFile file;
@@ -303,7 +303,7 @@ void * OpenFileCached(const s8 * str, u32 heap_id)
         if (FS_OpenFile(&file, (const char *)filenameBuf))
         {
             u32 size = file.prop.file.bottom - file.prop.file.top;
-            ret = AllocFromHeap(heap_id, size);
+            ret = AllocFromHeap(heapId, size);
             if (ret != NULL)
             {
                 if (size != FS_ReadFile(&file, ret, (s32)size))

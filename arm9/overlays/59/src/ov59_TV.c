@@ -17,7 +17,7 @@
 
 extern void sub_0200E3A0(PMLCDTarget, s32);
 
-extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
 extern BOOL IsPaletteFadeFinished(void);
 
 const struct WindowTemplate ov59_021DA04C =
@@ -128,10 +128,10 @@ const struct GraphicsBanks ov59_021DA0D4 =
 BOOL ov59_TVInit(struct OverlayManager *overlayManager, u32 *status)
 {
 #pragma unused(status)
-    CreateHeap(3, 83, 0x40000);
-    ov59_TVOverlayData *data = (ov59_TVOverlayData *)OverlayManager_CreateAndGetData(overlayManager, sizeof(ov59_TVOverlayData), 0x53);
+    CreateHeap(3, HEAP_ID_INTRO_TV, 0x40000);
+    ov59_TVOverlayData *data = (ov59_TVOverlayData *)OverlayManager_CreateAndGetData(overlayManager, sizeof(ov59_TVOverlayData), HEAP_ID_INTRO_TV);
     (void)memset((void *)data, 0, sizeof(ov59_TVOverlayData));
-    data->heap_id = 0x53;
+    data->heapId = HEAP_ID_INTRO_TV;
     data->unk24 = 0;
     return TRUE;
 }
@@ -193,7 +193,7 @@ BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status)
             }
             data->unk24 = 0; //??
 
-            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heapId);
 
             *status = 3;
             break;
@@ -217,7 +217,7 @@ BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status)
                 break;
             }
 
-            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heapId);
 
             *status = 5;
             break;
@@ -245,9 +245,9 @@ BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status)
 BOOL ov59_TVExit(struct OverlayManager *overlayManager, u32 *status)
 {
 #pragma unused (status)
-    u32 heap_id = ((ov59_TVOverlayData *)OverlayManager_GetData(overlayManager))->heap_id;
+    HeapID heapId = ((ov59_TVOverlayData *)OverlayManager_GetData(overlayManager))->heapId;
     OverlayManager_FreeData(overlayManager);
-    DestroyHeap(heap_id);
+    DestroyHeap(heapId);
     return TRUE;
 }
 
@@ -261,7 +261,7 @@ void ov59_TVSetupGraphics(ov59_TVOverlayData *data)
     const struct GraphicsBanks banks = ov59_021DA0D4; //sp #0x90
     GX_SetBanks(&banks);
 
-    data->bgConfig = BgConfig_Alloc(data->heap_id);
+    data->bgConfig = BgConfig_Alloc(data->heapId);
 
     const struct GraphicsModes modes = ov59_021DA054; //sp #0x80
     SetBothScreensModesAndDisable(&modes);
@@ -269,30 +269,30 @@ void ov59_TVSetupGraphics(ov59_TVOverlayData *data)
     const struct BgTemplate bgTemplateMain2 = ov59_021DA080; //sp #0x64
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_2, &bgTemplateMain2, GF_BG_TYPE_TEXT);
 
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 0x20, 0, data->heap_id);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 0x20, 0, data->heapId);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2);
 
     const struct BgTemplate bgTemplateMain0 = ov59_021DA09C; //sp #0x48
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_0, &bgTemplateMain0, GF_BG_TYPE_TEXT);
 
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0001_NCGR, data->bgConfig, GF_BG_LYR_MAIN_0, 0, 0, FALSE, data->heap_id);
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0004_NSCR, data->bgConfig, GF_BG_LYR_MAIN_0, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0001_NCGR, data->bgConfig, GF_BG_LYR_MAIN_0, 0, 0, FALSE, data->heapId);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0004_NSCR, data->bgConfig, GF_BG_LYR_MAIN_0, 0, 0, FALSE, data->heapId);
 
     const struct BgTemplate bgTemplateMain1 = ov59_021DA064; //sp #0x2C
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_1, &bgTemplateMain1, GF_BG_TYPE_TEXT);
 
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0002_NCGR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0005_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0002_NCGR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0005_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
 
     const struct BgTemplate bgTemplateMain3 = ov59_021DA0B8; //sp #0x10
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain3, GF_BG_TYPE_TEXT);
 
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0000_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0003_NSCR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0000_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapId);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0003_NSCR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapId);
 
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_0, 0, data->heap_id);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_0, 0, data->heapId);
 
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, data->heap_id);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, data->heapId);
 
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0);
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
@@ -322,7 +322,7 @@ void ov59_TVDestroyGraphics(ov59_TVOverlayData *data)
 
 void ov59_TVSetupMsg(ov59_TVOverlayData *data)
 {
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0549_bin, data->heap_id);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0549_bin, data->heapId);
 
     ResetAllTextPrinters();
 
@@ -341,7 +341,7 @@ BOOL ov59_021D9C74(ov59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3)
     {
         case 0:
             ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
-            struct String *string = String_New(1024, data->heap_id);
+            struct String *string = String_New(1024, data->heapId);
             ReadMsgDataIntoString(data->msgData, msgNo, string);
             AddWindow(data->bgConfig, &data->window, &ov59_021DA04C);
             FillWindowPixelRect(&data->window, 0, 0, 0, 256, 192);

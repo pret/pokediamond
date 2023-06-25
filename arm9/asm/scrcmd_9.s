@@ -391,7 +391,7 @@ ScrCmd_Unk027C: ; 0x0204214C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -490,7 +490,7 @@ sub_02042214: ; 0x02042214
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	mov r1, #0x1
 	add r2, r5, #0x0
 	bl sub_0202B710
@@ -577,7 +577,7 @@ sub_020422C0: ; 0x020422C0
 	sub sp, #0x20
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B844
 	ldrh r0, [r0, #0x2]
 	mov r1, #0x4
@@ -600,7 +600,7 @@ sub_020422C0: ; 0x020422C0
 sub_020422F4: ; 0x020422F4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B85C
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}
@@ -618,7 +618,7 @@ sub_02042304: ; 0x02042304
 sub_02042314: ; 0x02042314
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B838
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}
@@ -636,7 +636,7 @@ sub_02042324: ; 0x02042324
 sub_02042334: ; 0x02042334
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B850
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}
@@ -645,7 +645,7 @@ sub_02042334: ; 0x02042334
 sub_02042344: ; 0x02042344
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B844
 	ldrb r0, [r0, #0x0]
 	pop {r3, pc}

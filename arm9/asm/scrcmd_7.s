@@ -265,12 +265,12 @@ ScrCmd_Unk00E5: ; 0x0204188C
 	ldr r0, [r0, #0x0]
 	mov r6, #0x0
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED3C
 	cmp r0, #0x1
 	bne _020418F2
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F368
 	add r6, r0, #0x0
 _020418F2:

@@ -26,7 +26,7 @@ _021E1396:
 	bl memset
 	str r7, [r4, #4]
 	ldr r0, [r7, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	str r0, [r4, #8]
 	mov r0, #0x45
 	lsl r0, r0, #2
@@ -388,7 +388,7 @@ ov05_021E1654: ; 0x021E1654
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	ldr r0, [r7, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0
 	bl sub_0205F41C
 	add r6, r0, #0
@@ -553,7 +553,7 @@ ov05_021E17A0: ; 0x021E17A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	str r0, [sp]
 	mov r0, #0x11
 	lsl r0, r0, #4
@@ -737,7 +737,7 @@ ov05_021E1908: ; 0x021E1908
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0
 	add r4, r2, #0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	cmp r4, #0
 	beq _021E192C
 	add r1, r4, #0

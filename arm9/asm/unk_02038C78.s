@@ -634,9 +634,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01E2
 	.word ScrCmd_Unk01E3
 	.word ScrCmd_Unk01E4
-	.word ScrCmd_Unk01E5
-	.word ScrCmd_Unk01E6
-	.word ScrCmd_Unk01E7
+	.word ScrCmd_IncrementGameStat
+	.word ScrCmd_GetGameStat
+	.word ScrCmd_SetGameStat
 	.word ScrCmd_CheckSinnohDexComplete
 	.word ScrCmd_CheckNationalDexComplete
 	.word ScrCmd_RegisterSinnohPokedex
@@ -663,25 +663,25 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01FF
 	.word ScrCmd_GetPreviousMapID
 	.word ScrCmd_GetCurrentMapID
-	.word ScrCmd_Unk0202
+	.word ScrCmd_EnableDisableSafariZone
 	.word ScrCmd_BattleRoomWarp
 	.word ScrCmd_ExitBattleRoom
 	.word ScrCmd_ShowGeonetScreen
-	.word ScrCmd_Unk0206
+	.word ScrCmd_UseGreatMarshBinoculars
 	.word ScrCmd_Unk0207
 	.word ScrCmd_ShowPokemonPic
 	.word ScrCmd_Unk0209
 	.word ScrCmd_Unk020A
 	.word ScrCmd_Unk020B
 	.word ScrCmd_Unk020C
-	.word ScrCmd_Unk020D
-	.word ScrCmd_Unk020E
-	.word ScrCmd_Unk020F
-	.word ScrCmd_Unk0210
-	.word ScrCmd_Unk0211
+	.word ScrCmd_SpearPillarSequence
+	.word ScrCmd_KeepSafariTrain
+	.word ScrCmd_MoveSafariTrain
+	.word ScrCmd_CheckSafariTrainPosition
+	.word ScrCmd_IgnoreHeights
 	.word ScrCmd_GetPartyMonNature
 	.word ScrCmd_FindPartyMonWithNature
-	.word ScrCmd_Unk0214
+	.word ScrCmd_GetSpiritombTalkCounter
 	.word ScrCmd_ClearAmitySquareSteps
 	.word ScrCmd_CheckAmitySquareSteps
 	.word ScrCmd_GetAmitySquareAccessory
@@ -689,7 +689,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0219
 	.word ScrCmd_Unk021A
 	.word ScrCmd_Unk021B
-	.word ScrCmd_Unk021C
+	.word ScrCmd_CreateRoamer
 	.word ScrCmd_UnionGroup
 	.word ScrCmd_Unk021E
 	.word ScrCmd_Unk021F
@@ -699,7 +699,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0223
 	.word ScrCmd_Unk0224
 	.word ScrCmd_Unk0225
-	.word ScrCmd_Unk0226
+	.word ScrCmd_NPCTradeInit
 	.word ScrCmd_Unk0227
 	.word ScrCmd_Unk0228
 	.word ScrCmd_Unk0229
@@ -1946,7 +1946,7 @@ GetVarPointer: ; 0x020394B8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x1
 	lsl r1, r1, #0xe
 	cmp r4, r1
@@ -2006,7 +2006,7 @@ FlagCheck: ; 0x02039528
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r1, r4, #0x0
 	bl CheckFlagInArray
 	pop {r4, pc}
@@ -2017,7 +2017,7 @@ FlagSet: ; 0x0203953C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r1, r4, #0x0
 	bl SetFlagInArray
 	pop {r4, pc}
@@ -2028,7 +2028,7 @@ FlagClear: ; 0x02039550
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r1, r4, #0x0
 	bl ClearFlagInArray
 	pop {r4, pc}
@@ -2038,7 +2038,7 @@ FlagClear: ; 0x02039550
 ResetTempFlagsAndVars: ; 0x02039564
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x1
 	add r4, r0, #0x0
 	bl GetFlagAddr
@@ -2065,7 +2065,7 @@ ResetTempFlagsAndVars: ; 0x02039564
 sub_0203959C: ; 0x0203959C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0xaa
 	lsl r1, r1, #0x4
 	bl GetFlagAddr
@@ -2157,7 +2157,7 @@ TrainerFlagCheck: ; 0x02039640
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1
@@ -2172,7 +2172,7 @@ TrainerFlagSet: ; 0x0203965C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1
@@ -2187,7 +2187,7 @@ TrainerFlagClear: ; 0x02039678
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1

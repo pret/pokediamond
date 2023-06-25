@@ -23,7 +23,7 @@ ov05_021EFAAC: ; 0x021EFAAC
 	bl Save_Poketch_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0
 	add r0, r4, #0
 	bl Save_Poketch_IsGiven
@@ -67,7 +67,7 @@ ov05_021EFB14: ; 0x021EFB14
 	bl Save_Poketch_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0
 	add r0, r4, #0
 	bl Save_Poketch_IsGiven
@@ -95,7 +95,7 @@ ov05_021EFB50: ; 0x021EFB50
 	bl Save_Poketch_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0
 	add r0, r4, #0
 	bl Save_Poketch_IsGiven

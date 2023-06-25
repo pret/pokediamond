@@ -821,7 +821,7 @@ void sub_02004AF8(u32 param0, s32 param1)
     NNS_SndWaveOutSetVolume(*(u32 *)sub_02004930(param0), param1);
 }
 
-u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4)
+u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, HeapID heapId)
 {
     GetSoundDataPointer();
 
@@ -844,7 +844,7 @@ u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4)
 
     if (param3 == 14)
     {
-        void *ptr = AllocFromHeap(param4, r6);
+        void *ptr = AllocFromHeap(heapId, r6);
         *r4 = ptr;
         if (ptr == NULL)
         {

@@ -3547,7 +3547,7 @@ _02082666:
 	b _02082774
 _02082672:
 	ldr r0, [r4, r0]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0x0
 	ldr r0, _02082840 ; =0x00000121
 	ldrb r1, [r4, r0]
@@ -3603,7 +3603,7 @@ _020826DE:
 _020826EA:
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	ldr r3, _02082854 ; =0x00000123
 	mov r1, #0xc
 	ldrb r2, [r4, r3]

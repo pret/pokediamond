@@ -48,9 +48,9 @@ u32 PlayerProfile_sizeof(void)
     return sizeof(PlayerProfile);
 }
 
-PlayerProfile * PlayerProfile_New(u32 heap_id)
+PlayerProfile * PlayerProfile_New(HeapID heapId)
 {
-    PlayerProfile * ret = (PlayerProfile *)AllocFromHeap(heap_id, sizeof(PlayerProfile));
+    PlayerProfile * ret = (PlayerProfile *)AllocFromHeap(heapId, sizeof(PlayerProfile));
     PlayerProfile_Init(ret);
     return ret;
 }
@@ -87,9 +87,9 @@ void PlayerName_FlatToString(PlayerProfile * data, struct String * str)
     CopyU16ArrayToString(str, data->playerName);
 }
 
-struct String * PlayerProfile_GetPlayerName_NewString(PlayerProfile * data, u32 heap_id)
+struct String * PlayerProfile_GetPlayerName_NewString(PlayerProfile * data, HeapID heapId)
 {
-    struct String * str = String_New(PLAYER_NAME_LENGTH + 1, heap_id);
+    struct String * str = String_New(PLAYER_NAME_LENGTH + 1, heapId);
     PlayerName_FlatToString(data, str);
     return str;
 }

@@ -3780,7 +3780,7 @@ ov54_021D9238: ; 0x021D9238
 	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	add r6, r0, #0
 	add r0, r5, #0
 	bl ov54_021D91AC
@@ -3810,7 +3810,7 @@ ov54_021D9274: ; 0x021D9274
 	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	add r6, r0, #0
 	add r0, r5, #0
 	bl ov54_021D91B4
@@ -3838,7 +3838,7 @@ ov54_021D92AC: ; 0x021D92AC
 	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	add r6, r0, #0
 	add r0, r5, #0
 	bl ov54_021D91BC
@@ -4145,7 +4145,7 @@ ov54_021D94D0: ; 0x021D94D0
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	ldr r1, [r4, #8]
 	ldr r2, [r4, #0xc]
 	ldr r3, [r4, #0x10]
@@ -4159,7 +4159,7 @@ ov54_021D94E8: ; 0x021D94E8
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	ldr r1, [r4, #8]
 	ldr r2, [r4, #0xc]
 	ldr r3, [r4, #0x10]
@@ -4173,7 +4173,7 @@ ov54_021D9500: ; 0x021D9500
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	ldr r1, [r4, #8]
 	ldr r2, [r4, #0xc]
 	ldr r3, [r4, #0x10]
@@ -4361,7 +4361,7 @@ _021D962A:
 	cmp r0, #7
 	blo _021D95F8
 	ldr r0, [sp]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	add r4, r0, #0
 	bl sub_0202B390
 	add r0, r4, #0

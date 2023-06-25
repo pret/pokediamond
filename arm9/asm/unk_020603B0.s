@@ -197,8 +197,8 @@ sub_02060478: ; 0x02060478
 _0206048E:
 	pop {r3-r5, pc}
 
-	thumb_func_start sub_02060490
-sub_02060490: ; 0x02060490
+	thumb_func_start Save_CreateRoamerByID
+Save_CreateRoamerByID: ; 0x02060490
 	push {r3-r7, lr}
 	sub sp, #0x20
 	add r5, r1, #0x0

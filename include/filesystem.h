@@ -1,6 +1,7 @@
 #ifndef POKEDIAMOND_FILESYSTEM_H
 #define POKEDIAMOND_FILESYSTEM_H
 
+#include "heap.h"
 #include "nitro/types.h"
 #include "FS_file.h"
 
@@ -163,17 +164,17 @@ typedef enum NarcId
 } NarcId;
 
 void ReadFromNarcMemberByPathAndId(void * dest, const char * path, s32 file_idx, u32 offset, u32 size);
-void * AllocAndReadFromNarcMemberByPathAndId(const char * path, s32 file_idx, u32 heap_id, u32 offset, u32 size, BOOL r4);
+void * AllocAndReadFromNarcMemberByPathAndId(const char * path, s32 file_idx, HeapID heapId, u32 offset, u32 size, BOOL r4);
 void ReadWholeNarcMemberByIdPair(void * dest, NarcId narc_id, s32 file_id);
-void * AllocAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id);
-void * AllocAtEndAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id);
+void * AllocAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, HeapID heapId);
+void * AllocAtEndAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, HeapID heapId);
 void ReadFromNarcMemberByIdPair(void * dest, NarcId narc_id, s32 file_id, u32 offset, u32 size);
-void * AllocAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
-void * AllocAtEndAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
+void * AllocAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, HeapID heapId, u32 offset, u32 size);
+void * AllocAtEndAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, HeapID heapId, u32 offset, u32 size);
 u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx);
-NARC * NARC_New(NarcId narc_id, u32 heap_id);
+NARC * NARC_New(NarcId narc_id, HeapID heapId);
 void NARC_Delete(NARC * narc);
-void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, u32 heap_id);
+void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, HeapID heapId);
 void NARC_ReadWholeMember(NARC * narc, u32 file_id, void * dest);
 u32 NARC_GetMemberSize(NARC * narc, u32 file_id);
 void NARC_ReadFromMember(NARC * narc, u32 file_id, u32 pos, u32 size, void * dest);

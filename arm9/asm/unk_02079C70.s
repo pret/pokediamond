@@ -49,7 +49,7 @@ UNK_020FA6E8: ; 0x020FA6E8
 	thumb_func_start sub_02079C70
 sub_02079C70: ; 0x02079C70
 	push {r3, lr}
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F184
 	pop {r3, pc}
 

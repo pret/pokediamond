@@ -23,7 +23,7 @@ BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePokemon?
     u16 item = ScriptGetVar(ctx);
     u16 * varPtr = ScriptGetVarPointer(ctx);
     struct PlayerParty * party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
-    *varPtr = (u16)GiveMon(11, fieldSystem->saveData, species, (u8)level, item, mapSec, 12);
+    *varPtr = (u16)GiveMon(HEAP_ID_FIELD, fieldSystem->saveData, species, (u8)level, item, mapSec, 12);
     return FALSE;
 }
 
@@ -89,7 +89,7 @@ BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
 
     if (party_count < PARTY_SIZE)
     {
-        struct Pokemon* egg = AllocMonZeroed(11);
+        struct Pokemon* egg = AllocMonZeroed(HEAP_ID_FIELD);
         ZeroMonData(egg);
 
         s32 met_loc = sub_02015CF8(1, unk);
@@ -314,7 +314,7 @@ BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
     if (friendship_to_add != 0)
     {
         u16 party_mon_held_item = (u16)GetMonData(party_mon, MON_DATA_HELD_ITEM, NULL);
-        u32 held_item_hold_effect = GetItemAttr(party_mon_held_item, ITEMATTR_HOLD_EFFECT, 11);
+        u32 held_item_hold_effect = GetItemAttr(party_mon_held_item, ITEMATTR_HOLD_EFFECT, HEAP_ID_FIELD);
         if (held_item_hold_effect == HOLD_EFFECT_FRIENDSHIP_UP)
         {
             friendship_to_add = (u16)((friendship_to_add * 150) / 100);

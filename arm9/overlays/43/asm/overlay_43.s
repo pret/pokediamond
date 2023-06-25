@@ -435,7 +435,7 @@ ov43_02254B60: ; 0x02254B60
 	add r5, r0, #0
 	add r0, r1, #0
 	bl ov20_02252C40
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0
 	mov r4, #0
 _02254B72:

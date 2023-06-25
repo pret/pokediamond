@@ -58,13 +58,13 @@ void sub_0202E29C(PlayerProfile *player_data)
 {
     if (UNK_021C59F0 == NULL)
     {
-        UNK_021C59F0 = AllocFromHeap(0xf, sizeof(struct UnkStruct_0202E29C));
+        UNK_021C59F0 = AllocFromHeap(HEAP_ID_15, sizeof(struct UnkStruct_0202E29C));
         MI_CpuFill8(UNK_021C59F0, 0, sizeof(struct UnkStruct_0202E29C));
 
-        UNK_021C59F0->unkCA4 = AllocFromHeap(0xf, sub_0202CEEC());
+        UNK_021C59F0->unkCA4 = AllocFromHeap(HEAP_ID_15, sub_0202CEEC());
         MI_CpuFill8(UNK_021C59F0->unkCA4, 0, sub_0202CEEC());
 
-        UNK_021C59F0->unkCBC = AllocFromHeap(0xf, sub_02023AC4());
+        UNK_021C59F0->unkCBC = AllocFromHeap(HEAP_ID_15, sub_02023AC4());
         MI_CpuFill8(UNK_021C59F0->unkCBC, 0, sub_02023AC4());
 
         UNK_021C59F0->unkCC0 = 0x333;

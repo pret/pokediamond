@@ -24,7 +24,7 @@ sub_0205F7A0: ; 0x0205F7A0
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	str r2, [sp, #0x4]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -164,7 +164,7 @@ sub_0205F8CC: ; 0x0205F8CC
 	ldr r0, [r7, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	str r0, [sp, #0x0]
 	add r0, sp, #0x28
 	bl FS_InitFile

@@ -57,9 +57,9 @@ u32 sub_0202F150(u32 param0, u32 param1)
             return 1;
         }
 
-        sub_02031480(0xf);
+        sub_02031480(HEAP_ID_15);
         struct UnkStruct0202F150 *ptr =
-            (struct UnkStruct0202F150 *)AllocFromHeap(0xf, sizeof(struct UnkStruct0202F150));
+            (struct UnkStruct0202F150 *)AllocFromHeap(HEAP_ID_15, sizeof(struct UnkStruct0202F150));
         UNK_021C59F8 = ptr;
         MI_CpuFill8(ptr, 0, 0x68C);
 
@@ -67,13 +67,13 @@ u32 sub_0202F150(u32 param0, u32 param1)
         UNK_021C59F8->unk67D = 0;
         UNK_021C59F8->unk67E = 0x1b;
 
-        UNK_021C59F8->unk45C = AllocFromHeap(0xf, UNK_021C59F8->unk658 << 1);
+        UNK_021C59F8->unk45C = AllocFromHeap(HEAP_ID_15, UNK_021C59F8->unk658 << 1);
 
-        UNK_021C59F8->unk460 = AllocFromHeap(0xf, UNK_021C59F8->unk658);
+        UNK_021C59F8->unk460 = AllocFromHeap(HEAP_ID_15, UNK_021C59F8->unk658);
 
-        UNK_021C59F8->unk458 = AllocFromHeap(0xf, res * UNK_021C59F8->unk658);
+        UNK_021C59F8->unk458 = AllocFromHeap(HEAP_ID_15, res * UNK_021C59F8->unk658);
 
-        UNK_021C59F8->unk454 = AllocFromHeap(0xf, res * UNK_021C59F8->unk658);
+        UNK_021C59F8->unk454 = AllocFromHeap(HEAP_ID_15, res * UNK_021C59F8->unk658);
 
         if (sub_02033534() == 0xa)
         {

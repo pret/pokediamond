@@ -44,9 +44,9 @@ u32 Save_Pokedex_sizeof(void)
     return sizeof(struct Pokedex);
 }
 
-struct Pokedex * Save_Pokedex_New(u32 heap_id)
+struct Pokedex * Save_Pokedex_New(HeapID heapId)
 {
-    struct Pokedex * ret = (struct Pokedex *)AllocFromHeap(heap_id, sizeof(struct Pokedex));
+    struct Pokedex * ret = (struct Pokedex *)AllocFromHeap(heapId, sizeof(struct Pokedex));
     Save_Pokedex_Init(ret);
     return ret;
 }

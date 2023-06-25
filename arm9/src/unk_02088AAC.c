@@ -52,7 +52,7 @@ u32 sub_02088AFC(struct UnkStruct_02088AAC *r0)
         .exitFunc = ov73_021D7640,
         .ovly = FS_OVERLAY_ID(OVERLAY_73)
     };
-    r0->ovly_data = OverlayManager_New(&OVERLAY_73_MANAGER, (s32 *)r0, r0->heap_id);
+    r0->ovly_data = OverlayManager_New(&OVERLAY_73_MANAGER, (s32 *)r0, r0->heapId);
 
     return 2;
 }
@@ -89,11 +89,11 @@ u32 sub_02088B4C(struct UnkStruct_02088AAC *r0)
             .exitFunc = ov75_021E6F00,
             .ovly = FS_OVERLAY_ID(OVERLAY_75)
         };
-    struct BagView *bag_view = CreateBagView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heap_id);
+    struct BagView *bag_view = CreateBagView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heapId);
 
     sub_0206E314(bag_view, r0->poffinCaseAppData->save, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
 
-    r0->ovly_data = OverlayManager_New(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heap_id);
+    r0->ovly_data = OverlayManager_New(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heapId);
     r0->ovly_param = bag_view;
 
     return 1;
@@ -106,7 +106,7 @@ u32 sub_02088BA8(struct UnkStruct_02088AAC *r0)
         return 1;
     }
 
-    struct BagView *bag_view = BagView_New((u8)r0->heap_id);
+    struct BagView *bag_view = BagView_New((u8)r0->heapId);
 
     memcpy(bag_view, r0->ovly_param, BagView_sizeof());
     FreeToHeap(r0->ovly_param);
@@ -129,7 +129,7 @@ u32 sub_02088BA8(struct UnkStruct_02088AAC *r0)
     case 2:
     case 3:
     case 4:
-        GF_ASSERT(Bag_TakeItem(r0->poffinCaseAppData->bag, (u16)r0->item, 1, r0->heap_id));
+        GF_ASSERT(Bag_TakeItem(r0->poffinCaseAppData->bag, (u16)r0->item, 1, r0->heapId));
         return 4;
     }
 }
@@ -147,7 +147,7 @@ u32 sub_02088C3C(struct UnkStruct_02088AAC *r0)
             .ovly = FS_OVERLAY_ID(OVERLAY_68)
         };
 
-    r0->ovly_param = sub_020851B8((u8)r0->heap_id);
+    r0->ovly_param = sub_020851B8((u8)r0->heapId);
 
     sub_020851DC(r0->ovly_param, (u16)r0->item, TRUE);
 
@@ -155,7 +155,7 @@ u32 sub_02088C3C(struct UnkStruct_02088AAC *r0)
     for (u8 berry_id = 0; berry_id < (u8)NUM_BERRIES; berry_id++)
     {
         u8 item_id = (u8)BerryToItemId(berry_id);
-        if (Bag_HasItem(bag, item_id, 1, r0->heap_id) == TRUE)
+        if (Bag_HasItem(bag, item_id, 1, r0->heapId) == TRUE)
         {
             sub_020851DC(r0->ovly_param, item_id, 0);
 
@@ -169,7 +169,7 @@ u32 sub_02088C3C(struct UnkStruct_02088AAC *r0)
     sub_0206F17C(r0->unk0C, 4, &sp6, &sp5);
     sub_020851F8(r0->ovly_param, sp5, sp6, (u8)(berry_count + 2));
 
-    r0->ovly_data = OverlayManager_New(&OVERLAY_68_MANAGER, (s32 *)r0->ovly_param, r0->heap_id);
+    r0->ovly_data = OverlayManager_New(&OVERLAY_68_MANAGER, (s32 *)r0->ovly_param, r0->heapId);
 
     return 3;
 }

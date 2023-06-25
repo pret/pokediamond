@@ -1,6 +1,7 @@
 #ifndef POKEDIAMOND_CONSTANTS_SAVE_ARRAYS_H
 #define POKEDIAMOND_CONSTANTS_SAVE_ARRAYS_H
 
+#define SAVE_SAFARI_ZONE         27
 #define SAVE_BLOCK_NUM           36
 
 #define SAVE_PAGE_MAX            32

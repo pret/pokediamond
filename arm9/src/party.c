@@ -10,9 +10,9 @@ u32 SaveArray_Party_sizeof(void)
     return sizeof(struct PlayerParty);
 }
 
-struct PlayerParty * SaveArray_Party_Alloc(u32 heap_id)
+struct PlayerParty * SaveArray_Party_Alloc(HeapID heapId)
 {
-    struct PlayerParty * ret = (struct PlayerParty *)AllocFromHeap(heap_id, sizeof(struct PlayerParty));
+    struct PlayerParty * ret = (struct PlayerParty *)AllocFromHeap(heapId, sizeof(struct PlayerParty));
     SaveArray_Party_Init(ret);
     return ret;
 }
@@ -94,7 +94,7 @@ BOOL SwapSlotsInParty(struct PlayerParty * party, int pos1, int pos2)
     GF_ASSERT(pos2 >= 0);
     GF_ASSERT(pos2 < party->curCount);
     GF_ASSERT(pos2 < party->maxCount);
-    buffer = AllocFromHeap(0, sizeof(struct Pokemon));
+    buffer = AllocFromHeap(HEAP_ID_DEFAULT, sizeof(struct Pokemon));
     *buffer = party->mons[pos1];
     party->mons[pos1] = party->mons[pos2];
     party->mons[pos2] = *buffer;

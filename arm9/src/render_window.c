@@ -32,7 +32,7 @@ extern void sub_0201FDEC(u32 param0);
 extern void ov05_021D99F8(struct UnkStruct_0200CABC_2 *param0);
 extern void *sub_0201B6C8(BOOL);
 extern void ov05_021D959C(
-    struct UnkStruct_0200CABC_2 *param0, void *param1, u32 param2, u32 param3);
+    struct UnkStruct_0200CABC_2 *param0, void *param1, u32 param2, HeapID heapId);
 extern void ov05_021D967C(struct UnkStruct_0200CABC_2 *param0,
     NarcId narcId,
     s32 memberId,
@@ -40,10 +40,8 @@ extern void ov05_021D967C(struct UnkStruct_0200CABC_2 *param0,
     u32 param4,
     u32 param5,
     u32 param6);
-extern void ov05_021D96F4(
-    struct UnkStruct_0200CABC_2 *param0, NarcId narcId, s32 memberId, u32 param3, u32 param4);
-extern void ov05_021D9708(
-    struct UnkStruct_0200CABC_2 *param0, NarcId narcId, s32 memberId, u32 param3, u32 param4);
+extern void ov05_021D96F4(struct UnkStruct_0200CABC_2 *param0, NarcId narcId, s32 memberId, u32 param3, u32 param4);
+extern void ov05_021D9708(struct UnkStruct_0200CABC_2 *param0, NarcId narcId, s32 memberId, u32 param3, u32 param4);
 extern void ov05_021D971C(struct UnkStruct_0200CABC_2 *param0,
     NarcId narcId,
     s32 memberId,
@@ -56,8 +54,7 @@ extern u32 NNS_G2dGetImageLocation(u32, u32);
 extern void *sub_02012470(u16, u16, u16);
 extern u32 NNS_G2dGetImagePaletteLocation(u32, u32);
 
-u32 sub_0200CABC(
-    struct BgConfig *bgConfig, u32 layer, u32 numTiles, u32 param3, u32 heap_id)
+u32 sub_0200CABC(struct BgConfig *bgConfig, u32 layer, u32 numTiles, u32 param3, HeapID heapId)
 {
     if (param3 == 0)
     {
@@ -68,7 +65,7 @@ u32 sub_0200CABC(
             numTiles,
             0,
             FALSE,
-            heap_id);
+            heapId);
     }
 
     return GfGfxLoader_LoadCharData(NARC_GRAPHIC_WINFRAME,
@@ -78,7 +75,7 @@ u32 sub_0200CABC(
         numTiles,
         0,
         FALSE,
-        heap_id);
+        heapId);
 }
 
 s32 sub_0200CAFC(void)
@@ -86,7 +83,7 @@ s32 sub_0200CAFC(void)
     return NARC_winframe_narc_0024_NCLR;
 }
 
-void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num_tiles, u32 paletteNumber, u8 frame_id, u32 heap_id)
+void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num_tiles, u32 paletteNumber, u8 frame_id, HeapID heapId)
 {
     s32 r1;
     if (frame_id != 0)
@@ -98,7 +95,7 @@ void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num
         r1 = NARC_winframe_narc_0000_NCGR;
     }
 
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_WINFRAME, r1, bg_config, layer, num_tiles, 0, FALSE, heap_id);
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_WINFRAME, r1, bg_config, layer, num_tiles, 0, FALSE, heapId);
 
     if (frame_id == 2)
     {
@@ -111,11 +108,11 @@ void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num
 
     if ((u32)layer < GF_BG_LYR_SUB_FIRST)
     {
-        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heap_id);
+        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heapId);
         return;
     }
 
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heapId);
 }
 
 void DrawFrame1(struct BgConfig *bgConfig,
@@ -188,20 +185,19 @@ s32 sub_0200CD64(s32 param0)
     return param0 + 25;
 }
 
-void sub_0200CD68(
-    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 palNumber, u8 frame_id, u32 heap_id)
+void sub_0200CD68(struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 palNumber, u8 frame_id, HeapID heapId)
 {
 
     GfGfxLoader_LoadCharData(
-        NARC_GRAPHIC_WINFRAME, sub_0200CD60(frame_id), bg_config, layer, num_tiles, 0, FALSE, heap_id);
+        NARC_GRAPHIC_WINFRAME, sub_0200CD60(frame_id), bg_config, layer, num_tiles, 0, FALSE, heapId);
 
     if (layer < GF_BG_LYR_SUB_FIRST)
     {
-        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, sub_0200CD64(frame_id), GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(palNumber << 5), 32, heap_id);
+        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, sub_0200CD64(frame_id), GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(palNumber << 5), 32, heapId);
         return;
     }
 
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, sub_0200CD64(frame_id), GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(palNumber << 5), 32, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, sub_0200CD64(frame_id), GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(palNumber << 5), 32, heapId);
 }
 
 void DrawFrame2(struct BgConfig *bgConfig,
@@ -326,17 +322,17 @@ void BlitRect4Bit(u8 *srcPixels,
 
 void sub_0200D18C(struct Window *window, u16 fill_value)
 {
-    u32 heap_id = BgConfig_GetHeapId(window->bgConfig);
+    HeapID heapId = BgConfig_GetHeapId(window->bgConfig);
     u8 bg_id = GetWindowBgId(window);
 
-    void *ptr = AllocFromHeap(heap_id, 0x180);
+    void *ptr = AllocFromHeap(heapId, 0x180);
     void *charptr = BgGetCharPtr(bg_id);
 
     NNSG2dCharacterData *pCharData;
     void *st30;
     void *st2c;
     st2c = GfGfxLoader_GetCharData(
-        NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0022_NCGR, FALSE, &pCharData, heap_id);
+        NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0022_NCGR, FALSE, &pCharData, heapId);
     st30 = pCharData->pRawData;
 
     for (u8 i = 0; i < 3; i++)
@@ -355,13 +351,13 @@ void sub_0200D18C(struct Window *window, u16 fill_value)
 }
 
 void sub_0200D274(
-    struct BgConfig *bg_config, u8 bg_id, u16 param2, u8 param3, u8 param4, u32 heap_id)
+    struct BgConfig *bg_config, u8 bg_id, u16 param2, u8 param3, u8 param4, HeapID heapId)
 {
 
     NNSG2dCharacterData *pCharData;
     void *stc = GfGfxLoader_GetCharData(
-        NARC_GRAPHIC_WINFRAME, sub_0200CD60(param4), FALSE, &pCharData, heap_id);
-    u8 *ptr = AllocFromHeap(heap_id, 0x240);
+        NARC_GRAPHIC_WINFRAME, sub_0200CD60(param4), FALSE, &pCharData, heapId);
+    u8 *ptr = AllocFromHeap(heapId, 0x240);
     memcpy(ptr, pCharData->pRawData, 0x240);
 
     for (u32 r3 = 0; r3 < 0x240; r3++)
@@ -385,23 +381,23 @@ void sub_0200D274(
     FreeToHeap(ptr);
 }
 
-void sub_0200D300(struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 palIndex, u8 param4, u16 param5, u32 heap_id) {
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_FIELD_BOARD, NARC_field_board_narc_0000_NCGR, bg_config, bg_id, numtiles, 0x3C0, FALSE, heap_id);
+void sub_0200D300(struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 palIndex, u8 param4, u16 param5, HeapID heapId) {
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_FIELD_BOARD, NARC_field_board_narc_0000_NCGR, bg_config, bg_id, numtiles, 0x3C0, FALSE, heapId);
 
     NNSG2dPaletteData *pPltData;
     void *st14;
-    st14 = AllocAndReadWholeNarcMemberByIdPair( NARC_GRAPHIC_FIELD_BOARD, NARC_field_board_narc_0001_NCLR, heap_id);
+    st14 = AllocAndReadWholeNarcMemberByIdPair( NARC_GRAPHIC_FIELD_BOARD, NARC_field_board_narc_0001_NCLR, heapId);
     NNS_G2dGetUnpackedPaletteData(st14, &pPltData);
     BG_LoadPlttData(bg_id, pPltData->pRawData + param4 * 0x20, 0x20, (enum GFPalSlotOffset)(u16)(palIndex << 5));
-    FreeToHeapExplicit(heap_id, st14);
+    FreeToHeapExplicit(heapId, st14);
 
     if (param4 <= 1) {
-        sub_0200D378(bg_config, bg_id, (u16)(numtiles + 30), param4, param5, heap_id);
+        sub_0200D378(bg_config, bg_id, (u16)(numtiles + 30), param4, param5, heapId);
     }
 }
 
 void sub_0200D378(
-    struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 param3, u16 param4, u32 heap_id)
+    struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 param3, u16 param4, HeapID heapId)
 {
     if (param3 == 0)
     {
@@ -412,8 +408,7 @@ void sub_0200D378(
         param4 += 2;
     }
 
-    GfGfxLoader_LoadCharData(
-        NARC_GRAPHIC_FIELD_BOARD, param4, bg_config, bg_id, numtiles, 0x300, FALSE, heap_id);
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_FIELD_BOARD, param4, bg_config, bg_id, numtiles, 0x300, FALSE, heapId);
 }
 
 void DrawFrame3(struct BgConfig *bgConfig,
@@ -578,12 +573,12 @@ void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy_to_vram)
 }
 
 WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
-    u32 heap_id = BgConfig_GetHeapId(window->bgConfig);
+    HeapID heapId = BgConfig_GetHeapId(window->bgConfig);
     void *charptr = BgGetCharPtr(GetWindowBgId(window));
 
-    WaitingIcon *waitingIcon = AllocFromHeap(heap_id, sizeof(WaitingIcon));
+    WaitingIcon *waitingIcon = AllocFromHeap(heapId, sizeof(WaitingIcon));
     memcpy(waitingIcon->unk004[8], charptr + (param1 + 18) * 32, 0x80);
-    void *ptr2 = AllocFromHeap(heap_id, 0x80);
+    void *ptr2 = AllocFromHeap(heapId, 0x80);
     memcpy(ptr2, charptr + (param1 + 10) * 32, 0x20);
     memcpy(ptr2 + 0x20, charptr + (param1 + 11) * 32, 0x20);
     memcpy(ptr2 + 0x40, charptr + (param1 + 10) * 32, 0x20);
@@ -595,7 +590,7 @@ WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
     FreeToHeap(ptr2);
 
     NNSG2dCharacterData *pCharData;
-    void *r5 = GfGfxLoader_GetCharData(NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0023_NCGR, FALSE, &pCharData, heap_id);
+    void *r5 = GfGfxLoader_GetCharData(NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0023_NCGR, FALSE, &pCharData, heapId);
     BlitRect4Bit(pCharData->pRawData, 0, 0, 0x10, 0x80, waitingIcon->unk004[0], 0x10, 0x80, 0, 0, 0x10, 0x80);
     FreeToHeap(r5);
 
@@ -671,10 +666,11 @@ void sub_0200DC24(WaitingIcon *waitingIcon) {
     waitingIcon->unk488 = 2;
 }
 
-PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, s32 heapId)
+PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, HeapID heapId)
 {
-    struct UnkStruct_0200CABC_2 *r4 = sub_0200DD70(bg_config, bg_id, param2, param3, heapId);
-    sub_0200DDAC(r4, heapId);
+    s32 heap = heapId; //weirdness needed for matching
+    struct UnkStruct_0200CABC_2 *r4 = sub_0200DD70(bg_config, bg_id, param2, param3, (HeapID)heap);
+    sub_0200DDAC(r4, (HeapID)heap);
     sub_0200DDD8(r4);
     sub_0200DE30(r4, param2, param3);
     sub_0200DE80(r4, species, gender);
@@ -684,10 +680,11 @@ PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, 
     return &r4->pokepicManager;
 }
 
-PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, s32 heapId)
+PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, HeapID heapId)
 {
-    struct UnkStruct_0200CABC_2 *r4 = sub_0200DD70(bg_config, bg_id, param2, param3, heapId);
-    sub_0200DDAC(r4, heapId);
+    s32 heap = heapId; //weirdness needed for matching
+    struct UnkStruct_0200CABC_2 *r4 = sub_0200DD70(bg_config, bg_id, param2, param3, (HeapID)heap);
+    sub_0200DDAC(r4, (HeapID)heap);
     sub_0200DDD8(r4);
     sub_0200DE30(r4, param2, param3);
     sub_0200DEC0(r4, mon);
@@ -724,9 +721,9 @@ void sub_0200DCF8(u32 param0, void *param1)
 }
 
 struct UnkStruct_0200CABC_2 *sub_0200DD70(
-    struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u32 param4)
+    struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, HeapID heapId)
 {
-    struct UnkStruct_0200CABC_2 *res = sub_0201B6C8(sub_020061E8(sub_0200DCF8, 0x170, 0, param4));
+    struct UnkStruct_0200CABC_2 *res = sub_0201B6C8(sub_020061E8(sub_0200DCF8, 0x170, 0, heapId));
 
     res->pokepicManager.unk00 = 0;
     res->bgConfig = bg_config;
@@ -737,7 +734,7 @@ struct UnkStruct_0200CABC_2 *sub_0200DD70(
     return res;
 }
 
-void sub_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1)
+void sub_0200DDAC(struct UnkStruct_0200CABC_2 *param0, HeapID heapId)
 {
 
     const u32 UNK_020ECEA8[] = {
@@ -748,7 +745,7 @@ void sub_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1)
         0x00,
         0x00,
     };
-    ov05_021D959C(param0, UNK_020ECEA8, 1, param1);
+    ov05_021D959C(param0, UNK_020ECEA8, 1, heapId);
 }
 
 void sub_0200DDD8(struct UnkStruct_0200CABC_2 *param0)
@@ -785,7 +782,7 @@ void sub_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2)
 
 void sub_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2)
 {
-    struct UnkStruct_02006D98 *r7 = sub_02006D98(param0->unk162);
+    struct UnkStruct_02006D98 *r7 = sub_02006D98((HeapID)param0->unk162);
     struct SomeDrawPokemonStruct stc;
     sub_02068C00(&stc, param1, param2, 2, 0, 0, 0);
     sub_0200DEF4(param0, &stc);
@@ -794,7 +791,7 @@ void sub_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2)
 
 void sub_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon *param1)
 {
-    struct UnkStruct_02006D98 *r6 = sub_02006D98(param0->unk162);
+    struct UnkStruct_02006D98 *r6 = sub_02006D98((HeapID)param0->unk162);
     struct SomeDrawPokemonStruct st0;
     sub_02068B68(&st0, param1, 2);
     sub_0200DEF4(param0, &st0);
@@ -804,7 +801,7 @@ void sub_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon *param1)
 void sub_0200DEF4(
     struct UnkStruct_0200CABC_2 *param0, struct SomeDrawPokemonStruct *param1)
 {
-    void *r4 = AllocFromHeap(param0->unk162, 0x1900);
+    void *r4 = AllocFromHeap((HeapID)param0->unk162, 0x1900);
 
     struct UnkStruct_0200CABC_3 st18 = UNK_020ECE98;
     sub_02012400(param1->unk0, param1->unk2, param0->unk162, &st18, r4);

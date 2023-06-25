@@ -74,10 +74,10 @@ void MailMsg_Init_FromTemplate(struct MailMessage * mailMsg, u32 a1)
     }
 }
 
-struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap_id)
+struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, HeapID heapId)
 {
     s32 i;
-    MessageFormat * messageFormat = MessageFormat_New(heap_id);
+    MessageFormat * messageFormat = MessageFormat_New(heapId);
     struct MsgData * msgData;
     struct String * ret;
     for (i = 0; i < MAILMSG_FIELDS_MAX; i++)
@@ -86,16 +86,16 @@ struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap
             break;
         BufferECWord(messageFormat, (u32)i, mailMsg->fields[i]);
     }
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], heap_id);
-    ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heap_id);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], heapId);
+    ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heapId);
     DestroyMsgData(msgData);
     MessageFormat_Delete(messageFormat);
     return ret;
 }
 
-struct String * MailMsg_GetRawString(struct MailMessage * mailMsg, u32 heap_id)
+struct String * MailMsg_GetRawString(struct MailMessage * mailMsg, HeapID heapId)
 {
-    return ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], mailMsg->msg_no, heap_id);
+    return ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], mailMsg->msg_no, heapId);
 }
 
 BOOL MailMsg_IsInit(struct MailMessage * mailMsg)
@@ -122,7 +122,7 @@ u32 MailMsg_NumFields(u16 bank, u16 num)
     u32 count;
     GF_ASSERT(bank < NELEMS(sMessageBanks));
     GF_ASSERT(num < MailMsg_NumMsgsInBank(bank));
-    str = ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[bank], num, 0);
+    str = ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[bank], num, HEAP_ID_DEFAULT);
     cstr = String_c_str(str);
     count = 0;
     while (*cstr != EOS)

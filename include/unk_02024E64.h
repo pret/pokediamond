@@ -6,13 +6,13 @@
 #include "save.h"
 #include "string16.h"
 
-struct UnkStruct_02024E64 {
+typedef struct UnkStruct_02024E64 {
     u8 unk0[0xE][0x80];
     u8 unk700[0x24];
     u16 rival_name_buf[0x8];
     u16 unk734[0xB];
     u8 unk74A[2]; // might be padding
-};
+} UnkStruct_02024E64;
 
 u32 sub_02024E64();
 void sub_02024E6C(struct UnkStruct_02024E64 *param0);

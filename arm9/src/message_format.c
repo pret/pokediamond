@@ -1,5 +1,6 @@
 #include "global.h"
 #include "filesystem.h"
+#include "gf_gfx_loader.h"
 #include "graphic/font.naix"
 #include "heap.h"
 #include "message_format.h"
@@ -15,14 +16,12 @@
 #include "string_control_code.h"
 #include "text.h"
 #include "trainer_data.h"
+#include "unk_020139D8.h"
 #include "unk_02015CC0.h"
 #include "unk_02024E64.h"
 #include "unk_020286F8.h"
 
 extern u32 GetCityNamesMsgdataIdByCountry(u32);
-extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
-extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
-extern void * GfGfxLoader_LoadFromNarc(NarcId narcId, s32 memberNo, BOOL isCompressed, u32 heap_id, BOOL allocAtEnd);
 
 const u16 UNK_020ECE6C[][2] = {
     { 0x0140, 0x0008 },
@@ -41,31 +40,31 @@ const u16 UNK_020ECE64[] = {
     0
 };
 
-MessageFormat *MessageFormat_New(u32 heap_id)
+MessageFormat *MessageFormat_New(HeapID heapId)
 {
-    return MessageFormat_New_Custom(8, 32, heap_id);
+    return MessageFormat_New_Custom(8, 32, heapId);
 }
 
-MessageFormat *MessageFormat_New_Custom(u32 nstr, u32 strlen, u32 heap_id)
+MessageFormat *MessageFormat_New_Custom(u32 nstr, u32 strlen, HeapID heapId)
 {
     GF_ASSERT(nstr != 0);
     GF_ASSERT(strlen != 0);
-    MessageFormat *messageFormat = AllocFromHeapAtEnd(heap_id, sizeof(MessageFormat));
+    MessageFormat *messageFormat = AllocFromHeapAtEnd(heapId, sizeof(MessageFormat));
     if (messageFormat != NULL)
     {
         messageFormat->count = nstr;
-        messageFormat->heap_id = heap_id;
-        messageFormat->buffer = String_New(strlen, heap_id);
+        messageFormat->heapId = heapId;
+        messageFormat->buffer = String_New(strlen, heapId);
         if (messageFormat->buffer != NULL)
         {
-            messageFormat->fields = AllocFromHeapAtEnd(heap_id, nstr * sizeof(MessageFormatFields));
+            messageFormat->fields = AllocFromHeapAtEnd(heapId, nstr * sizeof(MessageFormatFields));
             if (messageFormat->fields != NULL)
             {
                 s32 i;
                 for (i = 0; i < nstr; i++)
                 {
                     MessageFormat_InitFields(&messageFormat->fields[i]);
-                    messageFormat->fields[i].msg = String_New(strlen, heap_id);
+                    messageFormat->fields[i].msg = String_New(strlen, heapId);
                     if (messageFormat->fields[i].msg == NULL)
                         break;
                 }
@@ -138,7 +137,7 @@ void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveData * s
 void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData * save)
 {
     PlayerProfile *profile = Save_PlayerData_GetProfileAddr(save);
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heapId);
     if (PlayerProfile_GetTrainerGender(profile) == PLAYER_GENDER_MALE)
     {
         ReadMsgDataIntoString(msgData, narc_0497_00001, messageFormat->buffer); //Dawn
@@ -153,7 +152,7 @@ void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData * 
 
 void BufferBoxMonSpeciesName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon * mon)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, messageFormat->heapId);
     ReadMsgDataIntoString(msgData, GetBoxMonData(mon, MON_DATA_SPECIES, NULL), messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
     DestroyMsgData(msgData);
@@ -166,7 +165,7 @@ void BufferBoxMonSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, s
 
 void BufferSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 species)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0363_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0363_bin, messageFormat->heapId);
     ReadMsgDataIntoString(msgData, species, messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
     DestroyMsgData(msgData);
@@ -192,7 +191,7 @@ void BufferIntegerAsString(MessageFormat *messageFormat, u32 idx, s32 num, u32 n
 
 void BufferMoveName(MessageFormat *messageFormat, u32 idx, u32 move)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0588_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0588_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, move, messageFormat->buffer);
@@ -203,7 +202,7 @@ void BufferMoveName(MessageFormat *messageFormat, u32 idx, u32 move)
 
 void BufferRibbonNameOrDesc(MessageFormat *messageFormat, u32 idx, u32 ribbon)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0484_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0484_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, ribbon, messageFormat->buffer);
@@ -214,7 +213,7 @@ void BufferRibbonNameOrDesc(MessageFormat *messageFormat, u32 idx, u32 ribbon)
 
 void BufferAbilityName(MessageFormat *messageFormat, u32 idx, u32 ability)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0552_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0552_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, ability, messageFormat->buffer);
@@ -225,7 +224,7 @@ void BufferAbilityName(MessageFormat *messageFormat, u32 idx, u32 ability)
 
 void BufferNatureName(MessageFormat *messageFormat, u32 idx, u32 nature)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0190_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0190_bin, messageFormat->heapId);
     ReadMsgDataIntoString(msgData, nature, messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
     DestroyMsgData(msgData);
@@ -233,7 +232,7 @@ void BufferNatureName(MessageFormat *messageFormat, u32 idx, u32 nature)
 
 void BufferItemName(MessageFormat *messageFormat, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0344_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0344_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, messageFormat->buffer);
@@ -244,7 +243,7 @@ void BufferItemName(MessageFormat *messageFormat, u32 idx, u32 item)
 
 void BufferItemNameWithIndefArticle(MessageFormat *messageFormat, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0346_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0346_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, messageFormat->buffer);
@@ -255,7 +254,7 @@ void BufferItemNameWithIndefArticle(MessageFormat *messageFormat, u32 idx, u32 i
 
 void BufferItemNamePlural(MessageFormat *messageFormat, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0347_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0347_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, messageFormat->buffer);
@@ -266,7 +265,7 @@ void BufferItemNamePlural(MessageFormat *messageFormat, u32 idx, u32 item)
 
 void BufferPocketName(MessageFormat *messageFormat, u32 idx, u32 pocket)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0349_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0349_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, pocket, messageFormat->buffer);
@@ -277,7 +276,7 @@ void BufferPocketName(MessageFormat *messageFormat, u32 idx, u32 pocket)
 
 void BufferTypeName(MessageFormat *messageFormat, u32 idx, u32 type)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0565_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0565_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, type, messageFormat->buffer);
@@ -288,7 +287,7 @@ void BufferTypeName(MessageFormat *messageFormat, u32 idx, u32 type)
 
 void BufferStatName(MessageFormat *messageFormat, u32 idx, u32 stat)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0495_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0495_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, stat, messageFormat->buffer);
@@ -299,7 +298,7 @@ void BufferStatName(MessageFormat *messageFormat, u32 idx, u32 stat)
 
 void BufferStatusName(MessageFormat *messageFormat, u32 idx, u32 status)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0205_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0205_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, status, messageFormat->buffer);
@@ -310,7 +309,7 @@ void BufferStatusName(MessageFormat *messageFormat, u32 idx, u32 status)
 
 void BufferFlavorDislikeText(MessageFormat *messageFormat, u32 idx, u32 flavor)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0548_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0548_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, flavor, messageFormat->buffer);
@@ -321,7 +320,7 @@ void BufferFlavorDislikeText(MessageFormat *messageFormat, u32 idx, u32 flavor)
 
 void BufferLandmarkName(MessageFormat *messageFormat, u32 idx, u32 landmark)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0382_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0382_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, landmark, messageFormat->buffer);
@@ -332,7 +331,7 @@ void BufferLandmarkName(MessageFormat *messageFormat, u32 idx, u32 landmark)
 
 void BufferPoketchAppName(MessageFormat *messageFormat, u32 idx, u32 app)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0406_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0406_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, app, messageFormat->buffer);
@@ -343,7 +342,7 @@ void BufferPoketchAppName(MessageFormat *messageFormat, u32 idx, u32 app)
 
 void BufferTrainerClassName(MessageFormat *messageFormat, u32 idx, u32 trclass)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0560_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0560_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trclass, messageFormat->buffer);
@@ -354,7 +353,7 @@ void BufferTrainerClassName(MessageFormat *messageFormat, u32 idx, u32 trclass)
 
 void BufferTrainerClassNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 trclass)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0561_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0561_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trclass, messageFormat->buffer);
@@ -365,7 +364,7 @@ void BufferTrainerClassNameWithArticle(MessageFormat *messageFormat, u32 idx, u3
 
 void BufferTrainerClassNameFromDataStruct(MessageFormat *messageFormat, u32 idx, struct TrainerDataLoaded * tr)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0560_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0560_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, tr->data.trainerClass, messageFormat->buffer);
@@ -376,7 +375,7 @@ void BufferTrainerClassNameFromDataStruct(MessageFormat *messageFormat, u32 idx,
 
 void BufferTrainerName(MessageFormat *messageFormat, u32 idx, u32 msgno)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0559_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0559_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, msgno, messageFormat->buffer);
@@ -393,7 +392,7 @@ void BufferTrainerNameFromDataStruct(MessageFormat *messageFormat, u32 idx, stru
 
 void BufferUndergroundItemName(MessageFormat *messageFormat, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0569_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0569_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, messageFormat->buffer);
@@ -404,7 +403,7 @@ void BufferUndergroundItemName(MessageFormat *messageFormat, u32 idx, u32 item)
 
 void BufferUndergroundItemNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0570_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0570_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, messageFormat->buffer);
@@ -415,7 +414,7 @@ void BufferUndergroundItemNameWithArticle(MessageFormat *messageFormat, u32 idx,
 
 void BufferUndergroundTrapName(MessageFormat *messageFormat, u32 idx, u32 trap)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0571_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0571_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trap, messageFormat->buffer);
@@ -426,7 +425,7 @@ void BufferUndergroundTrapName(MessageFormat *messageFormat, u32 idx, u32 trap)
 
 void BufferUndergroundTrapNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 trap)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0572_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0572_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trap, messageFormat->buffer);
@@ -437,7 +436,7 @@ void BufferUndergroundTrapNameWithArticle(MessageFormat *messageFormat, u32 idx,
 
 void BufferContestJudgeName(MessageFormat *messageFormat, u32 idx, u32 judge)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0194_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0194_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, judge, messageFormat->buffer);
@@ -448,7 +447,7 @@ void BufferContestJudgeName(MessageFormat *messageFormat, u32 idx, u32 judge)
 
 void BufferContestMessage(MessageFormat *messageFormat, u32 idx, u32 msg)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0191_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0191_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, msg, messageFormat->buffer);
@@ -459,7 +458,7 @@ void BufferContestMessage(MessageFormat *messageFormat, u32 idx, u32 msg)
 
 void BufferContestMessage2(MessageFormat *messageFormat, u32 idx, u32 msg)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0191_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0191_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, msg, messageFormat->buffer);
@@ -470,7 +469,7 @@ void BufferContestMessage2(MessageFormat *messageFormat, u32 idx, u32 msg)
 
 void BufferInterviewQuestion(MessageFormat *messageFormat, u32 idx, u32 question)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0574_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0574_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, question, messageFormat->buffer);
@@ -481,7 +480,7 @@ void BufferInterviewQuestion(MessageFormat *messageFormat, u32 idx, u32 question
 
 void BufferInterviewAnswer(MessageFormat *messageFormat, u32 idx, u32 answer)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0573_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0573_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, answer, messageFormat->buffer);
@@ -492,7 +491,7 @@ void BufferInterviewAnswer(MessageFormat *messageFormat, u32 idx, u32 answer)
 
 void BufferDecorationName(MessageFormat *messageFormat, u32 idx, u32 decor)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0567_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0567_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, decor, messageFormat->buffer);
@@ -503,7 +502,7 @@ void BufferDecorationName(MessageFormat *messageFormat, u32 idx, u32 decor)
 
 void BufferDecorationNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 decor)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0568_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0568_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, decor, messageFormat->buffer);
@@ -514,7 +513,7 @@ void BufferDecorationNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 
 
 void BufferGenderSymbol(MessageFormat *messageFormat, u32 idx, u32 gender)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, messageFormat->heapId);
     switch (gender)
     {
     case 0:
@@ -539,7 +538,7 @@ void BufferBoxName(MessageFormat *messageFormat, u32 idx, struct PCStorage * pc,
 
 void BufferGymName(MessageFormat *messageFormat, u32 idx, u32 gym)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0331_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0331_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, gym, messageFormat->buffer);
@@ -550,7 +549,7 @@ void BufferGymName(MessageFormat *messageFormat, u32 idx, u32 gym)
 
 void BufferTimeOfDayName(MessageFormat *messageFormat, u32 idx, u32 time)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0550_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0550_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, time, messageFormat->buffer);
@@ -561,7 +560,7 @@ void BufferTimeOfDayName(MessageFormat *messageFormat, u32 idx, u32 time)
 
 void BufferCountryName(MessageFormat *messageFormat, u32 idx, u32 country)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0612_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0612_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, country, messageFormat->buffer);
@@ -575,7 +574,7 @@ void BufferCityName(MessageFormat *messageFormat, u32 idx, u32 countryId, u32 ci
     u32 msgBank = GetCityNamesMsgdataIdByCountry(countryId);
     if (msgBank != 0 && cityId != 0)
     {
-        struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, (s32)msgBank, messageFormat->heap_id);
+        struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, (s32)msgBank, messageFormat->heapId);
         if (msgData != NULL)
         {
             ReadMsgDataIntoString(msgData, cityId, messageFormat->buffer);
@@ -593,7 +592,7 @@ void BufferECWord(MessageFormat *messageFormat, u32 idx, u32 ecWordIdx)
 
 void BufferSealName(MessageFormat *messageFormat, u32 idx, u32 seal)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0010_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0010_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, seal, messageFormat->buffer);
@@ -604,7 +603,7 @@ void BufferSealName(MessageFormat *messageFormat, u32 idx, u32 seal)
 
 void BufferSealNamePlural(MessageFormat *messageFormat, u32 idx, u32 seal)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0011_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0011_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, seal, messageFormat->buffer);
@@ -617,7 +616,7 @@ void BufferLocationName(MessageFormat *messageFormat, u32 idx, u16 location)
 {
     u32 r6 = (u32)sub_02015CC0(location);
     u32 r4 = (u32)sub_02015CE0(location);
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, UNK_020ECE64[r6], messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, UNK_020ECE64[r6], messageFormat->heapId);
     if (msgData != NULL)
     {
         if (r4 < MsgDataGetCount(msgData))
@@ -630,7 +629,7 @@ void BufferLocationName(MessageFormat *messageFormat, u32 idx, u16 location)
         // Location is invalid.
         // Fallback: Mystery Zone
         DestroyMsgData(msgData);
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0382_bin, messageFormat->heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0382_bin, messageFormat->heapId);
         if (msgData != NULL)
         {
             ReadMsgDataIntoString(msgData, narc_0382_00000, messageFormat->buffer); // Mystery Zone
@@ -642,7 +641,7 @@ void BufferLocationName(MessageFormat *messageFormat, u32 idx, u16 location)
 
 void BufferPoffinName(MessageFormat *messageFormat, u32 idx, u32 poffin)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0414_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0414_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, poffin, messageFormat->buffer);
@@ -653,7 +652,7 @@ void BufferPoffinName(MessageFormat *messageFormat, u32 idx, u32 poffin)
 
 void BufferFashionName(MessageFormat *messageFormat, u32 idx, u32 fashion)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0338_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0338_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, fashion, messageFormat->buffer);
@@ -664,7 +663,7 @@ void BufferFashionName(MessageFormat *messageFormat, u32 idx, u32 fashion)
 
 void BufferFashionNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 fashion)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0339_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0339_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, fashion, messageFormat->buffer);
@@ -675,7 +674,7 @@ void BufferFashionNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 fas
 
 void BufferContestBackgroundName(MessageFormat *messageFormat, u32 idx, u32 bg)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0340_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0340_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, bg, messageFormat->buffer);
@@ -689,7 +688,7 @@ void BufferGroupName(MessageFormat *messageFormat, struct SaveData * save, u32 r
     void * r6 = sub_0202881C(save);
     u8 sp10 = sub_020287F8(r6, r5);
     u8 r7 = sub_02028804(r6, r5);
-    struct String * r4 = String_New(64, 4);
+    struct String * r4 = String_New(64, HEAP_ID_4);
     CopyU16ArrayToString(r4, sub_020287A8(r6, r5, sp28));
     BufferString(messageFormat, idx, r4, sp10, 1, r7);
     String_Delete(r4);
@@ -697,7 +696,7 @@ void BufferGroupName(MessageFormat *messageFormat, struct SaveData * save, u32 r
 
 void BufferMonthNameAbbr(MessageFormat *messageFormat, u32 idx, u32 month)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0364_bin, messageFormat->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0364_bin, messageFormat->heapId);
     if (msgData != NULL)
     {
         if (month < 1 || month > 12)
@@ -747,15 +746,15 @@ void MessageFormat_ResetBuffers(MessageFormat *messageFormat)
         StringSetEmpty(messageFormat->fields[i].msg);
 }
 
-struct UnkStruct_0200B870 * MessagePrinter_New(u32 color1, u32 color2, u32 color3, u32 heap_id)
+struct UnkStruct_0200B870 * MessagePrinter_New(u32 color1, u32 color2, u32 color3, HeapID heapId)
 {
-    struct UnkStruct_0200B870 * sp8 = AllocFromHeap(heap_id, sizeof(struct UnkStruct_0200B870));
+    struct UnkStruct_0200B870 * sp8 = AllocFromHeap(heapId, sizeof(struct UnkStruct_0200B870));
     if (sp8 != NULL)
     {
-        sp8->unk_0 = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, NARC_font_narc_0004_NCGR_lz, 1, &sp8->unk_4, heap_id);
+        sp8->unk_0 = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, NARC_font_narc_0004_NCGR_lz, 1, &sp8->unk_4, heapId);
         int i;
-        u8 * ptr = sp8->unk_4->unk_14;
-        for (i = 0; i < sp8->unk_4->unk_10; i++)
+        u8 * ptr = sp8->unk_4->pRawData;
+        for (i = 0; i < sp8->unk_4->szByte; i++)
         {
             switch (ptr[i])
             {
@@ -805,7 +804,7 @@ void MessagePrinter_Delete(struct UnkStruct_0200B870 * a0)
 
 void sub_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window *a2, int a3, int a4)
 {
-    BlitBitmapRectToWindow(a2, a0->unk_4->unk_14 + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
+    BlitBitmapRectToWindow(a2, a0->unk_4->pRawData + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
 }
 
 void sub_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y)
@@ -815,7 +814,7 @@ void sub_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum Pri
     {
         if (string->data[i] >= CHAR_JP_0 && string->data[i] <= CHAR_JP_9)
         {
-            BlitBitmapRectToWindow(window, string->unk_4->unk_14 + (string->data[i] - CHAR_JP_0) * 32, 0, 0, 8, 8, (u16)x, (u16)y, 8, 8);
+            BlitBitmapRectToWindow(window, string->unk_4->pRawData + (string->data[i] - CHAR_JP_0) * 32, 0, 0, 8, 8, (u16)x, (u16)y, 8, 8);
         }
         else
         {

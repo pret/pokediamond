@@ -24,7 +24,7 @@ struct UnkStruct_0204652C
     u8    unkE; // some kind of counter?
 };
 
-void sub_0206015C(struct FieldSystem *fieldSystem);
-BOOL sub_02060194(struct TaskManager *taskManager);
+void CallTask_UseGreatMarshBinoculars(struct FieldSystem *fieldSystem);
+BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager);
 
 #endif //UNK_0206015C_H_GUARD

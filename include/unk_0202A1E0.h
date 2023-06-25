@@ -199,7 +199,7 @@ void sub_0202A784(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784
 void sub_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798 *arg1, u32 arg2);
 void sub_0202A838(struct SaveStruct23_Substruct4 *substruct4, struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2, u8 arg2, u8 arg3);
 void sub_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dest);
-struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, u32 heap_id);
+struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, HeapID heapId);
 s32 SaveStruct23_sizeof();
 void SaveStruct23_Init(struct SaveStruct23 *saveStruct23);
 struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveData* save);

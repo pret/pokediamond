@@ -64,7 +64,7 @@ static const struct GraphicsBanks sWFCWarningMsgGraphicsBanks = {
     .texpltt = GX_VRAM_TEXPLTT_NONE,
 };
 
-void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
+void ShowWFCUserInfoWarning(HeapID heapId, u32 a1)
 {
 #pragma unused(a1)
     struct Window window;
@@ -92,20 +92,20 @@ void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     GXS_SetVisibleWnd(0);
     GX_SetBanks(&sWFCWarningMsgGraphicsBanks);
 
-    struct BgConfig* bg_config = BgConfig_Alloc(heap_id);
+    struct BgConfig* bg_config = BgConfig_Alloc(heapId);
 
     SetBothScreensModesAndDisable(&sWFCWarningMsgGraphicsModes);
 
     InitBgFromTemplate(bg_config, 0, &sWFCWarningMsgBgTemplate, 0);
     BgClearTilemapBufferAndCommit(bg_config, GF_BG_LYR_MAIN_0);
-    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heap_id);
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heap_id);
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heap_id);
+    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heapId);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
-    struct MsgData* warning_messages_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0613_bin, heap_id);
-    struct String* warning_message = String_New(384, heap_id);
+    struct MsgData* warning_messages_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0613_bin, heapId);
+    struct String* warning_message = String_New(384, heapId);
     ResetAllTextPrinters();
     AddWindow(bg_config, &window, &sWFCWarningMsgWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);

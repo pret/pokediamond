@@ -159,7 +159,7 @@ sub_0204FC5C: ; 0x0204FC5C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F194
 	cmp r0, #0x0
 	bne _0204FC9A
@@ -712,7 +712,7 @@ _020500B6:
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F194
 	cmp r0, #0x0
 	bne _020500F8
@@ -739,7 +739,7 @@ sub_02050114: ; 0x02050114
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F194
 	cmp r0, #0x0
 	beq _0205013A

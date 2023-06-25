@@ -14,11 +14,11 @@ struct UnkStruct_02031480
 
 static struct UnkStruct_02031480 *UNK_021C59FC;
 
-void sub_02031480(u32 heap_id)
+void sub_02031480(HeapID heapId)
 {
     if (UNK_021C59FC == NULL)
     {
-        UNK_021C59FC = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02031480));
+        UNK_021C59FC = AllocFromHeap(heapId, sizeof(struct UnkStruct_02031480));
         MI_CpuFill8(UNK_021C59FC, 0, sizeof(struct UnkStruct_02031480));
     }
 

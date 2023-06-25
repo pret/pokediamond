@@ -4,9 +4,9 @@
 #include "heap.h"
 #include "overlay_manager.h"
 
-struct OverlayManager * OverlayManager_New(const struct OverlayManagerTemplate *template, s32 * a1, u32 heap_id)
+struct OverlayManager * OverlayManager_New(const struct OverlayManagerTemplate *template, s32 * a1, HeapID heapId)
 {
-    struct OverlayManager * ret = (struct OverlayManager *)AllocFromHeap(heap_id, sizeof(struct OverlayManager));
+    struct OverlayManager * ret = (struct OverlayManager *)AllocFromHeap(heapId, sizeof(struct OverlayManager));
     ret->template = *template;
     ret->managerStatus = 0;
     ret->overlayStatus = 0;
@@ -22,9 +22,9 @@ void OverlayManager_Delete(struct OverlayManager * overlayManager)
     FreeToHeap(overlayManager);
 }
 
-void * OverlayManager_CreateAndGetData(struct OverlayManager * overlayManager, u32 size, u32 heap_id)
+void * OverlayManager_CreateAndGetData(struct OverlayManager * overlayManager, u32 size, HeapID heapId)
 {
-    return overlayManager->data = AllocFromHeap(heap_id, size);
+    return overlayManager->data = AllocFromHeap(heapId, size);
 }
 
 void * OverlayManager_GetData(struct OverlayManager * overlayManager)

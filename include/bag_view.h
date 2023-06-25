@@ -31,7 +31,7 @@ struct BagView
     u16 unk76_2 : 15;
 }; // total size = 0x78
 
-struct BagView *BagView_New(u8 heap_id);
+struct BagView *BagView_New(u8 heapId);
 u32 BagView_sizeof();
 void sub_0206E30C(struct BagView *bag_view, u8 r1);
 void sub_0206E314(
@@ -48,7 +48,7 @@ u8 sub_0206E394(struct BagView *bag_view);
 u32 GetNumFashionAccessories(struct SaveData *save);
 u32 GetNumFashionBackgrounds(struct SaveData *save);
 u32 GetNumBattlePoints(struct SaveData *save);
-BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id);
-void sub_0206E51C(PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
+BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, HeapID heapId);
+void sub_0206E51C(PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, HeapID heapId);
 
 #endif // POKEDIAMOND_BAG_VIEW_H

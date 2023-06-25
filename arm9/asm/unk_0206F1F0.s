@@ -82,7 +82,7 @@ _0206F26C:
 	cmp r0, #0x0
 	beq _0206F280
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F304
 _0206F280:
 	ldr r0, [r4, #0x0]

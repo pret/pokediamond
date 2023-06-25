@@ -2,9 +2,9 @@
 #include "heap.h"
 #include "unk_0208A300.h"
 
-struct UnkStruct_0208A300* sub_0208A300(u32 heap_id)
+struct UnkStruct_0208A300* sub_0208A300(HeapID heapId)
 {
-    struct UnkStruct_0208A300* ret = AllocFromHeap(heap_id, sizeof(struct UnkStruct_0208A300));
+    struct UnkStruct_0208A300* ret = AllocFromHeap(heapId, sizeof(struct UnkStruct_0208A300));
 
     __builtin__clear(ret, sizeof(struct UnkStruct_0208A300));
     ret->unk4 = 2;

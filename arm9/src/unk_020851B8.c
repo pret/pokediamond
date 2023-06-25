@@ -3,9 +3,9 @@
 #include "constants/items.h"
 #include "heap.h"
 
-struct UnkStruct_020851B8 *sub_020851B8(u32 heap_id)
+struct UnkStruct_020851B8 *sub_020851B8(u8 heapId)
 {
-    struct UnkStruct_020851B8 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_020851B8));
+    struct UnkStruct_020851B8 *ptr = AllocFromHeap((HeapID)heapId, sizeof(struct UnkStruct_020851B8));
     __builtin__clear(ptr, sizeof(struct UnkStruct_020851B8));
     return ptr;
 }

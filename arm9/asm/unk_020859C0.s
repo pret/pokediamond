@@ -788,7 +788,7 @@ _02085EA6:
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	lsl r2, r4, #0x18
 	add r1, r5, #0x0
 	lsr r2, r2, #0x18

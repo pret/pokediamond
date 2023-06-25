@@ -2,6 +2,7 @@
 #define POKEDIAMOND_ov59_INTRO_H
 
 #include "nitro/types.h"
+#include "heap.h"
 #include "options.h"
 #include "save.h"
 #include "main.h"
@@ -19,7 +20,7 @@ struct ov59_UnkPlayerStruct
 
 typedef struct ov59_IntroOverlayData
 {
-    u32 heap_id;
+    HeapID heapId;
     struct SaveData *save;
     struct Options *options;
     u32 controllerCounter;

@@ -67,7 +67,7 @@ static void VBlankIntr(void)
     MI_WaitDma(GX_DEFAULT_DMAID);
 }
 
-void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
+void ShowCommunicationError(HeapID heapId, u32 error, u32 error_code)
 {
     struct Window window;
     
@@ -118,23 +118,23 @@ void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
     GXS_SetVisibleWnd(0);
     GX_SetBanks(&sCommunicationErrorGraphicsBanks);
 
-    struct BgConfig* bg_config = BgConfig_Alloc(heap_id);
+    struct BgConfig* bg_config = BgConfig_Alloc(heapId);
 
     SetBothScreensModesAndDisable(&sCommunicationErrorGraphicsModes);
 
     InitBgFromTemplate(bg_config, 0, &sCommunicationErrorBgTemplate, GX_BGMODE_0);
     BgClearTilemapBufferAndCommit(bg_config, GF_BG_LYR_MAIN_0);
-    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heap_id);
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heap_id);
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heap_id);
+    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heapId);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
-    struct MsgData* error_message_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, heap_id);
-    struct String* error_message_str = String_New(384, heap_id);
-    struct String* tmp_str = String_New(384, heap_id);
+    struct MsgData* error_message_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, heapId);
+    struct String* error_message_str = String_New(384, heapId);
+    struct String* tmp_str = String_New(384, heapId);
     ResetAllTextPrinters();
-    MessageFormat* messageFormat = MessageFormat_New(heap_id);
+    MessageFormat* messageFormat = MessageFormat_New(heapId);
 
     AddWindow(bg_config, &window, &sCommunicationErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);

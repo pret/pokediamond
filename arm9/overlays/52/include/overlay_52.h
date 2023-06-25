@@ -30,7 +30,7 @@ BOOL ov52_021D757C(struct OverlayManager *arg1, u32 *status);
 BOOL ov52_021D7594(struct OverlayManager *param0, u32 *status);
 BOOL ov52_021D75E8(struct OverlayManager *arg1, u32 *status);
 
-void ov52_021D7604(u32 heap_id, struct SaveData *save, BOOL set_trainerid);
+void ov52_021D7604(HeapID heapId, struct SaveData *save, BOOL set_trainerid);
 void ov52_021D7688(u32 param0, struct SaveData *save);
 void ov52_021D769C(u32 param0, struct SaveData *save);
 

@@ -3,6 +3,8 @@
 
 #include "global.h"
 #include "NNS_g2d.h"
+#include "heap.h"
+
 struct UnkStruct_02006D98_4
 {
     u16 field_00;
@@ -96,7 +98,7 @@ struct UnkStruct_02006D98
     struct UnkStruct_02006D98_2 unk000[4];
     NNSG2dImageProxy unk260;
     NNSG2dImagePaletteProxy unk284;
-    u32 unk298;
+    HeapID heapId;
     u32 unk29C;
     u32 unk2A0;
     u32 unk2A4;
@@ -130,7 +132,7 @@ struct UnkStruct_02006D98_5
     struct UnkStruct_02006D98_sub *unk10;
 };
 
-struct UnkStruct_02006D98 *sub_02006D98(u32 heap_id);
+struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId);
 void sub_02006ED4(struct UnkStruct_02006D98 *param0);
 void sub_020072E8(struct UnkStruct_02006D98 *param0);
 void sub_02007314(struct UnkStruct_02006D98_2 *param0);

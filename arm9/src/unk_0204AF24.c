@@ -4,7 +4,7 @@
 
 extern void sub_02037394(struct FieldSystem *);
 extern u32 IsPaletteFadeFinished(void);
-extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
 extern void ov05_021E331C(struct FieldSystem *);
 
 BOOL sub_0204AF24(struct TaskManager *taskManager)
@@ -66,7 +66,7 @@ void sub_0204AFC8(struct TaskManager *taskManager)
         GF_ASSERT(0);
         return;
     }
-    BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, 4);
+    BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, HEAP_ID_4);
     TaskManager_Call(taskManager, &sub_0204AFB4, 0);
 }
 
@@ -77,7 +77,7 @@ void sub_0204B00C(struct TaskManager *taskManager)
         GF_ASSERT(0);
         return;
     }
-    BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, 4);
+    BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, HEAP_ID_4);
     TaskManager_Call(taskManager, sub_0204AFB4, 0);
 }
 

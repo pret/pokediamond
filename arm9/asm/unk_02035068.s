@@ -84,7 +84,7 @@ sub_02035080: ; 0x02035080
 	bl sub_02035254
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x1
 	bne _020350A6
@@ -96,7 +96,7 @@ sub_02035080: ; 0x02035080
 	b _020350E6
 _020350A6:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F244
 	cmp r0, #0x1
 	bne _020350C2
@@ -223,7 +223,7 @@ sub_020351A0: ; 0x020351A0
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x1
 	bne _020351D4
@@ -235,7 +235,7 @@ sub_020351A0: ; 0x020351A0
 	b _02035240
 _020351D4:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F244
 	cmp r0, #0x1
 	bne _020351F0
@@ -324,15 +324,15 @@ sub_02035270: ; 0x02035270
 	orr r4, r0
 _02035288:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
-	bl ScriptState_GetStarter
+	bl Save_VarsFlags_Get
+	bl Save_VarsFlags_GetStarter
 	cmp r0, #0x0
 	bne _0203529A
 	mov r0, #0x2
 	orr r4, r0
 _0203529A:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ECE0
 	cmp r0, #0x0
 	bne _020352AC
@@ -918,7 +918,7 @@ sub_02035734: ; 0x02035734
 	bl sub_0204652C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x1
 	bne _0203575A
@@ -926,7 +926,7 @@ sub_02035734: ; 0x02035734
 	b _0203576C
 _0203575A:
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F244
 	cmp r0, #0x1
 	beq _0203576A
@@ -1010,7 +1010,7 @@ _020357D6:
 	bne _02035834
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034E24
+	bl LocalFieldData_GetSafariBallsCounter
 	mov r1, #0x0
 	add r2, r0, #0x0
 	str r1, [sp, #0x0]
@@ -1077,12 +1077,12 @@ sub_020358A0: ; 0x020358A0
 	bl sub_0204652C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x0
 	bne _020358CE
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F244
 	cmp r0, #0x0
 	beq _020358E0
@@ -1670,7 +1670,7 @@ sub_02035D34: ; 0x02035D34
 	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	str r0, [r4, #0x0]
@@ -2933,7 +2933,7 @@ sub_020367E8: ; 0x020367E8
 	add r0, r5, #0x0
 	bl sub_020358A0
 	ldr r0, [r6, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x1
 	bne _02036834

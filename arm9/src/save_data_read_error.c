@@ -59,7 +59,7 @@ static const struct GraphicsBanks sSaveDataReadErrorGraphicsBanks = {
     .texpltt = GX_VRAM_TEXPLTT_NONE,
 };
 
-void ShowSaveDataReadError(u32 heap_id)
+void ShowSaveDataReadError(HeapID heapId)
 {
     struct Window window;
 
@@ -85,20 +85,20 @@ void ShowSaveDataReadError(u32 heap_id)
     GXS_SetVisibleWnd(0);
     GX_SetBanks(&sSaveDataReadErrorGraphicsBanks);
 
-    struct BgConfig* bg_config = BgConfig_Alloc(heap_id);
+    struct BgConfig* bg_config = BgConfig_Alloc(heapId);
 
     SetBothScreensModesAndDisable(&sSaveDataReadErrorGraphicsModes);
 
     InitBgFromTemplate(bg_config, 0, &sSaveDataReadErrorBgTemplate, 0);
     BgClearTilemapBufferAndCommit(bg_config, GF_BG_LYR_MAIN_0);
-    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heap_id);
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heap_id);
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heap_id);
+    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heapId);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
-    struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0005_bin, heap_id);
-    struct String* str = String_New(384, heap_id);
+    struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0005_bin, heapId);
+    struct String* str = String_New(384, heapId);
 
     ResetAllTextPrinters();
 
@@ -122,7 +122,7 @@ void ShowSaveDataReadError(u32 heap_id)
     }
 }
 
-void ShowGBACartRemovedError(u32 heap_id)
+void ShowGBACartRemovedError(HeapID heapId)
 {
     struct Window window;
 
@@ -148,20 +148,20 @@ void ShowGBACartRemovedError(u32 heap_id)
     GXS_SetVisibleWnd(0);
     GX_SetBanks(&sSaveDataReadErrorGraphicsBanks);
 
-    struct BgConfig* bg_config = BgConfig_Alloc(heap_id);
+    struct BgConfig* bg_config = BgConfig_Alloc(heapId);
 
     SetBothScreensModesAndDisable(&sSaveDataReadErrorGraphicsModes);
 
     InitBgFromTemplate(bg_config, 0, &sSaveDataReadErrorBgTemplate, 0);
     BgClearTilemapBufferAndCommit(bg_config, GF_BG_LYR_MAIN_0);
-    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heap_id);
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heap_id);
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heap_id);
+    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heapId);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
-    struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0005_bin, heap_id);
-    struct String* str = String_New(384, heap_id);
+    struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0005_bin, heapId);
+    struct String* str = String_New(384, heapId);
 
     ResetAllTextPrinters();
 

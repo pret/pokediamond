@@ -19,8 +19,8 @@ typedef struct PoffinCaseAppData {
     u32 *unk1C;
 } PoffinCaseAppData;
 
-struct PoffinCaseAppData* sub_0208890C(u32, struct SaveData* save, u32 heap_id, u32 *);
+struct PoffinCaseAppData* sub_0208890C(u32, struct SaveData* save, HeapID heapId, u32 *);
 void sub_02088950(struct FieldSystem *fieldSystem, struct PoffinCaseAppData*);
-struct PoffinCaseAppData* sub_02088960(struct FieldSystem *fieldSystem, u32, u32 heap_id);
+struct PoffinCaseAppData* sub_02088960(struct FieldSystem *fieldSystem, u32, HeapID heapId);
 
 #endif

@@ -51,7 +51,7 @@ struct Bg
 
 typedef struct BgConfig
 {
-    u32 heap_id;
+    HeapID heapId;
     u16 scrollScheduled;
     u16 bufferTransferScheduled;
     struct Bg bgs[8];
@@ -200,8 +200,8 @@ enum BgPosAdjustOp
     BG_POS_OP_SUB_CENTERY,
 };
 
-struct BgConfig *BgConfig_Alloc(u32 heap_id);
-u32 BgConfig_GetHeapId(struct BgConfig *bgConfig);
+struct BgConfig *BgConfig_Alloc(HeapID heapId);
+HeapID BgConfig_GetHeapId(struct BgConfig *bgConfig);
 void SetBothScreensModesAndDisable(const struct GraphicsModes *modes);
 void SetScreenModeAndDisable(const struct GraphicsModes *gfxModes, u32 whichScreen);
 void InitBgFromTemplate(
@@ -240,7 +240,7 @@ void BG_LoadCharTilesData(
 void BG_LoadCharPixelData(
     struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 size, u32 offset);
 void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size);
-void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_id);
+void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, HeapID heapId);
 void BG_FillCharDataRange(
     struct BgConfig *param0, u32 bgId, u32 fillValue, u32 count, u32 offset);
 void BG_LoadPlttData(u32 location, void *plttData, u32 size, enum GFPalSlotOffset offset);
@@ -327,7 +327,7 @@ void BgFillTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId, u16 fillV
 void BgFillTilemapBufferAndSchedule(struct BgConfig *bgConfig, u32 bgId, u16 fillValue);
 void *BgGetCharPtr(u32 bgId);
 void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 (*dest8bpp), u8 paletteNum);
-u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, u32 heap_id);
+u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, HeapID heapId);
 void *GetBgTilemapBuffer(struct BgConfig *bgConfig, u8 bgId);
 u16 GetBgAffineRotation(struct BgConfig *bgConfig, u32 bgId);
 u8 GetBgPriority(struct BgConfig *bgConfig, u32 bgId);
@@ -353,7 +353,7 @@ void FillBitmapRect4Bit(
     struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
 void FillBitmapRect8Bit(
     struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
-struct Window *AllocWindows(u32 heap_id, s32 size);
+struct Window *AllocWindows(HeapID heapId, s32 size);
 void InitWindow(struct Window *window);
 BOOL WindowIsInUse(struct Window *window);
 void AddWindowParameterized(struct BgConfig *param0,
@@ -439,8 +439,8 @@ u8 GetWindowY(struct Window *window);
 void MoveWindowX(struct Window *window, u8 x);
 void MoveWindowY(struct Window *window, u8 y);
 void SetWindowPaletteNum(struct Window *window, u8 paletteNum);
-NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 heap_id, const char *path);
-NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, u32 heap_id, const char *path);
+NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, HeapID heapId, const char *path);
+NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, HeapID heapId, const char *path);
 void DoScheduledBgGpuUpdates(struct BgConfig *bgConfig);
 void DoScheduledBgTilemapBufferTransfers(struct BgConfig *bgConfig);
 void ScheduleBgTilemapBufferTransfer(struct BgConfig *bgConfig, u32 bgId);

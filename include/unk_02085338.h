@@ -21,7 +21,7 @@ struct UnkStruct_02085338
     u8 padding_20[4];
 };
 
-struct UnkStruct_02085338 * sub_02085338(u8 r5, u8 r7, struct SaveData * save, u32 heap_id);
+struct UnkStruct_02085338 * sub_02085338(u8 r5, u8 r7, struct SaveData * save, HeapID heapId);
 void sub_020853A8(struct UnkStruct_02085338 * ptr);
 void sub_020853B0(struct UnkStruct_02085338 * ptr, u16 a1);
 void sub_020853B4(struct UnkStruct_02085338 * ptr, u16 a1, u16 a2);

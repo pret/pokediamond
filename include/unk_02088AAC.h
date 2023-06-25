@@ -7,7 +7,7 @@
 
 struct UnkStruct_02088AAC
 {
-    u32 heap_id;
+    HeapID heapId;
     u16 unk04;
     u16 unk06;
     u32 item;

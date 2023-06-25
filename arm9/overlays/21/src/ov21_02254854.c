@@ -26,7 +26,7 @@ static void ov21_02254840(void)
 
 BOOL ov21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param2, u32 param3)
 {
-    UnkStruct02254854 *alloced = (UnkStruct02254854 *)AllocFromHeap(8, sizeof(UnkStruct02254854));
+    UnkStruct02254854 *alloced = (UnkStruct02254854 *)AllocFromHeap(HEAP_ID_8, sizeof(UnkStruct02254854));
     if (alloced != NULL)
     {
         if (ov21_0225489C(alloced, param1, param2, param3) && sub_0200CA44((void (*)(u32, void *))ov21_02254930, (void *)alloced, 1))

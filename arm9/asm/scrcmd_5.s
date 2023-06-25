@@ -16,7 +16,7 @@ ScrCmd_Unk024E: ; 0x02041194
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -219,7 +219,7 @@ ScrCmd_Unk0250: ; 0x02041340
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F5FC
 	mov r0, #0x0
 	pop {r3, pc}

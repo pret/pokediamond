@@ -44,7 +44,7 @@ sub_02046068: ; 0x02046068
 	bl sub_0204652C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	ldrb r1, [r4, #0x8]
 	cmp r1, #0xb
 	bls _0204608A

@@ -2376,7 +2376,7 @@ sub_02038914: ; 0x02038914
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204652C
