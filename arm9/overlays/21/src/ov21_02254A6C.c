@@ -40,7 +40,7 @@ extern void ov11_02252DB4(u32 param0, u32 param1);
 
 BOOL ov21_02254A6C(UnkStruct02254A6C *param0, void *param1)
 {
-    UnkStruct02254A6C *strct = (UnkStruct02254A6C *)AllocFromHeap(8, 3 << 8);
+    UnkStruct02254A6C *strct = (UnkStruct02254A6C *)AllocFromHeap(HEAP_ID_8, 3 << 8);
     u32 sp4;
     if (strct != NULL)
     {

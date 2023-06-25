@@ -136,7 +136,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED0C
 	add r1, sp, #0x14
 	strb r0, [r1, #0x3]

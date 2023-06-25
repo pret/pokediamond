@@ -18,7 +18,7 @@ static SaveData *sSaveDataPtr;
 
 struct SaveData * SaveData_New(void)
 {
-    struct SaveData * save = AllocFromHeap(1, sizeof(struct SaveData));
+    struct SaveData * save = AllocFromHeap(HEAP_ID_1, sizeof(struct SaveData));
     MI_CpuClearFast(save, sizeof(struct SaveData));
     sSaveDataPtr = save;
     save->flashOkay = SaveDetectFlash();
@@ -69,7 +69,7 @@ void * sub_02022634(struct SaveData * save, int idx)
 
 BOOL sub_0202263C(struct SaveData * save)
 {
-    u8 * r6 = AllocFromHeapAtEnd(3, 0x1000);
+    u8 * r6 = AllocFromHeapAtEnd(HEAP_ID_MAIN, 0x1000);
     sub_02016444(1);
     FlashClobberChunkFooter(save, 0, (u32)(save->unk_20220[0] == 0 ? 1 : 0));
     FlashClobberChunkFooter(save, 1, (u32)(save->unk_20220[1] == 0 ? 1 : 0));
@@ -358,8 +358,8 @@ int sub_02022AD8(struct SaveData * save)
     u32 sp8;
     u32 sp4;
     {
-        u8 *r6 = AllocFromHeapAtEnd(3, 0x20000);
-        u8 *r4 = AllocFromHeapAtEnd(3, 0x20000);
+        u8 *r6 = AllocFromHeapAtEnd(HEAP_ID_MAIN, 0x20000);
+        u8 *r4 = AllocFromHeapAtEnd(HEAP_ID_MAIN, 0x20000);
         if (FlashLoadChunk(0, r6, 0x20000))
         {
             sub_0202293C(&sp2C[0], save, r6, 0);
@@ -763,7 +763,7 @@ int WriteSaveFileToFlash(struct SaveData * save, int idx, u8 * data)
     return 3;
 }
 
-u8 * ReadSaveFileFromFlash(struct SaveData * save, u32 heap_id, int idx, int * ret_p)
+u8 * ReadSaveFileFromFlash(struct SaveData * save, HeapID heapId, int idx, int * ret_p)
 {
     GF_ASSERT(idx < UNK_020EE6D8);
     const struct SaveChunkHeader * sch = &UNK_020EE6E0[idx];
@@ -773,7 +773,7 @@ u8 * ReadSaveFileFromFlash(struct SaveData * save, u32 heap_id, int idx, int * r
     u32 sp8;
     int r7;
     u32 sp4;
-    u8 * r6 = AllocFromHeap(heap_id, sp10);
+    u8 * r6 = AllocFromHeap(heapId, sp10);
     FlashLoadChunk((u32)(sch->linkedId << 12), r6, sp10);
     spC = ValidateChunk(save, r6, idx, sch->sizeFunc());
     sp8 = sub_020232B4(r6, sch->sizeFunc());
@@ -853,7 +853,7 @@ BOOL FlashLoadChunk(u32 src, void * dest, u32 size)
     if (!r5)
     {
         FreeToHeap(sSaveDataPtr);
-        ShowSaveDataReadError(1);
+        ShowSaveDataReadError(HEAP_ID_1);
     }
     return r5;
 }
@@ -907,5 +907,5 @@ void SaveErrorHandling(int lock, u32 errno)
     CARD_UnlockBackup((u16)lock);
     OS_ReleaseLockID((u16)lock);
     FreeToHeap(sSaveDataPtr);
-    ShowSaveDataWriteError(1, errno);
+    ShowSaveDataWriteError(HEAP_ID_1, errno);
 }

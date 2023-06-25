@@ -3,6 +3,7 @@
 
 #include "save.h"
 #include "mail_message.h"
+#include "heap.h"
 
 union MailPatternData
 {
@@ -26,11 +27,11 @@ typedef struct Mail
     struct MailMessage unk_20[3];
 } Mail;
 
-struct Mail * Mail_New(u32 heap_id);
+struct Mail * Mail_New(HeapID heapId);
 
 void Mail_Init(struct Mail * mail);
 BOOL Mail_TypeIsValid(struct Mail * mail);
-struct Mail * Mail_New(u32 heap_id);
+struct Mail * Mail_New(HeapID heapId);
 void Mail_Copy(const struct Mail * src, struct Mail * dest);
 void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct SaveData * save);
 u32 Mail_GetOTID(struct Mail * mail);
@@ -50,7 +51,7 @@ s32 Mailbox_GetFirstEmptySlotIdx(struct Mail * mail, BOOL r1);
 void Mailbox_DeleteSlotI(struct Mail * mail, BOOL r1, s32 idx);
 void Mailbox_CopyMailToSlotI(struct Mail * mail, BOOL r1, s32 idx, const struct Mail * src);
 s32 Mailbox_CountMessages(struct Mail * mail, BOOL r1);
-struct Mail * Mailbox_AllocAndFetchMailI(struct Mail * mail, BOOL r1, s32 idx, u32 heap_id);
+struct Mail * Mailbox_AllocAndFetchMailI(struct Mail * mail, BOOL r1, s32 idx, HeapID heapId);
 void Mailbox_FetchMailIToBuffer(struct Mail * mail, BOOL r1, s32 idx, struct Mail * dest);
 s32 MailArray_GetFirstEmptySlotIdx(struct Mail * mail, s32 count);
 s32 MailArray_CountMessages(struct Mail * mail, s32 count);

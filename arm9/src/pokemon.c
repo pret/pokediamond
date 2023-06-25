@@ -44,7 +44,7 @@ BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
 BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
 void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
-void sub_0206A054(struct BoxPokemon *  boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
+void sub_0206A054(struct BoxPokemon *  boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 BOOL sub_0206A144(struct BoxPokemon * boxmon, u32 a1);
 BOOL sub_0206A16C(u16 species, int forme, u32 a2);
@@ -192,9 +192,9 @@ u32 SizeOfStructPokemon(void)
     return sizeof(struct Pokemon);
 }
 
-struct Pokemon * AllocMonZeroed(u32 heap_id)
+struct Pokemon * AllocMonZeroed(HeapID heapId)
 {
-    struct Pokemon * pokemon = (struct Pokemon *)AllocFromHeap(heap_id, sizeof(struct Pokemon));
+    struct Pokemon * pokemon = (struct Pokemon *)AllocFromHeap(heapId, sizeof(struct Pokemon));
     ZeroMonData(pokemon);
     return pokemon;
 }
@@ -267,7 +267,7 @@ void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, in
     MonEncryptSegment((u16 *)&pokemon->party, sizeof(pokemon->party), 0);
     ENCRYPT_PTY(pokemon);
     SetMonData(pokemon, MON_DATA_LEVEL, &level);
-    mail = Mail_New(0);
+    mail = Mail_New(HEAP_ID_DEFAULT);
     SetMonData(pokemon, MON_DATA_MAIL_STRUCT, mail);
     FreeToHeap(mail);
     capsule = 0;
@@ -466,7 +466,7 @@ void CalcMonStats(struct Pokemon * pokemon)
     forme = (int)GetMonData(pokemon, MON_DATA_FORME, NULL);
     species = (int)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
 
-    baseStats = (struct BaseStats *)AllocFromHeap(0, sizeof(struct BaseStats));
+    baseStats = (struct BaseStats *)AllocFromHeap(HEAP_ID_DEFAULT, sizeof(struct BaseStats));
     LoadMonBaseStats_HandleAlternateForme(species, forme, baseStats);
 
     if (species == SPECIES_SHEDINJA)
@@ -848,7 +848,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         break;
     case MON_DATA_NICKNAME:
         if (boxmon->checksum_fail)
-            GetSpeciesNameIntoArray(SPECIES_MANAPHY_EGG, 0, dest);
+            GetSpeciesNameIntoArray(SPECIES_MANAPHY_EGG, HEAP_ID_DEFAULT, dest);
         else
         {
             u16 * dest16 = (u16 *)dest;
@@ -865,7 +865,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_NICKNAME_3:
         if (boxmon->checksum_fail)
         {
-            struct String * buffer = GetSpeciesName(SPECIES_MANAPHY_EGG, 0);
+            struct String * buffer = GetSpeciesName(SPECIES_MANAPHY_EGG, HEAP_ID_DEFAULT);
             StringCopy(dest, buffer);
             String_Delete(buffer);
         }
@@ -976,14 +976,14 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_TYPE_1:
     case MON_DATA_TYPE_2:
         if (blockA->species == SPECIES_ARCEUS && blockA->ability == ABILITY_MULTITYPE)
-            ret = (u32)GetArceusTypeByHeldItemEffect((u16)GetItemAttr(blockA->heldItem, 1, 0));
+            ret = (u32)GetArceusTypeByHeldItemEffect((u16)GetItemAttr(blockA->heldItem, 1, HEAP_ID_DEFAULT));
         else
         {
             ret = (u32)GetMonBaseStat_HandleFormeConversion(blockA->species, blockB->alternateForm, (enum BaseStat)(attr - MON_DATA_TYPE_1 + BASE_TYPE1));
         }
         break;
     case MON_DATA_SPECIES_NAME:
-        GetSpeciesNameIntoArray(blockA->species, 0, dest);
+        GetSpeciesNameIntoArray(blockA->species, HEAP_ID_DEFAULT, dest);
         break;
     }
     return ret;
@@ -1314,7 +1314,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockB->Unused = VALUE(u16);
         break;
     case MON_DATA_NICKNAME_2:
-        GetSpeciesNameIntoArray(blockA->species, 0, namebuf);
+        GetSpeciesNameIntoArray(blockA->species, HEAP_ID_DEFAULT, namebuf);
         blockB->isNicknamed = StringNotEqual(namebuf, value);
         // fallthrough
     case MON_DATA_NICKNAME:
@@ -1324,7 +1324,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         }
         break;
     case MON_DATA_NICKNAME_4:
-        GetSpeciesNameIntoArray(blockA->species, 0, namebuf2);
+        GetSpeciesNameIntoArray(blockA->species, HEAP_ID_DEFAULT, namebuf2);
         CopyStringToU16Array(value, namebuf3, POKEMON_NAME_LENGTH + 1);
         blockB->isNicknamed = StringNotEqual(namebuf2, namebuf3);
         // fallthrough
@@ -1425,7 +1425,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockB->spdefIV = (VALUE(u32) >> 25) & 0x1F;
         break;
     case MON_DATA_SPECIES_NAME:
-        speciesName = GetSpeciesName(blockA->species, 0);
+        speciesName = GetSpeciesName(blockA->species, HEAP_ID_DEFAULT);
         CopyStringToU16Array(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
         String_Delete(speciesName);
         break;
@@ -1774,9 +1774,9 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     }
 }
 
-struct BaseStats * AllocAndLoadMonPersonal(int species, u32 heap_id)
+struct BaseStats * AllocAndLoadMonPersonal(int species, HeapID heapId)
 {
-    struct BaseStats * baseStats = (struct BaseStats *)AllocFromHeap(heap_id, sizeof(struct BaseStats));
+    struct BaseStats * baseStats = (struct BaseStats *)AllocFromHeap(heapId, sizeof(struct BaseStats));
     LoadMonPersonal(species, baseStats);
     return baseStats;
 }
@@ -1899,7 +1899,7 @@ void FreeMonPersonal(struct BaseStats * personal)
 int GetMonBaseStat_HandleFormeConversion(int species, int forme, enum BaseStat attr)
 {
     int ret;
-    struct BaseStats * personal = AllocAndLoadMonPersonal(ResolveMonForme(species, forme), 0);
+    struct BaseStats * personal = AllocAndLoadMonPersonal(ResolveMonForme(species, forme), HEAP_ID_DEFAULT);
     ret = GetPersonalAttr(personal, attr);
     FreeMonPersonal(personal);
     return ret;
@@ -1908,7 +1908,7 @@ int GetMonBaseStat_HandleFormeConversion(int species, int forme, enum BaseStat a
 int GetMonBaseStat(int species, enum BaseStat attr)
 {
     int ret;
-    struct BaseStats * personal = AllocAndLoadMonPersonal(species, 0);
+    struct BaseStats * personal = AllocAndLoadMonPersonal(species, HEAP_ID_DEFAULT);
     ret = GetPersonalAttr(personal, attr);
     FreeMonPersonal(personal);
     return ret;
@@ -1964,7 +1964,7 @@ u32 GetExpByGrowthRateAndLevel(int growthRate, int level)
     u32 ret;
     GF_ASSERT(growthRate < 8);
     GF_ASSERT(level <= 101);
-    table = (u32 *)AllocFromHeap(0, 101 * sizeof(u32));
+    table = (u32 *)AllocFromHeap(HEAP_ID_DEFAULT, 101 * sizeof(u32));
     LoadGrowthTable(growthRate, table);
     ret = table[level];
     FreeToHeap(table);
@@ -1988,7 +1988,7 @@ int CalcBoxMonLevel(struct BoxPokemon * boxmon)
 int CalcLevelBySpeciesAndExp(u16 species, u32 exp)
 {
     int level;
-    struct BaseStats * personal = AllocAndLoadMonPersonal(species, 0);
+    struct BaseStats * personal = AllocAndLoadMonPersonal(species, HEAP_ID_DEFAULT);
     level = CalcLevelBySpeciesAndExp_PreloadedPersonal(personal, species, exp);
     FreeMonPersonal(personal);
     return level;
@@ -2064,7 +2064,7 @@ void MonApplyFriendshipMod(struct Pokemon * pokemon, u32 kind, u32 location)
     if (species == SPECIES_NONE || species == SPECIES_EGG)
         return;
 
-    effect = (u8)GetItemAttr((u16)GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL), 1, 0);
+    effect = (u8)GetItemAttr((u16)GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL), 1, HEAP_ID_DEFAULT);
     r4 = 0;
     friendship = (s16)GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
     if (friendship >= 100)
@@ -2102,7 +2102,7 @@ u8 GetBoxMonGender(struct BoxPokemon * boxmon)
 
 u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid)
 {
-    struct BaseStats * personal = AllocAndLoadMonPersonal(species, 0);
+    struct BaseStats * personal = AllocAndLoadMonPersonal(species, HEAP_ID_DEFAULT);
     u8 gender = GetGenderBySpeciesAndPersonality_PreloadedPersonal(personal, species, pid);
     FreeMonPersonal(personal);
     return gender;
@@ -2518,12 +2518,12 @@ u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 co
     personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
     beauty = (u8)GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
     pid_hi = (u16)((personality & 0xFFFF0000) >> 16);
-    r1 = (u8)GetItemAttr(heldItem, 1, 0);
+    r1 = (u8)GetItemAttr(heldItem, 1, HEAP_ID_DEFAULT);
     if (species != SPECIES_KADABRA && r1 == HOLD_EFFECT_NO_EVOLVE && context != 3)
         return SPECIES_NONE;
     if (method_ret == NULL)
         method_ret = &sp40;
-    evoTable = AllocFromHeap(0, 7 * sizeof(struct Evolution));
+    evoTable = AllocFromHeap(HEAP_ID_DEFAULT, 7 * sizeof(struct Evolution));
     LoadMonEvolutionTable(species, evoTable);
     switch (context)
     {
@@ -2795,7 +2795,7 @@ void InitBoxMonMoveset(struct BoxPokemon * boxmon)
     u32 forme;
     u8 level;
     u16 move;
-    wotbl = AllocFromHeap(0, 22 * sizeof(u16));
+    wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
     decry = AcquireBoxMonLock(boxmon);
     species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
@@ -2896,7 +2896,7 @@ void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot)
 u32 sub_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
 {
     u32 ret = 0;
-    u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
+    u16 * wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     u32 forme = GetMonData(pokemon, MON_DATA_FORME, NULL);
     u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
@@ -3000,7 +3000,7 @@ void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
     SetMonData(dest, MON_DATA_STATUS, &sp0);
     SetMonData(dest, MON_DATA_HP, &sp0);
     SetMonData(dest, MON_DATA_MAXHP, &sp0);
-    mail = Mail_New(0);
+    mail = Mail_New(HEAP_ID_DEFAULT);
     SetMonData(dest, MON_DATA_MAIL_STRUCT, mail);
     FreeToHeap(mail);
     SetMonData(dest, MON_DATA_CAPSULE, &sp0);
@@ -3078,7 +3078,7 @@ s8 GetFlavorPreferenceFromPID(u32 personality, int flavor)
 int Species_LoadLearnsetTable(u16 species, u32 forme, u16 * dest)
 {
     int i;
-    u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
+    u16 * wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
     LoadWotbl_HandleAlternateForme(species, (int)forme, wotbl);
     for (i = 0; wotbl[i] != WOTBL_END; i++)
     {
@@ -3252,7 +3252,7 @@ void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon)
     u32 forme;
     if (species == SPECIES_ARCEUS && ability == ABILITY_MULTITYPE)
     {
-        forme = GetArceusTypeByHeldItemEffect((u16)GetItemAttr((u16)heldItem, 1, 0));
+        forme = GetArceusTypeByHeldItemEffect((u16)GetItemAttr((u16)heldItem, 1, HEAP_ID_DEFAULT));
         SetBoxMonData(boxmon, MON_DATA_FORME, &forme);
     }
 }
@@ -3303,14 +3303,14 @@ void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl)
     ReadWholeNarcMemberByIdPair(wotbl, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForme(species, forme));
 }
 
-void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, u32 sp20)
+void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, HeapID heapId)
 {
     if (r4 == SPECIES_CHATOT)
     {
         if (!sub_02005F14((int)r5))
         {
             sub_02005E80(1);
-            sub_020056AC(r5, r4, r6, sp18, sp20);
+            sub_020056AC(r5, r4, r6, sp18, heapId);
         }
         else
         {
@@ -3321,14 +3321,14 @@ void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp
     }
     else
     {
-        sub_020056AC(r5, r4, r6, sp18, sp20);
+        sub_020056AC(r5, r4, r6, sp18, heapId);
     }
 }
 
-void sub_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
+void sub_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId)
 {
     u32 hp;
-    sub_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heap_id);
+    sub_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heapId);
     if (pokeball == ITEM_HEAL_BALL)
     {
         hp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
@@ -3338,9 +3338,9 @@ void sub_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u3
     }
 }
 
-void sub_0206A054(struct BoxPokemon * boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
+void sub_0206A054(struct BoxPokemon * boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId)
 {
-    sub_020808AC(boxmon, a1, 0, a3, heap_id);
+    sub_020808AC(boxmon, a1, 0, a3, heapId);
     SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
     SetBoxMonData(boxmon, MON_DATA_POKEBALL, &pokeball);
     SetBoxMonData(boxmon, MON_DATA_ENCOUNTER_TYPE, &encounterType);
@@ -3458,7 +3458,7 @@ void sub_0206A23C(struct Pokemon * r5, u32 personality)
     PokemonDataBlockD * sp18;
     struct Pokemon * sp4;
 
-    sp4 = AllocMonZeroed(0);
+    sp4 = AllocMonZeroed(HEAP_ID_DEFAULT);
     CopyPokemonToPokemon(r5, sp4);
     r4 = &GetSubstruct(&sp4->box, r5->box.pid, 0)->blockA;
     r6 = &GetSubstruct(&sp4->box, r5->box.pid, 1)->blockB;
@@ -3680,14 +3680,14 @@ BOOL sub_0206A998(struct Pokemon * pokemon)
     return IsPokemonLegendaryOrMythical(species);
 }
 
-BOOL sub_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, u32 heap_id)
+BOOL sub_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, HeapID heapId)
 {
     u32 myId = PlayerProfile_GetTrainerID(sb2);
     u32 otId = GetBoxMonData(boxmon, MON_DATA_OTID, NULL);
     u32 myGender = PlayerProfile_GetTrainerGender(sb2);
     u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
-    struct String * r7 = PlayerProfile_GetPlayerName_NewString(sb2, heap_id);
-    struct String * r6 = String_New(PLAYER_NAME_LENGTH + 1, heap_id);
+    struct String * r7 = PlayerProfile_GetPlayerName_NewString(sb2, heapId);
+    struct String * r6 = String_New(PLAYER_NAME_LENGTH + 1, heapId);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
     if (myId == otId && myGender == otGender && StringCompare(r7, r6) == 0)

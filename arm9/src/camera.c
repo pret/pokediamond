@@ -93,7 +93,7 @@ void Camera_GetVecFromSomeRingBufferMaybe(struct Camera * camera, const VecFx32 
     }
 }
 
-void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, s32 heap_id, struct Camera * camera)
+void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, HeapID heapId, struct Camera * camera)
 {
     s32 i;
     struct CameraHistory * history;
@@ -101,8 +101,8 @@ void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, 
     if (camera->currTarget_p != NULL)
     {
         GF_ASSERT(initialWriteIdx + 1 <= count);
-        history = AllocFromHeap(heap_id, sizeof(struct CameraHistory));
-        history->vecs = AllocFromHeap(heap_id, sizeof(VecFx32) * count);
+        history = AllocFromHeap(heapId, sizeof(struct CameraHistory));
+        history->vecs = AllocFromHeap(heapId, sizeof(VecFx32) * count);
         for (i = 0; i < count; i++)
         {
             history->vecs[i].x = 0;
@@ -137,9 +137,9 @@ void Camera_FreeHistory(struct Camera * camera)
     }
 }
 
-struct Camera * Camera_Alloc(u32 heap_id)
+struct Camera * Camera_Alloc(HeapID heapId)
 {
-    return AllocFromHeap(heap_id, sizeof(struct Camera));
+    return AllocFromHeap(heapId, sizeof(struct Camera));
 }
 
 void Camera_Free(struct Camera * camera)

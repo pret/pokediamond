@@ -6,7 +6,7 @@
 
 struct UnkStruct_0200BB14_1
 {
-    u32 unk000;
+    HeapID heapId;
     u32 unk004;
     u32 unk008;
     u32 unk00c;
@@ -83,7 +83,7 @@ struct UnkStruct_0200BB14_5
     u32 unk0c;
 };
 
-struct UnkStruct_0200BB14_1 *sub_0200BB14(u32 heap_id);
+struct UnkStruct_0200BB14_1 *sub_0200BB14(HeapID heapId);
 struct UnkStruct_0200BB14_2 *sub_0200BB34(struct UnkStruct_0200BB14_1 *param0);
 u32 sub_0200BB68(u32 param0);
 BOOL sub_0200BB6C(struct UnkStruct_0200BB14_1 *param0, u32 *param1, u32 *param2, u32 param3);
@@ -119,14 +119,14 @@ u32 sub_0200BE74(u32 *param0,
     u32 param13);
 BOOL sub_0200BF60(
     struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1, s32 *param2);
-BOOL sub_0200C00C(u32 *param0,
+BOOL sub_0200C00C(HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
     BOOL param4,
     u32 param5,
     s32 param6);
-s32 sub_0200C06C(u32 *param0,
+s32 sub_0200C06C(HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -136,7 +136,7 @@ s32 sub_0200C06C(u32 *param0,
     s32 param7);
 u8 sub_0200C0DC(u32 param0,
     u32 param1,
-    u32 *param2,
+    HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param3,
     NarcId param4,
     s32 param5,
@@ -144,13 +144,13 @@ u8 sub_0200C0DC(u32 param0,
     u32 param7,
     u32 param8,
     s32 param9);
-BOOL sub_0200C124(u32 *param0,
+BOOL sub_0200C124(HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
     BOOL param4,
     s32 param5);
-BOOL sub_0200C13C(u32 *param0,
+BOOL sub_0200C13C(HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -166,7 +166,7 @@ BOOL sub_0200C378(struct UnkStruct_0200BB14_2 *param0, u32 param1);
 BOOL sub_0200C388(struct UnkStruct_0200BB14_2 *param0, u32 param1);
 void sub_0200C398(struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1);
 void sub_0200C3DC(u32 *param0);
-BOOL sub_0200C404(u32 *param0,
+BOOL sub_0200C404(HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -232,14 +232,14 @@ void sub_0200C8DC(u32 *param0, u32 param1, u32 param2);
 void sub_0200C8F8(u32 *param0, u32 param1);
 void sub_0200C904(u32 param0, u32 param1);
 void sub_0200C90C(u32 *param0, u32 param1);
-BOOL sub_0200C918(u32 *param0,
+BOOL sub_0200C918(HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
     BOOL param4,
     u32 param5,
     s32 param6);
-BOOL sub_0200C978(u32 *param0,
+BOOL sub_0200C978(HeapID *heapId,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -247,9 +247,9 @@ BOOL sub_0200C978(u32 *param0,
     u32 param5,
     s32 param6);
 void sub_0200C9D8(
-    u32 *param0, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5);
+    HeapID *heapId, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5);
 void sub_0200CA0C(
-    u32 *param0, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5);
+    HeapID *heapId, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5);
 u32 sub_0200CA40(u32 *param0);
 
 #endif // POKEDIAMOND_UNK_0200BB14_H

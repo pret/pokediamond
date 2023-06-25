@@ -177,7 +177,7 @@ _02048A28:
 	bl sub_02063684
 _02048A2E:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F408
 	cmp r4, #0x0
 	bne _02048A42
@@ -191,7 +191,7 @@ _02048A42:
 	bl sub_02025484
 _02048A50:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	add r1, r7, #0x0
@@ -348,7 +348,7 @@ _02048BA2:
 	ldr r0, [r0, #0x0]
 	bl MapMatrix_Load
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x3
 	bl sub_0205F524
 	cmp r0, #0x0
@@ -357,7 +357,7 @@ _02048BA2:
 	bl sub_020346CC
 _02048BC2:
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x2
 	bl sub_0205F524
 	cmp r0, #0x0
@@ -532,7 +532,7 @@ sub_02048D04: ; 0x02048D04
 	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
 	str r0, [r4, #0x0]
@@ -615,7 +615,7 @@ sub_02048DAC: ; 0x02048DAC
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_02046530
@@ -755,7 +755,7 @@ sub_02048EDC: ; 0x02048EDC
 	bl sub_0204652C
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
 	bl sub_02046530
@@ -868,7 +868,7 @@ sub_02048FC8: ; 0x02048FC8
 	cmp r0, #0x0
 	beq _02048FF8
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02048D04

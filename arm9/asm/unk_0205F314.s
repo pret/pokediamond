@@ -83,8 +83,8 @@ sub_0205F378: ; 0x0205F378
 _0205F380: .word sub_0205F314
 _0205F384: .word 0x00004030
 
-	thumb_func_start ScriptState_GetStarter
-ScriptState_GetStarter: ; 0x0205F388
+	thumb_func_start Save_VarsFlags_GetStarter
+Save_VarsFlags_GetStarter: ; 0x0205F388
 	ldr r3, _0205F390 ; =sub_0205F344
 	ldr r1, _0205F394 ; =0x00004030
 	bx r3
@@ -448,7 +448,7 @@ sub_0205F5FC: ; 0x0205F5FC
 sub_0205F618: ; 0x0205F618
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0202881C
@@ -487,7 +487,7 @@ _0205F664: .word 0x00004041
 	thumb_func_start sub_0205F668
 sub_0205F668: ; 0x0205F668
 	push {r4, lr}
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0x0
 	bl LCRandom
 	mov r1, #0x62
@@ -499,8 +499,8 @@ sub_0205F668: ; 0x0205F668
 	bl sub_0205F658
 	pop {r4, pc}
 
-	thumb_func_start sub_0205F688
-sub_0205F688: ; 0x0205F688
+	thumb_func_start Save_VarsFlags_GetSpiritombTalkCounter
+Save_VarsFlags_GetSpiritombTalkCounter: ; 0x0205F688
 	ldr r3, _0205F690 ; =sub_0205F344
 	ldr r1, _0205F694 ; =0x0000403E
 	bx r3

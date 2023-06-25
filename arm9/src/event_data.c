@@ -4,24 +4,24 @@
 
 u8 UNK_021C5A14[8];
 
-u8 * GetFlagAddr(struct ScriptState * state, u16 flag_id);
+u8 * GetFlagAddr(struct SaveVarsFlags * state, u16 flag_id);
 
-u32 SaveArray_Flags_sizeof(void)
+u32 Save_VarsFlags_sizeof(void)
 {
-    return sizeof(struct ScriptState);
+    return sizeof(struct SaveVarsFlags);
 }
 
-void SaveArray_Flags_Init(struct ScriptState * state)
+void Save_VarsFlags_Init(struct SaveVarsFlags * state)
 {
-    memset(state, 0, sizeof(struct ScriptState));
+    memset(state, 0, sizeof(struct SaveVarsFlags));
 }
 
-struct ScriptState * SaveArray_Flags_Get(struct SaveData * save)
+struct SaveVarsFlags * Save_VarsFlags_Get(struct SaveData * save)
 {
-    return (struct ScriptState *)SaveArray_Get(save, 4);
+    return (struct SaveVarsFlags *)SaveArray_Get(save, 4);
 }
 
-BOOL CheckFlagInArray(struct ScriptState * state, u16 flag_id)
+BOOL CheckFlagInArray(struct SaveVarsFlags * state, u16 flag_id)
 {
     u8 * ptr = GetFlagAddr(state, flag_id);
     if (ptr != NULL)
@@ -33,7 +33,7 @@ BOOL CheckFlagInArray(struct ScriptState * state, u16 flag_id)
     return FALSE;
 }
 
-void SetFlagInArray(struct ScriptState * state, u16 flag_id)
+void SetFlagInArray(struct SaveVarsFlags * state, u16 flag_id)
 {
     u8 * ptr = GetFlagAddr(state, flag_id);
     if (ptr != NULL)
@@ -43,7 +43,7 @@ void SetFlagInArray(struct ScriptState * state, u16 flag_id)
     }
 }
 
-void ClearFlagInArray(struct ScriptState * state, u16 flag_id)
+void ClearFlagInArray(struct SaveVarsFlags * state, u16 flag_id)
 {
     u8 * ptr = GetFlagAddr(state, flag_id);
     if (ptr != NULL)
@@ -53,7 +53,7 @@ void ClearFlagInArray(struct ScriptState * state, u16 flag_id)
     }
 }
 
-u8 * GetFlagAddr(struct ScriptState * state, u16 flag_id)
+u8 * GetFlagAddr(struct SaveVarsFlags * state, u16 flag_id)
 {
     if (flag_id == 0)
         return 0;
@@ -69,7 +69,7 @@ u8 * GetFlagAddr(struct ScriptState * state, u16 flag_id)
     }
 }
 
-u16 * GetVarAddr(struct ScriptState * state, u16 var_id)
+u16 * GetVarAddr(struct SaveVarsFlags * state, u16 var_id)
 {
     GF_ASSERT((var_id - 0x4000) < 288);
     return &state->vars[var_id - 0x4000];

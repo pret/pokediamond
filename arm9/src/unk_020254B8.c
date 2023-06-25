@@ -40,7 +40,7 @@ BOOL sub_02025500(struct UnkStruct_020254B8 * a, struct UnkStruct_020254B8 * b)
     return !StringNotEqual(a->field_00, b->field_00) && a->field_10 == b->field_10;
 }
 
-void sub_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * sp4, s32 n, u32 heap_id)
+void sub_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * sp4, s32 n, HeapID heapId)
 {
     s32 sp18[5];
     s32 sp14;
@@ -51,7 +51,7 @@ void sub_02025520(struct UnkStruct_020254B8 * sp0, struct UnkStruct_020254B8 * s
     s32 r4_2;
 
     // auto buffer = new UnkStruct_020254B8[16]
-    sp10 = AllocFromHeap(heap_id, 16 * sizeof(struct UnkStruct_020254B8));
+    sp10 = AllocFromHeap(heapId, 16 * sizeof(struct UnkStruct_020254B8));
     sub_020254CC(sp10);
 
     // Look up each element of sp4 in sp0

@@ -246,7 +246,7 @@ sub_02060D74: ; 0x02060D74
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	add r3, r6, #0x0
@@ -1284,7 +1284,7 @@ sub_02061574: ; 0x02061574
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, sp, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B868
 	ldrb r1, [r0, #0x7]
 	cmp r1, #0x0
@@ -1823,7 +1823,7 @@ sub_02061990: ; 0x02061990
 	pop {r3-r5, pc}
 _020619B0:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl sub_0205F2E4
@@ -2099,7 +2099,7 @@ sub_02061BCC: ; 0x02061BCC
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B85C
 	ldrh r2, [r0, #0x0]
 	add r1, sp, #0x0
@@ -2158,7 +2158,7 @@ _02061C42:
 sub_02061C48: ; 0x02061C48
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl sub_0205F2E4
@@ -2330,7 +2330,7 @@ sub_02061DA4: ; 0x02061DA4
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B838
 	ldrh r2, [r0, #0x0]
 	add r1, sp, #0x0
@@ -2522,7 +2522,7 @@ sub_02061F2C: ; 0x02061F2C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B850
 	ldrb r2, [r0, #0x0]
 	add r1, sp, #0x0
@@ -2599,7 +2599,7 @@ sub_02061FBC: ; 0x02061FBC
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	bl sub_0202B844
 	add r6, r0, #0x0
 	add r3, sp, #0x0
@@ -3081,7 +3081,7 @@ sub_0206234C: ; 0x0206234C
 	push {r3-r7, lr}
 	sub sp, #0x88
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	ldr r4, _020623E8 ; =UNK_020F7658
 	add r7, r0, #0x0
 	mov r6, #0x0
@@ -3221,7 +3221,7 @@ _0206245C: .word UNK_020F79EE
 sub_02062460: ; 0x02062460
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x2
 	mov r2, #0x9
 	bl sub_0205F2E4

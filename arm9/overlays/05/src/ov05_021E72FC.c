@@ -144,7 +144,7 @@ BOOL ov05_021E73B4(UnkStruct021E7358 *param0)
 
 UnkStruct021E7358 *ov05_021E74D4(u32 param0)
 {
-    UnkStruct021E7358 *res = (UnkStruct021E7358 *)AllocFromHeapAtEnd(4, param0);
+    UnkStruct021E7358 *res = (UnkStruct021E7358 *)AllocFromHeapAtEnd(HEAP_ID_4, param0);
     if (res == NULL)
     {
         GF_AssertFail();
@@ -155,5 +155,5 @@ UnkStruct021E7358 *ov05_021E74D4(u32 param0)
 
 void ov05_021E74F8(UnkStruct021E7358 *param0)
 {
-    FreeToHeapExplicit(4, param0);
+    FreeToHeapExplicit(HEAP_ID_4, param0);
 }

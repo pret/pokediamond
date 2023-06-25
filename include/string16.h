@@ -15,11 +15,11 @@ typedef struct String
 
 #define STR16_MAGIC 0xB6F8D2EC
 
-struct String * String_New(u32 count, u32 heap_id);
+struct String * String_New(u32 count, HeapID heapId);
 BOOL StringCompare(struct String *, struct String *);
 void CopyU16ArrayToStringN(struct String *, u16 *, u32); // copy
 void StringSetEmpty(struct String *); // set empty
-struct String * StringDup(struct String *, u32 heap_id);
+struct String * StringDup(struct String *, HeapID heapId);
 void String_Delete(struct String * str);
 void StringCopy(struct String * dest, struct String * src);
 void String16_FormatInteger(struct String * str, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);

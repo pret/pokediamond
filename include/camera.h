@@ -3,6 +3,7 @@
 
 #include "fx.h"
 #include "global.h"
+#include "heap.h"
 
 struct CameraHistory
 {
@@ -62,9 +63,9 @@ void Camera_CalcLookAtTargetFromPosAndAngle(struct Camera * camera);
 void Camera_InitInternal(u16 perspectiveAngle, struct Camera * camera);
 void Camera_VecResetCoordsIfOffsetComponentNotEnabled(struct Camera * camera, VecFx32 * vec);
 void Camera_GetVecFromSomeRingBufferMaybe(struct Camera * camera, const VecFx32 * vecDefault, VecFx32 * vecDst);
-void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, s32 heap_id, struct Camera * camera);
+void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, HeapID heapId, struct Camera * camera);
 void Camera_FreeHistory(struct Camera * camera);
-struct Camera * Camera_Alloc(u32 heap_id);
+struct Camera * Camera_Alloc(HeapID heapId);
 void Camera_Free(struct Camera * camera);
 void Camera_Copy(struct Camera * src, struct Camera * dest);
 void Camera_SetWorkPtr(struct Camera * camera);

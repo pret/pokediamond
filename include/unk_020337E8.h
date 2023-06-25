@@ -16,7 +16,7 @@ struct DWC_token
     u8 fill0[0xC];
 };
 
-s32 sub_020337E8(u32 heap_id);
+s32 sub_020337E8(HeapID heapId);
 void sub_0203380C(struct DWC_Struct *);
 s32 sub_02033830(struct DWC_Struct *);
 BOOL sub_0203384C(struct SaveData *);

@@ -2,8 +2,8 @@
 #define POKEDIAMOND_SCRIPT_POKEMON_UTIL_H
 
 BOOL MonNotFaintedOrEgg(struct Pokemon * pokemon);
-BOOL GiveMon(u32 heap_id, struct SaveData * save, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType);
-BOOL GiveEgg(u32 heapId, struct SaveData * save, u16 species, int level, int metLocIndex, int a3);
+BOOL GiveMon(HeapID heapId, struct SaveData * save, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType);
+BOOL GiveEgg(HeapID heapId, struct SaveData * save, u16 species, int level, int metLocIndex, int a3);
 void PartyMonSetMoveInSlot(struct PlayerParty * party, int partySlot, int moveSlot, u16 move);
 int GetIdxOfFirstPartyMonWithMove(struct PlayerParty * party, int move);
 int CountAlivePokemon(struct PlayerParty * party);

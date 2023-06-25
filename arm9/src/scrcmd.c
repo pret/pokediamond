@@ -19,6 +19,7 @@
 #include "poketch.h"
 #include "pokedex.h"
 #include "render_window.h"
+#include "safari_zone.h"
 #include "save.h"
 #include "seal.h"
 #include "task.h"
@@ -26,11 +27,14 @@
 #include "text_02054590.h"
 #include "unk_0200CA44.h"
 #include "unk_020139D8.h"
+#include "unk_02029FB0.h"
 #include "unk_020337E8.h"
 #include "unk_020377F0.h"
 #include "unk_0204AF24.h"
 #include "unk_0204B0A0.h"
 #include "unk_0205EC84.h"
+#include "unk_0206015C.h"
+#include "unk_02064E20.h"
 #include "unk_0208890C.h"
 
 extern void *FieldSysGetAttrAddr(FieldSystem *fieldSystem, enum ScriptEnvField id);
@@ -154,11 +158,11 @@ extern HallOfFame *sub_02038824(FieldSystem *fieldSystem);
 extern void sub_020386E0(FieldSystem *fieldSystem, u16 param1);
 extern void sub_0206F3D8(TaskManager *taskManager, u16 *param1);
 extern void sub_020386A4(FieldSystem *fieldSystem, StarterSelectionData *starterSelectionData); 
-extern void sub_0205F378(ScriptState *flags, u16 state);
+extern void sub_0205F378(SaveVarsFlags *flags, u16 state);
 extern BagScreenAppData *sub_0203789C(FieldSystem *fieldSystem, u8 mode);
 extern u16 sub_020378FC(BagScreenAppData *bagScreenAppData);
 extern void sub_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u16 *param3);
-extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
 extern void sub_0200E388(u32 param0);
 extern BOOL IsPaletteFadeFinished(void);
 extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 x, u16 y, u16 dir);
@@ -190,7 +194,7 @@ extern void PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 tran
 extern RoamerSaveData *Save_Roamers_Get(SaveData *save);
 extern u32 Roamers_GetRand(RoamerSaveData *roamerSaveData, u32 index);
 extern void GetSwarmInfoFromRand(u32 rand, u16 *map, u16 *species);
-extern u16 ScriptState_GetStarter(ScriptState *state);
+extern u16 Save_VarsFlags_GetStarter(SaveVarsFlags *state);
 extern u32 ov06_022407DC(void);
 extern void ov06_02240790(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
 extern void ov06_022407F8(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
@@ -291,16 +295,34 @@ extern void *sub_02029120(u32 param0);
 extern void *sub_0202912C(u32 param0);
 extern void *sub_02029138(u16 param0, u32 param1);
 extern void *sub_0202914C(u8 param0, u16 param1, u32 param2);
-extern void sub_0205F3F8(ScriptState *state, u32 param1);
+extern void sub_0205F3F8(SaveVarsFlags *state, u32 param1);
 extern FashionCase *Save_FashionData_GetFashionCase(SaveFashionData *saveFashionData);
 extern void sub_020271A4(FashionCase *fashionCase, u16 param1, u16 param2);
 extern u16 sub_020270D8(FashionCase *fashionCase, u16 param1, u16 param2);
 extern u16 sub_02027114(FashionCase *fashionCase, u16 param1);
 extern void sub_02027264(FashionCase *fashionCase, u16 param1);
 extern u16 sub_02027100(FashionCase *fashionCase, u16 param1);
-extern PokedexAppData *sub_02038AF4(FieldSystem *fieldSystem, u32 heapId, BOOL isNational);
+extern PokedexAppData *sub_02038AF4(FieldSystem *fieldSystem, HeapID heapId, BOOL isNational);
 extern void ov06_0224CBB0(SaveData *saveData);
 extern u16 ov06_0224CC24(SaveData *saveData);
+extern SafariZone *Save_SafariZone_Get(SaveData *saveData);
+extern u16 *LocalFieldData_GetSafariBallsCounter(LocalFieldData *localFieldData);
+extern u16 *LocalFieldData_GetSafariStepsCounter(LocalFieldData *localFieldData);
+extern void Save_VarsFlags_SetSafariSysFlag(SaveVarsFlags *varsFlags);
+extern void sub_02060FD0(SafariZone *safariZone);
+extern void Save_VarsFlags_ClearSafariSysFlag(SaveVarsFlags *varsFlags);
+extern void sub_02061574(FieldSystem *fieldSystem);
+extern u16 SpearPillarSequence(FieldSystem *fieldSystem, u8 operation);
+extern void sub_0200433C(u32 param0, u32 param1, u32 param2);
+extern void ov06_0224525C(FieldSystem *fieldSystem, u16 var, u16 type);
+extern u16 ov06_02245340(FieldSystem *fieldSystem, u16 position);
+extern void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag);
+extern u16 Save_VarsFlags_GetSpiritombTalkCounter(SaveVarsFlags *varsFlags);
+extern void sub_0205F5A4(SaveVarsFlags *varsFlags, u16 param1);
+extern u16 sub_0205F594(SaveVarsFlags *varsFlags);
+extern void sub_0202AA00(SaveData *saveData);
+extern void Save_CreateRoamerByID(SaveData *saveData, u8 roamer);
+extern NPCTradeAppData *NPCTradeApp_Init(HeapID heapId, u8 tradeId);
 
 u8 UNK_021C5A0C[4];
 
@@ -330,7 +352,7 @@ static BOOL sub_0203B218(ScriptContext *ctx);
 static BOOL sub_0203BBBC(ScriptContext *ctx);
 /*static*/ BOOL sub_0203BC04(ScriptContext *ctx);
 static BOOL CheckPortraitSlotFullInternal(FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
-static FashionAppData *sub_0203BC6C(u32 heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
+static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static BOOL sub_0203BE9C(ScriptContext *ctx);
 static BOOL sub_0203C71C(ScriptContext *ctx);
 static BOOL sub_0203C9F8(ScriptContext *ctx);
@@ -765,7 +787,7 @@ BOOL ScrCmd_MessageFrom(ScriptContext *ctx) //01FA - todo: MessageAllFromNarc?
 {
     u16 arc = ScriptGetVar(ctx);
     u16 msg = ScriptGetVar(ctx);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, arc, 32);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, arc, HEAP_ID_32);
     ov05_ShowMessageInField(ctx, msgData, msg);
     DestroyMsgData(msgData);
     return FALSE;
@@ -775,7 +797,7 @@ BOOL ScrCmd_MessageFrom2(ScriptContext *ctx) //01FB - todo: MessageFromNarc?
 {
     u16 arc = ScriptGetVar(ctx);
     u16 msg = ScriptGetVar(ctx);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, arc, 32);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, arc, HEAP_ID_32);
     ov05_021E2BD0(ctx, msgData, msg, 1, NULL);
     DestroyMsgData(msgData);
     SetupNativeScript(ctx, sub_0203A2F0);
@@ -817,7 +839,7 @@ BOOL ScrCmd_Unk01FE(ScriptContext *ctx) //01FE
     u16 *unkArr = ctx->fieldSystem->unkA8->unk90[id].unk0;
     if (unkArr[0] == 0xFFFF)
     {
-        MsgData *msgdata = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 0x22b, 32);
+        MsgData *msgdata = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 0x22b, HEAP_ID_32);
         ov05_021E2BD0(ctx, msgdata, unkArr[1], 1, NULL);
         DestroyMsgData(msgdata);
     }
@@ -1301,7 +1323,7 @@ BOOL ScrCmd_YesNoMenu(ScriptContext *ctx) { //003E
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LIST_MENU_2D);
     u16 wk = ScriptReadHalfword(ctx);
-    LoadUserFrameGfx1(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 985, 11, 0, 4);
+    LoadUserFrameGfx1(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 985, 11, 0, HEAP_ID_4);
     *unk = Std_CreateYesNoMenu(fieldSystem->bgConfig, &UNK_020F34E0, 985, 11, 4);
     ctx->data[0] = wk;
     SetupNativeScript(ctx, sub_0203AB00);
@@ -1523,7 +1545,7 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { //02A1
 
     GF_ASSERT(event);
 
-    u16 *unk4 = AllocFromHeap(4, 0x100);
+    u16 *unk4 = AllocFromHeap(HEAP_ID_4, 0x100);
     u16 xVal = (u16)sub_02058B2C(event);
     u16 yVal = (u16)sub_02058B4C(event);
 
@@ -1583,7 +1605,7 @@ static BOOL IsAllMovementFinished(ScriptContext *ctx) {
 }
 
 static void sub_0203B174(FieldSystem *fieldSystem, u32 param1, void *param2) {
-    UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)AllocFromHeap(4, sizeof(UnkStruct_0203B174));
+    UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)AllocFromHeap(HEAP_ID_4, sizeof(UnkStruct_0203B174));
     if (unkStruct == NULL)
     {
         GF_AssertFail();
@@ -1689,7 +1711,7 @@ BOOL ScrCmd_LockAllEvents2(ScriptContext *ctx) { //02B4
         sub_02058914(*lastInteracted);
     }
     if (unk1 != NULL) {
-        ScriptState *state = SaveArray_Flags_Get(fieldSystem->saveData);
+        SaveVarsFlags *state = Save_VarsFlags_Get(fieldSystem->saveData);
         if (sub_0205ED3C(state) == TRUE) {
             if (sub_02058854(unk1) != 0) {
                 UNK_021C5A0C[0] |= 2;
@@ -2067,7 +2089,7 @@ static BOOL CheckPortraitSlotFullInternal(FieldSystem *fieldSystem, BOOL isConte
     return TRUE;
 }
 
-static FashionAppData *sub_0203BC6C(u32 heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
+static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
     SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveData);
     if (!CheckPortraitSlotFullInternal(fieldSystem, isContest, portraitSlot)) {
         return NULL;
@@ -2108,8 +2130,8 @@ BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx) { //0208
     PokepicManager **pokepicManager = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 species = ScriptGetVar(ctx);
     u16 gender = ScriptGetVar(ctx);
-    LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, 4);
-    *pokepicManager = DrawPokemonPicFromSpecies(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, species, gender, 4);
+    LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, HEAP_ID_4);
+    *pokepicManager = DrawPokemonPicFromSpecies(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, species, gender, HEAP_ID_4);
     Script_SetMonSeenFlagBySpecies(ctx->fieldSystem, species);
     return FALSE;
 }
@@ -2118,8 +2140,8 @@ BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx) { //028C
     PokepicManager **pokepicManager = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 partyId = ScriptGetVar(ctx);
     Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), partyId);
-    LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, 4);
-    *pokepicManager = DrawPokemonPicFromMon(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, mon, 4);
+    LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, HEAP_ID_4);
+    *pokepicManager = DrawPokemonPicFromMon(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, mon, HEAP_ID_4);
     u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     Script_SetMonSeenFlagBySpecies(ctx->fieldSystem, (u16)species);
     return FALSE;
@@ -2182,7 +2204,7 @@ BOOL ScrCmd_ShowDressedPokemon(ScriptContext *ctx) { //00A7
     FashionAppData **fashionAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     u16 portraitSlot = ScriptReadHalfword(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    *fashionAppData = sub_0203BC6C(11, ctx->fieldSystem, FALSE, portraitSlot);
+    *fashionAppData = sub_0203BC6C(HEAP_ID_FIELD, ctx->fieldSystem, FALSE, portraitSlot);
     if (*fashionAppData == NULL) {
         *var = 1;
         return TRUE;
@@ -2197,7 +2219,7 @@ BOOL ScrCmd_ShowContestPokemon(ScriptContext *ctx) { //00A8
     FashionAppData **fashionAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     u16 portraitSlot = ScriptReadHalfword(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    *fashionAppData = sub_0203BC6C(11, ctx->fieldSystem, TRUE, portraitSlot);
+    *fashionAppData = sub_0203BC6C(HEAP_ID_FIELD, ctx->fieldSystem, TRUE, portraitSlot);
     if (*fashionAppData == NULL) {
         *var = 1;
         return TRUE;
@@ -2250,7 +2272,7 @@ BOOL ScrCmd_ShowSealCapsuleEditor(ScriptContext *ctx) { //00A9
 
 BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx) { //00AA
     TownMapAppData **townMap = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *townMap = AllocFromHeap(11, sizeof(TownMapAppData));
+    *townMap = AllocFromHeap(HEAP_ID_FIELD, sizeof(TownMapAppData));
     sub_0205F7A0(ctx->fieldSystem, *townMap, 2); //TownMap_Init?
     sub_02037E90(ctx->fieldSystem, *townMap); //ShowTownMap?
     SetupNativeScript(ctx, sub_0203BB90);
@@ -2260,7 +2282,7 @@ BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx) { //00AA
 BOOL ScrCmd_Unk01D7(ScriptContext *ctx) { //01D7 - TODO: ShowPoffinCaseScreen?
     PoffinCaseAppData **poffinCaseAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     u8 unk0 = ScriptReadHalfword(ctx);
-    *poffinCaseAppData = sub_02088960(ctx->fieldSystem, unk0, 11);
+    *poffinCaseAppData = sub_02088960(ctx->fieldSystem, unk0, HEAP_ID_FIELD);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
@@ -2284,7 +2306,7 @@ BOOL ScrCmd_Unk01D9(ScriptContext *ctx) { //01D9
     u16 unk0 = ScriptGetVar(ctx);
     u16 unk1 = ScriptGetVar(ctx);
     ScrCmdUnkStruct01D9 **unkStructPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *unkStructPtr = AllocFromHeap(11, sizeof(ScrCmdUnkStruct01D9));
+    *unkStructPtr = AllocFromHeap(HEAP_ID_FIELD, sizeof(ScrCmdUnkStruct01D9));
     ScrCmdUnkStruct01D9 *unkStruct = *unkStructPtr;
     MI_CpuFill8(unkStruct, 0, sizeof(ScrCmdUnkStruct01D9)); //consider inlining as is in heartgold
     unkStruct->unk04 = unk0;
@@ -2297,7 +2319,7 @@ BOOL ScrCmd_Unk01D9(ScriptContext *ctx) { //01D9
 
 BOOL ScrCmd_ShowPCBoxScreen(ScriptContext *ctx) { //00AB
     PCBoxAppData **pcBoxAppDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    PCBoxAppData *pcBoxAppData = AllocFromHeap(11, sizeof(PCBoxAppData)); //also seems inlined
+    PCBoxAppData *pcBoxAppData = AllocFromHeap(HEAP_ID_FIELD, sizeof(PCBoxAppData)); //also seems inlined
     pcBoxAppData->save = ctx->fieldSystem->saveData;
     pcBoxAppData->operation = (enum PCBoxOperation)ScriptReadByte(ctx);
     *pcBoxAppDataPtr = pcBoxAppData;
@@ -2362,7 +2384,7 @@ BOOL ScrCmd_Unk00B3(ScriptContext *ctx) { //00B3
 
 BOOL ScrCmd_StarterSelectionScreen(ScriptContext *ctx) { //00B4
     StarterSelectionData **starterSelectionPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
-    *starterSelectionPtr = AllocFromHeap(11, sizeof(StarterSelectionData));
+    *starterSelectionPtr = AllocFromHeap(HEAP_ID_FIELD, sizeof(StarterSelectionData));
     StarterSelectionData *starterSelectionData = *starterSelectionPtr; //consider inlining
     starterSelectionData->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
     sub_020386A4(ctx->fieldSystem, *starterSelectionPtr);
@@ -2372,7 +2394,7 @@ BOOL ScrCmd_StarterSelectionScreen(ScriptContext *ctx) { //00B4
 
 BOOL ScrCmd_EndStarterSelectionScreen(ScriptContext *ctx) { //00B5
     StarterSelectionData **starterSelectionData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
-    ScriptState *flags = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
+    SaveVarsFlags *flags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
     sub_0205F378(flags, (*starterSelectionData)->state);
     FreeToHeap(*starterSelectionData);
     return FALSE;
@@ -2463,7 +2485,7 @@ BOOL ScrCmd_FadeScreen(ScriptContext *ctx) { //00BC8
     u16 speed = ScriptReadHalfword(ctx);
     u16 type = ScriptReadHalfword(ctx);
     u16 colour = ScriptReadHalfword(ctx);
-    BeginNormalPaletteFade(0, type, type, colour, duration, speed, 4);
+    BeginNormalPaletteFade(0, type, type, colour, duration, speed, HEAP_ID_4);
     sub_0200E388(0);
     sub_0200E388(1);
     return FALSE;
@@ -2649,7 +2671,7 @@ BOOL ScrCmd_GetSwarmInfo(ScriptContext *ctx) { //00E3
 
 BOOL ScrCmd_GetStarter(ScriptContext *ctx) { //00DE
     u16 *var = ScriptGetVarPointer(ctx);
-    *var = ScriptState_GetStarter(SaveArray_Flags_Get(ctx->fieldSystem->saveData));
+    *var = Save_VarsFlags_GetStarter(Save_VarsFlags_Get(ctx->fieldSystem->saveData));
     return FALSE;
 }
 
@@ -2663,7 +2685,7 @@ BOOL ScrCmd_TrainerMessage(ScriptContext *ctx) { //00E6
 
     u16 trainerId = ScriptGetVar(ctx);
     u16 msgNo = ScriptGetVar(ctx);
-    GetTrainerMessageByIdPair(trainerId, msgNo, *string, 11);
+    GetTrainerMessageByIdPair(trainerId, msgNo, *string, HEAP_ID_FIELD);
     FillWindowPixelBuffer(FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW), 15);
     *printerNumber = sub_02054658(FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW), *string, Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData), TRUE);
     SetupNativeScript(ctx, sub_0203A2F0);
@@ -2806,7 +2828,7 @@ BOOL ScrCmd_GetDexEvaluationMessage(ScriptContext *ctx) { //0123
     u8 mode = ScriptReadByte(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
     if (mode == 0) {
-        *var = sub_02054CC8(Pokedex_CountSinnohDexSeen_OmitMythicals(pokedex), sub_0205F2E4(SaveArray_Flags_Get(ctx->fieldSystem->saveData), 2, 10));
+        *var = sub_02054CC8(Pokedex_CountSinnohDexSeen_OmitMythicals(pokedex), sub_0205F2E4(Save_VarsFlags_Get(ctx->fieldSystem->saveData), 2, 10));
     } else {
         *var = sub_02054D1C(Pokedex_CountNationalDexOwned_OmitMythicals(pokedex), PlayerProfile_GetTrainerGender(playerProfile));
     }
@@ -3522,14 +3544,14 @@ BOOL ScrCmd_BufferPokemonRecordSize(ScriptContext *ctx) { //01C4
 }
 
 BOOL ScrCmd_InitPokemonRecordSize(ScriptContext *ctx) { //01C5
-    ScriptState *state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
+    SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
     sub_0205F3F8(state, 33280); //todo: what constant is this
     return FALSE;
 }
 
 BOOL ScrCmd_Unk01CC(ScriptContext *ctx) { //01CC
     FieldSystem *fieldSystem = ctx->fieldSystem;
-    ScriptState *state = SaveArray_Flags_Get(fieldSystem->saveData);
+    SaveVarsFlags *state = Save_VarsFlags_Get(fieldSystem->saveData);
     sub_0205F2D4(state, 1); //set flag
     u32 unk0 = sub_020289A4(fieldSystem->saveData);
     u32 *unk1 = sub_020289B0(unk0, 1);
@@ -3638,14 +3660,14 @@ BOOL ScrCmd_CheckNationalDexComplete(ScriptContext *ctx) { //01E9
 
 BOOL ScrCmd_RegisterSinnohPokedex(ScriptContext *ctx) { //01EA
     PokedexAppData **pokedexAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *pokedexAppData = sub_02038AF4(ctx->fieldSystem, 32, FALSE);
+    *pokedexAppData = sub_02038AF4(ctx->fieldSystem, HEAP_ID_32, FALSE);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
 
 BOOL ScrCmd_RegisterNationalPokedex(ScriptContext *ctx) { //01EB
     PokedexAppData **pokedexAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *pokedexAppData = sub_02038AF4(ctx->fieldSystem, 32, TRUE);
+    *pokedexAppData = sub_02038AF4(ctx->fieldSystem, HEAP_ID_32, TRUE);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
@@ -3663,5 +3685,167 @@ BOOL ScrCmd_Unk01ED(ScriptContext *ctx) { //01ED
 
 BOOL ScrCmd_Unk01EF(ScriptContext *ctx) { //01EF
     ScriptGetVarPointer(ctx);
+    return FALSE;
+}
+
+BOOL ScrCmd_IncrementGameStat(ScriptContext *ctx) { //01E5
+    u16 stat = ScriptReadHalfword(ctx);
+    GameStats *gameStats = Save_GameStats_Get(ctx->fieldSystem->saveData);
+    GameStats_Inc(gameStats, stat);
+    return FALSE;
+}
+
+BOOL ScrCmd_GetGameStat(ScriptContext *ctx) { //01E6
+    u16 stat = ScriptReadHalfword(ctx);
+    u16 statHighVarNo = ScriptReadHalfword(ctx);
+    u16 statLowVarNo = ScriptReadHalfword(ctx);
+    u16 *statHighVar = GetVarPointer(ctx->fieldSystem, statHighVarNo);
+    u16 *statLowVar = GetVarPointer(ctx->fieldSystem, statLowVarNo);
+    u32 statVal = GameStats_GetCapped(Save_GameStats_Get(ctx->fieldSystem->saveData), stat);
+    *statHighVar = (u16)((statVal & 0xFFFF0000) >> 16);
+    *statLowVar = (u16)statVal;
+    return FALSE;
+}
+
+BOOL ScrCmd_SetGameStat(ScriptContext *ctx) { //01E7
+    u16 stat = ScriptReadHalfword(ctx);
+    u16 valueHigh = ScriptReadHalfword(ctx);
+    u16 valueLow = ScriptReadHalfword(ctx);
+    u8 action = ScriptReadByte(ctx);
+
+    u32 value = ((valueHigh << 16) | valueLow);
+    switch (action) {
+        case 0: //add
+            GameStats_Add(Save_GameStats_Get(ctx->fieldSystem->saveData), stat, value);
+            break;
+        case 1: //direct set
+            GameStats_SetCapped(Save_GameStats_Get(ctx->fieldSystem->saveData), stat, value);
+            break;
+        case 2: //set if higher
+            GameStats_UpdateBounded(Save_GameStats_Get(ctx->fieldSystem->saveData), stat, value);
+            break;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_EnableDisableSafariZone(ScriptContext *ctx) { //0202
+    LocalFieldData *localFieldData = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
+    SaveVarsFlags *varsFlags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
+    SafariZone *safariZone = Save_SafariZone_Get(ctx->fieldSystem->saveData);
+    u8 action = ScriptReadByte(ctx);
+    u16 *safariBalls = LocalFieldData_GetSafariBallsCounter(localFieldData);
+    u16 *safariSteps = LocalFieldData_GetSafariStepsCounter(localFieldData);
+    switch (action) {
+        case 0: //enable
+            Save_VarsFlags_SetSafariSysFlag(varsFlags);
+            sub_02060FD0(safariZone);
+            *safariBalls = 30;
+            *safariSteps = 0;
+            break;
+        case 1: //disable
+            Save_VarsFlags_ClearSafariSysFlag(varsFlags);
+            sub_02061574(ctx->fieldSystem);
+            sub_02028AD4(ctx->fieldSystem->unk98, sub_0202912C(4), TRUE);
+            *safariBalls = 0;
+            *safariSteps = 0;
+            break;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_UseGreatMarshBinoculars(ScriptContext *ctx) { //0206
+    CallTask_UseGreatMarshBinoculars(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_SpearPillarSequence(ScriptContext *ctx) { //020D
+    u8 operation = ScriptReadByte(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = SpearPillarSequence(ctx->fieldSystem, operation);
+    return TRUE;
+}
+
+BOOL ScrCmd_KeepSafariTrain(ScriptContext *ctx) { //020E
+    KeepSafariTrain(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_MoveSafariTrain(ScriptContext *ctx) { //020F
+    u16 *var = ScriptGetVarPointer(ctx);
+    u16 type = ScriptReadHalfword(ctx);
+    sub_0200433C(65, 0, 0);
+    ov06_0224525C(ctx->fieldSystem, *var, type);
+    return TRUE;
+}
+
+BOOL ScrCmd_CheckSafariTrainPosition(ScriptContext *ctx) { //0210
+    u16 position = ScriptReadHalfword(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = ov06_02245340(ctx->fieldSystem, position);
+    return FALSE;
+}
+
+BOOL ScrCmd_IgnoreHeights(ScriptContext *ctx) { //0211
+    u8 flag = ScriptReadByte(ctx);
+    PlayerAvatar_ToggleAutomaticHeightUpdating(ctx->fieldSystem->playerAvatar, flag);
+    return TRUE;
+}
+
+BOOL ScrCmd_GetSpiritombTalkCounter(ScriptContext *ctx) { //0214
+    SaveVarsFlags *varsFlags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Save_VarsFlags_GetSpiritombTalkCounter(varsFlags);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0218(ScriptContext *ctx) { //0218
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    u16 *speciesVar = ScriptGetVarPointer(ctx);
+    s32 sinnohSeen = Pokedex_CountSinnohDexSeen(pokedex);
+    u16 randomSeenCount = LCRandom() % sinnohSeen;
+    *speciesVar = SPECIES_PIKACHU;
+    u16 i = SPECIES_BULBASAUR;
+    u16 speciesIndex = 0;
+    while (i <= NATIONAL_DEX_COUNT) { //can't do for loop - needed for matching
+        if (Pokedex_CheckMonSeenFlag(pokedex, i) == TRUE && SpeciesToSinnohDexNo(i) != 0) {
+            if (speciesIndex == randomSeenCount) {
+                *speciesVar = i;
+                break;
+            }
+            speciesIndex++;
+        }
+        i++;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0219(ScriptContext *ctx) { //0219
+    u16 unk0 = ScriptGetVar(ctx);
+    SaveVarsFlags *varsFlags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
+    sub_0205F5A4(varsFlags, unk0);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk021A(ScriptContext *ctx) { //021A
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = sub_0205F594(Save_VarsFlags_Get(ctx->fieldSystem->saveData));
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk021B(ScriptContext *ctx) { //021B
+    sub_0202AA00(ctx->fieldSystem->saveData);
+    return FALSE;
+}
+
+BOOL ScrCmd_CreateRoamer(ScriptContext *ctx) { //021C
+    u8 roamer = ScriptReadByte(ctx);
+    Save_CreateRoamerByID(ctx->fieldSystem->saveData, roamer);
+    return FALSE;
+}
+
+BOOL ScrCmd_NPCTradeInit(ScriptContext *ctx) { //0226
+    NPCTradeAppData **tradeAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    u8 tradeId = ScriptReadByte(ctx);
+    *tradeAppData = NPCTradeApp_Init(HEAP_ID_FIELD, tradeId);
     return FALSE;
 }

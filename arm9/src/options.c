@@ -5,8 +5,8 @@
 #include "options.h"
 #include "player_data.h"
 
-struct Options * Options_New(u32 heap_id) {
-    struct Options * ret = AllocFromHeap(heap_id, sizeof(struct Options));
+struct Options * Options_New(HeapID heapId) {
+    struct Options * ret = AllocFromHeap(heapId, sizeof(struct Options));
     Options_Init(ret);
     return ret;
 }

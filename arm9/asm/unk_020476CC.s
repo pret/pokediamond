@@ -253,7 +253,7 @@ sub_02047814: ; 0x02047814
 	bl AllocMonZeroed
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F3C0
 	mov r2, #0x0
 	str r2, [sp, #0x0]
@@ -546,7 +546,7 @@ sub_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F1B4
 	mov r1, #0x5b
 	lsl r1, r1, #0x2
@@ -1023,7 +1023,7 @@ sub_02047F38: ; 0x02047F38
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034E24
+	bl LocalFieldData_GetSafariBallsCounter
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0xf8

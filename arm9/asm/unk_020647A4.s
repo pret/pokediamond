@@ -441,7 +441,7 @@ _02064A96: ; jump table (using 16-bit offset)
 _02064A9E:
 	ldr r0, [r5, #0x38]
 	mov r1, #0x0
-	bl sub_02055560
+	bl PlayerAvatar_ToggleAutomaticHeightUpdating
 	ldr r0, [r4, #0xc]
 	bl sub_02064C64
 	ldr r0, [r4, #0x0]
@@ -565,7 +565,7 @@ _02064B96: ; jump table (using 16-bit offset)
 _02064B9E:
 	ldr r0, [r5, #0x38]
 	mov r1, #0x0
-	bl sub_02055560
+	bl PlayerAvatar_ToggleAutomaticHeightUpdating
 	ldr r0, [r4, #0xc]
 	bl sub_02064C64
 	ldr r0, [r4, #0x0]

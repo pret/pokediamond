@@ -3,6 +3,6 @@
 
 #include "script.h"
 
-void sub_02064E20(struct FieldSystem *fieldSystem);
+void KeepSafariTrain(struct FieldSystem *fieldSystem);
 
 #endif // POKEDIAMOND_UNK_02064E20_H

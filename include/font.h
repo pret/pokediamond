@@ -30,8 +30,8 @@ struct UnkStruct_02002C14
 extern struct UnkStruct_02002C14 *UNK_02106FC8;
 
 void sub_02002C14();
-void sub_02002C50(u32 font_id, u32 heap_id);
-void sub_02002C84(s32 param0, u32 param1);
+void sub_02002C50(u32 font_id, HeapID heapId);
+void sub_02002C84(s32 param0, HeapID heapId);
 void sub_02002CC0(s32 param0);
 void sub_02002CF8(int param0);
 struct UnkStruct_02002C14_sub *sub_02002D94(u32 param0, u32 param1);
@@ -39,8 +39,8 @@ u32 FontFunc(u32 fontId, struct TextPrinter *printer);
 u32 sub_02002DE0(u32 param0, u16 *str, u32 param2);
 u32 sub_02002E14(u32 param0, struct String *str, u32 param2);
 s32 GetFontAttribute(u8 fontId, s32 attr);
-void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heapId);
-void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heapId);
+void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, HeapID heapId);
+void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, HeapID heapId);
 s32 sub_02002F08(u32 param0, struct String *str, u32 param2);
 u32 sub_02002F40(u32 param0, struct String *str, u32 param2, u32 param3);
 u32 sub_02002F58(const u16 *str);

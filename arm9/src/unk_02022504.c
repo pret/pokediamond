@@ -1,9 +1,10 @@
 #include "global.h"
+#include "constants/save_arrays.h"
 #include "unk_02022504.h"
 
-void *sub_02022504(struct SaveData *save)
+SafariZone *Save_SafariZone_Get(struct SaveData *save)
 {
-    return SaveArray_Get(save, 27);
+    return SaveArray_Get(save, SAVE_SAFARI_ZONE);
 }
 
 struct PCStorage *GetStoragePCPointer(struct SaveData *save)
@@ -21,9 +22,9 @@ void *sub_02022528(struct SaveData *save)
     return SaveArray_Get(save, 32);
 }
 
-u8 *LoadHallOfFame(struct SaveData *save, u32 heap_id, int *ret_p)
+u8 *LoadHallOfFame(struct SaveData *save, HeapID heapId, int *ret_p)
 {
-    return ReadSaveFileFromFlash(save, heap_id, 0, ret_p);
+    return ReadSaveFileFromFlash(save, heapId, 0, ret_p);
 }
 
 s32 SaveHallOfFame(struct SaveData *save, u8 *data)

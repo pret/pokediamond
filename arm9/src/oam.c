@@ -12,8 +12,8 @@ extern void sub_0202135C(void *param0,
     void (*param4)(void),
     u32 param5,
     u32 param6);
-extern void sub_020203CC(u32 heap_id);
-extern void sub_02020404(u32 heap_id);
+extern void sub_020203CC(HeapID heapId);
+extern void sub_02020404(HeapID heapId);
 
 struct OamData *oamData;
 
@@ -25,7 +25,7 @@ void sub_02009EAC(s32 param0,
     u32 param5,
     u32 param6,
     u32 param7,
-    u32 param8)
+    HeapID heapId)
 {
     s32 r0;
     if (param0 < 4)
@@ -55,7 +55,7 @@ void sub_02009EAC(s32 param0,
         r2 = param2;
     }
 
-    InitOamData(r0, param1, r2, param3, param4, param5, param6, param7, param8);
+    InitOamData(r0, param1, r2, param3, param4, param5, param6, param7, heapId);
 }
 
 void InitOamData(s32 param0,
@@ -66,13 +66,13 @@ void InitOamData(s32 param0,
     u32 param5,
     u32 param6,
     u32 param7,
-    u32 heap_id)
+    HeapID heapId)
 {
     GF_ASSERT(oamData == NULL);
-    oamData = AllocFromHeap(heap_id, sizeof(struct OamData));
+    oamData = AllocFromHeap(heapId, sizeof(struct OamData));
     GF_ASSERT(oamData);
 
-    oamData->heap_id = heap_id;
+    oamData->heapId = heapId;
 
     GF_ASSERT(NNS_G2dGetNewOamManagerInstance(
         &oamData->oamManagers[0], (u16)param0, (u16)param1, (u16)param2, (u16)param3, 0));
@@ -93,8 +93,8 @@ void DeinitOamData(void)
 {
     GF_ASSERT(oamData);
 
-    sub_0200A064(oamData->heap_id);
-    sub_0200A06C(oamData->heap_id);
+    sub_0200A064(oamData->heapId);
+    sub_0200A06C(oamData->heapId);
 
     FreeToHeap(oamData);
     oamData = NULL;
@@ -126,14 +126,14 @@ NNSG2dOamManager *GetOamManager(u32 screen)
     }
 }
 
-void sub_0200A064(u32 heap_id)
+void sub_0200A064(HeapID heapId)
 {
-    sub_020203CC(heap_id);
+    sub_020203CC(heapId);
 }
 
-void sub_0200A06C(u32 heap_id)
+void sub_0200A06C(HeapID heapId)
 {
-    sub_02020404(heap_id);
+    sub_02020404(heapId);
 }
 
 u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1)

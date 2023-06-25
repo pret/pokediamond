@@ -75,14 +75,14 @@ const struct UnkStruct_020ED5EC
     { UNK_020ED594, NELEMS(UNK_020ED594) },
 };
 
-struct UnkStruct_020139D8 * EasyChatManager_New(u32 heap_id)
+struct UnkStruct_020139D8 * EasyChatManager_New(HeapID heapId)
 {
-    struct UnkStruct_020139D8 * ret = (struct UnkStruct_020139D8 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_020139D8));
+    struct UnkStruct_020139D8 * ret = (struct UnkStruct_020139D8 *)AllocFromHeap(heapId, sizeof(struct UnkStruct_020139D8));
     s32 i;
     for (i = 0; i < 11; i++)
     {
-        ret->heap_id = heap_id; // inadvertently inside the loop
-        ret->msgDatas[i] = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heap_id);
+        ret->heapId = heapId; // inadvertently inside the loop
+        ret->msgDatas[i] = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heapId);
     }
     return ret;
 }
@@ -105,7 +105,7 @@ void EasyChatManager_ReadWordIntoString(struct UnkStruct_020139D8 * unk, u16 wor
     ReadMsgDataIntoString(unk->msgDatas[msgBank], (u32)msgNo, str);
 }
 
-void GetECWordIntoStringByIndex(u16 wordIdx, struct String * a1)
+void GetECWordIntoStringByIndex(u32 wordIdx, struct String * a1)
 {
     s32 msgBank;
     s32 msgNo;
@@ -113,7 +113,7 @@ void GetECWordIntoStringByIndex(u16 wordIdx, struct String * a1)
     {
         GetCategoryAndMsgNoByECWordIdx(wordIdx, &msgBank, &msgNo);
         msgBank = sNarcMsgBanks[msgBank];
-        ReadMsgData_NewNarc_ExistingString(NARC_MSGDATA_MSG, (u32)msgBank, (u32)msgNo, 0, a1);
+        ReadMsgData_NewNarc_ExistingString(NARC_MSGDATA_MSG, (u32)msgBank, (u32)msgNo, HEAP_ID_DEFAULT, a1);
     }
     else
         StringSetEmpty(a1);

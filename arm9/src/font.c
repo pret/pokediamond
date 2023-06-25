@@ -40,18 +40,18 @@ void sub_02002C14()
     SetFontsPointer(&gFontInfos[0]);
 }
 
-void sub_02002C50(u32 font_id, u32 heap_id)
+void sub_02002C50(u32 font_id, HeapID heapId)
 {
     UNK_02106FC8->unk94[font_id] =
-        FontData_New(NARC_GRAPHIC_FONT, UNK_020ECB54[font_id][0], 1, UNK_020ECB54[font_id][1], heap_id);
+        FontData_New(NARC_GRAPHIC_FONT, UNK_020ECB54[font_id][0], 1, UNK_020ECB54[font_id][1], heapId);
 }
 
-void sub_02002C84(s32 param0, u32 param1)
+void sub_02002C84(s32 param0, HeapID heapId)
 {
     GF_ASSERT(param0 < 4);
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
-    FontData_ModeSwitch(UNK_02106FC8->unk94[param0], 0, param1);
+    FontData_ModeSwitch(UNK_02106FC8->unk94[param0], 0, heapId);
 }
 
 void sub_02002CC0(s32 param0)
@@ -59,8 +59,8 @@ void sub_02002CC0(s32 param0)
     GF_ASSERT(param0 < 4);
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
-    FontData_ModeSwitch(UNK_02106FC8->unk94[param0], 1, 0);
-}
+    FontData_ModeSwitch(UNK_02106FC8->unk94[param0], 1, HEAP_ID_DEFAULT);
+}   
 
 void sub_02002CF8(int param0)
 {
@@ -163,12 +163,12 @@ s32 GetFontAttribute(u8 fontId, s32 attr)
     return ret;
 }
 
-void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heapId)
+void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, HeapID heapId)
 {
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, location, palSlotOffset, 0x20, heapId);
 }
 
-void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 heapId)
+void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, HeapID heapId)
 {
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0007_NCLR, location, palSlotOffset, 0x20, heapId);
 }

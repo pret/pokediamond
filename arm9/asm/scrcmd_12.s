@@ -1122,7 +1122,7 @@ sub_020435C4: ; 0x020435C4
 	add r0, r4, #0x0
 	bl sub_02042D04
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0x0
 	ldr r1, _020435F4 ; =0x000001C6
 	add r0, r5, #0x0
@@ -1214,7 +1214,7 @@ sub_02043684: ; 0x02043684
 	add r0, r4, #0x0
 	bl sub_02042D04
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x71
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -1305,7 +1305,7 @@ sub_02043740: ; 0x02043740
 	add r0, r4, #0x0
 	bl sub_02042D04
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0x0
 	ldr r1, _02043770 ; =0x000001C7
 	add r0, r5, #0x0

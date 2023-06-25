@@ -220,7 +220,7 @@ ov05_021D825C: ; 0x021D825C
 	pop {r4, r5, r6, pc}
 _021D827C:
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED3C
 	cmp r0, #0
 	bne _021D8290
@@ -322,7 +322,7 @@ _021D8342:
 	bl HasEnoughAlivePokemonForDoubleBattle
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED3C
 	cmp r0, #1
 	bne _021D8366
@@ -346,7 +346,7 @@ _021D8384:
 	lsr r0, r0, #0x1f
 	beq _021D83A6
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED5C
 	add r0, r4, #0
 	bl ov05_021D8D24
@@ -376,7 +376,7 @@ _021D83C2:
 	bl sub_02057020
 	add r7, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #2
 	bl sub_0205F264
 	cmp r0, #0
@@ -1050,7 +1050,7 @@ ov05_021D8954: ; 0x021D8954
 	add r2, sp, #0
 	bl ov05_021D90F8
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F244
 	cmp r0, #1
 	bne _021D8998
@@ -1611,7 +1611,7 @@ _021D8DFC:
 	bl ov05_021D8FD0
 _021D8E0C:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F56C
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1821,7 +1821,7 @@ ov05_021D8FA8: ; 0x021D8FA8
 	push {r3, r4, r5, lr}
 	ldr r0, [r0, #0xc]
 	mov r5, #0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0
 	bl sub_0205F780
 	add r0, r0, #1
@@ -1937,7 +1937,7 @@ ov05_021D9090: ; 0x021D9090
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0
 	bne _021D90A6
@@ -1946,7 +1946,7 @@ ov05_021D9090: ; 0x021D9090
 _021D90A6:
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034E24
+	bl LocalFieldData_GetSafariBallsCounter
 	ldrh r0, [r0]
 	cmp r0, #0
 	bne _021D90C4
@@ -1959,7 +1959,7 @@ _021D90A6:
 _021D90C4:
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034E28
+	bl LocalFieldData_GetSafariStepsCounter
 	ldrh r1, [r0]
 	add r1, r1, #1
 	strh r1, [r0]

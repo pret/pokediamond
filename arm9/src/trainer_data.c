@@ -9,7 +9,7 @@
 #include "unk_02024E64.h"
 
 // Loads all battle opponents, including multi-battle partner if exists.
-void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * save, u32 heap_id)
+void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * save, HeapID heapId)
 {
     struct TrainerDataLoaded trdata;
     struct MsgData * msgData;
@@ -17,7 +17,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * 
     s32 i;
     struct String * str;
 
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 559, heap_id);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 559, heapId);
     rivalName = GetRivalNamePtr(sub_02024EC0(save));
     for (i = 0; i < 4; i++)
     {
@@ -35,7 +35,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * 
                 CopyStringToU16Array(str, enemies->datas[i].name, PLAYER_NAME_LENGTH + 1);
                 String_Delete(str);
             }
-            CreateNPCTrainerParty(enemies, i, heap_id);
+            CreateNPCTrainerParty(enemies, i, heapId);
         }
     }
     enemies->flags |= trdata.data.doubleBattle;
@@ -89,7 +89,7 @@ s32 TrainerData_GetAttr(u32 tr_idx, u32 attr_no)
 // however the trainers are not in order in this file. trtblofs gives a pointer into trtbl
 // for each trainer. trtblofs is also a single-member NARC whose entries are shorts, one
 // per NPC trainer.
-BOOL TrainerMessageWithIdPairExists(u32 trainer_idx, u32 msg_id, u32 heap_id)
+BOOL TrainerMessageWithIdPairExists(u32 trainer_idx, u32 msg_id, HeapID heapId)
 {
     u16 rdbuf[3];
     struct NARC * trTblNarc;
@@ -98,7 +98,7 @@ BOOL TrainerMessageWithIdPairExists(u32 trainer_idx, u32 msg_id, u32 heap_id)
 
     trTblSize = GetNarcMemberSizeByIdPair(NARC_POKETOOL_TRMSG_TRTBL, 0);
     ReadFromNarcMemberByIdPair(&rdbuf[0], NARC_POKETOOL_TRMSG_TRTBLOFS, 0, trainer_idx * 2, 2);
-    trTblNarc = NARC_New(NARC_POKETOOL_TRMSG_TRTBL, heap_id);
+    trTblNarc = NARC_New(NARC_POKETOOL_TRMSG_TRTBL, heapId);
     while (rdbuf[0] != trTblSize)
     {
         NARC_ReadFromMember(trTblNarc, 0, rdbuf[0], 4, &rdbuf[1]);
@@ -115,7 +115,7 @@ BOOL TrainerMessageWithIdPairExists(u32 trainer_idx, u32 msg_id, u32 heap_id)
     return ret;
 }
 
-void GetTrainerMessageByIdPair(u32 trainer_idx, u32 msg_id, struct String * str, u32 heap_id)
+void GetTrainerMessageByIdPair(u32 trainer_idx, u32 msg_id, struct String * str, HeapID heapId)
 {
     u16 rdbuf[3];
     u32 trTblSize;
@@ -123,13 +123,13 @@ void GetTrainerMessageByIdPair(u32 trainer_idx, u32 msg_id, struct String * str,
 
     trTblSize = GetNarcMemberSizeByIdPair(NARC_POKETOOL_TRMSG_TRTBL, 0);
     ReadFromNarcMemberByIdPair(&rdbuf[0], NARC_POKETOOL_TRMSG_TRTBLOFS, 0, trainer_idx * 2, 2);
-    trTblNarc = NARC_New(NARC_POKETOOL_TRMSG_TRTBL, heap_id);
+    trTblNarc = NARC_New(NARC_POKETOOL_TRMSG_TRTBL, heapId);
     while (rdbuf[0] != trTblSize)
     {
         NARC_ReadFromMember(trTblNarc, 0, rdbuf[0], 4, &rdbuf[1]);
         if (rdbuf[1] == trainer_idx && rdbuf[2] == msg_id)
         {
-            ReadMsgData_NewNarc_ExistingString(NARC_MSGDATA_MSG, 558, (u32)(rdbuf[0] / 4), heap_id, str);
+            ReadMsgData_NewNarc_ExistingString(NARC_MSGDATA_MSG, 558, (u32)(rdbuf[0] / 4), heapId, str);
             break;
         }
         rdbuf[0] += 4;
@@ -256,7 +256,7 @@ int TrainerClass_GetGenderOrTrainerCount(int a0)
     return sTrainerClassGenderCountTbl[a0];
 }
 
-void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, u32 heap_id)
+void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, HeapID heapId)
 {
     union TrainerMon * data;
     s32 i;
@@ -276,8 +276,8 @@ void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, u32
     // state
     seed_bak = GetLCRNGSeed();
     InitPartyWithMaxSize(enemies->parties[party_id], PARTY_SIZE);
-    data = (union TrainerMon *)AllocFromHeap(heap_id, sizeof(union TrainerMon) * PARTY_SIZE);
-    pokemon = AllocMonZeroed(heap_id);
+    data = (union TrainerMon *)AllocFromHeap(heapId, sizeof(union TrainerMon) * PARTY_SIZE);
+    pokemon = AllocMonZeroed(heapId);
     TrainerData_ReadTrPoke(enemies->trainer_idxs[party_id], data);
 
     // If a Pokemon's gender ratio is 50/50, the generated Pokemon will be the same

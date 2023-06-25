@@ -82,7 +82,7 @@ sub_02064E90: ; 0x02064E90
 	add r2, sp, #0x74
 	bl Script_SavRTC_x2CtoDateTime
 	ldr r0, [r6, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED0C
 	add r1, sp, #0x74
 	str r1, [sp, #0x0]
@@ -223,7 +223,7 @@ sub_02065078: ; 0x02065078
 	bl Save_GameStats_Get
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_02026CB4

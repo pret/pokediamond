@@ -3,11 +3,11 @@
 
 struct Pokedex;
 
-struct GameStats
+typedef struct GameStats
 {
     u32 unk_00[0x2C];
     u16 unk_B0[0x4D];
-};
+} GameStats;
 
 u32 Save_GameStats_sizeof(void);
 void Save_GameStats_Init(struct GameStats * ptr);

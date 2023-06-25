@@ -295,22 +295,22 @@ extern void NNS_G2dDrawSpriteFast(s16 param0,
     int param7,
     int param8);
 
-struct UnkStruct_02006D98 *sub_02006D98(u32 heap_id)
+struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId)
 {
-    struct UnkStruct_02006D98 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02006D98));
-    ptr->unk298 = heap_id;
+    struct UnkStruct_02006D98 *ptr = AllocFromHeap(heapId, sizeof(struct UnkStruct_02006D98));
+    ptr->heapId = heapId;
     ptr->unk2E0 = 0;
     ptr->unk29C = 0;
     ptr->unk2A0 = 0x8000;
     ptr->unk2A4 = 0;
     ptr->unk2A8 = 0x80;
 
-    ptr->unk2AC = AllocFromHeap(heap_id, 0x8000);
+    ptr->unk2AC = AllocFromHeap(heapId, 0x8000);
 
-    ptr->unk2B0 = AllocFromHeap(heap_id, 0xc0);
+    ptr->unk2B0 = AllocFromHeap(heapId, 0xc0);
     MIi_CpuClearFast(0, ptr->unk2B0, 4);
 
-    ptr->unk2B4 = AllocFromHeap(heap_id, 0xc0);
+    ptr->unk2B4 = AllocFromHeap(heapId, 0xc0);
     MIi_CpuClearFast(0, ptr->unk2B4, 4);
 
     for (int i = 0; i < 4; i++)
@@ -323,7 +323,7 @@ struct UnkStruct_02006D98 *sub_02006D98(u32 heap_id)
 
     u8 *st8;
     void *st4 = AllocAndReadWholeNarcMemberByIdPair(
-        NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0211_NCGR, ptr->unk298);
+        NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0211_NCGR, ptr->heapId);
     NNSG2dCharacterData *stc;
     NNS_G2dGetUnpackedCharacterData(st4, &stc);
 
@@ -1350,7 +1350,7 @@ void sub_020082A8(struct UnkStruct_02006D98 *param0)
             st48 = 1;
             st4c = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st54].unk04.field_00,
                 param0->unk000[st54].unk04.field_02,
-                param0->unk298);
+                param0->heapId);
             NNS_G2dGetUnpackedCharacterData(st4c, &st58);
             param0->unk2B8.pixelFmt = st58->pixelFmt;
             param0->unk2B8.mapingType = st58->mapingType;
@@ -1544,7 +1544,7 @@ void sub_020086F4(struct UnkStruct_02006D98 *param0)
             stc = 1;
             st10 = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st14].unk04.field_00,
                 param0->unk000[st14].unk04.field_04,
-                param0->unk298);
+                param0->heapId);
             NNS_G2dGetUnpackedPaletteData(st10, &st18);
             param0->unk2D0.fmt = st18->fmt;
             r1 = st18->pRawData;
@@ -1558,7 +1558,7 @@ void sub_020086F4(struct UnkStruct_02006D98 *param0)
             if (param0->unk000[st14].unk6C.unk0_0 != 0)
             {
                 st10 = AllocAndReadWholeNarcMemberByIdPair(
-                    NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0212_NCLR, param0->unk298);
+                    NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0212_NCLR, param0->heapId);
                 NNS_G2dGetUnpackedPaletteData(st10, &st18);
                 r1 = st18->pRawData;
                 for (r7 = 0; r7 < 0x10; r7++)

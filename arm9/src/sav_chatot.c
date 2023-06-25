@@ -14,9 +14,9 @@ void Save_Chatot_Init(struct SaveChatotSoundClip * chatot)
     chatot->exists = FALSE;
 }
 
-struct SaveChatotSoundClip * Chatot_New(u32 heap_id)
+struct SaveChatotSoundClip * Chatot_New(HeapID heapId)
 {
-    struct SaveChatotSoundClip * ret = (struct SaveChatotSoundClip *)AllocFromHeap(heap_id, sizeof(struct SaveChatotSoundClip));
+    struct SaveChatotSoundClip * ret = (struct SaveChatotSoundClip *)AllocFromHeap(heapId, sizeof(struct SaveChatotSoundClip));
     Save_Chatot_Init(ret);
     return ret;
 }

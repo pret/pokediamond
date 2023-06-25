@@ -140,13 +140,13 @@ sub_02034E20: ; 0x02034E20
 	add r0, #0x8c
 	bx lr
 
-	thumb_func_start sub_02034E24
-sub_02034E24: ; 0x02034E24
+	thumb_func_start LocalFieldData_GetSafariBallsCounter
+LocalFieldData_GetSafariBallsCounter: ; 0x02034E24
 	add r0, #0x98
 	bx lr
 
-	thumb_func_start sub_02034E28
-sub_02034E28: ; 0x02034E28
+	thumb_func_start LocalFieldData_GetSafariStepsCounter
+LocalFieldData_GetSafariStepsCounter: ; 0x02034E28
 	add r0, #0x96
 	bx lr
 

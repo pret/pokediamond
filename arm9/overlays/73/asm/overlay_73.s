@@ -2043,7 +2043,7 @@ ov73_021D8590: ; 0x021D8590
 	add r7, r1, #0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	mov r4, #0
 	str r0, [sp]
 	cmp r6, #0

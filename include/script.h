@@ -107,6 +107,10 @@ typedef struct PokedexAppData {
     
 } PokedexAppData; //todo: fill out and move to own file
 
+typedef struct NPCTradeAppData {
+
+} NPCTradeAppData; //todo: fill out and move to own file
+
 typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;

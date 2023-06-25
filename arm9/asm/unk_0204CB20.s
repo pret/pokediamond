@@ -4018,7 +4018,7 @@ sub_0204E96C: ; 0x0204E96C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0x0
 	ldrb r0, [r5, #0x1]
 	cmp r0, #0x8
@@ -4113,7 +4113,7 @@ _0204E9B8:
 	add r1, r4, #0x0
 	bl sub_02026908
 	add r0, r6, #0x0
-	bl sub_0205F688
+	bl Save_VarsFlags_GetSpiritombTalkCounter
 	add r1, r0, #0x0
 	add r1, r1, #0x1
 	lsl r1, r1, #0x10
@@ -5478,7 +5478,7 @@ _0204F4D2:
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205EDF8
 	ldr r0, _0204F5E0 ; =UNK_021C5A68
 	ldrb r1, [r5, #0x1]

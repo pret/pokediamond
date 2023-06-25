@@ -1,9 +1,8 @@
 #include "nitro/types.h"
 #include "main.h"
+#include "MI_memory.h"
 #include "fx.h"
 #include "code32.h"
-
-void MI_Copy48B(void *src, void *dst);
 
 void MTX_TransApply44(struct Mtx44 *mtx, struct Mtx44 *dst, fx32 x, fx32 y, fx32 z){
     if(mtx != dst)

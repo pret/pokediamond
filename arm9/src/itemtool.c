@@ -742,43 +742,43 @@ int sub_0206E70C()
     return 0;
 }
 
-void * LoadItemDataOrGfx(u16 a0, u16 a1, u32 heap_id)
+void * LoadItemDataOrGfx(u16 a0, u16 a1, HeapID heapId)
 {
     if (a0 > NELEMS(sItemIndexMappings) - 1)
         a0 = 0;
     switch (a1)
     {
     case 0:
-        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, sItemIndexMappings[a0][0], heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, sItemIndexMappings[a0][0], heapId);
     case 1:
-        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, sItemIndexMappings[a0][1], heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, sItemIndexMappings[a0][1], heapId);
     case 2:
-        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, sItemIndexMappings[a0][2], heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, sItemIndexMappings[a0][2], heapId);
     default:
         return NULL;
     }
 }
 
-void GetItemNameIntoString(struct String * dest, u16 item_id, u32 heap_no)
+void GetItemNameIntoString(struct String * dest, u16 item_id, HeapID heapId)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0344_bin, heap_no);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0344_bin, heapId);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }
 
-void GetItemDescIntoString(struct String * dest, u16 item_id, u32 heap_no)
+void GetItemDescIntoString(struct String * dest, u16 item_id, HeapID heapId)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0343_bin, heap_no);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0343_bin, heapId);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }
 
-u32 GetItemAttr(u16 item, u32 attr, u32 heap_id)
+u32 GetItemAttr(u16 item, u32 attr, HeapID heapId)
 {
     u32 ret;
-    struct ItemData * itemData = (struct ItemData *)LoadItemDataOrGfx(item, 0, heap_id);
+    struct ItemData * itemData = (struct ItemData *)LoadItemDataOrGfx(item, 0, heapId);
     ret = GetItemAttr_PreloadedItemData(itemData, attr);
-    FreeToHeapExplicit(heap_id, itemData);
+    FreeToHeapExplicit(heapId, itemData);
     return ret;
 }
 
@@ -1015,9 +1015,9 @@ u8 ItemIsBitter(u16 item_id)
            item_id == ITEM_REVIVAL_HERB;
 }
 
-struct ItemData * LoadAllItemData(u32 heap_id)
+struct ItemData * LoadAllItemData(HeapID heapId)
 {
-    return AllocAndReadFromNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, 0, heap_id, 0, sizeof(struct ItemData) * GetItemIndexMapping(ITEM_SECRETPOTION, 0));
+    return AllocAndReadFromNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, 0, heapId, 0, sizeof(struct ItemData) * GetItemIndexMapping(ITEM_SECRETPOTION, 0));
 }
 
 struct ItemData * GetItemDataPtrFromArray(struct ItemData * a0, u16 item_id)

@@ -47,7 +47,7 @@ InitHearthomeGym: ; 0x02064CC8
 	cmp r0, #0x16
 	bne _02064D08
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ECEC
 	cmp r0, #0x0
 	beq _02064D02

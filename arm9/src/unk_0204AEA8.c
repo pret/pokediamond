@@ -32,7 +32,7 @@ BOOL sub_0204AEA8(struct TaskManager *taskManager)
 
 void sub_0204AEF8(struct TaskManager *taskManager, u32 a1, u32 a2)
 {
-    u32 *v0 = AllocFromHeapAtEnd(11, 4 * sizeof(u32));
+    u32 *v0 = AllocFromHeapAtEnd(HEAP_ID_FIELD, 4 * sizeof(u32));
     
     v0[0] = 0;
     v0[1] = 0;

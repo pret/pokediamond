@@ -50,20 +50,20 @@ void (*const sClearWindowTilemapFuncs[])(struct Window *) = {
     ClearWindowTilemapText,
 };
 
-struct BgConfig *BgConfig_Alloc(u32 heap_id)
+struct BgConfig *BgConfig_Alloc(HeapID heapId)
 {
-    struct BgConfig *ptr = AllocFromHeap(heap_id, sizeof(struct BgConfig));
+    struct BgConfig *ptr = AllocFromHeap(heapId, sizeof(struct BgConfig));
     memset(ptr, 0, sizeof(struct BgConfig));
-    ptr->heap_id = heap_id;
+    ptr->heapId = heapId;
     ptr->scrollScheduled = 0;
     ptr->bufferTransferScheduled = 0;
 
     return ptr;
 }
 
-u32 BgConfig_GetHeapId(struct BgConfig *bgConfig)
+HeapID BgConfig_GetHeapId(struct BgConfig *bgConfig)
 {
-    return bgConfig->heap_id;
+    return bgConfig->heapId;
 }
 
 void SetBothScreensModesAndDisable(const struct GraphicsModes *modes)
@@ -210,7 +210,7 @@ void InitBgFromTemplate(
 
     if (template->bufferSize != 0)
     {
-        bgConfig->bgs[bgId].tilemapBuffer = AllocFromHeap(bgConfig->heap_id, template->bufferSize);
+        bgConfig->bgs[bgId].tilemapBuffer = AllocFromHeap(bgConfig->heapId, template->bufferSize);
 
         MI_CpuClear16(bgConfig->bgs[bgId].tilemapBuffer, template->bufferSize);
 
@@ -833,7 +833,7 @@ void BgCopyOrUncompressTilemapBufferRangeToVram(
         }
 
         u32 uncompSize = src[0] >> 8;
-        void *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, uncompSize);
+        void *ptr = AllocFromHeapAtEnd(bgConfig->heapId, uncompSize);
         CopyOrUncompressTilemapData(src, ptr, size);
         LoadBgVramScr(bgId, ptr, tileOffset * 2, uncompSize);
         FreeToHeap(ptr);
@@ -900,7 +900,7 @@ void BG_LoadCharPixelData(
     {
 
         u32 uncompressedSize = charData[0] >> 8;
-        void *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, uncompressedSize);
+        void *ptr = AllocFromHeapAtEnd(bgConfig->heapId, uncompressedSize);
         CopyOrUncompressTilemapData(charData, ptr, size);
         LoadBgVramChar(bgId, ptr, offset, uncompressedSize);
         FreeToHeap(ptr);
@@ -943,13 +943,13 @@ void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size)
     }
 }
 
-void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_id)
+void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, HeapID heapId)
 {
-    void *ptr = AllocFromHeapAtEnd(heap_id, size);
+    void *ptr = AllocFromHeapAtEnd(heapId, size);
     memset(ptr, 0, size);
 
     LoadBgVramChar(bgId, ptr, offset, size);
-    FreeToHeapExplicit(heap_id, ptr);
+    FreeToHeapExplicit(heapId, ptr);
 }
 
 void BG_FillCharDataRange(
@@ -958,7 +958,7 @@ void BG_FillCharDataRange(
     void *st4;
     u32 size = count * param0->bgs[bgId].tileSize;
     u32 r5 = fillValue;
-    st4 = AllocFromHeapAtEnd(param0->heap_id, size);
+    st4 = AllocFromHeapAtEnd(param0->heapId, size);
 
     if (param0->bgs[bgId].tileSize == 0x20)
     {
@@ -1573,9 +1573,9 @@ void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 (*dest8bpp), u8 palette
     }
 }
 
-u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, u32 heap_id)
+u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, HeapID heapId)
 {
-    u8 *ptr = (u8*)AllocFromHeap(heap_id, size * 2);
+    u8 *ptr = (u8*)AllocFromHeap(heapId, size * 2);
 
     Convert4bppTo8bppInternal(src4Bpp, size, ptr, paletteNum);
 
@@ -1853,9 +1853,9 @@ void FillBitmapRect8Bit(
     }
 }
 
-struct Window *AllocWindows(u32 heap_id, s32 size)
+struct Window *AllocWindows(HeapID heapId, s32 size)
 {
-    struct Window *ptr = AllocFromHeap(heap_id, (u32)(size << 4));
+    struct Window *ptr = AllocFromHeap(heapId, (u32)(size << 4));
 
     for (u16 i = 0; i < size; i++)
     {
@@ -1906,7 +1906,7 @@ void AddWindowParameterized(struct BgConfig *param0,
         return;
     }
 
-    void *ptr = AllocFromHeap(param0->heap_id, (u32)(width * height * param0->bgs[bgId].tileSize));
+    void *ptr = AllocFromHeap(param0->heapId, (u32)(width * height * param0->bgs[bgId].tileSize));
 
     if (ptr == NULL)
     {
@@ -1935,7 +1935,7 @@ void AddTextWindowTopLeftCorner(struct BgConfig *param0,
 {
     u32 size = (u32)(width * height * 32);
 
-    void *ptr = AllocFromHeap(param0->heap_id, size);
+    void *ptr = AllocFromHeap(param0->heapId, size);
 
     paletteNum |= (paletteNum * 16);
     memset(ptr, paletteNum, size);
@@ -2469,7 +2469,7 @@ void CopyGlyphToWindow(struct Window *window, u8 *glyphPixels, u16 srcWidth, u16
         }
     } else { // 8bpp
         u8 *convertedSrc;
-        convertedSrc = Convert4bppTo8bpp(glyphPixels, srcWidth * 4 * srcHeight * 8, window->paletteNum, window->bgConfig->heap_id);
+        convertedSrc = Convert4bppTo8bpp(glyphPixels, srcWidth * 4 * srcHeight * 8, window->paletteNum, window->bgConfig->heapId);
         switch (glyphSizeParam) {
             case 0: // 1x1
                 GLYPH_COPY_8BPP(convertedSrc, 0, 0, srcRight, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
@@ -2701,9 +2701,9 @@ void SetWindowPaletteNum(struct Window *window, u8 paletteNum)
     window->paletteNum = paletteNum;
 }
 
-NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 heap_id, const char *path)
+NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, HeapID heapId, const char *path)
 {
-    void *ptr = AllocAndReadFile(heap_id, path);
+    void *ptr = AllocAndReadFile(heapId, path);
     *char_ret = ptr;
     NNSG2dCharacterData *st0;
     NNS_G2dGetUnpackedBGCharacterData(ptr, &st0);
@@ -2711,9 +2711,9 @@ NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 heap_id, co
     return st0;
 }
 
-NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, u32 heap_id, const char *path)
+NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, HeapID heapId, const char *path)
 {
-    void *ptr = AllocAndReadFile(heap_id, path);
+    void *ptr = AllocAndReadFile(heapId, path);
     *pltt_ret = ptr;
     NNSG2dPaletteData *st0;
     NNS_G2dGetUnpackedPaletteData(ptr, &st0);
@@ -2967,7 +2967,7 @@ u32 DoesPixelAtScreenXYMatchPtrVal(
     if (bgConfig->bgs[bgId].colorMode == GX_BG_COLORMODE_16)
     {
         u16 *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
-        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
+        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
 
         bgCharPtr += ((tilemapBuffer[tilemapIdx] & 0x3ff) << 5);
         for (i = 0; i < 0x20; i++)
@@ -2991,7 +2991,7 @@ u32 DoesPixelAtScreenXYMatchPtrVal(
         if (bgConfig->bgs[bgId].mode != GF_BG_TYPE_AFFINE)
         {
             u16 *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
-            u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
+            u8 *ptr = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
 
             memcpy(ptr, bgCharPtr + ((tilemapBuffer[tilemapIdx] & 0x3ff) << 6), 0x40);
 
@@ -3026,7 +3026,7 @@ void ApplyFlipFlagsToTile(struct BgConfig *bgConfig, u8 flag, u8 *src)
     u8 i, j;
     if (flag != 0)
     {
-        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
+        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
 
         if ((flag & 1) != 0)
         {

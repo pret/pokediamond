@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "SPI_mic.h"
+#include "heap.h"
 
 struct WaveArcInfo
 {
@@ -78,7 +79,7 @@ BOOL sub_02004ABC(u32 param0);
 void sub_02004ACC(u32 param0, u32 param1);
 void sub_02004AE4(u32 param0, u32 param1);
 void sub_02004AF8(u32 param0, s32 param1);
-u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4);
+u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, HeapID heapId);
 void sub_02004C1C(u8 *param0, u32 param1);
 void sub_02004C3C(u32 param0);
 BOOL GF_SndCaptureIsActive(void);

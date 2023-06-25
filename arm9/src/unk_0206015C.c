@@ -12,7 +12,7 @@
     in the return type / parameters. They are right for this code
     but they might not be for every code, please do not blindly
     trust these prototypes if you are decompiling these functions. */
-extern u32  ov06_02244DB0(u32);
+extern u32  ov06_02244DB0(HeapID);
 extern void ov06_02244DBC(void*);
 extern void ov06_02244DC4(void*, void*);
 extern void ov06_02244EF8(void*);
@@ -20,7 +20,7 @@ extern void ov06_02244F18(void*);
 extern BOOL ov06_02244F24(void*);
 extern void ov06_02244F2C(void*);
 extern void * ov06_02245088(struct FieldSystem *fieldSystem);
-extern u32  ov06_02245114(u32, struct FieldSystem *);
+extern u32  ov06_02245114(HeapID, struct FieldSystem *);
 extern void ov06_02245190(u32);
 extern void ov06_02245198(u8, u32);
 extern u32  ov06_022451F0(u32);
@@ -29,22 +29,22 @@ extern void sub_02049160(struct TaskManager *taskManager, u32);
 extern void sub_0204C1B4(struct TaskManager *taskManager, u32,u32,u32,u32,u32,u32,u32);
 extern LocalMapObject *PlayerAvatar_GetMapObject(struct PlayerAvatar *playerAvatar);
 extern LocalMapObject *MapObject_SetVisible(LocalMapObject *target, BOOL visible);
-extern void sub_0205F1C4(struct ScriptState *);
-extern void sub_0205F1D4(struct ScriptState *);
+extern void sub_0205F1C4(struct SaveVarsFlags *);
+extern void sub_0205F1D4(struct SaveVarsFlags *);
 extern void sub_0206367C(struct FieldSystem *, u32);
 
-void sub_0206015C(struct FieldSystem *fieldSystem)
+void CallTask_UseGreatMarshBinoculars(struct FieldSystem *fieldSystem)
 {
-    struct UnkStruct_0206015C *unkStruct = AllocFromHeapAtEnd(0xb, 0x10);
-    unkStruct->unk0 = ov06_02244DB0(0xb);
-    unkStruct->unk4 = ov06_02245114(0xb, fieldSystem);
+    struct UnkStruct_0206015C *unkStruct = AllocFromHeapAtEnd(HEAP_ID_FIELD, 0x10);
+    unkStruct->unk0 = ov06_02244DB0(HEAP_ID_FIELD);
+    unkStruct->unk4 = ov06_02245114(HEAP_ID_FIELD, fieldSystem);
     unkStruct->unkC = 0;
     unkStruct->unkD = 0;
 
-    TaskManager_Call(fieldSystem->taskManager, sub_02060194, (u32 *)unkStruct);
+    TaskManager_Call(fieldSystem->taskManager, Task_UseGreatMarshBinoculars, (u32 *)unkStruct);
 }
 
-BOOL sub_02060194(struct TaskManager *taskManager)
+BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)sub_0204652C(taskManager);
@@ -65,7 +65,7 @@ BOOL sub_02060194(struct TaskManager *taskManager)
         break;
 
     case 2:
-        struct ScriptState *scrState = SaveArray_Flags_Get(fieldSystem->saveData);
+        struct SaveVarsFlags *scrState = Save_VarsFlags_Get(fieldSystem->saveData);
         u8 unkD = unkStruct1->unkD;
         if (unkD == 0)
         {

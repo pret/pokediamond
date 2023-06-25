@@ -10,9 +10,9 @@ extern struct OverlayManagerTemplate UNK_020F2B7C;
 extern struct OverlayManagerTemplate UNK_020F2B8C;
 
 extern int sub_02053678(u32 random, u32 gender, u32 param2);
-extern void sub_020250C4(void *sav_ptr, u32 heap_id, const u16 param2[], u32 param3);
+extern void sub_020250C4(void *sav_ptr, HeapID heapId, const u16 param2[], u32 param3);
 extern void sub_020377E0(struct SaveData *save);
-extern void sub_0205ECD4(struct ScriptState *script_state);
+extern void sub_0205ECD4(struct SaveVarsFlags *script_state);
 
 const struct OverlayManagerTemplate ov52_021D76E8 = {
     ov52_021D74E0,
@@ -171,7 +171,7 @@ BOOL ov52_021D74F8(struct OverlayManager *manager, u32 *status)
 #pragma unused(status)
     struct SaveData *save = (struct SaveData *)OverlayManager_GetField18(manager)[2]; // weird
 
-    ov52_021D769C(0x4d, save);
+    ov52_021D769C(HEAP_ID_77, save);
 
     return TRUE;
 }
@@ -180,7 +180,7 @@ BOOL ov52_021D750C(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
-    DestroyHeap(0x4d);
+    DestroyHeap(HEAP_ID_77);
     RegisterMainOverlay(SDK_OVERLAY_INVALID_ID, &UNK_020FD144);
 
     return TRUE;
@@ -201,7 +201,7 @@ BOOL ov52_021D7540(struct OverlayManager *manager, u32 *status)
 #pragma unused(status)
     struct SaveData *save = (struct SaveData *)OverlayManager_GetField18(manager)[2]; // weird
 
-    ov52_021D7604(0x4d, save, 1);
+    ov52_021D7604(HEAP_ID_77, save, 1);
     struct IGT *igt = Save_PlayerData_GetIGTAddr(save);
     PlayTimerStart(igt);
 
@@ -212,7 +212,7 @@ BOOL ov52_021D7560(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
-    DestroyHeap(0x4d);
+    DestroyHeap(HEAP_ID_77);
     RegisterMainOverlay(SDK_OVERLAY_INVALID_ID, &UNK_020F2B7C);
 
     return TRUE;
@@ -253,13 +253,13 @@ BOOL ov52_021D75E8(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
-    DestroyHeap(0x4d);
+    DestroyHeap(HEAP_ID_77);
     RegisterMainOverlay(SDK_OVERLAY_INVALID_ID, &UNK_020F2B8C);
 
     return 1;
 }
 
-void ov52_021D7604(u32 heap_id, struct SaveData *save, BOOL set_trainerid)
+void ov52_021D7604(HeapID heapId, struct SaveData *save, BOOL set_trainerid)
 {
     Save_SysInfo_InitFromSystem(Save_SysInfo_Get(save));
     Save_SysInfo_RTC_Init(Save_SysInfo_RTC_Get(save));
@@ -282,7 +282,7 @@ void ov52_021D7604(u32 heap_id, struct SaveData *save, BOOL set_trainerid)
 
     PlayerProfile_SetAvatar(playerProfile, (u8)avatar);
 
-    sub_020250C4(sub_02024ECC(save), heap_id, ov52_021D76F8, NELEMS(ov52_021D76F8) / 2);
+    sub_020250C4(sub_02024ECC(save), heapId, ov52_021D76F8, NELEMS(ov52_021D76F8) / 2);
 }
 
 void ov52_021D7688(u32 unused, struct SaveData *save)
@@ -305,5 +305,5 @@ void ov52_021D769C(u32 unused, struct SaveData *save)
     sub_020377E0(save);
     PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
     PlayerProfile_SetMoney(playerProfile, 3000);
-    sub_0205ECD4(SaveArray_Flags_Get(save));
+    sub_0205ECD4(Save_VarsFlags_Get(save));
 }

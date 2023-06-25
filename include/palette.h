@@ -50,18 +50,18 @@ struct PaletteData
     u16 unk11e;
 };
 
-struct PaletteData *sub_02002FD0(u32 heap_id);
+struct PaletteData *sub_02002FD0(HeapID heapId);
 void sub_02002FEC(struct PaletteData *ptr);
 void PaletteData_SetBuffers(
     struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size);
-void PaletteData_AllocBuffers(struct PaletteData *paletteData, u32 index, u32 size, u32 heap_id);
+void PaletteData_AllocBuffers(struct PaletteData *paletteData, u32 index, u32 size, HeapID heapId);
 void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 index);
 void PaletteData_LoadPalette(
     struct PaletteData *paletteData, const void *src, u32 index, u32 offset, u16 size);
 void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    u32 heap_id,
+    HeapID heapId,
     u32 index,
     u32 size,
     u16 offset,
@@ -69,13 +69,13 @@ void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
 void PaletteData_LoadNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    u32 heap_id,
+    HeapID heapId,
     u32 index,
     u32 size,
     u16 offset);
 void sub_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size);
 void CopyPaletteFromNarc(
-    NarcId narcId, s32 memberId, u32 heap_id, u32 size, u16 offset, void *dest);
+    NarcId narcId, s32 memberId, HeapID heapId, u32 size, u16 offset, void *dest);
 void PaletteData_CopyPalette(struct PaletteData *paletteData,
     u32 srcIdx,
     u16 srcOffset,
@@ -130,7 +130,7 @@ void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 b
 void sub_02003B40(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    u32 heap_id,
+    HeapID heapId,
     u32 index,
     u32 size,
     u16 offset,

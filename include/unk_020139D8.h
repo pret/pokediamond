@@ -3,7 +3,7 @@
 
 struct UnkStruct_020139D8
 {
-    u32 heap_id;
+    HeapID heapId;
     struct MsgData * msgDatas[11];
 };
 
@@ -13,10 +13,10 @@ typedef struct SaveEasyChat
     u32 unk_4;
 } SaveEasyChat;
 
-struct UnkStruct_020139D8 * EasyChatManager_New(u32 heap_id);
+struct UnkStruct_020139D8 * EasyChatManager_New(HeapID heapId);
 void EasyChatManager_Delete(struct UnkStruct_020139D8 * unk);
 void EasyChatManager_ReadWordIntoString(struct UnkStruct_020139D8 * unk, u16 a1, struct String * str);
-void GetECWordIntoStringByIndex(u16 a0, struct String * a1);
+void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
 u16 GetECWordIndexByPair(u16 a0, u16 a1);
 void GetCategoryAndMsgNoByECWordIdx(u32 a0, s32 * a1, s32 * a2);
 u32 sub_02013B28(void);

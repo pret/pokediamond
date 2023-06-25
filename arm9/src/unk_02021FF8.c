@@ -3,19 +3,19 @@
 #include "heap.h"
 #include "unk_02021FF8.h"
 
-struct UnkStruct_020220C4 * sub_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, u32 a4)
+struct UnkStruct_020220C4 * sub_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, HeapID heapId)
 {
     struct UnkStruct_020220C4 * ret;
     s32 i;
     GF_ASSERT(a1 != 0);
-    ret = AllocFromHeap(a4, sizeof(struct UnkStruct_020220C4));
+    ret = AllocFromHeap(heapId, sizeof(struct UnkStruct_020220C4));
     if (ret != NULL)
     {
         ret->field_0 = a0;
         ret->field_4 = a1;
         ret->field_8 = a2;
         ret->field_C = a3;
-        ret->field_10 = AllocFromHeap(a4, a1 * sizeof(struct UnkStruct_020220C4_sub));
+        ret->field_10 = AllocFromHeap(heapId, a1 * sizeof(struct UnkStruct_020220C4_sub));
         if (ret->field_10 != NULL)
         {
             for (i = 0; i < a1; i++)

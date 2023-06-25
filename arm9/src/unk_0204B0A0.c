@@ -1,22 +1,22 @@
 #include "global.h"
 #include "event_data.h"
+#include "unk_02022504.h"
 #include "unk_0204B0A0.h"
 #include "unk_0205FA2C.h"
 
 extern void GF_RTC_CopyDateTime(struct RTCDate* date, struct RTCTime* time);
 extern void sub_02029C08(void*);
-extern void sub_0202B3C4(void*, s32, u32);
+extern void sub_0202B3C4(SafariZone *safariZone, s32, u32);
 extern u8 GF_RTC_GetTimeOfDayByHour(u32 hour);
 extern s64 GF_RTC_DateTimeToSec(void);
 extern void* sub_02029AFC(struct SaveData* save);
-extern void* sub_02022504(struct SaveData* save);
 extern void sub_02025B60(struct SaveData* save, s32, BOOL);
 extern BOOL sub_0205F668(struct SaveData* save);
 extern void sub_0202A9D0(struct SaveData* save, s32);
 extern BOOL sub_0205F618(struct SaveData* save, u16);
 extern void sub_0204B3D0(struct FieldSystem*, s32);
-extern void sub_0205F5A4(struct ScriptState* state, u16);
-extern s32 sub_0205F594(struct ScriptState* state);
+extern void sub_0205F5A4(struct SaveVarsFlags* state, u16);
+extern s32 sub_0205F594(struct SaveVarsFlags* state);
 extern void sub_0202A988(void*, u32);
 extern void* Save_Roamers_Get(struct SaveData* save);
 extern void sub_02060344(struct SaveData* save, s32);
@@ -95,7 +95,7 @@ void sub_0204B1DC(struct FieldSystem *fieldSystem, s32 a1)
     struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
     Party_UpdatePokerus(party, a1);
 
-    struct ScriptState* state = SaveArray_Flags_Get(fieldSystem->saveData);
+    struct SaveVarsFlags* state = Save_VarsFlags_Get(fieldSystem->saveData);
     s32 unk2 = sub_0205F594(state);
 
     u16 unk3;
@@ -123,8 +123,8 @@ void sub_0204B270(struct FieldSystem *fieldSystem, s32 a1, struct RTCTime* time)
     sub_0202A9D0(fieldSystem->saveData, a1);
     BOOL unk_bool = sub_0204B33C(fieldSystem);
     sub_02025B60(fieldSystem->saveData, a1, unk_bool);
-    void* unk_sav_ptr = sub_02022504(fieldSystem->saveData);
-    sub_0202B3C4(unk_sav_ptr, a1, time->minute);
+    SafariZone* safariZone = Save_SafariZone_Get(fieldSystem->saveData);
+    sub_0202B3C4(safariZone, a1, time->minute);
 }
 
 u32 Script_GetTimeOfDay(struct FieldSystem *fieldSystem)

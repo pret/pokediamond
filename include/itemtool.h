@@ -98,10 +98,10 @@ u16 GetItemIndexMapping(u16 a0, u16 a1);
 u16 UpConvertItemId_Gen3to4(u16 a0);
 int sub_0206E708();
 int sub_0206E70C();
-void * LoadItemDataOrGfx(u16 itemId, u16 which, u32 heap_id);
-void GetItemNameIntoString(struct String * dest, u16 item_id, u32 heap_no);
-void GetItemDescIntoString(struct String * dest, u16 item_id, u32 heap_no);
-u32 GetItemAttr(u16 item, u32 attr, u32 heap_id);
+void * LoadItemDataOrGfx(u16 itemId, u16 which, HeapID heapId);
+void GetItemNameIntoString(struct String * dest, u16 item_id, HeapID heapId);
+void GetItemDescIntoString(struct String * dest, u16 item_id, HeapID heapId);
+u32 GetItemAttr(u16 item, u32 attr, HeapID heapId);
 u32 GetItemAttr_PreloadedItemData(struct ItemData * itemData, u32 attr);
 u32 GetItemAttrSub(struct ItemPartyUseParam * sub, u32 attr);
 u16 TMHMGetMove(u16 a0);
@@ -114,7 +114,7 @@ BOOL ItemIdIsBerry(u16 item_id);
 u8 ItemToBerryId(u16 item_id);
 u16 BerryToItemId(u8 a0);
 u8 ItemIsBitter(u16 item_id);
-struct ItemData * LoadAllItemData(u32 heap_id);
+struct ItemData * LoadAllItemData(HeapID heapId);
 struct ItemData * GetItemDataPtrFromArray(struct ItemData * a0, u16 item_id);
 
 #endif //POKEDIAMOND_ITEMTOOL_H

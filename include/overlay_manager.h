@@ -2,6 +2,7 @@
 #define POKEDIAMOND_OVERLAY_MANAGER_H
 
 #include "nitro/types.h"
+#include "heap.h"
 
 struct OverlayManager;
 
@@ -24,9 +25,9 @@ struct OverlayManager
     u32 unk24;
 };
 
-struct OverlayManager * OverlayManager_New(const struct OverlayManagerTemplate *template, s32 * a1, u32 heap_id);
+struct OverlayManager * OverlayManager_New(const struct OverlayManagerTemplate *template, s32 * a1, HeapID heapId);
 void OverlayManager_Delete(struct OverlayManager * overlayManager);
-void * OverlayManager_CreateAndGetData(struct OverlayManager * overlayManager, u32 size, u32 heap_id);
+void * OverlayManager_CreateAndGetData(struct OverlayManager * overlayManager, u32 size, HeapID heapId);
 void * OverlayManager_GetData(struct OverlayManager * overlayManager);
 void OverlayManager_FreeData(struct OverlayManager * overlayManager);
 s32 * OverlayManager_GetField18(struct OverlayManager * overlayManager);

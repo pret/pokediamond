@@ -9,7 +9,7 @@ struct UnkStruct_020851B8 {
     u8 unk_B;
 };
 
-struct UnkStruct_020851B8 *sub_020851B8(u32 heap_id);
+struct UnkStruct_020851B8 *sub_020851B8(u8 heapId);
 void sub_020851DC(struct UnkStruct_020851B8 *param0, u16 param1, BOOL param2);
 void sub_020851F8(struct UnkStruct_020851B8 *param0, u8 param1, u8 param2, u8 param3);
 void sub_02085200(struct UnkStruct_020851B8 *param0, u16 param1);

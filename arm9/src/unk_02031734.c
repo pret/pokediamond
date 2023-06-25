@@ -60,7 +60,7 @@ void sub_02031734(struct SaveData *save, u8 param1)
     if (UNK_021C5A00 == NULL)
     {
         sub_0202E49C();
-        struct UnkStruct_02031734 *ptr = AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
+        struct UnkStruct_02031734 *ptr = AllocFromHeap(HEAP_ID_15, sizeof(struct UnkStruct_02031734));
         UNK_021C5A00 = ptr;
         MI_CpuFill8(ptr, 0, sizeof(struct UnkStruct_02031734));
 
@@ -97,14 +97,14 @@ void sub_020317C0()
 
         if (UNK_021C5A00->unk3F >= 0x13)
         {
-            DestroyHeap(0x31);
+            DestroyHeap(HEAP_ID_49);
         }
 
         sub_02033ED0();
         sub_0202E4F0();
 
         FreeToHeap(UNK_021C5A00);
-        DestroyHeap(0xf);
+        DestroyHeap(HEAP_ID_15);
 
         UNK_021C5A00 = NULL;
     }
@@ -1868,7 +1868,7 @@ void sub_02033288(struct SaveData *save)
     {
         CreateHeapAtEnd(3, 0xf, 0x100);
         UNK_021C5A00 =
-            (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
+            (struct UnkStruct_02031734 *)AllocFromHeap(HEAP_ID_15, sizeof(struct UnkStruct_02031734));
         MI_CpuFill8(UNK_021C5A00, 0, sizeof(struct UnkStruct_02031734));
 
         UNK_021C5A00->unk3F = 0x18;
@@ -1887,7 +1887,7 @@ void sub_020332DC()
         sub_020334E8(0, 0);
         FreeToHeap(UNK_021C5A00);
         UNK_021C5A00 = NULL;
-        DestroyHeap(0xf);
+        DestroyHeap(HEAP_ID_15);
     }
 }
 
@@ -1895,9 +1895,9 @@ void sub_02033310(struct SaveData *save)
 {
     if (UNK_021C5A00 == NULL)
     {
-        CreateHeapAtEnd(3, 0xf, 0x100);
+        CreateHeapAtEnd(3, HEAP_ID_15, 0x100);
         UNK_021C5A00 =
-            (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
+            (struct UnkStruct_02031734 *)AllocFromHeap(HEAP_ID_15, sizeof(struct UnkStruct_02031734));
         MI_CpuFill8(UNK_021C5A00, 0, sizeof(struct UnkStruct_02031734));
         UNK_021C5A00->unk3F = 0x19;
         UNK_021C5A00->unk46 = 1;
@@ -1915,7 +1915,7 @@ void sub_02033364()
         sub_020334E8(0, 0);
         FreeToHeap(UNK_021C5A00);
         UNK_021C5A00 = NULL;
-        DestroyHeap(0xf);
+        DestroyHeap(HEAP_ID_15);
     }
 }
 
@@ -1988,7 +1988,7 @@ void *sub_0203346C(struct SaveData *save, u32 param1)
     SetSoftResetDisableMask(1);
     CreateHeapAtEnd(3, 0xf, 0x7080);
     sub_02031734(save, 0x17);
-    UNK_021C5A00->unk00 = AllocFromHeap(0xf, param1);
+    UNK_021C5A00->unk00 = AllocFromHeap(HEAP_ID_15, param1);
     MI_CpuFill8(UNK_021C5A00->unk00, 0, param1);
 
     UNK_021C5A00->unk40 = 0;
@@ -2090,7 +2090,7 @@ u8 sub_020335B8()
 
 void sub_020335D0(s32 param0)
 {
-    ShowCommunicationError(0, 1, param0);
+    ShowCommunicationError(HEAP_ID_DEFAULT, 1, param0);
     while (TRUE)
     {
     }
@@ -2098,7 +2098,7 @@ void sub_020335D0(s32 param0)
 
 void sub_020335E0()
 {
-    ShowCommunicationError(0, 4, 0);
+    ShowCommunicationError(HEAP_ID_DEFAULT, 4, 0);
     while (TRUE)
     {
     }

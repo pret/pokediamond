@@ -82,26 +82,26 @@ struct AnimBank_02008DEC
     NNSG2dAnimBankData *bankData;
 };
 
-struct UnkStruct_02008DEC_1 *sub_02008DEC(u32 param0, s32 param1, u32 param2);
+struct UnkStruct_02008DEC_1 *sub_02008DEC(u32 param0, s32 param1, HeapID heapId);
 void sub_02008E2C(struct UnkStruct_02008DEC_1 *param0);
 struct UnkStruct_02008DEC_sub *sub_02008E6C(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_2 *param1,
     s32 param2,
-    u32 param3);
+    HeapID heapId);
 struct UnkStruct_02008DEC_sub *sub_02008F34(struct UnkStruct_02008DEC_1 *param0,
     NarcId param1,
     s32 param2,
     BOOL param3,
     s32 param4,
     u32 param5,
-    u32 param6);
+    HeapID heapId);
 struct UnkStruct_02008DEC_sub *sub_02008F90(struct UnkStruct_02008DEC_1 *param0,
     NarcId param1,
     s32 param2,
     BOOL param3,
     s32 param4,
     u32 param5,
-    u32 param6,
+    HeapID heapId,
     BOOL param7);
 struct UnkStruct_02008DEC_sub *sub_02008FEC(struct UnkStruct_02008DEC_1 *param0,
     NarcId param1,
@@ -110,7 +110,7 @@ struct UnkStruct_02008DEC_sub *sub_02008FEC(struct UnkStruct_02008DEC_1 *param0,
     s32 param4,
     u32 param5,
     u32 param6,
-    u32 param7);
+    HeapID heapId);
 struct UnkStruct_02008DEC_sub *sub_0200904C(struct UnkStruct_02008DEC_1 *param0,
     NarcId param1,
     s32 param2,
@@ -118,7 +118,7 @@ struct UnkStruct_02008DEC_sub *sub_0200904C(struct UnkStruct_02008DEC_1 *param0,
     s32 param4,
     u32 param5,
     u32 param6,
-    u32 param7,
+    HeapID heapId,
     BOOL param8);
 struct UnkStruct_02008DEC_sub *sub_020090AC(struct UnkStruct_02008DEC_1 *param0,
     NarcId param1,
@@ -126,33 +126,33 @@ struct UnkStruct_02008DEC_sub *sub_020090AC(struct UnkStruct_02008DEC_1 *param0,
     BOOL param3,
     s32 param4,
     u32 param5,
-    u32 param6);
+    HeapID heapId);
 void sub_020090FC(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_sub *param1,
     NarcId param2,
     s32 param3,
     BOOL param4,
-    u32 param5);
+    HeapID heapId);
 void sub_02009168(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_sub *param1,
     NarcId param2,
     s32 param3,
     BOOL param4,
-    u32 param5);
+    HeapID heapId);
 struct UnkStruct_02008DEC_sub *sub_020091E0(struct UnkStruct_02008DEC_1 *param0,
     NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
     u32 param5,
-    u32 param6);
+    HeapID heapId);
 struct UnkStruct_02008DEC_sub *sub_0200923C(struct UnkStruct_02008DEC_1 *param0,
     NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
     u32 param5,
-    u32 param6,
+    HeapID heapId,
     u32 param7);
 struct UnkStruct_02008DEC_sub *sub_02009298(struct UnkStruct_02008DEC_1 *param0,
     NARC *param1,
@@ -161,7 +161,7 @@ struct UnkStruct_02008DEC_sub *sub_02009298(struct UnkStruct_02008DEC_1 *param0,
     s32 param4,
     u32 param5,
     u32 param6,
-    u32 param7);
+    HeapID heapId);
 struct UnkStruct_02008DEC_sub *sub_020092F8(struct UnkStruct_02008DEC_1 *param0,
     NARC *param1,
     u32 param2,
@@ -169,7 +169,7 @@ struct UnkStruct_02008DEC_sub *sub_020092F8(struct UnkStruct_02008DEC_1 *param0,
     s32 param4,
     u32 param5,
     u32 param6,
-    u32 param7,
+    HeapID heapId,
     u32 param8);
 struct UnkStruct_02008DEC_sub *sub_02009358(struct UnkStruct_02008DEC_1 *param0,
     NARC *param1,
@@ -177,18 +177,18 @@ struct UnkStruct_02008DEC_sub *sub_02009358(struct UnkStruct_02008DEC_1 *param0,
     u32 param3,
     s32 param4,
     u32 param5,
-    u32 param6);
+    HeapID heapId);
 s32 sub_020093A8(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_2 *param1,
     struct UnkStruct_02008DEC_5 *param2,
-    u32 param3);
+    HeapID heapId);
 void sub_020093DC(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_2 *param1,
     s32 param2,
     s32 param3,
     struct UnkStruct_02008DEC_5 *param4,
-    u32 param5);
-struct UnkStruct_02008DEC_5 *sub_02009424(s32 param0, u32 param1);
+    HeapID heapId);
+struct UnkStruct_02008DEC_5 *sub_02009424(s32 param0, HeapID heapId);
 void sub_02009448(struct UnkStruct_02008DEC_5 *param0);
 u32 sub_0200945C(struct UnkStruct_02008DEC_1 *param0, s32 param1);
 void sub_02009474(struct UnkStruct_02008DEC_sub *param0);
@@ -208,7 +208,7 @@ u32 sub_02009610(struct UnkStruct_02008DEC_sub *param0);
 void sub_02009630(struct UnkStruct_02008DEC_sub *param0, u32 param1);
 u32 sub_0200965C(void);
 struct UnkStruct_02008DEC_2 *sub_02009660(struct UnkStruct_02008DEC_2 *param0, s32 param1);
-void sub_02009668(u32 *param0, struct UnkStruct_02008DEC_2 *param1, u32 param2);
+void sub_02009668(u32 *param0, struct UnkStruct_02008DEC_2 *param1, HeapID heapId);
 void sub_020096B4(struct UnkStruct_02008DEC_2 *param0);
 s32 sub_020096CC(struct UnkStruct_02008DEC_2 *param0);
 s32 sub_020096DC(struct UnkStruct_02008DEC_2 *param0, s32 param1);
@@ -218,13 +218,13 @@ u32 sub_02009768(struct UnkStruct_02008DEC_2 *param0, s32 param1);
 u32 sub_0200979C(struct UnkStruct_02008DEC_2 *param0, s32 param1);
 struct UnkStruct_02008DEC_sub *sub_020097D0(struct UnkStruct_02008DEC_1 *param0);
 void sub_020097FC(
-    struct UnkStruct_02008DEC_sub *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-struct CharacterData_02008DEC *sub_0200986C(void *param0, u32 param1, u32 param2);
-struct PaletteData_02008DEC *sub_0200988C(void *param0, u32 param1, u32 param2, u32 param3);
-struct CellDataBank_02008DEC *sub_020098B0(void *param0, u32 param1);
-struct AnimBank_02008DEC *sub_020098CC(void *param0, u32 param1);
-void *sub_020098E8(void *param0, u32 param1);
-void *sub_02009904(void *param0, u32 param1);
+    struct UnkStruct_02008DEC_sub *param0, u32 param1, u32 param2, u32 param3, HeapID heapId);
+struct CharacterData_02008DEC *sub_0200986C(void *param0, u32 param1, HeapID heapId);
+struct PaletteData_02008DEC *sub_0200988C(void *param0, u32 param1, u32 param2, HeapID heapId);
+struct CellDataBank_02008DEC *sub_020098B0(void *param0, HeapID heapId);
+struct AnimBank_02008DEC *sub_020098CC(void *param0, HeapID heapId);
+void *sub_020098E8(void *param0, HeapID heapId);
+void *sub_02009904(void *param0, HeapID heapId);
 void sub_02009920(struct UnkStruct_02008DEC_sub *param0);
 u32 *sub_02009934(struct UnkStruct_02008DEC_sub *param0);
 void sub_0200994C(struct UnkStruct_02008DEC_1 *param0,
@@ -234,7 +234,7 @@ void sub_0200994C(struct UnkStruct_02008DEC_1 *param0,
     u32 param4,
     u32 param5,
     u32 param6,
-    u32 param7);
+    HeapID heapId);
 void sub_02009978(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_sub *param1,
     NarcId param2,
@@ -244,7 +244,7 @@ void sub_02009978(struct UnkStruct_02008DEC_1 *param0,
     u32 param6,
     u32 param7,
     u32 param8,
-    u32 param9,
+    HeapID heapId,
     BOOL param10);
 void sub_020099B0(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_sub *param1,
@@ -255,10 +255,10 @@ void sub_020099B0(struct UnkStruct_02008DEC_1 *param0,
     u32 param6,
     u32 param7,
     u32 param8,
-    u32 param9,
+    HeapID heapId,
     u32 param10);
 s32 sub_020099E8(struct UnkStruct_02008DEC_4 *param0);
-void *sub_02009A04(NARC *param0, u32 param1, u32 param2, u32 param3, u32 param4);
+void *sub_02009A04(NARC *param0, u32 param1, u32 param2, HeapID heapId, u32 param4);
 u32 sub_02009A50(struct UnkStruct_02008DEC_sub *param0);
 void sub_02009A90(struct UnkStruct_02008DEC_5 *param0);
 u32 sub_02009AC4(struct UnkStruct_02008DEC_sub *param0);

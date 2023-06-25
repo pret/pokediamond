@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_MAP_MATRIX_H
 #define POKEDIAMOND_MAP_MATRIX_H
 
+#include "heap.h"
+
 #define MAP_MATRIX_MAX_WIDTH 30
 #define MAP_MATRIX_MAX_HEIGHT 30
 #define MAP_MATRIX_MAX_SIZE (MAP_MATRIX_MAX_WIDTH * MAP_MATRIX_MAX_HEIGHT)
@@ -42,7 +44,7 @@ u8 MapMatrix_GetMatrixID(struct MapMatrix *map_matrix);
 u32 MapMatrix_GetMapAltitude(
     struct MapMatrix *map_matrix, u8 param1, s16 x, s16 y, int matrix_width);
 
-struct MapData *MapMatrix_MapData_New(u32 heap_id);
+struct MapData *MapMatrix_MapData_New(HeapID heapId);
 void MapMatrix_MapData_Free(struct MapData *map_data);
 u16 MapMatrix_MapData_GetData(struct MapData *map_data, s32 x, s32 y);
 

@@ -23,9 +23,9 @@ extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
 static u32 GetCoinCount(struct SaveData *save);
 static u32 GetSealCount(struct SaveData *save);
 
-struct BagView *BagView_New(u8 heap_id)
+struct BagView *BagView_New(u8 heapId)
 {
-    struct BagView *ptr = AllocFromHeap(heap_id, sizeof(struct BagView));
+    struct BagView *ptr = AllocFromHeap((HeapID)heapId, sizeof(struct BagView));
 
     memset(ptr, 0, sizeof(struct BagView));
 
@@ -133,10 +133,10 @@ u32 GetNumBattlePoints(struct SaveData *save)
     return FrontierData_SetField_0x0(Save_FrontierData_Get(save), 0, DATA_GET);
 }
 
-BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id)
+BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, HeapID heapId)
 {
-    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
-    MessageFormat *messageFormat = MessageFormat_New(heap_id);
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+    MessageFormat *messageFormat = MessageFormat_New(heapId);
     struct String *string;
 
     if (item_id == ITEM_NONE)
@@ -185,7 +185,7 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
 }
 
 void sub_0206E51C( //todo: sync with HG
-    PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id)
+    PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, HeapID heapId)
 {
 #pragma unused(r2)
     struct MsgData *msgData;
@@ -193,20 +193,20 @@ void sub_0206E51C( //todo: sync with HG
     switch (r3)
     {
     case 1:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
 
         ReadMsgDataIntoString(msgData, narc_0007_00056, dest); // You can’t dismount your Bike here.
         DestroyMsgData(msgData);
         return;
     case 2:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
 
         ReadMsgDataIntoString(msgData, narc_0007_00111, dest); // It can’t be used when you have someone with you.
         DestroyMsgData(msgData);
         return;
     default:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heap_id);
-        MessageFormat *messageFormat = MessageFormat_New(heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
+        MessageFormat *messageFormat = MessageFormat_New(heapId);
         struct String *src = NewString_ReadMsgData(msgData, narc_0199_00036); // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
 
         BufferPlayersName(messageFormat, 0, playerData);

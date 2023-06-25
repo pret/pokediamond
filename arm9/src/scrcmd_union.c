@@ -67,7 +67,7 @@ BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
         return FALSE;
     }
     case 6: { //create a group
-        struct String* player_name = String_New(64, 32);
+        struct String* player_name = String_New(64, HEAP_ID_32);
         PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
 
         PlayerName_FlatToString(player, player_name);

@@ -27,7 +27,7 @@ typedef struct Pokedex
 } Pokedex;
 
 u32 Save_Pokedex_sizeof(void);
-struct Pokedex * Save_Pokedex_New(u32 heap_id);
+struct Pokedex * Save_Pokedex_New(HeapID heapId);
 void Save_Pokedex_Copy(const struct Pokedex * src, struct Pokedex * dest);
 s32 Pokedex_CountSeenShellosOrGastrodon_Internal(struct Pokedex * pokedex, u32 species);
 BOOL Pokedex_HasSeenShellosOrGastrodonForme(struct Pokedex * pokedex, u32 species, u8 state);

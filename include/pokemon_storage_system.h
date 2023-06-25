@@ -10,7 +10,7 @@
 #define NUM_BONUS_WALLPAPERS              8u
 #define NUM_WALLPAPERS ((u32)(NUM_DEFAULT_WALLPAPERS + NUM_BONUS_WALLPAPERS))
 
-struct PCStorage
+typedef struct PCStorage
 {
     /* 0x00000 */ u32 curBox;
     /* 0x00004 */ struct BoxPokemon boxes[NUM_BOXES][MONS_PER_BOX];
@@ -18,7 +18,7 @@ struct PCStorage
     /* 0x121B4 */ u8 wallpapers[NUM_BOXES];
     /* 0x121C6 */ u8 unlockedWallpapers;
     /* 0x121C7 */ u8 pad_byte; // suppresses mwcc warning
-};
+} PCStorage;
 
 void PCStorage_Init(struct PCStorage * pc);
 u32 PCStorage_sizeof(void);

@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_MAIL_MESSAGE_H
 #define POKEDIAMOND_MAIL_MESSAGE_H
 
+#include "heap.h"
+
 struct MailMessage
 {
     u16 msg_bank;
@@ -15,8 +17,8 @@ void MailMsg_Init(struct MailMessage * mailMsg);
 void MailMsg_Init_WithBank(struct MailMessage * mailMsg, u16 bank);
 void MailMsg_Init_Default(struct MailMessage * mailMsg);
 void MailMsg_Init_FromTemplate(struct MailMessage * mailMsg, u32 a1);
-struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap_id);
-struct String * MailMsg_GetRawString(struct MailMessage * mailMsg, u32 heap_id);
+struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, HeapID heapId);
+struct String * MailMsg_GetRawString(struct MailMessage * mailMsg, HeapID heapId);
 BOOL MailMsg_IsInit(struct MailMessage * mailMsg);
 BOOL MailMsg_AllFieldsAreInit(struct MailMessage * mailMsg);
 u32 MailMsg_NumFields(u16 bank, u16 num);

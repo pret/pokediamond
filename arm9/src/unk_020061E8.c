@@ -5,12 +5,12 @@
 
 extern struct TextPrinter *sub_0201B6C8(void);
 
-BOOL sub_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, u32 r3)
+BOOL sub_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, HeapID heapId)
 {
     void * r4;
     if(r1 != 0)
     {
-        r4 = AllocFromHeap(r3, r1);
+        r4 = AllocFromHeap(heapId, r1);
         if(r4 == 0)
         {
             return FALSE;

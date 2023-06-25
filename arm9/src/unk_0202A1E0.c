@@ -471,7 +471,7 @@ void sub_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798
 
     if(substruct4_substruct1->u_C8_0)
     {
-        message = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, 17, 11);
+        message = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, 17, HEAP_ID_FIELD);
         ReadMsgDataIntoU16Array(message, (u32) (22 + substruct4_substruct1->u_C8_1), unk_substruct->u_8);
         DestroyMsgData(message);
     }
@@ -500,9 +500,9 @@ void sub_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784
     dst->u_1 = substruct4->u_102;
 }
 
-struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, u32 heap_id)
+struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, HeapID heapId)
 {
-    struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2 = AllocFromHeap(heap_id, sizeof(struct SaveStruct23_Substruct4_Substruct2) /* 1020 */);
+    struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2 = AllocFromHeap(heapId, sizeof(struct SaveStruct23_Substruct4_Substruct2) /* 1020 */);
     MI_CpuCopy8(&substruct4->substruct2, substruct4_substruct2, sizeof(struct SaveStruct23_Substruct4_Substruct2));
     return substruct4_substruct2;
 }

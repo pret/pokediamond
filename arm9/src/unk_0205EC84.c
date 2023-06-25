@@ -4,22 +4,22 @@
 #include "constants/sndseq.h"
 #include "constants/maps.h"
 
-static void _flag_set(struct ScriptState * state, u16 flag_id)
+static void _flag_set(struct SaveVarsFlags * state, u16 flag_id)
 {
     SetFlagInArray(state, flag_id);
 }
 
-static void _flag_clear(struct ScriptState * state, u16 flag_id)
+static void _flag_clear(struct SaveVarsFlags * state, u16 flag_id)
 {
     ClearFlagInArray(state, flag_id);
 }
 
-static BOOL _flag_check(struct ScriptState * state, u16 flag_id)
+static BOOL _flag_check(struct SaveVarsFlags * state, u16 flag_id)
 {
     return CheckFlagInArray(state, flag_id);
 }
 
-static BOOL _flag_op(struct ScriptState * state, u32 op, u32 flag_id)
+static BOOL _flag_op(struct SaveVarsFlags * state, u32 op, u32 flag_id)
 {
     switch (op)
     {
@@ -37,107 +37,107 @@ static BOOL _flag_op(struct ScriptState * state, u32 op, u32 flag_id)
     return FALSE;
 }
 
-void sub_0205ECD4(struct ScriptState * state)
+void sub_0205ECD4(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x960);
 }
 
-BOOL sub_0205ECE0(struct ScriptState * state)
+BOOL sub_0205ECE0(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x960);
 }
 
-BOOL sub_0205ECEC(struct ScriptState * state)
+BOOL sub_0205ECEC(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x98D);
 }
 
-void sub_0205ECFC(struct ScriptState * state)
+void sub_0205ECFC(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x964);
 }
 
-BOOL sub_0205ED0C(struct ScriptState * state)
+BOOL sub_0205ED0C(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x964);
 }
 
-void sub_0205ED1C(struct ScriptState * state)
+void sub_0205ED1C(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x961);
 }
 
-void sub_0205ED2C(struct ScriptState * state)
+void sub_0205ED2C(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x961);
 }
 
-BOOL sub_0205ED3C(struct ScriptState * state)
+BOOL sub_0205ED3C(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x961);
 }
 
-void sub_0205ED4C(struct ScriptState * state)
+void sub_0205ED4C(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x965);
 }
 
-void sub_0205ED5C(struct ScriptState * state)
+void sub_0205ED5C(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x965);
 }
 
-BOOL sub_0205ED6C(struct ScriptState * state)
+BOOL sub_0205ED6C(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x965);
 }
 
-void sub_0205ED7C(struct ScriptState * state)
+void sub_0205ED7C(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x96D);
 }
 
-void sub_0205ED8C(struct ScriptState * state)
+void sub_0205ED8C(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x96D);
 }
 
-BOOL sub_0205ED9C(struct ScriptState * state)
+BOOL sub_0205ED9C(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x96D);
 }
 
-void sub_0205EDAC(struct ScriptState * state)
+void sub_0205EDAC(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x96E);
 }
 
-void sub_0205EDBC(struct ScriptState * state)
+void sub_0205EDBC(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x96F);
 }
 
-void sub_0205EDCC(struct ScriptState * state)
+void sub_0205EDCC(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x970);
 }
 
-void sub_0205EDD8(struct ScriptState * state)
+void sub_0205EDD8(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x971);
 }
 
-void sub_0205EDE8(struct ScriptState * state)
+void sub_0205EDE8(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x972);
 }
 
-void sub_0205EDF8(struct ScriptState * state)
+void sub_0205EDF8(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x973);
 }
 
-void sub_0205EE08(struct ScriptState * state, u32 a1)
+void sub_0205EE08(struct SaveVarsFlags * state, u32 a1)
 {
     switch (a1)
     {
@@ -159,7 +159,7 @@ void sub_0205EE08(struct ScriptState * state, u32 a1)
     }
 }
 
-BOOL sub_0205EE60(struct ScriptState * state, u32 a1)
+BOOL sub_0205EE60(struct SaveVarsFlags * state, u32 a1)
 {
     switch (a1)
     {
@@ -177,7 +177,7 @@ BOOL sub_0205EE60(struct ScriptState * state, u32 a1)
     // UB: No return value
 }
 
-BOOL sub_0205EEB8(struct ScriptState * state, u32 a1)
+BOOL sub_0205EEB8(struct SaveVarsFlags * state, u32 a1)
 {
     BOOL ret = FALSE;
     switch (a1)
@@ -203,7 +203,7 @@ BOOL sub_0205EEB8(struct ScriptState * state, u32 a1)
     return ret;
 }
 
-s32 sub_0205EF20(struct ScriptState * state, s32 a1)
+s32 sub_0205EF20(struct SaveVarsFlags * state, s32 a1)
 {
     s32 ret = 0;
     switch (a1)
@@ -301,138 +301,138 @@ s32 sub_0205EF20(struct ScriptState * state, s32 a1)
 }
 
 
-void sub_0205F154(struct ScriptState * state)
+void sub_0205F154(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x966);
 }
 
-void sub_0205F164(struct ScriptState * state)
+void sub_0205F164(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x966);
 }
 
-BOOL sub_0205F174(struct ScriptState * state)
+BOOL sub_0205F174(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x966);
 }
 
-BOOL sub_0205F184(struct ScriptState * state)
+BOOL sub_0205F184(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x978);
 }
 
-BOOL sub_0205F194(struct ScriptState * state)
+BOOL sub_0205F194(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x992);
 }
 
-BOOL sub_0205F1A4(struct ScriptState * state)
+BOOL sub_0205F1A4(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x97D);
 }
 
-BOOL sub_0205F1B4(struct ScriptState * state)
+BOOL sub_0205F1B4(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x97E);
 }
 
-void sub_0205F1C4(struct ScriptState * state)
+void sub_0205F1C4(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x97C);
 }
 
-void sub_0205F1D4(struct ScriptState * state)
+void sub_0205F1D4(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x97C);
 }
 
-BOOL sub_0205F1E4(struct ScriptState * state)
+BOOL sub_0205F1E4(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x97C);
 }
 
-void sub_0205F1F4(struct ScriptState * state)
+void Save_VarsFlags_SetSafariSysFlag(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x967);
 }
 
-void sub_0205F204(struct ScriptState * state)
+void Save_VarsFlags_ClearSafariSysFlag(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x967);
 }
 
-BOOL sub_0205F214(struct ScriptState * state)
+BOOL sub_0205F214(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x967);
 }
 
-void sub_0205F224(struct ScriptState * state)
+void sub_0205F224(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x979);
 }
 
-void sub_0205F234(struct ScriptState * state)
+void sub_0205F234(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x979);
 }
 
-BOOL sub_0205F244(struct ScriptState * state)
+BOOL sub_0205F244(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x979);
 }
 
-void sub_0205F254(struct ScriptState * state)
+void sub_0205F254(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x994);
 }
 
-BOOL sub_0205F264(struct ScriptState * state, u32 op)
+BOOL sub_0205F264(struct SaveVarsFlags * state, u32 op)
 {
     return _flag_op(state, op, 0x962);
 }
 
-void sub_0205F274(struct ScriptState * state)
+void sub_0205F274(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x97A);
 }
 
-void sub_0205F284(struct ScriptState * state)
+void sub_0205F284(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x97A);
 }
 
-BOOL sub_0205F294(struct ScriptState * state)
+BOOL sub_0205F294(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x97A);
 }
 
-void sub_0205F2A4(struct ScriptState * state)
+void sub_0205F2A4(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x97B);
 }
 
-void sub_0205F2B4(struct ScriptState * state)
+void sub_0205F2B4(struct SaveVarsFlags * state)
 {
     _flag_clear(state, 0x97B);
 }
 
-BOOL sub_0205F2C4(struct ScriptState * state)
+BOOL sub_0205F2C4(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x97B);
 }
 
-BOOL sub_0205F2D4(struct ScriptState * state, u32 op)
+BOOL sub_0205F2D4(struct SaveVarsFlags * state, u32 op)
 {
     return _flag_op(state, op, 0x963);
 }
 
-BOOL sub_0205F2E4(struct ScriptState * state, u32 op, u16 flag_id)
+BOOL sub_0205F2E4(struct SaveVarsFlags * state, u32 op, u16 flag_id)
 {
     GF_ASSERT(flag_id < 69);
     return _flag_op(state, op, 0x9B0 + flag_id);
 }
 
-void sub_0205F304(struct ScriptState * state)
+void sub_0205F304(struct SaveVarsFlags * state)
 {
     _flag_set(state, 0x98C);
 }

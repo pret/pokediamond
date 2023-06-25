@@ -746,8 +746,8 @@ sub_02055540: ; 0x02055540
 	add sp, #0xc
 	pop {r4-r5, pc}
 
-	thumb_func_start sub_02055560
-sub_02055560: ; 0x02055560
+	thumb_func_start PlayerAvatar_ToggleAutomaticHeightUpdating
+PlayerAvatar_ToggleAutomaticHeightUpdating: ; 0x02055560
 	push {r4, lr}
 	add r4, r1, #0x0
 	bl PlayerAvatar_GetMapObject

@@ -20,6 +20,7 @@
 #include "overlay_52.h"
 #include "font.h"
 #include "brightness.h"
+#include "heap.h"
 
 FS_EXTERN_OVERLAY(OVERLAY_52);
 FS_EXTERN_OVERLAY(OVERLAY_63);
@@ -61,18 +62,18 @@ void NitroMain(void)
     GF_InitRTCWork();
     sub_02000DF4();
     sub_02002C14();
-    sub_02002C50(0, 3);
-    sub_02002C50(1, 3);
-    sub_02002C50(3, 3);
+    sub_02002C50(0, HEAP_ID_MAIN);
+    sub_02002C50(1, HEAP_ID_MAIN);
+    sub_02002C50(3, HEAP_ID_MAIN);
     UNK_02016FA8.unk10 = -1;
     UNK_02016FA8.save = SaveData_New();
     InitSoundData(Save_Chatot_Get(UNK_02016FA8.save), Save_PlayerData_GetOptionsAddr(UNK_02016FA8.save));
     Init_Timer3();
     if (sub_020337E8(3) == 3)
-        ShowWFCUserInfoWarning(3, 0);
+        ShowWFCUserInfoWarning(HEAP_ID_MAIN, 0);
     if (sub_020227FC(UNK_02016FA8.save) == 0)
     {
-        ShowSaveDataReadError(0);
+        ShowSaveDataReadError(HEAP_ID_DEFAULT);
     }
     else
     {
@@ -152,7 +153,7 @@ void Main_RunOverlayManager(void)
         if (UNK_02016FA8.queuedMainOverlayId != SDK_OVERLAY_INVALID_ID)
             HandleLoadOverlay(UNK_02016FA8.queuedMainOverlayId, 0);
         UNK_02016FA8.mainOverlayId = UNK_02016FA8.queuedMainOverlayId;
-        UNK_02016FA8.overlayManager = OverlayManager_New(UNK_02016FA8.template, &UNK_02016FA8.unk10, 0);
+        UNK_02016FA8.overlayManager = OverlayManager_New(UNK_02016FA8.template, &UNK_02016FA8.unk10, HEAP_ID_DEFAULT);
         UNK_02016FA8.queuedMainOverlayId = SDK_OVERLAY_INVALID_ID;
         UNK_02016FA8.template = NULL;
     }
@@ -230,18 +231,18 @@ void sub_02000F4C(u32 arg0, u32 arg1)
 {
     if (arg1 == 3)
     {
-        ShowCommunicationError(0, 3, 0);
+        ShowCommunicationError(HEAP_ID_DEFAULT, 3, 0);
     }
     else if (arg0 == 0)
     {
-        ShowCommunicationError(0, 2, 0);
+        ShowCommunicationError(HEAP_ID_DEFAULT, 2, 0);
     }
     else
     {
-        ShowCommunicationError(0, 0, 0);
+        ShowCommunicationError(HEAP_ID_DEFAULT, 0, 0);
     }
     sub_02032DAC();
-    while (1)
+    while (TRUE)
     {
         HandleDSLidAction();
         ReadKeypadAndTocuhpad();

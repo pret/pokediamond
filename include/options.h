@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_OPTIONS_H
 #define POKEDIAMOND_OPTIONS_H
 
+#include "heap.h"
+
 struct SaveData;
 
 struct Options {
@@ -12,7 +14,7 @@ struct Options {
     u16 frame:5;
 };
 
-struct Options * Options_New(u32 heap_id);
+struct Options * Options_New(HeapID heapId);
 void Options_Copy(struct Options * src, struct Options * dest);
 void Options_Init(struct Options * options);
 void Options_SetButtonModeOnMain(struct SaveData * save, u32 buttonMode);

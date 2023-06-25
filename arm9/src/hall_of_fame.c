@@ -6,6 +6,7 @@
 #include "string16.h"
 #include "RTC_api.h"
 #include "hall_of_fame.h"
+#include "heap.h"
 
 u32 Save_HOF_sizeof(void)
 {
@@ -25,7 +26,7 @@ void Save_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, R
     {
         struct HOFParty * hof_party = &hof->parties[hof->next_record];
         int nmons = GetPartyCount(party);
-        struct String * str = String_New(POKEMON_NAME_LENGTH + 1, 0);
+        struct String * str = String_New(POKEMON_NAME_LENGTH + 1, HEAP_ID_DEFAULT);
         MI_CpuClear16(hof_party->party, 6 * sizeof(struct HOFMon));
         int i, j;
         for (i = 0, j = 0; i < nmons; i++)

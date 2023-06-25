@@ -141,7 +141,7 @@ void sub_02005E90(struct SaveChatotSoundClip *param0, u32 param1, s32 param2, s3
     if (ret == 0)
     {
         sub_02005E80(1);
-        sub_020056AC(0, SPECIES_CHATOT, param3, param2, 11);
+        sub_020056AC(0, SPECIES_CHATOT, param3, param2, HEAP_ID_FIELD);
     }
 }
 

@@ -13,7 +13,7 @@ BOOL ScrCmd_GiveItem(struct ScriptContext* ctx) //007B
     u16* item_was_added = ScriptGetVarPointer(ctx);
     struct Bag* bag = Save_Bag_Get(fieldSystem->saveData);
 
-    *item_was_added = (u16)Bag_AddItem(bag, item_id, quantity, 4);
+    *item_was_added = (u16)Bag_AddItem(bag, item_id, quantity, HEAP_ID_4);
 
     return FALSE;
 }
@@ -27,7 +27,7 @@ BOOL ScrCmd_TakeItem(struct ScriptContext* ctx) //007C
     u16* item_was_taken = ScriptGetVarPointer(ctx);
     struct Bag* bag = Save_Bag_Get(fieldSystem->saveData);
 
-    *item_was_taken = (u16)Bag_TakeItem(bag, item_id, quantity, 4);
+    *item_was_taken = (u16)Bag_TakeItem(bag, item_id, quantity, HEAP_ID_4);
 
     return FALSE;
 }
@@ -41,7 +41,7 @@ BOOL ScrCmd_HasSpaceForItem(struct ScriptContext* ctx) //007D
     u16* has_space = ScriptGetVarPointer(ctx);
     struct Bag* bag = Save_Bag_Get(fieldSystem->saveData);
 
-    *has_space = (u16)Bag_HasSpaceForItem(bag, item_id, quantity, 4);
+    *has_space = (u16)Bag_HasSpaceForItem(bag, item_id, quantity, HEAP_ID_4);
 
     return FALSE;
 }
@@ -55,7 +55,7 @@ BOOL ScrCmd_HasItem(struct ScriptContext* ctx) //007E
     u16* has_item = ScriptGetVarPointer(ctx);
     struct Bag* bag = Save_Bag_Get(fieldSystem->saveData);
 
-    *has_item = (u16)Bag_HasItem(bag, item_id, quantity, 11);
+    *has_item = (u16)Bag_HasItem(bag, item_id, quantity, HEAP_ID_FIELD);
 
     return FALSE;
 }
@@ -79,7 +79,7 @@ BOOL ScrCmd_GetItemPocketId(struct ScriptContext* ctx) //0080
     u16 item_id = ScriptGetVar(ctx);
     u16* pocket = ScriptGetVarPointer(ctx);
 
-    *pocket = (u16)GetItemAttr(item_id, ITEMATTR_POCKET, 11);
+    *pocket = (u16)GetItemAttr(item_id, ITEMATTR_POCKET, HEAP_ID_FIELD);
 
     return FALSE;
 }

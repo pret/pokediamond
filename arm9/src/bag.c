@@ -9,9 +9,9 @@ u32 Save_Bag_sizeof(void)
     return sizeof(struct Bag);
 }
 
-struct Bag * Save_Bag_New(u32 heap_id)
+struct Bag * Save_Bag_New(HeapID heapId)
 {
-    struct Bag * ret = (struct Bag *)AllocFromHeap(heap_id, sizeof(struct Bag));
+    struct Bag * ret = (struct Bag *)AllocFromHeap(heapId, sizeof(struct Bag));
     Save_Bag_Init(ret);
     return ret;
 }
@@ -36,9 +36,9 @@ void Bag_SetRegisteredItem(struct Bag * bag, u32 item)
     bag->registeredItem = item;
 }
 
-u32 Bag_GetItemPocket(struct Bag * bag, u16 item_id, struct ItemSlot ** slot_p, u32 * count_p, u32 heap_id)
+u32 Bag_GetItemPocket(struct Bag * bag, u16 item_id, struct ItemSlot ** slot_p, u32 * count_p, HeapID heapId)
 {
-    u32 pocket = GetItemAttr(item_id, 5, heap_id);
+    u32 pocket = GetItemAttr(item_id, 5, heapId);
     switch (pocket)
     {
     case POCKET_KEY_ITEMS:
@@ -99,11 +99,11 @@ struct ItemSlot * Pocket_GetItemSlotForAdd(struct ItemSlot * slots, u32 count, u
     return &slots[found];
 }
 
-struct ItemSlot * Bag_GetItemSlotForAdd(struct Bag * bag, u16 item_id, u16 quantity, u32 heap_id)
+struct ItemSlot * Bag_GetItemSlotForAdd(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
 {
     struct ItemSlot * slots;
     u32 count;
-    u32 pocket = Bag_GetItemPocket(bag, item_id, &slots, &count, heap_id);
+    u32 pocket = Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
     if (pocket == POCKET_TMHMS)
     {
         return Pocket_GetItemSlotForAdd(slots, count, item_id, quantity, 99);
@@ -114,20 +114,20 @@ struct ItemSlot * Bag_GetItemSlotForAdd(struct Bag * bag, u16 item_id, u16 quant
     }
 }
 
-BOOL Bag_HasSpaceForItem(struct Bag * bag, u16 item_id, u16 quantity, u32 heap_id)
+BOOL Bag_HasSpaceForItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
 {
-    return Bag_GetItemSlotForAdd(bag, item_id, quantity, heap_id) != NULL;
+    return Bag_GetItemSlotForAdd(bag, item_id, quantity, heapId) != NULL;
 }
 
-BOOL Bag_AddItem(struct Bag * bag, u16 item_id, u16 quantity, u32 heap_id)
+BOOL Bag_AddItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
 {
-    struct ItemSlot * slots = Bag_GetItemSlotForAdd(bag, item_id, quantity, heap_id);
+    struct ItemSlot * slots = Bag_GetItemSlotForAdd(bag, item_id, quantity, heapId);
     if (slots == NULL)
         return FALSE;
     slots->id = item_id;
     slots->quantity += quantity;
     u32 count;
-    u32 pocket = Bag_GetItemPocket(bag, item_id, &slots, &count, heap_id);
+    u32 pocket = Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
     if (pocket == POCKET_TMHMS || pocket == POCKET_BERRIES)
     {
         SortPocket(slots, count);
@@ -150,24 +150,24 @@ struct ItemSlot * Pocket_GetItemSlotForRemove(struct ItemSlot * slots, u32 count
     return NULL;
 }
 
-struct ItemSlot * Bag_GetItemSlotForRemove(struct Bag * bag, u16 item_id, u16 quantity, u32 heap_id)
+struct ItemSlot * Bag_GetItemSlotForRemove(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
 {
     struct ItemSlot * slots;
     u32 count;
-    (void)Bag_GetItemPocket(bag, item_id, &slots, &count, heap_id);
+    (void)Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
     return Pocket_GetItemSlotForRemove(slots, count, item_id, quantity);
 }
 
-BOOL Bag_TakeItem(struct Bag * bag, u16 item_id, u16 quantity, u32 heap_id)
+BOOL Bag_TakeItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
 {
-    struct ItemSlot * slots = Bag_GetItemSlotForRemove(bag, item_id, quantity, heap_id);
+    struct ItemSlot * slots = Bag_GetItemSlotForRemove(bag, item_id, quantity, heapId);
     if (slots == NULL)
         return FALSE;
     slots->quantity -= quantity;
     if (slots->quantity == 0)
         slots->id = ITEM_NONE;
     u32 count;
-    (void)Bag_GetItemPocket(bag, item_id, &slots, &count, heap_id);
+    (void)Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
     PocketCompaction(slots, count);
     return TRUE;
 }
@@ -184,9 +184,9 @@ BOOL Pocket_TakeItem(struct ItemSlot * slots, u32 count, u16 item_id, u16 quanti
     return TRUE;
 }
 
-BOOL Bag_HasItem(struct Bag * bag, u16 item_id, u16 quantity, u32 heap_id)
+BOOL Bag_HasItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
 {
-    return Bag_GetItemSlotForRemove(bag, item_id, quantity, heap_id) != NULL;
+    return Bag_GetItemSlotForRemove(bag, item_id, quantity, heapId) != NULL;
 }
 
 BOOL Bag_PocketNotEmpty(struct Bag * bag, u32 pocket)
@@ -239,9 +239,9 @@ BOOL Bag_PocketNotEmpty(struct Bag * bag, u32 pocket)
     return FALSE;
 }
 
-u16 Bag_GetQuantity(struct Bag * bag, u16 item_id, u32 heap_id)
+u16 Bag_GetQuantity(struct Bag * bag, u16 item_id, HeapID heapId)
 {
-    struct ItemSlot * slot = Bag_GetItemSlotForRemove(bag, item_id, 1, heap_id);
+    struct ItemSlot * slot = Bag_GetItemSlotForRemove(bag, item_id, 1, heapId);
     if (slot == NULL)
         return 0;
     return slot->quantity;
@@ -294,9 +294,9 @@ void SortPocket(struct ItemSlot * slots, u32 count)
     }
 }
 
-struct BagView * CreateBagView(struct Bag * bag, const u8 * pockets, u32 heap_id)
+struct BagView * CreateBagView(struct Bag * bag, const u8 * pockets, HeapID heapId)
 {
-    struct BagView * view = BagView_New((u8)heap_id);
+    struct BagView * view = BagView_New((u8)heapId);
 
     for (u32 i = 0; pockets[i] != 0xFF; i++)
     {
@@ -380,9 +380,9 @@ struct Bag * Save_Bag_Get(struct SaveData * save)
     return (struct Bag *)SaveArray_Get(save, 3);
 }
 
-struct UnkStruct_0206F164 * sub_0206F164(u32 heap_id)
+struct UnkStruct_0206F164 * sub_0206F164(HeapID heapId)
 {
-    struct UnkStruct_0206F164 * ret = (struct UnkStruct_0206F164 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_0206F164));
+    struct UnkStruct_0206F164 * ret = (struct UnkStruct_0206F164 *)AllocFromHeap(heapId, sizeof(struct UnkStruct_0206F164));
     MI_CpuClear16(ret, sizeof(struct UnkStruct_0206F164));
     return ret;
 }

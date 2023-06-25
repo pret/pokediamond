@@ -5,8 +5,8 @@
 
 extern void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 
-MoveRelearner *sub_02088DD8(u32 heap_id) {
-    MoveRelearner *returnPointer = AllocFromHeap(heap_id, sizeof(MoveRelearner));
+MoveRelearner *sub_02088DD8(HeapID heapId) {
+    MoveRelearner *returnPointer = AllocFromHeap(heapId, sizeof(MoveRelearner));
     __builtin__clear(returnPointer, sizeof(MoveRelearner));
     return returnPointer;
 }
@@ -24,7 +24,7 @@ void sub_02088DF0(MoveRelearner *moveRelearner) {
 #define WOTBL_LVL(x) (/*(u8)*/(((x) & WOTBL_LVL_MASK) >> WOTBL_LVL_SHIFT))
 // i don't know why either.
 
-u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
+u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, HeapID heapId) {
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, 0);
     u8 forme = (u8)GetMonData(pokemon, MON_DATA_FORME, 0);
     u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, 0);
@@ -34,8 +34,8 @@ u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
         moves[i] = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + i, 0);
     }
 
-    u16 *tableFromFile = AllocFromHeap(heap_id, 44);
-    u16 *returnTable = AllocFromHeap(heap_id, 44);
+    u16 *tableFromFile = AllocFromHeap(heapId, 44);
+    u16 *returnTable = AllocFromHeap(heapId, 44);
 
     LoadWotbl_HandleAlternateForme(species, forme, tableFromFile);
 

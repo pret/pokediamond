@@ -16,7 +16,7 @@ sub_02063684: ; 0x02063684
 	add r5, r0, #0x0
 	bl sub_02063818
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x0
 	bl sub_0205F264
 	ldr r1, [r5, #0x1c]
@@ -32,7 +32,7 @@ sub_02063684: ; 0x02063684
 	add r0, #0x74
 	strh r1, [r0, #0x0]
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x0
 	bne _020636DA
@@ -63,10 +63,10 @@ sub_020636DC: ; 0x020636DC
 	bl sub_0206384C
 _020636F8:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F254
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	mov r1, #0x0
 	bl sub_0205F264
 	ldr r1, [r5, #0x1c]
@@ -92,7 +92,7 @@ _020636F8:
 	cmp r0, #0x0
 	bne _02063758
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0x0
 	bl sub_0205F284
 	add r0, r4, #0x0
@@ -140,8 +140,8 @@ sub_020637A8: ; 0x020637A8
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
-	bl sub_0205F204
+	bl Save_VarsFlags_Get
+	bl Save_VarsFlags_ClearSafariSysFlag
 	ldr r0, [r4, #0xc]
 	bl Save_Roamers_Get
 	bl sub_020603C8
@@ -153,8 +153,8 @@ sub_020637C4: ; 0x020637C4
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
-	bl sub_0205F204
+	bl Save_VarsFlags_Get
+	bl Save_VarsFlags_ClearSafariSysFlag
 	ldr r0, [r4, #0xc]
 	bl Save_Roamers_Get
 	bl sub_020603C8
@@ -165,8 +165,8 @@ sub_020637C4: ; 0x020637C4
 sub_020637E0: ; 0x020637E0
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
-	bl sub_0205F204
+	bl Save_VarsFlags_Get
+	bl Save_VarsFlags_ClearSafariSysFlag
 	pop {r3, pc}
 	.balign 4
 
@@ -174,7 +174,7 @@ sub_020637E0: ; 0x020637E0
 sub_020637F0: ; 0x020637F0
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r4, r0, #0x0
 	bl sub_0205ED2C
 	add r0, r4, #0x0

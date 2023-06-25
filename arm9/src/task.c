@@ -5,7 +5,7 @@
 
 struct TaskManager *FieldSys_CreateTask(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
 {
-    struct TaskManager *taskManager = AllocFromHeapAtEnd(32, sizeof(struct TaskManager));
+    struct TaskManager *taskManager = AllocFromHeapAtEnd(HEAP_ID_32, sizeof(struct TaskManager));
     taskManager->prev = NULL;
     taskManager->func = taskFunc;
     taskManager->state = 0;
@@ -13,7 +13,7 @@ struct TaskManager *FieldSys_CreateTask(struct FieldSystem * fieldSystem, TaskFu
     taskManager->unk10 = NULL;
     taskManager->unk14 = NULL;
     taskManager->fieldSystem = fieldSystem;
-    taskManager->unk1C = AllocFromHeapAtEnd(32, 4);
+    taskManager->unk1C = AllocFromHeapAtEnd(HEAP_ID_32, 4);
     return taskManager;
 }
 
@@ -104,7 +104,7 @@ BOOL sub_020464B8(struct TaskManager *taskManager)
 
 void sub_02046500(struct TaskManager *taskManager, u32 r5, u32 r4)
 {
-    u32 * r2 = AllocFromHeapAtEnd(32, 3 * sizeof(u32));
+    u32 * r2 = AllocFromHeapAtEnd(HEAP_ID_32, 3 * sizeof(u32));
     r2[0] = 0;
     r2[1] = r5;
     r2[2] = r4;

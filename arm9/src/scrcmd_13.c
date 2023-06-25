@@ -16,13 +16,13 @@ extern u32 sub_0204BA1C(struct FieldSystem*);
 extern u16 sub_0204BAC4(struct FieldSystem*);
 extern u16 sub_0204BAD4(struct FieldSystem*);
 extern u16 sub_0204BAE4(struct FieldSystem*);
-extern void sub_0205F224(struct ScriptState* state);
-extern void sub_0205F234(struct ScriptState* state);
-extern void sub_0208089C(struct Pokemon* pokemon, PlayerProfile* player, u32 a2, u32 a3, u32 heap_id);
+extern void sub_0205F224(struct SaveVarsFlags* state);
+extern void sub_0205F234(struct SaveVarsFlags* state);
+extern void sub_0208089C(struct Pokemon* pokemon, PlayerProfile* player, u32 a2, u32 a3, HeapID heapId);
 
 BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
+    struct SaveVarsFlags* state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
     u16 unk = ScriptGetVar(ctx);
 
     if (unk == 0)
@@ -46,7 +46,7 @@ BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 {
     void* unk = sub_02022528(ctx->fieldSystem->saveData);
-    struct Pokemon* pokemon = AllocMonZeroed(32);
+    struct Pokemon* pokemon = AllocMonZeroed(HEAP_ID_32);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 eggs = sub_0202C000(unk);
@@ -65,14 +65,14 @@ BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
 {
     void* unk = sub_02022528(ctx->fieldSystem->saveData);
     struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveData);
-    struct Pokemon* pokemon = AllocMonZeroed(32);
+    struct Pokemon* pokemon = AllocMonZeroed(HEAP_ID_32);
     PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
     struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData); // unused
 
     for (s32 i = 0; i < PARTY_SIZE; i++)
     {
         sub_0202BFD8(unk, i, pokemon);
-        sub_0208089C(pokemon, player, 2, 0, 32);
+        sub_0208089C(pokemon, player, 2, 0, HEAP_ID_32);
 
         struct BoxPokemon* box_mon = sub_020690E4(pokemon);
         GF_ASSERT(PCStorage_PlaceMonInFirstEmptySlotInAnyBox(pc, box_mon));

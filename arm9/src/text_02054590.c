@@ -12,8 +12,8 @@ void sub_02054590(enum GFPalLoadLocation location, u32 param1)
     {
         ResetAllTextPrinters();
     }
-    LoadFontPal0(location, GF_PAL_SLOT_OFFSET_13, 4);
-    LoadFontPal1(location, GF_PAL_SLOT_OFFSET_12, 4);
+    LoadFontPal0(location, GF_PAL_SLOT_OFFSET_13, HEAP_ID_4);
+    LoadFontPal1(location, GF_PAL_SLOT_OFFSET_12, HEAP_ID_4);
 }
 
 void sub_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2)
@@ -30,7 +30,7 @@ void sub_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2)
 
 void sub_02054608(struct Window *param0, struct Options *options)
 {
-    sub_0200CD68(param0->bgConfig, GetWindowBgId(param0), 994, 10, (u8)Options_GetFrame(options), 4);
+    sub_0200CD68(param0->bgConfig, GetWindowBgId(param0), 994, 10, (u8)Options_GetFrame(options), HEAP_ID_4);
     sub_0205464C(param0);
     DrawFrameAndWindow2(param0, 0, 994, 10);
 }
@@ -88,7 +88,7 @@ void sub_020546E0(
 
 void sub_02054744(struct Window *param0, u32 param1, u16 param2)
 {
-    sub_0200D300(param0->bgConfig, GetWindowBgId(param0), 0x399, 9, (u8)param1, param2, 4);
+    sub_0200D300(param0->bgConfig, GetWindowBgId(param0), 0x399, 9, (u8)param1, param2, HEAP_ID_4);
     FillWindowPixelBuffer(param0, 15);
     DrawFrameAndWindow3(param0, 0, 0x399, 9, (u8)param1);
 }

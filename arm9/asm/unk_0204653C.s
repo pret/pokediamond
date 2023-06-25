@@ -197,7 +197,7 @@ _02046690:
 	pop {r3-r7, pc}
 _020466A4:
 	ldr r0, [r6, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED3C
 	cmp r0, #0x0
 	beq _020466BC
@@ -594,7 +594,7 @@ sub_020469B8: ; 0x020469B8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x0
 	beq _020469F2
@@ -639,7 +639,7 @@ sub_02046A20: ; 0x02046A20
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205F214
 	cmp r0, #0x0
 	beq _02046A5A
@@ -765,7 +765,7 @@ _02046AFE:
 	pop {r4-r6, pc}
 _02046B3E:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	bl sub_0205ED3C
 	cmp r0, #0x0
 	beq _02046B56
@@ -879,7 +879,7 @@ sub_02046C1C: ; 0x02046C1C
 	add r4, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034E24
+	bl LocalFieldData_GetSafariBallsCounter
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x7
@@ -940,7 +940,7 @@ _02046CAA:
 	cmp r0, #0x4
 	bne _02046CD4
 	ldr r0, [r6, #0xc]
-	bl sub_02022504
+	bl Save_SafariZone_Get
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x10]
 	mov r1, #0x0

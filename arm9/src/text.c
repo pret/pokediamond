@@ -1,4 +1,5 @@
 #include "global.h"
+#include "gf_gfx_loader.h"
 #include "text.h"
 #include "MI_memory.h"
 #include "filesystem.h"
@@ -21,10 +22,6 @@ u8 UNK_021C570C;
 extern struct TextPrinter *sub_0201B6C8(void);
 
 extern void sub_0201C1A8(struct TextPrinter *printer);
-
-
-extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
-
 
 void SetFontsPointer(const struct FontInfo *fonts)
 {
@@ -171,7 +168,7 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
     if (!gFonts)
         return 0xff;
 
-    struct TextPrinter *printer = (struct TextPrinter *)AllocFromHeap(0, sizeof(struct TextPrinter));
+    struct TextPrinter *printer = (struct TextPrinter *)AllocFromHeap(HEAP_ID_DEFAULT, sizeof(struct TextPrinter));
 
     printer->active = TRUE;
     printer->state = 0;
@@ -330,10 +327,10 @@ void sub_0201C1A8(struct TextPrinter *printer)
 
 u16 *sub_0201C1B0(void)
 {
-    void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
-    struct UnkStruct_0200B870_sub * var;
-    void *tmp = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, NARC_font_narc_0005_NCGR, 0, &var, 0);
-    MI_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
+    void *res = AllocFromHeap(HEAP_ID_DEFAULT, 32 * 24 * sizeof(u16));
+    struct NNSG2dCharacterData * var;
+    void *tmp = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, NARC_font_narc_0005_NCGR, 0, &var, HEAP_ID_DEFAULT);
+    MI_CpuCopy32(var->pRawData, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;
 }

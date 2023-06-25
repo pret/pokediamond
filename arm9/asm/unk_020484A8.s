@@ -265,7 +265,7 @@ CallTask_GameClear: ; 0x02048694
 	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_Flags_Get
+	bl Save_VarsFlags_Get
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl Save_PlayerData_GetProfileAddr

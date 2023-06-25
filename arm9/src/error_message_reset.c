@@ -2,6 +2,7 @@
 #include "error_message_reset.h"
 #include "GX_layers.h"
 #include "gx.h"
+#include "heap.h"
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
 #include "bg_window.h"
@@ -114,21 +115,21 @@ void PrintErrorMessageAndReset()
         GXS_SetVisibleWnd(0);
 
         GX_SetBanks(&sErrorMessageBanksConfig);
-        ptr = BgConfig_Alloc(0);
+        ptr = BgConfig_Alloc(HEAP_ID_DEFAULT);
         SetBothScreensModesAndDisable(&sErrorMessageBgModeSet);
 
         InitBgFromTemplate(ptr, 0, &sErrorMessageBgTemplate, GX_BGMODE_0);
         BgClearTilemapBufferAndCommit(ptr, GF_BG_LYR_MAIN_0);
 
-        LoadUserFrameGfx1(ptr, GF_BG_LYR_MAIN_0, 503, 2, 0, 0);
+        LoadUserFrameGfx1(ptr, GF_BG_LYR_MAIN_0, 503, 2, 0, HEAP_ID_DEFAULT);
 
-        LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, 0);
-        BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, 0);
+        LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, HEAP_ID_DEFAULT);
+        BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, HEAP_ID_DEFAULT);
         BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
         BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
-        struct MsgData *msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, 0);
-        struct String *str = String_New(6 << 6, 0);
+        struct MsgData *msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, HEAP_ID_DEFAULT);
+        struct String *str = String_New(6 << 6, HEAP_ID_DEFAULT);
 
         ResetAllTextPrinters();
         AddWindow(ptr, &buf, &sErrorMessageWindowTemplate);

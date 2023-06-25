@@ -7,7 +7,7 @@
 #include "use_item_on_mon.h"
 #include "constants/moves.h"
 
-BOOL CanUseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveId, u32 heap_id)
+BOOL CanUseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveId, HeapID heapId)
 {
     s32 atkEv;
     s32 defEv;
@@ -19,7 +19,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveId, u32 h
     struct ItemData * itemData;
     u32 status;
 
-    itemData = LoadItemDataOrGfx(itemId, ITEMDATA_DATA, heap_id);
+    itemData = LoadItemDataOrGfx(itemId, ITEMDATA_DATA, heapId);
 
     if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PARTY_USE) != 1)
     {
@@ -266,13 +266,13 @@ BOOL CanUseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveId, u32 h
     return FALSE;
 }
 
-BOOL CanUseItemOnMonInParty(struct PlayerParty * party, u16 itemId, s32 partyIdx, s32 moveIdx, u32 heap_id)
+BOOL CanUseItemOnMonInParty(struct PlayerParty * party, u16 itemId, s32 partyIdx, s32 moveIdx, HeapID heapId)
 {
     struct Pokemon * pokemon = GetPartyMonByIndex(party, partyIdx);
-    return CanUseItemOnPokemon(pokemon, itemId, moveIdx, heap_id);
+    return CanUseItemOnPokemon(pokemon, itemId, moveIdx, heapId);
 }
 
-BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 location, u32 heap_id)
+BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 location, HeapID heapId)
 {
     s32 stack_data[8];
 #define sp6C stack_data[7]
@@ -286,7 +286,7 @@ BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 loc
     BOOL hadEffect;
     BOOL effectFound;
 
-    struct ItemData * itemData = LoadItemDataOrGfx(itemId, ITEMDATA_DATA, heap_id);
+    struct ItemData * itemData = LoadItemDataOrGfx(itemId, ITEMDATA_DATA, heapId);
     if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PARTY_USE) != 1)
     {
         FreeToHeap(itemData);
@@ -498,7 +498,7 @@ BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 loc
         {
             if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_LO))
             {
-                DoItemFriendshipMod(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_LO_PARAM), location, heap_id);
+                DoItemFriendshipMod(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_LO_PARAM), location, heapId);
                 FreeToHeap(itemData);
                 return hadEffect;
             }
@@ -507,7 +507,7 @@ BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 loc
         {
             if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_MED))
             {
-                DoItemFriendshipMod(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_MED_PARAM), location, heap_id);
+                DoItemFriendshipMod(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_MED_PARAM), location, heapId);
                 FreeToHeap(itemData);
                 return hadEffect;
             }
@@ -516,7 +516,7 @@ BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 loc
         {
             if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_HI))
             {
-                DoItemFriendshipMod(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_HI_PARAM), location, heap_id);
+                DoItemFriendshipMod(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_HI_PARAM), location, heapId);
                 FreeToHeap(itemData);
                 return hadEffect;
             }
@@ -534,10 +534,10 @@ BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 loc
 #undef sp54
 #undef sp50
 
-BOOL UseItemOnMonInParty(struct PlayerParty * party, u16 itemId, s32 partyIdx, s32 moveIdx, u16 location, u32 heap_id)
+BOOL UseItemOnMonInParty(struct PlayerParty * party, u16 itemId, s32 partyIdx, s32 moveIdx, u16 location, HeapID heapId)
 {
     struct Pokemon * pokemon = GetPartyMonByIndex(party, partyIdx);
-    return UseItemOnPokemon(pokemon, itemId, moveIdx, location, heap_id);
+    return UseItemOnPokemon(pokemon, itemId, moveIdx, location, heapId);
 }
 
 u8 MonMoveCanRestorePP(struct Pokemon * pokemon, s32 moveIdx)
@@ -664,7 +664,7 @@ BOOL CanItemModFriendship(struct Pokemon * pokemon, struct ItemData * itemData)
     return FALSE;
 }
 
-BOOL DoItemFriendshipMod(struct Pokemon * pokemon, s32 friendship, s32 mod, u16 location, u32 heap_id)
+BOOL DoItemFriendshipMod(struct Pokemon * pokemon, s32 friendship, s32 mod, u16 location, HeapID heapId)
 {
     if (friendship == 255 && mod > 0)
         return FALSE;
@@ -672,7 +672,7 @@ BOOL DoItemFriendshipMod(struct Pokemon * pokemon, s32 friendship, s32 mod, u16 
         return FALSE;
     if (mod > 0)
     {
-        if (GetItemAttr((u16)GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL), ITEMATTR_HOLD_EFFECT, heap_id) == HOLD_EFFECT_FRIENDSHIP_UP)
+        if (GetItemAttr((u16)GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL), ITEMATTR_HOLD_EFFECT, heapId) == HOLD_EFFECT_FRIENDSHIP_UP)
             mod = mod * 150 / 100;
         if (GetMonData(pokemon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL)
             mod++;
