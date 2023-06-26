@@ -18,9 +18,9 @@ typedef struct Pokedex
     /* 0x0108 */ u8 shellosGastrodon[2]; // Shellos/Gastrodon
     /* 0x0108 */ u8 burmyWormadam[2]; // Burmy/Wormadam
     /* 0x010C */ u8 seenUnown[28]; // Unown
-    /* 0x0128 */ u8 field_0128;
+    /* 0x0128 */ u8 unlockedGenderEntries;
     /* 0x0129 */ u8 meister[14]; // Meister?
-    /* 0x0137 */ u8 field_0137;
+    /* 0x0137 */ u8 unlockedForeignEntries;
     /* 0x0138 */ u8 unlockedSinnohDex;
     /* 0x0139 */ u8 unlockedNationalDex;
     /* 0x013A */ u8 padding_013A[2];
@@ -75,11 +75,11 @@ void Pokedex_SetMonSeenFlag(struct Pokedex * pokedex, struct Pokemon * pokemon);
 void Pokedex_SetMonCaughtFlag(struct Pokedex * pokedex, struct Pokemon * pokemon);
 void Pokedex_SetNatDexFlag(struct Pokedex * pokedex);
 BOOL Pokedex_GetNatDexFlag(struct Pokedex * pokedex);
-BOOL sub_02024CC4(struct Pokedex * pokedex);
-void sub_02024CE0(struct Pokedex * pokedex);
+BOOL Pokedex_GetGenderEntriesFlag(struct Pokedex * pokedex);
+void Pokedex_SetGenderEntriesFlag(struct Pokedex * pokedex);
 s32 Pokedex_GetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 species, u32 language);
-void sub_02024D4C(struct Pokedex * pokedex);
-BOOL sub_02024D58(struct Pokedex * pokedex);
+void Pokedex_SetForeignEntriesFlag(struct Pokedex * pokedex);
+BOOL Pokedex_GetForeignEntriesFlag(struct Pokedex * pokedex);
 BOOL Pokedex_GetSinnohDexFlag(struct Pokedex * pokedex);
 void Pokedex_SetSinnohDexFlag(struct Pokedex * pokedex);
 struct Pokedex * Save_Pokedex_Get(struct SaveData * save);

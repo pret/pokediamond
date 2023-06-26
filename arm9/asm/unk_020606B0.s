@@ -121,8 +121,8 @@ _0206078A:
 	add sp, #0x8
 	pop {r4-r6, pc}
 
-	thumb_func_start sub_02060790
-sub_02060790: ; 0x02060790
+	thumb_func_start CallTask_NPCTrade
+CallTask_NPCTrade: ; 0x02060790
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r5, r1, #0x0

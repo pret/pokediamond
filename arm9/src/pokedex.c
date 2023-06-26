@@ -699,16 +699,16 @@ BOOL Pokedex_GetNatDexFlag(struct Pokedex * pokedex)
     return pokedex->unlockedNationalDex;
 }
 
-BOOL sub_02024CC4(struct Pokedex * pokedex)
+BOOL Pokedex_GetGenderEntriesFlag(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    return pokedex->field_0128;
+    return pokedex->unlockedGenderEntries;
 }
 
-void sub_02024CE0(struct Pokedex * pokedex)
+void Pokedex_SetGenderEntriesFlag(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    pokedex->field_0128 = 1;
+    pokedex->unlockedGenderEntries = 1;
 }
 
 s32 Pokedex_GetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 species, u32 language)
@@ -722,14 +722,14 @@ s32 Pokedex_GetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 spe
     return pokedex->meister[r5] & (1 << r0);
 }
 
-void sub_02024D4C(struct Pokedex * pokedex)
+void Pokedex_SetForeignEntriesFlag(struct Pokedex * pokedex)
 {
-    pokedex->field_0137 = 1;
+    pokedex->unlockedForeignEntries = 1;
 }
 
-BOOL sub_02024D58(struct Pokedex * pokedex)
+BOOL Pokedex_GetForeignEntriesFlag(struct Pokedex * pokedex)
 {
-    return pokedex->field_0137;
+    return pokedex->unlockedForeignEntries;
 }
 
 BOOL Pokedex_GetSinnohDexFlag(struct Pokedex * pokedex)

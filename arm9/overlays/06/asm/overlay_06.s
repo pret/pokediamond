@@ -31023,8 +31023,8 @@ _0224886C:
 	add sp, #0x104
 	pop {r3, r4, r5, r6, pc}
 
-	thumb_func_start ov06_022488CC
-ov06_022488CC: ; 0x022488CC
+	thumb_func_start NPCTradeApp_Delete
+NPCTradeApp_Delete: ; 0x022488CC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
@@ -31038,15 +31038,15 @@ ov06_022488CC: ; 0x022488CC
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start ov06_022488EC
-ov06_022488EC: ; 0x022488EC
+	thumb_func_start NPCTradeApp_GetOfferedSpecies
+NPCTradeApp_GetOfferedSpecies: ; 0x022488EC
 	ldr r0, [r0]
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
 
-	thumb_func_start ov06_022488F4
-ov06_022488F4: ; 0x022488F4
+	thumb_func_start NPCTradeApp_GetRequestedSpecies
+NPCTradeApp_GetRequestedSpecies: ; 0x022488F4
 	ldr r0, [r0]
 	ldr r0, [r0, #0x4c]
 	bx lr
@@ -38522,8 +38522,8 @@ _0224C278:
 	mov r0, #0
 	pop {r4, pc}
 
-	thumb_func_start ov06_0224C27C
-ov06_0224C27C: ; 0x0224C27C
+	thumb_func_start CallTask_PokecenterAnimation
+CallTask_PokecenterAnimation: ; 0x0224C27C
 	push {r4, r5, r6, lr}
 	sub sp, #0x20
 	add r6, r1, #0
