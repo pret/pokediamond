@@ -338,8 +338,9 @@ extern void sub_020607D4(FieldSystem *fieldSystem, u8 shipDirection, u8 playerOr
 extern s32 ov06_0224D14C(PlayerProfile *playerProfile, u16 param1, u16 param2, u16 param3, u16 param4);
 extern u32 sub_02026CB4(SaveData *saveData);
 extern u16 sub_020269CC(u32 param0);
-extern void ov06_0224C678(FieldSystem *fieldSystem, u8 param0);
-extern void ov06_0224C6E8(FieldSystem *fieldSystem, u8 param0);
+extern void ov06_0224C678(FieldSystem *fieldSystem, u8 param1);
+extern void ov06_0224C6E8(FieldSystem *fieldSystem, u8 param1);
+extern void ov06_0224C6F4(FieldSystem *fieldSystem, u8 param1);
 
 u8 UNK_021C5A0C[4];
 
