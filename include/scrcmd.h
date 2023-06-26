@@ -375,6 +375,19 @@ BOOL ScrCmd_NPCTradeEnd(ScriptContext *ctx);
 BOOL ScrCmd_UnlockForeignEntries(ScriptContext *ctx);
 BOOL ScrCmd_UnlockGenderEntries(ScriptContext *ctx);
 BOOL ScrCmd_NationalDex(ScriptContext *ctx);
+BOOL ScrCmd_GetTotalPokemonEVs(ScriptContext *ctx);
+BOOL ScrCmd_GetDayOfWeek(ScriptContext *ctx);
+BOOL ScrCmd_Unk0239(ScriptContext *ctx);
+BOOL ScrCmd_GetPokemonFootprint(ScriptContext *ctx);
+BOOL ScrCmd_PokecenterHealAnimation(ScriptContext *ctx);
+BOOL ScrCmd_ElevatorAnimation(ScriptContext *ctx);
+BOOL ScrCmd_ShipAnimation(ScriptContext *ctx);
+BOOL ScrCmd_GetGameVersion(ScriptContext *ctx);
+BOOL ScrCmd_GiveWallpaper(ScriptContext *ctx);
+BOOL ScrCmd_Unk024A(ScriptContext *ctx);
+BOOL ScrCmd_Unk024B(ScriptContext *ctx);
+BOOL ScrCmd_Unk024C(ScriptContext *ctx);
+BOOL ScrCmd_Unk024D(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

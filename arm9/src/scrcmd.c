@@ -9,6 +9,7 @@
 #include "constants/sndseq.h"
 #include "constants/weather.h"
 #include "fashion_case.h"
+#include "gf_rtc.h"
 #include "hall_of_fame.h"
 #include "main.h"
 #include "math_util.h"
@@ -18,6 +19,7 @@
 #include "player_data.h"
 #include "poketch.h"
 #include "pokedex.h"
+#include "pokemon_storage_system.h"
 #include "render_window.h"
 #include "safari_zone.h"
 #include "save.h"
@@ -27,6 +29,7 @@
 #include "text_02054590.h"
 #include "unk_0200CA44.h"
 #include "unk_020139D8.h"
+#include "unk_02022504.h"
 #include "unk_02029FB0.h"
 #include "unk_020337E8.h"
 #include "unk_020377F0.h"
@@ -133,7 +136,6 @@ extern BOOL CheckContestPortraitSlotFull(SaveFashionData *fashionData, u32 portr
 extern void ov05_021F02C4(FieldSystem *fieldSystem);
 extern void sub_0206F3B8(TaskManager *taskManager);
 extern u16 sub_02031190(void);
-extern void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species);
 extern void ov05_021E1374(TaskManager *taskManager, MessageFormat *messageFormat, u16 *ptr);
 extern void ov05_021E1994(FieldSystem *fieldSystem, LocalMapObject *lastInteracted);
 extern void sub_0208A338(TaskManager *taskManager);
@@ -327,6 +329,17 @@ extern u16 NPCTradeApp_GetOfferedSpecies(NPCTradeAppData *npcTradeAppData);
 extern u16 NPCTradeApp_GetRequestedSpecies(NPCTradeAppData *npcTradeAppData);
 extern void CallTask_NPCTrade(TaskManager *taskManager, NPCTradeAppData *npcTradeAppData, u16 partyPosition, HeapID heapId);
 extern void NPCTradeApp_Delete(NPCTradeAppData *npcTradeAppData);
+extern void ov06_022411F4(TaskManager *taskManager, u16 *var);
+extern u16 ov05_021F61E8(u16 species);
+extern u16 ov05_021F61DC(u16 species);
+extern void CallTask_PokecenterAnimation(FieldSystem *fieldSystem, u8 balls);
+extern void ov06_0224C520(FieldSystem *fieldSystem, u8 direction, u8 length);
+extern void sub_020607D4(FieldSystem *fieldSystem, u8 shipDirection, u8 playerOrientation, u16 destId, u16 destX, u16 destZ);
+extern s32 ov06_0224D14C(PlayerProfile *playerProfile, u16 param1, u16 param2, u16 param3, u16 param4);
+extern u32 sub_02026CB4(SaveData *saveData);
+extern u16 sub_020269CC(u32 param0);
+extern void ov06_0224C678(FieldSystem *fieldSystem, u8 param0);
+extern void ov06_0224C6E8(FieldSystem *fieldSystem, u8 param0);
 
 u8 UNK_021C5A0C[4];
 
@@ -355,7 +368,7 @@ static BOOL sub_0203B218(ScriptContext *ctx);
 /*static*/ BOOL sub_0203BB90(ScriptContext *ctx);
 static BOOL sub_0203BBBC(ScriptContext *ctx);
 /*static*/ BOOL sub_0203BC04(ScriptContext *ctx);
-static BOOL CheckPortraitSlotFullInternal(FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
+static BOOL Script_CheckPortraitSlotFull(FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static BOOL sub_0203BE9C(ScriptContext *ctx);
 static BOOL sub_0203C71C(ScriptContext *ctx);
@@ -370,6 +383,7 @@ static BOOL sub_0203D6E0(ScriptContext *ctx);
 static BOOL sub_0203D904(ScriptContext *ctx);
 static BOOL sub_0203DDC0(ScriptContext *ctx);
 static BOOL sub_0203DE38(ScriptContext *ctx);
+static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -2079,7 +2093,7 @@ BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx) { //01F8
     return TRUE;
 }
 
-static BOOL CheckPortraitSlotFullInternal(FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
+static BOOL Script_CheckPortraitSlotFull(FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
     SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveData);
     if (!isContest) {
         if (!CheckPortraitSlotFull(fashionData, portraitSlot)) {
@@ -2095,7 +2109,7 @@ static BOOL CheckPortraitSlotFullInternal(FieldSystem *fieldSystem, BOOL isConte
 
 static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
     SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveData);
-    if (!CheckPortraitSlotFullInternal(fieldSystem, isContest, portraitSlot)) {
+    if (!Script_CheckPortraitSlotFull(fieldSystem, isContest, portraitSlot)) {
         return NULL;
     }
     FashionAppData *appData = AllocFromHeap(heapId, sizeof(FashionAppData));
@@ -2237,7 +2251,7 @@ BOOL ScrCmd_ShowContestPokemon(ScriptContext *ctx) { //00A8
 BOOL ScrCmd_CheckPortraitSlot(ScriptContext *ctx) { //012E
     u16 portraitSlot = ScriptReadHalfword(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    if (CheckPortraitSlotFullInternal(ctx->fieldSystem, FALSE, portraitSlot) == TRUE) {
+    if (Script_CheckPortraitSlotFull(ctx->fieldSystem, FALSE, portraitSlot) == TRUE) {
         *var = TRUE;
         return TRUE;
     }
@@ -2248,7 +2262,7 @@ BOOL ScrCmd_CheckPortraitSlot(ScriptContext *ctx) { //012E
 BOOL ScrCmd_CheckContestPortraitSlot(ScriptContext *ctx) { //012F
     u16 portraitSlot = ScriptReadHalfword(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    if (CheckPortraitSlotFullInternal(ctx->fieldSystem, TRUE, portraitSlot) == TRUE) {
+    if (Script_CheckPortraitSlotFull(ctx->fieldSystem, TRUE, portraitSlot) == TRUE) {
         *var = TRUE;
         return TRUE;
     }
@@ -3904,4 +3918,138 @@ BOOL ScrCmd_NationalDex(ScriptContext *ctx) { //022D
         GF_ASSERT(FALSE);
     }
     return FALSE;
+}
+
+BOOL ScrCmd_GetTotalPokemonEVs(ScriptContext *ctx) { //0233
+    u16 *var = ScriptGetVarPointer(ctx);
+    u16 partyPosition = ScriptGetVar(ctx);
+    Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), partyPosition);
+
+    u32 hpEv = GetMonData(mon, MON_DATA_HP_EV, NULL);
+    u32 atkEv = GetMonData(mon, MON_DATA_ATK_EV, NULL);
+    u32 defEv = GetMonData(mon, MON_DATA_DEF_EV, NULL);
+    u32 speedEv = GetMonData(mon, MON_DATA_SPEED_EV, NULL);
+    u32 spAtkEv = GetMonData(mon, MON_DATA_SPATK_EV, NULL);
+    u32 spDefEv = GetMonData(mon, MON_DATA_SPDEF_EV, NULL);
+
+    *var = hpEv + atkEv + defEv + speedEv + spAtkEv + spDefEv;
+    return FALSE;
+}
+
+BOOL ScrCmd_GetDayOfWeek(ScriptContext *ctx) { //0234
+    u16 *var = ScriptGetVarPointer(ctx);
+    RTCDate date;
+    GF_RTC_CopyDate(&date);
+    *var = date.week;
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0239(ScriptContext *ctx) { //0239
+    u16 *var = ScriptGetVarPointer(ctx);
+    ov06_022411F4(ctx->taskManager, var);
+    return TRUE;
+}
+
+BOOL ScrCmd_GetPokemonFootprint(ScriptContext *ctx) { //023A
+    u16 *var = ScriptGetVarPointer(ctx);
+    u16 *var2 = ScriptGetVarPointer(ctx);
+    u16 partyPosition = ScriptGetVar(ctx);
+    Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), partyPosition);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    *var = ov05_021F61E8(species);
+    *var2 = ov05_021F61DC(species);
+    return FALSE;
+}
+
+BOOL ScrCmd_PokecenterHealAnimation(ScriptContext *ctx) { //023B
+    u16 balls = ScriptGetVar(ctx);
+    CallTask_PokecenterAnimation(ctx->fieldSystem, balls);
+    return TRUE;
+}
+
+BOOL ScrCmd_ElevatorAnimation(ScriptContext *ctx) { //023C
+    u16 direction = ScriptGetVar(ctx);
+    u16 length = ScriptGetVar(ctx);
+    ov06_0224C520(ctx->fieldSystem, direction, length);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShipAnimation(ScriptContext *ctx) { //023D
+    u8 shipDirection = ScriptReadByte(ctx);
+    u8 playerOrientation = ScriptReadByte(ctx);
+    u16 destId = ScriptReadHalfword(ctx);
+    u16 destX = ScriptReadHalfword(ctx);
+    u16 destZ = ScriptReadHalfword(ctx);
+
+    sub_020607D4(ctx->fieldSystem, shipDirection, playerOrientation, destId, destX, destZ);
+    return TRUE;
+}
+
+BOOL ScrCmd_GetGameVersion(ScriptContext *ctx) { //0246
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = GAME_VERSION;
+    return FALSE;
+}
+
+BOOL ScrCmd_GiveWallpaper(ScriptContext *ctx) { //0249 - used for easy chat unlock, todo: find better name
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(fieldSystem));
+    u16 *var = ScriptGetVarPointer(ctx);
+    PCStorage *pcStorage = GetStoragePCPointer(fieldSystem->saveData);
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
+    u16 unk3 = ScriptGetVar(ctx);
+
+    s32 wallpaperId = ov06_0224D14C(playerProfile, unk0, unk1, unk2, unk3);
+    if (wallpaperId == -1 || wallpaperId > 7) {
+        *var = 0xFF;
+        return FALSE;
+    } else {
+        if (PCStorage_IsBonusWallpaperUnlocked(pcStorage, wallpaperId)) {
+            *var = 0;
+        } else {
+            PCStorage_UnlockBonusWallpaper(pcStorage, wallpaperId);
+            *var = wallpaperId + 1;
+        }
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk024A(ScriptContext *ctx) { //024A
+    SaveData *saveData = ctx->fieldSystem->saveData;
+    u16 *var = ScriptGetVarPointer(ctx);
+
+    *var = sub_020269CC(sub_02026CB4(saveData));
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk024B(ScriptContext *ctx) { //024B - todo: PreparePCAnimation?
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u8 unk0 = ScriptReadByte(ctx);
+    ov06_0224C678(fieldSystem, unk0);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk024C(ScriptContext *ctx) { //024C - todo: OpenPCAnimation?
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u8 unk0 = ScriptReadByte(ctx);
+    ov06_0224C6E8(fieldSystem, unk0);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk024D(ScriptContext *ctx) { //024D - todo: ClosePCAnimation?
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u8 unk0 = ScriptReadByte(ctx);
+    ov06_0224C6F4(fieldSystem, unk0);
+    return FALSE;
+}
+
+static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species) {
+    Pokedex *pokedex = Save_Pokedex_Get(fieldSystem->saveData);
+    Pokemon *mon = AllocMonZeroed(HEAP_ID_32);
+    ZeroMonData(mon);
+    CreateMon(mon, species, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    Pokedex_SetMonSeenFlag(pokedex, mon);
+    FreeToHeap(mon);
 }

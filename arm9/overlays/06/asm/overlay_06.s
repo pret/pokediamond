@@ -38522,8 +38522,8 @@ _0224C278:
 	mov r0, #0
 	pop {r4, pc}
 
-	thumb_func_start ov06_0224C27C
-ov06_0224C27C: ; 0x0224C27C
+	thumb_func_start CallTask_PokecenterAnimation
+CallTask_PokecenterAnimation: ; 0x0224C27C
 	push {r4, r5, r6, lr}
 	sub sp, #0x20
 	add r6, r1, #0

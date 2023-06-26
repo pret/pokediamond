@@ -712,17 +712,17 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_PartyMonHasRibbon
 	.word ScrCmd_GivePartyMonRibbon
 	.word ScrCmd_GetRibbonName
-	.word ScrCmd_Unk0233
-	.word ScrCmd_Unk0234
+	.word ScrCmd_GetTotalPokemonEVs
+	.word ScrCmd_GetDayOfWeek
 	.word ScrCmd_Unk0235
 	.word ScrCmd_Unk0236
 	.word ScrCmd_Unk0237
 	.word ScrCmd_Unk0238
 	.word ScrCmd_Unk0239
-	.word ScrCmd_Unk023A
-	.word ScrCmd_Unk023B
-	.word ScrCmd_Unk023C
-	.word ScrCmd_Unk023D
+	.word ScrCmd_GetPokemonFootprint
+	.word ScrCmd_PokecenterHealAnimation
+	.word ScrCmd_ElevatorAnimation
+	.word ScrCmd_ShipAnimation
 	.word ScrCmd_Unk023E
 	.word ScrCmd_Unk023F
 	.word ScrCmd_Unk0240
@@ -731,7 +731,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0243
 	.word ScrCmd_Unk0244
 	.word ScrCmd_Unk0245
-	.word ScrCmd_GameVersion
+	.word ScrCmd_GetGameVersion
 	.word ScrCmd_GetLeadingPartyMonSlot
 	.word ScrCmd_GetPartyMonTypes
 	.word ScrCmd_GiveWallpaper
