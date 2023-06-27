@@ -448,7 +448,7 @@ typedef enum {
     UNOWN_Z = 25,
     UNOWN_EXCLAMATION_MARK = 26,
     UNOWN_QUESTION_MARK = 27
-} AlternateForms;
+} AlternateFormes;
 
 typedef enum EvoMethod
 {

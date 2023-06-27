@@ -743,7 +743,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk024F
 	.word ScrCmd_Unk0250
 	.word ScrCmd_Unk0251
-	.word ScrCmd_PCFreeSpace
+	.word ScrCmd_CountPCFreeSpace
 	.word ScrCmd_Unk0253
 	.word ScrCmd_Unk0254
 	.word ScrCmd_Unk0255
@@ -757,10 +757,10 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk025D
 	.word ScrCmd_Unk025E
 	.word ScrCmd_Unk025F
-	.word ScrCmd_Unk0260
+	.word ScrCmd_AddSpecialGameStat
 	.word ScrCmd_GetFashionName
-	.word ScrCmd_Unk0262
-	.word ScrCmd_Unk0263
+	.word ScrCmd_CheckPokemonInParty
+	.word ScrCmd_SetDeoxysForme
 	.word ScrCmd_Unk0264
 	.word ScrCmd_Unk0265
 	.word ScrCmd_Unk0266

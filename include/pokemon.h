@@ -85,7 +85,7 @@ typedef struct {
     /* 0x10 */ u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
     // TODO: Finish HoennRibbonSet
     /* 0x14 */ u32 ribbonFlags; // cool, ...
-    /* 0x18 */ u8 fatefulEncounter:1, gender:2, alternateForm:5;
+    /* 0x18 */ u8 fatefulEncounter:1, gender:2, alternateForme:5;
     /* 0x19 */ u8 HGSS_shinyLeaves; // TODO: Turn into bitfield
     /* 0x1A */ u16 Unused;
     /* 0x1C */ u16 Platinum_EggLocation;
@@ -229,7 +229,7 @@ void AddMonData(struct Pokemon * pokemon, int attr, int amount);
 struct BaseStats * AllocAndLoadMonPersonal(int species, HeapID heapId);
 int GetPersonalAttr(struct BaseStats * baseStats, enum BaseStat attr);
 void FreeMonPersonal(struct BaseStats * personal);
-int GetMonBaseStat_HandleFormeConversion(int species, int form, enum BaseStat stat_id);
+int GetMonBaseStat_HandleFormeConversion(int species, int forme, enum BaseStat stat_id);
 int GetMonBaseStat(int species, enum BaseStat stat_id);
 u8 GetPercentProgressTowardsNextLevel(struct Pokemon * pokemon);
 u32 CalcMonExpToNextLevel(struct Pokemon * pokemon);

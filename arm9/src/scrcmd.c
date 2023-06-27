@@ -341,6 +341,14 @@ extern u16 sub_020269CC(u32 param0);
 extern void ov06_0224C678(FieldSystem *fieldSystem, u8 param1);
 extern void ov06_0224C6E8(FieldSystem *fieldSystem, u8 param1);
 extern void ov06_0224C6F4(FieldSystem *fieldSystem, u8 param1);
+extern u16 ov05_021E7184(FieldSystem *fieldSystem);
+extern void ov05_021E71E8(u32 playerState);
+extern void ov06_0224E554(FieldSystem *fieldSystem, u8 param0);
+extern void sub_0206486C(FieldSystem *fieldSystem);
+extern void sub_020649D4(FieldSystem *fieldSystem);
+extern BOOL sub_020649B0(FieldSystem *fieldSystem);
+extern void ov06_0224E764(FieldSystem *fieldSystem);
+extern void ov06_0224E7C4(FieldSystem *fieldSystem);
 
 u8 UNK_021C5A0C[4];
 
@@ -4053,4 +4061,90 @@ static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species
     CreateMon(mon, species, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
     Pokedex_SetMonSeenFlag(pokedex, mon);
     FreeToHeap(mon);
+}
+
+BOOL ScrCmd_CountPCFreeSpace(ScriptContext *ctx) { //0252
+    u16 *var = ScriptGetVarPointer(ctx);
+    u16 count = PCStorage_CountMonsAndEggsInAllBoxes(GetStoragePCPointer(ctx->fieldSystem->saveData));
+    *var = MONS_PER_BOX * NUM_BOXES - count;
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0258(ScriptContext *ctx) { //0258 - to do with player state types
+    u32 *playerState = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_UNKNOWN_22);
+    *playerState = PLAYER_STATE_WALKING;
+    *playerState = ov05_021E7184(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk0259(ScriptContext *ctx) { //0259
+    u32 *playerState = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_UNKNOWN_22);
+    ov05_021E71E8(*playerState);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk025A(ScriptContext *ctx) { //025A
+    u16 unk0 = ScriptGetVar(ctx);
+    ov06_0224E554(ctx->fieldSystem, unk0);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk025B(ScriptContext *ctx) { //025B
+    sub_0206486C(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk025C(ScriptContext *ctx) { //025C
+    sub_020649D4(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk025D(ScriptContext *ctx) { //025D
+    u16 *var = ScriptGetVarPointer(ctx);
+    if (sub_020649B0(ctx->fieldSystem)) {
+        *var = TRUE;
+    } else {
+        *var = FALSE;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk025E(ScriptContext *ctx) { //025E
+    ov06_0224E764(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk025F(ScriptContext *ctx) { //025F
+    ov06_0224E7C4(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx) { //0260
+    u16 statNumber = ScriptReadHalfword(ctx);
+    GameStats_AddSpecial(Save_GameStats_Get(ctx->fieldSystem->saveData), statNumber);
+    return FALSE;
+}
+
+BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx) { //0262
+    u16 species = ScriptGetVar(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = PartyHasMon(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), species);
+    return TRUE;
+}
+
+BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx) { //0263
+    u16 forme = ScriptGetVar(ctx);
+    PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
+    s32 partyCount = GetPartyCount(playerParty);
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    
+    for (s32 i = 0; i < partyCount; i++) {
+        Pokemon *mon = GetPartyMonByIndex(playerParty, i);
+        if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_DEOXYS) {
+            SetMonData(mon, MON_DATA_FORME, &forme);
+            CalcMonLevelAndStats(mon);
+            Pokedex_SetMonCaughtFlag(pokedex, mon);
+        }
+    }
+    return TRUE;
 }
