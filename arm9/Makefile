@@ -204,10 +204,11 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS) $(LIB
 
 # TODO: Move out to lib/Makefile
 $(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
-$(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -interworking -DFS_IMPLEMENT -enum int -i ../include -ir ../include-mw -ir lib/libc/include -ir lib/libnns/include -ir lib/NitroSDK/include -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+$(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/libc/include -ir lib/libnns/include -ir lib/NitroSDK/include -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 
 $(BUILD_DIR)/lib/libnns/%.o: MWCCVERSION = 1.2/sp3
 $(BUILD_DIR)/lib/libc/%.o: MWCCVERSION = 2.0/sp1
+$(BUILD_DIR)/lib/libc/%.o: MWCFLAGS += -ipa file
 
 ####################### Everything Else ######################
 
