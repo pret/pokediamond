@@ -3064,7 +3064,7 @@
 .extern ScrCmd_AddSpecialGameStat
 .extern ScrCmd_CheckPokemonInParty
 .extern ScrCmd_SetDeoxysForme
-.extern ScrCmd_Unk0264
+.extern ScrCmd_CheckBurmyFormes
 .extern ScrCmd_Unk0265
 .extern ScrCmd_Unk0266
 .extern ScrCmd_Unk0267

@@ -761,7 +761,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetFashionName
 	.word ScrCmd_CheckPokemonInParty
 	.word ScrCmd_SetDeoxysForme
-	.word ScrCmd_Unk0264
+	.word ScrCmd_CheckBurmyFormes
 	.word ScrCmd_Unk0265
 	.word ScrCmd_Unk0266
 	.word ScrCmd_Unk0267

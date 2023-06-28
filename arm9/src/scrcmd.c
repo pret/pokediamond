@@ -353,6 +353,7 @@ extern void ov06_0224E7C4(FieldSystem *fieldSystem);
 u8 UNK_021C5A0C[4];
 
 extern u8 *UNK_020F34E0;
+extern const u32 UNK_020F34FC[PARTY_SIZE];
 
 static BOOL RunPauseTimer(ScriptContext *ctx);
 static u32 Compare(u16 a, u16 b);
@@ -4148,3 +4149,127 @@ BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx) { //0263
     }
     return TRUE;
 }
+
+#ifdef NONMATCHING
+BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) { //0264
+    u16 *var = ScriptGetVarPointer(ctx);
+    PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
+    s32 partyCount = GetPartyCount(playerParty);
+
+    u32 unk0[PARTY_SIZE];
+    memcpy(unk0, UNK_020F34FC, sizeof(unk0));
+
+    u32 unk1 = 0;
+    for (s32 i = 0; i < partyCount; i++) {
+        s32 j;
+        BOOL hasMultiple;
+        Pokemon *mon = GetPartyMonByIndex(playerParty, i);
+        u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+        u32 forme = GetMonData(mon, MON_DATA_FORME, NULL);
+        if (species == SPECIES_BURMY) {
+            hasMultiple = FALSE;
+            unk0[i] = forme;
+            for (j = 0; j < i; j++) {
+                if (unk0[j] == forme) {
+                    hasMultiple = TRUE;
+                }
+            }
+            if (!hasMultiple) {
+                unk1++;
+            }
+        }
+    }
+    *var = unk1;
+    return TRUE;
+}
+#else
+asm BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) {
+	push {r3-r7, lr}
+	sub sp, #0x30
+	add r4, r0, #0x0
+	bl ScriptReadHalfword
+	add r1, r0, #0x0
+	add r0, r4, #0x0
+	add r0, #0x80
+	ldr r0, [r0, #0x0]
+	bl GetVarPointer
+	add r4, #0x80
+	str r0, [sp, #0x0]
+	ldr r0, [r4, #0x0]
+	ldr r0, [r0, #0xc]
+	bl SaveArray_PlayerParty_Get
+	str r0, [sp, #0xc]
+	bl GetPartyCount
+	add r2, sp, #0x18
+	mov r4, #0x0
+	ldr r3, =UNK_020F34FC
+	str r0, [sp, #0x8]
+	add r7, r2, #0x0
+	ldmia r3!, {r0-r1}
+	stmia r2!, {r0-r1}
+	ldmia r3!, {r0-r1}
+	stmia r2!, {r0-r1}
+	ldmia r3!, {r0-r1}
+	stmia r2!, {r0-r1}
+	ldr r0, [sp, #0x8]
+	str r4, [sp, #0x4]
+	cmp r0, #0x0
+	ble _0203EFFC
+	mov r5, #0x1
+	str r7, [sp, #0x14]
+_0203EFA2:
+	ldr r0, [sp, #0xc]
+	add r1, r4, #0x0
+	bl GetPartyMonByIndex
+	add r6, r0, #0x0
+	mov r1, #0x5
+	mov r2, #0x0
+	bl GetMonData
+	str r0, [sp, #0x10]
+	add r0, r6, #0x0
+	mov r1, #0x70
+	mov r2, #0x0
+	bl GetMonData
+	add r3, r0, #0x0
+	mov r0, #0x67
+	ldr r1, [sp, #0x10]
+	lsl r0, r0, #0x2
+	cmp r1, r0
+	bne _0203EFF2
+	mov r2, #0x0
+	add r1, r2, #0x0
+	str r3, [r7, #0x0]
+	cmp r4, #0x0
+	ble _0203EFE8
+	ldr r6, [sp, #0x14]
+_0203EFD8:
+	ldr r0, [r6, #0x0]
+	cmp r3, r0
+	bne _0203EFE0
+	add r2, r5, #0x0
+_0203EFE0:
+	add r1, r1, #0x1
+	add r6, r6, #0x4
+	cmp r1, r4
+	blt _0203EFD8
+_0203EFE8:
+	cmp r2, #0x0
+	bne _0203EFF2
+	ldr r0, [sp, #0x4]
+	add r0, r0, #0x1
+	str r0, [sp, #0x4]
+_0203EFF2:
+	ldr r0, [sp, #0x8]
+	add r4, r4, #0x1
+	add r7, r7, #0x4
+	cmp r4, r0
+	blt _0203EFA2
+_0203EFFC:
+	ldr r1, [sp, #0x4]
+	ldr r0, [sp, #0x0]
+	strh r1, [r0, #0x0]
+	mov r0, #0x1
+	add sp, #0x30
+	pop {r3-r7, pc}
+}
+#endif

@@ -400,6 +400,7 @@ BOOL ScrCmd_Unk025F(ScriptContext *ctx);
 BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx);
 BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx);
 BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx);
+BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);
