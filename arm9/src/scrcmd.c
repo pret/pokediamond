@@ -2122,7 +2122,7 @@ static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOO
         return NULL;
     }
     FashionAppData *appData = AllocFromHeap(heapId, sizeof(FashionAppData));
-    __builtin__clear(appData, sizeof(FashionAppData));
+    memset(appData, 0, sizeof(FashionAppData));
     appData->fashionData = fashionData;
     appData->isContest = isContest;
     appData->portraitSlot = portraitSlot;

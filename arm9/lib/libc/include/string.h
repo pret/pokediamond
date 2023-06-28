@@ -22,9 +22,6 @@ unsigned strspn(const signed char *a, const signed char *b);
 signed char *strtok(signed char *str, const signed char *sep);
 signed char *strstr(const signed char *haystack, const signed char *needle);
 
-//todo this is literally the ugliest hack in existence and it's not gonna work always - this didn't work
-//#define memset(mem, val, size) (val == 0 && __builtin_constant_p(size)) ? __builtin__clear(mem, size) : memset(mem, val, size)
-
 _MSL_END_EXTERN_C
 _MSL_END_NAMESPACE_STD
 

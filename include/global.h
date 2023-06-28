@@ -3,7 +3,7 @@
 
 #include "config.h"
 
-#include "MSL_String.h"
+#include <string.h>
 #include "function_target.h"
 #include "nitro/types.h"
 #include "constants/global.h"

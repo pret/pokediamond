@@ -4,7 +4,7 @@
 #include "main.h"
 #include "FS_rom.h"
 #include "PAD_pad.h"
-#include "MSL_String.h"
+#include "string.h"
 #include "tp.h"
 #include "unk_0201B4E8.h"
 #include "unk_02022450.h"

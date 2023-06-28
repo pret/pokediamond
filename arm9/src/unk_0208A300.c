@@ -6,7 +6,7 @@ struct UnkStruct_0208A300* sub_0208A300(HeapID heapId)
 {
     struct UnkStruct_0208A300* ret = AllocFromHeap(heapId, sizeof(struct UnkStruct_0208A300));
 
-    __builtin__clear(ret, sizeof(struct UnkStruct_0208A300));
+    memset(ret, 0, sizeof(struct UnkStruct_0208A300));
     ret->unk4 = 2;
 
     return ret;

@@ -24,7 +24,7 @@ void GF_RTC_GetDateTime(GF_RTC_Work * work);
 void GF_InitRTCWork(void)
 {
     RTC_Init();
-    __builtin__clear(&sGFRTCWork, sizeof(sGFRTCWork)); //todo: figure out how to use memset
+    memset(&sGFRTCWork, 0, sizeof(sGFRTCWork)); //todo: figure out how to use memset
     sGFRTCWork.getDateTimeSuccess = FALSE;
     sGFRTCWork.getDateTimeLock = FALSE;
     sGFRTCWork.getDateTimeSleep = 0;
