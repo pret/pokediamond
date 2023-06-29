@@ -298,7 +298,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetSphereCount
 	.word ScrCmd_GetSealCountFromId
 	.word ScrCmd_GiveSeals
-	.word ScrCmd_GetPokemonForme
+	.word ScrCmd_GetPokemonForm
 	.word ScrCmd_GiveMon
 	.word ScrCmd_GiveEgg
 	.word ScrCmd_SetPartyMonMove
@@ -760,8 +760,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_AddSpecialGameStat
 	.word ScrCmd_GetFashionName
 	.word ScrCmd_CheckPokemonInParty
-	.word ScrCmd_SetDeoxysForme
-	.word ScrCmd_CheckBurmyFormes
+	.word ScrCmd_SetDeoxysForm
+	.word ScrCmd_CheckBurmyForms
 	.word ScrCmd_Unk0265
 	.word ScrCmd_Unk0266
 	.word ScrCmd_Unk0267

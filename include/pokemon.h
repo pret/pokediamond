@@ -85,7 +85,7 @@ typedef struct {
     /* 0x10 */ u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
     // TODO: Finish HoennRibbonSet
     /* 0x14 */ u32 ribbonFlags; // cool, ...
-    /* 0x18 */ u8 fatefulEncounter:1, gender:2, alternateForme:5;
+    /* 0x18 */ u8 fatefulEncounter:1, gender:2, alternateForm:5;
     /* 0x19 */ u8 HGSS_shinyLeaves; // TODO: Turn into bitfield
     /* 0x1A */ u16 Unused;
     /* 0x1C */ u16 Platinum_EggLocation;
@@ -229,7 +229,7 @@ void AddMonData(struct Pokemon * pokemon, int attr, int amount);
 struct BaseStats * AllocAndLoadMonPersonal(int species, HeapID heapId);
 int GetPersonalAttr(struct BaseStats * baseStats, enum BaseStat attr);
 void FreeMonPersonal(struct BaseStats * personal);
-int GetMonBaseStat_HandleFormeConversion(int species, int forme, enum BaseStat stat_id);
+int GetMonBaseStat_HandleFormConversion(int species, int form, enum BaseStat stat_id);
 int GetMonBaseStat(int species, enum BaseStat stat_id);
 u8 GetPercentProgressTowardsNextLevel(struct Pokemon * pokemon);
 u32 CalcMonExpToNextLevel(struct Pokemon * pokemon);
@@ -251,10 +251,10 @@ u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
 u8 MonIsShiny(struct Pokemon * pokemon);
 u32 GenerateShinyPersonality(u32 otid);
 void sub_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon, u8 sp10);
-void sub_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 forme, u32 personality);
+void sub_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 form, u32 personality);
 u8 sub_02068E14(struct Pokemon * pokemon, u32 a1);
 u8 sub_02068E1C(struct BoxPokemon * boxmon, u32 a1);
-u8 sub_02068E88(int species, u8 gender, u32 a2, u8 forme, u32 pid);
+u8 sub_02068E88(int species, u8 gender, u32 a2, u8 form, u32 pid);
 u32 GetArceusTypeByHeldItemEffect(u16 plate);
 int sub_0206AA30(int a0);
 void sub_02068B68(struct SomeDrawPokemonStruct * spC, struct Pokemon * pokemon, u8 sp10);
@@ -288,13 +288,13 @@ void CopyPokemonToPokemon(struct Pokemon * src, struct Pokemon * dest);
 void CopyPokemonToBoxPokemon(struct Pokemon * src, struct BoxPokemon * dest);
 void CopyBoxPokemonToBoxPokemon(struct BoxPokemon * src, struct BoxPokemon * dest);
 s8 MonGetFlavorPreference(struct Pokemon * pokemon, int flavor);
-int Species_LoadLearnsetTable(u16 species, u32 forme, u16 * dest);
+int Species_LoadLearnsetTable(u16 species, u32 form, u16 * dest);
 void Party_GivePokerusAtRandom(struct PlayerParty * party);
 void Party_UpdatePokerus(struct PlayerParty * party, int r5);
 void Party_SpreadPokerus(struct PlayerParty * party);
 BOOL Pokemon_HasPokerus(struct Pokemon * pokemon);
 BOOL Pokemon_IsImmuneToPokerus(struct Pokemon * pokemon);
-void Pokemon_UpdateArceusForme(struct Pokemon * pokemon);
+void Pokemon_UpdateArceusForm(struct Pokemon * pokemon);
 void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, HeapID heapId);
 void sub_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
 void sub_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2);

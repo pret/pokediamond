@@ -3,7 +3,7 @@
 #include "pokemon.h"
 #include "unk_02088DD8.h"
 
-extern void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
+extern void LoadWotbl_HandleAlternateForm(int species, int form, u16 * wotbl);
 
 MoveRelearner *sub_02088DD8(HeapID heapId) {
     MoveRelearner *returnPointer = AllocFromHeap(heapId, sizeof(MoveRelearner));
@@ -26,7 +26,7 @@ void sub_02088DF0(MoveRelearner *moveRelearner) {
 
 u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, HeapID heapId) {
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, 0);
-    u8 forme = (u8)GetMonData(pokemon, MON_DATA_FORME, 0);
+    u8 form = (u8)GetMonData(pokemon, MON_DATA_FORM, 0);
     u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, 0);
     u16 moves[4];
 
@@ -37,7 +37,7 @@ u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, HeapID heapId) {
     u16 *tableFromFile = AllocFromHeap(heapId, 44);
     u16 *returnTable = AllocFromHeap(heapId, 44);
 
-    LoadWotbl_HandleAlternateForme(species, forme, tableFromFile);
+    LoadWotbl_HandleAlternateForm(species, form, tableFromFile);
 
     for (u8 i = 0, j, k = 0; i < 22; i++) {
         if (tableFromFile[i] == WOTBL_END) {

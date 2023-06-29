@@ -246,7 +246,7 @@ _02073F66:
 	add r2, sp, #0x0
 	bl SetMonData
 	add r0, r6, #0x0
-	bl Pokemon_UpdateArceusForme
+	bl Pokemon_UpdateArceusForm
 	ldr r2, _02074058 ; =0x0000069C
 	mov r1, #0x52
 	ldr r0, [r5, r2]
@@ -633,7 +633,7 @@ sub_020742A8: ; 0x020742A8
 	add r2, sp, #0x0
 	bl SetMonData
 	add r0, r5, #0x0
-	bl Pokemon_UpdateArceusForme
+	bl Pokemon_UpdateArceusForm
 	ldr r1, _02074330 ; =0x00000B25
 	mov r2, #0x2c
 	ldrb r3, [r4, r1]

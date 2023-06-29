@@ -147,7 +147,7 @@ BOOL ScrCmd_EventStopFollowing(ScriptContext *ctx);
 BOOL ScrCmd_Unk02AB(ScriptContext *ctx);
 BOOL ScrCmd_GetSealCountFromId(ScriptContext *ctx);
 BOOL ScrCmd_GiveSeals(ScriptContext *ctx);
-BOOL ScrCmd_GetPokemonForme(ScriptContext *ctx);
+BOOL ScrCmd_GetPokemonForm(ScriptContext *ctx);
 BOOL ScrCmd_ChoosePokemonMenu(ScriptContext *ctx);
 BOOL ScrCmd_OpenTradeScreen(ScriptContext *ctx);
 BOOL ScrCmd_UnionChoosePokemonMenu(ScriptContext *ctx);
@@ -399,8 +399,8 @@ BOOL ScrCmd_Unk025E(ScriptContext *ctx);
 BOOL ScrCmd_Unk025F(ScriptContext *ctx);
 BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx);
 BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx);
-BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx);
-BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx);
+BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx);
+BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

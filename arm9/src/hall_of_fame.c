@@ -37,7 +37,7 @@ void Save_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, R
             {
                 hof_party->party[j].species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
                 hof_party->party[j].level = (u8)GetMonData(mon, MON_DATA_LEVEL, NULL);
-                hof_party->party[j].forme = (u8)GetMonData(mon, MON_DATA_FORME, NULL);
+                hof_party->party[j].form = (u8)GetMonData(mon, MON_DATA_FORM, NULL);
                 hof_party->party[j].personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
                 hof_party->party[j].otid = GetMonData(mon, MON_DATA_OTID, NULL);
                 hof_party->party[j].moves[0] = (u16)GetMonData(mon, MON_DATA_MOVE1, NULL);
@@ -121,7 +121,7 @@ void Save_HOF_GetMonStatsByIndexPair(struct HallOfFame * hof, int a1, int a2, st
     dest->level = mon->level;
     dest->personality = mon->personality;
     dest->otid = mon->otid;
-    dest->forme = mon->forme;
+    dest->form = mon->form;
     CopyU16ArrayToString(dest->nickname, mon->nickname);
     CopyU16ArrayToString(dest->otname, mon->otname);
     for (int i = 0; i < 4; i++)

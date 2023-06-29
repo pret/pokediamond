@@ -11026,7 +11026,7 @@ _02237900:
 	ldr r0, [sp, #4]
 	add r1, r6, #0
 	mov r2, #1 ; BASE_ATK
-	bl GetMonBaseStat_HandleFormeConversion
+	bl GetMonBaseStat_HandleFormConversion
 	ldr r1, _02237AB0 ; =0x00002144
 	ldr r2, _02237AB4 ; =0x00003044
 	str r0, [r5, r1]
@@ -11058,7 +11058,7 @@ _02237900:
 	mov r2, #2 ; BASE_DEF
 	lsl r1, r1, #0x1b
 	lsr r1, r1, #0x1b
-	bl GetMonBaseStat_HandleFormeConversion
+	bl GetMonBaseStat_HandleFormConversion
 	add r1, r0, #0
 	ldr r0, _02237AB0 ; =0x00002144
 	ldr r0, [r5, r0]

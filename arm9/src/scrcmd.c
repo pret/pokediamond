@@ -1934,7 +1934,7 @@ BOOL ScrCmd_GiveSeals(ScriptContext *ctx) { //0094
     return FALSE;
 }
 
-BOOL ScrCmd_GetPokemonForme(ScriptContext *ctx) { //0095
+BOOL ScrCmd_GetPokemonForm(ScriptContext *ctx) { //0095
     u16 partyPosition = ScriptGetVar(ctx);
     u16 *variable = ScriptGetVarPointer(ctx);
 
@@ -4133,8 +4133,8 @@ BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx) { //0262
     return TRUE;
 }
 
-BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx) { //0263
-    u16 forme = ScriptGetVar(ctx);
+BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx) { //0263
+    u16 form = ScriptGetVar(ctx);
     PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
     s32 partyCount = GetPartyCount(playerParty);
     Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
@@ -4142,7 +4142,7 @@ BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx) { //0263
     for (s32 i = 0; i < partyCount; i++) {
         Pokemon *mon = GetPartyMonByIndex(playerParty, i);
         if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_DEOXYS) {
-            SetMonData(mon, MON_DATA_FORME, &forme);
+            SetMonData(mon, MON_DATA_FORM, &form);
             CalcMonLevelAndStats(mon);
             Pokedex_SetMonCaughtFlag(pokedex, mon);
         }
@@ -4151,7 +4151,7 @@ BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx) { //0263
 }
 
 #ifdef NONMATCHING
-BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) { //0264
+BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) { //0264
     u16 *var = ScriptGetVarPointer(ctx);
     PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
     s32 partyCount = GetPartyCount(playerParty);
@@ -4165,12 +4165,12 @@ BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) { //0264
         BOOL hasMultiple;
         Pokemon *mon = GetPartyMonByIndex(playerParty, i);
         u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-        u32 forme = GetMonData(mon, MON_DATA_FORME, NULL);
+        u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
         if (species == SPECIES_BURMY) {
             hasMultiple = FALSE;
-            unk0[i] = forme;
+            unk0[i] = form;
             for (j = 0; j < i; j++) {
-                if (unk0[j] == forme) {
+                if (unk0[j] == form) {
                     hasMultiple = TRUE;
                 }
             }
@@ -4183,7 +4183,7 @@ BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) { //0264
     return TRUE;
 }
 #else
-asm BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) {
+asm BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) {
 	push {r3-r7, lr}
 	sub sp, #0x30
 	add r4, r0, #0x0

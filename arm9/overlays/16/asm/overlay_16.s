@@ -4747,7 +4747,7 @@ ov16_021D9904: ; 0x021D9904
 _021D9912:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl Pokedex_GetSeenShellosForme
+	bl Pokedex_GetSeenShellosForm
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov16_021D9904
 
@@ -4762,7 +4762,7 @@ ov16_021D991C: ; 0x021D991C
 _021D992A:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl Pokedex_GetSeenGastrodonForme
+	bl Pokedex_GetSeenGastrodonForm
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov16_021D991C
 
@@ -4777,7 +4777,7 @@ ov16_021D9934: ; 0x021D9934
 _021D9942:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl Pokedex_GetSeenBurmyForme
+	bl Pokedex_GetSeenBurmyForm
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov16_021D9934
 
@@ -4792,7 +4792,7 @@ ov16_021D994C: ; 0x021D994C
 _021D995A:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl Pokedex_GetSeenWormadamForme
+	bl Pokedex_GetSeenWormadamForm
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov16_021D994C
 
@@ -4937,11 +4937,11 @@ _021D9A38: .word Pokedex_GetSeenSpindaPersonality
 
 	thumb_func_start ov16_021D9A3C
 ov16_021D9A3C: ; 0x021D9A3C
-	ldr r3, _021D9A44 ; =Pokedex_GetSeenDeoxysForme
+	ldr r3, _021D9A44 ; =Pokedex_GetSeenDeoxysForm
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A44: .word Pokedex_GetSeenDeoxysForme
+_021D9A44: .word Pokedex_GetSeenDeoxysForm
 	thumb_func_end ov16_021D9A3C
 
 	thumb_func_start ov16_021D9A48
@@ -30399,12 +30399,12 @@ ov16_021E5554: ; 0x021E5554
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
 	mov r2, #6 ; BASE_TYPE1
-	bl GetMonBaseStat_HandleFormeConversion
+	bl GetMonBaseStat_HandleFormConversion
 	add r6, r0, #0
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
 	mov r2, #7 ; BASE_TYPE2
-	bl GetMonBaseStat_HandleFormeConversion
+	bl GetMonBaseStat_HandleFormConversion
 	add r7, r0, #0
 	add r0, r6, #0
 	bl ov16_021E563C
