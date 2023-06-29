@@ -3,8 +3,8 @@
 
 	.section .data
 
-	.global firstSRTransformdMtxIdx_
-firstSRTransformdMtxIdx_: ; 0x02106570
+	.global firstSRTransformedMtxIdx_
+firstSRTransformedMtxIdx_: ; 0x02106570
 	.short -2
 	.balign 4, 0
 
@@ -111,7 +111,7 @@ NNS_G2dRotZ: ; 0x020B2794
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _020B2824
-	ldr r1, _020B28A4 ; =firstSRTransformdMtxIdx_
+	ldr r1, _020B28A4 ; =firstSRTransformedMtxIdx_
 	ldr r0, _020B28A8 ; =0x0000FFFE
 	ldrh r1, [r1, #0x0]
 	cmp r1, r0
@@ -122,7 +122,7 @@ _020B2824:
 _020B2828:
 	cmp r0, #0x0
 	ldreq r1, _020B2894 ; =stackPos_
-	ldreq r0, _020B28A4 ; =firstSRTransformdMtxIdx_
+	ldreq r0, _020B28A4 ; =firstSRTransformedMtxIdx_
 	ldreq r1, [r1, #0x0]
 	streqh r1, [r0, #0x0]
 	ldr r0, _020B2894 ; =stackPos_
@@ -155,7 +155,7 @@ _020B2894: .word stackPos_
 _020B2898: .word mtxStack_
 _020B289C: .word mtxStackFor2DHW_
 _020B28A0: .word bDonotUseSRTransform
-_020B28A4: .word firstSRTransformdMtxIdx_
+_020B28A4: .word firstSRTransformedMtxIdx_
 _020B28A8: .word 0x0000FFFE
 _020B28AC: .word mtxStateStack_
 _020B28B0: .word groupID_
@@ -206,7 +206,7 @@ NNS_G2dScale: ; 0x020B28B4
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _020B2978
-	ldr r1, _020B29F8 ; =firstSRTransformdMtxIdx_
+	ldr r1, _020B29F8 ; =firstSRTransformedMtxIdx_
 	ldr r0, _020B29FC ; =0x0000FFFE
 	ldrh r1, [r1, #0x0]
 	cmp r1, r0
@@ -217,7 +217,7 @@ _020B2978:
 _020B297C:
 	cmp r0, #0x0
 	ldreq r1, _020B29E8 ; =stackPos_
-	ldreq r0, _020B29F8 ; =firstSRTransformdMtxIdx_
+	ldreq r0, _020B29F8 ; =firstSRTransformedMtxIdx_
 	ldreq r1, [r1, #0x0]
 	streqh r1, [r0, #0x0]
 	ldr r0, _020B29E8 ; =stackPos_
@@ -250,7 +250,7 @@ _020B29E8: .word stackPos_
 _020B29EC: .word mtxStack_
 _020B29F0: .word mtxStackFor2DHW_
 _020B29F4: .word bDonotUseSRTransform
-_020B29F8: .word firstSRTransformdMtxIdx_
+_020B29F8: .word firstSRTransformedMtxIdx_
 _020B29FC: .word 0x0000FFFE
 _020B2A00: .word mtxStateStack_
 _020B2A04: .word groupID_
@@ -336,7 +336,7 @@ NNS_G2dPopMtx: ; 0x020B2B08
 	cmp r0, #0x0
 	bxne lr
 	ldr r1, _020B2B4C ; =stackPos_
-	ldr r0, _020B2B50 ; =firstSRTransformdMtxIdx_
+	ldr r0, _020B2B50 ; =firstSRTransformedMtxIdx_
 	ldr r3, [r1, #0x0]
 	ldrh r2, [r0, #0x0]
 	sub r3, r3, #0x1
@@ -347,7 +347,7 @@ NNS_G2dPopMtx: ; 0x020B2B08
 	bx lr
 	.balign 4
 _020B2B4C: .word stackPos_
-_020B2B50: .word firstSRTransformdMtxIdx_
+_020B2B50: .word firstSRTransformedMtxIdx_
 _020B2B54: .word 0x0000FFFE
 	arm_func_end NNS_G2dPopMtx
 
@@ -863,7 +863,7 @@ NNS_G2dBeginRendering: ; 0x020B326C
 	ldr r2, _020B3314 ; =stackPos_
 	mov r4, #0x0
 	ldr r7, _020B3318 ; =0x0000FFFE
-	ldr r1, _020B331C ; =firstSRTransformdMtxIdx_
+	ldr r1, _020B331C ; =firstSRTransformedMtxIdx_
 	str r0, [r3, #0x0]
 	str r4, [r2, #0x0]
 	strh r7, [r1, #0x0]
@@ -903,7 +903,7 @@ _020B330C: .word currentMtxCachePos_
 _020B3310: .word pCurrentInstance_
 _020B3314: .word stackPos_
 _020B3318: .word 0x0000FFFE
-_020B331C: .word firstSRTransformdMtxIdx_
+_020B331C: .word firstSRTransformedMtxIdx_
 _020B3320: .word mtxCacheBuffer_
 _020B3324: .word groupID_
 _020B3328: .word mtxStateStack_
@@ -967,7 +967,7 @@ NNS_G2dInitRenderer: ; 0x020B33A0
 	ldr r1, _020B3454 ; =stackPos_
 	strh r7, [r4, #0x94]
 	ldr r2, _020B3458 ; =0x0000FFFE
-	ldr r0, _020B345C ; =firstSRTransformdMtxIdx_
+	ldr r0, _020B345C ; =firstSRTransformedMtxIdx_
 	ldr r6, _020B3460 ; =mtxCacheBuffer_
 	str r7, [r1, #0x0]
 	strh r2, [r0, #0x0]
@@ -998,7 +998,7 @@ _020B3400:
 	.balign 4
 _020B3454: .word stackPos_
 _020B3458: .word 0x0000FFFE
-_020B345C: .word firstSRTransformdMtxIdx_
+_020B345C: .word firstSRTransformedMtxIdx_
 _020B3460: .word mtxCacheBuffer_
 _020B3464: .word currentMtxCachePos_
 _020B3468: .word groupID_
@@ -1193,7 +1193,7 @@ DrawCellImpl_: ; 0x020B36C0
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _020B3720
-	ldr r2, _020B3B5C ; =firstSRTransformdMtxIdx_
+	ldr r2, _020B3B5C ; =firstSRTransformedMtxIdx_
 	ldr r0, _020B3B60 ; =0x0000FFFE
 	ldrh r2, [r2, #0x0]
 	cmp r2, r0
@@ -1354,7 +1354,7 @@ _020B3908:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _020B3978
-	ldr r0, _020B3B5C ; =firstSRTransformdMtxIdx_
+	ldr r0, _020B3B5C ; =firstSRTransformedMtxIdx_
 	ldrh r2, [r0, #0x0]
 	ldr r0, _020B3B60 ; =0x0000FFFE
 	cmp r2, r0
@@ -1494,7 +1494,7 @@ _020B3B40:
 	.balign 4
 _020B3B54: .word pCurrentInstance_
 _020B3B58: .word bDonotUseSRTransform
-_020B3B5C: .word firstSRTransformdMtxIdx_
+_020B3B5C: .word firstSRTransformedMtxIdx_
 _020B3B60: .word 0x0000FFFE
 _020B3B64: .word mcRenderState_
 _020B3B68: .word mcRenderState_ + 0x4
