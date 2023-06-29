@@ -130,7 +130,7 @@ BOOL ov59_TVInit(struct OverlayManager *overlayManager, u32 *status)
 #pragma unused(status)
     CreateHeap(3, HEAP_ID_INTRO_TV, 0x40000);
     ov59_TVOverlayData *data = (ov59_TVOverlayData *)OverlayManager_CreateAndGetData(overlayManager, sizeof(ov59_TVOverlayData), HEAP_ID_INTRO_TV);
-    (void)memset((void *)data, 0, sizeof(ov59_TVOverlayData));
+    memset((void *)data, 0, sizeof(ov59_TVOverlayData));
     data->heapId = HEAP_ID_INTRO_TV;
     data->unk24 = 0;
     return TRUE;

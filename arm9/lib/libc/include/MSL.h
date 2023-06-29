@@ -3,6 +3,7 @@
 
 //include all msl files here
 
+#include "string.h"
 #include "MSL_Common_arith.h"
 #include "MSL_Common_rand.h"
 

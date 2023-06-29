@@ -6,7 +6,7 @@
 struct UnkStruct_020851B8 *sub_020851B8(u8 heapId)
 {
     struct UnkStruct_020851B8 *ptr = AllocFromHeap((HeapID)heapId, sizeof(struct UnkStruct_020851B8));
-    __builtin__clear(ptr, sizeof(struct UnkStruct_020851B8));
+    memset(ptr, 0, sizeof(struct UnkStruct_020851B8));
     return ptr;
 }
 

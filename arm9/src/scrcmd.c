@@ -341,10 +341,19 @@ extern u16 sub_020269CC(u32 param0);
 extern void ov06_0224C678(FieldSystem *fieldSystem, u8 param1);
 extern void ov06_0224C6E8(FieldSystem *fieldSystem, u8 param1);
 extern void ov06_0224C6F4(FieldSystem *fieldSystem, u8 param1);
+extern u16 ov05_021E7184(FieldSystem *fieldSystem);
+extern void ov05_021E71E8(u32 playerState);
+extern void ov06_0224E554(FieldSystem *fieldSystem, u8 param0);
+extern void sub_0206486C(FieldSystem *fieldSystem);
+extern void sub_020649D4(FieldSystem *fieldSystem);
+extern BOOL sub_020649B0(FieldSystem *fieldSystem);
+extern void ov06_0224E764(FieldSystem *fieldSystem);
+extern void ov06_0224E7C4(FieldSystem *fieldSystem);
 
 u8 UNK_021C5A0C[4];
 
 extern u8 *UNK_020F34E0;
+extern const u32 UNK_020F34FC[PARTY_SIZE];
 
 static BOOL RunPauseTimer(ScriptContext *ctx);
 static u32 Compare(u16 a, u16 b);
@@ -2114,7 +2123,7 @@ static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOO
         return NULL;
     }
     FashionAppData *appData = AllocFromHeap(heapId, sizeof(FashionAppData));
-    __builtin__clear(appData, sizeof(FashionAppData));
+    memset(appData, 0, sizeof(FashionAppData));
     appData->fashionData = fashionData;
     appData->isContest = isContest;
     appData->portraitSlot = portraitSlot;
@@ -4054,3 +4063,213 @@ static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species
     Pokedex_SetMonSeenFlag(pokedex, mon);
     FreeToHeap(mon);
 }
+
+BOOL ScrCmd_CountPCFreeSpace(ScriptContext *ctx) { //0252
+    u16 *var = ScriptGetVarPointer(ctx);
+    u16 count = PCStorage_CountMonsAndEggsInAllBoxes(GetStoragePCPointer(ctx->fieldSystem->saveData));
+    *var = MONS_PER_BOX * NUM_BOXES - count;
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0258(ScriptContext *ctx) { //0258 - to do with player state types
+    u32 *playerState = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_UNKNOWN_22);
+    *playerState = PLAYER_STATE_WALKING;
+    *playerState = ov05_021E7184(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk0259(ScriptContext *ctx) { //0259
+    u32 *playerState = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_UNKNOWN_22);
+    ov05_021E71E8(*playerState);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk025A(ScriptContext *ctx) { //025A
+    u16 unk0 = ScriptGetVar(ctx);
+    ov06_0224E554(ctx->fieldSystem, unk0);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk025B(ScriptContext *ctx) { //025B
+    sub_0206486C(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk025C(ScriptContext *ctx) { //025C
+    sub_020649D4(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk025D(ScriptContext *ctx) { //025D
+    u16 *var = ScriptGetVarPointer(ctx);
+    if (sub_020649B0(ctx->fieldSystem)) {
+        *var = TRUE;
+    } else {
+        *var = FALSE;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk025E(ScriptContext *ctx) { //025E
+    ov06_0224E764(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk025F(ScriptContext *ctx) { //025F
+    ov06_0224E7C4(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx) { //0260
+    u16 statNumber = ScriptReadHalfword(ctx);
+    GameStats_AddSpecial(Save_GameStats_Get(ctx->fieldSystem->saveData), statNumber);
+    return FALSE;
+}
+
+BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx) { //0262
+    u16 species = ScriptGetVar(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = PartyHasMon(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), species);
+    return TRUE;
+}
+
+BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx) { //0263
+    u16 forme = ScriptGetVar(ctx);
+    PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
+    s32 partyCount = GetPartyCount(playerParty);
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    
+    for (s32 i = 0; i < partyCount; i++) {
+        Pokemon *mon = GetPartyMonByIndex(playerParty, i);
+        if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_DEOXYS) {
+            SetMonData(mon, MON_DATA_FORME, &forme);
+            CalcMonLevelAndStats(mon);
+            Pokedex_SetMonCaughtFlag(pokedex, mon);
+        }
+    }
+    return TRUE;
+}
+
+#ifdef NONMATCHING
+BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) { //0264
+    u16 *var = ScriptGetVarPointer(ctx);
+    PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
+    s32 partyCount = GetPartyCount(playerParty);
+
+    u32 unk0[PARTY_SIZE];
+    memcpy(unk0, UNK_020F34FC, sizeof(unk0));
+
+    u32 unk1 = 0;
+    for (s32 i = 0; i < partyCount; i++) {
+        s32 j;
+        BOOL hasMultiple;
+        Pokemon *mon = GetPartyMonByIndex(playerParty, i);
+        u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+        u32 forme = GetMonData(mon, MON_DATA_FORME, NULL);
+        if (species == SPECIES_BURMY) {
+            hasMultiple = FALSE;
+            unk0[i] = forme;
+            for (j = 0; j < i; j++) {
+                if (unk0[j] == forme) {
+                    hasMultiple = TRUE;
+                }
+            }
+            if (!hasMultiple) {
+                unk1++;
+            }
+        }
+    }
+    *var = unk1;
+    return TRUE;
+}
+#else
+asm BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx) {
+	push {r3-r7, lr}
+	sub sp, #0x30
+	add r4, r0, #0x0
+	bl ScriptReadHalfword
+	add r1, r0, #0x0
+	add r0, r4, #0x0
+	add r0, #0x80
+	ldr r0, [r0, #0x0]
+	bl GetVarPointer
+	add r4, #0x80
+	str r0, [sp, #0x0]
+	ldr r0, [r4, #0x0]
+	ldr r0, [r0, #0xc]
+	bl SaveArray_PlayerParty_Get
+	str r0, [sp, #0xc]
+	bl GetPartyCount
+	add r2, sp, #0x18
+	mov r4, #0x0
+	ldr r3, =UNK_020F34FC
+	str r0, [sp, #0x8]
+	add r7, r2, #0x0
+	ldmia r3!, {r0-r1}
+	stmia r2!, {r0-r1}
+	ldmia r3!, {r0-r1}
+	stmia r2!, {r0-r1}
+	ldmia r3!, {r0-r1}
+	stmia r2!, {r0-r1}
+	ldr r0, [sp, #0x8]
+	str r4, [sp, #0x4]
+	cmp r0, #0x0
+	ble _0203EFFC
+	mov r5, #0x1
+	str r7, [sp, #0x14]
+_0203EFA2:
+	ldr r0, [sp, #0xc]
+	add r1, r4, #0x0
+	bl GetPartyMonByIndex
+	add r6, r0, #0x0
+	mov r1, #0x5
+	mov r2, #0x0
+	bl GetMonData
+	str r0, [sp, #0x10]
+	add r0, r6, #0x0
+	mov r1, #0x70
+	mov r2, #0x0
+	bl GetMonData
+	add r3, r0, #0x0
+	mov r0, #0x67
+	ldr r1, [sp, #0x10]
+	lsl r0, r0, #0x2
+	cmp r1, r0
+	bne _0203EFF2
+	mov r2, #0x0
+	add r1, r2, #0x0
+	str r3, [r7, #0x0]
+	cmp r4, #0x0
+	ble _0203EFE8
+	ldr r6, [sp, #0x14]
+_0203EFD8:
+	ldr r0, [r6, #0x0]
+	cmp r3, r0
+	bne _0203EFE0
+	add r2, r5, #0x0
+_0203EFE0:
+	add r1, r1, #0x1
+	add r6, r6, #0x4
+	cmp r1, r4
+	blt _0203EFD8
+_0203EFE8:
+	cmp r2, #0x0
+	bne _0203EFF2
+	ldr r0, [sp, #0x4]
+	add r0, r0, #0x1
+	str r0, [sp, #0x4]
+_0203EFF2:
+	ldr r0, [sp, #0x8]
+	add r4, r4, #0x1
+	add r7, r7, #0x4
+	cmp r4, r0
+	blt _0203EFA2
+_0203EFFC:
+	ldr r1, [sp, #0x4]
+	ldr r0, [sp, #0x0]
+	strh r1, [r0, #0x0]
+	mov r0, #0x1
+	add sp, #0x30
+	pop {r3-r7, pc}
+}
+#endif

@@ -3052,7 +3052,7 @@
 .extern ScrCmd_Unk024B
 .extern ScrCmd_Unk024C
 .extern ScrCmd_Unk024D
-.extern ScrCmd_PCFreeSpace
+.extern ScrCmd_CountPCFreeSpace
 .extern ScrCmd_Unk0258
 .extern ScrCmd_Unk0259
 .extern ScrCmd_Unk025A
@@ -3061,10 +3061,10 @@
 .extern ScrCmd_Unk025D
 .extern ScrCmd_Unk025E
 .extern ScrCmd_Unk025F
-.extern ScrCmd_Unk0260
-.extern ScrCmd_Unk0262
-.extern ScrCmd_Unk0263
-.extern ScrCmd_Unk0264
+.extern ScrCmd_AddSpecialGameStat
+.extern ScrCmd_CheckPokemonInParty
+.extern ScrCmd_SetDeoxysForme
+.extern ScrCmd_CheckBurmyFormes
 .extern ScrCmd_Unk0265
 .extern ScrCmd_Unk0266
 .extern ScrCmd_Unk0267

@@ -388,6 +388,19 @@ BOOL ScrCmd_Unk024A(ScriptContext *ctx);
 BOOL ScrCmd_Unk024B(ScriptContext *ctx);
 BOOL ScrCmd_Unk024C(ScriptContext *ctx);
 BOOL ScrCmd_Unk024D(ScriptContext *ctx);
+BOOL ScrCmd_CountPCFreeSpace(ScriptContext *ctx);
+BOOL ScrCmd_Unk0258(ScriptContext *ctx);
+BOOL ScrCmd_Unk0259(ScriptContext *ctx);
+BOOL ScrCmd_Unk025A(ScriptContext *ctx);
+BOOL ScrCmd_Unk025B(ScriptContext *ctx);
+BOOL ScrCmd_Unk025C(ScriptContext *ctx);
+BOOL ScrCmd_Unk025D(ScriptContext *ctx);
+BOOL ScrCmd_Unk025E(ScriptContext *ctx);
+BOOL ScrCmd_Unk025F(ScriptContext *ctx);
+BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx);
+BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx);
+BOOL ScrCmd_SetDeoxysForme(ScriptContext *ctx);
+BOOL ScrCmd_CheckBurmyFormes(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

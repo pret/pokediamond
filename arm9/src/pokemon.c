@@ -838,7 +838,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         ret = blockB->gender;
         break;
     case MON_DATA_FORME:
-        ret = blockB->alternateForm;
+        ret = blockB->alternateForme;
         break;
     case MON_DATA_RESERVED_113:
         ret = blockB->HGSS_shinyLeaves;
@@ -979,7 +979,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
             ret = (u32)GetArceusTypeByHeldItemEffect((u16)GetItemAttr(blockA->heldItem, 1, HEAP_ID_DEFAULT));
         else
         {
-            ret = (u32)GetMonBaseStat_HandleFormeConversion(blockA->species, blockB->alternateForm, (enum BaseStat)(attr - MON_DATA_TYPE_1 + BASE_TYPE1));
+            ret = (u32)GetMonBaseStat_HandleFormeConversion(blockA->species, blockB->alternateForme, (enum BaseStat)(attr - MON_DATA_TYPE_1 + BASE_TYPE1));
         }
         break;
     case MON_DATA_SPECIES_NAME:
@@ -1305,7 +1305,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockB->gender = VALUE(u8);
         break;
     case MON_DATA_FORME:
-        blockB->alternateForm = VALUE(u8);
+        blockB->alternateForme = VALUE(u8);
         break;
     case MON_DATA_RESERVED_113:
         blockB->HGSS_shinyLeaves = VALUE(u8);
@@ -2461,7 +2461,7 @@ u32 sub_020690C8(void)
     return sizeof(struct BoxPokemon);
 }
 
-u8 GetMonUnownLetter(struct Pokemon * pokemon)
+u8 GetMonUnownLetter(struct Pokemon * pokemon) //not just used for unown
 {
     return GetBoxMonUnownLetter(&pokemon->box);
 }

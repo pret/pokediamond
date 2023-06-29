@@ -7,7 +7,7 @@ extern void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 
 MoveRelearner *sub_02088DD8(HeapID heapId) {
     MoveRelearner *returnPointer = AllocFromHeap(heapId, sizeof(MoveRelearner));
-    __builtin__clear(returnPointer, sizeof(MoveRelearner));
+    memset(returnPointer, 0, sizeof(MoveRelearner));
     return returnPointer;
 }
 

@@ -390,7 +390,7 @@ BOOL ov59_IntroInit(struct OverlayManager *overlayManager, u32 *status)
 #pragma unused(status)
     CreateHeap(3, HEAP_ID_INTRO, 0x40000);
     ov59_IntroOverlayData *data = (ov59_IntroOverlayData *) OverlayManager_CreateAndGetData(overlayManager, sizeof(ov59_IntroOverlayData), HEAP_ID_INTRO);
-    (void)memset((void *)data, 0, sizeof(ov59_IntroOverlayData));
+    memset((void *)data, 0, sizeof(ov59_IntroOverlayData));
 
     data->heapId = HEAP_ID_INTRO;
     s32 *field18 = OverlayManager_GetField18(overlayManager);
