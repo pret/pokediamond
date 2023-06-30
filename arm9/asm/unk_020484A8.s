@@ -276,7 +276,7 @@ CallTask_GameClear: ; 0x02048694
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034DCC
+	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	bl sub_0205ED0C

@@ -225,7 +225,7 @@
 #define MON_DATA_HOENN_WORLD_RIBBON             109
 #define MON_DATA_FATEFUL_ENCOUNTER              110
 #define MON_DATA_GENDER                         111
-#define MON_DATA_FORME                          112
+#define MON_DATA_FORM                          112
 #define MON_DATA_RESERVED_113                   113 // HGSS
 #define MON_DATA_RESERVED_114                   114 // Plat
 #define MON_DATA_UNUSED_115                     115
@@ -448,7 +448,7 @@ typedef enum {
     UNOWN_Z = 25,
     UNOWN_EXCLAMATION_MARK = 26,
     UNOWN_QUESTION_MARK = 27
-} AlternateFormes;
+} AlternateForms;
 
 typedef enum EvoMethod
 {

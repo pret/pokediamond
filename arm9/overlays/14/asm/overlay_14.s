@@ -9633,7 +9633,7 @@ _021DC254:
 	cmp r0, r1
 	bne _021DC26A
 	ldr r0, [r4]
-	bl BoxMon_UpdateArceusForme
+	bl BoxMon_UpdateArceusForm
 _021DC26A:
 	add sp, #4
 	pop {r3, r4, r5, r6}
@@ -21843,7 +21843,7 @@ _021E204A:
 	lsr r1, r0, #0x10
 	add r0, r7, #0
 	mov r2, #0x1b ; BASE_COLOR
-	bl GetMonBaseStat_HandleFormeConversion
+	bl GetMonBaseStat_HandleFormConversion
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	b _021E20AA

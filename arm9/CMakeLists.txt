@@ -15,5 +15,5 @@ file(GLOB_RECURSE SOURCES "*.c" "*.cpp" "*.s")
 file(GLOB OVERLAY_INC overlays/*/include)
 
 add_executable(DP_Arm9 ${SOURCES})
-target_include_directories(DP_Arm9 PRIVATE ../include ../include-mw lib/NitroSDK/include lib/libc/include lib/libnns/include ${OVERLAY_INC} ../files)
+target_include_directories(DP_Arm9 PRIVATE ../include ../include-mw lib/NitroSDK/include lib/MSL_C/include lib/libnns/include ${OVERLAY_INC} ../files)
 target_compile_definitions(DP_Arm9 PUBLIC __CLION_IDE__)

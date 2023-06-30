@@ -57,10 +57,10 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 # Directories containing source files
 
 # sorting wildcards required for versions of make >= 3.8.2 and < 4.3 for consistent builds
-SRC_DIRS := src lib lib/libnns/src lib/NitroSDK/src lib/libc/src $(sort $(wildcard overlays/*/src))
+SRC_DIRS := src lib lib/libnns/src lib/NitroSDK/src lib/MSL_C/src $(sort $(wildcard overlays/*/src))
 ASM_DIRS := asm data files $(sort $(wildcard overlays/*/asm))
 LIBASM_DIRS := lib/syscall
-INCLUDE_RECURSIVE_DIRS := ../include-mw lib/libc/include lib/libnns/include lib/NitroSDK/include
+INCLUDE_RECURSIVE_DIRS := ../include-mw lib/MSL_C/include lib/libnns/include lib/NitroSDK/include
 INCLUDE_DIRS := ../include $(sort $(wildcard overlays/*/include)) ../files
 
 C_FILES    := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
@@ -117,8 +117,8 @@ ASM_PROCESSOR := $(ASM_PROCESSOR_DIR)/compile.sh
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 MWASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -ipa file -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
-MWCXXFLAGS = -O4,p -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -ipa file -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWCXXFLAGS = -O4,p -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 MWLDFLAGS = -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc
 LIBS := -Llib -lsyscall
 ARFLAGS = rcS
@@ -149,7 +149,7 @@ TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 TOOLS: tools
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
-export MWCIncludes := $(CURDIR)/lib/libc/include $(CURDIR)/lib/NitroSDK/include $(CURDIR)/lib/libnns/include
+export MWCIncludes := $(CURDIR)/lib/MSL_C/include $(CURDIR)/lib/NitroSDK/include $(CURDIR)/lib/libnns/include
 export MWLibraries := $(CURDIR)/lib
 
 ######################### Targets ###########################
@@ -204,16 +204,16 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS) $(LIB
 
 # TODO: Move out to lib/Makefile
 $(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
-$(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/libc/include -ir lib/libnns/include -ir lib/NitroSDK/include -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+$(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto -i ../include -ir ../include-mw -ir lib/MSL_C/include -ir lib/libnns/include -ir lib/NitroSDK/include -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 
 $(BUILD_DIR)/lib/libnns/%.o: MWCCVERSION = 1.2/sp3
-$(BUILD_DIR)/lib/libc/%.o: MWCCVERSION = 2.0/sp1
-$(BUILD_DIR)/lib/libc/%.o: MWCFLAGS += -ipa file
+$(BUILD_DIR)/lib/MSL_C/%.o: MWCCVERSION = 2.0/sp1
+$(BUILD_DIR)/lib/MSL_C/%.o: MWCFLAGS += -ipa file
 
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/libc/include -I lib/libnns/include -I lib/NitroSDK/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)) $(filter $*.s,$(LIBS_FILES)))
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/MSL_C/include -I lib/libnns/include -I lib/NitroSDK/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)) $(filter $*.s,$(LIBS_FILES)))
 else
 $(BUILD_DIR)/%.o: dep :=
 endif

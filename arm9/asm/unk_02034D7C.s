@@ -60,8 +60,8 @@ sub_02034DC8: ; 0x02034DC8
 	add r0, #0x28
 	bx lr
 
-	thumb_func_start sub_02034DCC
-sub_02034DCC: ; 0x02034DCC
+	thumb_func_start LocalFieldData_GetSpecialSpawnWarpPtr
+LocalFieldData_GetSpecialSpawnWarpPtr: ; 0x02034DCC
 	add r0, #0x50
 	bx lr
 

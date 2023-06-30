@@ -39288,7 +39288,7 @@ ov06_0224C888: ; 0x0224C888
 	bl sub_02049494
 	b _0224C8C0
 _0224C8B2:
-	bl sub_02034DCC
+	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	add r1, r0, #0
 	ldr r2, [r4, #8]
 	add r0, r5, #0

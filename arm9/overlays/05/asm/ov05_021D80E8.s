@@ -2170,7 +2170,7 @@ ov05_021D9248: ; 0x021D9248
 	str r2, [sp]
 	add r4, r3, #0
 	bl Save_LocalFieldData_Get
-	bl sub_02034DCC
+	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	add r6, r0, #0
 	ldr r3, [r5, #0x1c]
 	add r2, r6, #0

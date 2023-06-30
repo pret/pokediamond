@@ -2096,9 +2096,9 @@ _02049976:
 	add r0, r5, #0x0
 	mov r1, #0xb
 	mov r2, #0x3
-	bl ov05_021E8588
+	bl Field_SaveStatsPrinter_New
 	str r0, [r4, #0x20]
-	bl ov05_021E84F4
+	bl Field_SaveStatsPrinter_Print
 	add r3, r4, #0x0
 	mov r2, #0x0
 	ldr r1, _02049AC4 ; =0x000007D5
@@ -2120,9 +2120,9 @@ _020499A2:
 	b _02049AB2
 _020499B2:
 	ldr r0, [r4, #0x20]
-	bl ov05_021E856C
+	bl Field_SaveStatsPrinter_RemoveFromScreen
 	ldr r0, [r4, #0x20]
-	bl ov05_021E85E4
+	bl Field_SaveStatsPrinter_Delete
 	ldrh r0, [r4, #0x1c]
 	cmp r0, #0x0
 	bne _020499CA

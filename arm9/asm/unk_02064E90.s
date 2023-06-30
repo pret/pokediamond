@@ -24,7 +24,7 @@ sub_02064E90: ; 0x02064E90
 	ldr r0, [sp, #0x1c]
 	strb r0, [r5, #0x5]
 	add r0, r6, #0x0
-	bl sub_02065078
+	bl GetTrainerCardLevel
 	str r0, [sp, #0x24]
 	add r0, r7, #0x0
 	bl PlayerProfile_GetLanguage
@@ -215,8 +215,8 @@ sub_02065070: ; 0x02065070
 	.balign 4
 _02065074: .word FreeToHeap
 
-	thumb_func_start sub_02065078
-sub_02065078: ; 0x02065078
+	thumb_func_start GetTrainerCardLevel
+GetTrainerCardLevel: ; 0x02065078
 	push {r3-r7, lr}
 	bl FieldSystem_GetSaveDataPtr
 	add r7, r0, #0x0

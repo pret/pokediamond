@@ -4094,7 +4094,7 @@ _0222F726:
 	ldr r0, [r5, r1]
 	add r1, r1, #4
 	ldr r1, [r5, r1]
-	bl StringCompare
+	bl String_Compare
 	cmp r0, #0
 	beq _0222F750
 	mov r5, #2

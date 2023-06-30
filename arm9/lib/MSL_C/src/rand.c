@@ -1,15 +1,13 @@
-#include "MSL_Common_rand.h"
+#include "rand.h"
 #include "code32.h"
 
-static u32 random_next = 1;
+static unsigned long int random_next = 1;
 
-s32 rand(void)
-{
+int rand(void) {
     random_next = random_next * 1103515245 + 12345;
     return ((random_next >> 16) & 0x7fff);
 }
 
-void srand(u32 seed)
-{
+void srand(unsigned int seed) {
     random_next = seed;
 }

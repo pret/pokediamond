@@ -4,24 +4,24 @@
 #include "OS_ownerInfo.h"
 #include "RTC_api.h"
 #include "RTC_convert.h"
-#include "sav_system_info.h"
+#include "save_system_info.h"
 
 extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
 
 u32 Save_SysInfo_sizeof(void)
 {
-    return sizeof(struct SavSysInfo);
+    return sizeof(struct SaveSysInfo);
 }
 
-void Save_SysInfo_Init(struct SavSysInfo * unk)
+void Save_SysInfo_Init(struct SaveSysInfo * unk)
 {
-    MI_CpuClearFast(unk, sizeof(struct SavSysInfo));
+    MI_CpuClearFast(unk, sizeof(struct SaveSysInfo));
     Save_SysInfo_RTC_Init(&unk->rtcInfo);
 }
 
-struct SavSysInfo * Save_SysInfo_Get(struct SaveData * save)
+struct SaveSysInfo * Save_SysInfo_Get(struct SaveData * save)
 {
-    return (struct SavSysInfo *)SaveArray_Get(save, 0);
+    return (struct SaveSysInfo *)SaveArray_Get(save, 0);
 }
 
 struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveData * save)
@@ -29,7 +29,7 @@ struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveData * save)
     return &Save_SysInfo_Get(save)->rtcInfo;
 }
 
-void Save_SysInfo_InitFromSystem(struct SavSysInfo * unk)
+void Save_SysInfo_InitFromSystem(struct SaveSysInfo * unk)
 {
     OSOwnerInfo info;
     unk->rtcOffset = OS_GetOwnerRtcOffset();
@@ -39,7 +39,7 @@ void Save_SysInfo_InitFromSystem(struct SavSysInfo * unk)
     unk->birthDay = info.birthday.day;
 }
 
-BOOL Save_SysInfo_MacAddressIsMine(struct SavSysInfo * unk)
+BOOL Save_SysInfo_MacAddressIsMine(struct SaveSysInfo * unk)
 {
     u8 macAddr[6];
     OS_GetMacAddress(macAddr);
@@ -51,37 +51,37 @@ BOOL Save_SysInfo_MacAddressIsMine(struct SavSysInfo * unk)
     return TRUE;
 }
 
-BOOL Save_SysInfo_RTCOffsetIsMine(struct SavSysInfo * unk)
+BOOL Save_SysInfo_RTCOffsetIsMine(struct SaveSysInfo * unk)
 {
     return OS_GetOwnerRtcOffset() == unk->rtcOffset;
 }
 
-u8 Save_SysInfo_GetBirthMonth(struct SavSysInfo * unk)
+u8 Save_SysInfo_GetBirthMonth(struct SaveSysInfo * unk)
 {
     return unk->birthMonth;
 }
 
-u8 Save_SysInfo_GetBirthDay(struct SavSysInfo * unk)
+u8 Save_SysInfo_GetBirthDay(struct SaveSysInfo * unk)
 {
     return unk->birthDay;
 }
 
-u8 sub_02023820(struct SavSysInfo * unk)
+u8 Save_SysInfo_GetMysteryGiftActive(struct SaveSysInfo * unk)
 {
-    return unk->field_48;
+    return unk->mysteryGiftActive;
 }
 
-void sub_02023828(struct SavSysInfo * unk, u8 val)
+void Save_SysInfo_SetMysteryGiftActive(struct SaveSysInfo * unk, u8 val)
 {
-    unk->field_48 = val;
+    unk->mysteryGiftActive = val;
 }
 
-u32 sub_02023830(struct SavSysInfo * unk)
+u32 sub_02023830(struct SaveSysInfo * unk)
 {
     return unk->field_4C;
 }
 
-void sub_02023834(struct SavSysInfo * unk, u32 val)
+void sub_02023834(struct SaveSysInfo * unk, u32 val)
 {
     if (unk->field_4C == 0)
         unk->field_4C = val;

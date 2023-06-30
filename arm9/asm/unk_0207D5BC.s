@@ -543,7 +543,7 @@ sub_0207D958: ; 0x0207D958
 	add r3, #0xc
 	ldr r0, [r1, r3]
 	ldr r1, [r1, r2]
-	bl StringCompare
+	bl String_Compare
 	cmp r0, #0x0
 	bne _0207D98E
 	mov r0, #0x1

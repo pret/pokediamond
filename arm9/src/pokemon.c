@@ -42,24 +42,24 @@ s8 GetFlavorPreferenceFromPID(u32 personality, int flavor);
 u8 Party_MaskMonsWithPokerus(struct PlayerParty * party_p, u8 mask);
 BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
 BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
-void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon);
-void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
+void BoxMon_UpdateArceusForm(struct BoxPokemon * boxmon);
+void LoadWotbl_HandleAlternateForm(int species, int form, u16 * wotbl);
 void sub_0206A054(struct BoxPokemon *  boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 BOOL sub_0206A144(struct BoxPokemon * boxmon, u32 a1);
-BOOL sub_0206A16C(u16 species, int forme, u32 a2);
+BOOL sub_0206A16C(u16 species, int form, u32 a2);
 void sub_0206A1CC(struct BoxPokemon * boxmon);
 u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
 void LoadMonEvolutionTable(u16 species, struct Evolution * dest);
 
-int ResolveMonForme(int species, int forme);
+int ResolveMonForm(int species, int form);
 void MonEncryptSegment(u16 * datap, u32 size, u32 key);
 void MonDecryptSegment(u16 * datap, u32 size, u32 key);
 u16 MonEncryptionLCRNG(u32 * seed);
 u16 CalcMonChecksum(u16 * datap, u32 size);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u8 which_struct);
-void LoadMonBaseStats_HandleAlternateForme(int species, int forme, struct BaseStats * baseStats);
+void LoadMonBaseStats_HandleAlternateForm(int species, int form, struct BaseStats * baseStats);
 u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon);
 
 #define ENCRY_ARGS_PTY(mon) (u16 *)&(mon)->party, sizeof((mon)->party), (mon)->box.pid
@@ -438,7 +438,7 @@ void CalcMonStats(struct Pokemon * pokemon)
     int speedEv;
     int spatkEv;
     int spdefEv;
-    int forme;
+    int form;
     int hp;
     int species;
     int newMaxHp;
@@ -463,11 +463,11 @@ void CalcMonStats(struct Pokemon * pokemon)
     spatkEv = (int)GetMonData(pokemon, MON_DATA_SPATK_EV, NULL);
     spdefIv = (int)GetMonData(pokemon, MON_DATA_SPDEF_IV, NULL);
     spdefEv = (int)GetMonData(pokemon, MON_DATA_SPDEF_EV, NULL);
-    forme = (int)GetMonData(pokemon, MON_DATA_FORME, NULL);
+    form = (int)GetMonData(pokemon, MON_DATA_FORM, NULL);
     species = (int)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
 
     baseStats = (struct BaseStats *)AllocFromHeap(HEAP_ID_DEFAULT, sizeof(struct BaseStats));
-    LoadMonBaseStats_HandleAlternateForme(species, forme, baseStats);
+    LoadMonBaseStats_HandleAlternateForm(species, form, baseStats);
 
     if (species == SPECIES_SHEDINJA)
         newMaxHp = 1;
@@ -837,8 +837,8 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_GENDER:
         ret = blockB->gender;
         break;
-    case MON_DATA_FORME:
-        ret = blockB->alternateForme;
+    case MON_DATA_FORM:
+        ret = blockB->alternateForm;
         break;
     case MON_DATA_RESERVED_113:
         ret = blockB->HGSS_shinyLeaves;
@@ -979,7 +979,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
             ret = (u32)GetArceusTypeByHeldItemEffect((u16)GetItemAttr(blockA->heldItem, 1, HEAP_ID_DEFAULT));
         else
         {
-            ret = (u32)GetMonBaseStat_HandleFormeConversion(blockA->species, blockB->alternateForme, (enum BaseStat)(attr - MON_DATA_TYPE_1 + BASE_TYPE1));
+            ret = (u32)GetMonBaseStat_HandleFormConversion(blockA->species, blockB->alternateForm, (enum BaseStat)(attr - MON_DATA_TYPE_1 + BASE_TYPE1));
         }
         break;
     case MON_DATA_SPECIES_NAME:
@@ -1304,8 +1304,8 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
     case MON_DATA_GENDER:
         blockB->gender = VALUE(u8);
         break;
-    case MON_DATA_FORME:
-        blockB->alternateForme = VALUE(u8);
+    case MON_DATA_FORM:
+        blockB->alternateForm = VALUE(u8);
         break;
     case MON_DATA_RESERVED_113:
         blockB->HGSS_shinyLeaves = VALUE(u8);
@@ -1702,7 +1702,7 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     case MON_DATA_HOENN_WORLD_RIBBON:
     case MON_DATA_FATEFUL_ENCOUNTER:
     case MON_DATA_GENDER:
-    case MON_DATA_FORME:
+    case MON_DATA_FORM:
     case MON_DATA_RESERVED_113:
     case MON_DATA_RESERVED_114:
     case MON_DATA_UNUSED_115:
@@ -1896,10 +1896,10 @@ void FreeMonPersonal(struct BaseStats * personal)
     FreeToHeap(personal);
 }
 
-int GetMonBaseStat_HandleFormeConversion(int species, int forme, enum BaseStat attr)
+int GetMonBaseStat_HandleFormConversion(int species, int form, enum BaseStat attr)
 {
     int ret;
-    struct BaseStats * personal = AllocAndLoadMonPersonal(ResolveMonForme(species, forme), HEAP_ID_DEFAULT);
+    struct BaseStats * personal = AllocAndLoadMonPersonal(ResolveMonForm(species, form), HEAP_ID_DEFAULT);
     ret = GetPersonalAttr(personal, attr);
     FreeMonPersonal(personal);
     return ret;
@@ -2183,21 +2183,21 @@ void sub_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon
     u8 gender = GetBoxMonGender(boxmon);
     u8 shiny = BoxMonIsShiny(boxmon);
     u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
-    u8 forme;
+    u8 form;
     if (species == SPECIES_EGG)
     {
         if (GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY)
-            forme = 1;
+            form = 1;
         else
-            forme = 0;
+            form = 0;
     }
     else
-        forme = (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
-    sub_02068C00(spC, species, gender, sp10, shiny, forme, personality);
+        form = (u8)GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
+    sub_02068C00(spC, species, gender, sp10, shiny, form, personality);
     ReleaseBoxMonLock(boxmon, decry);
 }
 
-void sub_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 forme, u32 personality)
+void sub_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 form, u32 personality)
 {
     spC->unk6 = 0;
     spC->unk8 = 0;
@@ -2205,74 +2205,74 @@ void sub_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8
     switch (species)
     {
     case SPECIES_BURMY:
-        if (forme > 2)
-            forme = 0;
+        if (form > 2)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 / 2 + 0x48 + forme * 2);
-        spC->unk4 = (u16)(shiny + 0x92 + forme * 2);
+        spC->unk2 = (u16)(sp10 / 2 + 0x48 + form * 2);
+        spC->unk4 = (u16)(shiny + 0x92 + form * 2);
         break;
     case SPECIES_WORMADAM:
-        if (forme > 2)
-            forme = 0;
+        if (form > 2)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 / 2 + 0x4E + forme * 2);
-        spC->unk4 = (u16)(shiny + 0x98 + forme * 2);
+        spC->unk2 = (u16)(sp10 / 2 + 0x4E + form * 2);
+        spC->unk4 = (u16)(shiny + 0x98 + form * 2);
         break;
     case SPECIES_SHELLOS:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 + 0x54 + forme);
-        spC->unk4 = (u16)(shiny + 0x9E + forme * 2);
+        spC->unk2 = (u16)(sp10 + 0x54 + form);
+        spC->unk4 = (u16)(shiny + 0x9E + form * 2);
         break;
     case SPECIES_GASTRODON:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 + 0x58 + forme);
-        spC->unk4 = (u16)(shiny + 0xA2 + forme * 2);
+        spC->unk2 = (u16)(sp10 + 0x58 + form);
+        spC->unk4 = (u16)(shiny + 0xA2 + form * 2);
         break;
     case SPECIES_CHERRIM:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 + 0x5C + forme);
-        spC->unk4 = (u16)(shiny * 2 + 0xA6 + forme);
+        spC->unk2 = (u16)(sp10 + 0x5C + form);
+        spC->unk4 = (u16)(shiny * 2 + 0xA6 + form);
         break;
     case SPECIES_ARCEUS:
-        if (forme > 17)
-            forme = 0;
+        if (form > 17)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 / 2 + 0x60 + forme * 2);
-        spC->unk4 = (u16)(shiny + 0xAA + forme * 2);
+        spC->unk2 = (u16)(sp10 / 2 + 0x60 + form * 2);
+        spC->unk4 = (u16)(shiny + 0xAA + form * 2);
         break;
     case SPECIES_CASTFORM:
-        if (forme > 3)
-            forme = 0;
+        if (form > 3)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 * 2 + 0x40 + forme);
-        spC->unk4 = (u16)(shiny * 4 + 0x8A + forme);
+        spC->unk2 = (u16)(sp10 * 2 + 0x40 + form);
+        spC->unk4 = (u16)(shiny * 4 + 0x8A + form);
         break;
     case SPECIES_DEOXYS:
-        if (forme > 3)
-            forme = 0;
+        if (form > 3)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 / 2 + forme * 2);
+        spC->unk2 = (u16)(sp10 / 2 + form * 2);
         spC->unk4 = (u16)(shiny + 0x86);
         break;
     case SPECIES_UNOWN:
-        if (forme >= 28)
-            forme = 0;
+        if (form >= 28)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(sp10 / 2 + 0x8 + forme * 2);
+        spC->unk2 = (u16)(sp10 / 2 + 0x8 + form * 2);
         spC->unk4 = (u16)(shiny + 0x88);
         break;
     case SPECIES_EGG:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
-        spC->unk2 = (u16)(0x84 + forme);
-        spC->unk4 = (u16)(0xCE + forme);
+        spC->unk2 = (u16)(0x84 + form);
+        spC->unk4 = (u16)(0xCE + form);
         break;
     case SPECIES_MANAPHY_EGG:
         spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2303,20 +2303,20 @@ u8 sub_02068E1C(struct BoxPokemon * boxmon, u32 a1)
     u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
     u8 gender = GetBoxMonGender(boxmon);
     u32 pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
-    u8 forme;
+    u8 form;
     if (species == SPECIES_EGG)
     {
         if (GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY)
-            forme = 1;
+            form = 1;
         else
-            forme = 0;
+            form = 0;
     }
     else
-        forme = (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
-    return sub_02068E88(species, gender, a1, forme, pid);
+        form = (u8)GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
+    return sub_02068E88(species, gender, a1, form, pid);
 }
 
-u8 sub_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
+u8 sub_02068E88(int species, u8 gender, u32 a1, u8 form, u32 pid)
 {
 #pragma unused(pid)
     u8 ret;
@@ -2325,64 +2325,64 @@ u8 sub_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
     switch (species)
     {
     case SPECIES_BURMY:
-        if (forme > 2)
-            forme = 0;
+        if (form > 2)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 / 2 + 0x48 + forme * 2);
+        fileId = (s32)(a1 / 2 + 0x48 + form * 2);
         break;
     case SPECIES_WORMADAM:
-        if (forme > 2)
-            forme = 0;
+        if (form > 2)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 / 2 + 0x4E + forme * 2);
+        fileId = (s32)(a1 / 2 + 0x4E + form * 2);
         break;
     case SPECIES_SHELLOS:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 + 0x54 + forme);
+        fileId = (s32)(a1 + 0x54 + form);
         break;
     case SPECIES_GASTRODON:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 + 0x58 + forme);
+        fileId = (s32)(a1 + 0x58 + form);
         break;
     case SPECIES_CHERRIM:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 + 0x5C + forme);
+        fileId = (s32)(a1 + 0x5C + form);
         break;
     case SPECIES_ARCEUS:
-        if (forme > 17)
-            forme = 0;
+        if (form > 17)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 / 2 + 0x60 + 2 * forme);
+        fileId = (s32)(a1 / 2 + 0x60 + 2 * form);
         break;
     case SPECIES_CASTFORM:
-        if (forme > 3)
-            forme = 0;
+        if (form > 3)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 * 2 + 0x40 + forme);
+        fileId = (s32)(a1 * 2 + 0x40 + form);
         break;
     case SPECIES_DEOXYS:
-        if (forme > 3)
-            forme = 0;
+        if (form > 3)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 / 2 + forme * 2);
+        fileId = (s32)(a1 / 2 + form * 2);
         break;
     case SPECIES_UNOWN:
-        if (forme >= 28)
-            forme = 0;
+        if (form >= 28)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(a1 / 2 + 0x8 + forme * 2);
+        fileId = (s32)(a1 / 2 + 0x8 + form * 2);
         break;
     case SPECIES_EGG:
-        if (forme > 1)
-            forme = 0;
+        if (form > 1)
+            form = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = (s32)(0x84 + forme);
+        fileId = (s32)(0x84 + form);
         break;
     case SPECIES_MANAPHY_EGG:
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
@@ -2468,7 +2468,7 @@ u8 GetMonUnownLetter(struct Pokemon * pokemon) //not just used for unown
 
 u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon)
 {
-    return (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    return (u8)GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
 }
 
 struct BoxPokemon * sub_020690E4(struct Pokemon * pokemon)
@@ -2792,15 +2792,15 @@ void InitBoxMonMoveset(struct BoxPokemon * boxmon)
     u16 * wotbl;
     int i;
     u16 species;
-    u32 forme;
+    u32 form;
     u8 level;
     u16 move;
     wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
     decry = AcquireBoxMonLock(boxmon);
     species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
-    forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    form = GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
     level = (u8)CalcBoxMonLevel(boxmon);
-    LoadWotbl_HandleAlternateForme(species, (int)forme, wotbl);
+    LoadWotbl_HandleAlternateForm(species, (int)form, wotbl);
     for (i = 0; wotbl[i] != WOTBL_END; i++)
     {
         if ((wotbl[i] & WOTBL_LVL_MASK) > (level << WOTBL_LVL_SHIFT))
@@ -2898,9 +2898,9 @@ u32 sub_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
     u32 ret = 0;
     u16 * wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    u32 forme = GetMonData(pokemon, MON_DATA_FORME, NULL);
+    u32 form = GetMonData(pokemon, MON_DATA_FORM, NULL);
     u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
-    LoadWotbl_HandleAlternateForme(species, (int)forme, wotbl);
+    LoadWotbl_HandleAlternateForm(species, (int)form, wotbl);
 
 
     if (wotbl[*r5] == 0xFFFF)
@@ -3075,11 +3075,11 @@ s8 GetFlavorPreferenceFromPID(u32 personality, int flavor)
     return sFlavorPreferencesByNature[GetNatureFromPersonality(personality)][flavor];
 }
 
-int Species_LoadLearnsetTable(u16 species, u32 forme, u16 * dest)
+int Species_LoadLearnsetTable(u16 species, u32 form, u16 * dest)
 {
     int i;
     u16 * wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
-    LoadWotbl_HandleAlternateForme(species, (int)forme, wotbl);
+    LoadWotbl_HandleAlternateForm(species, (int)form, wotbl);
     for (i = 0; wotbl[i] != WOTBL_END; i++)
     {
         dest[i] = WOTBL_MOVE(wotbl[i]);
@@ -3239,21 +3239,21 @@ BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon)
     return FALSE;
 }
 
-void Pokemon_UpdateArceusForme(struct Pokemon * pokemon)
+void Pokemon_UpdateArceusForm(struct Pokemon * pokemon)
 {
-    BoxMon_UpdateArceusForme(&pokemon->box);
+    BoxMon_UpdateArceusForm(&pokemon->box);
 }
 
-void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon)
+void BoxMon_UpdateArceusForm(struct BoxPokemon * boxmon)
 {
     u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     u32 ability = GetBoxMonData(boxmon, MON_DATA_ABILITY, NULL);
     u32 heldItem = GetBoxMonData(boxmon, MON_DATA_HELD_ITEM, NULL);
-    u32 forme;
+    u32 form;
     if (species == SPECIES_ARCEUS && ability == ABILITY_MULTITYPE)
     {
-        forme = GetArceusTypeByHeldItemEffect((u16)GetItemAttr((u16)heldItem, 1, HEAP_ID_DEFAULT));
-        SetBoxMonData(boxmon, MON_DATA_FORME, &forme);
+        form = GetArceusTypeByHeldItemEffect((u16)GetItemAttr((u16)heldItem, 1, HEAP_ID_DEFAULT));
+        SetBoxMonData(boxmon, MON_DATA_FORM, &form);
     }
 }
 
@@ -3298,9 +3298,9 @@ u32 GetArceusTypeByHeldItemEffect(u16 heldEffect)
     }
 }
 
-void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl)
+void LoadWotbl_HandleAlternateForm(int species, int form, u16 * wotbl)
 {
-    ReadWholeNarcMemberByIdPair(wotbl, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForme(species, forme));
+    ReadWholeNarcMemberByIdPair(wotbl, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForm(species, form));
 }
 
 void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, HeapID heapId)
@@ -3350,15 +3350,15 @@ void sub_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2)
 {
     u32 chance;
     u16 species;
-    u16 forme;
+    u16 form;
     u16 item1;
     u16 item2;
     if (!(a1 & 0x81)) {
         chance = (u32)(LCRandom() % 100);
         species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, 0);
-        forme = (u16)GetMonData(pokemon, MON_DATA_FORME, 0);
-        item1 = (u16)GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_1);
-        item2 = (u16)GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_2);
+        form = (u16)GetMonData(pokemon, MON_DATA_FORM, 0);
+        item1 = (u16)GetMonBaseStat_HandleFormConversion(species, form, BASE_ITEM_1);
+        item2 = (u16)GetMonBaseStat_HandleFormConversion(species, form, BASE_ITEM_2);
         if (item1 == item2 && item1 != ITEM_NONE)
         {
             SetMonData(pokemon, MON_DATA_HELD_ITEM, &item1);
@@ -3388,11 +3388,11 @@ BOOL sub_0206A13C(struct Pokemon * pokemon, u32 a1)
 BOOL sub_0206A144(struct BoxPokemon * boxmon, u32 a1)
 {
     u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
-    int forme = (int)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
-    return sub_0206A16C(species, forme, a1);
+    int form = (int)GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
+    return sub_0206A16C(species, form, a1);
 }
 
-BOOL sub_0206A16C(u16 species, int forme, u32 a2)
+BOOL sub_0206A16C(u16 species, int form, u32 a2)
 {
     u32 r4;
     enum BaseStat r2;
@@ -3418,7 +3418,7 @@ BOOL sub_0206A16C(u16 species, int forme, u32 a2)
         r4 = 1ul << (a2 - 96);
         r2 = BASE_TMHM_4;
     }
-    return !!(GetMonBaseStat_HandleFormeConversion(species, forme, r2) & r4);
+    return !!(GetMonBaseStat_HandleFormConversion(species, form, r2) & r4);
 }
 
 void sub_0206A1C4(struct Pokemon * pokemon)
@@ -3488,9 +3488,9 @@ void LoadMonPersonal(int species, struct BaseStats * personal)
     ReadWholeNarcMemberByIdPair(personal, NARC_POKETOOL_PERSONAL_PERSONAL, species);
 }
 
-void LoadMonBaseStats_HandleAlternateForme(int species, int forme, struct BaseStats * personal)
+void LoadMonBaseStats_HandleAlternateForm(int species, int form, struct BaseStats * personal)
 {
-    ReadWholeNarcMemberByIdPair(personal, NARC_POKETOOL_PERSONAL_PERSONAL, ResolveMonForme(species, forme));
+    ReadWholeNarcMemberByIdPair(personal, NARC_POKETOOL_PERSONAL_PERSONAL, ResolveMonForm(species, form));
 }
 
 void LoadMonEvolutionTable(u16 species, struct Evolution * evo)
@@ -3616,17 +3616,17 @@ PokemonDataBlock *GetSubstruct(struct BoxPokemon *boxMon, u32 personality, u8 su
     return result;
 }
 
-int ResolveMonForme(int species, int forme)
+int ResolveMonForm(int species, int form)
 {
     switch (species)
     {
     case SPECIES_DEOXYS:
-        if (forme != 0 && forme <= 3)
-            return SPECIES_DEOXYS_ATK + forme - 1;
+        if (form != 0 && form <= 3)
+            return SPECIES_DEOXYS_ATK + form - 1;
         break;
     case SPECIES_WORMADAM:
-        if (forme != 0 && forme <= 2)
-            return SPECIES_WORMADAM_SANDY + forme - 1;
+        if (form != 0 && form <= 2)
+            return SPECIES_WORMADAM_SANDY + form - 1;
         break;
     }
     return species;
@@ -3690,7 +3690,7 @@ BOOL sub_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, HeapID heapId
     struct String * r6 = String_New(PLAYER_NAME_LENGTH + 1, heapId);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
-    if (myId == otId && myGender == otGender && StringCompare(r7, r6) == 0)
+    if (myId == otId && myGender == otGender && String_Compare(r7, r6) == 0)
         ret = TRUE;
     String_Delete(r6);
     String_Delete(r7);

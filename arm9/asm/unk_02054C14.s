@@ -319,8 +319,8 @@ _02054E28:
 	.balign 4
 _02054E2C: .word 0x00000000
 
-	thumb_func_start sub_02054E30
-sub_02054E30: ; 0x02054E30
+	thumb_func_start Save_PlayerHasAllRegisInParty
+Save_PlayerHasAllRegisInParty: ; 0x02054E30
 	push {r3-r7, lr}
 	sub sp, #0x10
 	mov r7, #0x0

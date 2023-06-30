@@ -62,7 +62,7 @@ struct Main
     u16 touchHeld;
     u8 touchpadReadAuto;
     u8 screensFlipped;
-    u8 unk66;
+    u8 gbaCartId;
     u8 unk67;
     u8 softResetDisabled;
     u8 padding_69[3]; // nice

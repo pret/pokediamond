@@ -4119,7 +4119,7 @@ _0204E9B8:
 	lsl r1, r1, #0x10
 	add r0, r6, #0x0
 	lsr r1, r1, #0x10
-	bl sub_0205F698
+	bl Save_VarsFlags_SetSpiritombTalkCounter
 	add r0, r6, #0x0
 	bl sub_0205F6A8
 	add r1, r0, #0x0

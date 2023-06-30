@@ -298,7 +298,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetSphereCount
 	.word ScrCmd_GetSealCountFromId
 	.word ScrCmd_GiveSeals
-	.word ScrCmd_GetPokemonForme
+	.word ScrCmd_GetPokemonForm
 	.word ScrCmd_GiveMon
 	.word ScrCmd_GiveEgg
 	.word ScrCmd_SetPartyMonMove
@@ -760,47 +760,47 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_AddSpecialGameStat
 	.word ScrCmd_GetFashionName
 	.word ScrCmd_CheckPokemonInParty
-	.word ScrCmd_SetDeoxysForme
-	.word ScrCmd_CheckBurmyFormes
+	.word ScrCmd_SetDeoxysForm
+	.word ScrCmd_CheckBurmyForms
 	.word ScrCmd_Unk0265
 	.word ScrCmd_Unk0266
-	.word ScrCmd_Unk0267
-	.word ScrCmd_Unk0268
-	.word ScrCmd_Unk0269
-	.word ScrCmd_Unk026A
-	.word ScrCmd_Unk026B
+	.word ScrCmd_SlotMachine
+	.word ScrCmd_GetHour
+	.word ScrCmd_ShakeEvent
+	.word ScrCmd_BlinkEvent
+	.word ScrCmd_CheckRegis
 	.word ScrCmd_Unk026C
 	.word ScrCmd_MessageUnown
-	.word ScrCmd_Unk026E
-	.word ScrCmd_Unk026F
+	.word ScrCmd_CheckGBACartridge
+	.word ScrCmd_ResetSpiritombTalkCounter
 	.word ScrCmd_Unk0270
 	.word ScrCmd_WriteWhiteRockInscription
 	.word ScrCmd_GetWhiteRockInscription
-	.word ScrCmd_Unk0273
+	.word ScrCmd_BufferContestBackgroundName
 	.word ScrCmd_HasEnoughCoinsImmediate
 	.word ScrCmd_Unk0275
 	.word ScrCmd_CanGiveCoins
 	.word ScrCmd_Unk0277
 	.word ScrCmd_GetPartyMonLevel
 	.word ScrCmd_Unk0279
-	.word ScrCmd_Unk027A
+	.word ScrCmd_UseSunyshoreBinoculars
 	.word ScrCmd_Unk027B
 	.word ScrCmd_Unk027C
-	.word ScrCmd_Unk027D
+	.word ScrCmd_BufferRandomTrendySaying
 	.word ScrCmd_Unk027E
 	.word ScrCmd_Unk027F
 	.word ScrCmd_Unk0280
 	.word ScrCmd_GetPartyMonContestCondition
-	.word ScrCmd_Unk0282
+	.word ScrCmd_CheckBirthday
 	.word ScrCmd_SetVolume
-	.word ScrCmd_Unk0284
+	.word ScrCmd_CountSeenUnown
 	.word ScrCmd_Unk0285
 	.word ScrCmd_Unk0286
 	.word ScrCmd_Unk0287
 	.word ScrCmd_Unk0288
 	.word ScrCmd_Unk0289
 	.word ScrCmd_Unk028A
-	.word ScrCmd_Unk028B
+	.word ScrCmd_CheckEventValidity
 	.word ScrCmd_ShowPartyPokemonPic
 	.word ScrCmd_Unk028D
 	.word ScrCmd_Unk028E
@@ -820,7 +820,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk029C
 	.word ScrCmd_Unk029D
 	.word ScrCmd_Unk029E
-	.word ScrCmd_Unk029F
+	.word ScrCmd_ShakeCamera
 	.word ScrCmd_Unk02A0
 	.word ScrCmd_Unk02A1
 	.word ScrCmd_Unk02A2
@@ -831,9 +831,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02A7
 	.word ScrCmd_TakeCoinsAddress
 	.word ScrCmd_HasEnoughCoinsAddress
-	.word ScrCmd_Unk02AA
+	.word ScrCmd_CompareMysteryGiftEasyChatInput
 	.word ScrCmd_Unk02AB
-	.word ScrCmd_Unk02AC
+	.word ScrCmd_ActivateMysteryGift
 	.word ScrCmd_GetEventMovement
 	.word ScrCmd_Unk02AE
 	.word ScrCmd_Unk02AF
@@ -851,12 +851,12 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02BB
 	.word ScrCmd_Unk02BC
 	.word ScrCmd_LegendaryBattle
-	.word ScrCmd_Unk02BE
+	.word ScrCmd_GetTrainerCardLevel
 	.word ScrCmd_DummyRideBike
 	.word ScrCmd_Unk02C0
-	.word ScrCmd_Unk02C1
-	.word ScrCmd_Unk02C2
-	.word ScrCmd_Unk02C3
+	.word ScrCmd_ShowSaveStats
+	.word ScrCmd_HideSaveStats
+	.word ScrCmd_ScopeMode
 	.word ScrCmd_GetItemNameWithIndefArticle
 	.word ScrCmd_GetItemNamePlural
 	.word ScrCmd_GetDecorationNameWithArticle

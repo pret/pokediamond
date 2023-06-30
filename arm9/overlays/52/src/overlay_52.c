@@ -233,7 +233,7 @@ BOOL ov52_021D7594(struct OverlayManager *manager, u32 *status)
 #pragma unused(status)
     struct SaveData *save = (struct SaveData *)OverlayManager_GetField18(manager)[2]; // weird
 
-    struct SavSysInfo *save_info = Save_SysInfo_Get(save);
+    struct SaveSysInfo *save_info = Save_SysInfo_Get(save);
 
     ov52_021D7688(0x4d, save);
     Options_SetButtonModeOnMain(save, 0);

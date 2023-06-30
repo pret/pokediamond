@@ -4,7 +4,7 @@ OUT_FILE=ctx.c
 
 GCC=gcc
 FLAGS="-E -P -dD -undef"
-INCLUDES="-Iinclude -Iinclude/constants -Iinclude/nitro -Iinclude-mw -Ifiles -Iarm9/lib/NitroSDK/include -Iarm9/lib/libc/include -Iarm9/lib/libnns/include -Iarm9/overlays/21/include -Iarm9/overlays/52/include -Iarm9/overlays/59/include -include global.h"
+INCLUDES="-Iinclude -Iinclude/constants -Iinclude/nitro -Iinclude-mw -Ifiles -Iarm9/lib/NitroSDK/include -Iarm9/lib/MSL_C/include -Iarm9/lib/libnns/include -Iarm9/overlays/21/include -Iarm9/overlays/52/include -Iarm9/overlays/59/include -include global.h"
 DEFINES="-DDIAMOND"
 
 

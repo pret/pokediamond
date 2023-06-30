@@ -1,5 +1,5 @@
-#ifndef _MSL_MSLEXTERN_H
-#define _MSL_MSLEXTERN_H
+#ifndef POKEDIAMOND_MSL_C_ANSI_PARAMS_H
+#define POKEDIAMOND_MSL_C_ANSI_PARAMS_H
 
 #ifdef __cplusplus
 #define _MSL_BEGIN_NAMESPACE_STD  namespace std {
@@ -13,4 +13,4 @@
 #define _MSL_END_NAMESPACE_STD 
 #endif //__cplusplus
 
-#endif //_MSL_MSLEXTERN_H
+#endif //POKEDIAMOND_MSL_C_ANSI_PARAMS_H

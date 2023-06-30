@@ -89,7 +89,7 @@ void Save_Poketch_DotArtistGetDrawing(struct Poketch * poketch, void * grid);
 void Save_Poketch_DotArtistSetDrawingAndEnable(struct Poketch * poketch, void * grid);
 void Save_Poketch_PokemonHistoryAddMon(struct Poketch * poketch, struct BoxPokemon * mon);
 int Save_Poketch_PokemonHistoryGetFirstEmptySlot(struct Poketch * poketch);
-void Save_Poketch_PokemonHistoryGetSlotN(struct Poketch * poketch, s32 i, u32 * species_p, u32 * forme_p);
+void Save_Poketch_PokemonHistoryGetSlotN(struct Poketch * poketch, s32 i, u32 * species_p, u32 * form_p);
 struct Poketch * Save_Poketch_Get(struct SaveData * save);
 
 #endif //POKEDIAMOND_POKETCH_H

@@ -1,0 +1,6 @@
+#ifndef POKEDIAMOND_MSL_C_ARITH_H
+#define POKEDIAMOND_MSL_C_ARITH_H
+
+int abs(int val);
+
+#endif //POKEDIAMOND_MSL_C_ARITH_H

@@ -11,7 +11,7 @@ struct SaveData;
 typedef struct PoffinCaseAppData {
     u8 padding[0x4];
     u32 unk4;
-    u32 unk8;
+    SavePoffinData *savePoffinData;
     struct SaveData* save;
     PlayerProfile* player;
     struct Bag* bag;

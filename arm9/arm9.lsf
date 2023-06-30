@@ -89,7 +89,7 @@ Static arm9
 	Object unk_02022504.o
 	Object save.o
 	Object save_arrays.o
-	Object sav_system_info.o
+	Object save_system_info.o
 	Object player_data.o
 	Object unk_02023AC4.o
 	Object daycare.o
@@ -157,7 +157,6 @@ Static arm9
 	Object script.o
 	Object unk_02038C78.o
 	Object scrcmd.o
-	Object scrcmd_asm.o
 	Object scrcmd_mart.o
 	Object scrcmd_3.o
 	Object scrcmd_names.o
@@ -551,7 +550,7 @@ Static arm9
 	Object MSL_ARM_critical_regions_NITRO.o
 	Object MSL_ARM_math.o
 	Object MSL_Common_ansi_files.o
-	Object MSL_Common_arith.o
+	Object arith.o
 	Object MSL_Common_assert.o
 	Object MSL_Common_buffer_io.o
 	Object MSL_Common_ctype.o
@@ -565,7 +564,7 @@ Static arm9
 	Object MSL_Common_mem_funcs.o
 	Object MSL_Common_printf.o
 	Object MSL_Common_qsort.o
-	Object MSL_Common_rand.o
+	Object rand.o
 	Object MSL_Common_scanf.o
 	Object MSL_Common_signal.o
 	Object MSL_Common_string.o

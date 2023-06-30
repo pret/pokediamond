@@ -3,7 +3,7 @@
 #include "pokemon.h"
 #include "poketch.h"
 
-extern u16 BoxMon_GetAlternateForme(struct BoxPokemon * mon);
+extern u16 BoxMon_GetAlternateForm(struct BoxPokemon * mon);
 
 static const u8 sMarkingMapInitialPos[][2] = {
     { 0x68, 0x98 },
@@ -232,7 +232,7 @@ void Save_Poketch_PokemonHistoryAddMon(struct Poketch * poketch, struct BoxPokem
         i = 11;
     }
     poketch->pokemonHistory[i][0] = (u16)GetBoxMonData(mon, MON_DATA_SPECIES, NULL);
-    poketch->pokemonHistory[i][1] = BoxMon_GetAlternateForme(mon);
+    poketch->pokemonHistory[i][1] = BoxMon_GetAlternateForm(mon);
 }
 
 int Save_Poketch_PokemonHistoryGetFirstEmptySlot(struct Poketch * poketch)
@@ -246,12 +246,12 @@ int Save_Poketch_PokemonHistoryGetFirstEmptySlot(struct Poketch * poketch)
     return i;
 }
 
-void Save_Poketch_PokemonHistoryGetSlotN(struct Poketch * poketch, s32 i, u32 * species_p, u32 * forme_p)
+void Save_Poketch_PokemonHistoryGetSlotN(struct Poketch * poketch, s32 i, u32 * species_p, u32 * form_p)
 {
     GF_ASSERT(i < 12);
     GF_ASSERT(poketch->pokemonHistory[i][0] != SPECIES_NONE);
     *species_p = poketch->pokemonHistory[i][0];
-    *forme_p = poketch->pokemonHistory[i][1];
+    *form_p = poketch->pokemonHistory[i][1];
 }
 
 struct Poketch * Save_Poketch_Get(struct SaveData * save)

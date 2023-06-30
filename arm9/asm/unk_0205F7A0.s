@@ -29,7 +29,7 @@ sub_0205F7A0: ; 0x0205F7A0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034DCC
+	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	mov r2, #0x5
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0

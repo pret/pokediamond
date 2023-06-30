@@ -4,6 +4,7 @@
 #include "filesystem.h"
 #include "nutdata.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "constants/items.h"
 
 NARC * OpenNutsDataNarc(HeapID heapId)
@@ -64,7 +65,7 @@ u32 GetNutAttr(struct NutData * nut, u32 attr)
 
 struct String * GetNutName(u32 berry_idx, HeapID heapId)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 373, heapId);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0373_bin, heapId);
     struct String * ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;
@@ -72,7 +73,7 @@ struct String * GetNutName(u32 berry_idx, HeapID heapId)
 
 struct String * GetNutDesc(u32 berry_idx, HeapID heapId)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 372, heapId);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0372_bin, heapId);
     struct String * ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;

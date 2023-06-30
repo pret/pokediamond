@@ -290,7 +290,7 @@ void HandleDSLidAction(void)
                 while (1)
                 {
                     PMWakeUpTrigger trigger = PM_TRIGGER_COVER_OPEN | PM_TRIGGER_CARD;
-                    if (gSystem.unk66 && !r1)
+                    if (gSystem.gbaCartId && !r1)
                         trigger |= PM_TRIGGER_CARTRIDGE;
                     PM_GoSleepMode(trigger, PM_PAD_LOGIC_OR, 0);
                     if (CARD_IsPulledOut())
