@@ -22,12 +22,12 @@ void *sub_02022528(struct SaveData *save)
     return SaveArray_Get(save, 32);
 }
 
-u8 *LoadHallOfFame(struct SaveData *save, HeapID heapId, int *ret_p)
+HallOfFame *LoadHallOfFame(struct SaveData *save, HeapID heapId, int *ret_p)
 {
-    return ReadSaveFileFromFlash(save, heapId, 0, ret_p);
+    return (HallOfFame *)ReadSaveFileFromFlash(save, heapId, 0, ret_p);
 }
 
-s32 SaveHallOfFame(struct SaveData *save, u8 *data)
+s32 SaveHallOfFame(struct SaveData *save, HallOfFame *data)
 {
-    return WriteSaveFileToFlash(save, 0, data);
+    return WriteSaveFileToFlash(save, 0, (u8 *)data);
 }

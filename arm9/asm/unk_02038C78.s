@@ -800,7 +800,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0288
 	.word ScrCmd_Unk0289
 	.word ScrCmd_Unk028A
-	.word ScrCmd_Unk028B
+	.word ScrCmd_CheckEventValidity
 	.word ScrCmd_ShowPartyPokemonPic
 	.word ScrCmd_Unk028D
 	.word ScrCmd_Unk028E
@@ -820,7 +820,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk029C
 	.word ScrCmd_Unk029D
 	.word ScrCmd_Unk029E
-	.word ScrCmd_Unk029F
+	.word ScrCmd_ShakeCamera
 	.word ScrCmd_Unk02A0
 	.word ScrCmd_Unk02A1
 	.word ScrCmd_Unk02A2
@@ -831,9 +831,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02A7
 	.word ScrCmd_TakeCoinsAddress
 	.word ScrCmd_HasEnoughCoinsAddress
-	.word ScrCmd_Unk02AA
+	.word ScrCmd_CompareMysteryGiftEasyChatInput
 	.word ScrCmd_Unk02AB
-	.word ScrCmd_Unk02AC
+	.word ScrCmd_ActivateMysteryGift
 	.word ScrCmd_GetEventMovement
 	.word ScrCmd_Unk02AE
 	.word ScrCmd_Unk02AF
@@ -851,12 +851,12 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02BB
 	.word ScrCmd_Unk02BC
 	.word ScrCmd_LegendaryBattle
-	.word ScrCmd_Unk02BE
+	.word ScrCmd_GetTrainerCardLevel
 	.word ScrCmd_DummyRideBike
 	.word ScrCmd_Unk02C0
-	.word ScrCmd_Unk02C1
-	.word ScrCmd_Unk02C2
-	.word ScrCmd_Unk02C3
+	.word ScrCmd_ShowSaveStats
+	.word ScrCmd_HideSaveStats
+	.word ScrCmd_ScopeMode
 	.word ScrCmd_GetItemNameWithIndefArticle
 	.word ScrCmd_GetItemNamePlural
 	.word ScrCmd_GetDecorationNameWithArticle

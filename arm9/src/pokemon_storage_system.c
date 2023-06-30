@@ -3,6 +3,7 @@
 #include "save.h"
 #include "pokemon_storage_system.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "string16.h"
 
 void PCStorage_Init(struct PCStorage * pc)
@@ -34,7 +35,7 @@ void PCStorage_InitializeBoxes(struct PCStorage * pc)
             j = 0;
     }
     pc->unlockedWallpapers = 0;
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 14, HEAP_ID_DEFAULT);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0014_bin, HEAP_ID_DEFAULT);
     if (msgData != NULL)
     {
         for (i = 0; i < NUM_BOXES; i++)

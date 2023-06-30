@@ -4,6 +4,7 @@
 #define NUM_HOF_RECORDS 30
 
 #include "RTC_api.h"
+#include "pokemon.h"
 
 struct HOFMon
 {

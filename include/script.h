@@ -119,6 +119,10 @@ typedef struct SavePoffinData {
 
 } SavePoffinData; //todo: fill out and move to own file
 
+typedef struct SaveStatsPrinter {
+
+} SaveStatsPrinter; //todo: fill out and move to own file
+
 typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;

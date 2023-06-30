@@ -2,6 +2,8 @@
 #include "event_data.h"
 #include "itemtool.h"
 #include "message_format.h"
+#include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "nutdata.h"
 #include "party.h"
 #include "player_data.h"
@@ -234,7 +236,7 @@ BOOL ScrCmd_Unk00DA(ScriptContext *ctx) //00DA - todo: BufferPokemonSpeciesName?
 
 static String *sub_02040AE4(u32 msg_no, HeapID heapId) //todo: GetPokemonSpeciesName?
 {
-    MsgData *msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 362, heapId); //todo change to NAIX
+    MsgData *msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heapId);
     String *ret = NewString_ReadMsgData(msg_data, msg_no);
     DestroyMsgData(msg_data);
 

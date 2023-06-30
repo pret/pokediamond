@@ -1241,7 +1241,7 @@ ov83_0222DF40: ; 0x0222DF40
 _0222DF60:
 	ldr r0, [r5, #4]
 	bl Save_SysInfo_Get
-	bl sub_02023820
+	bl Save_SysInfo_GetMysteryGiftActive
 	cmp r0, #1
 	bne _0222DF72
 	mov r0, #1

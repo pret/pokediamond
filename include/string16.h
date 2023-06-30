@@ -16,7 +16,7 @@ typedef struct String
 #define STR16_MAGIC 0xB6F8D2EC
 
 struct String * String_New(u32 count, HeapID heapId);
-BOOL StringCompare(struct String *, struct String *);
+BOOL String_Compare(struct String *, struct String *);
 void CopyU16ArrayToStringN(struct String *, u16 *, u32); // copy
 void StringSetEmpty(struct String *); // set empty
 struct String * StringDup(struct String *, HeapID heapId);

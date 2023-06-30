@@ -3690,7 +3690,7 @@ BOOL sub_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, HeapID heapId
     struct String * r6 = String_New(PLAYER_NAME_LENGTH + 1, heapId);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
-    if (myId == otId && myGender == otGender && StringCompare(r7, r6) == 0)
+    if (myId == otId && myGender == otGender && String_Compare(r7, r6) == 0)
         ret = TRUE;
     String_Delete(r6);
     String_Delete(r7);

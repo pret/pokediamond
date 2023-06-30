@@ -1,6 +1,7 @@
 #include "global.h"
 #include "MI_memory.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "heap.h"
 #include "unk_0202A1E0.h"
 
@@ -471,7 +472,7 @@ void sub_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798
 
     if(substruct4_substruct1->u_C8_0)
     {
-        message = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, 17, HEAP_ID_FIELD);
+        message = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0017_bin, HEAP_ID_FIELD);
         ReadMsgDataIntoU16Array(message, (u32) (22 + substruct4_substruct1->u_C8_1), unk_substruct->u_8);
         DestroyMsgData(message);
     }

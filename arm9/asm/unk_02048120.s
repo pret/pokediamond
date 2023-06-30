@@ -341,7 +341,7 @@ _020483B0:
 	str r0, [sp, #0x0]
 	bl sub_02034EC4
 	add r0, r7, #0x0
-	bl sub_02034DCC
+	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x0]
 	bl sub_02034E90

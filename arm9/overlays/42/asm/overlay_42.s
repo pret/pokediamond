@@ -135,7 +135,7 @@ _02254932:
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034DCC
+	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
@@ -523,7 +523,7 @@ ov42_02254C04: ; 0x02254C04
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034DCC
+	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]

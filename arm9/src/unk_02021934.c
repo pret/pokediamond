@@ -154,7 +154,7 @@ s64 String_atoi(struct String * str, BOOL * flag)
     return ret;
 }
 
-BOOL StringCompare(struct String * str1, struct String * str2)
+BOOL String_Compare(struct String * str1, struct String * str2)
 {
     ASSERT_STR16(str1);
     ASSERT_STR16(str2);

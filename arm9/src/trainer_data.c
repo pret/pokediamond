@@ -5,6 +5,7 @@
 #include "party.h"
 #include "proto.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "constants/trainer_classes.h"
 #include "unk_02024E64.h"
 
@@ -17,7 +18,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * 
     s32 i;
     struct String * str;
 
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 559, heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0559_bin, heapId);
     rivalName = GetRivalNamePtr(sub_02024EC0(save));
     for (i = 0; i < 4; i++)
     {

@@ -1849,7 +1849,7 @@ _020384D6:
 	bne _020384F2
 	ldr r0, [r1, #0x18]
 	ldr r1, [r4, #0x10]
-	bl StringCompare
+	bl String_Compare
 	cmp r0, #0x0
 	bne _02038514
 	ldr r0, [r4, #0xc]

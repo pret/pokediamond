@@ -238,8 +238,8 @@ _021E84D6:
 _021E84EC: .word ov05_021F78D4
 _021E84F0: .word ov05_021F78C4
 
-	thumb_func_start ov05_021E84F4
-ov05_021E84F4: ; 0x021E84F4
+	thumb_func_start Field_SaveStatsPrinter_Print
+Field_SaveStatsPrinter_Print: ; 0x021E84F4
 	push {r3, r4, lr}
 	sub sp, #0x14
 	add r4, r0, #0
@@ -293,8 +293,8 @@ ov05_021E84F4: ; 0x021E84F4
 _021E8564: .word 0x0000027F
 _021E8568: .word 0x000003D9
 
-	thumb_func_start ov05_021E856C
-ov05_021E856C: ; 0x021E856C
+	thumb_func_start Field_SaveStatsPrinter_RemoveFromScreen
+Field_SaveStatsPrinter_RemoveFromScreen: ; 0x021E856C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x10]
@@ -307,8 +307,8 @@ ov05_021E856C: ; 0x021E856C
 	pop {r4, pc}
 	.balign 4, 0
 
-	thumb_func_start ov05_021E8588
-ov05_021E8588: ; 0x021E8588
+	thumb_func_start Field_SaveStatsPrinter_New
+Field_SaveStatsPrinter_New: ; 0x021E8588
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r1, #0
 	add r6, r0, #0
@@ -350,8 +350,8 @@ ov05_021E8588: ; 0x021E8588
 	.balign 4, 0
 _021E85E0: .word 0x000001E3
 
-	thumb_func_start ov05_021E85E4
-ov05_021E85E4: ; 0x021E85E4
+	thumb_func_start Field_SaveStatsPrinter_Delete
+Field_SaveStatsPrinter_Delete: ; 0x021E85E4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x18]

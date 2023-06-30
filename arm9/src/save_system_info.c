@@ -66,14 +66,14 @@ u8 Save_SysInfo_GetBirthDay(struct SaveSysInfo * unk)
     return unk->birthDay;
 }
 
-u8 sub_02023820(struct SaveSysInfo * unk)
+u8 Save_SysInfo_GetMysteryGiftActive(struct SaveSysInfo * unk)
 {
-    return unk->field_48;
+    return unk->mysteryGiftActive;
 }
 
-void sub_02023828(struct SaveSysInfo * unk, u8 val)
+void Save_SysInfo_SetMysteryGiftActive(struct SaveSysInfo * unk, u8 val)
 {
-    unk->field_48 = val;
+    unk->mysteryGiftActive = val;
 }
 
 u32 sub_02023830(struct SaveSysInfo * unk)
