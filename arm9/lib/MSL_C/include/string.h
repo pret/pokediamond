@@ -1,5 +1,5 @@
-#ifndef GUARD_MSL_STRING_H
-#define GUARD_MSL_STRING_H
+#ifndef POKEDIAMOND_MSL_C_STRING_H
+#define POKEDIAMOND_MSL_C_STRING_H
 
 #include "ansi_params.h"
 #include "size_t.h"
@@ -12,17 +12,17 @@ void *memmove(void *dest, const void *src, size_t size);
 void *memcpy(void *dest, const void *src, size_t size);
 void *memchr(const void *arr, int value, size_t size);
 int memcmp(const void *a, const void *b, size_t size);
-signed char *strcpy(signed char *dest, const signed char *src);
-unsigned strlen(const signed char *str);
-signed char *strncpy(signed char *dest, const signed char *src, size_t n);
-int strcmp(const signed char *a, const signed char *b);
-signed char *strcat(signed char *dest, const signed char *src);
-signed char *strncat(signed char *dest, const signed char *src, size_t n);
-unsigned strspn(const signed char *a, const signed char *b);
-signed char *strtok(signed char *str, const signed char *sep);
-signed char *strstr(const signed char *haystack, const signed char *needle);
+char *strcpy(char *dest, const char *src);
+unsigned strlen(const char *str);
+char *strncpy(char *dest, const char *src, size_t n);
+int strcmp(const char *a, const char *b);
+char *strcat(char *dest, const char *src);
+char *strncat(char *dest, const char *src, size_t n);
+unsigned strspn(const char *a, const char *b);
+char *strtok(char *str, const char *sep);
+char *strstr(const char *haystack, const char *needle);
 
 _MSL_END_EXTERN_C
 _MSL_END_NAMESPACE_STD
 
-#endif //GUARD_MSL_STRING_H
+#endif //POKEDIAMOND_MSL_C_STRING_H

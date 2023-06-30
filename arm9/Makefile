@@ -117,8 +117,8 @@ ASM_PROCESSOR := $(ASM_PROCESSOR_DIR)/compile.sh
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 MWASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -ipa file -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
-MWCXXFLAGS = -O4,p -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -ipa file -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWCXXFLAGS = -O4,p -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 MWLDFLAGS = -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc
 LIBS := -Llib -lsyscall
 ARFLAGS = rcS
@@ -204,7 +204,7 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS) $(LIB
 
 # TODO: Move out to lib/Makefile
 $(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
-$(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/MSL_C/include -ir lib/libnns/include -ir lib/NitroSDK/include -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+$(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto -i ../include -ir ../include-mw -ir lib/MSL_C/include -ir lib/libnns/include -ir lib/NitroSDK/include -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 
 $(BUILD_DIR)/lib/libnns/%.o: MWCCVERSION = 1.2/sp3
 $(BUILD_DIR)/lib/MSL_C/%.o: MWCCVERSION = 2.0/sp1

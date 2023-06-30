@@ -97,7 +97,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
 MWASFLAGS = -proc arm4t -i  ..
-MWCFLAGS = -O4,s -proc arm7tdmi -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWCFLAGS = -O4,s -proc arm7tdmi -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 MWLDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start -msgstyle gcc
 
 ####################### Other Tools #########################

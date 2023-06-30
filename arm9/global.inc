@@ -3067,11 +3067,11 @@
 .extern ScrCmd_CheckBurmyForms
 .extern ScrCmd_Unk0265
 .extern ScrCmd_Unk0266
-.extern ScrCmd_Unk0267
-.extern ScrCmd_Unk0268
-.extern ScrCmd_Unk0269
-.extern ScrCmd_Unk026A
-.extern ScrCmd_Unk026B
+.extern ScrCmd_SlotMachine
+.extern ScrCmd_GetHour
+.extern ScrCmd_ShakeEvent
+.extern ScrCmd_BlinkEvent
+.extern ScrCmd_CheckRegis
 .extern ScrCmd_Unk026C
 .extern ScrCmd_Unk026E
 .extern ScrCmd_Unk026F
@@ -3889,7 +3889,7 @@
 .extern sub_02054CC8
 .extern sub_02054D1C
 .extern sub_02054DEC
-.extern sub_02054E30
+.extern Save_PlayerHasAllRegisInParty
 .extern sub_02054F50
 .extern sub_0205502C
 .extern sub_02055068

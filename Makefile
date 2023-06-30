@@ -104,7 +104,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 MWASFLAGS = -proc arm5te
-MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -ipa file -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/MSL_C/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -ipa file -fp soft -lang c99 -Cpp_exceptions off -inline on,noauto -i include -ir include-mw -ir arm9/lib/MSL_C/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -interworking -DFS_IMPLEMENT -enum int -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 MWLDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start -msgstyle gcc
 
 ####################### Other Tools #########################

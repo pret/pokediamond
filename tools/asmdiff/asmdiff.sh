@@ -127,13 +127,13 @@ case "$mode" in
         $MYDIR/ntruncompbw $basefile $vma $((vma+compsize)) || { rm -f $basefile; exit 1; }
       }
     }
-    buildfile=$builddir/MODULE_${overlay}.sbin
+    buildfile=$builddir/OVERLAY_${overlay}.sbin
     ;;
   static)
     case $proc in
     armv4t)
       romtab=48
-      compname=ichneumon_sub
+      compname=arm7
       ;;
     armv5te)
       romtab=32

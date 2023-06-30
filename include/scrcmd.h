@@ -401,6 +401,13 @@ BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx);
 BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx);
 BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx);
 BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx);
+BOOL ScrCmd_Unk0265(ScriptContext *ctx);
+BOOL ScrCmd_Unk0266(ScriptContext *ctx);
+BOOL ScrCmd_SlotMachine(ScriptContext *ctx);
+BOOL ScrCmd_GetHour(ScriptContext *ctx);
+BOOL ScrCmd_ShakeEvent(ScriptContext *ctx);
+BOOL ScrCmd_BlinkEvent(ScriptContext *ctx);
+BOOL ScrCmd_CheckRegis(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

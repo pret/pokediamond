@@ -551,7 +551,7 @@ Static arm9
 	Object MSL_ARM_critical_regions_NITRO.o
 	Object MSL_ARM_math.o
 	Object MSL_Common_ansi_files.o
-	Object MSL_Common_arith.o
+	Object arith.o
 	Object MSL_Common_assert.o
 	Object MSL_Common_buffer_io.o
 	Object MSL_Common_ctype.o
@@ -565,7 +565,7 @@ Static arm9
 	Object MSL_Common_mem_funcs.o
 	Object MSL_Common_printf.o
 	Object MSL_Common_qsort.o
-	Object MSL_Common_rand.o
+	Object rand.o
 	Object MSL_Common_scanf.o
 	Object MSL_Common_signal.o
 	Object MSL_Common_string.o

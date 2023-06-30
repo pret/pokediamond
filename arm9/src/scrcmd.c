@@ -349,6 +349,10 @@ extern void sub_020649D4(FieldSystem *fieldSystem);
 extern BOOL sub_020649B0(FieldSystem *fieldSystem);
 extern void ov06_0224E764(FieldSystem *fieldSystem);
 extern void ov06_0224E7C4(FieldSystem *fieldSystem);
+extern void sub_020389CC(TaskManager *taskManager, u16 param1);
+extern void sub_02054F50(TaskManager *taskManager, LocalMapObject *mapObject, u16 count, u16 frames, u16 x, u16 y);
+extern void sub_0205502C(TaskManager *taskManager, LocalMapObject *mapObject, u16 count, u16 frames);
+extern u16 Save_PlayerHasAllRegisInParty(SaveData *saveData);
 
 u8 UNK_021C5A0C[4];
 
@@ -4273,3 +4277,53 @@ _0203EFFC:
 	pop {r3-r7, pc}
 }
 #endif
+
+BOOL ScrCmd_Unk0265(ScriptContext *ctx) { //0265
+    sub_0205F1C4(Save_VarsFlags_Get(ctx->fieldSystem->saveData));
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0266(ScriptContext *ctx) { //0266
+    sub_0205F1D4(Save_VarsFlags_Get(ctx->fieldSystem->saveData));
+    return FALSE;
+}
+
+BOOL ScrCmd_SlotMachine(ScriptContext *ctx) { //0267
+    u16 unk0 = ScriptGetVar(ctx);
+    sub_020389CC(ctx->fieldSystem->taskManager, unk0);
+    return TRUE;
+}
+
+BOOL ScrCmd_GetHour(ScriptContext *ctx) { //0268
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Script_GetHour(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_ShakeEvent(ScriptContext *ctx) { //0269
+    u16 eventId = ScriptGetVar(ctx);
+    u16 count = ScriptGetVar(ctx);
+    u16 frames = ScriptGetVar(ctx);
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
+    LocalMapObject *mapObject = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    GF_ASSERT(mapObject != NULL);
+    sub_02054F50(ctx->taskManager, mapObject, count, frames, x, y);
+    return TRUE;
+}
+
+BOOL ScrCmd_BlinkEvent(ScriptContext *ctx) { //026A
+    u16 eventId = ScriptGetVar(ctx);
+    u16 count = ScriptGetVar(ctx);
+    u16 frames = ScriptGetVar(ctx);
+    LocalMapObject *mapObject = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    GF_ASSERT(mapObject != NULL);
+    sub_0205502C(ctx->taskManager, mapObject, count, frames);
+    return TRUE;
+}
+
+BOOL ScrCmd_CheckRegis(ScriptContext *ctx) { //026B
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Save_PlayerHasAllRegisInParty(ctx->fieldSystem->saveData);
+    return FALSE;
+}

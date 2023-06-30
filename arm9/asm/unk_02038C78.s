@@ -764,11 +764,11 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_CheckBurmyForms
 	.word ScrCmd_Unk0265
 	.word ScrCmd_Unk0266
-	.word ScrCmd_Unk0267
-	.word ScrCmd_Unk0268
-	.word ScrCmd_Unk0269
-	.word ScrCmd_Unk026A
-	.word ScrCmd_Unk026B
+	.word ScrCmd_SlotMachine
+	.word ScrCmd_GetHour
+	.word ScrCmd_ShakeEvent
+	.word ScrCmd_BlinkEvent
+	.word ScrCmd_CheckRegis
 	.word ScrCmd_Unk026C
 	.word ScrCmd_MessageUnown
 	.word ScrCmd_Unk026E
