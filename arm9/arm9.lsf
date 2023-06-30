@@ -89,7 +89,7 @@ Static arm9
 	Object unk_02022504.o
 	Object save.o
 	Object save_arrays.o
-	Object sav_system_info.o
+	Object save_system_info.o
 	Object player_data.o
 	Object unk_02023AC4.o
 	Object daycare.o

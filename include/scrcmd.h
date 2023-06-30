@@ -415,6 +415,19 @@ BOOL ScrCmd_Unk0270(ScriptContext *ctx);
 BOOL ScrCmd_BufferContestBackgroundName(ScriptContext *ctx);
 BOOL ScrCmd_Unk0275(ScriptContext *ctx);
 BOOL ScrCmd_Unk0277(ScriptContext *ctx);
+BOOL ScrCmd_Unk0279(ScriptContext *ctx);
+BOOL ScrCmd_UseSunyshoreBinoculars(ScriptContext *ctx);
+BOOL ScrCmd_Unk027B(ScriptContext *ctx);
+BOOL ScrCmd_BufferRandomTrendySaying(ScriptContext *ctx);
+BOOL ScrCmd_Unk027F(ScriptContext *ctx);
+BOOL ScrCmd_Unk027E(ScriptContext *ctx);
+BOOL ScrCmd_CheckBirthday(ScriptContext *ctx);
+BOOL ScrCmd_CountSeenUnown(ScriptContext *ctx);
+BOOL ScrCmd_Unk0285(ScriptContext *ctx);
+BOOL ScrCmd_Unk0286(ScriptContext *ctx);
+BOOL ScrCmd_Unk0287(ScriptContext *ctx);
+BOOL ScrCmd_Unk0288(ScriptContext *ctx);
+BOOL ScrCmd_Unk0289(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

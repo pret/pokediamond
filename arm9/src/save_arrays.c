@@ -5,7 +5,7 @@
 #include "party.h"
 #include "event_data.h"
 #include "pokemon_storage_system.h"
-#include "sav_system_info.h"
+#include "save_system_info.h"
 #include "poketch.h"
 #include "hall_of_fame.h"
 #include "unk_020286F8.h"

@@ -1,7 +1,8 @@
-#ifndef POKEDIAMOND_SAV_SYSTEM_INFO_H
-#define POKEDIAMOND_SAV_SYSTEM_INFO_H
+#ifndef POKEDIAMOND_SAVE_SYSTEM_INFO_H
+#define POKEDIAMOND_SAVE_SYSTEM_INFO_H
 
 #include "RTC_api.h"
+#include "nitro/types.h"
 
 struct SaveData;
 
@@ -16,7 +17,7 @@ struct UnkSaveStruct_0202376C_sub
     /* 0x34 */ u32 field_34;
 };
 
-struct SavSysInfo
+typedef struct SaveSysInfo
 {
     /* 0x00 */ s64 rtcOffset;
     /* 0x08 */ u8 macAddr[6];
@@ -27,24 +28,24 @@ struct SavSysInfo
                u8 filler_49[3];
     /* 0x4C */ u32 field_4C;
                u8 padding_50[12];
-};
+} SaveSysInfo;
 
 u32 Save_SysInfo_sizeof(void);
-void Save_SysInfo_Init(struct SavSysInfo * unk);
-struct SavSysInfo * Save_SysInfo_Get(struct SaveData * save);
+void Save_SysInfo_Init(struct SaveSysInfo * unk);
+struct SaveSysInfo * Save_SysInfo_Get(struct SaveData * save);
 struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveData * save);
-void Save_SysInfo_InitFromSystem(struct SavSysInfo * unk);
-BOOL Save_SysInfo_MacAddressIsMine(struct SavSysInfo * unk);
-BOOL Save_SysInfo_RTCOffsetIsMine(struct SavSysInfo * unk);
-u8 Save_SysInfo_GetBirthMonth(struct SavSysInfo * unk);
-u8 Save_SysInfo_GetBirthDay(struct SavSysInfo * unk);
-u8 sub_02023820(struct SavSysInfo * unk);
-void sub_02023828(struct SavSysInfo * unk, u8 val);
-u32 sub_02023830(struct SavSysInfo * unk);
-void sub_02023834(struct SavSysInfo * unk, u32 val);
+void Save_SysInfo_InitFromSystem(struct SaveSysInfo * unk);
+BOOL Save_SysInfo_MacAddressIsMine(struct SaveSysInfo * unk);
+BOOL Save_SysInfo_RTCOffsetIsMine(struct SaveSysInfo * unk);
+u8 Save_SysInfo_GetBirthMonth(struct SaveSysInfo * unk);
+u8 Save_SysInfo_GetBirthDay(struct SaveSysInfo * unk);
+u8 sub_02023820(struct SaveSysInfo * unk);
+void sub_02023828(struct SaveSysInfo * unk, u8 val);
+u32 sub_02023830(struct SaveSysInfo * unk);
+void sub_02023834(struct SaveSysInfo * unk, u32 val);
 void Save_SysInfo_RTC_Init(struct UnkSaveStruct_0202376C_sub * sub);
 BOOL sub_02023874(struct UnkSaveStruct_0202376C_sub * sub);
 void sub_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1);
 void sub_020238A4(struct UnkSaveStruct_0202376C_sub * sub);
 
-#endif //POKEDIAMOND_SAV_SYSTEM_INFO_H
+#endif //POKEDIAMOND_SAVE_SYSTEM_INFO_H

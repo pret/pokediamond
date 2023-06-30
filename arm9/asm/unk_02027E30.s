@@ -35,8 +35,8 @@ sub_02027E44: ; 0x02027E44
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02027E5C
-sub_02027E5C: ; 0x02027E5C
+	thumb_func_start Poffin_New
+Poffin_New: ; 0x02027E5C
 	push {r4, lr}
 	mov r1, #0x8
 	bl AllocFromHeapAtEnd
@@ -331,8 +331,8 @@ _02028044:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start sub_02028048
-sub_02028048: ; 0x02028048
+	thumb_func_start Save_PoffinData_Get
+Save_PoffinData_Get: ; 0x02028048
 	ldr r3, _02028050 ; =SaveArray_Get
 	mov r1, #0x10
 	bx r3
@@ -530,7 +530,7 @@ sub_02028190: ; 0x02028190
 	add r5, r0, #0x0
 	add r0, r2, #0x0
 	add r4, r1, #0x0
-	bl sub_02027E5C
+	bl Poffin_New
 	add r6, r0, #0x0
 	cmp r4, #0x64
 	blo _020281AA

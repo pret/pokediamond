@@ -847,7 +847,7 @@ _021D7BC6:
 	cmp r0, #0
 	bne _021D7C12
 	ldr r0, [r4]
-	bl sub_02027E5C
+	bl Poffin_New
 	add r6, r0, #0
 	ldr r0, [r4]
 	ldr r3, _021D7C68 ; =0x0000142C
@@ -1983,7 +1983,7 @@ ov73_021D852C: ; 0x021D852C
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl sub_02027E5C
+	bl Poffin_New
 	ldr r1, _021D8560 ; =0x0000152C
 	str r0, [r4, r1]
 	ldr r0, _021D8564 ; =0x00001424

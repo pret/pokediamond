@@ -9788,7 +9788,7 @@ ov75_021EB8E8: ; 0x021EB8E8
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl sub_02028048
+	bl Save_PoffinData_Get
 	bl sub_020281B8
 	add r2, r0, #0
 	mov r0, #1

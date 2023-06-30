@@ -783,17 +783,17 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0277
 	.word ScrCmd_GetPartyMonLevel
 	.word ScrCmd_Unk0279
-	.word ScrCmd_Unk027A
+	.word ScrCmd_UseSunyshoreBinoculars
 	.word ScrCmd_Unk027B
 	.word ScrCmd_Unk027C
-	.word ScrCmd_Unk027D
+	.word ScrCmd_BufferRandomTrendySaying
 	.word ScrCmd_Unk027E
 	.word ScrCmd_Unk027F
 	.word ScrCmd_Unk0280
 	.word ScrCmd_GetPartyMonContestCondition
-	.word ScrCmd_Unk0282
+	.word ScrCmd_CheckBirthday
 	.word ScrCmd_SetVolume
-	.word ScrCmd_Unk0284
+	.word ScrCmd_CountSeenUnown
 	.word ScrCmd_Unk0285
 	.word ScrCmd_Unk0286
 	.word ScrCmd_Unk0287

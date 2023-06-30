@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_02046030
-sub_02046030: ; 0x02046030
+	thumb_func_start CallTask_UseSunyshoreBinoculars
+CallTask_UseSunyshoreBinoculars: ; 0x02046030
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0xb

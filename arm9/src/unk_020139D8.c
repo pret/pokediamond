@@ -187,7 +187,7 @@ BOOL sub_02013B68(struct SaveEasyChat * unk, u32 a1)
     return (BOOL)((unk->unk_4 >> a1) & 1);
 }
 
-s32 sub_02013B74(struct SaveEasyChat * unk)
+u32 Save_EasyChat_RandomTrendySayingSet(struct SaveEasyChat * unk)
 {
     u32 i;
     u32 count;
@@ -207,7 +207,7 @@ s32 sub_02013B74(struct SaveEasyChat * unk)
                 if (which_bit == 0)
                 {
                     unk->unk_4 |= (1 << i);
-                    return (s32)i;
+                    return i;
                 }
                 which_bit--;
             }
@@ -216,7 +216,7 @@ s32 sub_02013B74(struct SaveEasyChat * unk)
     return 32;
 }
 
-BOOL sub_02013BC8(struct SaveEasyChat * unk)
+BOOL Save_EasyChat_TrendySayingsUnlockedAllCheck(struct SaveEasyChat * unk)
 {
     u32 i;
     for (i = 0; i < 32; i++)
@@ -227,7 +227,7 @@ BOOL sub_02013BC8(struct SaveEasyChat * unk)
     return TRUE;
 }
 
-u16 sub_02013BE4(u16 a0)
+u16 TrendyWordIdxToECWord(u32 a0)
 {
     s32 i;
     u16 skip = 0;

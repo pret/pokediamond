@@ -57,7 +57,7 @@ sub_02087D00: ; 0x02087D00
 	add r7, r0, #0x0
 	bl MI_CpuFill8
 	add r0, r4, #0x0
-	bl sub_02028048
+	bl Save_PoffinData_Get
 	str r0, [r7, #0x8]
 	add r0, r4, #0x0
 	bl Save_PlayerData_GetProfileAddr
@@ -72,7 +72,7 @@ sub_02087D00: ; 0x02087D00
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r7, #0x18]
 	add r0, r5, #0x0
-	bl sub_02027E5C
+	bl Poffin_New
 	add r4, r0, #0x0
 	mov r0, #0x1
 	mov r1, #0x20

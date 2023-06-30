@@ -9,7 +9,7 @@
 #include "overlay_manager.h"
 #include "player_data.h"
 #include "poke_overlay.h"
-#include "sav_system_info.h"
+#include "save_system_info.h"
 #include "save.h"
 #include "unk_02024E64.h"
 #include "unk_020286F8.h"

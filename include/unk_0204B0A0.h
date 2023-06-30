@@ -3,7 +3,7 @@
 
 #include "RTC_api.h"
 #include "RTC_convert.h"
-#include "sav_system_info.h"
+#include "save_system_info.h"
 #include "script.h"
 
 void sub_0204B0F8(struct FieldSystem *fieldSystem);

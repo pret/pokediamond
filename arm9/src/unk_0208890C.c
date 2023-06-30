@@ -8,7 +8,7 @@
 #include "poke_overlay.h"
 
 extern struct SaveData* FieldSystem_GetSaveDataPtr(struct FieldSystem *);
-extern u32 sub_02028048(struct SaveData* save);
+extern SavePoffinData *Save_PoffinData_Get(struct SaveData* save);
 extern void sub_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
 extern BOOL sub_020889B0(struct OverlayManager *, u32*);
 extern BOOL sub_02088A00(struct OverlayManager *, u32*);
@@ -27,7 +27,7 @@ struct PoffinCaseAppData* sub_0208890C(u32 a0, struct SaveData* save, HeapID hea
     MI_CpuFill8(ret, 0, sizeof(struct PoffinCaseAppData));
 
     ret->save = save;
-    ret->unk8 = sub_02028048(save);
+    ret->savePoffinData = Save_PoffinData_Get(save);
     ret->player = Save_PlayerData_GetProfileAddr(save);
     ret->bag = Save_Bag_Get(save);
     ret->options = Save_PlayerData_GetOptionsAddr(save);
