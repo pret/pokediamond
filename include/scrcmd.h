@@ -408,6 +408,13 @@ BOOL ScrCmd_GetHour(ScriptContext *ctx);
 BOOL ScrCmd_ShakeEvent(ScriptContext *ctx);
 BOOL ScrCmd_BlinkEvent(ScriptContext *ctx);
 BOOL ScrCmd_CheckRegis(ScriptContext *ctx);
+BOOL ScrCmd_Unk026C(ScriptContext *ctx);
+BOOL ScrCmd_CheckGBACartridge(ScriptContext *ctx);
+BOOL ScrCmd_ResetSpiritombTalkCounter(ScriptContext *ctx);
+BOOL ScrCmd_Unk0270(ScriptContext *ctx);
+BOOL ScrCmd_BufferContestBackgroundName(ScriptContext *ctx);
+BOOL ScrCmd_Unk0275(ScriptContext *ctx);
+BOOL ScrCmd_Unk0277(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(ScriptContext *ctx);

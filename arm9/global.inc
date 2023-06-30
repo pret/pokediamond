@@ -3073,10 +3073,10 @@
 .extern ScrCmd_BlinkEvent
 .extern ScrCmd_CheckRegis
 .extern ScrCmd_Unk026C
-.extern ScrCmd_Unk026E
-.extern ScrCmd_Unk026F
+.extern ScrCmd_CheckGBACartridge
+.extern ScrCmd_ResetSpiritombTalkCounter
 .extern ScrCmd_Unk0270
-.extern ScrCmd_Unk0273
+.extern ScrCmd_BufferContestBackgroundName
 .extern ScrCmd_Unk0275
 .extern ScrCmd_Unk0277
 .extern ScrCmd_Unk0279
@@ -4608,7 +4608,7 @@
 .extern sub_0205F648
 .extern sub_0205F668
 .extern Save_VarsFlags_GetSpiritombTalkCounter
-.extern sub_0205F698
+.extern Save_VarsFlags_SetSpiritombTalkCounter
 .extern sub_0205F6A8
 .extern sub_0205F6B8
 .extern sub_0205F6C8

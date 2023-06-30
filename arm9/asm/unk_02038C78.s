@@ -771,12 +771,12 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_CheckRegis
 	.word ScrCmd_Unk026C
 	.word ScrCmd_MessageUnown
-	.word ScrCmd_Unk026E
-	.word ScrCmd_Unk026F
+	.word ScrCmd_CheckGBACartridge
+	.word ScrCmd_ResetSpiritombTalkCounter
 	.word ScrCmd_Unk0270
 	.word ScrCmd_WriteWhiteRockInscription
 	.word ScrCmd_GetWhiteRockInscription
-	.word ScrCmd_Unk0273
+	.word ScrCmd_BufferContestBackgroundName
 	.word ScrCmd_HasEnoughCoinsImmediate
 	.word ScrCmd_Unk0275
 	.word ScrCmd_CanGiveCoins

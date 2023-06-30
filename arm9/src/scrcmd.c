@@ -300,7 +300,7 @@ extern void *sub_0202914C(u8 param0, u16 param1, u32 param2);
 extern void sub_0205F3F8(SaveVarsFlags *state, u32 param1);
 extern FashionCase *Save_FashionData_GetFashionCase(SaveFashionData *saveFashionData);
 extern void sub_020271A4(FashionCase *fashionCase, u16 param1, u16 param2);
-extern u16 sub_020270D8(FashionCase *fashionCase, u16 param1, u16 param2);
+extern BOOL sub_020270D8(FashionCase *fashionCase, u32 param1, u16 param2);
 extern u16 sub_02027114(FashionCase *fashionCase, u16 param1);
 extern void sub_02027264(FashionCase *fashionCase, u16 param1);
 extern u16 sub_02027100(FashionCase *fashionCase, u16 param1);
@@ -353,6 +353,11 @@ extern void sub_020389CC(TaskManager *taskManager, u16 param1);
 extern void sub_02054F50(TaskManager *taskManager, LocalMapObject *mapObject, u16 count, u16 frames, u16 x, u16 y);
 extern void sub_0205502C(TaskManager *taskManager, LocalMapObject *mapObject, u16 count, u16 frames);
 extern u16 Save_PlayerHasAllRegisInParty(SaveData *saveData);
+extern void Save_VarsFlags_SetSpiritombTalkCounter(SaveVarsFlags *varsFlags, u32 value);
+extern void sub_0205F4E4(SaveVarsFlags *varsFlags, u16 alternativeId);
+extern void sub_0205F50C(SaveVarsFlags *varsFlags, u16 alternativeId);
+extern u32 sub_0205F6C8(SaveVarsFlags *varsFlags);
+extern u16 sub_0205F648(SaveVarsFlags *varsFlags);
 
 u8 UNK_021C5A0C[4];
 
@@ -4325,5 +4330,85 @@ BOOL ScrCmd_BlinkEvent(ScriptContext *ctx) { //026A
 BOOL ScrCmd_CheckRegis(ScriptContext *ctx) { //026B
     u16 *var = ScriptGetVarPointer(ctx);
     *var = Save_PlayerHasAllRegisInParty(ctx->fieldSystem->saveData);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk026C(ScriptContext *ctx) { //026C
+    u16 *var = ScriptGetVarPointer(ctx);
+    FashionCase *fashionCase = Save_FashionData_GetFashionCase(Save_FashionData_Get(ctx->fieldSystem->saveData));
+    s32 i;
+    u32 k;
+    s32 n = 0;
+    u16 unk0[16];
+    for (i = 0; i < 16; i++) {
+        if (sub_020270D8(fashionCase, i + 34, 1) == TRUE) {
+            unk0[i] = 1;
+            n++;
+        }
+    }
+    if (n == 0) {
+        *var = -1;
+        return FALSE;
+    }
+    k = LCRandom() % n;
+    for (i = 0; i < 16; i++) {
+        if (unk0[i] == 1) {
+            if (k == 0) {
+                break;
+            }
+            k--;
+        }
+    }
+    GF_ASSERT(i < 16);
+    *var = i + 34;
+    return FALSE;
+}
+
+BOOL ScrCmd_CheckGBACartridge(ScriptContext *ctx) { //026E
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = gSystem.gbaCartId;
+    return TRUE;
+}
+
+BOOL ScrCmd_ResetSpiritombTalkCounter(ScriptContext *ctx) { //026F
+    Save_VarsFlags_SetSpiritombTalkCounter(Save_VarsFlags_Get(ctx->fieldSystem->saveData), 0);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0270(ScriptContext *ctx) { //0270 - todo: SetMatrixAlternativeMap
+    u16 alternativeId = ScriptGetVar(ctx);
+    u8 status = ScriptReadByte(ctx);
+    SaveVarsFlags *varsFlags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
+
+    if (status) {
+        sub_0205F4E4(varsFlags, alternativeId);
+    } else {
+        sub_0205F50C(varsFlags, alternativeId);
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_BufferContestBackgroundName(ScriptContext *ctx) { //0273
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    u8 bufferId = ScriptReadByte(ctx);
+    u16 backgroundId = ScriptGetVar(ctx);
+    BufferContestBackgroundName(*messageFormat, bufferId, backgroundId);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk0275(ScriptContext *ctx) { //0275
+    SaveVarsFlags *varsFlags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
+    u16 *var = ScriptGetVarPointer(ctx);
+    if (sub_0205F6C8(varsFlags) >= 10) {
+        *var = 1;
+    } else {
+        *var = 0;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0277(ScriptContext *ctx) { //0277
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = sub_0205F648(Save_VarsFlags_Get(ctx->fieldSystem->saveData));
     return FALSE;
 }

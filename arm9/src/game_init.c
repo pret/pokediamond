@@ -355,7 +355,7 @@ void InitKeypadAndTouchpad(void)
 
 void sub_02016438(u8 a0)
 {
-    gSystem.unk66 = a0;
+    gSystem.gbaCartId = a0;
 }
 
 void sub_02016444(u8 a0)

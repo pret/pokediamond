@@ -508,8 +508,8 @@ Save_VarsFlags_GetSpiritombTalkCounter: ; 0x0205F688
 _0205F690: .word sub_0205F344
 _0205F694: .word 0x0000403E
 
-	thumb_func_start sub_0205F698
-sub_0205F698: ; 0x0205F698
+	thumb_func_start Save_VarsFlags_SetSpiritombTalkCounter
+Save_VarsFlags_SetSpiritombTalkCounter: ; 0x0205F698
 	ldr r3, _0205F6A0 ; =sub_0205F314
 	add r2, r1, #0x0
 	ldr r1, _0205F6A4 ; =0x0000403E
