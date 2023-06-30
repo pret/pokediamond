@@ -1,0 +1,14 @@
+#ifndef POKEDIAMOND_NNS_G3D_RES_STRUCT_H
+#define POKEDIAMOND_NNS_G3D_RES_STRUCT_H
+
+#include "nitro/types.h"
+
+#define NNS_G3D_RESNAME_SIZE    (16)
+#define NNS_G3D_RESNAME_VALSIZE (NNS_G3D_RESNAME_SIZE / sizeof(u32))
+
+typedef union NNSG3dResName {
+    char name[NNS_G3D_RESNAME_SIZE];
+    u32 val[NNS_G3D_RESNAME_VALSIZE];
+} NNSG3dResName;
+
+#endif //POKEDIAMOND_NNS_G3D_RES_STRUCT_H

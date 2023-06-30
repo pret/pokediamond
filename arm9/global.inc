@@ -1181,8 +1181,8 @@
 .extern sub_0201C620
 .extern sub_0201C62C
 .extern sub_0201C638
-.extern sub_0201C6C8
-.extern sub_0201C70C
+.extern Ascii_GetDelim
+.extern Ascii_StrToL
 .extern sub_0201C750
 .extern sub_0201C78C
 .extern sub_0201C7A0
