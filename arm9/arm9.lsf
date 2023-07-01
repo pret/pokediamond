@@ -64,7 +64,7 @@ Static arm9
 	Object unk_0201C24C.o
 	Object unk_0201C360.o
 	Object unk_0201C620.o
-	Object unk_0201C6B4.o
+	Object ascii_util.o
 	Object unk_0201C7A0.o
 	Object unk_0201CBEC.o
 	Object unk_0201CC08.o

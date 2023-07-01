@@ -3,6 +3,8 @@
 
 #include "config.h"
 
+#include "NNS_G3D_res_struct.h" //todo: add to nnsys.h
+
 #include <string.h>
 #include "function_target.h"
 #include "nitro/types.h"
