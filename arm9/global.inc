@@ -2008,7 +2008,7 @@
 .extern sub_0202A36C
 .extern SaveStruct23_Substruct1_GetFlag1
 .extern SaveStruct23_Substruct1_SetFlag1
-.extern FrontierData_SetField_0x0
+.extern FrontierData_BattlePointAction
 .extern FrontierData_SetField_0x2
 .extern FrontierData_SetField_0x3
 .extern FrontierData_SetArray
@@ -4987,7 +4987,7 @@
 .extern sub_0206E38C
 .extern sub_0206E394
 .extern TryFormatRegisteredKeyItemUseMessage
-.extern sub_0206E51C
+.extern GetItemUseErrorMessage
 .extern MoveItemSlotInList
 .extern GetItemIndexMapping
 .extern UpConvertItemId_Gen3to4

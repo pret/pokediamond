@@ -136,7 +136,7 @@ void SaveStruct23_Substruct1_SetFlag1(struct SaveStruct23_Substruct1 *substruct1
     substruct1->flag1 = flag;
 }
 
-u16 FrontierData_SetField_0x0(struct FrontierData *frontierData, u16 value, DataSetMode mode)
+u16 FrontierData_BattlePointAction(struct FrontierData *frontierData, u16 value, DataSetMode mode)
 {
     switch (mode)
     {

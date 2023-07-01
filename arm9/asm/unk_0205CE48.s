@@ -1792,7 +1792,7 @@ sub_0205DBF0: ; 0x0205DBF0
 	ldrh r2, [r5, #0x28]
 	ldr r1, [r4, #0x10]
 	add r3, r6, #0x0
-	bl sub_0206E51C
+	bl GetItemUseErrorMessage
 	ldr r0, [r5, #0x0]
 	ldr r1, _0205DC34 ; =sub_0205D904
 	add r2, r4, #0x0

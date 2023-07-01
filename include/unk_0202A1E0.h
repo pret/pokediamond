@@ -174,7 +174,7 @@ void SaveStruct23_Substruct1_SetField(struct SaveStruct23_Substruct1 *substruct1
 void sub_0202A36C(struct SaveStruct23_Substruct1 *substruct1, s32 arg1, s32 arg2, s32 arg3);
 BOOL SaveStruct23_Substruct1_GetFlag1(struct SaveStruct23_Substruct1 *substruct1);
 void SaveStruct23_Substruct1_SetFlag1(struct SaveStruct23_Substruct1 *substruct1, BOOL arg1);
-u16 FrontierData_SetField_0x0(struct FrontierData *frontierData, u16 value, DataSetMode mode);
+u16 FrontierData_BattlePointAction(struct FrontierData *frontierData, u16 value, DataSetMode mode);
 u8 FrontierData_SetField_0x2(struct FrontierData *frontierData, DataSetMode mode);
 u8 FrontierData_SetField_0x3(struct FrontierData *frontierData, DataSetMode mode);
 void FrontierData_SetArray(struct FrontierData *frontierData, s32 mode, void *src);

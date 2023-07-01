@@ -1,12 +1,12 @@
 #ifndef POKEDIAMOND_BAG_H
 #define POKEDIAMOND_BAG_H
 
+#include "bag_cursor.h"
 #include "bag_view.h"
 #include "itemtool.h"
 #include "save.h"
 
-typedef struct Bag
-{
+typedef struct Bag {
     struct ItemSlot items[NUM_BAG_ITEMS];
     struct ItemSlot keyItems[NUM_BAG_KEY_ITEMS];
     struct ItemSlot TMsHMs[NUM_BAG_TMS_HMS];
@@ -17,19 +17,6 @@ typedef struct Bag
     struct ItemSlot battleItems[NUM_BAG_BATTLE_ITEMS];
     u32 registeredItem;
 } Bag;
-
-struct UnkStruct_0206F164
-{
-    u8 unk_00[8];
-    u8 unk_08[8];
-    u16 unk_10;
-    u8 filler_12[2];
-    u8 unk_14[5];
-    u8 unk_19[5];
-    u16 unk_1e;
-    u16 unk_20;
-    u16 unk_22;
-};
 
 u32 Save_Bag_sizeof(void);
 struct Bag * Save_Bag_New(HeapID heapId);
@@ -56,18 +43,18 @@ void SortPocket(struct ItemSlot * slots, u32 count);
 struct BagView * CreateBagView(struct Bag * bag, const u8 * pockets, HeapID heapId);
 struct ItemSlot * Bag_GetPocketSlotN(struct Bag * bag, u32 pocket, u32 slot);
 struct Bag * Save_Bag_Get(struct SaveData * save);
-struct UnkStruct_0206F164 * sub_0206F164(HeapID heapId);
-void sub_0206F17C(struct UnkStruct_0206F164 * a0, u32 a1, u8 * a2, u8 * a3);
-u16 sub_0206F18C(struct UnkStruct_0206F164 * a0);
-void sub_0206F190(struct UnkStruct_0206F164 * a0, u32 a1, u8 a2, u8 a3);
-void sub_0206F19C(struct UnkStruct_0206F164 * a0, u16 a1);
-void sub_0206F1A0(struct UnkStruct_0206F164 * a0, u32 a1, u8 * a2, u8 * a3);
-u16 sub_0206F1AC(struct UnkStruct_0206F164 * a0);
-u16 sub_0206F1B0(struct UnkStruct_0206F164 * a0);
-u16 sub_0206F1B4(struct UnkStruct_0206F164 * a0);
-void sub_0206F1B8(struct UnkStruct_0206F164 * a0, u32 a1, u8 a2, u8 a3);
-void sub_0206F1C0(struct UnkStruct_0206F164 * a0);
-void sub_0206F1E4(struct UnkStruct_0206F164 * a0, u16 a1, u16 a2);
-void sub_0206F1EC(struct UnkStruct_0206F164 * a0, u16 a1);
+struct BagCursor * sub_0206F164(HeapID heapId);
+void sub_0206F17C(struct BagCursor * a0, u32 a1, u8 * a2, u8 * a3);
+u16 sub_0206F18C(struct BagCursor * a0);
+void sub_0206F190(struct BagCursor * a0, u32 a1, u8 a2, u8 a3);
+void sub_0206F19C(struct BagCursor * a0, u16 a1);
+void sub_0206F1A0(struct BagCursor * a0, u32 a1, u8 * a2, u8 * a3);
+u16 sub_0206F1AC(struct BagCursor * a0);
+u16 sub_0206F1B0(struct BagCursor * a0);
+u16 sub_0206F1B4(struct BagCursor * a0);
+void sub_0206F1B8(struct BagCursor * a0, u32 a1, u8 a2, u8 a3);
+void sub_0206F1C0(struct BagCursor * a0);
+void sub_0206F1E4(struct BagCursor * a0, u16 a1, u16 a2);
+void sub_0206F1EC(struct BagCursor * a0, u16 a1);
 
 #endif //POKEDIAMOND_BAG_H

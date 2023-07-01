@@ -2076,7 +2076,7 @@ ov05_021E2AD4: ; 0x021E2AD4
 	bl Save_FrontierData_Get
 	mov r1, #0
 	add r2, r1, #0
-	bl FrontierData_SetField_0x0
+	bl FrontierData_BattlePointAction
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]
