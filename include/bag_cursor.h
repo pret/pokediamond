@@ -3,7 +3,6 @@
 
 #include "global.h"
 
-//todo: move the following to bag_cursor.h
 typedef struct BagCursorField {
     u8 scroll[8];
     u8 position[8];

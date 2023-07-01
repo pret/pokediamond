@@ -6,8 +6,6 @@
 #include "player_data.h"
 #include "save.h"
 
-struct BagCursor;
-
 enum ItemUseError {
     ITEMUSEERROR_OKAY       = 0, // no error
     ITEMUSEERROR_NODISMOUNT = 1, // can't get off bike
