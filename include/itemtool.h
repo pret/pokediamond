@@ -13,11 +13,11 @@
 
 // Berries (nutdata)
 
-struct ItemSlot
+typedef struct ItemSlot
 {
     u16 id;
     u16 quantity;
-};
+} ItemSlot;
 
 struct ItemPartyUseParam
 {

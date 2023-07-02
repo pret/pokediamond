@@ -865,7 +865,7 @@ ScrCmd_Unk0297: ; 0x020429B8
 	bl Save_FrontierData_Get
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl FrontierData_SetField_0x0
+	bl FrontierData_BattlePointAction
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -888,7 +888,7 @@ ScrCmd_Unk0298: ; 0x020429E8
 	bl Save_FrontierData_Get
 	add r1, r5, #0x0
 	mov r2, #0x5
-	bl FrontierData_SetField_0x0
+	bl FrontierData_BattlePointAction
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -911,7 +911,7 @@ ScrCmd_Unk0299: ; 0x02042A18
 	bl Save_FrontierData_Get
 	add r1, r5, #0x0
 	mov r2, #0x6
-	bl FrontierData_SetField_0x0
+	bl FrontierData_BattlePointAction
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -942,7 +942,7 @@ ScrCmd_Unk029A: ; 0x02042A48
 	bl Save_FrontierData_Get
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl FrontierData_SetField_0x0
+	bl FrontierData_BattlePointAction
 	cmp r0, r6
 	bhs _02042A8E
 	mov r0, #0x0

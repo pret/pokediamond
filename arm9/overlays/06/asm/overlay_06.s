@@ -21259,7 +21259,7 @@ _02243E1E:
 	ldr r0, [r4, #0x74]
 	add r1, r5, #0
 	mov r2, #5
-	bl FrontierData_SetField_0x0
+	bl FrontierData_BattlePointAction
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0

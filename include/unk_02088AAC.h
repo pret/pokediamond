@@ -11,7 +11,7 @@ struct UnkStruct_02088AAC
     u16 unk04;
     u16 unk06;
     u32 item;
-    struct UnkStruct_0206F164 *unk0C;
+    struct BagCursor *unk0C;
     struct PoffinCaseAppData *poffinCaseAppData;
     u32 unk14;
     void *ovly_param;

@@ -4451,7 +4451,7 @@ ov75_021E8E1C: ; 0x021E8E1C
 	ldrh r2, [r2]
 	ldr r0, [r0]
 	ldr r1, [r4, r1]
-	bl sub_0206E51C
+	bl GetItemUseErrorMessage
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
@@ -6650,7 +6650,7 @@ _021EA016:
 	ldr r0, [r0]
 	ldr r1, [r4, r1]
 	sub r3, r3, #7
-	bl sub_0206E51C
+	bl GetItemUseErrorMessage
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf

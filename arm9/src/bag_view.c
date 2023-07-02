@@ -17,162 +17,125 @@
 extern FashionCase *Save_FashionData_GetFashionCase(SaveFashionData *);
 extern u32 FashionCase_CountAccessories(FashionCase *fashionCase);
 extern u16 FashionCase_CountWallpapers(FashionCase *fashionCase);
-extern SaveFashionData *Save_FashionData_Get(struct SaveData *save);
-extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
+extern SaveFashionData *Save_FashionData_Get(SaveData *save);
+extern u8 SealCase_CountSealOccurrenceAnywhere(SealCase *, u32);
 
-static u32 GetCoinCount(struct SaveData *save);
-static u32 GetSealCount(struct SaveData *save);
+static u16 GetCoinCount(SaveData *saveData);
+static u32 GetSealCount(SaveData *saveData);
+static u32 GetNumFashionAccessories(SaveData *saveData);
+static u32 GetNumFashionBackgrounds(SaveData *saveData);
+static u32 GetNumBattlePoints(SaveData *saveData);
 
-struct BagView *BagView_New(u8 heapId)
-{
-    struct BagView *ptr = AllocFromHeap((HeapID)heapId, sizeof(struct BagView));
-
-    memset(ptr, 0, sizeof(struct BagView));
-
+BagView *BagView_New(u8 heapId) {
+    BagView *ptr = AllocFromHeap((HeapID)heapId, sizeof(BagView));
+    memset(ptr, 0, sizeof(BagView));
     return ptr;
 }
 
-u32 BagView_sizeof()
-{
-    return sizeof(struct BagView);
+u32 BagView_sizeof(void) {
+    return sizeof(BagView);
 }
 
-void sub_0206E30C(struct BagView *bag_view, u8 r1)
-{
-    bag_view->unk65 = r1;
+void sub_0206E30C(BagView *bagView, u8 r1) {
+    bagView->unk65 = r1;
 }
 
-void sub_0206E314(
-    struct BagView *bag_view, struct SaveData *save, u8 r2, struct UnkStruct_0206F164 *r3)
-{
-    sub_0206E30C(bag_view, r2);
+void sub_0206E314(BagView *bagView, SaveData *save, u8 r2, BagCursor *cursor) {
+    sub_0206E30C(bagView, r2);
 
-    bag_view->save = save;
-    bag_view->unk6C = r3;
-    bag_view->unk66 = 0;
+    bagView->saveData = save;
+    bagView->cursor = cursor;
+    bagView->unk66 = 0;
 }
 
-void BagView_SetItem(struct BagView *bag_view, struct ItemSlot *slot, u8 pocket, u8 idx)
-{
-    bag_view->slots[idx].slot = slot;
-    bag_view->slots[idx].pocket = pocket;
+void BagView_SetItem(BagView *bagView, ItemSlot *slot, u8 pocket, u8 idx) {
+    bagView->pockets[idx].slot = slot;
+    bagView->pockets[idx].pocket = pocket;
 }
 
-void sub_0206E340(struct BagView *bag_view)
-{
-    bag_view->unk76 = 1;
+void sub_0206E340(BagView *bagView) {
+    bagView->unk76_0 = TRUE;
 }
 
-void sub_0206E354(struct BagView *bag_view, u32 r1)
-{
-    bag_view->unk70 = r1;
+void sub_0206E354(BagView *bagView, void *r1) {
+    bagView->unk70 = r1;
 }
 
-void sub_0206E358(struct BagView *bag_view, u8 r1)
-{
-    bag_view->unk74 = r1;
+void sub_0206E358(BagView *bagView, u8 r1) {
+    bagView->unk74 = r1;
 }
 
-void sub_0206E360(struct BagView *bag_view, u16 r1)
-{
-    bag_view->unk76_2 = r1;
+void sub_0206E360(BagView *bagView, u16 r1) {
+    bagView->unk76_1 = r1;
 }
 
-u16 sub_0206E37C(struct BagView *bag_view)
-{
-    return bag_view->unk66;
+u16 sub_0206E37C(BagView *bagView) {
+    return bagView->unk66;
 }
 
-u16 sub_0206E384(struct BagView *bag_view)
-{
-    return bag_view->unk68;
+u16 sub_0206E384(BagView *bagView) {
+    return bagView->unk68;
 }
 
-u8 sub_0206E38C(struct BagView *bag_view)
-{
-    return bag_view->unk74;
+u8 sub_0206E38C(BagView *bagView) {
+    return bagView->unk74;
 }
 
-u8 sub_0206E394(struct BagView *bag_view)
-{
-    return bag_view->unk75;
+u8 sub_0206E394(BagView *bagView) {
+    return bagView->unk75;
 }
 
-static u32 GetCoinCount(struct SaveData *save)
-{
-    return (u32)CheckCoins(Save_PlayerData_GetCoinsAddr(save));
+static u16 GetCoinCount(SaveData *saveData) {
+    return CheckCoins(Save_PlayerData_GetCoinsAddr(saveData));
 }
 
-static u32 GetSealCount(struct SaveData *save)
-{
-    struct SealCase *seal_case = Save_SealCase_Get(save);
+static u32 GetSealCount(SaveData *saveData) {
+    SealCase *sealCase = Save_SealCase_Get(saveData);
     u32 i;
     u32 count = 0;
 
-    for (i = SEAL_MIN; i <= SEAL_MAX; ++i)
-    {
-        count += SealCase_CountSealOccurrenceAnywhere(seal_case, i);
+    for (i = SEAL_MIN; i <= SEAL_MAX; i++) {
+        count += SealCase_CountSealOccurrenceAnywhere(sealCase, i);
     }
 
     return count;
 }
 
-//todo: do these match up with HG?
-u32 GetNumFashionAccessories(struct SaveData *save)
-{
-    return FashionCase_CountAccessories(Save_FashionData_GetFashionCase(Save_FashionData_Get(save)));
+static u32 GetNumFashionAccessories(SaveData *saveData) {
+    return FashionCase_CountAccessories(Save_FashionData_GetFashionCase(Save_FashionData_Get(saveData)));
 }
 
-u32 GetNumFashionBackgrounds(struct SaveData *save)
-{
-    return FashionCase_CountWallpapers(Save_FashionData_GetFashionCase(Save_FashionData_Get(save)));
+static u32 GetNumFashionBackgrounds(SaveData *saveData) {
+    return FashionCase_CountWallpapers(Save_FashionData_GetFashionCase(Save_FashionData_Get(saveData)));
 }
 
-u32 GetNumBattlePoints(struct SaveData *save)
-{
-    return FrontierData_SetField_0x0(Save_FrontierData_Get(save), 0, DATA_GET);
+static u32 GetNumBattlePoints(SaveData *saveData) {
+    return FrontierData_BattlePointAction(Save_FrontierData_Get(saveData), 0, DATA_GET);
 }
 
-BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, HeapID heapId)
-{
-    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 itemId, HeapID heapId) {
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
     MessageFormat *messageFormat = MessageFormat_New(heapId);
-    struct String *string;
+    String *string;
 
-    if (item_id == ITEM_NONE)
-    {
+    if (itemId == ITEM_NONE) {
         string = NewString_ReadMsgData(msgData, narc_0007_00099); // A Key Item in the Bag can be assigned to this button for instant use.
-    }
-    else if (item_id == ITEM_POINT_CARD)
-    {
-        string = NewString_ReadMsgData(msgData, narc_0007_00097); // Saved Battle Points {STRVAR_1 53, 0}BP
-
-        BufferIntegerAsString(messageFormat, 0, GetNumBattlePoints(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
-    }
-    else if (item_id == ITEM_SEAL_CASE)
-    {
+    } else if (itemId == ITEM_POINT_CARD) {
+        string = NewString_ReadMsgData(msgData, narc_0007_00097); // Saved Battle Points: {STRVAR_1 53, 0}BP
+        BufferIntegerAsString(messageFormat, 0, GetNumBattlePoints(saveData), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
+    } else if (itemId == ITEM_SEAL_CASE) {
         string = NewString_ReadMsgData(msgData, narc_0007_00092); // Seals: {STRVAR_1 53, 0}
-
-        BufferIntegerAsString(messageFormat, 0, GetSealCount(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
-    }
-    else if (item_id == ITEM_FASHION_CASE)
-    {
+        BufferIntegerAsString(messageFormat, 0, GetSealCount(saveData), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
+    } else if (itemId == ITEM_FASHION_CASE) {
         string = NewString_ReadMsgData(msgData, narc_0007_00093); // Accessories: {STRVAR_1 52, 0} Backdrops: {STRVAR_1 51, 1}
-
-        BufferIntegerAsString(messageFormat, 0, GetNumFashionAccessories(save), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
-        BufferIntegerAsString(messageFormat, 1, GetNumFashionBackgrounds(save), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
-    }
-    else if (item_id == ITEM_COIN_CASE)
-    {
+        BufferIntegerAsString(messageFormat, 0, GetNumFashionAccessories(saveData), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 1, GetNumFashionBackgrounds(saveData), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
+    } else if (itemId == ITEM_COIN_CASE) {
         string = NewString_ReadMsgData(msgData, narc_0007_00057); // Your Coins: {STRVAR_1 54, 0}
-
-        BufferIntegerAsString(messageFormat, 0, GetCoinCount(save), 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
-    }
-    else
-    {
+        BufferIntegerAsString(messageFormat, 0, GetCoinCount(saveData), 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
+    } else {
         MessageFormat_Delete(messageFormat);
         DestroyMsgData(msgData);
-
         return FALSE;
     }
 
@@ -180,40 +143,36 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
     String_Delete(string);
     MessageFormat_Delete(messageFormat);
     DestroyMsgData(msgData);
-
     return TRUE;
 }
 
-void sub_0206E51C( //todo: sync with HG
-    PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, HeapID heapId)
-{
-#pragma unused(r2)
-    struct MsgData *msgData;
+void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 itemId, enum ItemUseError code, HeapID heapId) {
+#pragma unused(itemId)
+    MsgData *msgData;
 
-    switch (r3)
-    {
-    case 1:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
-
-        ReadMsgDataIntoString(msgData, narc_0007_00056, dest); // You can’t dismount your Bike here.
-        DestroyMsgData(msgData);
-        return;
-    case 2:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
-
-        ReadMsgDataIntoString(msgData, narc_0007_00111, dest); // It can’t be used when you have someone with you.
-        DestroyMsgData(msgData);
-        return;
-    default:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
-        MessageFormat *messageFormat = MessageFormat_New(heapId);
-        struct String *src = NewString_ReadMsgData(msgData, narc_0199_00036); // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
-
-        BufferPlayersName(messageFormat, 0, playerData);
-        StringExpandPlaceholders(messageFormat, dest, src);
-        String_Delete(src);
-        MessageFormat_Delete(messageFormat);
-        DestroyMsgData(msgData);
-        return;
+    switch (code) {
+        case ITEMUSEERROR_NODISMOUNT:
+            // You can’t dismount your Bike here.
+            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+            ReadMsgDataIntoString(msgData, narc_0007_00056, dest);
+            DestroyMsgData(msgData);
+            break;
+        case ITEMUSEERROR_NOFOLLOWER:
+            // It can’t be used when you have someone with you.
+            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+            ReadMsgDataIntoString(msgData, narc_0007_00111, dest);
+            DestroyMsgData(msgData);
+            break;
+        default:
+            // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
+            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
+            MessageFormat *messageFormat = MessageFormat_New(heapId);
+            String *src = NewString_ReadMsgData(msgData, narc_0199_00036);
+            BufferPlayersName(messageFormat, 0, playerProfile);
+            StringExpandPlaceholders(messageFormat, dest, src);
+            String_Delete(src);
+            MessageFormat_Delete(messageFormat);
+            DestroyMsgData(msgData);
+            break;
     }
 }
