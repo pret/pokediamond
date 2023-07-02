@@ -5810,7 +5810,7 @@ _021DA41E:
 	bl Save_Bag_Get
 	ldr r1, _021DA5D8 ; =ov14_021E6264
 	mov r2, #9
-	bl CreateBagView
+	bl Bag_CreateView
 	mov r1, #0x85
 	lsl r1, r1, #2
 	str r0, [r4, r1]

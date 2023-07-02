@@ -2096,7 +2096,7 @@ _020360EA:
 	ldr r1, _0203627C ; =UNK_020F2A90
 	add r0, r7, #0x0
 	mov r2, #0xb
-	bl CreateBagView
+	bl Bag_CreateView
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	add r3, r5, #0x0
@@ -3141,7 +3141,7 @@ _020369C6:
 	mov r1, #0x4
 	add r2, sp, #0x8
 	add r3, #0x1
-	bl sub_0206F17C
+	bl BagCursor_Field_PocketGetPosition
 	mov r0, #0x7e
 	add r2, sp, #0x8
 	lsl r0, r0, #0x2
@@ -3188,7 +3188,7 @@ sub_02036A14: ; 0x02036A14
 	ldrb r3, [r3, #0x1]
 	ldr r0, [r0, #0x0]
 	mov r1, #0x4
-	bl sub_0206F190
+	bl BagCursor_Field_PocketSetPosition
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]

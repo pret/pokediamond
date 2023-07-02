@@ -267,7 +267,7 @@ sub_02037844: ; 0x02037844
 	bl Save_Bag_Get
 	ldr r1, _02037898 ; =UNK_020F2BDC
 	mov r2, #0xb
-	bl CreateBagView
+	bl Bag_CreateView
 	add r3, r5, #0x0
 	add r3, #0x94
 	ldr r1, [r5, #0xc]
@@ -328,7 +328,7 @@ _020378C8:
 	add r0, r6, #0x0
 	ldr r1, [r1, #0x0]
 	mov r2, #0x20
-	bl CreateBagView
+	bl Bag_CreateView
 	add r3, r5, #0x0
 	add r3, #0x94
 	ldr r1, [r5, #0xc]

@@ -3808,7 +3808,7 @@ _02213CA8:
 	bl ov11_02230218
 	add r1, r4, #0
 	add r2, r6, #0
-	bl sub_0206F1E4
+	bl BagCursor_Battle_SetLastUsedItem
 	pop {r3, r4, r5, r6, r7, pc}
 
 	thumb_func_start ov09_02213CB8
@@ -12685,18 +12685,18 @@ _02218730:
 	add r1, r5, #0
 	add r2, r2, r5
 	add r3, r3, r5
-	bl sub_0206F1A0
+	bl BagCursor_Battle_PocketGetPosition
 	add r0, r5, #1
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
 	cmp r5, #5
 	blo _02218730
 	add r0, r6, #0
-	bl sub_0206F1AC
+	bl BagCursor_Battle_GetLastUsedItem
 	ldr r1, [r4]
 	strh r0, [r1, #0x20]
 	add r0, r6, #0
-	bl sub_0206F1B0
+	bl BagCursor_Battle_GetLastUsedPocket
 	ldr r1, [r4]
 	strb r0, [r1, #0x1f]
 	add r0, r4, #0
@@ -12873,7 +12873,7 @@ ov09_02218888: ; 0x02218888
 	ldr r0, [r4]
 	ldr r0, [r0]
 	bl ov11_02230218
-	bl sub_0206F1B4
+	bl BagCursor_Battle_GetPocket
 	ldr r1, _02218950 ; =0x0000114D
 	strb r0, [r4, r1]
 	add r0, r4, #0
@@ -13687,7 +13687,7 @@ _02218F4E:
 	ldrb r2, [r2]
 	ldrb r3, [r3]
 	add r1, r4, #0
-	bl sub_0206F1B8
+	bl BagCursor_Battle_PocketSetPosition
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -13696,7 +13696,7 @@ _02218F4E:
 	ldr r1, _02218F8C ; =0x0000114D
 	add r0, r6, #0
 	ldrb r1, [r5, r1]
-	bl sub_0206F1EC
+	bl BagCursor_Battle_SetPocket
 _02218F78:
 	ldr r0, [r5]
 	mov r1, #1
@@ -14300,7 +14300,7 @@ ov09_0221944C: ; 0x0221944C
 	bl ov11_02230218
 	add r1, r4, #0
 	add r2, r6, #0
-	bl sub_0206F1E4
+	bl BagCursor_Battle_SetLastUsedItem
 	pop {r3, r4, r5, r6, r7, pc}
 
 	thumb_func_start ov09_02219474

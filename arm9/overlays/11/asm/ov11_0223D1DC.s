@@ -4708,7 +4708,7 @@ _0223F598:
 	bl ov11_02230218
 	ldrh r1, [r6]
 	ldrb r2, [r6, #2]
-	bl sub_0206F1E4
+	bl BagCursor_Battle_SetLastUsedItem
 _0223F5D2:
 	ldrh r1, [r6]
 	mov r0, #0x4a

@@ -233,7 +233,7 @@ sub_02037400: ; 0x02037400
 	mov r1, #0xb
 	bl sub_02034A28
 	mov r0, #0xb
-	bl sub_0206F164
+	bl BagCursor_New
 	add r1, r4, #0x0
 	add r1, #0x94
 	str r0, [r1, #0x0]
