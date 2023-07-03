@@ -1211,3 +1211,5 @@ NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
 NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER \
                    files/poketool/icongra/poke_icon/narc_0004.NCER \
                    files/poketool/icongra/poke_icon/narc_0006.NCER
+
+NANR_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0001.NANR

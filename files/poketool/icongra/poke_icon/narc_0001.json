@@ -1,0 +1,32 @@
+{
+	"labelEnabled": true,
+	"sequenceCount": 2,
+	"frameCount": 2,
+	"sequences": [
+		{
+			"frameNumber": 1,
+			"loopStartFrame": 0,
+			"animationElement": 0,
+			"animationType": 1,
+			"playbackMode": 1
+		},
+		{
+			"frameNumber": 1,
+			"loopStartFrame": 0,
+			"animationElement": 0,
+			"animationType": 1,
+			"playbackMode": 1
+		}
+	],
+	"frameDelays": [1, 1],
+	"animationResults": [
+		{
+			"index": 0
+		},
+		{
+			"index": 1
+		}
+	],
+	"labels": ["CellAnime0", "CellAnime1"],
+	"labelCount": 2
+}

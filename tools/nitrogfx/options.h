@@ -91,4 +91,47 @@ struct JsonToScreenOptions {
     int bitdepth;
 };
 
+struct SequenceData {
+    short frameNumber;
+    short loopStartFrame;
+    short animationElement;
+    short animationType;
+    int playbackMode;
+};
+
+struct AnimationDataSRT {
+    short index;
+    unsigned short rotation;
+    int scaleX;
+    int scaleY;
+    short positionX;
+    short positionY;
+};
+
+struct AnimationDataT {
+    short index;
+    unsigned short rotation;
+    short positionX;
+    short positionY;
+};
+
+struct AnimationResults {
+    union {
+        short index;
+        struct AnimationDataSRT dataSrt;
+        struct AnimationDataT dataT;
+    };
+};
+
+struct JsonToAnimationOptions {
+    short sequenceCount;
+    short frameCount;
+    struct SequenceData **sequenceData;
+    short *frameDelay;
+    struct AnimationResults **animationResults;
+    bool labelEnabled;
+    char **labels;
+    int labelCount;
+};
+
 #endif // OPTIONS_H

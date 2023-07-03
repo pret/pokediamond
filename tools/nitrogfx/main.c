@@ -732,6 +732,17 @@ void HandleJsonToNtrScreenCommand(char *inputPath, char *outputPath, int argc UN
     FreeNSCRScreen(options);
 }
 
+void HandleJsonToNtrAnimationCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
+{
+    struct JsonToAnimationOptions *options;
+
+    options = ParseNANRJson(inputPath);
+
+    WriteNtrAnimation(outputPath, options);
+
+    FreeNANRAnimation(options);
+}
+
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
 {
     struct Image image;
@@ -992,6 +1003,7 @@ int main(int argc, char **argv)
         { "png", "fwjpnfont", HandlePngToFullwidthJapaneseFontCommand },
         { "json", "NCER", HandleJsonToNtrCellCommand },
         { "json", "NSCR", HandleJsonToNtrScreenCommand },
+        { "json", "NANR", HandleJsonToNtrAnimationCommand },
         { NULL, "huff", HandleHuffCompressCommand },
         { NULL, "lz", HandleLZCompressCommand },
         { "huff", NULL, HandleHuffDecompressCommand },

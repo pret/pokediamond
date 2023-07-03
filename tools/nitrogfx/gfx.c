@@ -909,12 +909,12 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 	fclose(fp);
 }
 
-void WriteNtrScreen(char *outputPath, struct JsonToScreenOptions *options)
+void WriteNtrScreen(char *path, struct JsonToScreenOptions *options)
 {
-    FILE *fp = fopen(outputPath, "wb");
+    FILE *fp = fopen(path, "wb");
 
     if (fp == NULL)
-        FATAL_ERROR("Failed to open \"%s\" for writing.\n", outputPath);
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
     int totalSize = options->width * options->height * 2 + 0x14;
 
@@ -944,6 +944,214 @@ void WriteNtrScreen(char *outputPath, struct JsonToScreenOptions *options)
     fwrite(NSCRHeader, 1, 0x14, fp);
 
     fwrite(options->data, 1, totalSize - 0x14, fp);
+
+    fclose(fp);
+}
+
+void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
+{
+    FILE *fp = fopen(path, "wb");
+
+    if (fp == NULL)
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
+
+    unsigned int totalSize = 0x20 + options->sequenceCount * 0x10 + options->frameCount * 0x8;
+
+    //todo: check these
+    for (int i = 0; i < options->frameCount; i++)
+    {
+        if (options->sequenceData[i]->animationElement == 0)
+            totalSize += 0x4;
+        else if (options->sequenceData[i]->animationElement == 1)
+            totalSize += 0x10;
+        else if (options->sequenceData[i]->animationElement == 2)
+            totalSize += 0x8;
+    }
+
+    unsigned int KNBASize = totalSize;
+
+    if (options->labelEnabled)
+    {
+        totalSize += 0x14;
+        for (int j = 0; j < options->labelCount; j++)
+        {
+            totalSize += (unsigned)strlen(options->labels[j]) + 5; //strlen + terminator + pointer
+        }
+    }
+
+    WriteGenericNtrHeader(fp, "RNAN", totalSize, true, false, options->labelEnabled ? 3 : 1);
+
+    unsigned char KBNAHeader[0x20] =
+        {
+	        0x4B, 0x4E, 0x42, 0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00,
+	        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+        };
+
+    KBNAHeader[4] = KNBASize & 0xff;
+    KBNAHeader[5] = (KNBASize >> 8) & 0xff;
+    KBNAHeader[6] = (KNBASize >> 16) & 0xff;
+    KBNAHeader[7] = KNBASize >> 24;
+
+    KBNAHeader[8] = options->sequenceCount & 0xff;
+    KBNAHeader[9] = options->sequenceCount >> 8;
+
+    KBNAHeader[10] = options->frameCount & 0xff;
+    KBNAHeader[11] = options->frameCount >> 8;
+
+    unsigned int frameOffset = 0x18 + options->sequenceCount * 0x10;
+
+    KBNAHeader[16] = frameOffset & 0xff;
+    KBNAHeader[17] = (frameOffset >> 8) & 0xff;
+    KBNAHeader[18] = (frameOffset >> 16) & 0xff;
+    KBNAHeader[19] = frameOffset >> 24;
+
+    unsigned int resultsOffset = frameOffset + options->frameCount * 0x8;
+
+    KBNAHeader[20] = resultsOffset & 0xff;
+    KBNAHeader[21] = (resultsOffset >> 8) & 0xff;
+    KBNAHeader[22] = (resultsOffset >> 16) & 0xff;
+    KBNAHeader[23] = resultsOffset >> 24;
+
+    fwrite(KBNAHeader, 1, 0x20, fp);
+
+    int contentsSize = KNBASize - 0x20;
+    unsigned char *KBNAContents = malloc(contentsSize);
+
+    int i;
+    for (i = 0; i < options->sequenceCount * 0x10; i += 0x10)
+    {
+        KBNAContents[i] = options->sequenceData[i / 0x10]->frameNumber & 0xff;
+        KBNAContents[i + 1] = options->sequenceData[i / 0x10]->frameNumber >> 8;
+        KBNAContents[i + 2] = options->sequenceData[i / 0x10]->loopStartFrame & 0xff;
+        KBNAContents[i + 3] = options->sequenceData[i / 0x10]->loopStartFrame >> 8;
+        KBNAContents[i + 4] = options->sequenceData[i / 0x10]->animationElement & 0xff;
+        KBNAContents[i + 5] = options->sequenceData[i / 0x10]->animationElement >> 8;
+        KBNAContents[i + 6] = options->sequenceData[i / 0x10]->animationType & 0xff;
+        KBNAContents[i + 7] = options->sequenceData[i / 0x10]->animationType >> 8;
+        KBNAContents[i + 8] = options->sequenceData[i / 0x10]->playbackMode & 0xff;
+        KBNAContents[i + 9] = (options->sequenceData[i / 0x10]->playbackMode >> 8) & 0xff;
+        KBNAContents[i + 10] = (options->sequenceData[i / 0x10]->playbackMode >> 16) & 0xff;
+        KBNAContents[i + 11] = options->sequenceData[i / 0x10]->playbackMode >> 24;
+        KBNAContents[i + 12] = (i / 0x10 * 8) & 0xff;
+        KBNAContents[i + 13] = ((i / 0x10 * 8) >> 8) & 0xff;
+        KBNAContents[i + 14] = ((i / 0x10 * 8) >> 16) & 0xff;
+        KBNAContents[i + 15] = (i / 0x10 * 8) >> 24;
+    }
+
+    int j;
+    int resPtrCounter = 0;
+    for (j = i; j < options->frameCount * 8 + i; j += 8)
+    {
+        KBNAContents[j] = resPtrCounter & 0xff;
+        KBNAContents[j + 1] = (resPtrCounter >> 8) & 0xff;
+        KBNAContents[j + 2] = (resPtrCounter >> 16) & 0xff;
+        KBNAContents[j + 3] = resPtrCounter >> 24;
+        if (options->sequenceData[(j - i) / 8]->animationElement == 0)
+            resPtrCounter += 0x4;
+        else if (options->sequenceData[(j - i) / 8]->animationElement == 1)
+            resPtrCounter += 0x10;
+        else if (options->sequenceData[(j - i) / 8]->animationElement == 2)
+            resPtrCounter += 0x8;
+        KBNAContents[j + 4] = options->frameDelay[(j - i) / 8] & 0xff;
+        KBNAContents[j + 5] = options->frameDelay[(j - i) / 8] >> 8;
+        KBNAContents[j + 6] = 0xEF;
+        KBNAContents[j + 7] = 0xBE;
+    }
+
+    //todo: these are extrapolated, need confirming
+    resPtrCounter = j;
+    for (int k = 0; k < options->frameCount; k++)
+    {
+        switch (options->sequenceData[k]->animationElement)
+        {
+            case 0:
+                KBNAContents[resPtrCounter] = options->animationResults[k]->index & 0xff;
+                KBNAContents[resPtrCounter + 1] = options->animationResults[k]->index >> 8;
+                KBNAContents[resPtrCounter + 2] = 0xCC;
+                KBNAContents[resPtrCounter + 3] = 0xCC;
+                resPtrCounter += 0x4;
+                break;
+            
+            case 1:
+                KBNAContents[resPtrCounter] = options->animationResults[k]->dataSrt.index & 0xff;
+                KBNAContents[resPtrCounter + 1] = options->animationResults[k]->dataSrt.index >> 8;
+                KBNAContents[resPtrCounter + 2] = options->animationResults[k]->dataSrt.rotation & 0xff;
+                KBNAContents[resPtrCounter + 3] = options->animationResults[k]->dataSrt.rotation >> 8;
+                KBNAContents[resPtrCounter + 4] = options->animationResults[k]->dataSrt.scaleX & 0xff;
+                KBNAContents[resPtrCounter + 5] = (options->animationResults[k]->dataSrt.scaleX >> 8) & 0xff;
+                KBNAContents[resPtrCounter + 6] = (options->animationResults[k]->dataSrt.scaleX >> 16) & 0xff;
+                KBNAContents[resPtrCounter + 7] = options->animationResults[k]->dataSrt.scaleX >> 24;
+                KBNAContents[resPtrCounter + 8] = options->animationResults[k]->dataSrt.scaleY & 0xff;
+                KBNAContents[resPtrCounter + 9] = (options->animationResults[k]->dataSrt.scaleY >> 8) & 0xff;
+                KBNAContents[resPtrCounter + 10] = (options->animationResults[k]->dataSrt.scaleY >> 16) & 0xff;
+                KBNAContents[resPtrCounter + 11] = options->animationResults[k]->dataSrt.scaleY >> 24;
+                KBNAContents[resPtrCounter + 12] = options->animationResults[k]->dataSrt.positionX & 0xff;
+                KBNAContents[resPtrCounter + 13] = options->animationResults[k]->dataSrt.positionX >> 8;
+                KBNAContents[resPtrCounter + 14] = options->animationResults[k]->dataSrt.positionY & 0xff;
+                KBNAContents[resPtrCounter + 15] = options->animationResults[k]->dataSrt.positionY >> 8;
+                resPtrCounter += 0x10;
+                break;
+            
+            case 2:
+                KBNAContents[resPtrCounter] = options->animationResults[k]->dataT.index & 0xff;
+                KBNAContents[resPtrCounter + 1] = options->animationResults[k]->dataT.index >> 8;
+                KBNAContents[resPtrCounter + 2] = options->animationResults[k]->dataT.rotation & 0xff;
+                KBNAContents[resPtrCounter + 3] = options->animationResults[k]->dataT.rotation >> 8;
+                KBNAContents[resPtrCounter + 4] = options->animationResults[k]->dataT.positionX & 0xff;
+                KBNAContents[resPtrCounter + 5] = options->animationResults[k]->dataT.positionX >> 8;
+                KBNAContents[resPtrCounter + 6] = options->animationResults[k]->dataT.positionY & 0xff;
+                KBNAContents[resPtrCounter + 7] = options->animationResults[k]->dataT.positionY >> 8;
+                resPtrCounter += 0x8;
+                break;
+        }
+    }
+
+    fwrite(KBNAContents, 1, contentsSize, fp);
+
+	free(KBNAContents);
+
+    if (options->labelEnabled)
+	{
+        unsigned int lablSize = 8;
+        for (int j = 0; j < options->labelCount; j++)
+        {
+            lablSize += (unsigned)strlen(options->labels[j]) + 5;
+        }
+
+        unsigned char *labl = malloc(lablSize);
+
+        memset(labl, 0, lablSize);
+
+        strcpy((char *) labl, "LBAL");
+        labl[4] = lablSize & 0xff;
+        labl[5] = lablSize >> 8;
+
+        unsigned int position = 0;
+
+        i = 0;
+        for (int j = 0; j < options->labelCount; j++)
+        {
+            labl[i + 8] = position & 0xff;
+            labl[i + 9] = position >> 8;
+
+            position += (unsigned)strlen(options->labels[j]) + 1;
+            i += 4;
+        }
+
+        for (int j = 0; j < options->labelCount; j++)
+        {
+            strcpy((char *) (labl + (i + 8)), options->labels[j]);
+            i += (int)strlen(options->labels[j]) + 1;
+        }
+
+        fwrite(labl, 1, lablSize, fp);
+
+        free(labl);
+
+        unsigned char texu[0xc] = {0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+        fwrite(texu, 1, 0xc, fp);
+    }
 
     fclose(fp);
 }

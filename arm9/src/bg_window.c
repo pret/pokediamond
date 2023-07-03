@@ -5,7 +5,7 @@
 #include "gx.h"
 #include "heap.h"
 
-const u8 sTilemapWidthByBufferSize[] = {
+static const u8 sTilemapWidthByBufferSize[] = {
     [GF_BG_SCR_SIZE_128x128]   = 0x10,
     [GF_BG_SCR_SIZE_256x256]   = 0x20,
     [GF_BG_SCR_SIZE_256x512]   = 0x20,
