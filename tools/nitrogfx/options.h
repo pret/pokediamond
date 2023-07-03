@@ -91,12 +91,18 @@ struct JsonToScreenOptions {
     int bitdepth;
 };
 
+struct FrameData {
+    int resultId;
+    short frameDelay;
+};
+
 struct SequenceData {
-    short frameNumber;
+    short frameCount;
     short loopStartFrame;
     short animationElement;
     short animationType;
     int playbackMode;
+    struct FrameData **frameData;
 };
 
 struct AnimationDataSRT {
@@ -110,12 +116,13 @@ struct AnimationDataSRT {
 
 struct AnimationDataT {
     short index;
-    unsigned short rotation;
+    //unsigned short rotation;
     short positionX;
     short positionY;
 };
 
 struct AnimationResults {
+    short resultType;
     union {
         short index;
         struct AnimationDataSRT dataSrt;
@@ -124,14 +131,15 @@ struct AnimationResults {
 };
 
 struct JsonToAnimationOptions {
+    bool multiCell;
     short sequenceCount;
     short frameCount;
     struct SequenceData **sequenceData;
-    short *frameDelay;
     struct AnimationResults **animationResults;
     bool labelEnabled;
     char **labels;
     int labelCount;
+    short resultCount;
 };
 
 #endif // OPTIONS_H

@@ -901,9 +901,9 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 
         free(labl);
 
-        unsigned char texu[0xc] = {0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+        unsigned char txeu[0xc] = {0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-        fwrite(texu, 1, 0xc, fp);
+        fwrite(txeu, 1, 0xc, fp);
     }
 
 	fclose(fp);
@@ -958,13 +958,13 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
     unsigned int totalSize = 0x20 + options->sequenceCount * 0x10 + options->frameCount * 0x8;
 
     //todo: check these
-    for (int i = 0; i < options->frameCount; i++)
+    for (int i = 0; i < options->resultCount; i++)
     {
-        if (options->sequenceData[i]->animationElement == 0)
+        if (options->animationResults[i]->resultType == 0)
             totalSize += 0x4;
-        else if (options->sequenceData[i]->animationElement == 1)
+        else if (options->animationResults[i]->resultType == 1)
             totalSize += 0x10;
-        else if (options->sequenceData[i]->animationElement == 2)
+        else if (options->animationResults[i]->resultType == 2)
             totalSize += 0x8;
     }
 
@@ -972,14 +972,14 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
 
     if (options->labelEnabled)
     {
-        totalSize += 0x14;
+        totalSize += options->multiCell ? 0x8 : 0x14;
         for (int j = 0; j < options->labelCount; j++)
         {
             totalSize += (unsigned)strlen(options->labels[j]) + 5; //strlen + terminator + pointer
         }
     }
 
-    WriteGenericNtrHeader(fp, "RNAN", totalSize, true, false, options->labelEnabled ? 3 : 1);
+    WriteGenericNtrHeader(fp, options->multiCell ? "RAMN" : "RNAN", totalSize, true, false, options->labelEnabled ? (options->multiCell ? 2 : 3) : 1);
 
     unsigned char KBNAHeader[0x20] =
         {
@@ -1018,10 +1018,11 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
     unsigned char *KBNAContents = malloc(contentsSize);
 
     int i;
+    int framePtrCounter = 0;
     for (i = 0; i < options->sequenceCount * 0x10; i += 0x10)
     {
-        KBNAContents[i] = options->sequenceData[i / 0x10]->frameNumber & 0xff;
-        KBNAContents[i + 1] = options->sequenceData[i / 0x10]->frameNumber >> 8;
+        KBNAContents[i] = options->sequenceData[i / 0x10]->frameCount & 0xff;
+        KBNAContents[i + 1] = options->sequenceData[i / 0x10]->frameCount >> 8;
         KBNAContents[i + 2] = options->sequenceData[i / 0x10]->loopStartFrame & 0xff;
         KBNAContents[i + 3] = options->sequenceData[i / 0x10]->loopStartFrame >> 8;
         KBNAContents[i + 4] = options->sequenceData[i / 0x10]->animationElement & 0xff;
@@ -1032,37 +1033,44 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
         KBNAContents[i + 9] = (options->sequenceData[i / 0x10]->playbackMode >> 8) & 0xff;
         KBNAContents[i + 10] = (options->sequenceData[i / 0x10]->playbackMode >> 16) & 0xff;
         KBNAContents[i + 11] = options->sequenceData[i / 0x10]->playbackMode >> 24;
-        KBNAContents[i + 12] = (i / 0x10 * 8) & 0xff;
-        KBNAContents[i + 13] = ((i / 0x10 * 8) >> 8) & 0xff;
-        KBNAContents[i + 14] = ((i / 0x10 * 8) >> 16) & 0xff;
-        KBNAContents[i + 15] = (i / 0x10 * 8) >> 24;
+        KBNAContents[i + 12] = framePtrCounter & 0xff;
+        KBNAContents[i + 13] = (framePtrCounter >> 8) & 0xff;
+        KBNAContents[i + 14] = (framePtrCounter >> 16) & 0xff;
+        KBNAContents[i + 15] = framePtrCounter >> 24;
+        framePtrCounter += options->sequenceData[i / 0x10]->frameCount * 8;
     }
 
     int j;
-    int resPtrCounter = 0;
-    for (j = i; j < options->frameCount * 8 + i; j += 8)
+    int m;
+    for (j = i, m = 0; m < options->sequenceCount; m++)
     {
-        KBNAContents[j] = resPtrCounter & 0xff;
-        KBNAContents[j + 1] = (resPtrCounter >> 8) & 0xff;
-        KBNAContents[j + 2] = (resPtrCounter >> 16) & 0xff;
-        KBNAContents[j + 3] = resPtrCounter >> 24;
-        if (options->sequenceData[(j - i) / 8]->animationElement == 0)
-            resPtrCounter += 0x4;
-        else if (options->sequenceData[(j - i) / 8]->animationElement == 1)
-            resPtrCounter += 0x10;
-        else if (options->sequenceData[(j - i) / 8]->animationElement == 2)
-            resPtrCounter += 0x8;
-        KBNAContents[j + 4] = options->frameDelay[(j - i) / 8] & 0xff;
-        KBNAContents[j + 5] = options->frameDelay[(j - i) / 8] >> 8;
-        KBNAContents[j + 6] = 0xEF;
-        KBNAContents[j + 7] = 0xBE;
+        for (int k = 0; k < options->sequenceData[m]->frameCount; k++) {
+            int resPtr = 0;
+            for (int l = 0; l < options->sequenceData[m]->frameData[k]->resultId; l++) {
+                if (options->animationResults[l]->resultType == 0)
+                    resPtr += 0x4;
+                else if (options->animationResults[l]->resultType == 1)
+                    resPtr += 0x10;
+                else if (options->animationResults[l]->resultType == 2)
+                    resPtr += 0x8;
+            }
+            KBNAContents[j + (k * 8)] = resPtr & 0xff;
+            KBNAContents[j + (k * 8) + 1] = (resPtr >> 8) & 0xff;
+            KBNAContents[j + (k * 8) + 2] = (resPtr >> 16) & 0xff;
+            KBNAContents[j + (k * 8) + 3] = resPtr >> 24;
+            KBNAContents[j + (k * 8) + 4] = options->sequenceData[m]->frameData[k]->frameDelay & 0xff;
+            KBNAContents[j + (k * 8) + 5] = options->sequenceData[m]->frameData[k]->frameDelay >> 8;
+            KBNAContents[j + (k * 8) + 6] = 0xEF;
+            KBNAContents[j + (k * 8) + 7] = 0xBE;
+        }
+        j += options->sequenceData[m]->frameCount * 8;
     }
 
     //todo: these are extrapolated, need confirming
-    resPtrCounter = j;
-    for (int k = 0; k < options->frameCount; k++)
+    int resPtrCounter = j;
+    for (int k = 0; k < options->resultCount; k++)
     {
-        switch (options->sequenceData[k]->animationElement)
+        switch (options->animationResults[k]->resultType)
         {
             case 0:
                 KBNAContents[resPtrCounter] = options->animationResults[k]->index & 0xff;
@@ -1095,8 +1103,10 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
             case 2:
                 KBNAContents[resPtrCounter] = options->animationResults[k]->dataT.index & 0xff;
                 KBNAContents[resPtrCounter + 1] = options->animationResults[k]->dataT.index >> 8;
-                KBNAContents[resPtrCounter + 2] = options->animationResults[k]->dataT.rotation & 0xff;
-                KBNAContents[resPtrCounter + 3] = options->animationResults[k]->dataT.rotation >> 8;
+                //KBNAContents[resPtrCounter + 2] = options->animationResults[k]->dataT.rotation & 0xff;
+                //KBNAContents[resPtrCounter + 3] = options->animationResults[k]->dataT.rotation >> 8;
+                KBNAContents[resPtrCounter + 2] = 0xEF;
+                KBNAContents[resPtrCounter + 3] = 0xBE;
                 KBNAContents[resPtrCounter + 4] = options->animationResults[k]->dataT.positionX & 0xff;
                 KBNAContents[resPtrCounter + 5] = options->animationResults[k]->dataT.positionX >> 8;
                 KBNAContents[resPtrCounter + 6] = options->animationResults[k]->dataT.positionY & 0xff;
@@ -1148,9 +1158,12 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
 
         free(labl);
 
-        unsigned char texu[0xc] = {0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+        if(!options->multiCell)
+        {
+            unsigned char txeu[0xc] = {0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-        fwrite(texu, 1, 0xc, fp);
+            fwrite(txeu, 1, 0xc, fp);
+        }
     }
 
     fclose(fp);

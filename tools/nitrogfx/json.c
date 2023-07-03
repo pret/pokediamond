@@ -268,46 +268,55 @@ struct JsonToAnimationOptions *ParseNANRJson(char *path)
         if (i > options->sequenceCount - 1)
             FATAL_ERROR("Sequence count is incorrect.\n");
 
-        cJSON *frameNumber = cJSON_GetObjectItemCaseSensitive(sequence, "frameNumber");
+        cJSON *frameCount = cJSON_GetObjectItemCaseSensitive(sequence, "frameCount");
         cJSON *loopStartFrame = cJSON_GetObjectItemCaseSensitive(sequence, "loopStartFrame");
         cJSON *animationElement = cJSON_GetObjectItemCaseSensitive(sequence, "animationElement");
         cJSON *animationType = cJSON_GetObjectItemCaseSensitive(sequence, "animationType");
         cJSON *playbackMode = cJSON_GetObjectItemCaseSensitive(sequence, "playbackMode");
 
-        options->sequenceData[i]->frameNumber = GetInt(frameNumber);
+        options->sequenceData[i]->frameCount = GetInt(frameCount);
         options->sequenceData[i]->loopStartFrame = GetInt(loopStartFrame);
         options->sequenceData[i]->animationElement = GetInt(animationElement);
         options->sequenceData[i]->animationType = GetInt(animationType);
         options->sequenceData[i]->playbackMode = GetInt(playbackMode);
 
-        //TODO: see if frame data mapping is required
+        options->sequenceData[i]->frameData = malloc(sizeof(struct FrameData *) * options->sequenceData[i]->frameCount);
+        int j;
+        for (j = 0; j < options->sequenceData[i]->frameCount; j++)
+        {
+            options->sequenceData[i]->frameData[j] = malloc(sizeof(struct FrameData));
+        }
 
-        i++;
-    }
+        j = 0;
+        cJSON *frame = NULL;
+        cJSON *frameData = cJSON_GetObjectItemCaseSensitive(sequence, "frameData");
 
-    i = 0;
+        cJSON_ArrayForEach(frame, frameData)
+        {
+            if (j > options->sequenceData[i]->frameCount - 1)
+                FATAL_ERROR("Sequence frame count is incorrect.\n");
 
-    options->frameDelay = malloc(sizeof(short) * options->frameCount);
+            cJSON *frameDelay = cJSON_GetObjectItemCaseSensitive(frame, "frameDelay");
+            cJSON *resultId = cJSON_GetObjectItemCaseSensitive(frame, "resultId");
 
-    cJSON *frameDelay = NULL;
-    cJSON *frameDelays = cJSON_GetObjectItemCaseSensitive(json, "frameDelays");
-    cJSON_ArrayForEach(frameDelay, frameDelays)
-    {
-        if (i > options->frameCount - 1)
-            FATAL_ERROR("Frame count is incorrect.\n");
+            options->sequenceData[i]->frameData[j]->frameDelay = GetInt(frameDelay);
+            options->sequenceData[i]->frameData[j]->resultId = GetInt(resultId);
 
-        options->frameDelay[i] = GetInt(frameDelay);
-
-        //TODO: see if animation result data mapping is required
+            j++;
+        }
 
         i++;
     }
 
     //todo implement extended attributes
 
-    options->animationResults = malloc(sizeof(struct AnimationResults *) * options->frameCount);
+    cJSON *resultCount = cJSON_GetObjectItemCaseSensitive(json, "resultCount");
 
-    for (i = 0; i < options->frameCount; i++)
+    options->resultCount = GetInt(resultCount);
+
+    options->animationResults = malloc(sizeof(struct AnimationResults *) * options->resultCount);
+
+    for (i = 0; i < options->resultCount; i++)
     {
         options->animationResults[i] = malloc(sizeof(struct AnimationResults));
     }
@@ -318,10 +327,12 @@ struct JsonToAnimationOptions *ParseNANRJson(char *path)
     cJSON *animationResults = cJSON_GetObjectItemCaseSensitive(json, "animationResults");
     cJSON_ArrayForEach(animationResult, animationResults)
     {
-        if (i > options->frameCount - 1)
+        if (i > options->resultCount - 1)
             FATAL_ERROR("Frame count is incorrect.\n");
 
-        switch (options->sequenceData[i]->animationElement) {
+        cJSON *resultType = cJSON_GetObjectItemCaseSensitive(animationResult, "resultType");
+        options->animationResults[i]->resultType = GetInt(resultType);
+        switch (options->animationResults[i]->resultType) {
             case 0: { //index
                 cJSON *index = cJSON_GetObjectItemCaseSensitive(animationResult, "index");
                 options->animationResults[i]->index = GetInt(index);
@@ -347,14 +358,14 @@ struct JsonToAnimationOptions *ParseNANRJson(char *path)
 
             case 2: { //T
                 cJSON *index = cJSON_GetObjectItemCaseSensitive(animationResult, "index");
-                cJSON *rotation = cJSON_GetObjectItemCaseSensitive(animationResult, "rotation");
+                //cJSON *rotation = cJSON_GetObjectItemCaseSensitive(animationResult, "rotation");
                 cJSON *positionX = cJSON_GetObjectItemCaseSensitive(animationResult, "positionX");
                 cJSON *positionY = cJSON_GetObjectItemCaseSensitive(animationResult, "positionY");
 
-                options->animationResults[i]->dataSrt.index = GetInt(index);
-                options->animationResults[i]->dataSrt.rotation = GetInt(rotation);
-                options->animationResults[i]->dataSrt.positionX = GetInt(positionX);
-                options->animationResults[i]->dataSrt.positionY = GetInt(positionY);
+                options->animationResults[i]->dataT.index = GetInt(index);
+                //options->animationResults[i]->dataSrt.rotation = GetInt(rotation);
+                options->animationResults[i]->dataT.positionX = GetInt(positionX);
+                options->animationResults[i]->dataT.positionY = GetInt(positionY);
                 break;
             }
         }
@@ -418,9 +429,14 @@ void FreeNANRAnimation(struct JsonToAnimationOptions *options)
 {
     for (int i = 0; i < options->sequenceCount; i++)
     {
+        for (int j = 0; j < options->sequenceData[i]->frameCount; j++)
+        {
+            free(options->sequenceData[i]->frameData[j]);
+        }
+        free(options->sequenceData[i]->frameData);
         free(options->sequenceData[i]);
     }
-    for (int i = 0; i < options->frameCount; i++)
+    for (int i = 0; i < options->resultCount; i++)
     {
         free(options->animationResults[i]);
     }
@@ -434,6 +450,5 @@ void FreeNANRAnimation(struct JsonToAnimationOptions *options)
     }
     free(options->sequenceData);
     free(options->animationResults);
-    free(options->frameDelay);
     free(options);
 }

@@ -738,6 +738,21 @@ void HandleJsonToNtrAnimationCommand(char *inputPath, char *outputPath, int argc
 
     options = ParseNANRJson(inputPath);
 
+    options->multiCell = false;
+
+    WriteNtrAnimation(outputPath, options);
+
+    FreeNANRAnimation(options);
+}
+
+void HandleJsonToNtrMulticellAnimationCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
+{
+    struct JsonToAnimationOptions *options;
+    
+    options = ParseNANRJson(inputPath);
+
+    options->multiCell = true;
+
     WriteNtrAnimation(outputPath, options);
 
     FreeNANRAnimation(options);
