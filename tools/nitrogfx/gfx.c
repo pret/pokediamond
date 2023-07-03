@@ -21,76 +21,76 @@
 
 static void AdvanceMetatilePosition(int *subTileX, int *subTileY, int *metatileX, int *metatileY, int metatilesWide, int metatileWidth, int metatileHeight)
 {
-	(*subTileX)++;
-	if (*subTileX == metatileWidth) {
-		*subTileX = 0;
-		(*subTileY)++;
-		if (*subTileY == metatileHeight) {
-			*subTileY = 0;
-			(*metatileX)++;
-			if (*metatileX == metatilesWide) {
-				*metatileX = 0;
-				(*metatileY)++;
-			}
-		}
-	}
+    (*subTileX)++;
+    if (*subTileX == metatileWidth) {
+        *subTileX = 0;
+        (*subTileY)++;
+        if (*subTileY == metatileHeight) {
+            *subTileY = 0;
+            (*metatileX)++;
+            if (*metatileX == metatilesWide) {
+                *metatileX = 0;
+                (*metatileY)++;
+            }
+        }
+    }
 }
 
 static void ConvertFromTiles1Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
 {
-	int subTileX = 0;
-	int subTileY = 0;
-	int metatileX = 0;
-	int metatileY = 0;
-	int pitch = metatilesWide * metatileWidth;
+    int subTileX = 0;
+    int subTileY = 0;
+    int metatileX = 0;
+    int metatileY = 0;
+    int pitch = metatilesWide * metatileWidth;
 
-	for (int i = 0; i < numTiles; i++) {
-		for (int j = 0; j < 8; j++) {
-			int destY = (metatileY * metatileHeight + subTileY) * 8 + j;
-			int destX = metatileX * metatileWidth + subTileX;
-			unsigned char srcPixelOctet = *src++;
-			unsigned char *destPixelOctet = &dest[destY * pitch + destX];
+    for (int i = 0; i < numTiles; i++) {
+        for (int j = 0; j < 8; j++) {
+            int destY = (metatileY * metatileHeight + subTileY) * 8 + j;
+            int destX = metatileX * metatileWidth + subTileX;
+            unsigned char srcPixelOctet = *src++;
+            unsigned char *destPixelOctet = &dest[destY * pitch + destX];
 
-			for (int k = 0; k < 8; k++) {
-				*destPixelOctet <<= 1;
-				*destPixelOctet |= (srcPixelOctet & 1) ^ invertColors;
-				srcPixelOctet >>= 1;
-			}
-		}
+            for (int k = 0; k < 8; k++) {
+                *destPixelOctet <<= 1;
+                *destPixelOctet |= (srcPixelOctet & 1) ^ invertColors;
+                srcPixelOctet >>= 1;
+            }
+        }
 
-		AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
-	}
+        AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
+    }
 }
 
 static void ConvertFromTiles4Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
 {
-	int subTileX = 0;
-	int subTileY = 0;
-	int metatileX = 0;
-	int metatileY = 0;
-	int pitch = (metatilesWide * metatileWidth) * 4;
+    int subTileX = 0;
+    int subTileY = 0;
+    int metatileX = 0;
+    int metatileY = 0;
+    int pitch = (metatilesWide * metatileWidth) * 4;
 
-	for (int i = 0; i < numTiles; i++) {
-		for (int j = 0; j < 8; j++) {
-			int destY = (metatileY * metatileHeight + subTileY) * 8 + j;
+    for (int i = 0; i < numTiles; i++) {
+        for (int j = 0; j < 8; j++) {
+            int destY = (metatileY * metatileHeight + subTileY) * 8 + j;
 
-			for (int k = 0; k < 4; k++) {
-				int destX = (metatileX * metatileWidth + subTileX) * 4 + k;
-				unsigned char srcPixelPair = *src++;
-				unsigned char leftPixel = srcPixelPair & 0xF;
-				unsigned char rightPixel = srcPixelPair >> 4;
+            for (int k = 0; k < 4; k++) {
+                int destX = (metatileX * metatileWidth + subTileX) * 4 + k;
+                unsigned char srcPixelPair = *src++;
+                unsigned char leftPixel = srcPixelPair & 0xF;
+                unsigned char rightPixel = srcPixelPair >> 4;
 
-				if (invertColors) {
-					leftPixel = 15 - leftPixel;
-					rightPixel = 15 - rightPixel;
-				}
+                if (invertColors) {
+                    leftPixel = 15 - leftPixel;
+                    rightPixel = 15 - rightPixel;
+                }
 
-				dest[destY * pitch + destX] = (leftPixel << 4) | rightPixel;
-			}
-		}
+                dest[destY * pitch + destX] = (leftPixel << 4) | rightPixel;
+            }
+        }
 
-		AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
-	}
+        AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
+    }
 }
 
 static uint32_t ConvertFromScanned4Bpp(unsigned char *src, unsigned char *dest, int fileSize, bool invertColours, bool scanFrontToBack)
@@ -137,86 +137,86 @@ static uint32_t ConvertFromScanned4Bpp(unsigned char *src, unsigned char *dest, 
 
 static void ConvertFromTiles8Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
 {
-	int subTileX = 0;
-	int subTileY = 0;
-	int metatileX = 0;
-	int metatileY = 0;
-	int pitch = (metatilesWide * metatileWidth) * 8;
+    int subTileX = 0;
+    int subTileY = 0;
+    int metatileX = 0;
+    int metatileY = 0;
+    int pitch = (metatilesWide * metatileWidth) * 8;
 
-	for (int i = 0; i < numTiles; i++) {
-		for (int j = 0; j < 8; j++) {
-			int destY = (metatileY * metatileHeight + subTileY) * 8 + j;
+    for (int i = 0; i < numTiles; i++) {
+        for (int j = 0; j < 8; j++) {
+            int destY = (metatileY * metatileHeight + subTileY) * 8 + j;
 
-			for (int k = 0; k < 8; k++) {
-				int destX = (metatileX * metatileWidth + subTileX) * 8 + k;
-				unsigned char srcPixel = *src++;
+            for (int k = 0; k < 8; k++) {
+                int destX = (metatileX * metatileWidth + subTileX) * 8 + k;
+                unsigned char srcPixel = *src++;
 
-				if (invertColors)
-					srcPixel = 255 - srcPixel;
+                if (invertColors)
+                    srcPixel = 255 - srcPixel;
 
-				dest[destY * pitch + destX] = srcPixel;
-			}
-		}
+                dest[destY * pitch + destX] = srcPixel;
+            }
+        }
 
-		AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
-	}
+        AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
+    }
 }
 
 static void ConvertToTiles1Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
 {
-	int subTileX = 0;
-	int subTileY = 0;
-	int metatileX = 0;
-	int metatileY = 0;
-	int pitch = metatilesWide * metatileWidth;
+    int subTileX = 0;
+    int subTileY = 0;
+    int metatileX = 0;
+    int metatileY = 0;
+    int pitch = metatilesWide * metatileWidth;
 
-	for (int i = 0; i < numTiles; i++) {
-		for (int j = 0; j < 8; j++) {
-			int srcY = (metatileY * metatileHeight + subTileY) * 8 + j;
-			int srcX = metatileX * metatileWidth + subTileX;
-			unsigned char srcPixelOctet = src[srcY * pitch + srcX];
-			unsigned char *destPixelOctet = dest++;
+    for (int i = 0; i < numTiles; i++) {
+        for (int j = 0; j < 8; j++) {
+            int srcY = (metatileY * metatileHeight + subTileY) * 8 + j;
+            int srcX = metatileX * metatileWidth + subTileX;
+            unsigned char srcPixelOctet = src[srcY * pitch + srcX];
+            unsigned char *destPixelOctet = dest++;
 
-			for (int k = 0; k < 8; k++) {
-				*destPixelOctet <<= 1;
-				*destPixelOctet |= (srcPixelOctet & 1) ^ invertColors;
-				srcPixelOctet >>= 1;
-			}
-		}
+            for (int k = 0; k < 8; k++) {
+                *destPixelOctet <<= 1;
+                *destPixelOctet |= (srcPixelOctet & 1) ^ invertColors;
+                srcPixelOctet >>= 1;
+            }
+        }
 
-		AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
-	}
+        AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
+    }
 }
 
 static void ConvertToTiles4Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
 {
-	int subTileX = 0;
-	int subTileY = 0;
-	int metatileX = 0;
-	int metatileY = 0;
-	int pitch = (metatilesWide * metatileWidth) * 4;
+    int subTileX = 0;
+    int subTileY = 0;
+    int metatileX = 0;
+    int metatileY = 0;
+    int pitch = (metatilesWide * metatileWidth) * 4;
 
-	for (int i = 0; i < numTiles; i++) {
-		for (int j = 0; j < 8; j++) {
-			int srcY = (metatileY * metatileHeight + subTileY) * 8 + j;
+    for (int i = 0; i < numTiles; i++) {
+        for (int j = 0; j < 8; j++) {
+            int srcY = (metatileY * metatileHeight + subTileY) * 8 + j;
 
-			for (int k = 0; k < 4; k++) {
-				int srcX = (metatileX * metatileWidth + subTileX) * 4 + k;
-				unsigned char srcPixelPair = src[srcY * pitch + srcX];
-				unsigned char leftPixel = srcPixelPair >> 4;
-				unsigned char rightPixel = srcPixelPair & 0xF;
+            for (int k = 0; k < 4; k++) {
+                int srcX = (metatileX * metatileWidth + subTileX) * 4 + k;
+                unsigned char srcPixelPair = src[srcY * pitch + srcX];
+                unsigned char leftPixel = srcPixelPair >> 4;
+                unsigned char rightPixel = srcPixelPair & 0xF;
 
-				if (invertColors) {
-					leftPixel = 15 - leftPixel;
-					rightPixel = 15 - rightPixel;
-				}
+                if (invertColors) {
+                    leftPixel = 15 - leftPixel;
+                    rightPixel = 15 - rightPixel;
+                }
 
-				*dest++ = (rightPixel << 4) | leftPixel;
-			}
-		}
+                *dest++ = (rightPixel << 4) | leftPixel;
+            }
+        }
 
-		AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
-	}
+        AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
+    }
 }
 
 static void ConvertToScanned4Bpp(unsigned char *src, unsigned char *dest, int fileSize, bool invertColours, uint32_t encValue, uint32_t scanMode)
@@ -257,71 +257,71 @@ static void ConvertToScanned4Bpp(unsigned char *src, unsigned char *dest, int fi
 
 static void ConvertToTiles8Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
 {
-	int subTileX = 0;
-	int subTileY = 0;
-	int metatileX = 0;
-	int metatileY = 0;
-	int pitch = (metatilesWide * metatileWidth) * 8;
+    int subTileX = 0;
+    int subTileY = 0;
+    int metatileX = 0;
+    int metatileY = 0;
+    int pitch = (metatilesWide * metatileWidth) * 8;
 
-	for (int i = 0; i < numTiles; i++) {
-		for (int j = 0; j < 8; j++) {
-			int srcY = (metatileY * metatileHeight + subTileY) * 8 + j;
+    for (int i = 0; i < numTiles; i++) {
+        for (int j = 0; j < 8; j++) {
+            int srcY = (metatileY * metatileHeight + subTileY) * 8 + j;
 
-			for (int k = 0; k < 8; k++) {
-				int srcX = (metatileX * metatileWidth + subTileX) * 8 + k;
-				unsigned char srcPixel = src[srcY * pitch + srcX];
+            for (int k = 0; k < 8; k++) {
+                int srcX = (metatileX * metatileWidth + subTileX) * 8 + k;
+                unsigned char srcPixel = src[srcY * pitch + srcX];
 
-				if (invertColors)
-					srcPixel = 255 - srcPixel;
+                if (invertColors)
+                    srcPixel = 255 - srcPixel;
 
-				*dest++ = srcPixel;
-			}
-		}
+                *dest++ = srcPixel;
+            }
+        }
 
-		AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
-	}
+        AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
+    }
 }
 
 void ReadImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
 {
-	int tileSize = bitDepth * 8;
+    int tileSize = bitDepth * 8;
 
-	int fileSize;
-	unsigned char *buffer = ReadWholeFile(path, &fileSize);
+    int fileSize;
+    unsigned char *buffer = ReadWholeFile(path, &fileSize);
 
-	int numTiles = fileSize / tileSize;
+    int numTiles = fileSize / tileSize;
 
-	int tilesHeight = (numTiles + tilesWidth - 1) / tilesWidth;
+    int tilesHeight = (numTiles + tilesWidth - 1) / tilesWidth;
 
-	if (tilesWidth % metatileWidth != 0)
-		FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
+    if (tilesWidth % metatileWidth != 0)
+        FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
 
-	if (tilesHeight % metatileHeight != 0)
-		FATAL_ERROR("The height in tiles (%d) isn't a multiple of the specified metatile height (%d)", tilesHeight, metatileHeight);
+    if (tilesHeight % metatileHeight != 0)
+        FATAL_ERROR("The height in tiles (%d) isn't a multiple of the specified metatile height (%d)", tilesHeight, metatileHeight);
 
-	image->width = tilesWidth * 8;
-	image->height = tilesHeight * 8;
-	image->bitDepth = bitDepth;
-	image->pixels = calloc(tilesWidth * tilesHeight, tileSize);
+    image->width = tilesWidth * 8;
+    image->height = tilesHeight * 8;
+    image->bitDepth = bitDepth;
+    image->pixels = calloc(tilesWidth * tilesHeight, tileSize);
 
-	if (image->pixels == NULL)
-		FATAL_ERROR("Failed to allocate memory for pixels.\n");
+    if (image->pixels == NULL)
+        FATAL_ERROR("Failed to allocate memory for pixels.\n");
 
-	int metatilesWide = tilesWidth / metatileWidth;
+    int metatilesWide = tilesWidth / metatileWidth;
 
-	switch (bitDepth) {
-	case 1:
-		ConvertFromTiles1Bpp(buffer, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-		break;
-	case 4:
-		ConvertFromTiles4Bpp(buffer, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-		break;
-	case 8:
-		ConvertFromTiles8Bpp(buffer, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-		break;
-	}
+    switch (bitDepth) {
+    case 1:
+        ConvertFromTiles1Bpp(buffer, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+        break;
+    case 4:
+        ConvertFromTiles4Bpp(buffer, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+        break;
+    case 8:
+        ConvertFromTiles8Bpp(buffer, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+        break;
+    }
 
-	free(buffer);
+    free(buffer);
 }
 
 uint32_t ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool scanFrontToBack)
@@ -354,10 +354,18 @@ uint32_t ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidt
 
     int tileSize = bitDepth * 8;
 
-    int numTiles = (charHeader[0x18] + (charHeader[0x19] << 8) + (charHeader[0x1A] << 16) + (charHeader[0x1B] << 24))
-            / (64 / (8 / bitDepth));
+    if (tilesWidth == 0) {
+        tilesWidth = ReadS16(charHeader, 0xA);
+        if (tilesWidth < 0) {
+            tilesWidth = 1;
+        }
+    }
 
-    int tilesHeight = (numTiles + tilesWidth - 1) / tilesWidth;
+    int numTiles = ReadS32(charHeader, 0x18) / (64 / (8 / bitDepth));
+
+    int tilesHeight = ReadS16(charHeader, 0x8);
+    if (tilesHeight < 0)
+        tilesHeight = (numTiles + tilesWidth - 1) / tilesWidth;
 
     if (tilesWidth % metatileWidth != 0)
         FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
@@ -373,7 +381,7 @@ uint32_t ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidt
 
     if (image->pixels == NULL)
         FATAL_ERROR("Failed to allocate memory for pixels.\n");
-    
+
     int metatilesWide = tilesWidth / metatileWidth;
 
     uint32_t key = 0;
@@ -410,53 +418,53 @@ uint32_t ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidt
 
 void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
 {
-	int tileSize = bitDepth * 8;
+    int tileSize = bitDepth * 8;
 
-	if (image->width % 8 != 0)
-		FATAL_ERROR("The width in pixels (%d) isn't a multiple of 8.\n", image->width);
+    if (image->width % 8 != 0)
+        FATAL_ERROR("The width in pixels (%d) isn't a multiple of 8.\n", image->width);
 
-	if (image->height % 8 != 0)
-		FATAL_ERROR("The height in pixels (%d) isn't a multiple of 8.\n", image->height);
+    if (image->height % 8 != 0)
+        FATAL_ERROR("The height in pixels (%d) isn't a multiple of 8.\n", image->height);
 
-	int tilesWidth = image->width / 8;
-	int tilesHeight = image->height / 8;
+    int tilesWidth = image->width / 8;
+    int tilesHeight = image->height / 8;
 
-	if (tilesWidth % metatileWidth != 0)
-		FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
+    if (tilesWidth % metatileWidth != 0)
+        FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
 
-	if (tilesHeight % metatileHeight != 0)
-		FATAL_ERROR("The height in tiles (%d) isn't a multiple of the specified metatile height (%d)", tilesHeight, metatileHeight);
+    if (tilesHeight % metatileHeight != 0)
+        FATAL_ERROR("The height in tiles (%d) isn't a multiple of the specified metatile height (%d)", tilesHeight, metatileHeight);
 
-	int maxNumTiles = tilesWidth * tilesHeight;
+    int maxNumTiles = tilesWidth * tilesHeight;
 
-	if (numTiles == 0)
-		numTiles = maxNumTiles;
-	else if (numTiles > maxNumTiles)
-		FATAL_ERROR("The specified number of tiles (%d) is greater than the maximum possible value (%d).\n", numTiles, maxNumTiles);
+    if (numTiles == 0)
+        numTiles = maxNumTiles;
+    else if (numTiles > maxNumTiles)
+        FATAL_ERROR("The specified number of tiles (%d) is greater than the maximum possible value (%d).\n", numTiles, maxNumTiles);
 
-	int bufferSize = numTiles * tileSize;
-	unsigned char *buffer = malloc(bufferSize);
+    int bufferSize = numTiles * tileSize;
+    unsigned char *buffer = malloc(bufferSize);
 
-	if (buffer == NULL)
-		FATAL_ERROR("Failed to allocate memory for pixels.\n");
+    if (buffer == NULL)
+        FATAL_ERROR("Failed to allocate memory for pixels.\n");
 
-	int metatilesWide = tilesWidth / metatileWidth;
+    int metatilesWide = tilesWidth / metatileWidth;
 
-	switch (bitDepth) {
-	case 1:
-		ConvertToTiles1Bpp(image->pixels, buffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-		break;
-	case 4:
-		ConvertToTiles4Bpp(image->pixels, buffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-		break;
-	case 8:
-		ConvertToTiles8Bpp(image->pixels, buffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-		break;
-	}
+    switch (bitDepth) {
+    case 1:
+        ConvertToTiles1Bpp(image->pixels, buffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+        break;
+    case 4:
+        ConvertToTiles4Bpp(image->pixels, buffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+        break;
+    case 8:
+        ConvertToTiles8Bpp(image->pixels, buffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+        break;
+    }
 
-	WriteWholeFile(path, buffer, bufferSize);
+    WriteWholeFile(path, buffer, bufferSize);
 
-	free(buffer);
+    free(buffer);
 }
 
 void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image,
@@ -572,8 +580,8 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
     fwrite(pixelBuffer, 1, bufferSize, fp);
 
     if (sopc)
-	{
-    	unsigned char sopcBuffer[0x10] = { 0x53, 0x4F, 0x50, 0x43, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+    {
+        unsigned char sopcBuffer[0x10] = { 0x53, 0x4F, 0x50, 0x43, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
         sopcBuffer[12] = tilesWidth & 0xFF;
         sopcBuffer[13] = (tilesWidth >> 8) & 0xFF;
@@ -582,7 +590,7 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
         sopcBuffer[15] = (tilesHeight >> 8) & 0xFF;
 
         fwrite(sopcBuffer, 1, 0x10, fp);
-	}
+    }
 
     free(pixelBuffer);
     fclose(fp);
@@ -590,28 +598,28 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
 void FreeImage(struct Image *image)
 {
-	free(image->pixels);
-	image->pixels = NULL;
+    free(image->pixels);
+    image->pixels = NULL;
 }
 
 void ReadGbaPalette(char *path, struct Palette *palette)
 {
-	int fileSize;
-	unsigned char *data = ReadWholeFile(path, &fileSize);
+    int fileSize;
+    unsigned char *data = ReadWholeFile(path, &fileSize);
 
-	if (fileSize % 2 != 0)
-		FATAL_ERROR("The file size (%d) is not a multiple of 2.\n", fileSize);
+    if (fileSize % 2 != 0)
+    FATAL_ERROR("The file size (%d) is not a multiple of 2.\n", fileSize);
 
-	palette->numColors = fileSize / 2;
+    palette->numColors = fileSize / 2;
 
-	for (int i = 0; i < palette->numColors; i++) {
-		uint16_t paletteEntry = (data[i * 2 + 1] << 8) | data[i * 2];
-		palette->colors[i].red = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_RED(paletteEntry));
-		palette->colors[i].green = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_GREEN(paletteEntry));
-		palette->colors[i].blue = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_BLUE(paletteEntry));
-	}
+    for (int i = 0; i < palette->numColors; i++) {
+        uint16_t paletteEntry = (data[i * 2 + 1] << 8) | data[i * 2];
+        palette->colors[i].red = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_RED(paletteEntry));
+        palette->colors[i].green = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_GREEN(paletteEntry));
+        palette->colors[i].blue = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_BLUE(paletteEntry));
+    }
 
-	free(data);
+    free(data);
 }
 
 void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIndex)
@@ -645,19 +653,19 @@ void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIn
 
     for (int i = 0; i < 256; i++)
     {
-		if (i < palette->numColors)
-		{
-			uint16_t paletteEntry = (paletteData[(32 * palIndex) + i * 2 + 1] << 8) | paletteData[(32 * palIndex) + i * 2];
-			palette->colors[i].red = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_RED(paletteEntry));
-			palette->colors[i].green = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_GREEN(paletteEntry));
-			palette->colors[i].blue = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_BLUE(paletteEntry));
-		}
-		else
-		{
-			palette->colors[i].red = 0;
-			palette->colors[i].green = 0;
-			palette->colors[i].blue = 0;
-		}
+        if (i < palette->numColors)
+        {
+            uint16_t paletteEntry = (paletteData[(32 * palIndex) + i * 2 + 1] << 8) | paletteData[(32 * palIndex) + i * 2];
+            palette->colors[i].red = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_RED(paletteEntry));
+            palette->colors[i].green = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_GREEN(paletteEntry));
+            palette->colors[i].blue = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_BLUE(paletteEntry));
+        }
+        else
+        {
+            palette->colors[i].red = 0;
+            palette->colors[i].green = 0;
+            palette->colors[i].blue = 0;
+        }
     }
 
     free(data);
@@ -665,23 +673,23 @@ void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIn
 
 void WriteGbaPalette(char *path, struct Palette *palette)
 {
-	FILE *fp = fopen(path, "wb");
+    FILE *fp = fopen(path, "wb");
 
-	if (fp == NULL)
-		FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
+    if (fp == NULL)
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
-	for (int i = 0; i < palette->numColors; i++) {
-		unsigned char red = DOWNCONVERT_BIT_DEPTH(palette->colors[i].red);
-		unsigned char green = DOWNCONVERT_BIT_DEPTH(palette->colors[i].green);
-		unsigned char blue = DOWNCONVERT_BIT_DEPTH(palette->colors[i].blue);
+    for (int i = 0; i < palette->numColors; i++) {
+        unsigned char red = DOWNCONVERT_BIT_DEPTH(palette->colors[i].red);
+        unsigned char green = DOWNCONVERT_BIT_DEPTH(palette->colors[i].green);
+        unsigned char blue = DOWNCONVERT_BIT_DEPTH(palette->colors[i].blue);
 
-		uint16_t paletteEntry = SET_GBA_PAL(red, green, blue);
+        uint16_t paletteEntry = SET_GBA_PAL(red, green, blue);
 
-		fputc(paletteEntry & 0xFF, fp);
-		fputc(paletteEntry >> 8, fp);
-	}
+        fputc(paletteEntry & 0xFF, fp);
+        fputc(paletteEntry >> 8, fp);
+    }
 
-	fclose(fp);
+    fclose(fp);
 }
 
 void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth, bool pad, int compNum)
@@ -768,10 +776,10 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
 
 void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 {
-	FILE *fp = fopen(path, "wb");
+    FILE *fp = fopen(path, "wb");
 
-	if (fp == NULL)
-		FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
+    if (fp == NULL)
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
     unsigned int totalSize = (options->labelEnabled > 0 ? 0x34 : 0x20) + options->cellCount * (options->extended ? 0x16 : 0xe);
 
@@ -783,44 +791,44 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
         }
     }
 
-	WriteGenericNtrHeader(fp, "RECN", totalSize, true, false, options->labelEnabled ? 3 : 1);
+    WriteGenericNtrHeader(fp, "RECN", totalSize, true, false, options->labelEnabled ? 3 : 1);
 
-	unsigned char KBECHeader[0x20] =
+    unsigned char KBECHeader[0x20] =
             {
-	            0x4B, 0x42, 0x45, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00,
-	            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                0x4B, 0x42, 0x45, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
             };
 
-	KBECHeader[8] = options->cellCount; //cell count
+    KBECHeader[8] = options->cellCount; //cell count
 
-	if (options->extended)
+    if (options->extended)
     {
-	    KBECHeader[10] = 1; //extended
+        KBECHeader[10] = 1; //extended
     }
 
-	unsigned int size = options->cellCount * (options->extended ? 0x16 : 0xe);
+    unsigned int size = options->cellCount * (options->extended ? 0x16 : 0xe);
 
-	KBECHeader[4] = (size + 0x20) & 0xFF; //size
-	KBECHeader[5] = (size + 0x20) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
+    KBECHeader[4] = (size + 0x20) & 0xFF; //size
+    KBECHeader[5] = (size + 0x20) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
 
-	KBECHeader[16] = (options->mappingType & 0xFF); //not possible to be more than 8 bits, though 32 are allocated
+    KBECHeader[16] = (options->mappingType & 0xFF); //not possible to be more than 8 bits, though 32 are allocated
 
-	fwrite(KBECHeader, 1, 0x20, fp);
+    fwrite(KBECHeader, 1, 0x20, fp);
 
-	unsigned char *KBECContents = malloc(size);
+    unsigned char *KBECContents = malloc(size);
 
-	memset(KBECContents, 0, size);
+    memset(KBECContents, 0, size);
 
-	if (!options->extended)
+    if (!options->extended)
     {
-	    FATAL_ERROR("Don't know how to deal with not extended yet, bug red031000.\n");
+        FATAL_ERROR("Don't know how to deal with not extended yet, bug red031000.\n");
     }
 
-	int i;
-	for (i = 0; i < options->cellCount * 0x10; i += 0x10)
+    int i;
+    for (i = 0; i < options->cellCount * 0x10; i += 0x10)
     {
-	    KBECContents[i] = 0x01; //number of images
-	    KBECContents[i + 2] = options->cells[i / 0x10]->readOnly & 0xff; //unknown
+        KBECContents[i] = 0x01; //number of images
+        KBECContents[i + 2] = options->cells[i / 0x10]->readOnly & 0xff; //unknown
         KBECContents[i + 3] = options->cells[i / 0x10]->readOnly >> 8;
         KBECContents[i + 4] = (i / 0x10 * 6) & 0xff; //pointer to OAM data
         KBECContents[i + 5] = (i / 0x10 * 6) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
@@ -834,21 +842,21 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
         KBECContents[i + 15] = options->cells[i / 0x10]->minY >> 8;
     }
 
-	//OAM data
-	for (int j = i; j < options->cellCount * 6 + i; j += 6)
+    //OAM data
+    for (int j = i; j < options->cellCount * 6 + i; j += 6)
     {
-	    //Attr0
+        //Attr0
 
-	    //bits 0-7 Y coordinate
-	    KBECContents[j] = options->cells[(j - i) / 6]->oam.attr0.YCoordinate & 0xff;
+        //bits 0-7 Y coordinate
+        KBECContents[j] = options->cells[(j - i) / 6]->oam.attr0.YCoordinate & 0xff;
 
-	    //bit 8 rotation
-	    KBECContents[j + 1] = options->cells[(j - i) / 6]->oam.attr0.Rotation;
+        //bit 8 rotation
+        KBECContents[j + 1] = options->cells[(j - i) / 6]->oam.attr0.Rotation;
 
-	    //bit 9 Obj Size (if rotation) or Obj Disable (if not rotation)
-	    KBECContents[j + 1] |= options->cells[(j - i) / 6]->oam.attr0.SizeDisable << 1;
+        //bit 9 Obj Size (if rotation) or Obj Disable (if not rotation)
+        KBECContents[j + 1] |= options->cells[(j - i) / 6]->oam.attr0.SizeDisable << 1;
 
-	    //bits 10-11 Obj Mode
+        //bits 10-11 Obj Mode
         KBECContents[j + 1] |= options->cells[(j - i) / 6]->oam.attr0.Mode << 2;
 
         //bit 12 Obj Mosaic
@@ -885,12 +893,12 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
         KBECContents[j + 5] |= options->cells[(j - i) / 6]->oam.attr2.Palette << 4;
     }
 
-	fwrite(KBECContents, 1, size, fp);
+    fwrite(KBECContents, 1, size, fp);
 
-	free(KBECContents);
+    free(KBECContents);
 
-	if (options->labelEnabled)
-	{
+    if (options->labelEnabled)
+    {
         unsigned int lablSize = 8;
         for (int j = 0; j < options->labelCount; j++)
         {
@@ -932,7 +940,7 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
         fwrite(txeu, 1, 0xc, fp);
     }
 
-	fclose(fp);
+    fclose(fp);
 }
 
 void WriteNtrScreen(char *path, struct JsonToScreenOptions *options)
@@ -1009,8 +1017,8 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
 
     unsigned char KBNAHeader[0x20] =
         {
-	        0x4B, 0x4E, 0x42, 0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00,
-	        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+            0x4B, 0x4E, 0x42, 0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
         };
 
     KBNAHeader[4] = KNBASize & 0xff;
@@ -1105,7 +1113,7 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
                 KBNAContents[resPtrCounter + 3] = 0xCC;
                 resPtrCounter += 0x4;
                 break;
-            
+
             case 1:
                 KBNAContents[resPtrCounter] = options->animationResults[k]->dataSrt.index & 0xff;
                 KBNAContents[resPtrCounter + 1] = options->animationResults[k]->dataSrt.index >> 8;
@@ -1125,7 +1133,7 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
                 KBNAContents[resPtrCounter + 15] = options->animationResults[k]->dataSrt.positionY >> 8;
                 resPtrCounter += 0x10;
                 break;
-            
+
             case 2:
                 KBNAContents[resPtrCounter] = options->animationResults[k]->dataT.index & 0xff;
                 KBNAContents[resPtrCounter + 1] = options->animationResults[k]->dataT.index >> 8;
@@ -1144,10 +1152,10 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
 
     fwrite(KBNAContents, 1, contentsSize, fp);
 
-	free(KBNAContents);
+    free(KBNAContents);
 
     if (options->labelEnabled)
-	{
+    {
         unsigned int lablSize = 8;
         for (int j = 0; j < options->labelCount; j++)
         {

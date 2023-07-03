@@ -1,5 +1,6 @@
 // Copyright (c) 2015 YamaArashi, 2021-2023 red031000
 
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -80,7 +81,7 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct NtrToPngOptions *
     {
         image.hasPalette = false;
     }
-    
+
     uint32_t key = ReadNtrImage(inputPath, options->width, 0, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->scanFrontToBack);
 
     if (key)
@@ -171,7 +172,10 @@ void HandleGbaToPngCommand(char *inputPath, char *outputPath, int argc, char **a
     char *inputFileExtension = GetFileExtension(inputPath);
     struct GbaToPngOptions options;
     options.paletteFilePath = NULL;
-    options.bitDepth = inputFileExtension[0] - '0';
+    if (isdigit(inputFileExtension[0]))
+        options.bitDepth = inputFileExtension[0] - '0';
+    else
+        options.bitDepth = 4;
     options.hasTransparency = false;
     options.width = 1;
     options.metatileWidth = 1;
@@ -250,7 +254,7 @@ void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **a
     struct NtrToPngOptions options;
     options.paletteFilePath = NULL;
     options.hasTransparency = false;
-    options.width = 1;
+    options.width = 0;
     options.metatileWidth = 1;
     options.metatileHeight = 1;
     options.palIndex = 1;
@@ -340,7 +344,7 @@ void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **a
         }
     }
 
-    if (options.metatileWidth > options.width)
+    if (options.width != 0 && options.metatileWidth > options.width)
         options.width = options.metatileWidth;
 
     ConvertNtrToPng(inputPath, outputPath, &options);
@@ -349,7 +353,11 @@ void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **a
 void HandlePngToGbaCommand(char *inputPath, char *outputPath, int argc, char **argv)
 {
     char *outputFileExtension = GetFileExtension(outputPath);
-    int bitDepth = outputFileExtension[0] - '0';
+    int bitDepth;
+    if (strcmp(outputFileExtension, "nbfc") == 0)
+        bitDepth = 4;
+    else
+        bitDepth = outputFileExtension[0] - '0';
     struct PngToGbaOptions options;
     options.numTiles = 0;
     options.bitDepth = bitDepth;
@@ -814,7 +822,7 @@ void HandleJsonToNtrAnimationCommand(char *inputPath, char *outputPath, int argc
 void HandleJsonToNtrMulticellAnimationCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
 {
     struct JsonToAnimationOptions *options;
-    
+
     options = ParseNANRJson(inputPath);
 
     options->multiCell = true;
