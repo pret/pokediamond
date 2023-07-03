@@ -89,7 +89,7 @@ u32 sub_02088B4C(struct UnkStruct_02088AAC *r0)
             .exitFunc = ov75_021E6F00,
             .ovly = FS_OVERLAY_ID(OVERLAY_75)
         };
-    struct BagView *bag_view = CreateBagView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heapId);
+    struct BagView *bag_view = Bag_CreateView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heapId);
 
     sub_0206E314(bag_view, r0->poffinCaseAppData->save, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
 
@@ -166,7 +166,7 @@ u32 sub_02088C3C(struct UnkStruct_02088AAC *r0)
     u8 sp5;
     u8 sp6;
 
-    sub_0206F17C(r0->unk0C, 4, &sp6, &sp5);
+    BagCursor_Field_PocketGetPosition(r0->unk0C, 4, &sp6, &sp5);
     sub_020851F8(r0->ovly_param, sp5, sp6, (u8)(berry_count + 2));
 
     r0->ovly_data = OverlayManager_New(&OVERLAY_68_MANAGER, (s32 *)r0->ovly_param, r0->heapId);
@@ -185,7 +185,7 @@ u32 sub_02088CDC(struct UnkStruct_02088AAC *r0)
     u8 sp1;
 
     sub_0208524C(r0->ovly_param, &sp0, &sp1);
-    sub_0206F190(r0->unk0C, 4, sp1, sp0);
+    BagCursor_Field_PocketSetPosition(r0->unk0C, 4, sp1, sp0);
     FreeToHeap(r0->ovly_param);
 
     r0->ovly_param = NULL;

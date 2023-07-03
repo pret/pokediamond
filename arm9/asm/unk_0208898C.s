@@ -46,7 +46,7 @@ sub_020889B0: ; 0x020889B0
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x10]
 	ldr r0, [r4, #0x0]
-	bl sub_0206F164
+	bl BagCursor_New
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x1

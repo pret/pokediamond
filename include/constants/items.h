@@ -10,6 +10,8 @@
 #define POCKET_BATTLE_ITEMS 6
 #define POCKET_KEY_ITEMS    7
 
+#define POCKET_BAG_VIEW_END 0xFF
+
 #define NUM_BAG_ITEMS        165
 #define NUM_BAG_KEY_ITEMS     50
 #define NUM_BAG_TMS_HMS      100
@@ -18,6 +20,9 @@
 #define NUM_BAG_BERRIES       64
 #define NUM_BAG_BALLS         15
 #define NUM_BAG_BATTLE_ITEMS  30
+
+#define BAG_SLOT_QUANTITY_MAX                    999
+#define BAG_TMHM_QUANTITY_MAX                     99
 
 #define ITEMATTR_PRICE                             0
 #define ITEMATTR_HOLD_EFFECT                       1

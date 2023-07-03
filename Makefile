@@ -168,7 +168,7 @@ clean: mostlyclean clean-fs clean-tools
 clean-fs:
 	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
 	$(RM) $(patsubst %.narc,%.naix,$(patsubst %.arc,%.naix,$(filter %.narc %.arc,$(HOSTFS_FILES))))
-	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST) $(NCER_CLEAN_LIST) $(FS_CLEAN_LIST)
+	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST) $(NCER_CLEAN_LIST) $(NANR_CLEAN_LIST) $(FS_CLEAN_LIST)
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 	$(RM) files/msgdata/msg/narc_*.bin
 
@@ -281,6 +281,9 @@ $(NCPR_NCLR_FILES): GFX_FLAGS = -ncpr
 	$(GFX) $< $@ $(GFX_FLAGS)
 
 %.NCER: %.json
+	$(GFX) $< $@
+
+%.NANR: %.json
 	$(GFX) $< $@
 
 %.NSCR: %_map.json

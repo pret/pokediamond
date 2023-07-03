@@ -1,458 +1,420 @@
 #include "global.h"
+#include "constants/items.h"
 #include "MI_memory.h"
 #include "bag.h"
 #include "itemtool.h"
 #include "heap.h"
 
-u32 Save_Bag_sizeof(void)
-{
-    return sizeof(struct Bag);
+static u32 Bag_GetItemPocket(Bag *bag, u16 itemId, ItemSlot **itemSlots, u32 *countPtr, HeapID heapId);
+static ItemSlot *Pocket_GetItemSlotForAdd(ItemSlot *slots, u32 count, u16 itemId, u16 quantity, u16 maxQuantity);
+static ItemSlot *Bag_GetItemSlotForAdd(Bag *bag, u16 itemId, u16 quantity, HeapID heapId);
+static ItemSlot *Pocket_GetItemSlotForRemove(ItemSlot *slots, u32 count, u16 itemId, u16 quantity);
+static ItemSlot *Bag_GetItemSlotForRemove(Bag *bag, u16 itemId, u16 quantity, HeapID heapId);
+static void SwapItemSlots(ItemSlot *a, ItemSlot *b);
+static void PocketCompaction(ItemSlot *slots, u32 count);
+static void SortPocket(ItemSlot *slots, u32 count);
+
+u32 Save_Bag_sizeof(void) {
+    return sizeof(Bag);
 }
 
-struct Bag * Save_Bag_New(HeapID heapId)
-{
-    struct Bag * ret = (struct Bag *)AllocFromHeap(heapId, sizeof(struct Bag));
-    Save_Bag_Init(ret);
-    return ret;
+Bag *Save_Bag_New(HeapID heapId) {
+    Bag *bag = (Bag *) AllocFromHeap(heapId, sizeof(Bag));
+    Save_Bag_Init(bag);
+    return bag;
 }
 
-void Save_Bag_Init(struct Bag * bag)
-{
-    MI_CpuClear16(bag, sizeof(struct Bag));
+void Save_Bag_Init(Bag *bag) {
+    MI_CpuClear16(bag, sizeof(Bag));
 }
 
-void Save_Bag_Copy(const struct Bag * src, struct Bag * dest)
-{
-    MI_CpuCopy8(src, dest, sizeof(struct Bag));
+void Save_Bag_Copy(const Bag *src, Bag *dest) {
+    MI_CpuCopy8(src, dest, sizeof(Bag));
 }
 
-u32 Bag_GetRegisteredItem(struct Bag * bag)
-{
+u32 Bag_GetRegisteredItem(Bag *bag) {
     return bag->registeredItem;
 }
 
-void Bag_SetRegisteredItem(struct Bag * bag, u32 item)
-{
+void Bag_SetRegisteredItem(Bag *bag, u32 item) {
     bag->registeredItem = item;
 }
 
-u32 Bag_GetItemPocket(struct Bag * bag, u16 item_id, struct ItemSlot ** slot_p, u32 * count_p, HeapID heapId)
-{
-    u32 pocket = GetItemAttr(item_id, 5, heapId);
-    switch (pocket)
-    {
-    case POCKET_KEY_ITEMS:
-        *slot_p = bag->keyItems;
-        *count_p = NUM_BAG_KEY_ITEMS;
-        break;
-    case POCKET_ITEMS:
-        *slot_p = bag->items;
-        *count_p = NUM_BAG_ITEMS;
-        break;
-    case POCKET_BERRIES:
-        *slot_p = bag->berries;
-        *count_p = NUM_BAG_BERRIES;
-        break;
-    case POCKET_MEDICINE:
-        *slot_p = bag->medicine;
-        *count_p = NUM_BAG_MEDICINE;
-        break;
-    case POCKET_BALLS:
-        *slot_p = bag->balls;
-        *count_p = NUM_BAG_BALLS;
-        break;
-    case POCKET_BATTLE_ITEMS:
-        *slot_p = bag->battleItems;
-        *count_p = NUM_BAG_BATTLE_ITEMS;
-        break;
-    case POCKET_MAIL:
-        *slot_p = bag->mail;
-        *count_p = NUM_BAG_MAIL;
-        break;
-    case POCKET_TMHMS:
-        *slot_p = bag->TMsHMs;
-        *count_p = NUM_BAG_TMS_HMS;
-        break;
+static u32 Bag_GetItemPocket(Bag *bag, u16 itemId, ItemSlot **itemSlots, u32 *countPtr, HeapID heapId) {
+    u32 pocket = GetItemAttr(itemId, ITEMATTR_POCKET, heapId);
+    switch (pocket) {
+        case POCKET_KEY_ITEMS:
+            *itemSlots = bag->keyItems;
+            *countPtr = NUM_BAG_KEY_ITEMS;
+            break;
+        case POCKET_ITEMS:
+            *itemSlots = bag->items;
+            *countPtr = NUM_BAG_ITEMS;
+            break;
+        case POCKET_BERRIES:
+            *itemSlots = bag->berries;
+            *countPtr = NUM_BAG_BERRIES;
+            break;
+        case POCKET_MEDICINE:
+            *itemSlots = bag->medicine;
+            *countPtr = NUM_BAG_MEDICINE;
+            break;
+        case POCKET_BALLS:
+            *itemSlots = bag->balls;
+            *countPtr = NUM_BAG_BALLS;
+            break;
+        case POCKET_BATTLE_ITEMS:
+            *itemSlots = bag->battleItems;
+            *countPtr = NUM_BAG_BATTLE_ITEMS;
+            break;
+        case POCKET_MAIL:
+            *itemSlots = bag->mail;
+            *countPtr = NUM_BAG_MAIL;
+            break;
+        case POCKET_TMHMS:
+            *itemSlots = bag->TMsHMs;
+            *countPtr = NUM_BAG_TMS_HMS;
+            break;
     }
     return pocket;
 }
 
-struct ItemSlot * Pocket_GetItemSlotForAdd(struct ItemSlot * slots, u32 count, u16 item_id, u16 quantity, u16 maxquantity)
-{
-    int i;
-    int found = -1;
-    for (i = 0; i < count; i++)
-    {
-        if (slots[i].id == item_id)
-        {
-            if (quantity + slots[i].quantity > maxquantity)
+static ItemSlot *Pocket_GetItemSlotForAdd(ItemSlot *slots, u32 count, u16 itemId, u16 quantity, u16 maxQuantity) {
+    s32 i;
+    s32 found = -1;
+    for (i = 0; i < count; i++) {
+        if (slots[i].id == itemId) {
+            // Only one stack allowed per item.
+            // If the resulting stack would be too large,
+            // pretend there's no room for it.
+            if (quantity + slots[i].quantity > maxQuantity) {
                 return NULL;
+            }
             return &slots[i];
         }
-        if (found == -1 && slots[i].id == ITEM_NONE && slots[i].quantity == 0)
-        {
+        if (found == -1 && slots[i].id == ITEM_NONE && slots[i].quantity == 0) {
             found = i;
         }
     }
-    if (found == -1)
+    if (found == -1) {
         return NULL;
+    }
     return &slots[found];
 }
 
-struct ItemSlot * Bag_GetItemSlotForAdd(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
-{
-    struct ItemSlot * slots;
+static ItemSlot *Bag_GetItemSlotForAdd(Bag *bag, u16 itemId, u16 quantity, HeapID heapId) {
+    ItemSlot *slots;
     u32 count;
-    u32 pocket = Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
-    if (pocket == POCKET_TMHMS)
-    {
-        return Pocket_GetItemSlotForAdd(slots, count, item_id, quantity, 99);
-    }
-    else
-    {
-        return Pocket_GetItemSlotForAdd(slots, count, item_id, quantity, 999);
+    u32 pocket = Bag_GetItemPocket(bag, itemId, &slots, &count, heapId);
+    if (pocket == POCKET_TMHMS) {
+        return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, BAG_TMHM_QUANTITY_MAX);
+    } else {
+        return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, BAG_SLOT_QUANTITY_MAX);
     }
 }
 
-BOOL Bag_HasSpaceForItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
-{
-    return Bag_GetItemSlotForAdd(bag, item_id, quantity, heapId) != NULL;
+BOOL Bag_HasSpaceForItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId) {
+    return Bag_GetItemSlotForAdd(bag, itemId, quantity, heapId) != NULL;
 }
 
-BOOL Bag_AddItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
-{
-    struct ItemSlot * slots = Bag_GetItemSlotForAdd(bag, item_id, quantity, heapId);
-    if (slots == NULL)
+BOOL Bag_AddItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId) {
+    ItemSlot *slot = Bag_GetItemSlotForAdd(bag, itemId, quantity, heapId);
+    if (slot == NULL) {
         return FALSE;
-    slots->id = item_id;
-    slots->quantity += quantity;
+    }
+    slot->id = itemId;
+    slot->quantity += quantity;
     u32 count;
-    u32 pocket = Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
-    if (pocket == POCKET_TMHMS || pocket == POCKET_BERRIES)
-    {
-        SortPocket(slots, count);
+    u32 pocket = Bag_GetItemPocket(bag, itemId, &slot, &count, heapId);
+    if (pocket == POCKET_TMHMS || pocket == POCKET_BERRIES) {
+        SortPocket(slot, count);
     }
     return TRUE;
 }
 
-struct ItemSlot * Pocket_GetItemSlotForRemove(struct ItemSlot * slots, u32 count, u16 item_id, u16 quantity)
-{
-    int i;
-    for (i = 0; i < count; i++)
-    {
-        if (slots[i].id == item_id)
-        {
-            if (slots[i].quantity >= quantity)
-                return &slots[i];
-            return NULL;
+static ItemSlot *Pocket_GetItemSlotForRemove(ItemSlot *slots, u32 count, u16 itemId, u16 quantity) {
+    for (s32 i = 0; i < count; i++) {
+        if (slots[i].id == itemId) {
+            if (slots[i].quantity < quantity) {
+                return NULL;
+            }
+            return &slots[i];
         }
     }
     return NULL;
 }
 
-struct ItemSlot * Bag_GetItemSlotForRemove(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
-{
-    struct ItemSlot * slots;
+static ItemSlot *Bag_GetItemSlotForRemove(Bag *bag, u16 itemId, u16 quantity, HeapID heapId) {
+    ItemSlot *slots;
     u32 count;
-    (void)Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
-    return Pocket_GetItemSlotForRemove(slots, count, item_id, quantity);
+    Bag_GetItemPocket(bag, itemId, &slots, &count, heapId);
+    return Pocket_GetItemSlotForRemove(slots, count, itemId, quantity);
 }
 
-BOOL Bag_TakeItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
-{
-    struct ItemSlot * slots = Bag_GetItemSlotForRemove(bag, item_id, quantity, heapId);
-    if (slots == NULL)
-        return FALSE;
-    slots->quantity -= quantity;
-    if (slots->quantity == 0)
-        slots->id = ITEM_NONE;
-    u32 count;
-    (void)Bag_GetItemPocket(bag, item_id, &slots, &count, heapId);
-    PocketCompaction(slots, count);
-    return TRUE;
-}
-
-BOOL Pocket_TakeItem(struct ItemSlot * slots, u32 count, u16 item_id, u16 quantity)
-{
-    struct ItemSlot * slot = Pocket_GetItemSlotForRemove(slots, count, item_id, quantity);
-    if (slot == NULL)
-        return FALSE;
-    slot->quantity -= quantity;
-    if (slot->quantity == 0)
-        slot->id = ITEM_NONE;
-    PocketCompaction(slots, count);
-    return TRUE;
-}
-
-BOOL Bag_HasItem(struct Bag * bag, u16 item_id, u16 quantity, HeapID heapId)
-{
-    return Bag_GetItemSlotForRemove(bag, item_id, quantity, heapId) != NULL;
-}
-
-BOOL Bag_PocketNotEmpty(struct Bag * bag, u32 pocket)
-{
-    struct ItemSlot * slots;
-    u32 count;
-    switch (pocket)
-    {
-    case POCKET_KEY_ITEMS:
-        slots = bag->keyItems;
-        count = NUM_BAG_KEY_ITEMS;
-        break;
-    case POCKET_ITEMS:
-        slots = bag->items;
-        count = NUM_BAG_ITEMS;
-        break;
-    case POCKET_BERRIES:
-        slots = bag->berries;
-        count = NUM_BAG_BERRIES;
-        break;
-    case POCKET_MEDICINE:
-        slots = bag->medicine;
-        count = NUM_BAG_MEDICINE;
-        break;
-    case POCKET_BALLS:
-        slots = bag->balls;
-        count = NUM_BAG_BALLS;
-        break;
-    case POCKET_BATTLE_ITEMS:
-        slots = bag->battleItems;
-        count = NUM_BAG_BATTLE_ITEMS;
-        break;
-    case POCKET_MAIL:
-        slots = bag->mail;
-        count = NUM_BAG_MAIL;
-        break;
-    case POCKET_TMHMS:
-        slots = bag->TMsHMs;
-        count = NUM_BAG_TMS_HMS;
-        break;
-    default:
+BOOL Bag_TakeItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId) {
+    ItemSlot *slot = Bag_GetItemSlotForRemove(bag, itemId, quantity, heapId);
+    if (slot == NULL) {
         return FALSE;
     }
-    int i;
-    for (i = 0; i < count; i++)
-    {
-        if (slots[i].id != ITEM_NONE)
+    slot->quantity -= quantity;
+    if (slot->quantity == 0) {
+        slot->id = ITEM_NONE;
+    }
+    u32 count;
+    Bag_GetItemPocket(bag, itemId, &slot, &count, heapId);
+    PocketCompaction(slot, count);
+    return TRUE;
+}
+
+BOOL Pocket_TakeItem(ItemSlot *slots, u32 count, u16 itemId, u16 quantity) {
+    ItemSlot *slot = Pocket_GetItemSlotForRemove(slots, count, itemId, quantity);
+    if (slot == NULL) {
+        return FALSE;
+    }
+    slot->quantity -= quantity;
+    if (slot->quantity == 0) {
+        slot->id = ITEM_NONE;
+    }
+    PocketCompaction(slots, count);
+    return TRUE;
+}
+
+BOOL Bag_HasItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId) {
+    return Bag_GetItemSlotForRemove(bag, itemId, quantity, heapId) != NULL;
+}
+
+BOOL Bag_PocketNotEmpty(Bag *bag, u32 pocket) {
+    ItemSlot * slots;
+    u32 count;
+    switch (pocket) {
+        case POCKET_KEY_ITEMS:
+            slots = bag->keyItems;
+            count = NUM_BAG_KEY_ITEMS;
+            break;
+        case POCKET_ITEMS:
+            slots = bag->items;
+            count = NUM_BAG_ITEMS;
+            break;
+        case POCKET_BERRIES:
+            slots = bag->berries;
+            count = NUM_BAG_BERRIES;
+            break;
+        case POCKET_MEDICINE:
+            slots = bag->medicine;
+            count = NUM_BAG_MEDICINE;
+            break;
+        case POCKET_BALLS:
+            slots = bag->balls;
+            count = NUM_BAG_BALLS;
+            break;
+        case POCKET_BATTLE_ITEMS:
+            slots = bag->battleItems;
+            count = NUM_BAG_BATTLE_ITEMS;
+            break;
+        case POCKET_MAIL:
+            slots = bag->mail;
+            count = NUM_BAG_MAIL;
+            break;
+        case POCKET_TMHMS:
+            slots = bag->TMsHMs;
+            count = NUM_BAG_TMS_HMS;
+            break;
+        default:
+            return FALSE;
+    }
+
+    for (s32 i = 0; i < count; i++) {
+        if (slots[i].id != ITEM_NONE) {
             return TRUE;
+        }
     }
     return FALSE;
 }
 
-u16 Bag_GetQuantity(struct Bag * bag, u16 item_id, HeapID heapId)
-{
-    struct ItemSlot * slot = Bag_GetItemSlotForRemove(bag, item_id, 1, heapId);
-    if (slot == NULL)
+u16 Bag_GetQuantity(Bag *bag, u16 itemId, HeapID heapId) {
+    ItemSlot *slot = Bag_GetItemSlotForRemove(bag, itemId, 1, heapId);
+    if (slot == NULL) {
         return 0;
+    }
     return slot->quantity;
 }
 
-u16 Pocket_GetQuantity(struct ItemSlot * slots, u32 count, u16 item_id)
-{
-    struct ItemSlot * slot = Pocket_GetItemSlotForRemove(slots, count, item_id, 1);
-    if (slot == NULL)
+u16 Pocket_GetQuantity(ItemSlot *slots, u32 count, u16 itemId) {
+    ItemSlot *slot = Pocket_GetItemSlotForRemove(slots, count, itemId, 1);
+    if (slot == NULL) {
         return 0;
+    }
     return slot->quantity;
 }
 
-void SwapItemSlots(struct ItemSlot * a, struct ItemSlot * b)
-{
-    struct ItemSlot tmp;
-
-    tmp = *a;
+static void SwapItemSlots(ItemSlot *a, ItemSlot *b) {
+    ItemSlot c = *a;
     *a = *b;
-    *b = tmp;
+    *b = c;
 }
 
-void PocketCompaction(struct ItemSlot * slots, u32 count)
-{
-    int i, j;
-    for (i = 0; i < count - 1; i++)
-    {
-        for (j = i + 1; j < count; j++)
-        {
-            if (slots[i].quantity == 0)
-            {
+static void PocketCompaction(ItemSlot *slots, u32 count) {
+    for (s32 i = 0; i < count - 1; i++) {
+        for (s32 j = i + 1; j < count; j++) {
+            if (slots[i].quantity == 0) {
                 SwapItemSlots(&slots[i], &slots[j]);
             }
         }
     }
 }
 
-void SortPocket(struct ItemSlot * slots, u32 count)
-{
-    int i, j;
-    for (i = 0; i < count - 1; i++)
-    {
-        for (j = i + 1; j < count; j++)
-        {
-            if (slots[i].quantity == 0 || (slots[j].quantity != 0 && slots[i].id > slots[j].id))
-            {
+static void SortPocket(ItemSlot *slots, u32 count) {
+    for (s32 i = 0; i < count - 1; i++) {
+        for (s32 j = i + 1; j < count; j++) {
+            if (slots[i].quantity == 0 || (slots[j].quantity != 0 && slots[i].id > slots[j].id)) {
                 SwapItemSlots(&slots[i], &slots[j]);
             }
         }
     }
 }
 
-struct BagView * CreateBagView(struct Bag * bag, const u8 * pockets, HeapID heapId)
+BagView *Bag_CreateView(Bag *bag, const u8 *pockets, HeapID heapId)
 {
-    struct BagView * view = BagView_New((u8)heapId);
+    BagView *ret = BagView_New(heapId);
 
-    for (u32 i = 0; pockets[i] != 0xFF; i++)
-    {
-        switch (pockets[i])
-        {
-        case POCKET_KEY_ITEMS:
-            BagView_SetItem(view, bag->keyItems, POCKET_KEY_ITEMS, (u8)i);
-            break;
-        case POCKET_ITEMS:
-            BagView_SetItem(view, bag->items, POCKET_ITEMS, (u8)i);
-            break;
-        case POCKET_BERRIES:
-            BagView_SetItem(view, bag->berries, POCKET_BERRIES, (u8)i);
-            break;
-        case POCKET_MEDICINE:
-            BagView_SetItem(view, bag->medicine, POCKET_MEDICINE, (u8)i);
-            break;
-        case POCKET_BALLS:
-            BagView_SetItem(view, bag->balls, POCKET_BALLS, (u8)i);
-            break;
-        case POCKET_BATTLE_ITEMS:
-            BagView_SetItem(view, bag->battleItems, POCKET_BATTLE_ITEMS, (u8)i);
-            break;
-        case POCKET_MAIL:
-            BagView_SetItem(view, bag->mail, POCKET_MAIL, (u8)i);
-            break;
-        case POCKET_TMHMS:
-            BagView_SetItem(view, bag->TMsHMs, POCKET_TMHMS, (u8)i);
-            break;
+    for (u32 i = 0; pockets[i] != POCKET_BAG_VIEW_END; i++) {
+        switch (pockets[i]) {
+            case POCKET_KEY_ITEMS:
+                BagView_SetItem(ret, bag->keyItems, POCKET_KEY_ITEMS, i);
+                break;
+            case POCKET_ITEMS:
+                BagView_SetItem(ret, bag->items, POCKET_ITEMS, i);
+                break;
+            case POCKET_BERRIES:
+                BagView_SetItem(ret, bag->berries, POCKET_BERRIES, i);
+                break;
+            case POCKET_MEDICINE:
+                BagView_SetItem(ret, bag->medicine, POCKET_MEDICINE, i);
+                break;
+            case POCKET_BALLS:
+                BagView_SetItem(ret, bag->balls, POCKET_BALLS, i);
+                break;
+            case POCKET_BATTLE_ITEMS:
+                BagView_SetItem(ret, bag->battleItems, POCKET_BATTLE_ITEMS, i);
+                break;
+            case POCKET_MAIL:
+                BagView_SetItem(ret, bag->mail, POCKET_MAIL, i);
+                break;
+            case POCKET_TMHMS:
+                BagView_SetItem(ret, bag->TMsHMs, POCKET_TMHMS, i);
+                break;
         }
     }
-    return view;
-}
-
-struct ItemSlot * Bag_GetPocketSlotN(struct Bag * bag, u32 pocket, u32 slot)
-{
-    struct ItemSlot * slots;
-    u32 count;
-    switch (pocket)
-    {
-    case POCKET_KEY_ITEMS:
-        slots = bag->keyItems;
-        count = NUM_BAG_KEY_ITEMS;
-        break;
-    case POCKET_ITEMS:
-        slots = bag->items;
-        count = NUM_BAG_ITEMS;
-        break;
-    case POCKET_BERRIES:
-        slots = bag->berries;
-        count = NUM_BAG_BERRIES;
-        break;
-    case POCKET_MEDICINE:
-        slots = bag->medicine;
-        count = NUM_BAG_MEDICINE;
-        break;
-    case POCKET_BALLS:
-        slots = bag->balls;
-        count = NUM_BAG_BALLS;
-        break;
-    case POCKET_BATTLE_ITEMS:
-        slots = bag->battleItems;
-        count = NUM_BAG_BATTLE_ITEMS;
-        break;
-    case POCKET_MAIL:
-        slots = bag->mail;
-        count = NUM_BAG_MAIL;
-        break;
-    case POCKET_TMHMS:
-        slots = bag->TMsHMs;
-        count = NUM_BAG_TMS_HMS;
-        break;
-    }
-    if (slot >= count)
-        return NULL;
-    return &slots[slot];
-}
-
-struct Bag * Save_Bag_Get(struct SaveData * save)
-{
-    return (struct Bag *)SaveArray_Get(save, 3);
-}
-
-struct BagCursor * sub_0206F164(HeapID heapId)
-{
-    struct BagCursor * ret = (struct BagCursor *)AllocFromHeap(heapId, sizeof(struct BagCursor));
-    MI_CpuClear16(ret, sizeof(struct BagCursor));
     return ret;
 }
 
-void sub_0206F17C(struct BagCursor * a0, u32 a1, u8 * a2, u8 * a3)
-{
-    *a2 = a0->field.position[a1];
-    *a3 = a0->field.scroll[a1];
-}
+ItemSlot *Bag_GetPocketSlotN(Bag *bag, u8 pocket, u32 slot) {
+    ItemSlot *slots;
+    u32 count;
 
-u16 sub_0206F18C(struct BagCursor * a0)
-{
-    return a0->field.pocket;
-}
-
-void sub_0206F190(struct BagCursor * a0, u32 a1, u8 a2, u8 a3)
-{
-    a0->field.position[a1] = a2;
-    a0->field.scroll[a1] = a3;
-}
-
-void sub_0206F19C(struct BagCursor * a0, u16 a1)
-{
-    a0->field.pocket = a1;
-}
-
-void sub_0206F1A0(struct BagCursor * a0, u32 a1, u8 * a2, u8 * a3)
-{
-    *a2 = a0->battle.position[a1];
-    *a3 = a0->battle.scroll[a1];
-}
-
-u16 sub_0206F1AC(struct BagCursor * a0)
-{
-    return a0->battle.lastUsedItem;
-}
-
-u16 sub_0206F1B0(struct BagCursor * a0)
-{
-    return a0->battle.lastUsedPocket;
-}
-
-u16 sub_0206F1B4(struct BagCursor * a0)
-{
-    return a0->battle.pocket;
-}
-
-void sub_0206F1B8(struct BagCursor * a0, u32 a1, u8 a2, u8 a3)
-{
-    a0->battle.position[a1] = a2;
-    a0->battle.scroll[a1] = a3;
-}
-
-void sub_0206F1C0(struct BagCursor * a0)
-{
-    u32 i;
-    for (i = 0; i < 5; i++)
-    {
-        sub_0206F1B8(a0, i, 0, 0);
+    switch (pocket) {
+        case POCKET_KEY_ITEMS:
+            slots = bag->keyItems;
+            count = NUM_BAG_KEY_ITEMS;
+            break;
+        case POCKET_ITEMS:
+            slots = bag->items;
+            count = NUM_BAG_ITEMS;
+            break;
+        case POCKET_BERRIES:
+            slots = bag->berries;
+            count = NUM_BAG_BERRIES;
+            break;
+        case POCKET_MEDICINE:
+            slots = bag->medicine;
+            count = NUM_BAG_MEDICINE;
+            break;
+        case POCKET_BALLS:
+            slots = bag->balls;
+            count = NUM_BAG_BALLS;
+            break;
+        case POCKET_BATTLE_ITEMS:
+            slots = bag->battleItems;
+            count = NUM_BAG_BATTLE_ITEMS;
+            break;
+        case POCKET_MAIL:
+            slots = bag->mail;
+            count = NUM_BAG_MAIL;
+            break;
+        case POCKET_TMHMS:
+            slots = bag->TMsHMs;
+            count = NUM_BAG_TMS_HMS;
+            break;
     }
-    sub_0206F1EC(a0, 0);
+    // UB: If pocket invalid, count and slot are uninitialized
+    if (slot >= count) {
+        return NULL;
+    }
+    return &slots[slot];
 }
 
-void sub_0206F1E4(struct BagCursor * a0, u16 a1, u16 a2)
-{
-    a0->battle.lastUsedItem = a1;
-    a0->battle.lastUsedPocket = a2;
+Bag *Save_Bag_Get(SaveData *saveData) {
+    return SaveArray_Get(saveData, SAVE_BAG);
 }
 
-void sub_0206F1EC(struct BagCursor * a0, u16 a1)
-{
-    a0->battle.pocket = a1;
+BagCursor *BagCursor_New(HeapID heapId) {
+    BagCursor *ret = AllocFromHeap(heapId, sizeof(BagCursor));
+    MI_CpuClear16(ret, sizeof(BagCursor));
+    return ret;
+}
+
+void BagCursor_Field_PocketGetPosition(BagCursor *cursor, u32 pocket, u8 *position, u8 *scroll) {
+    *position = cursor->field.position[pocket];
+    *scroll = cursor->field.scroll[pocket];
+}
+
+u16 BagCursor_Field_GetPocket(BagCursor *cursor) {
+    return cursor->field.pocket;
+}
+
+void BagCursor_Field_PocketSetPosition(BagCursor *cursor, u32 pocket, u8 position, u8 scroll) {
+    cursor->field.position[pocket] = position;
+    cursor->field.scroll[pocket] = scroll;
+}
+
+void BagCursor_Field_SetPocket(BagCursor *cursor, u16 pocket) {
+    cursor->field.pocket = pocket;
+}
+
+void BagCursor_Battle_PocketGetPosition(BagCursor *cursor, u32 pocket, u8 *position, u8 *scroll) {
+    *position = cursor->battle.position[pocket];
+    *scroll = cursor->battle.scroll[pocket];
+}
+
+u16 BagCursor_Battle_GetLastUsedItem(BagCursor *cursor) {
+    return cursor->battle.lastUsedItem;
+}
+
+u16 BagCursor_Battle_GetLastUsedPocket(BagCursor *cursor) {
+    return cursor->battle.lastUsedPocket;
+}
+
+u16 BagCursor_Battle_GetPocket(BagCursor *cursor) {
+    return cursor->battle.pocket;
+}
+
+void BagCursor_Battle_PocketSetPosition(BagCursor *cursor, u32 pocket, u8 position, u8 scroll) {
+    cursor->battle.position[pocket] = position;
+    cursor->battle.scroll[pocket] = scroll;
+}
+
+void BagCursor_Battle_Init(BagCursor *cursor) {
+    for (u32 i = 0; i < 5; i++) {
+        BagCursor_Battle_PocketSetPosition(cursor, i, 0, 0);
+    }
+    BagCursor_Battle_SetPocket(cursor, 0);
+}
+
+void BagCursor_Battle_SetLastUsedItem(BagCursor *cursor, u16 itemId, u16 pocket) {
+    cursor->battle.lastUsedItem = itemId;
+    cursor->battle.lastUsedPocket = pocket;
+}
+
+void BagCursor_Battle_SetPocket(BagCursor *cursor, u16 pocket) {
+    cursor->battle.pocket = pocket;
 }

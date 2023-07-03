@@ -11163,7 +11163,7 @@ ov06_0223ECF0: ; 0x0223ECF0
 	bl Save_Bag_Get
 	ldr r1, _0223ED48 ; =0x0224F47C
 	mov r2, #0xb
-	bl CreateBagView
+	bl Bag_CreateView
 	add r3, r5, #0
 	str r0, [r4, #4]
 	add r3, #0x94

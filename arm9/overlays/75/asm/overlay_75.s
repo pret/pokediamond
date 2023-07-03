@@ -1114,7 +1114,7 @@ _021E74AE:
 	ldr r0, [r0, #0x6c]
 	add r2, #1
 	add r3, sp, #0
-	bl sub_0206F17C
+	bl BagCursor_Field_PocketGetPosition
 	add r0, sp, #0
 	ldrb r0, [r0, #1]
 	cmp r0, #0
@@ -1139,7 +1139,7 @@ _021E74F2:
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0, #0x6c]
-	bl sub_0206F18C
+	bl BagCursor_Field_GetPocket
 	mov r1, #0
 	mov r3, #0xc
 _021E7502:
@@ -1195,7 +1195,7 @@ _021E7540:
 	ldr r0, [r0, #0x6c]
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl sub_0206F190
+	bl BagCursor_Field_PocketSetPosition
 	add r4, r4, #1
 	add r5, #0xc
 	cmp r4, #8
@@ -1210,7 +1210,7 @@ _021E7568:
 	mul r1, r2
 	add r1, r7, r1
 	ldrb r1, [r1, #8]
-	bl sub_0206F19C
+	bl BagCursor_Field_SetPocket
 _021E757E:
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov75_021E752C
