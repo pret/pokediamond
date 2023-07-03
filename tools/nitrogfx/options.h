@@ -1,8 +1,9 @@
-// Copyright (c) 2018 huderlem
+// Copyright (c) 2018 huderlem, 2021-2023 red031000
 
 #ifndef OPTIONS_H
 #define OPTIONS_H
 
+#include <stdint.h>
 #include <stdbool.h>
 
 struct GbaToPngOptions {
@@ -31,8 +32,21 @@ struct PngToNtrOptions {
     bool byteOrder;
     bool version101;
     bool sopc;
-    bool scanned;
+    uint32_t scanMode;
     bool wrongSize;
+    bool handleEmpty;
+};
+
+struct NtrToPngOptions {
+    char *paletteFilePath;
+    int bitDepth;
+    bool hasTransparency;
+    int width;
+    int metatileWidth;
+    int metatileHeight;
+    int palIndex;
+    bool scanFrontToBack;
+    bool handleEmpty;
 };
 
 struct Attr0 {

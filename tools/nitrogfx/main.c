@@ -1,4 +1,4 @@
-// Copyright (c) 2015 YamaArashi
+// Copyright (c) 2015 YamaArashi, 2021-2023 red031000
 
 #include <stdio.h>
 #include <string.h>
@@ -45,8 +45,30 @@ void ConvertGbaToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
     FreeImage(&image);
 }
 
-void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *options)
+void ConvertNtrToPng(char *inputPath, char *outputPath, struct NtrToPngOptions *options)
 {
+    // handle empty files if possible
+    FILE *fp = fopen(inputPath, "rb");
+
+    if (options->handleEmpty)
+    {
+        if (fp != NULL)
+        {
+            fseek(fp, 0, SEEK_END);
+            uint32_t size = ftell(fp);
+            rewind(fp);
+            if (size == 0)
+            {
+                FILE *out = fopen(outputPath, "wb+");
+                fclose(out);
+                fclose(fp);
+                return;
+            }
+        }
+    }
+
+    fclose(fp);
+
     struct Image image;
 
     if (options->paletteFilePath != NULL)
@@ -59,7 +81,7 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
         image.hasPalette = false;
     }
     
-    uint32_t key = ReadNtrImage(inputPath, options->width, 0, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette);
+    uint32_t key = ReadNtrImage(inputPath, options->width, 0, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->scanFrontToBack);
 
     if (key)
     {
@@ -95,6 +117,27 @@ void ConvertPngToGba(char *inputPath, char *outputPath, struct PngToGbaOptions *
 
 void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *options)
 {
+    // handle empty files if possible
+    FILE *fp = fopen(inputPath, "rb");
+
+    if (options->handleEmpty)
+    {
+        if (fp != NULL)
+        {
+            fseek(fp, 0, SEEK_END);
+            uint32_t size = ftell(fp);
+            rewind(fp);
+            if (size == 0)
+            {
+                FILE *out = fopen(outputPath, "wb+");
+                fclose(out);
+                fclose(fp);
+                return;
+            }
+        }
+    }
+
+    fclose(fp);
     struct Image image;
 
     image.bitDepth = options->bitDepth;
@@ -102,7 +145,7 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
     ReadPng(inputPath, &image);
 
     uint32_t key = 0;
-    if (options->scanned)
+    if (options->scanMode)
     {
         char* string = malloc(strlen(inputPath) + 5);
         sprintf(string, "%s.key", inputPath);
@@ -118,7 +161,7 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
 
     WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight,
                   &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101,
-                  options->sopc, options->scanned, key, options->wrongSize);
+                  options->sopc, options->scanMode, key, options->wrongSize);
 
     FreeImage(&image);
 }
@@ -204,13 +247,15 @@ void HandleGbaToPngCommand(char *inputPath, char *outputPath, int argc, char **a
 
 void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **argv)
 {
-    struct GbaToPngOptions options;
+    struct NtrToPngOptions options;
     options.paletteFilePath = NULL;
     options.hasTransparency = false;
     options.width = 1;
     options.metatileWidth = 1;
     options.metatileHeight = 1;
     options.palIndex = 1;
+    options.scanFrontToBack = false;
+    options.handleEmpty = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -280,6 +325,14 @@ void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **a
 
             if (options.metatileHeight < 1)
                 FATAL_ERROR("metatile height must be positive.\n");
+        }
+        else if (strcmp(option, "-scanfronttoback") == 0)
+        {
+            options.scanFrontToBack = true;
+        }
+        else if (strcmp(option, "-handleempty") == 0)
+        {
+            options.handleEmpty = true;
         }
         else
         {
@@ -367,7 +420,8 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
     options.byteOrder = true;
     options.version101 = false;
     options.sopc = false;
-    options.scanned = false;
+    options.scanMode = 0;
+    options.handleEmpty = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -443,10 +497,22 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
         }
         else if (strcmp(option, "-scanned") == 0)
         {
-            options.scanned = true;
+            if (options.scanMode != 0)
+                FATAL_ERROR("Scan mode specified more than once.\n-scanned goes back to front as in DP, -scanfronttoback goes front to back as in PtHGSS\n");
+            options.scanMode = 1;
+        }
+        else if (strcmp(option, "-scanfronttoback") == 0)
+        {
+            if (options.scanMode != 0)
+                FATAL_ERROR("Scan mode specified more than once.\n-scanned goes back to front as in DP, -scanfronttoback goes front to back as in PtHGSS\n");
+            options.scanMode = 2;
         }
         else if (strcmp(option, "-wrongsize") == 0) {
             options.wrongSize = true;
+        }
+        else if (strcmp(option, "-handleempty") == 0)
+        {
+            options.handleEmpty = true;
         }
         else
         {
@@ -1019,6 +1085,7 @@ int main(int argc, char **argv)
         { "json", "NCER", HandleJsonToNtrCellCommand },
         { "json", "NSCR", HandleJsonToNtrScreenCommand },
         { "json", "NANR", HandleJsonToNtrAnimationCommand },
+        { "json", "NMAR", HandleJsonToNtrMulticellAnimationCommand },
         { NULL, "huff", HandleHuffCompressCommand },
         { NULL, "lz", HandleLZCompressCommand },
         { "huff", NULL, HandleHuffDecompressCommand },

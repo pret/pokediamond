@@ -1,4 +1,4 @@
-// Copyright (c) 2015 YamaArashi
+// Copyright (c) 2015 YamaArashi, 2021-2023 red031000
 
 #ifndef GFX_H
 #define GFX_H
@@ -30,10 +30,10 @@ struct Image {
 };
 
 void ReadImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors);
-uint32_t ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors);
+uint32_t ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool scanFrontToBack);
 void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors);
 void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image,
-                   bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc, bool scanned,
+                   bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc, uint32_t scanMode,
                    uint32_t key, bool wrongSize);
 void FreeImage(struct Image *image);
 void ReadGbaPalette(char *path, struct Palette *palette);
