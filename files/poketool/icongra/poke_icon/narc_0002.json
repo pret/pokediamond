@@ -7,7 +7,13 @@
 	"mappingType": 0,
 	"cells": [
 		{
-			"readOnly": 2054,
+			"cellAttrs": {
+				"hFlip": false,
+				"vFlip": false,
+				"hvFlip": false,
+				"boundingRect": true,
+				"boundingSphereRadius": 6
+			},
 			"maxX": 15,
 			"maxY": 15,
 			"minX": 65520,
@@ -35,7 +41,13 @@
 			}
 		},
 		{
-			"readOnly": 2054,
+			"cellAttrs": {
+				"hFlip": false,
+				"vFlip": false,
+				"hvFlip": false,
+				"boundingRect": true,
+				"boundingSphereRadius": 6
+			},
 			"maxX": 15,
 			"maxY": 15,
 			"minX": 65520,
