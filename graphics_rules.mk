@@ -1213,4 +1213,5 @@ NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER \
                    files/poketool/icongra/poke_icon/narc_0006.NCER
 
 NANR_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0001.NANR \
-                   files/poketool/icongra/poke_icon/narc_0003.NANR 
+                   files/poketool/icongra/poke_icon/narc_0003.NANR \
+                   files/poketool/icongra/poke_icon/narc_0005.NANR 
