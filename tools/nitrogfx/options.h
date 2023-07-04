@@ -77,8 +77,16 @@ struct OAM {
     struct Attr2 attr2;
 };
 
+struct CellAttributes {
+    bool hFlip; // 1 << 8
+    bool vFlip; // 1 << 9
+    bool hvFlip; // 1 << 10
+    bool boundingRect; // 1 << 11
+    int boundingSphereRadius; // 1 << 0 (6 bits);
+};
+
 struct Cell {
-    short readOnly;
+    struct CellAttributes attributes;
     short maxX;
     short maxY;
     short minX;
@@ -90,8 +98,6 @@ struct JsonToCellOptions {
     bool labelEnabled;
     bool extended;
     int mappingType;
-    int imageHeight;
-    int imageWidth;
     int cellCount;
     struct Cell **cells;
     char **labels;
@@ -108,6 +114,7 @@ struct JsonToScreenOptions {
 struct FrameData {
     int resultId;
     short frameDelay;
+    int resultOffset;
 };
 
 struct SequenceData {
