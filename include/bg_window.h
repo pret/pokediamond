@@ -28,7 +28,7 @@ typedef struct BgTemplate
     u32 mosaic;
 } BgTemplate;
 
-typedef struct Bg {
+typedef struct Background {
     void *tilemapBuffer;
     u32 bufferSize;
     u32 baseTile;
@@ -46,22 +46,20 @@ typedef struct Bg {
     fx32 yScale;
     fx32 centerX;
     fx32 centerY;
-} Bg;
+} Background;
 
-typedef struct BgConfig
-{
+typedef struct BgConfig {
     HeapID heapId;
     u16 scrollScheduled;
     u16 bufferTransferScheduled;
-    Bg bgs[8];
+    Background bgs[8];
 } BgConfig;
 
-struct Bitmap
-{
+typedef struct Bitmap {
     const u8 *pixels;
     u16 width;
     u16 height;
-};
+} Bitmap;
 
 struct WindowTemplate
 {
@@ -209,6 +207,10 @@ enum {
 #define TILEMAP_COPY_SRC_FLAT       0  // Source dimensions are equal to dest dimensions
 #define TILEMAP_COPY_SRC_RECT       1  // Dest dimensions carve out a window from source
 
+// Passed to FillBgTilemapRect(Text) mode arg. 0-15 = palette selection. 16,17 as defined.
+#define TILEMAP_FILL_KEEP_PAL      16  // Do not replace the selected palette index
+#define TILEMAP_FILL_OVWT_PAL      17  // Fill value includes palette
+
 BgConfig *BgConfig_Alloc(HeapID heapId);
 HeapID BgConfig_GetHeapId(BgConfig *bgConfig);
 void SetBothScreensModesAndDisable(const GraphicsModes *modes);
@@ -234,75 +236,21 @@ void BG_SetMaskColor(u8 bgId, u16 value);
 void LoadRectToBgTilemapRect(BgConfig *bgConfig, u8 bgId, const void *buffer, u8 destX, u8 destY, u8 width, u8 height);
 void CopyToBgTilemapRect(BgConfig *bgConfig, u8 bgId, u8 destX, u8 destY, u8 destWidth, u8 destHeight, const void *buffer, u8 srcX, u8 srcY, u8 srcWidth, u8 srcHeight);
 void CopyRectToBgTilemapRect(BgConfig *bgConfig, u8 bgId, u8 destX, u8 destY, u8 destWidth, u8 destHeight, const void *buffer, u8 srcX, u8 srcY, u8 srcWidth, u8 srcHeight);
-void CopyBgTilemapRectAffine(struct Bg *bg,
-                             u8 dstX,
-                             u8 dstY,
-                             u8 dstWidth,
-                             u8 dstHeight,
-                             u8 *src,
-                             u8 srcX,
-                             u8 srcY,
-                             u8 srcWidth,
-                             u8 srcHeight,
-                             u8 adjustForSrcDims);
-void FillBgTilemapRect(BgConfig *bgConfig,
-                       u8 bgId,
-                       u16 fillValue,
-                       u8 x,
-                       u8 y,
-                       u8 width,
-                       u8 height,
-                       u8 paletteNum);
-void FillBgTilemapRectText(struct Bg *bg,
-                                     u16 fillValue,
-                                     u8 x,
-                                     u8 y,
-                                     u8 width,
-                                     u8 height,
-                                     u8 paletteNum);
-void FillBgTilemapRectAffine(
-    struct Bg *bg, u8 fillValue, u8 x, u8 y, u8 width, u8 height);
-void BgTilemapRectChangePalette(BgConfig *bgConfig,
-                                u8 bgId,
-                                u8 x,
-                                u8 y,
-                                u8 width,
-                                u8 height,
-                                u8 paletteNum);
+void FillBgTilemapRect(BgConfig *bgConfig, u8 bgId, u16 fillValue, u8 x, u8 y, u8 width, u8 height, u8 mode);
+void BgTilemapRectChangePalette(BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u8 width, u8 height, u8 palette);
 void BgClearTilemapBufferAndCommit(BgConfig *bgConfig, u8 bgId);
 void BgFillTilemapBufferAndCommit(BgConfig *bgConfig, u8 bgId, u16 fillValue);
 void BgFillTilemapBufferAndSchedule(BgConfig *bgConfig, u8 bgId, u16 fillValue);
 void *BgGetCharPtr(u8 bgId);
-void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 (*dest8bpp), u8 paletteNum);
 u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, HeapID heapId);
 void *GetBgTilemapBuffer(BgConfig *bgConfig, u8 bgId);
-u16 GetBgAffineRotation(BgConfig *bgConfig, u8 bgId);
+u16 GetBgRotation(BgConfig *bgConfig, u8 bgId);
 u8 GetBgPriority(BgConfig *bgConfig, u8 bgId);
-void BlitBitmapRect4Bit(const struct Bitmap *src,
-                        const struct Bitmap *dst,
-                        u16 srcX,
-                        u16 srcY,
-                        u16 dstX,
-                        u16 dstY,
-                        u16 width,
-                        u16 height,
-                        u16 colorKey);
-void BlitBitmapRect8Bit(const struct Bitmap *src,
-                        const struct Bitmap *dst,
-                        u16 srcX,
-                        u16 srcY,
-                        u16 dstX,
-                        u16 dstY,
-                        u16 width,
-                        u16 height,
-                        u16 colorKey);
-void FillBitmapRect4Bit(
-    struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
-void FillBitmapRect8Bit(
-    struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
-struct Window *AllocWindows(HeapID heapId, s32 size);
-void InitWindow(struct Window *window);
-BOOL WindowIsInUse(struct Window *window);
+void BlitBitmapRect4Bit(const Bitmap *src, const Bitmap *dest, u16 srcX, u16 srcY, u16 destX, u16 destY, u16 width, u16 height, u16 colorKey);
+void FillBitmapRect8Bit(const Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
+Window *AllocWindows(HeapID heapId, s32 num);
+void InitWindow(Window *window);
+BOOL WindowIsInUse(const Window *window);
 void AddWindowParameterized(BgConfig *param0,
                             struct Window *window,
                             u8 bgId,
@@ -394,9 +342,9 @@ void ScheduleBgTilemapBufferTransfer(BgConfig *bgConfig, u8 bgId);
 void ApplyScheduledBgPosUpdate(BgConfig *bgConfig);
 void ScheduleSetBgPosText(BgConfig *bgConfig, u8 bgId, u32 op, fx32 value);
 void ScheduleSetBgAffineRotation(BgConfig *bgConfig, u8 bgId, u32 op, u16 value);
-void Bg_SetAffineRotation(struct Bg *bg, u32 op, u16 val);
+void Bg_SetAffineRotation(Background *bg, u32 op, u16 val);
 void ScheduleSetBgAffinePos(BgConfig *bgConfig, u8 bgId, u32 op, fx32 value);
-void Bg_SetAffinePos(struct Bg *bg, u32 op, fx32 val);
+void Bg_SetAffinePos(Background *bg, u32 op, fx32 val);
 u32 DoesPixelAtScreenXYMatchPtrVal(BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src);
 void ApplyFlipFlagsToTile(BgConfig *bgConfig, u8 flag, u8 *src);
 

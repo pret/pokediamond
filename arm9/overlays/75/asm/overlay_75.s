@@ -6707,7 +6707,7 @@ ov75_021EA0CC: ; 0x021EA0CC
 	ldr r0, [r4]
 	add r5, r1, #0
 	mov r1, #7
-	bl GetBgAffineRotation
+	bl GetBgRotation
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
 	add r0, r0, r5

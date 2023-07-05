@@ -1066,7 +1066,7 @@
 .extern BgFillTilemapBufferAndSchedule
 .extern BgGetCharPtr
 .extern GetBgTilemapBuffer
-.extern GetBgAffineRotation
+.extern GetBgRotation
 .extern GetBgPriority
 .extern BlitBitmapRect4Bit
 .extern FillBitmapRect8Bit
