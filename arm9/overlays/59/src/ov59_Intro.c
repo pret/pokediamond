@@ -1275,7 +1275,7 @@ void ov59_LoadPokeballButton(ov59_IntroOverlayData *data)
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_pokeball_button_1_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heapId);
 }
 
-BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, u32 layer, u32 param2)
+BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, enum GFBgLayer layer, u32 param2)
 {
     BOOL ret = FALSE;
     if (param2 == 0)

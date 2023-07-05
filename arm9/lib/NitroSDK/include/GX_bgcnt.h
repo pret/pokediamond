@@ -169,12 +169,10 @@ typedef enum
 }
 GXBGScrSizeLargeBmp;
 
-typedef enum
-{
+typedef enum {
     GX_BG_COLORMODE_16 = 0,
     GX_BG_COLORMODE_256 = 1
-}
-GXBGColorMode;
+} GXBGColorMode;
 
 typedef enum
 {

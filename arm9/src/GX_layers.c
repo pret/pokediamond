@@ -40,7 +40,7 @@ void GX_DisableEngineALayers()
     EngineA_DISPCNT_LayerMask = 0;
 }
 
-void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
+void GX_EngineAToggleLayers(u32 layer_mask, GXLayerToggle layer_toggle)
 {
     if (layer_toggle == GX_LAYER_TOGGLE_ON)
     {
@@ -71,7 +71,7 @@ void GX_DisableEngineBLayers()
     EngineB_DISPCNT_LayerMask = 0;
 }
 
-void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
+void GX_EngineBToggleLayers(u32 layer_mask, GXLayerToggle layer_toggle)
 {
     if (layer_toggle == GX_LAYER_TOGGLE_ON)
     {
