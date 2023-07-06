@@ -126,7 +126,7 @@ void ov59_LoadCharDataFromIndex(ov59_IntroOverlayData *data);
 void ov59_LoadSubScrnData(ov59_IntroOverlayData *data);
 void ov59_DrawMunchlax(ov59_IntroOverlayData *data);
 void ov59_LoadPokeballButton(ov59_IntroOverlayData *data);
-BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, u32 layer, u32 param2);
+BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, enum GFBgLayer layer, u32 param2);
 void ov59_ResetPlayerAnimation(ov59_IntroOverlayData *data);
 void ov59_AnimatePlayerSprite(ov59_IntroOverlayData *data);
 void ov59_DisableBlend(ov59_IntroOverlayData *data);

@@ -1066,7 +1066,7 @@
 .extern BgFillTilemapBufferAndSchedule
 .extern BgGetCharPtr
 .extern GetBgTilemapBuffer
-.extern GetBgAffineRotation
+.extern GetBgRotation
 .extern GetBgPriority
 .extern BlitBitmapRect4Bit
 .extern FillBitmapRect8Bit
@@ -1109,8 +1109,8 @@
 .extern GetWindowHeight
 .extern GetWindowX
 .extern GetWindowY
-.extern MoveWindowX
-.extern MoveWindowY
+.extern SetWindowX
+.extern SetWindowY
 .extern SetWindowPaletteNum
 .extern LoadCharacterDataFromFile
 .extern LoadPaletteDataFromFile

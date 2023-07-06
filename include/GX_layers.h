@@ -9,7 +9,7 @@
 typedef enum {
     GX_LAYER_TOGGLE_OFF,
     GX_LAYER_TOGGLE_ON,
-} GX_LayerToggle;
+} GXLayerToggle;
 
 struct GraphicsBanks
 {
@@ -25,19 +25,19 @@ struct GraphicsBanks
     s32 texpltt;
 };
 
-struct GraphicsModes {
+typedef struct GraphicsModes {
     GXDispMode dispMode;
     GXBGMode bgMode;
     GXBGMode subMode;
     GXBG0As _2d3dMode;
-};
+} GraphicsModes;
 
 void GX_SetBanks(const struct GraphicsBanks *banks);
 void GX_DisableEngineALayers(void);
-void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle);
+void GX_EngineAToggleLayers(u32 layer_mask, GXLayerToggle layer_toggle);
 void GX_SetEngineALayers(u32 layer_mask);
 void GX_DisableEngineBLayers(void);
-void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle);
+void GX_EngineBToggleLayers(u32 layer_mask, GXLayerToggle layer_toggle);
 void GX_BothDispOn(void);
 void GX_SwapDisplay(void);
 u32 GX_GetEngineALayers(void);

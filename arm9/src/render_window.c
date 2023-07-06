@@ -326,7 +326,7 @@ void sub_0200D18C(struct Window *window, u16 fill_value)
     u8 bg_id = GetWindowBgId(window);
 
     void *ptr = AllocFromHeap(heapId, 0x180);
-    void *charptr = BgGetCharPtr(bg_id);
+    void *charptr = BgGetCharPtr((u8)bg_id);
 
     NNSG2dCharacterData *pCharData;
     void *st30;
@@ -344,7 +344,7 @@ void sub_0200D18C(struct Window *window, u16 fill_value)
     }
 
     BlitRect4Bit(st30, 4, 0, 12, 0x30, ptr, 12, 0x30, 1, 0, 12, 0x30);
-    BG_LoadCharTilesData(window->bgConfig, bg_id, ptr, 0x180, (u32)(fill_value + 18));
+    BG_LoadCharTilesData(window->bgConfig, (u8)bg_id, ptr, 0x180, (u32)(fill_value + 18));
     sub_02002840(fill_value);
     FreeToHeap(st2c);
     FreeToHeap(ptr);

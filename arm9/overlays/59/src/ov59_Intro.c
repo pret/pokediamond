@@ -33,66 +33,66 @@ extern void sub_0200E3A0(PMLCDTarget, int);
 const struct WindowTemplate ov59_021D9DB8 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 19,
+        .left = 2,
+        .top = 19,
         .width = 27,
         .height = 4,
-        .paletteNum = 6,
+        .palette = 6,
         .baseTile = 877,
     };
 
 const struct WindowTemplate ov59_021D9DA8 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 3,
+        .left = 2,
+        .top = 3,
         .width = 6,
         .height = 4,
-        .paletteNum = 5,
+        .palette = 5,
         .baseTile = 853,
     };
 
 const struct WindowTemplate ov59_021D9DB0 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 1,
-        .tilemapTop = 3,
+        .left = 1,
+        .top = 3,
         .width = 16,
         .height = 6,
-        .paletteNum = 5,
+        .palette = 5,
         .baseTile = 781,
     };
 
 const struct WindowTemplate ov59_021D9D90 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 8,
-        .tilemapTop = 0,
+        .left = 8,
+        .top = 0,
         .width = 24,
         .height = 24,
-        .paletteNum = 5,
+        .palette = 5,
         .baseTile = 301,
     };
 
 const struct WindowTemplate ov59_021D9D98 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 4,
-        .tilemapTop = 0,
+        .left = 4,
+        .top = 0,
         .width = 24,
         .height = 24,
-        .paletteNum = 5,
+        .palette = 5,
         .baseTile = 301,
     };
 
 const struct WindowTemplate ov59_021D9DA0 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 3,
+        .left = 2,
+        .top = 3,
         .width = 14,
         .height = 10,
-        .paletteNum = 5,
+        .palette = 5,
         .baseTile = 737,
     };
 
@@ -956,7 +956,7 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
             {
                 template = ov59_021D9D98;
                 u32 count = sub_02002F90(data->string);
-                template.tilemapTop = (u8)(12 - count);
+                template.top = (u8)(12 - count);
                 template.height = (u8)(count * 2);
                 AddWindow(data->bgConfig, &data->window, &template);
                 FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
@@ -965,7 +965,7 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
             else
             {
                 template = ov59_021D9D90;
-                template.tilemapTop = (u8)tilemapTop;
+                template.top = (u8)tilemapTop;
                 template.height = (u8)height;
                 AddWindow(data->bgConfig, &data->window, &template);
                 FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
@@ -1275,7 +1275,7 @@ void ov59_LoadPokeballButton(ov59_IntroOverlayData *data)
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_pokeball_button_1_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heapId);
 }
 
-BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, u32 layer, u32 param2)
+BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, enum GFBgLayer layer, u32 param2)
 {
     BOOL ret = FALSE;
     if (param2 == 0)
