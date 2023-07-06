@@ -15,11 +15,11 @@
 
 static const struct WindowTemplate sErrorMessageWindowTemplate = {
     .bgId = GF_BG_LYR_MAIN_0,
-    .tilemapLeft = 3,
-    .tilemapTop = 3,
+    .left = 3,
+    .top = 3,
     .width = 26,
     .height = 18,
-    .paletteNum = 1,
+    .palette = 1,
     .baseTile = 0x23
 };
 

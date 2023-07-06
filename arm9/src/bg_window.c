@@ -23,6 +23,19 @@ static void FillBgTilemapRectAffine(Background *bg, u8 fillValue, u8 x, u8 y, u8
 static void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 *dest8bpp, u8 paletteNum);
 static void BlitBitmapRect8Bit(const struct Bitmap *src, const struct Bitmap *dest, u16 srcX, u16 srcY, u16 destX, u16 destY, u16 width, u16 height, u16 colorKey);
 static void FillBitmapRect4Bit(const Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
+static void PutWindowTilemap_TextMode(Window *window);
+static void PutWindowTilemap_AffineMode(Window *window);
+static void ClearWindowTilemapText(Window *window);
+static void ClearWindowTilemapAffine(Window *window);
+static void CopyWindowToVram_TextMode(Window *window);
+static void ScheduleWindowCopyToVram_TextMode(Window *window);
+static void CopyWindowToVram_AffineMode(Window *window);
+static void ScheduleWindowCopyToVram_AffineMode(Window *window);
+static void ClearWindowTilemapAndCopyToVram_TextMode(Window *window);
+static void ClearWindowTilemapAndScheduleTransfer_TextMode(Window *window);
+static void ClearWindowTilemapAndCopyToVram_AffineMode(Window *window);
+static void ClearWindowTilemapAndScheduleTransfer_AffineMode(Window *window);
+static void ScrollWindow4bpp(Window *window, u8 direction, u8 y, u8 fillValue);
 
 static const u8 sTilemapWidthByBufferSize[] = {
     [GF_BG_SCR_SIZE_128x128]   = 0x10,
@@ -1418,58 +1431,38 @@ BOOL WindowIsInUse(const Window *window) {
     return TRUE;
 }
 
-void AddWindowParameterized(BgConfig *param0,
-                                       Window *window,
-                                       u8 bgId,
-                                       u8 tilemapLeft,
-                                       u8 tilemapTop,
-                                       u8 width,
-                                       u8 height,
-                                       u8 paletteNum,
-                                       u16 baseTile)
-{
-    if (param0->bgs[bgId].tilemapBuffer == NULL)
-    {
+void AddWindowParameterized(BgConfig *bgConfig, Window *window, u8 bgId, u8 x, u8 y, u8 width, u8 height, u8 paletteNum, u16 baseTile) {
+    if (bgConfig->bgs[bgId].tilemapBuffer == NULL) {
         return;
     }
 
-    void *ptr = AllocFromHeap(param0->heapId, (u32)(width * height * param0->bgs[bgId].tileSize));
+    void *buffer = AllocFromHeap(bgConfig->heapId, width * height * bgConfig->bgs[bgId].tileSize);
 
-    if (ptr == NULL)
-    {
+    if (buffer == NULL) {
         return;
     }
-    window->bgConfig = param0;
+    window->bgConfig = bgConfig;
     window->bgId = bgId;
-    window->tilemapLeft = tilemapLeft;
-    window->tilemapTop = tilemapTop;
+    window->tilemapLeft = x;
+    window->tilemapTop = y;
     window->width = width;
     window->height = height;
     window->paletteNum = paletteNum;
-
     window->baseTile = baseTile;
-    window->pixelBuffer = ptr;
-
-    window->colorMode = param0->bgs[bgId].colorMode == GX_BG_COLORMODE_16 ? GF_BG_CLR_4BPP : GF_BG_CLR_8BPP;
+    window->pixelBuffer = buffer;
+    window->colorMode = bgConfig->bgs[bgId].colorMode == GX_BG_COLORMODE_16 ? GF_BG_CLR_4BPP : GF_BG_CLR_8BPP;
 }
 
-void AddTextWindowTopLeftCorner(BgConfig *param0,
-                                           Window *window,
-                                           u8 width,
-                                           u8 height,
-                                           u16 baseTile,
-                                           u8 paletteNum)
-{
-    u32 size = (u32)(width * height * 32);
+void AddTextWindowTopLeftCorner(BgConfig *bgConfig, Window *window, u8 width, u8 height, u16 baseTile, u8 paletteNum) {
+    u32 size = width * height * 32;
 
-    void *ptr = AllocFromHeap(param0->heapId, size);
+    void *ptr = AllocFromHeap(bgConfig->heapId, size);
 
     paletteNum |= (paletteNum * 16);
-    memset(ptr, paletteNum, size);
+    memset(ptr, paletteNum, size); // could cause a data protection abort if below is true
 
-    if (ptr != NULL)
-    {
-        window->bgConfig = param0;
+    if (ptr != NULL) {
+        window->bgConfig = bgConfig;
         window->width = width;
         window->height = height;
         window->baseTile = baseTile;
@@ -1478,27 +1471,15 @@ void AddTextWindowTopLeftCorner(BgConfig *param0,
     }
 }
 
-void AddWindow(
-    BgConfig *bgConfig, Window *window, const struct WindowTemplate *template)
-{
-
-    AddWindowParameterized(bgConfig,
-                           window,
-                           template->bgId,
-                           template->tilemapLeft,
-                           template->tilemapTop,
-                           template->width,
-                           template->height,
-                           template->paletteNum,
-                           template->baseTile);
+void AddWindow(BgConfig *bgConfig, Window *window, const WindowTemplate *template) {
+    AddWindowParameterized(bgConfig, window, template->bgId, template->left, template->top, template->width, template->height, template->palette, template->baseTile);
 }
 
-void RemoveWindow(Window *window)
-{
+void RemoveWindow(Window *window) {
     FreeToHeap(window->pixelBuffer);
 
     window->bgConfig = NULL;
-    window->bgId = 0xff;
+    window->bgId = GF_BG_LYR_UNALLOC;
     window->tilemapLeft = 0;
     window->tilemapTop = 0;
     window->width = 0;
@@ -1508,12 +1489,9 @@ void RemoveWindow(Window *window)
     window->pixelBuffer = NULL;
 }
 
-void WindowArray_Delete(Window *windows, int count)
-{
-    for (u16 i = 0; i < count; i++)
-    {
-        if (windows[i].pixelBuffer != NULL)
-        {
+void WindowArray_Delete(Window *windows, s32 count) {
+    for (u16 i = 0; i < count; i++) {
+        if (windows[i].pixelBuffer != NULL) {
             FreeToHeap(windows[i].pixelBuffer);
         }
     }
@@ -1521,35 +1499,27 @@ void WindowArray_Delete(Window *windows, int count)
     FreeToHeap(windows);
 }
 
-void CopyWindowToVram(Window *window)
-{
-
+void CopyWindowToVram(Window *window) {
     GF_ASSERT(window != NULL);
     GF_ASSERT(window->bgConfig != NULL);
-    GF_ASSERT(window->bgId < NELEMS(window->bgConfig->bgs));
-    GF_ASSERT(window->bgConfig->bgs[window->bgId].mode < NELEMS(sCopyWindowToVramFuncs));
-
+    GF_ASSERT(window->bgId < GF_BG_LYR_MAX);
+    GF_ASSERT(window->bgConfig->bgs[window->bgId].mode < GF_BG_TYPE_MAX);
     sCopyWindowToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-void ScheduleWindowCopyToVram(Window *window)
-{
-
-    GF_ASSERT(window);
-    GF_ASSERT(window->bgConfig);
-    GF_ASSERT(window->bgId < NELEMS(window->bgConfig->bgs));
-    GF_ASSERT(window->bgConfig->bgs[window->bgId].mode < NELEMS(sScheduleWindowCopyToVramFuncs));
-
+void ScheduleWindowCopyToVram(Window *window) {
+    GF_ASSERT(window != NULL);
+    GF_ASSERT(window->bgConfig != NULL);
+    GF_ASSERT(window->bgId < GF_BG_LYR_MAX);
+    GF_ASSERT(window->bgConfig->bgs[window->bgId].mode < GF_BG_TYPE_MAX);
     sScheduleWindowCopyToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-void PutWindowTilemap(Window *window)
-{
+void PutWindowTilemap(Window *window) {
     sPutWindowTilemapFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-void PutWindowTilemapRectAnchoredTopLeft(Window *window, u8 width, u8 height)
-{
+void PutWindowTilemapRectAnchoredTopLeft(Window *window, u8 width, u8 height) {
     u8 widthBak = window->width;
     u8 heightBak = window->height;
 
@@ -1561,293 +1531,197 @@ void PutWindowTilemapRectAnchoredTopLeft(Window *window, u8 width, u8 height)
     window->height = heightBak;
 }
 
-void ClearWindowTilemap(Window *window)
-{
+void ClearWindowTilemap(Window *window) {
     sClearWindowTilemapFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-void PutWindowTilemap_TextMode(Window *param0)
-{
+static void PutWindowTilemap_TextMode(Window *window) {
     u32 i, j;
-    u32 r3;
-    u32 iCount, jCount;
-    u16 *st4 = param0->bgConfig->bgs[param0->bgId].tilemapBuffer;
+    u32 tile;
+    u32 tilemapBottom, tilemapRight;
+    u16 *tilemap = window->bgConfig->bgs[window->bgId].tilemapBuffer;
 
-    if (st4 == NULL)
-    {
+    if (tilemap == NULL) {
         return;
     }
 
-    r3 = param0->baseTile;
-    jCount = (u32)(param0->tilemapLeft + param0->width);
-    iCount = (u32)(param0->tilemapTop + param0->height);
+    tile = window->baseTile;
+    tilemapRight = window->tilemapLeft + window->width;
+    tilemapBottom = window->tilemapTop + window->height;
 
-    for (i = param0->tilemapTop; i < iCount; i++)
-    {
-        for (j = param0->tilemapLeft; j < jCount; j++)
-        {
-            st4[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) << 5) + (j & 0x1f)] =
-                (u16)(r3 | (param0->paletteNum << 12));
-
-            r3++;
+    for (i = window->tilemapTop; i < tilemapBottom; i++) {
+        for (j = window->tilemapLeft; j < tilemapRight; j++) {
+            tilemap[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) << 5) + (j & 0x1f)] = tile | (window->paletteNum << 12);
+            tile++;
         }
     }
 }
 
-void PutWindowTilemap_AffineMode(Window *window)
-{
+static void PutWindowTilemap_AffineMode(Window *window) {
     int j, i;
-    u8 *dst;
+    u8 *tilemap;
 
-    int tileId;
+    int tile;
     int tilemapWidth;
 
-    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL)
-    {
+    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL) {
         return;
     }
 
     tilemapWidth = sTilemapWidthByBufferSize[window->bgConfig->bgs[window->bgId].size];
 
-    dst = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
-    tileId = window->baseTile;
+    tilemap = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
+    tile = window->baseTile;
 
-    for (i = 0; i < window->height; i++)
-    {
-        for (j = 0; j < window->width; j++)
-        {
-            dst[j] = (u8)tileId;
-            tileId++;
+    for (i = 0; i < window->height; i++) {
+        for (j = 0; j < window->width; j++) {
+            tilemap[j] = tile++;
         }
-        dst += tilemapWidth;
+        tilemap += tilemapWidth;
     }
 }
 
-void ClearWindowTilemapText(Window *window)
-{
-
+static void ClearWindowTilemapText(Window *window) {
     u32 i, j;
-
-    u32 yEnd, xEnd;
+    u32 tilemapBottom, tilemapRight;
     u32 tilemapWidth;
+    u16 *tilemap;
 
-    u16 *dst;
-
-    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL)
-    {
+    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL) {
         return;
     }
-    dst = window->bgConfig->bgs[window->bgId].tilemapBuffer;
-
+    tilemap = window->bgConfig->bgs[window->bgId].tilemapBuffer;
     tilemapWidth = sTilemapWidthByBufferSize[window->bgConfig->bgs[window->bgId].size];
-    xEnd = (u32)(window->tilemapLeft + window->width);
-    yEnd = (u32)(window->tilemapTop + window->height);
-
-    for (i = window->tilemapTop; i < yEnd; i++)
-    {
-        for (j = window->tilemapLeft; j < xEnd; j++)
-        {
-            dst[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) * tilemapWidth) + (j & 0x1f)] = 0;
+    tilemapRight = window->tilemapLeft + window->width;
+    tilemapBottom = window->tilemapTop + window->height;
+    for (i = window->tilemapTop; i < tilemapBottom; i++) {
+        for (j = window->tilemapLeft; j < tilemapRight; j++) {
+            tilemap[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) * tilemapWidth) + (j & 0x1f)] = 0;
         }
     }
 }
 
-void ClearWindowTilemapAffine(Window *window)
-{
-
+static void ClearWindowTilemapAffine(Window *window) {
     int j, i;
-    u8 *dstPos;
-
+    u8 *tilemap;
     int tilemapWidth;
 
-    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL)
-    {
+    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL) {
         return;
     }
 
     tilemapWidth = sTilemapWidthByBufferSize[window->bgConfig->bgs[window->bgId].size];
-    dstPos = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
-
-    for (i = 0; i < window->height; i++)
-    {
-        for (j = 0; j < window->width; j++)
-        {
-            dstPos[j] = 0;
+    tilemap = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
+    for (i = 0; i < window->height; i++) {
+        for (j = 0; j < window->width; j++) {
+            tilemap[j] = 0;
         }
-        dstPos += tilemapWidth;
+        tilemap += tilemapWidth;
     }
 }
 
-void CopyWindowToVram_TextMode(Window *window)
-{
+static void CopyWindowToVram_TextMode(Window *window) {
     PutWindowTilemap_TextMode(window);
     CopyWindowPixelsToVram_TextMode(window);
-    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
-                                               window->bgId,
-                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
-                                               window->bgConfig->bgs[window->bgId].bufferSize,
-                                               window->bgConfig->bgs[window->bgId].baseTile);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig, window->bgId, window->bgConfig->bgs[window->bgId].tilemapBuffer, window->bgConfig->bgs[window->bgId].bufferSize, window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-void ScheduleWindowCopyToVram_TextMode(Window *window)
-{
+static void ScheduleWindowCopyToVram_TextMode(Window *window) {
     PutWindowTilemap_TextMode(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
     CopyWindowPixelsToVram_TextMode(window);
 }
 
-void CopyWindowToVram_AffineMode(Window *window)
-{
+static void CopyWindowToVram_AffineMode(Window *window) {
     PutWindowTilemap_AffineMode(window);
-    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
-                                               window->bgId,
-                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
-                                               window->bgConfig->bgs[window->bgId].bufferSize,
-                                               window->bgConfig->bgs[window->bgId].baseTile);
-
-    BG_LoadCharTilesData(window->bgConfig,
-        window->bgId,
-        window->pixelBuffer,
-        (u32)(window->width * window->height * 64),
-        window->baseTile);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig, window->bgId, window->bgConfig->bgs[window->bgId].tilemapBuffer, window->bgConfig->bgs[window->bgId].bufferSize, window->bgConfig->bgs[window->bgId].baseTile);
+    BG_LoadCharTilesData(window->bgConfig, window->bgId, window->pixelBuffer, window->width * window->height * TILE_SIZE_8BPP, window->baseTile);
 }
 
-void ScheduleWindowCopyToVram_AffineMode(Window *window)
-{
+static void ScheduleWindowCopyToVram_AffineMode(Window *window) {
     PutWindowTilemap_AffineMode(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
-    BG_LoadCharTilesData(window->bgConfig,
-        window->bgId,
-        window->pixelBuffer,
-        (u32)(window->width * window->height * 64),
-        window->baseTile);
+    BG_LoadCharTilesData(window->bgConfig, window->bgId, window->pixelBuffer, window->width * window->height * TILE_SIZE_8BPP, window->baseTile);
 }
 
-void CopyWindowPixelsToVram_TextMode(Window *window)
-{
-    BG_LoadCharTilesData(window->bgConfig,
-        window->bgId,
-        window->pixelBuffer,
-        (u32)(window->width * window->height * window->bgConfig->bgs[window->bgId].tileSize),
-        window->baseTile);
+void CopyWindowPixelsToVram_TextMode(Window *window) {
+    BG_LoadCharTilesData(window->bgConfig, window->bgId, window->pixelBuffer, window->width * window->height * window->bgConfig->bgs[window->bgId].tileSize, window->baseTile);
 }
 
-void ClearWindowTilemapAndCopyToVram(Window *window)
-{
+void ClearWindowTilemapAndCopyToVram(Window *window) {
     sClearWindowTilemapAndCopyToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-void ClearWindowTilemapAndScheduleTransfer(Window *window)
-{
+void ClearWindowTilemapAndScheduleTransfer(Window *window) {
     sClearWindowTilemapAndScheduleTransferFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-void ClearWindowTilemapAndCopyToVram_TextMode(Window *window)
-{
+static void ClearWindowTilemapAndCopyToVram_TextMode(Window *window) {
     ClearWindowTilemapText(window);
-    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
-                                               window->bgId,
-                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
-                                               window->bgConfig->bgs[window->bgId].bufferSize,
-                                               window->bgConfig->bgs[window->bgId].baseTile);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig, window->bgId, window->bgConfig->bgs[window->bgId].tilemapBuffer, window->bgConfig->bgs[window->bgId].bufferSize, window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-void ClearWindowTilemapAndScheduleTransfer_TextMode(Window *window)
-{
+static void ClearWindowTilemapAndScheduleTransfer_TextMode(Window *window) {
     ClearWindowTilemapText(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
-void ClearWindowTilemapAndCopyToVram_AffineMode(Window *window)
-{
+static void ClearWindowTilemapAndCopyToVram_AffineMode(Window *window) {
     ClearWindowTilemapAffine(window);
-    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
-                                               window->bgId,
-                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
-                                               window->bgConfig->bgs[window->bgId].bufferSize,
-                                               window->bgConfig->bgs[window->bgId].baseTile);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig, window->bgId, window->bgConfig->bgs[window->bgId].tilemapBuffer, window->bgConfig->bgs[window->bgId].bufferSize, window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-void ClearWindowTilemapAndScheduleTransfer_AffineMode(Window *window)
-{
+static void ClearWindowTilemapAndScheduleTransfer_AffineMode(Window *window) {
     ClearWindowTilemapAffine(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
-void FillWindowPixelBuffer(Window *window, u8 param1)
-{
-    if (window->bgConfig->bgs[window->bgId].tileSize == 0x20)
-    {
-        param1 |= param1 << 4;
+void FillWindowPixelBuffer(Window *window, u8 fillValue) {
+    if (window->bgConfig->bgs[window->bgId].tileSize == 0x20) {
+        fillValue |= fillValue << 4;
     }
 
-    MI_CpuFillFast(
-        window->pixelBuffer,
-        (u32)((param1 << 0x18) | (param1 << 0x10) | (param1 << 0x8) | param1),
-    (u32)(window->bgConfig->bgs[window->bgId].tileSize * window->width * window->height));
+    MI_CpuFillFast(window->pixelBuffer, ((fillValue << 0x18) | (fillValue << 0x10) | (fillValue << 0x8) | fillValue), window->bgConfig->bgs[window->bgId].tileSize * window->width * window->height);
 }
 
-void BlitBitmapRectToWindow(Window *window,
-    const void *src,
-    u16 srcX,
-    u16 srcY,
-    u16 srcWidth,
-    u16 srcHeight,
-    u16 dstX,
-    u16 dstY,
-    u16 dstWidth,
-    u16 dstHeight)
-{
-    BlitBitmapRect(
-        window, src, srcX, srcY, srcWidth, srcHeight, dstX, dstY, dstWidth, dstHeight, 0);
+void BlitBitmapRectToWindow(Window *window, void *src, u16 srcX, u16 srcY, u16 srcWidth, u16 srcHeight, u16 destX, u16 destY, u16 destWidth, u16 destHeight) {
+    BlitBitmapRect(window, src, srcX, srcY, srcWidth, srcHeight, destX, destY, destWidth, destHeight, 0);
 }
 
-void BlitBitmapRect(Window *window,
-    void *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8,
-    u16 param9,
-    u16 param10)
-{
-    struct Bitmap st1c = { param1, param4, param5 };
-    struct Bitmap st14 = {
-        window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
-    };
+void BlitBitmapRect(Window *window, void *src, u16 srcX, u16 srcY, u16 srcWidth, u16 srcHeight, u16 destX, u16 destY, u16 destWidth, u16 destHeight, u16 colorKey) {
+    Bitmap bmpSrc, bmpDest;
 
-    if (window->bgConfig->bgs[window->bgId].colorMode == GX_BG_COLORMODE_16)
-    {
-        BlitBitmapRect4Bit(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
-    }
-    else
-    {
-        BlitBitmapRect8Bit(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
+    bmpSrc.pixels = src;
+    bmpSrc.width = srcWidth;
+    bmpSrc.height = srcHeight;
+
+    bmpDest.pixels = window->pixelBuffer;
+    bmpDest.width = window->width * 8;
+    bmpDest.height = window->height * 8;
+
+    if (window->bgConfig->bgs[window->bgId].colorMode == GF_BG_CLR_4BPP) {
+        BlitBitmapRect4Bit(&bmpSrc, &bmpDest, srcX, srcY, destX, destY, destWidth, destHeight, colorKey);
+    } else {
+        BlitBitmapRect8Bit(&bmpSrc, &bmpDest, srcX, srcY, destX, destY, destWidth, destHeight, colorKey);
     }
 }
 
-void FillWindowPixelRect(
-    Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height)
-{
-    struct Bitmap st8 = {
-        window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
-    };
+void FillWindowPixelRect(Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height) {
+    Bitmap bmp;
 
-    if (window->bgConfig->bgs[window->bgId].colorMode == GX_BG_COLORMODE_16)
-    {
-        FillBitmapRect4Bit(&st8, x, y, width, height, fillValue);
-    }
-    else
-    {
-        FillBitmapRect8Bit(&st8, x, y, width, height, fillValue);
+    bmp.pixels = window->pixelBuffer;
+    bmp.width = window->width * 8;
+    bmp.height = window->height * 8;
+
+    if (window->bgConfig->bgs[window->bgId].colorMode == GF_BG_CLR_4BPP) {
+        FillBitmapRect4Bit(&bmp, x, y, width, height, fillValue);
+    } else {
+        FillBitmapRect8Bit(&bmp, x, y, width, height, fillValue);
     }
 }
 
 #define GLYPH_COPY_4BPP(glyphPixels, srcX, srcY, srcWidth, srcHeight, windowPixels, destX, destY, destWidth, table) { \
-    int srcJ, dstJ, srcI, dstI, bits;                                                                                 \
+    int srcJ, destJ, srcI, destI, bits;                                                                                 \
     u8 toOrr;                                                                                                         \
     u8 tableFlag;                                                                                                     \
     u8 tableBit;                                                                                                      \
@@ -1857,13 +1731,13 @@ void FillWindowPixelRect(
                                                                                                                       \
     src = glyphPixels + (srcY / 8 * 64) + (srcX / 8 * 32);                                                            \
     if (srcY == 0) {                                                                                                  \
-        dstI = destY + srcY;                                                                                          \
+        destI = destY + srcY;                                                                                          \
         tableBit = table & 0xFF;                                                                                      \
     } else {                                                                                                          \
-        dstI = destY + srcY;                                                                                          \
+        destI = destY + srcY;                                                                                          \
         for (srcI = 0; srcI < 8; srcI++) {                                                                            \
             if (((table >> srcI) & 1) != 0) {                                                                         \
-                dstI++;                                                                                               \
+                destI++;                                                                                               \
             }                                                                                                         \
         }                                                                                                             \
         tableBit = table >> 8;                                                                                        \
@@ -1871,30 +1745,30 @@ void FillWindowPixelRect(
     for (srcI = 0; srcI < srcHeight; srcI++) {                                                                        \
         pixelData = *(u32 *)src;                                                                                      \
         tableFlag = (tableBit >> srcI) & 1;                                                                           \
-        for (srcJ = 0, dstJ = destX + srcX; srcJ < srcWidth; srcJ++, dstJ++) {                                        \
-            dest = GetPixelAddressFromBlit4bpp(windowPixels, dstJ, dstI, destWidth);                                  \
+        for (srcJ = 0, destJ = destX + srcX; srcJ < srcWidth; srcJ++, destJ++) {                                        \
+            dest = GetPixelAddressFromBlit4bpp(windowPixels, destJ, destI, destWidth);                                  \
             toOrr = (pixelData >> (srcJ * 4)) & 0xF;                                                                  \
             if (toOrr != 0) {                                                                                         \
-                bits = (dstJ & 1) * 4;                                                                                \
+                bits = (destJ & 1) * 4;                                                                                \
                 toOrr = (toOrr << bits) | (*dest & (0xF0 >> bits));                                                   \
                 *dest = toOrr;                                                                                        \
                 if (tableFlag) {                                                                                      \
-                    dest = GetPixelAddressFromBlit4bpp(windowPixels, dstJ, dstI + 1, destWidth);                      \
+                    dest = GetPixelAddressFromBlit4bpp(windowPixels, destJ, destI + 1, destWidth);                      \
                     *dest = toOrr;                                                                                    \
                 }                                                                                                     \
             }                                                                                                         \
         }                                                                                                             \
         if (tableFlag) {                                                                                              \
-            dstI += 2;                                                                                                \
+            destI += 2;                                                                                                \
         } else {                                                                                                      \
-            dstI += 1;                                                                                                \
+            destI += 1;                                                                                                \
         }                                                                                                             \
         src += 4;                                                                                                     \
     }                                                                                                                 \
 }
 
 #define GLYPH_COPY_8BPP(glyphPixels, srcX, srcY, srcWidth, srcHeight, windowPixels, destX, destY, destWidth, table) { \
-    int srcJ, dstJ, srcI, dstI;                                                                                       \
+    int srcJ, destJ, srcI, destI;                                                                                       \
     u8 toOrr;                                                                                                         \
     u8 tableFlag;                                                                                                     \
     u8 tableBit;                                                                                                      \
@@ -1904,13 +1778,13 @@ void FillWindowPixelRect(
                                                                                                                       \
     src = glyphPixels + (srcY / 8 * 128) + (srcX / 8 * 64);                                                           \
     if (srcY == 0) {                                                                                                  \
-        dstI = destY + srcY;                                                                                          \
+        destI = destY + srcY;                                                                                          \
         tableBit = table & 0xFF;                                                                                      \
     } else {                                                                                                          \
-        dstI = destY + srcY;                                                                                          \
+        destI = destY + srcY;                                                                                          \
         for (srcI = 0; srcI < 8; srcI++) {                                                                            \
             if (((table >> srcI) & 1) != 0) {                                                                         \
-                dstI++;                                                                                               \
+                destI++;                                                                                               \
             }                                                                                                         \
         }                                                                                                             \
         tableBit = table >> 8;                                                                                        \
@@ -1918,28 +1792,27 @@ void FillWindowPixelRect(
     for (srcI = 0; srcI < srcHeight; srcI++) {                                                                        \
         pixelData = (u8 *)src;                                                                                        \
         tableFlag = (tableBit >> srcI) & 1;                                                                           \
-        for (srcJ = 0, dstJ = destX + srcX; srcJ < srcWidth; srcJ++, dstJ++) {                                        \
-            dest = GetPixelAddressFromBlit8bpp(windowPixels, dstJ, dstI, destWidth);                                  \
+        for (srcJ = 0, destJ = destX + srcX; srcJ < srcWidth; srcJ++, destJ++) {                                        \
+            dest = GetPixelAddressFromBlit8bpp(windowPixels, destJ, destI, destWidth);                                  \
             toOrr = pixelData[srcJ];                                                                                  \
             if (toOrr != 0) {                                                                                         \
                 *dest = toOrr;                                                                                        \
                 if (tableFlag) {                                                                                      \
-                    dest = GetPixelAddressFromBlit8bpp(windowPixels, dstJ, dstI + 1, destWidth);                      \
+                    dest = GetPixelAddressFromBlit8bpp(windowPixels, destJ, destI + 1, destWidth);                      \
                     *dest = toOrr;                                                                                    \
                 }                                                                                                     \
             }                                                                                                         \
         }                                                                                                             \
         if (tableFlag) {                                                                                              \
-            dstI += 2;                                                                                                \
+            destI += 2;                                                                                                \
         } else {                                                                                                      \
-            dstI += 1;                                                                                                \
+            destI += 1;                                                                                                \
         }                                                                                                             \
         src += 8;                                                                                                     \
     }                                                                                                                 \
 }
 
-void CopyGlyphToWindow(Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHeight, u16 dstX, u16 dstY, u16 table)
-{
+void CopyGlyphToWindow(Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHeight, u16 destX, u16 destY, u16 table) {
     u8 *windowPixels;
     u16 destWidth, destHeight;
     int srcRight, srcBottom;
@@ -1950,13 +1823,13 @@ void CopyGlyphToWindow(Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHei
     destHeight = (u16)(window->height * 8);
 
     // Don't overflow the window
-    if (destWidth - dstX < srcWidth) {
-        srcRight = destWidth - dstX;
+    if (destWidth - destX < srcWidth) {
+        srcRight = destWidth - destX;
     } else {
         srcRight = srcWidth;
     }
-    if (destHeight - dstY < srcHeight) {
-        srcBottom = destHeight - dstY;
+    if (destHeight - destY < srcHeight) {
+        srcBottom = destHeight - destY;
     } else {
         srcBottom = srcHeight;
     }
@@ -1974,24 +1847,24 @@ void CopyGlyphToWindow(Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHei
     if (window->colorMode == GF_BG_CLR_4BPP) {
         switch (glyphSizeParam) {
             case 0: // 1x1
-                GLYPH_COPY_4BPP(glyphPixels, 0, 0, srcRight, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, srcRight, srcBottom, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 return;
 
             case 1: // 2x1
-                GLYPH_COPY_4BPP(glyphPixels, 0, 0, 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_4BPP(glyphPixels, 8, 0, srcRight - 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, 8, srcBottom, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 8, 0, srcRight - 8, srcBottom, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 return;
 
             case 2: // 1x2
-                GLYPH_COPY_4BPP(glyphPixels, 0, 0, srcRight, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_4BPP(glyphPixels, 0, 8, srcRight, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, srcRight, 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 8, srcRight, srcBottom - 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 return;
 
             case 3: // 2x2
-                GLYPH_COPY_4BPP(glyphPixels, 0, 0, 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_4BPP(glyphPixels, 8, 0, srcRight - 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_4BPP(glyphPixels, 0, 8, 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_4BPP(glyphPixels, 8, 8, srcRight - 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, 8, 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 8, 0, srcRight - 8, 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 8, 8, srcBottom - 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 8, 8, srcRight - 8, srcBottom - 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 return;
         }
     } else { // 8bpp
@@ -1999,107 +1872,85 @@ void CopyGlyphToWindow(Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHei
         convertedSrc = Convert4bppTo8bpp(glyphPixels, srcWidth * 4 * srcHeight * 8, window->paletteNum, window->bgConfig->heapId);
         switch (glyphSizeParam) {
             case 0: // 1x1
-                GLYPH_COPY_8BPP(convertedSrc, 0, 0, srcRight, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, srcRight, srcBottom, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 break;
 
             case 1: // 2x1
-                GLYPH_COPY_8BPP(convertedSrc, 0, 0, 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_8BPP(convertedSrc, 8, 0, srcRight - 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, 8, srcBottom, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 8, 0, srcRight - 8, srcBottom, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 break;
 
             case 2: // 1x2
-                GLYPH_COPY_8BPP(convertedSrc, 0, 0, srcRight, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_8BPP(convertedSrc, 0, 8, srcRight, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, srcRight, 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 8, srcRight, srcBottom - 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 break;
 
             case 3: // 2x2
-                GLYPH_COPY_8BPP(convertedSrc, 0, 0, 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_8BPP(convertedSrc, 8, 0, srcRight - 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_8BPP(convertedSrc, 0, 8, 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
-                GLYPH_COPY_8BPP(convertedSrc, 8, 8, srcRight - 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, 8, 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 8, 0, srcRight - 8, 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 8, 8, srcBottom - 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 8, 8, srcRight - 8, srcBottom - 8, windowPixels, destX, destY, ConvertPixelsToTiles(destWidth), table);
                 break;
         }
         FreeToHeap(convertedSrc);
     }
 }
 
-void ScrollWindow(Window *window, u32 param1, u8 param2, u8 param3)
-{
-    if (window->bgConfig->bgs[window->bgId].colorMode == GX_BG_COLORMODE_16)
-    {
-        ScrollWindow4bpp(window, param1, param2, param3);
-    }
-    else
-    {
-        ScrollWindow8bpp(window, param1, param2, param3);
+void ScrollWindow(Window *window, u8 direction, u8 y, u8 fillValue) {
+    if (window->bgConfig->bgs[window->bgId].colorMode == GF_BG_CLR_4BPP) {
+        ScrollWindow4bpp(window, direction, y, fillValue);
+    } else {
+        ScrollWindow8bpp(window, direction, y, fillValue);
     }
 }
 
-void ScrollWindow4bpp(Window *window, u32 param1, u8 param2, u8 fillValue)
-{
-    void *r2;
-    int r5, r1, r3;
-    int st4, stc;
-    u32 st8;
+static void ScrollWindow4bpp(Window *window, u8 direction, u8 y, u8 fillValue) {
+    u8 *pixelBuffer;
+    int y0, y1, y2;
+    int fillWord, size;
+    u32 width;
     int i, j;
 
-    r2 = window->pixelBuffer;
-    st4 = (fillValue << 0x18) | (fillValue << 0x10) | (fillValue << 0x8) | fillValue;
-    stc = window->height * window->width * 32;
-    st8 = window->width;
+    pixelBuffer = window->pixelBuffer;
+    fillWord = (fillValue << 24) | (fillValue << 16) | (fillValue << 8) | (fillValue << 0);
+    size = window->height * window->width * TILE_SIZE_4BPP;
+    width = window->width;
 
-    switch (param1)
-    {
-    case 0:
-        for (i = 0; i < stc; i += 32)
-        {
-            r3 = param2;
-            for (j = 0; j < 8; j++)
-            {
-                r5 = i + (j << 2);
-                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 2);
-
-                if (r1 < stc)
-                {
-                    *(u32 *)(r2 + r5) = *(u32 *)(r2 + r1);
+    switch (direction) {
+        case 0: // up
+            for (i = 0; i < size; i += TILE_SIZE_4BPP) {
+                y0 = y;
+                for (j = 0; j < 8; j++) {
+                    y1 = i + (j << 2);
+                    y2 = i + (((width * (y0 & ~7)) | (y0 & 7)) << 2);
+                    if (y2 < size) {
+                        *(u32 *)(pixelBuffer + y1) = *(u32 *)(pixelBuffer + y2);
+                    } else {
+                        *(u32 *)(pixelBuffer + y1) = fillWord;
+                    }
+                    y0++;
                 }
-                else
-                {
-                    *(u32 *)(r2 + r5) = (u32)st4;
-                }
-
-                r3++;
             }
-        }
-
-        break;
-    case 1:
-        r2 += stc - 4;
-        for (i = 0; i < stc; i += 32)
-        {
-            r3 = param2;
-            for (j = 0; j < 8; j++)
-            {
-                r5 = i + (j << 2);
-                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 2);
-
-                if (r1 < stc)
-                {
-                    *(u32 *)(r2 - r5) = *(u32 *)(r2 - r1);
+            break;
+        case 1: //down
+            pixelBuffer += size - 4;
+            for (i = 0; i < size; i += TILE_SIZE_4BPP) {
+                y0 = y;
+                for (j = 0; j < 8; j++) {
+                    y1 = i + (j << 2);
+                    y2 = i + (((width * (y0 & ~7)) | (y0 & 7)) << 2);
+                    if (y2 < size) {
+                        *(u32 *)(pixelBuffer - y1) = *(u32 *)(pixelBuffer - y2);
+                    } else {
+                        *(u32 *)(pixelBuffer - y1) = fillWord;
+                    }
+                    y0++;
                 }
-                else
-                {
-                    *(u32 *)(r2 - r5) = (u32)st4;
-                }
-
-                r3++;
             }
-        }
-
-        break;
-    case 2:
-    case 3:
-        break;
+            break;
+        case 2: //left
+        case 3: //right
+            break;
     }
 }
 

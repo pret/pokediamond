@@ -23,11 +23,11 @@ extern BOOL IsPaletteFadeFinished(void);
 const struct WindowTemplate ov59_021DA04C =
     {
         .bgId = GF_BG_LYR_MAIN_2,
-        .tilemapLeft = 0,
-        .tilemapTop = 0,
+        .left = 0,
+        .top = 0,
         .width = 32,
         .height = 24,
-        .paletteNum = 0x01,
+        .palette = 1,
         .baseTile = 1,
     };
 
