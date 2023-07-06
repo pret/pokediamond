@@ -36,6 +36,12 @@ static void ClearWindowTilemapAndScheduleTransfer_TextMode(Window *window);
 static void ClearWindowTilemapAndCopyToVram_AffineMode(Window *window);
 static void ClearWindowTilemapAndScheduleTransfer_AffineMode(Window *window);
 static void ScrollWindow4bpp(Window *window, u8 direction, u8 y, u8 fillValue);
+static void ScrollWindow8bpp(Window *window, u8 direction, u8 y, u8 fillValue);
+static void BgConfig_HandleScheduledBufferTransfers(BgConfig *bgConfig);
+static void BgConfig_HandleScheduledScrolls(BgConfig *bgConfig);
+static void Bg_SetAffineRotation(Background *bg, enum BgPosAdjustOp op, u16 val);
+static void Bg_SetAffinePos(Background *bg, enum BgPosAdjustOp op, fx32 val);
+static void ApplyFlipFlagsToTile(BgConfig *bgConfig, u8 flags, u8 *tile);
 
 static const u8 sTilemapWidthByBufferSize[] = {
     [GF_BG_SCR_SIZE_128x128]   = 0x10,
@@ -1932,7 +1938,7 @@ static void ScrollWindow4bpp(Window *window, u8 direction, u8 y, u8 fillValue) {
                 }
             }
             break;
-        case 1: //down
+        case 1: // down
             pixelBuffer += size - 4;
             for (i = 0; i < size; i += TILE_SIZE_4BPP) {
                 y0 = y;
@@ -1948,139 +1954,108 @@ static void ScrollWindow4bpp(Window *window, u8 direction, u8 y, u8 fillValue) {
                 }
             }
             break;
-        case 2: //left
-        case 3: //right
+        case 2: // left
+        case 3: // right
             break;
     }
 }
 
-void ScrollWindow8bpp(Window *window, u32 param1, u8 param2, u8 fillValue)
-{
-
-    void *pixelBuffer;
-    int dstOffs, srcOffs, r3;
-    int st4, size;
-    u32 srcWidth;
+static void ScrollWindow8bpp(Window *window, u8 direction, u8 y, u8 fillValue) {
+    u8 *pixelBuffer;
+    int y0, y1, y2;
+    int fillWord, size;
+    u32 width;
     int i, j;
 
-    pixelBuffer = (u8 *)window->pixelBuffer;
-    st4 = (fillValue << 0x18) | (fillValue << 0x10) | (fillValue << 0x8) | fillValue;
-    size = window->height * window->width * 64;
-    srcWidth = window->width;
+    pixelBuffer = window->pixelBuffer;
+    fillWord = (fillValue << 24) | (fillValue << 16) | (fillValue << 8) | (fillValue << 0);
+    size = window->height * window->width * TILE_SIZE_8BPP;
+    width = window->width;
 
-    switch (param1)
-    {
-    case 0:
-        for (i = 0; i < size; i += 64)
-        {
-            r3 = param2;
-            for (j = 0; j < 8; j++)
-            {
-                dstOffs = i + (j << 3);
-                srcOffs = i + (int)(((srcWidth * (r3 & ~7)) | (r3 & 7)) << 3);
-
-                if (srcOffs < size)
-                {
-                    *(u32 *)(pixelBuffer + dstOffs) = *(u32 *)(pixelBuffer + srcOffs);
+    switch (direction) {
+        case 0: // up
+            for (i = 0; i < size; i += TILE_SIZE_8BPP) {
+                y0 = y;
+                for (j = 0; j < 8; j++) {
+                    y1 = i + (j << 3);
+                    y2 = i + (((width * (y0 & ~7)) | (y0 & 7)) << 3);
+                    if (y2 < size) {
+                        *(u32 *)(pixelBuffer + y1) = *(u32 *)(pixelBuffer + y2);
+                    } else {
+                        *(u32 *)(pixelBuffer + y1) = fillWord;
+                    }
+                    y1 += 4;
+                    y2 += 4;
+                    if (y2 < size + 4) {
+                        *(u32 *)(pixelBuffer + y1) = *(u32 *)(pixelBuffer + y2);
+                    } else {
+                        *(u32 *)(pixelBuffer + y1) = fillWord;
+                    }
+                    y0++;
                 }
-                else
-                {
-                    *(u32 *)(pixelBuffer + dstOffs) = (u32)st4;
-                }
-
-                dstOffs += 4;
-                srcOffs += 4;
-                if (srcOffs < size + 4)
-                {
-                    *(u32 *)(pixelBuffer + dstOffs) = *(u32 *)(pixelBuffer + srcOffs);
-                }
-                else
-                {
-                    *(u32 *)(pixelBuffer + dstOffs) = (u32)st4;
-                }
-
-                r3++;
             }
-        }
-
-        break;
-    case 1:
-        pixelBuffer += size - 8;
-        for (i = 0; i < size; i += 64)
-        {
-            r3 = param2;
-            for (j = 0; j < 8; j++)
-            {
-                dstOffs = i + (j << 3);
-                srcOffs = i + (int)(((srcWidth * (r3 & ~7)) | (r3 & 7)) << 3);
-
-                if (srcOffs < size)
-                {
-                    *(u32 *)(pixelBuffer - dstOffs) = *(u32 *)(pixelBuffer - srcOffs);
+            break;
+        case 1: // down
+            pixelBuffer += size - 8;
+            for (i = 0; i < size; i += TILE_SIZE_8BPP) {
+                y0 = y;
+                for (j = 0; j < 8; j++) {
+                    y1 = i + (j << 3);
+                    y2 = i + (((width * (y0 & ~7)) | (y0 & 7)) << 3);
+                    if (y2 < size) {
+                        *(u32 *)(pixelBuffer - y1) = *(u32 *)(pixelBuffer - y2);
+                    } else {
+                        *(u32 *)(pixelBuffer - y1) = fillWord;
+                    }
+                    y1 -= 4;
+                    y2 -= 4;
+                    if (y2 < size - 4) {
+                        *(u32 *)(pixelBuffer - y1) = *(u32 *)(pixelBuffer - y2);
+                    } else {
+                        *(u32 *)(pixelBuffer - y1) = fillWord;
+                    }
+                    y0++;
                 }
-                else
-                {
-                    *(u32 *)(pixelBuffer - dstOffs) = (u32)st4;
-                }
-
-                dstOffs -= 4;
-                srcOffs -= 4;
-                if (srcOffs < size - 4)
-                {
-                    *(u32 *)(pixelBuffer - dstOffs) = *(u32 *)(pixelBuffer - srcOffs);
-                }
-                else
-                {
-                    *(u32 *)(pixelBuffer - dstOffs) = (u32)st4;
-                }
-
-                r3++;
             }
-        }
-
-        break;
-    case 2:
-    case 3:
-        break;
+            break;
+        case 2: // left
+        case 3: // right
+            break;
     }
 }
 
-u8 GetWindowBgId(Window *window)
-{
+u8 GetWindowBgId(Window *window) {
     return window->bgId;
 }
 
-u8 GetWindowWidth(Window *window)
-{
+u8 GetWindowWidth(Window *window) {
     return window->width;
 }
-u8 GetWindowHeight(Window *window)
-{
+
+u8 GetWindowHeight(Window *window) {
     return window->height;
 }
-u8 GetWindowX(Window *window)
-{
+
+u8 GetWindowX(Window *window) {
     return window->tilemapLeft;
 }
-u8 GetWindowY(Window *window)
-{
+
+u8 GetWindowY(Window *window) {
     return window->tilemapTop;
 }
-void MoveWindowX(Window *window, u8 x)
-{
+
+void SetWindowX(Window *window, u8 x) {
     window->tilemapLeft = x;
 }
-void MoveWindowY(Window *window, u8 y)
-{
+
+void SetWindowY(Window *window, u8 y) {
     window->tilemapTop = y;
 }
-void SetWindowPaletteNum(Window *window, u8 paletteNum)
-{
+void SetWindowPaletteNum(Window *window, u8 paletteNum) {
     window->paletteNum = paletteNum;
 }
 
-NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, HeapID heapId, const char *path)
-{
+NNSG2dCharacterData *LoadCharacterDataFromFile(void **char_ret, HeapID heapId, const char *path) {
     void *ptr = AllocAndReadFile(heapId, path);
     *char_ret = ptr;
     NNSG2dCharacterData *st0;
@@ -2089,8 +2064,7 @@ NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, HeapID heapId, 
     return st0;
 }
 
-NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, HeapID heapId, const char *path)
-{
+NNSG2dPaletteData *LoadPaletteDataFromFile(void **pltt_ret, HeapID heapId, const char *path) {
     void *ptr = AllocAndReadFile(heapId, path);
     *pltt_ret = ptr;
     NNSG2dPaletteData *st0;
@@ -2099,341 +2073,221 @@ NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, HeapID heapId, cons
     return st0;
 }
 
-void DoScheduledBgGpuUpdates(BgConfig *bgConfig)
-{
-    ApplyScheduledBgPosUpdate(bgConfig);
-    DoScheduledBgTilemapBufferTransfers(bgConfig);
-
+void DoScheduledBgGpuUpdates(BgConfig *bgConfig) {
+    BgConfig_HandleScheduledScrolls(bgConfig);
+    BgConfig_HandleScheduledBufferTransfers(bgConfig);
     bgConfig->scrollScheduled = 0;
     bgConfig->bufferTransferScheduled = 0;
 }
 
-void DoScheduledBgTilemapBufferTransfers(BgConfig *bgConfig)
-{
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_0)) != 0)
-    {
+static void BgConfig_HandleScheduledBufferTransfers(BgConfig *bgConfig) {
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_0)) {
         LoadBgVramScr(GF_BG_LYR_MAIN_0, bgConfig->bgs[GF_BG_LYR_MAIN_0].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_0].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_0].bufferSize);
     }
-
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_1)) != 0)
-    {
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_1)) {
         LoadBgVramScr(GF_BG_LYR_MAIN_1, bgConfig->bgs[GF_BG_LYR_MAIN_1].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_1].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_1].bufferSize);
     }
-
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_2)) != 0)
-    {
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_2)) {
         LoadBgVramScr(GF_BG_LYR_MAIN_2, bgConfig->bgs[GF_BG_LYR_MAIN_2].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_2].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_2].bufferSize);
     }
-
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_3)) != 0)
-    {
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_3)) {
         LoadBgVramScr(GF_BG_LYR_MAIN_3, bgConfig->bgs[GF_BG_LYR_MAIN_3].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_3].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_3].bufferSize);
     }
-
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_0)) != 0)
-    {
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_0)) {
         LoadBgVramScr(GF_BG_LYR_SUB_0, bgConfig->bgs[GF_BG_LYR_SUB_0].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_0].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_0].bufferSize);
     }
-
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_1)) != 0)
-    {
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_1)) {
         LoadBgVramScr(GF_BG_LYR_SUB_1, bgConfig->bgs[GF_BG_LYR_SUB_1].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_1].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_1].bufferSize);
     }
-
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_2)) != 0)
-    {
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_2)) {
         LoadBgVramScr(GF_BG_LYR_SUB_2, bgConfig->bgs[GF_BG_LYR_SUB_2].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_2].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_2].bufferSize);
     }
-
-    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_3)) != 0)
+    if (bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_3))
     {
         LoadBgVramScr(GF_BG_LYR_SUB_3, bgConfig->bgs[GF_BG_LYR_SUB_3].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_3].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_3].bufferSize);
     }
 }
 
-void ScheduleBgTilemapBufferTransfer(BgConfig *bgConfig, u8 bgId)
-{
+void ScheduleBgTilemapBufferTransfer(BgConfig *bgConfig, u8 bgId) {
     bgConfig->bufferTransferScheduled |= 1 << bgId;
 }
 
-void ApplyScheduledBgPosUpdate(BgConfig *bgConfig)
-{
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_0)) != 0)
-    {
+static void BgConfig_HandleScheduledScrolls(BgConfig *bgConfig) {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_0)) {
         G2_SetBG0Offset(bgConfig->bgs[GF_BG_LYR_MAIN_0].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_0].vOffset);
     }
-
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_1)) != 0)
-    {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_1)) {
         G2_SetBG1Offset(bgConfig->bgs[GF_BG_LYR_MAIN_1].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_1].vOffset);
     }
-
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_2)) != 0)
-    {
-        if (bgConfig->bgs[GF_BG_LYR_MAIN_2].mode == 0)
-        {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_2)) {
+        if (bgConfig->bgs[GF_BG_LYR_MAIN_2].mode == GF_BG_TYPE_TEXT) {
             G2_SetBG2Offset(bgConfig->bgs[GF_BG_LYR_MAIN_2].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_2].vOffset);
-        }
-        else
-        {
-            struct Mtx22 st38;
-            MTX22_2DAffine(
-                &st38, bgConfig->bgs[GF_BG_LYR_MAIN_2].rotation, bgConfig->bgs[GF_BG_LYR_MAIN_2].xScale, bgConfig->bgs[GF_BG_LYR_MAIN_2].yScale, 2);
-            G2_SetBG2Affine(
-                &st38,
-                bgConfig->bgs[GF_BG_LYR_MAIN_2].centerX,
-                bgConfig->bgs[GF_BG_LYR_MAIN_2].centerY,
-                bgConfig->bgs[GF_BG_LYR_MAIN_2].hOffset,
-                bgConfig->bgs[GF_BG_LYR_MAIN_2].vOffset);
+        } else {
+            MtxFx22 mtx;
+            MTX22_2DAffine(&mtx, bgConfig->bgs[GF_BG_LYR_MAIN_2].rotation, bgConfig->bgs[GF_BG_LYR_MAIN_2].xScale, bgConfig->bgs[GF_BG_LYR_MAIN_2].yScale, 2);
+            G2_SetBG2Affine(&mtx, bgConfig->bgs[GF_BG_LYR_MAIN_2].centerX, bgConfig->bgs[GF_BG_LYR_MAIN_2].centerY, bgConfig->bgs[GF_BG_LYR_MAIN_2].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_2].vOffset);
         }
     }
-
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_3)) != 0)
-    {
-        if (bgConfig->bgs[GF_BG_LYR_MAIN_3].mode == 0)
-        {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_3)) {
+        if (bgConfig->bgs[GF_BG_LYR_MAIN_3].mode == GF_BG_TYPE_TEXT) {
             G2_SetBG3Offset(bgConfig->bgs[GF_BG_LYR_MAIN_3].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_3].vOffset);
-        }
-        else
-        {
-            struct Mtx22 st28;
-            MTX22_2DAffine(
-                &st28, bgConfig->bgs[GF_BG_LYR_MAIN_3].rotation, bgConfig->bgs[GF_BG_LYR_MAIN_3].xScale, bgConfig->bgs[GF_BG_LYR_MAIN_3].yScale, 2);
-            G2_SetBG3Affine(
-                &st28,
-                bgConfig->bgs[GF_BG_LYR_MAIN_3].centerX,
-                bgConfig->bgs[GF_BG_LYR_MAIN_3].centerY,
-                bgConfig->bgs[GF_BG_LYR_MAIN_3].hOffset,
-                bgConfig->bgs[GF_BG_LYR_MAIN_3].vOffset);
+        } else {
+            MtxFx22 mtx;
+            MTX22_2DAffine(&mtx, bgConfig->bgs[GF_BG_LYR_MAIN_3].rotation, bgConfig->bgs[GF_BG_LYR_MAIN_3].xScale, bgConfig->bgs[GF_BG_LYR_MAIN_3].yScale, 2);
+            G2_SetBG3Affine(&mtx, bgConfig->bgs[GF_BG_LYR_MAIN_3].centerX, bgConfig->bgs[GF_BG_LYR_MAIN_3].centerY, bgConfig->bgs[GF_BG_LYR_MAIN_3].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_3].vOffset);
         }
     }
-
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_0)) != 0)
-    {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_0)) {
         G2S_SetBG0Offset(bgConfig->bgs[GF_BG_LYR_SUB_0].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_0].vOffset);
     }
-
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_1)) != 0)
-    {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_1)) {
         G2S_SetBG1Offset(bgConfig->bgs[GF_BG_LYR_SUB_1].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_1].vOffset);
     }
-
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_2)) != 0)
-    {
-        if (bgConfig->bgs[GF_BG_LYR_SUB_2].mode == 0)
-        {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_2)) {
+        if (bgConfig->bgs[GF_BG_LYR_SUB_2].mode == GF_BG_TYPE_TEXT) {
             G2S_SetBG2Offset(bgConfig->bgs[GF_BG_LYR_SUB_2].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_2].vOffset);
-        }
-        else
-        {
-            struct Mtx22 st18;
-            MTX22_2DAffine(
-                &st18, bgConfig->bgs[GF_BG_LYR_SUB_2].rotation, bgConfig->bgs[GF_BG_LYR_SUB_2].xScale, bgConfig->bgs[GF_BG_LYR_SUB_2].yScale, 2);
-            G2S_SetBG2Affine(
-                &st18,
-                bgConfig->bgs[GF_BG_LYR_SUB_2].centerX,
-                bgConfig->bgs[GF_BG_LYR_SUB_2].centerY,
-                bgConfig->bgs[GF_BG_LYR_SUB_2].hOffset,
-                bgConfig->bgs[GF_BG_LYR_SUB_2].vOffset);
+        } else {
+            MtxFx22 mtx;
+            MTX22_2DAffine(&mtx, bgConfig->bgs[GF_BG_LYR_SUB_2].rotation, bgConfig->bgs[GF_BG_LYR_SUB_2].xScale, bgConfig->bgs[GF_BG_LYR_SUB_2].yScale, 2);
+            G2S_SetBG2Affine(&mtx, bgConfig->bgs[GF_BG_LYR_SUB_2].centerX, bgConfig->bgs[GF_BG_LYR_SUB_2].centerY, bgConfig->bgs[GF_BG_LYR_SUB_2].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_2].vOffset);
         }
     }
-
-    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_3)) != 0)
-    {
-        if (bgConfig->bgs[GF_BG_LYR_SUB_3].mode == 0)
-        {
+    if (bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_3)) {
+        if (bgConfig->bgs[GF_BG_LYR_SUB_3].mode == GF_BG_TYPE_TEXT) {
             G2S_SetBG3Offset(bgConfig->bgs[GF_BG_LYR_SUB_3].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_3].vOffset);
-        }
-        else
-        {
-            struct Mtx22 st08;
-            MTX22_2DAffine(
-                &st08, bgConfig->bgs[GF_BG_LYR_SUB_3].rotation, bgConfig->bgs[GF_BG_LYR_SUB_3].xScale, bgConfig->bgs[GF_BG_LYR_SUB_3].yScale, 2);
-            G2S_SetBG3Affine(
-                &st08,
-                bgConfig->bgs[GF_BG_LYR_SUB_3].centerX,
-                bgConfig->bgs[GF_BG_LYR_SUB_3].centerY,
-                bgConfig->bgs[GF_BG_LYR_SUB_3].hOffset,
-                bgConfig->bgs[GF_BG_LYR_SUB_3].vOffset);
+        } else {
+            MtxFx22 mtx;
+            MTX22_2DAffine(&mtx, bgConfig->bgs[GF_BG_LYR_SUB_3].rotation, bgConfig->bgs[GF_BG_LYR_SUB_3].xScale, bgConfig->bgs[GF_BG_LYR_SUB_3].yScale, 2);
+            G2S_SetBG3Affine(&mtx, bgConfig->bgs[GF_BG_LYR_SUB_3].centerX, bgConfig->bgs[GF_BG_LYR_SUB_3].centerY, bgConfig->bgs[GF_BG_LYR_SUB_3].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_3].vOffset);
         }
     }
 }
 
-void ScheduleSetBgPosText(
-    BgConfig *bgConfig, u8 bgId, u32 op, fx32 value)
-{
-    Bg_SetPosText(&bgConfig->bgs[bgId], (enum BgPosAdjustOp)op, value);
+void ScheduleSetBgPosText(BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, fx32 value) {
+    Bg_SetPosText(&bgConfig->bgs[bgId], op, value);
     bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-void ScheduleSetBgAffineRotation(
-    BgConfig *bgConfig, u8 bgId, u32 op, u16 value)
-{
+void ScheduleSetBgAffineRotation( BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, u16 value) {
     Bg_SetAffineRotation(&bgConfig->bgs[bgId], op, value);
     bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-void Bg_SetAffineRotation(Background *bg, u32 op, u16 val)
-{
-    switch (op)
-    {
-    case BG_POS_OP_SET_ROT:
-        bg->rotation = val;
-        break;
-    case BG_POS_OP_ADD_ROT:
-        bg->rotation += val;
-        break;
-    case BG_POS_OP_SUB_ROT:
-        bg->rotation -= val;
-        break;
+static void Bg_SetAffineRotation(Background *bg, enum BgPosAdjustOp op, u16 val) {
+    switch (op) {
+        case BG_POS_OP_SET_ROT:
+            bg->rotation = val;
+            break;
+        case BG_POS_OP_ADD_ROT:
+            bg->rotation += val;
+            break;
+        case BG_POS_OP_SUB_ROT:
+            bg->rotation -= val;
+            break;
     }
 }
 
-void ScheduleSetBgAffinePos(
-    BgConfig *bgConfig, u8 bgId, u32 op, fx32 value)
-{
+void ScheduleSetBgAffinePos(BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, fx32 value) {
     Bg_SetAffinePos(&bgConfig->bgs[bgId], op, value);
     bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-void Bg_SetAffinePos(Background *bg, u32 op, fx32 val)
-{
-    switch (op)
-    {
-    case BG_POS_OP_SET_CENTERX:
-        bg->centerX = val;
-        break;
-    case BG_POS_OP_ADD_CENTERX:
-        bg->centerX += val;
-        break;
-    case BG_POS_OP_SUB_CENTERX:
-        bg->centerX -= val;
-        break;
-    case BG_POS_OP_SET_CENTERY:
-        bg->centerY = val;
-        break;
-    case BG_POS_OP_ADD_CENTERY:
-        bg->centerY += val;
-        break;
-    case BG_POS_OP_SUB_CENTERY:
-        bg->centerY -= val;
-        break;
+static void Bg_SetAffinePos(Background *bg, enum BgPosAdjustOp op, fx32 val) {
+    switch (op) {
+        case BG_POS_OP_SET_CENTERX:
+            bg->centerX = val;
+            break;
+        case BG_POS_OP_ADD_CENTERX:
+            bg->centerX += val;
+            break;
+        case BG_POS_OP_SUB_CENTERX:
+            bg->centerX -= val;
+            break;
+        case BG_POS_OP_SET_CENTERY:
+            bg->centerY = val;
+            break;
+        case BG_POS_OP_ADD_CENTERY:
+            bg->centerY += val;
+            break;
+        case BG_POS_OP_SUB_CENTERY:
+            bg->centerY -= val;
+            break;
     }
 }
 
-u32 DoesPixelAtScreenXYMatchPtrVal(
-    BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src)
-{
-    void *bgCharPtr;
+BOOL DoesPixelAtScreenXYMatchPtrVal(BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src) {
+    u8 *bgCharPtr;
     u16 tilemapIdx;
     u8 xPixOffs;
     u8 yPixOffs;
     u8 pixelValue;
     u8 i;
-
-    if (bgConfig->bgs[bgId].tilemapBuffer == NULL)
-    {
-        return 0;
+    if (bgConfig->bgs[bgId].tilemapBuffer == NULL) {
+        return FALSE;
     }
 
-    tilemapIdx = GetTileMapIndexFromCoords((u8) (x >> 3), (u8) (y >> 3), bgConfig->bgs[bgId].size);
+    tilemapIdx = GetTileMapIndexFromCoords(x >> 3, y >> 3, bgConfig->bgs[bgId].size);
     bgCharPtr = BgGetCharPtr(bgId);
-
-    xPixOffs = (u8)(x & 7);
-    yPixOffs = (u8)(y & 7);
-
-    if (bgConfig->bgs[bgId].colorMode == GX_BG_COLORMODE_16)
-    {
+    xPixOffs = x & 7;
+    yPixOffs = y & 7;
+    if (bgConfig->bgs[bgId].colorMode == GX_BG_COLORMODE_16) {
         u16 *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
-        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
+        u8 *tile = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
 
-        bgCharPtr += ((tilemapBuffer[tilemapIdx] & 0x3ff) << 5);
-        for (i = 0; i < 0x20; i++)
-        {
-            ptr[(i << 1)] = (u8)(((u8 *)bgCharPtr)[i] & 0xf);
-            ptr[(i << 1) + 1] = (u8)(((u8 *)bgCharPtr)[i] >> 4);
+        bgCharPtr += (tilemapBuffer[tilemapIdx] & 0x3FF) * TILE_SIZE_4BPP;
+        for (i = 0; i < TILE_SIZE_4BPP; i++) {
+            tile[i * 2] = bgCharPtr[i] & 0xF;
+            tile[i * 2 + 1] = bgCharPtr[i] >> 4;
         }
-
-        ApplyFlipFlagsToTile(bgConfig, (u8)((tilemapBuffer[tilemapIdx] >> 0xa) & 3), ptr);
-
-        pixelValue = ptr[xPixOffs + (yPixOffs << 3)];
-        FreeToHeap(ptr);
-
-        if ((src[0] & (1 << pixelValue)) != 0)
-        {
-            return 1;
+        ApplyFlipFlagsToTile(bgConfig, (tilemapBuffer[tilemapIdx] >> 10) & 3, tile);
+        pixelValue = tile[xPixOffs + yPixOffs * 8];
+        FreeToHeap(tile);
+        if ((src[0] & (1 << pixelValue)) != 0) {
+            return TRUE;
         }
-    }
-    else
-    {
-        if (bgConfig->bgs[bgId].mode != GF_BG_TYPE_AFFINE)
-        {
+    } else {
+        if (bgConfig->bgs[bgId].mode != GF_BG_TYPE_AFFINE) {
             u16 *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
-            u8 *ptr = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
+            u8 *tile = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
 
-            memcpy(ptr, bgCharPtr + ((tilemapBuffer[tilemapIdx] & 0x3ff) << 6), 0x40);
-
-            ApplyFlipFlagsToTile(bgConfig, (u8)((tilemapBuffer[tilemapIdx] >> 0xa) & 3), ptr);
-
-            pixelValue = ptr[xPixOffs + (yPixOffs << 3)];
-            FreeToHeap(ptr);
+            memcpy(tile, bgCharPtr + (tilemapBuffer[tilemapIdx] & 0x3FF) * TILE_SIZE_8BPP, TILE_SIZE_8BPP);
+            ApplyFlipFlagsToTile(bgConfig, (tilemapBuffer[tilemapIdx] >> 10) & 3, tile);
+            pixelValue = tile[xPixOffs + yPixOffs * 8];
+            FreeToHeap(tile);
+        } else {
+            pixelValue = bgCharPtr[((u8 *)bgConfig->bgs[bgId].tilemapBuffer)[tilemapIdx] * TILE_SIZE_8BPP + xPixOffs + yPixOffs * 8];
         }
-        else
-        {
-            pixelValue = ((u8 *)bgCharPtr)[(((u8 *)bgConfig->bgs[bgId].tilemapBuffer)[tilemapIdx] << 6) + xPixOffs + (yPixOffs << 3)];
-        }
-
         // BUG: Infinite loop
-        while (TRUE)
-        {
-            if (src[0] == 0xffff)
-            {
+        while (TRUE) {
+            if (src[0] == 0xFFFF) {
                 break;
             }
-            if (pixelValue == (u8)(src[0]))
-            {
-                return 1;
+            if (pixelValue == (u8)(src[0])) {
+                return TRUE;
             }
         }
     }
-    return 0;
+    return FALSE;
 }
 
-void ApplyFlipFlagsToTile(BgConfig *bgConfig, u8 flag, u8 *src)
-{
+static void ApplyFlipFlagsToTile(BgConfig *bgConfig, u8 flags, u8 *tile) {
     u8 i, j;
-    if (flag != 0)
-    {
-        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
-
-        if ((flag & 1) != 0)
-        {
-            for (i = 0; i < 8; i++)
-            {
-                for (j = 0; j < 8; j++)
-                {
-                    ptr[i * 8 + j] = src[i * 8 + (7 - j)];
+    if (flags != 0) {
+        u8 *buffer = AllocFromHeapAtEnd(bgConfig->heapId, 0x40);
+        if ((flags & 1) != 0) { // hflip
+            for (i = 0; i < 8; i++) {
+                for (j = 0; j < 8; j++) {
+                    buffer[i * 8 + j] = tile[i * 8 + (7 - j)];
                 }
             }
-
-            memcpy(src, ptr, 0x40);
+            memcpy(tile, buffer, 0x40);
         }
-
-        if ((flag & 2) != 0)
-        {
-            for (i = 0; i < 8; i++)
-            {
-                u8 *r3 = &ptr[i * 8];
-                u8 *r2 = &src[(7 - i) * 8];
-                for (u32 j = 8; j > 0; j--)
-                {
-                    *r3++ = *r2++;
-                }
+        if ((flags & 2) != 0) { // vflip
+            for (i = 0; i < 8; i++) {
+                memcpy(&buffer[i * 8], &tile[(7 - i) * 8], 8);
             }
-
-            memcpy(src, ptr, 0x40);
+            memcpy(tile, buffer, 0x40);
         }
-
-        FreeToHeap(ptr);
+        FreeToHeap(buffer);
     }
 }

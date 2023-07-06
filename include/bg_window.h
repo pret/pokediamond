@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_UNK_02016B94_H
-#define POKEDIAMOND_UNK_02016B94_H
+#ifndef POKEDIAMOND_BG_WINDOW_H
+#define POKEDIAMOND_BG_WINDOW_H
 
 #include "NNS_g2d.h"
 #include "global.h"
@@ -10,8 +10,7 @@
 #include "heap.h"
 #include "math_util.h"
 
-typedef struct BgTemplate
-{
+typedef struct BgTemplate {
     u32 x;
     u32 y;
     u32 bufferSize;
@@ -61,8 +60,7 @@ typedef struct Bitmap {
     u16 height;
 } Bitmap;
 
-typedef struct WindowTemplate
-{
+typedef struct WindowTemplate {
     u8 bgId;
     u8 left;
     u8 top;
@@ -72,8 +70,7 @@ typedef struct WindowTemplate
     u16 baseTile;
 } WindowTemplate;
 
-typedef struct Window
-{
+typedef struct Window {
     BgConfig *bgConfig;
     u8 bgId;
     u8 tilemapLeft;
@@ -91,14 +88,12 @@ enum GFScreen {
     SCREEN_SUB  = 1,
 };
 
-enum GFBppMode
-{
+enum GFBppMode {
     GF_BG_CLR_4BPP = 0,
     GF_BG_CLR_8BPP,
 };
 
-enum GFBgLayer
-{
+enum GFBgLayer {
     GF_BG_LYR_MAIN_0 = 0,
     GF_BG_LYR_MAIN_1,
     GF_BG_LYR_MAIN_2,
@@ -168,8 +163,7 @@ enum GFBgCntSet {
     GF_BG_CNT_SET_CHAR_BASE,
 };
 
-enum GFBgScreenSize
-{
+enum GFBgScreenSize {
     GF_BG_SCR_SIZE_128x128 = 0,
     GF_BG_SCR_SIZE_256x256,
     GF_BG_SCR_SIZE_256x512,
@@ -178,8 +172,7 @@ enum GFBgScreenSize
     GF_BG_SCR_SIZE_1024x1024
 };
 
-enum BgPosAdjustOp
-{
+enum BgPosAdjustOp {
     // Text layers
     BG_POS_OP_SET_X = 0,
     BG_POS_OP_ADD_X,
@@ -272,27 +265,21 @@ void BlitBitmapRect(Window *window, void *src, u16 srcX, u16 srcY, u16 srcWidth,
 void FillWindowPixelRect(Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height);
 void CopyGlyphToWindow(Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHeight, u16 destX, u16 destY, u16 table);
 void ScrollWindow(Window *window, u8 direction, u8 y, u8 fillValue);
-void ScrollWindow8bpp(Window *window, u32 param1, u8 param2, u8 fillValue);
 u8 GetWindowBgId(Window *window);
 u8 GetWindowWidth(Window *window);
 u8 GetWindowHeight(Window *window);
 u8 GetWindowX(Window *window);
 u8 GetWindowY(Window *window);
-void MoveWindowX(Window *window, u8 x);
-void MoveWindowY(Window *window, u8 y);
+void SetWindowX(Window *window, u8 x);
+void SetWindowY(Window *window, u8 y);
 void SetWindowPaletteNum(Window *window, u8 paletteNum);
-NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, HeapID heapId, const char *path);
-NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, HeapID heapId, const char *path);
+NNSG2dCharacterData *LoadCharacterDataFromFile(void **char_ret, HeapID heapId, const char *path);
+NNSG2dPaletteData *LoadPaletteDataFromFile(void **pltt_ret, HeapID heapId, const char *path);
 void DoScheduledBgGpuUpdates(BgConfig *bgConfig);
-void DoScheduledBgTilemapBufferTransfers(BgConfig *bgConfig);
 void ScheduleBgTilemapBufferTransfer(BgConfig *bgConfig, u8 bgId);
-void ApplyScheduledBgPosUpdate(BgConfig *bgConfig);
-void ScheduleSetBgPosText(BgConfig *bgConfig, u8 bgId, u32 op, fx32 value);
-void ScheduleSetBgAffineRotation(BgConfig *bgConfig, u8 bgId, u32 op, u16 value);
-void Bg_SetAffineRotation(Background *bg, u32 op, u16 val);
-void ScheduleSetBgAffinePos(BgConfig *bgConfig, u8 bgId, u32 op, fx32 value);
-void Bg_SetAffinePos(Background *bg, u32 op, fx32 val);
-u32 DoesPixelAtScreenXYMatchPtrVal(BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src);
-void ApplyFlipFlagsToTile(BgConfig *bgConfig, u8 flag, u8 *src);
+void ScheduleSetBgPosText(BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, fx32 value);
+void ScheduleSetBgAffineRotation(BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, u16 value);
+void ScheduleSetBgAffinePos(BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, fx32 value);
+BOOL DoesPixelAtScreenXYMatchPtrVal(BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src);
 
-#endif // POKEDIAMOND_UNK_02016B94_H
+#endif // POKEDIAMOND_BG_WINDOW_H

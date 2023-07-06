@@ -1109,8 +1109,8 @@
 .extern GetWindowHeight
 .extern GetWindowX
 .extern GetWindowY
-.extern MoveWindowX
-.extern MoveWindowY
+.extern SetWindowX
+.extern SetWindowY
 .extern SetWindowPaletteNum
 .extern LoadCharacterDataFromFile
 .extern LoadPaletteDataFromFile
