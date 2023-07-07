@@ -9,7 +9,7 @@ static BrightnessData sSubScreenBrightnessData;
 void DoBrightnessTransitionStep(BrightnessData *brightness) {
     BOOL transitionFinished = FALSE;
 
-    if (brightness->targetBrightness != brightness->currentBrightness + brightness->transitionDirection * brightness->stepSizeInteger && brightness->currentBrightness != brightness->targetBrightness) {
+    if ((brightness->targetBrightness != brightness->currentBrightness + brightness->transitionDirection * brightness->stepSizeInteger) && brightness->currentBrightness != brightness->targetBrightness) {
         brightness->currentBrightness += brightness->transitionDirection * brightness->stepSizeInteger;
         brightness->fractionalCount += brightness->stepSizeFractional;
 
@@ -86,7 +86,7 @@ void SetBlendBrightness(fx32 brightness, GXBlendPlaneMask surfaceMask, u32 scree
     InitScreenBrightnessData(screenMask);
 }
 
-void InitAllScreenBrightnessData(void) {
+void ScreenBrightnessData_InitAll(void) {
     MI_CpuFill8(&sMainScreenBrightnessData, 0, sizeof(BrightnessData));
     MI_CpuFill8(&sSubScreenBrightnessData, 0, sizeof(BrightnessData));
 

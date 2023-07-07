@@ -522,7 +522,7 @@
 .extern sub_0200A06C
 .extern StartBrightnessTransition
 .extern SetBlendBrightness
-.extern InitAllScreenBrightnessData
+.extern ScreenBrightnessData_InitAll
 .extern DoAllScreenBrightnessTransitionStep
 .extern IsBrightnessTransitionActive
 .extern ReadMsgData_NewNarc_ExistingString
