@@ -2344,33 +2344,33 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             break;
 
         case 50: //flash
-            StartBrightnessTransition(1, 16, 0, 11, 1); //main screen
-            StartBrightnessTransition(1, 16, 0, 13, 2); //sub screen (should be a mask enum)
+            StartBrightnessTransition(1, 16, 0, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG1 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_MAIN); //main screen
+            StartBrightnessTransition(1, 16, 0, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG2 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_SUB); //sub screen
             data->controllerCounter = 51;
             break;
 
         case 51: //unflash
-            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            if (IsBrightnessTransitionActive(SCREEN_MASK_MAIN) != TRUE || IsBrightnessTransitionActive(SCREEN_MASK_SUB) != TRUE)
             {
                 break;
             }
-            StartBrightnessTransition(1, 0, 16, 11, 1); //main screen
-            StartBrightnessTransition(1, 0, 16, 13, 2); //sub screen
+            StartBrightnessTransition(1, 0, 16, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG1 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_MAIN); //main screen
+            StartBrightnessTransition(1, 0, 16, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG2 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_SUB); //sub screen
             data->controllerCounter = 52;
             break;
 
         case 52: //flash
-            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            if (IsBrightnessTransitionActive(SCREEN_MASK_MAIN) != TRUE || IsBrightnessTransitionActive(SCREEN_MASK_SUB) != TRUE)
             {
                 break;
             }
-            StartBrightnessTransition(4, 16, 0, 11, 1); //main screen
-            StartBrightnessTransition(4, 16, 0, 13, 2); //sub screen
+            StartBrightnessTransition(4, 16, 0, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG1 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_MAIN); //main screen
+            StartBrightnessTransition(4, 16, 0, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG2 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_SUB); //sub screen
             data->controllerCounter = 53;
             break;
 
         case 53: //wait for transition
-            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            if (IsBrightnessTransitionActive(SCREEN_MASK_MAIN) != TRUE || IsBrightnessTransitionActive(SCREEN_MASK_SUB) != TRUE)
             {
                 break;
             }
@@ -2384,14 +2384,14 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             ov59_MunchlaxJumpAnimation(data, &data->spriteDataIndex2);
             data->scrnDataIndexSub = 0;
             ov59_LoadSubScrnData(data);
-            StartBrightnessTransition(16, 0, 16, 11, 1); //main screen
-            StartBrightnessTransition(16, 0, 16, 13, 2); //sub screen
+            StartBrightnessTransition(16, 0, 16, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG1 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_MAIN); //main screen
+            StartBrightnessTransition(16, 0, 16, (GXBlendPlaneMask)(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG2 | GX_WND_PLANEMASK_BG3), SCREEN_MASK_SUB); //sub screen
             data->controllerCounter = 55;
             break;
 
         case 55: //movement and wait for transition
             ov59_MunchlaxJumpAnimation(data, &data->spriteDataIndex2);
-            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            if (IsBrightnessTransitionActive(SCREEN_MASK_MAIN) != TRUE || IsBrightnessTransitionActive(SCREEN_MASK_SUB) != TRUE)
             {
                 break;
             }
