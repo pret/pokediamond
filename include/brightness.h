@@ -1,38 +1,35 @@
-#ifndef POKEDIAMOND_UNK_0200A104_H
-#define POKEDIAMOND_UNK_0200A104_H
+#ifndef POKEDIAMOND_BRIGHTNESS_H
+#define POKEDIAMOND_BRIGHTNESS_H
 
 #include "global.h"
+#include "GX_g2.h"
 #include "nitro/FX_types.h"
 
-struct BrightnessData
-{
-    fx32 surfaceMask;
-    u32 screenMask;
-    u16 step_count;
-    s16 target_brightness;
-    u32 unk0c;
-    s8 transition_direction;
-    s16 brightness_diff;
-    s16 step_size_integer;
-    u16 step_size_fractional;
-    u16 fractional_count;
-    fx16 current_brightness;
-    BOOL transitionActive;
-};
+#define SCREEN_MASK_MAIN 1
+#define SCREEN_MASK_SUB  2
 
-void DoBrightnessTransitionStep(struct BrightnessData *brightness);
-void InitBrightnessTransition(struct BrightnessData *brightnessData,
-    u16 step_count,
-    s16 target_brightness,
-    s16 start_brightness,
-    fx32 surfaceMask,
-    u32 screenMask);
-void StartBrightnessTransition(
-    u16 step_count, s16 target_brightness, s16 start_brightness, fx32 surfaceMask, u32 screenMask);
-void SetBlendBrightness(fx32 brightness, fx32 surfaceMask, u32 screenMask);
-void InitAllScreenBrightnessData(void);
+typedef struct BrightnessData {
+    GXBlendPlaneMask surfaceMask;
+    u32 screenMask;
+    u16 stepCount;
+    s16 targetBrightness;
+    u32 unk0c;
+    s8 transitionDirection;
+    s16 brightnessDiff;
+    s16 stepSizeInteger;
+    u16 stepSizeFractional;
+    u16 fractionalCount;
+    fx16 currentBrightness;
+    BOOL transitionActive;
+} BrightnessData;
+
+void DoBrightnessTransitionStep(BrightnessData *brightness);
+void InitBrightnessTransition(BrightnessData *brightnessData, u16 stepCount, s16 targetBrightness, s16 startBrightness, GXBlendPlaneMask surfaceMask, u32 screenMask);
+void StartBrightnessTransition(u16 stepCount, s16 targetBrightness, s16 startBrightness, GXBlendPlaneMask surfaceMask, u32 screenMask);
+void SetBlendBrightness(fx32 brightness, GXBlendPlaneMask surfaceMask, u32 screenMask);
+void ScreenBrightnessData_InitAll(void);
 void InitScreenBrightnessData(u32 screenMask);
 void DoAllScreenBrightnessTransitionStep(void);
 BOOL IsBrightnessTransitionActive(u32 screenMask);
 
-#endif // POKEDIAMOND_UNK_0200A104_H
+#endif // POKEDIAMOND_BRIGHTNESS_H

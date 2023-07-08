@@ -97,7 +97,7 @@ void NitroMain(void)
     gSystem.unk6C = 1;
     gSystem.unk30 = 0;
     InitializeMainRNG();
-    InitAllScreenBrightnessData();
+    ScreenBrightnessData_InitAll();
     PlayTimerInit();
     UNK_02016FA4 = 0;
     for (;;)

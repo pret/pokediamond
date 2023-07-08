@@ -4,8 +4,7 @@
 #include "fx.h"
 #include "registers.h"
 
-typedef enum GXBlendPlaneMask
-{
+typedef enum GXBlendPlaneMask {
     GX_BLEND_PLANEMASK_NONE = 0x0000,
     GX_BLEND_PLANEMASK_BG0 = 0x0001,
     GX_BLEND_PLANEMASK_BG1 = 0x0002,
@@ -138,6 +137,14 @@ static inline void G2_SetBlendAlpha(GXBlendPlaneMask plane1, GXBlendPlaneMask pl
 static inline void G2S_SetBlendAlpha(GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 ev1, fx32 ev2)
 {
     G2x_SetBlendAlpha_((u32 *)&reg_G2S_DB_BLEND, plane1, plane2, ev1, ev2);
+}
+
+static inline void G2_SetBlendBrightness(fx32 plane, fx32 brightness) { //plane should be GXBlendPlaneMask but it doesn't match
+    G2x_SetBlendBrightness_(&reg_G2_BLDCNT, plane, brightness);
+}
+
+static inline void G2S_SetBlendBrightness(fx32 plane, fx32 brightness) { //plane should be GXBlendPlaneMask but it doesn't match
+    G2x_SetBlendBrightness_(&reg_G2S_DB_BLDCNT, plane, brightness);
 }
 
 //The g2 and g2_oam headers contain a lot of inline functions and enums that may want to be ported over at some point

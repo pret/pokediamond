@@ -565,7 +565,7 @@ _021D8D0C: .word 0x0000209F
 ov63_021D8D10: ; 0x021D8D10
 	push {r4, lr}
 	add r4, r0, #0
-	bl InitAllScreenBrightnessData
+	bl ScreenBrightnessData_InitAll
 	ldr r1, _021D8D90 ; =0x00007FFF
 	mov r0, #0
 	bl sub_0200E3A0
