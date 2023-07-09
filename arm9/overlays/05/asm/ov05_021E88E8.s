@@ -5286,7 +5286,7 @@ ov05_021EB414: ; 0x021EB414
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -6990,7 +6990,7 @@ _021EC1E8:
 	sub r0, #8
 	ldr r1, [r4, r1]
 	add r0, r4, r0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	cmp r6, #1
 	beq _021EC214
 _021EC212:

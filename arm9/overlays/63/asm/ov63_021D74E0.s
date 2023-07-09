@@ -965,7 +965,7 @@ _021D7C52:
 	add r0, #0xd0
 	str r1, [r0]
 	add r0, r4, #0
-	bl Camera_Alloc
+	bl Camera_New
 	add r1, r5, #0
 	add r1, #0xa0
 	str r0, [r1]
@@ -981,7 +981,7 @@ _021D7C52:
 	add r0, r5, #0
 	add r0, #0xbc
 	lsl r2, r2, #4
-	bl Camera_InitWithPosAndTarget
+	bl Camera_Init_FromTargetAndPos
 	add r2, r5, #0
 	add r2, #0xa0
 	mov r1, #0x19
@@ -997,7 +997,7 @@ _021D7C52:
 	add r0, r5, #0
 	add r0, #0xa0
 	ldr r0, [r0]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	mov r3, #0x42
 	lsl r3, r3, #2
 	add r2, r3, #2
@@ -1838,7 +1838,7 @@ ov63_021D8360: ; 0x021D8360
 	ldr r0, [r0]
 	add r4, r1, #0
 	add r6, r2, #0
-	bl Camera_Free
+	bl Camera_Delete
 	add r0, r5, #4
 	bl ov63_021D7970
 	add r0, r4, #0

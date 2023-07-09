@@ -996,7 +996,7 @@ ov69_0222DDFC: ; 0x0222DDFC
 	sub sp, #0x18
 	add r4, r0, #0
 	mov r0, #0x3f
-	bl Camera_Alloc
+	bl Camera_New
 	ldr r2, _0222DE80 ; =0x00001B1C
 	ldr r3, _0222DE84 ; =0x00000FA4
 	str r0, [r4, r2]
@@ -1029,7 +1029,7 @@ ov69_0222DDFC: ; 0x0222DDFC
 	add r0, r4, r0
 	lsl r1, r1, #0xc
 	add r2, r4, r2
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -1042,7 +1042,7 @@ ov69_0222DDFC: ; 0x0222DDFC
 	bl Camera_SetLookAtCamUp
 	ldr r0, _0222DE80 ; =0x00001B1C
 	ldr r0, [r4, r0]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	ldr r2, _0222DE80 ; =0x00001B1C
 	mov r0, #1
 	mov r1, #0x7d
@@ -1064,7 +1064,7 @@ ov69_0222DE88: ; 0x0222DE88
 	bx r3
 	.align 2, 0
 _0222DE90: .word 0x00001B1C
-_0222DE94: .word Camera_Free
+_0222DE94: .word Camera_Delete
 
 	thumb_func_start ov69_0222DE98
 ov69_0222DE98: ; 0x0222DE98

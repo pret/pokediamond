@@ -5406,7 +5406,7 @@ ov65_021D9F8C: ; 0x021D9F8C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl Camera_Free
+	bl Camera_Delete
 	ldr r0, [r4, #4]
 	bl sub_020072E8
 	pop {r4, pc}
@@ -5432,7 +5432,7 @@ ov65_021D9FA0: ; 0x021D9FA0
 	strh r0, [r1, #4]
 	strh r0, [r1, #6]
 	add r0, r2, #0
-	bl Camera_Alloc
+	bl Camera_New
 	str r0, [r4]
 	mov r1, #1
 	str r1, [sp]
@@ -5442,7 +5442,7 @@ ov65_021D9FA0: ; 0x021D9FA0
 	add r0, sp, #0x10
 	lsl r1, r1, #0x10
 	add r2, sp, #8
-	bl Camera_InitWithPosAndAngle
+	bl Camera_Init_FromPosDistanceAndAngle
 	mov r1, #0x19
 	ldr r2, [r4]
 	mov r0, #0
@@ -5451,7 +5451,7 @@ ov65_021D9FA0: ; 0x021D9FA0
 	ldr r0, [r4]
 	bl Camera_ClearFixedTarget
 	ldr r0, [r4]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	add sp, #0x1c
 	pop {r4, r5, pc}
 	.align 2, 0

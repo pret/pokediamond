@@ -274,7 +274,7 @@ sub_02046224: ; 0x02046224
 	strh r1, [r0, #0x4]
 	ldr r1, [r4, #0x20]
 	add r0, sp, #0x0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #0x3
 	ldr r1, _02046290 ; =0x0061C000
 	ldr r2, [r4, #0x20]

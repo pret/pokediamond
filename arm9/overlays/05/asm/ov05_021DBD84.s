@@ -19,7 +19,7 @@ ov05_021DBD84: ; 0x021DBD84
 	bl GF_AssertFail
 _021DBD9E:
 	mov r0, #4
-	bl Camera_Alloc
+	bl Camera_New
 	str r0, [r5, #0x20]
 	ldrb r0, [r4, #0xc]
 	add r2, r4, #4
@@ -31,9 +31,9 @@ _021DBD9E:
 	ldrh r3, [r4, #0xe]
 	ldr r1, [r4]
 	add r0, r7, #0
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	ldr r0, [r5, #0x20]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	ldr r0, [r4, #0x10]
 	ldr r1, [r4, #0x14]
 	ldr r2, [r5, #0x20]
@@ -46,7 +46,7 @@ _021DBD9E:
 	mov r0, #7
 	mov r2, #2
 	mov r3, #4
-	bl Camera_AllocHistory
+	bl Camera_History_New
 _021DBDE2:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -57,11 +57,11 @@ _021DBDE8: .word ov05_021F6608
 ov05_021DBDEC: ; 0x021DBDEC
 	push {r4, lr}
 	add r4, r0, #0
-	bl Camera_UnsetWorkPtr
+	bl Camera_UnsetStaticPtr
 	ldr r0, [r4, #0x20]
-	bl Camera_FreeHistory
+	bl Camera_History_Delete
 	ldr r0, [r4, #0x20]
-	bl Camera_Free
+	bl Camera_Delete
 	pop {r4, pc}
 	.balign 4, 0
 

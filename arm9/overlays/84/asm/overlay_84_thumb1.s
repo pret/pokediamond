@@ -792,7 +792,7 @@ ov84_021D7B54: ; 0x021D7B54
 	sub sp, #0x18
 	add r4, r0, #0
 	mov r0, #0x4b
-	bl Camera_Alloc
+	bl Camera_New
 	str r0, [r4, #0x20]
 	mov r0, #0
 	str r0, [r4, #0x24]
@@ -813,7 +813,7 @@ ov84_021D7B54: ; 0x021D7B54
 	add r0, #0x24
 	lsl r1, r1, #0xe
 	add r2, #0x30
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -824,7 +824,7 @@ ov84_021D7B54: ; 0x021D7B54
 	add r0, sp, #0xc
 	bl Camera_SetLookAtCamUp
 	ldr r0, [r4, #0x20]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	mov r1, #0xfa
 	ldr r2, [r4, #0x20]
 	mov r0, #0
@@ -842,7 +842,7 @@ ov84_021D7BBC: ; 0x021D7BBC
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021D7BC4: .word Camera_Free
+_021D7BC4: .word Camera_Delete
 	thumb_func_end ov84_021D7BBC
 
 	thumb_func_start ov84_021D7BC8

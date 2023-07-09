@@ -33,7 +33,7 @@ ov78_021D74E0: ; 0x021D74E0
 	add r0, #0x9d
 	strb r1, [r0]
 	mov r0, #0x48
-	bl Camera_Alloc
+	bl Camera_New
 	str r0, [r4]
 	bl ov78_021D7708
 	add r0, r4, #0
@@ -50,9 +50,9 @@ ov78_021D74E0: ; 0x021D74E0
 	str r1, [sp, #8]
 	ldr r1, _021D75C8 ; =0x0029AEC1
 	ldr r3, _021D75CC ; =0x000005C1
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	ldr r0, [r4]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	mov r4, #0
 	mov r7, #2
 	mov r6, #4
@@ -254,7 +254,7 @@ _021D76C8:
 	ldr r0, [r6, #0x5c]
 	bl FreeToHeap
 	ldr r0, [r6]
-	bl Camera_Free
+	bl Camera_Delete
 	ldr r0, [sp]
 	bl OverlayManager_FreeData
 	bl sub_0201B398
