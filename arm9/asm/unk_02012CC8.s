@@ -145,7 +145,7 @@ _02012D14:
 	cmp r0, #0x1
 	bne _02012DA8
 	ldr r0, [sp, #0x2c]
-	bl Camera_Alloc
+	bl Camera_New
 	str r0, [r4, #0x20]
 	mov r3, #0x0
 	str r3, [r4, #0x24]
@@ -160,13 +160,13 @@ _02012D14:
 	str r0, [sp, #0x4]
 	ldrh r2, [r4, #0x30]
 	ldr r0, _02012DDC ; =UNK_020ED4F0
-	bl Camera_InitWithPosAndTarget
+	bl Camera_Init_FromTargetAndPos
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r0, #0xdb
 	strb r1, [r0, #0x0]
 	ldr r0, [r4, #0x20]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 _02012DA8:
 	mov r0, #0x6
 	str r0, [sp, #0x0]
@@ -291,7 +291,7 @@ _02012E94:
 	ldr r0, [r5, #0x20]
 	cmp r0, #0x0
 	beq _02012E9E
-	bl Camera_Free
+	bl Camera_Delete
 _02012E9E:
 	add r0, r5, #0x0
 	bl FreeToHeap
@@ -949,7 +949,7 @@ sub_02013300: ; 0x02013300
 	ldrb r0, [r0, #0x0]
 	bl Camera_ApplyPerspectiveType
 	ldr r0, [r4, #0x20]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	bl Camera_PushLookAtToNNSGlb
 _0201331C:
 	bl NNS_G3dGlbFlushP
@@ -959,7 +959,7 @@ _0201331C:
 	ldr r0, [r4, #0x20]
 	cmp r0, #0x0
 	beq _02013332
-	bl Camera_UnsetWorkPtr
+	bl Camera_UnsetStaticPtr
 _02013332:
 	bl NNS_G3dGlbFlushP
 	pop {r4, pc}

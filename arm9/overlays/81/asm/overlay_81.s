@@ -1906,7 +1906,7 @@ ov81_02238C60: ; 0x02238C60
 	ldr r1, [r2]
 	bx r3
 	nop
-_02238C6C: .word Camera_SetAngle
+_02238C6C: .word Camera_SetAnglePos
 	thumb_func_end ov81_02238C60
 
 	thumb_func_start ov81_02238C70
@@ -1917,7 +1917,7 @@ ov81_02238C70: ; 0x02238C70
 	ldr r1, [r2]
 	bx r3
 	nop
-_02238C7C: .word Camera_AdjustAngle
+_02238C7C: .word Camera_AdjustAngleTarget
 	thumb_func_end ov81_02238C70
 
 	thumb_func_start ov81_02238C80
@@ -1951,7 +1951,7 @@ ov81_02238CA0: ; 0x02238CA0
 	add r4, r1, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl Camera_Alloc
+	bl Camera_New
 	str r0, [r5]
 	str r4, [r5, #4]
 	str r6, [r5, #8]
@@ -1971,7 +1971,7 @@ ov81_02238CA0: ; 0x02238CA0
 	add r0, r5, #4
 	lsl r1, r1, #0xe
 	add r2, #0x10
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -1982,7 +1982,7 @@ ov81_02238CA0: ; 0x02238CA0
 	add r0, sp, #0xc
 	bl Camera_SetLookAtCamUp
 	ldr r0, [r5]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	mov r1, #0xfa
 	ldr r2, [r5]
 	mov r0, #0
@@ -2000,7 +2000,7 @@ ov81_02238D0C: ; 0x02238D0C
 	ldr r0, [r0]
 	bx r3
 	nop
-_02238D14: .word Camera_Free
+_02238D14: .word Camera_Delete
 	thumb_func_end ov81_02238D0C
 
 	thumb_func_start ov81_02238D18

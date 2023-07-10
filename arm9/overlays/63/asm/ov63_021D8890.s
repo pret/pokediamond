@@ -1631,9 +1631,9 @@ ov63_021D95A8: ; 0x021D95A8
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _021D95F6
-	bl Camera_UnsetWorkPtr
+	bl Camera_UnsetStaticPtr
 	ldr r0, [r5, #0x78]
-	bl Camera_Free
+	bl Camera_Delete
 	mov r4, #0
 	mov r6, #0x58
 _021D95D0:
@@ -2016,7 +2016,7 @@ _021D98BC:
 	ldr r0, [sp, #0xc]
 	bl NARC_Delete
 	mov r0, #0x4c
-	bl Camera_Alloc
+	bl Camera_New
 	add r3, sp, #0x20
 	ldr r4, _021D9968 ; =ov63_021DBAE4
 	str r0, [r5, #0x44]
@@ -2034,7 +2034,7 @@ _021D98BC:
 	str r0, [sp, #8]
 	add r0, r2, #0
 	ldr r2, _021D9974 ; =ov63_021DBB80
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	ldr r0, _021D9978 ; =0x00000981
 	ldr r1, [r5, #0x44]
 	bl Camera_SetPerspectiveAngle
@@ -2049,7 +2049,7 @@ _021D98BC:
 	add r0, r2, #0
 	bl Camera_OffsetLookAtPosAndTarget
 	ldr r0, [r5, #0x44]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	mov r0, #1
 	strb r0, [r5, #4]
 	add sp, #0x2c
@@ -2814,7 +2814,7 @@ _021D9F70:
 	str r0, [sp, #8]
 	add r0, r2, #0
 	ldr r2, _021DA08C ; =ov63_021DBB80
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	ldr r5, _021DA090 ; =ov63_021DBB20
 	add r3, sp, #0x2c
 	ldmia r5!, {r0, r1}
@@ -2837,7 +2837,7 @@ _021D9F70:
 	strh r3, [r1, #4]
 	strh r2, [r1, #6]
 	ldr r1, [r4, #0x44]
-	bl Camera_AdjustAngle
+	bl Camera_AdjustAngleTarget
 	add sp, #0x50
 	pop {r4, r5, r6, pc}
 _021D9FE2:
@@ -2870,7 +2870,7 @@ _021D9FE2:
 	str r0, [sp, #8]
 	add r0, r2, #0
 	ldr r2, _021DA08C ; =ov63_021DBB80
-	bl Camera_InitWithTargetAndAngle
+	bl Camera_Init_FromTargetDistanceAndAngle
 	ldr r0, _021DA07C ; =0x000005C1
 	ldr r1, [r4, #0x44]
 	bl Camera_SetPerspectiveAngle

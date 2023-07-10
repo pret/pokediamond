@@ -1220,7 +1220,7 @@ ov06_02239F80: ; 0x02239F80
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	.ifdef DIAMOND
 	mov r0, #2
 	mov r1, #0x7d
@@ -1304,7 +1304,7 @@ ov06_0223A020: ; 0x0223A020
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #0x16
 	mov r1, #0x7d
 	ldr r2, [r5, #0x20]
@@ -1379,7 +1379,7 @@ ov06_0223A0D4: ; 0x0223A0D4
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #0xb
 	ldr r1, _0223A184 ; =0x005C8000
 	ldr r2, [r5, #0x20]
@@ -1837,7 +1837,7 @@ ov06_0223A428: ; 0x0223A428
 	add r4, r0, #0
 	bl memset
 	add r0, r5, #0
-	bl Camera_Alloc
+	bl Camera_New
 	str r0, [r4]
 	mov r0, #5
 	str r0, [r4, #0x40]
@@ -1849,7 +1849,7 @@ ov06_0223A44C: ; 0x0223A44C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl Camera_Free
+	bl Camera_Delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -1889,7 +1889,7 @@ ov06_0223A460: ; 0x0223A460
 	add r0, r6, #0
 	bl Camera_SetFixedTarget
 	ldr r0, [r5]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	ldr r0, [sp, #0x2c]
 	mov r1, #0
 	str r0, [r5, #4]
@@ -2011,7 +2011,7 @@ _0223A598:
 	pop {r3, r4, r5, pc}
 _0223A5A0:
 	ldr r0, [r4, #4]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	ldr r0, [r4, #0x40]
 	add r0, r0, #1
 	str r0, [r4, #0x40]
@@ -8786,7 +8786,7 @@ ov06_0223D918: ; 0x0223D918
 	add r0, r4, #0
 	bl ov06_0223D978
 	mov r0, #0xb
-	bl Camera_Alloc
+	bl Camera_New
 	add r1, r4, #0
 	add r1, #0x90
 	str r0, [r1]
@@ -8798,7 +8798,7 @@ ov06_0223D918: ; 0x0223D918
 	add r0, r4, #0
 	add r0, #0x90
 	ldr r0, [r0]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	ldr r0, _0223D974 ; =0x0000023D
 	mov r1, #0
 	strb r1, [r4, r0]
@@ -10851,9 +10851,9 @@ _0223EA74:
 	add r0, r5, #0
 	add r0, #0x90
 	ldr r0, [r0]
-	bl Camera_Free
+	bl Camera_Delete
 	ldr r0, [r4, #0x20]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	add r0, r5, #0
 	bl ov06_0223EBD4
 	add r1, r5, #0

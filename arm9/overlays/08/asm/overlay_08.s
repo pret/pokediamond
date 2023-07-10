@@ -8312,7 +8312,7 @@ _02215BFA:
 	bl Camera_GetAngle
 	add r0, sp, #8
 	add r1, r4, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -12154,7 +12154,7 @@ ov08_02217904: ; 0x02217904
 	bl sub_0201343C
 	add r1, r0, #0
 	add r0, sp, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #1
 	add sp, #8
 	pop {r3, pc}
@@ -12182,7 +12182,7 @@ ov08_02217928: ; 0x02217928
 	bl sub_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -12214,7 +12214,7 @@ ov08_02217964: ; 0x02217964
 	bl sub_0201343C
 	add r1, r0, #0
 	add r0, sp, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #1
 	add sp, #0x18
 	pop {r4, pc}
@@ -12242,7 +12242,7 @@ ov08_022179A0: ; 0x022179A0
 	bl sub_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -12284,12 +12284,12 @@ ov08_022179DC: ; 0x022179DC
 	bne _02217A2A
 	add r0, sp, #8
 	add r1, r5, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	b _02217A32
 _02217A2A:
 	add r0, sp, #0
 	add r1, r5, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 _02217A32:
 	mov r0, #1
 	add sp, #0x10
@@ -12320,7 +12320,7 @@ ov08_02217A3C: ; 0x02217A3C
 	bl sub_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -12350,7 +12350,7 @@ ov08_02217A78: ; 0x02217A78
 	bl sub_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl Camera_SetAngle
+	bl Camera_SetAnglePos
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}

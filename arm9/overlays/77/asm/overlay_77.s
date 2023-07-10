@@ -88,7 +88,7 @@ _021D7540:
 	ldr r1, _021D75F8 ; =0x0000C070
 	str r0, [r5, r1]
 	ldr r0, [r5]
-	bl Camera_Alloc
+	bl Camera_New
 	ldr r1, _021D75FC ; =0x0000C2CC
 	str r0, [r5, r1]
 	mov r0, #0
@@ -817,7 +817,7 @@ ov77_021D7BAC: ; 0x021D7BAC
 	bl GX_EngineBToggleLayers
 	ldr r0, _021D7C14 ; =0x0000C2CC
 	ldr r0, [r4, r0]
-	bl Camera_Free
+	bl Camera_Delete
 	ldr r0, _021D7C18 ; =0x0000C070
 	ldr r0, [r4, r0]
 	bl MessageFormat_Delete
@@ -2490,7 +2490,7 @@ ov77_021D8970: ; 0x021D8970
 	ldr r2, _021D89EC ; =0x000005C1
 	str r0, [sp, #4]
 	add r0, r7, #0
-	bl Camera_InitWithPosAndTarget
+	bl Camera_Init_FromTargetAndPos
 	ldr r2, _021D89E8 ; =0x0000C2CC
 	mov r1, #0x19
 	ldr r2, [r4, r2]
@@ -2503,7 +2503,7 @@ ov77_021D8970: ; 0x021D8970
 	bl Camera_ApplyPerspectiveType
 	ldr r0, _021D89E8 ; =0x0000C2CC
 	ldr r0, [r4, r0]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	ldr r0, _021D89F0 ; =0x0000C2F4
 	ldrh r1, [r4, r0]
 	cmp r1, #0

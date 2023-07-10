@@ -213,7 +213,7 @@ sub_0207F068: ; 0x0207F068
 	mov r0, #0xad
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl Camera_Free
+	bl Camera_Delete
 	mov r0, #0x2d
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
@@ -247,7 +247,7 @@ sub_0207F098: ; 0x0207F098
 	strh r0, [r1, #0x4]
 	strh r0, [r1, #0x6]
 	mov r0, #0x13
-	bl Camera_Alloc
+	bl Camera_New
 	mov r1, #0xad
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -259,7 +259,7 @@ sub_0207F098: ; 0x0207F098
 	ldr r3, _0207F104 ; =0x000005C1
 	add r0, sp, #0x10
 	add r2, sp, #0x8
-	bl Camera_InitWithPosAndAngle
+	bl Camera_Init_FromPosDistanceAndAngle
 	mov r2, #0xad
 	lsl r2, r2, #0x2
 	mov r1, #0x19
@@ -274,7 +274,7 @@ sub_0207F098: ; 0x0207F098
 	mov r0, #0xad
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	add sp, #0x1c
 	pop {r3-r4, pc}
 	nop

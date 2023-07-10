@@ -1501,7 +1501,7 @@ ov68_021D80A8: ; 0x021D80A8
 	ldr r0, [r0]
 	bx r3
 	.align 2, 0
-_021D80B0: .word Camera_Free
+_021D80B0: .word Camera_Delete
 	thumb_func_end ov68_021D80A8
 
 	thumb_func_start ov68_021D80B4
@@ -1522,7 +1522,7 @@ ov68_021D80B4: ; 0x021D80B4
 	strh r0, [r1, #4]
 	strh r0, [r1, #6]
 	mov r0, #0x24
-	bl Camera_Alloc
+	bl Camera_New
 	add r1, r4, #0
 	add r1, #0xd0
 	str r0, [r1]
@@ -1536,7 +1536,7 @@ ov68_021D80B4: ; 0x021D80B4
 	add r0, sp, #0x10
 	lsl r1, r1, #0x10
 	add r2, sp, #8
-	bl Camera_InitWithPosAndAngle
+	bl Camera_Init_FromPosDistanceAndAngle
 	add r2, r4, #0
 	add r2, #0xd0
 	mov r1, #0x19
@@ -1550,7 +1550,7 @@ ov68_021D80B4: ; 0x021D80B4
 	bl Camera_ClearFixedTarget
 	add r4, #0xd0
 	ldr r0, [r4]
-	bl Camera_SetWorkPtr
+	bl Camera_SetStaticPtr
 	add sp, #0x1c
 	pop {r3, r4, pc}
 	.align 2, 0

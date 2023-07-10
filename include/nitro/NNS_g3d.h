@@ -65,8 +65,7 @@ NNSG3dGlb;
 
 extern NNSG3dGlb NNS_G3dGlb;
 
-static inline void NNS_G3dGlbLookAt(const VecFx32 * camPos, const VecFx32 * camUp, const VecFx32 * camTarget)
-{
+static inline void NNS_G3dGlbLookAt(const VecFx32 *camPos, const VecFx32 *camUp, const VecFx32 *camTarget) {
     NNS_G3dGlb.camPos = *camPos;
     NNS_G3dGlb.camUp = *camUp;
     NNS_G3dGlb.camTarget = *camTarget;
@@ -74,14 +73,12 @@ static inline void NNS_G3dGlbLookAt(const VecFx32 * camPos, const VecFx32 * camU
     NNS_G3dGlb.flag &= ~(NNS_G3D_GLB_FLAG_INVCAMERA_UPTODATE | NNS_G3D_GLB_FLAG_INVBASECAMERA_UPTODATE | NNS_G3D_GLB_FLAG_INVCAMERAPROJ_UPTODATE | NNS_G3D_GLB_FLAG_BASECAMERA_UPTODATE);
 }
 
-static inline void NNS_G3dGlbPerspective(fx32 fovySin, fx32 fovyCos, fx32 aspect, fx32 n, fx32 f)
-{
+static inline void NNS_G3dGlbPerspective(fx32 fovySin, fx32 fovyCos, fx32 aspect, fx32 n, fx32 f) {
     MTX_Perspective(fovySin, fovyCos, aspect, n, f, &NNS_G3dGlb.projMtx);
     NNS_G3dGlb.flag &= ~(NNS_G3D_GLB_FLAG_INVPROJ_UPTODATE | NNS_G3D_GLB_FLAG_INVCAMERAPROJ_UPTODATE);
 }
 
-static inline void NNS_G3dGlbOrtho(fx32 t, fx32 b, fx32 l, fx32 r, fx32 n, fx32 f)
-{
+static inline void NNS_G3dGlbOrtho(fx32 t, fx32 b, fx32 l, fx32 r, fx32 n, fx32 f) {
     MTX_Ortho(t, b, l, r, n, f, &NNS_G3dGlb.projMtx);
     NNS_G3dGlb.flag &= ~(NNS_G3D_GLB_FLAG_INVPROJ_UPTODATE | NNS_G3D_GLB_FLAG_INVCAMERAPROJ_UPTODATE);
 }
