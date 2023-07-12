@@ -6,8 +6,8 @@
 	thumb_func_start ov05_021EC458
 ov05_021EC458: ; 0x021EC458
 	push {r3, lr}
-	bl Save_DayCare_GetMonX
-	bl DayCareMon_GetBoxMon
+	bl Save_Daycare_GetMonX
+	bl DaycareMon_GetBoxMon
 	pop {r3, pc}
 
 	thumb_func_start ov05_021EC464
@@ -20,8 +20,8 @@ ov05_021EC464: ; 0x021EC464
 _021EC46E:
 	add r0, r6, #0
 	add r1, r5, #0
-	bl Save_DayCare_GetMonX
-	bl DayCareMon_GetBoxMon
+	bl Save_Daycare_GetMonX
+	bl DaycareMon_GetBoxMon
 	add r1, r7, #0
 	mov r2, #0
 	bl GetBoxMonData
@@ -52,8 +52,8 @@ ov05_021EC49C: ; 0x021EC49C
 _021EC4AA:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl Save_DayCare_GetMonX
-	bl DayCareMon_GetBoxMon
+	bl Save_Daycare_GetMonX
+	bl DaycareMon_GetBoxMon
 	add r1, r6, #0
 	add r2, r7, #0
 	bl GetBoxMonData
@@ -95,10 +95,10 @@ ov05_021EC4F0: ; 0x021EC4F0
 	bl GetPartyMonByIndex
 	add r4, r0, #0
 	add r0, r5, #0
-	bl DayCareMon_GetExtras
+	bl DaycareMon_GetExtras
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	str r0, [sp, #4]
 	add r0, r7, #0
 	bl Save_PlayerData_GetProfileAddr
@@ -113,7 +113,7 @@ ov05_021EC4F0: ; 0x021EC4F0
 	cmp r0, #0
 	beq _021EC544
 	ldr r0, [sp, #8]
-	bl DayCareMail_GetCapsule
+	bl DayCareMail_GetMailPtr
 	add r2, r0, #0
 	add r0, r4, #0
 	mov r1, #0xa9
@@ -124,7 +124,7 @@ _021EC544:
 	bl CopyBoxPokemonToBoxPokemon
 	add r0, r5, #0
 	mov r1, #0
-	bl DayCareMon_SetSteps
+	bl DaycareMon_SetSteps
 	ldr r1, [sp]
 	add r0, r6, #0
 	bl RemoveMonFromParty
@@ -157,7 +157,7 @@ ov05_021EC57C: ; 0x021EC57C
 	bl ov05_021EC49C
 	add r1, r0, #0
 	add r0, r4, #0
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
@@ -171,17 +171,17 @@ ov05_021EC5B0: ; 0x021EC5B0
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
 	mov r1, #0
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #1
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	add r4, r0, #0
 	add r0, r5, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	add r6, r0, #0
 	add r0, r4, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	add r7, r0, #0
 	add r0, r6, #0
 	mov r1, #5
@@ -197,9 +197,9 @@ ov05_021EC5B0: ; 0x021EC5B0
 	beq _021EC600
 	add r0, r5, #0
 	add r1, r4, #0
-	bl DayCareMon_Copy
+	bl DaycareMon_Copy
 	add r0, r4, #0
-	bl DayCareMon_Init
+	bl DaycareMon_Init
 _021EC600:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -267,10 +267,10 @@ ov05_021EC668: ; 0x021EC668
 	bl AllocMonZeroed
 	add r4, r0, #0
 	add r0, r6, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	add r5, r0, #0
 	add r0, r6, #0
-	bl DayCareMon_GetExtras
+	bl DaycareMon_GetExtras
 	str r0, [sp, #4]
 	add r0, r7, #0
 	mov r1, #0
@@ -297,7 +297,7 @@ ov05_021EC668: ; 0x021EC668
 	bl GetMonData
 	str r0, [sp, #8]
 	add r0, r6, #0
-	bl DayCareMon_GetSteps
+	bl DaycareMon_GetSteps
 	ldr r1, [sp, #8]
 	add r2, sp, #8
 	add r0, r1, r0
@@ -313,7 +313,7 @@ _021EC6E0:
 	cmp r0, #0
 	beq _021EC6FA
 	ldr r0, [sp, #4]
-	bl DayCareMail_GetCapsule
+	bl DayCareMail_GetMailPtr
 	add r2, r0, #0
 	add r0, r4, #0
 	mov r1, #0xa9
@@ -326,7 +326,7 @@ _021EC6FA:
 	bl ZeroBoxMonData
 	add r0, r6, #0
 	mov r1, #0
-	bl DayCareMon_SetSteps
+	bl DaycareMon_SetSteps
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r7, #0
@@ -341,7 +341,7 @@ ov05_021EC71C: ; 0x021EC71C
 	add r4, r1, #0
 	add r0, r6, #0
 	add r1, r3, #0
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -389,13 +389,13 @@ ov05_021EC744: ; 0x021EC744
 ov05_021EC78C: ; 0x021EC78C
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	add r6, r0, #0
 	bl CalcBoxMonLevel
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	add r0, r5, #0
-	bl DayCareMon_GetSteps
+	bl DaycareMon_GetSteps
 	add r1, r0, #0
 	add r0, r6, #0
 	bl ov05_021EC744
@@ -408,10 +408,10 @@ ov05_021EC78C: ; 0x021EC78C
 ov05_021EC7B4: ; 0x021EC7B4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	add r4, r0, #0
 	add r0, r5, #0
-	bl DayCareMon_GetSteps
+	bl DaycareMon_GetSteps
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov05_021EC744
@@ -426,7 +426,7 @@ ov05_021EC7D4: ; 0x021EC7D4
 	sub sp, #8
 	add r4, r0, #0
 	add r5, r1, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	add r6, r0, #0
 	add r0, r4, #0
 	bl ov05_021EC78C
@@ -455,7 +455,7 @@ ov05_021EC810: ; 0x021EC810
 	sub sp, #8
 	add r4, r0, #0
 	add r5, r1, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	add r6, r0, #0
 	add r0, r4, #0
 	bl ov05_021EC78C
@@ -486,7 +486,7 @@ ov05_021EC810: ; 0x021EC810
 ov05_021EC854: ; 0x021EC854
 	push {r4, lr}
 	add r4, r2, #0
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	add r1, r4, #0
 	bl ov05_021EC810
 	pop {r4, pc}
@@ -495,9 +495,9 @@ ov05_021EC854: ; 0x021EC854
 ov05_021EC864: ; 0x021EC864
 	push {r3, r4, r5, lr}
 	add r5, r2, #0
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	add r4, r0, #0
-	bl DayCareMon_GetBoxMon
+	bl DaycareMon_GetBoxMon
 	mov r1, #5
 	mov r2, #0
 	bl GetBoxMonData
@@ -620,7 +620,7 @@ ov05_021EC944: ; 0x021EC944
 	bl MTRandom
 	add r1, r0, #0
 	ldr r0, [sp]
-	bl Save_DayCare_SetEggPID
+	bl Save_Daycare_SetEggPID
 	pop {r3, r4, r5, r6, r7, pc}
 _021EC960:
 	ldr r0, [sp]
@@ -647,7 +647,7 @@ _021EC98A:
 _021EC990:
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl Save_DayCare_SetEggPID
+	bl Save_Daycare_SetEggPID
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 
@@ -1152,10 +1152,10 @@ ov05_021ECD64: ; 0x021ECD64
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #0
-	bl Save_DayCare_SetEggPID
+	bl Save_Daycare_SetEggPID
 	add r0, r4, #0
 	mov r1, #0
-	bl Save_DayCare_SetEggCycleCounter
+	bl Save_Daycare_SetEggCycleCounter
 	pop {r4, pc}
 
 	thumb_func_start ov05_021ECD78
@@ -1313,7 +1313,7 @@ _021ECE8C:
 	cmp r4, #0x1d
 	bne _021ECEBC
 	ldr r0, [sp]
-	bl Save_DayCare_GetEggPID
+	bl Save_Daycare_GetEggPID
 	mov r1, #2
 	lsl r1, r1, #0xe
 	tst r0, r1
@@ -1327,7 +1327,7 @@ _021ECEBC:
 	cmp r4, r0
 	bne _021ECED6
 	ldr r0, [sp]
-	bl Save_DayCare_GetEggPID
+	bl Save_Daycare_GetEggPID
 	mov r1, #2
 	lsl r1, r1, #0xe
 	tst r0, r1
@@ -1479,8 +1479,8 @@ _021ECFEE:
 	.balign 4, 0
 _021ED008: .word 0x000001EE
 
-	thumb_func_start ov05_DayCare_CreateEgg
-ov05_DayCare_CreateEgg: ; 0x021ED00C
+	thumb_func_start ov05_Daycare_CreateEgg
+ov05_Daycare_CreateEgg: ; 0x021ED00C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x18
 	str r1, [sp, #0x10]
@@ -1493,10 +1493,10 @@ ov05_DayCare_CreateEgg: ; 0x021ED00C
 	add r1, sp, #0x14
 	strb r0, [r1]
 	add r0, r5, #0
-	bl Save_DayCare_GetEggPID
+	bl Save_Daycare_GetEggPID
 	add r4, r0, #0
 	add r0, r5, #0
-	bl Save_DayCare_MasudaCheck
+	bl Save_Daycare_MasudaCheck
 	cmp r0, #0
 	beq _021ED05E
 	add r0, r6, #0
@@ -1566,8 +1566,8 @@ _021ED05E:
 	.balign 4, 0
 _021ED0C8: .word 0x000001EE
 
-	thumb_func_start ov05_DayCare_GiveEggToPlayer
-ov05_DayCare_GiveEggToPlayer: ; 0x021ED0CC
+	thumb_func_start ov05_Daycare_GiveEggToPlayer
+ov05_Daycare_GiveEggToPlayer: ; 0x021ED0CC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0
@@ -1600,7 +1600,7 @@ ov05_DayCare_GiveEggToPlayer: ; 0x021ED0CC
 	add r0, r4, #0
 	add r1, r6, #0
 	add r2, r5, #0
-	bl ov05_DayCare_CreateEgg
+	bl ov05_Daycare_CreateEgg
 	add r0, r4, #0
 	add r1, r5, #0
 	bl ov05_021EC9D4
@@ -1936,9 +1936,9 @@ _021ED38E:
 	beq _021ED3AC
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	mov r1, #1
-	bl DayCareMon_AddSteps
+	bl DaycareMon_AddSteps
 	add r6, r6, #1
 _021ED3AC:
 	add r4, r4, #1
@@ -1946,15 +1946,15 @@ _021ED3AC:
 	cmp r4, #2
 	blo _021ED38E
 	ldr r0, [sp]
-	bl Save_DayCare_GetEggPID
+	bl Save_Daycare_GetEggPID
 	cmp r0, #0
 	bne _021ED3F8
 	cmp r6, #2
 	bne _021ED3F8
 	ldr r0, [sp]
 	mov r1, #1
-	bl Save_DayCare_GetMonX
-	bl DayCareMon_GetSteps
+	bl Save_Daycare_GetMonX
+	bl DaycareMon_GetSteps
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	cmp r0, #0xff
@@ -1974,11 +1974,11 @@ _021ED3AC:
 	bl ov05_021EC944
 _021ED3F8:
 	ldr r0, [sp]
-	bl Save_DayCare_GetEggCycleCounter
+	bl Save_Daycare_GetEggCycleCounter
 	add r4, r0, #0
 	ldr r0, [sp]
 	add r1, r4, #1
-	bl Save_DayCare_SetEggCycleCounter
+	bl Save_Daycare_SetEggCycleCounter
 	ldr r0, [sp, #4]
 	bl ov05_021ED334
 	add r1, r4, #1
@@ -1986,7 +1986,7 @@ _021ED3F8:
 	bne _021ED490
 	ldr r0, [sp]
 	mov r1, #0
-	bl Save_DayCare_SetEggCycleCounter
+	bl Save_Daycare_SetEggCycleCounter
 	add r0, r7, #0
 	bl ov05_021ED190
 	add r6, r0, #0
@@ -2133,7 +2133,7 @@ ov05_021ED52C: ; 0x021ED52C
 	add r7, r2, #0
 	add r1, r6, #0
 	str r3, [sp, #8]
-	bl Save_DayCare_GetMonX
+	bl Save_Daycare_GetMonX
 	str r0, [sp, #0xc]
 	add r0, r5, #0
 	add r1, r6, #0
@@ -2144,7 +2144,7 @@ ov05_021ED52C: ; 0x021ED52C
 	add r2, r5, #0
 	bl BufferBoxMonNickname
 	ldr r0, [sp, #0xc]
-	bl DayCareMon_GetSteps
+	bl DaycareMon_GetSteps
 	add r1, r0, #0
 	add r0, r5, #0
 	bl ov05_021EC744
@@ -2216,7 +2216,7 @@ ov05_021ED5C4: ; 0x021ED5C4
 ov05_021ED5EC: ; 0x021ED5EC
 	push {r4, lr}
 	add r4, r0, #0
-	bl Save_DayCare_GetEggPID
+	bl Save_Daycare_GetEggPID
 	cmp r0, #0
 	beq _021ED5FC
 	mov r0, #1
