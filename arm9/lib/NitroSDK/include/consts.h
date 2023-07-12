@@ -48,8 +48,8 @@
 
 #define OSi_TCM_REGION_BASE_MASK   0xfffff000
 
-#define OS_IE_V_BLANK              (1UL << 0)
-#define OS_IE_H_BLANK              (1UL << 1)
+#define OS_IE_VBLANK               (1UL << 0)
+#define OS_IE_HBLANK               (1UL << 1)
 
 #define HW_CPU_CLOCK_ARM9          67027964
 

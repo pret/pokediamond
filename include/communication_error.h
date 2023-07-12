@@ -3,6 +3,6 @@
 
 #include "heap.h"
 
-void ShowCommunicationError(HeapID heapId, u32 error, u32 error_code);
+void ShowCommunicationError(HeapID heapId, u32 error, u32 errorCode);
 
 #endif

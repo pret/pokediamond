@@ -42,7 +42,7 @@ static const struct BgTemplate sSaveDataReadErrorBgTemplate = {
     .bgExtPltt = GX_BG_EXTPLTT_01,
     .priority = 1,
     .areaOver = GX_BG_AREAOVER_XLU,
-    .unk17 = 0,
+    .dummy = 0,
     .mosaic = FALSE,
 };
 
@@ -118,7 +118,7 @@ void ShowSaveDataReadError(HeapID heapId)
     while (TRUE)
     {
         HandleDSLidAction();
-        OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+        OS_WaitIrq(TRUE, OS_IE_VBLANK);
     }
 }
 
@@ -181,6 +181,6 @@ void ShowGBACartRemovedError(HeapID heapId)
     while (TRUE)
     {
         HandleDSLidAction();
-        OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+        OS_WaitIrq(TRUE, OS_IE_VBLANK);
     }
 }

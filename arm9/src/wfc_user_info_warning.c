@@ -47,7 +47,7 @@ static const struct BgTemplate sWFCWarningMsgBgTemplate = {
     .bgExtPltt = GX_BG_EXTPLTT_01,
     .priority = 1,
     .areaOver = GX_BG_AREAOVER_XLU,
-    .unk17 = 0,
+    .dummy = 0,
     .mosaic = FALSE,
 };
 
@@ -131,7 +131,7 @@ void ShowWFCUserInfoWarning(HeapID heapId, u32 a1)
             break;
         }
 
-        OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+        OS_WaitIrq(TRUE, OS_IE_VBLANK);
     }
 
     RemoveWindow(&window);

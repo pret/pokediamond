@@ -42,7 +42,7 @@ static const struct BgTemplate sSaveDataWriteErrorBgTemplate = {
     .bgExtPltt = GX_BG_EXTPLTT_01,
     .priority = 1,
     .areaOver = GX_BG_AREAOVER_XLU,
-    .unk17 = 0,
+    .dummy = 0,
     .mosaic = FALSE,
 };
 
@@ -126,6 +126,6 @@ void ShowSaveDataWriteError(HeapID heapId, u32 err_no)
     while (TRUE)
     {
         HandleDSLidAction();
-        OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+        OS_WaitIrq(TRUE, OS_IE_VBLANK);
     }
 }

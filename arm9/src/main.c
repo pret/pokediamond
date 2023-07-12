@@ -176,7 +176,7 @@ void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *te
 void sub_02000E9C(void)
 {
     sub_0202FB80();
-    OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+    OS_WaitIrq(TRUE, OS_IE_VBLANK);
     gSystem.unk2C++;
     gSystem.unk30 = 0;
     if (gSystem.vBlankIntr != NULL)

@@ -11,7 +11,7 @@ typedef enum {
     GX_LAYER_TOGGLE_ON,
 } GXLayerToggle;
 
-struct GraphicsBanks
+typedef struct GraphicsBanks
 {
     s32 bg;
     s32 bgextpltt;
@@ -23,7 +23,7 @@ struct GraphicsBanks
     s32 subobjextpltt;
     s32 tex;
     s32 texpltt;
-};
+} GraphicsBanks;
 
 typedef struct GraphicsModes {
     GXDispMode dispMode;
