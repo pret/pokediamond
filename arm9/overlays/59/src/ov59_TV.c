@@ -53,7 +53,7 @@ const struct BgTemplate ov59_021DA080 =
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
         .areaOver = GX_BG_AREAOVER_XLU,
-        .unk17 = 0,
+        .dummy = 0,
         .mosaic = FALSE
     };
 
@@ -71,7 +71,7 @@ const struct BgTemplate ov59_021DA09C =
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
         .areaOver = GX_BG_AREAOVER_XLU,
-        .unk17 = 0,
+        .dummy = 0,
         .mosaic = FALSE
     };
 
@@ -89,7 +89,7 @@ const struct BgTemplate ov59_021DA064 =
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
         .areaOver = GX_BG_AREAOVER_XLU,
-        .unk17 = 0,
+        .dummy = 0,
         .mosaic = FALSE
     };
 
@@ -107,7 +107,7 @@ const struct BgTemplate ov59_021DA0B8 =
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
         .areaOver = GX_BG_AREAOVER_XLU,
-        .unk17 = 0,
+        .dummy = 0,
         .mosaic = FALSE
     };
 

@@ -91,14 +91,14 @@ void Main_ToggleHBlankInterrupt(BOOL enableFlag)
     if (!enableFlag)
     {
         (void)OS_GetIrqMask();
-        OS_DisableIrqMask(OS_IE_H_BLANK);
+        OS_DisableIrqMask(OS_IE_HBLANK);
         GX_HBlankIntr(FALSE);
     }
     else
     {
         (void)OS_GetIrqMask();
-        OS_SetIrqFunction(OS_IE_H_BLANK, Main_CallHBlankCallback);
-        OS_EnableIrqMask(OS_IE_H_BLANK);
+        OS_SetIrqFunction(OS_IE_HBLANK, Main_CallHBlankCallback);
+        OS_EnableIrqMask(OS_IE_HBLANK);
         GX_HBlankIntr(TRUE);
     }
     (void)OS_EnableIrq();

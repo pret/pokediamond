@@ -42,11 +42,11 @@ static const struct BgTemplate sCommunicationErrorBgTemplate = {
     .bgExtPltt = GX_BG_EXTPLTT_01,
     .priority = 1,
     .areaOver = GX_BG_AREAOVER_XLU,
-    .unk17 = 0,
+    .dummy = 0,
     .mosaic = FALSE,
 };
 
-static const struct GraphicsBanks sCommunicationErrorGraphicsBanks = {
+static const GraphicsBanks sCommunicationErrorGraphicsBanks = {
     .bg = GX_VRAM_BG_256_AB,
     .bgextpltt = GX_VRAM_BGEXTPLTT_NONE,
     .subbg = GX_VRAM_SUB_BG_NONE,
@@ -61,43 +61,40 @@ static const struct GraphicsBanks sCommunicationErrorGraphicsBanks = {
 
 static void VBlankIntr(void);
 
-static void VBlankIntr(void)
-{
-    DTCM.intr_check |= OS_IE_V_BLANK;
+static void VBlankIntr(void) {
+    OS_SetIrqCheckFlag(OS_IE_VBLANK);
     MI_WaitDma(GX_DEFAULT_DMAID);
 }
 
-void ShowCommunicationError(HeapID heapId, u32 error, u32 error_code)
-{
-    struct Window window;
+void ShowCommunicationError(HeapID heapId, u32 error, u32 errorCode) {
+    Window window;
     
-    u32 error_message_no;
-    switch (error)
-    {
+    u32 msgNo;
+    switch (error) {
         default:
         case 0:
-            error_message_no = narc_0200_00001; //A communication error has occurred. If you were in the Union Room...
+            msgNo = narc_0200_00001; //A communication error has occurred. If you were in the Union Room...
             break;
         case 1:
-            error_message_no = narc_0200_00002; //An error occurred while attempting to communicate. ({STRVAR_1 54, 0}) Please turn off the power...
+            msgNo = narc_0200_00002; //An error occurred while attempting to communicate. ({STRVAR_1 54, 0}) Please turn off the power...
             break;
         case 2:
-            error_message_no = narc_0200_00003; //A communication error has occurred. You will be returned to the title screen...
+            msgNo = narc_0200_00003; //A communication error has occurred. You will be returned to the title screen...
             break;
         case 3:
-            error_message_no = narc_0200_00004; //The GTS is extremely busy now. Please wait a while and try again.
+            msgNo = narc_0200_00004; //The GTS is extremely busy now. Please wait a while and try again.
             break;
         case 4:
-            error_message_no = narc_0200_00005; //An error occurred while attempting\nto communicate.\nPlease turn off the power...
+            msgNo = narc_0200_00005; //An error occurred while attempting\nto communicate.\nPlease turn off the power...
             break;
     }
 
     sub_0200E3A0(PM_LCD_TOP, 0);
     sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
-    OS_DisableIrqMask(OS_IE_V_BLANK);
-    OS_SetIrqFunction(OS_IE_V_BLANK, VBlankIntr);
-    OS_EnableIrqMask(OS_IE_V_BLANK);
+    OS_DisableIrqMask(OS_IE_VBLANK);
+    OS_SetIrqFunction(OS_IE_VBLANK, VBlankIntr);
+    OS_EnableIrqMask(OS_IE_VBLANK);
 
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
@@ -118,34 +115,31 @@ void ShowCommunicationError(HeapID heapId, u32 error, u32 error_code)
     GXS_SetVisibleWnd(0);
     GX_SetBanks(&sCommunicationErrorGraphicsBanks);
 
-    struct BgConfig* bg_config = BgConfig_Alloc(heapId);
-
+    BgConfig* bgConfig = BgConfig_Alloc(heapId);
     SetBothScreensModesAndDisable(&sCommunicationErrorGraphicsModes);
-
-    InitBgFromTemplate(bg_config, 0, &sCommunicationErrorBgTemplate, GX_BGMODE_0);
-    BgClearTilemapBufferAndCommit(bg_config, GF_BG_LYR_MAIN_0);
-    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
+    InitBgFromTemplate(bgConfig, 0, &sCommunicationErrorBgTemplate, GX_BGMODE_0);
+    BgClearTilemapBufferAndCommit(bgConfig, GF_BG_LYR_MAIN_0);
+    LoadUserFrameGfx1(bgConfig, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heapId);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
-    struct MsgData* error_message_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, heapId);
-    struct String* error_message_str = String_New(384, heapId);
-    struct String* tmp_str = String_New(384, heapId);
+    MsgData* errorMessageData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, heapId);
+    String* errorMessageStr = String_New(384, heapId);
+    String* tmpStr = String_New(384, heapId);
     ResetAllTextPrinters();
     MessageFormat* messageFormat = MessageFormat_New(heapId);
 
-    AddWindow(bg_config, &window, &sCommunicationErrorWindowTemplate);
+    AddWindow(bgConfig, &window, &sCommunicationErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
     DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
-    BufferIntegerAsString(messageFormat, 0, (s32)error_code, 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
-    ReadMsgDataIntoString(error_message_data, error_message_no, tmp_str);
-    StringExpandPlaceholders(messageFormat, error_message_str, tmp_str);
-
-    AddTextPrinterParameterized(&window, 0, error_message_str, 0, 0, 0, NULL);
-    String_Delete(error_message_str);
+    BufferIntegerAsString(messageFormat, 0, errorCode, 5, PRINTING_MODE_LEADING_ZEROS, TRUE);
+    ReadMsgDataIntoString(errorMessageData, msgNo, tmpStr);
+    StringExpandPlaceholders(messageFormat, errorMessageStr, tmpStr);
+    AddTextPrinterParameterized(&window, 0, errorMessageStr, 0, 0, 0, NULL);
+    String_Delete(errorMessageStr);
     // BUG: tmp_str is never destroyed.
 
     GX_BothDispOn();
@@ -154,7 +148,7 @@ void ShowCommunicationError(HeapID heapId, u32 error, u32 error_code)
     SetBlendBrightness(0, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BD | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG0), SCREEN_MASK_MAIN | SCREEN_MASK_SUB);
 
     RemoveWindow(&window);
-    DestroyMsgData(error_message_data);
+    DestroyMsgData(errorMessageData);
     MessageFormat_Delete(messageFormat);
-    FreeToHeap(bg_config);
+    FreeToHeap(bgConfig);
 }

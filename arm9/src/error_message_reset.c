@@ -70,7 +70,7 @@ extern void SetMasterBrightnessNeutral(u32 screen);
 
 void VBlankHandler()
 {
-    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
+    OS_SetIrqCheckFlag(OS_IE_VBLANK);
     MI_WaitDma(GX_DEFAULT_DMAID);
 }
 
@@ -90,9 +90,9 @@ void PrintErrorMessageAndReset()
         sub_0200E3A0(PM_LCD_TOP, 0);
         sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
-        OS_DisableIrqMask(OS_IE_V_BLANK);
-        OS_SetIrqFunction(OS_IE_V_BLANK, &VBlankHandler);
-        OS_EnableIrqMask(OS_IE_V_BLANK);
+        OS_DisableIrqMask(OS_IE_VBLANK);
+        OS_SetIrqFunction(OS_IE_VBLANK, &VBlankHandler);
+        OS_EnableIrqMask(OS_IE_VBLANK);
 
         Main_SetVBlankIntrCB(NULL, NULL);
         Main_SetHBlankIntrCB(NULL, NULL);
@@ -153,7 +153,7 @@ void PrintErrorMessageAndReset()
             sub_0202FB80();
             if (sub_02033678())
                 break;
-            OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+            OS_WaitIrq(TRUE, OS_IE_VBLANK);
         }
 
         while (TRUE)
@@ -161,7 +161,7 @@ void PrintErrorMessageAndReset()
             HandleDSLidAction();
             if ((PAD_Read() & PAD_BUTTON_A))
                 break;
-            OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+            OS_WaitIrq(TRUE, OS_IE_VBLANK);
         }
         sub_0200E3A0(PM_LCD_TOP, 0x7FFF);
         sub_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);

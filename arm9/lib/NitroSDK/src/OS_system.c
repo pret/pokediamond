@@ -74,5 +74,5 @@ asm void OS_SpinWait(u32 cycles)
 void OS_WaitVBlankIntr(void)
 {
     SVC_WaitByLoop(0x1);
-    OS_WaitIrq(TRUE, OS_IE_V_BLANK);
+    OS_WaitIrq(TRUE, OS_IE_VBLANK);
 }

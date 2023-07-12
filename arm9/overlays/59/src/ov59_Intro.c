@@ -188,7 +188,7 @@ const struct BgTemplate ov59_021D9EA0 =
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
         .areaOver = GX_BG_AREAOVER_XLU,
-        .unk17 = 0,
+        .dummy = 0,
         .mosaic = FALSE
     };
 
@@ -206,7 +206,7 @@ const struct BgTemplate ov59_021D9EBC =
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 0,
         .areaOver = GX_BG_AREAOVER_XLU,
-        .unk17 = 0,
+        .dummy = 0,
         .mosaic = FALSE
     };
 

@@ -23,7 +23,7 @@ typedef struct BgTemplate {
     u8 bgExtPltt;
     u8 priority;
     u8 areaOver;
-    u8 unk17; // probably paddding
+    u8 dummy; // probably paddding
     u32 mosaic;
 } BgTemplate;
 
