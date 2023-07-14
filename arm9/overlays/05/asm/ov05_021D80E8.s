@@ -1765,7 +1765,7 @@ ov05_021D8F38: ; 0x021D8F38
 	bl SaveArray_PlayerParty_Get
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
-	bl Save_DayCare_Get
+	bl Save_Daycare_Get
 	add r1, r5, #0
 	add r2, r4, #0
 	bl ov05_021ED378

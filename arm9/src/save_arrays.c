@@ -72,7 +72,7 @@ const struct SaveChunkHeader UNK_020EE700[] = {
     {  5, 0, (SAVSIZEFN)Save_Poketch_sizeof, (SAVINITFN)Save_Poketch_Init },
     {  6, 0, (SAVSIZEFN)sub_02034D7C, (SAVINITFN)sub_02034D98 },
     {  7, 0, (SAVSIZEFN)Save_Pokedex_sizeof, (SAVINITFN)Save_Pokedex_Init },
-    {  8, 0, (SAVSIZEFN)Save_DayCare_sizeof, (SAVINITFN)Save_DayCare_Init },
+    {  8, 0, (SAVSIZEFN)Save_Daycare_sizeof, (SAVINITFN)Save_Daycare_Init },
     {  9, 0, (SAVSIZEFN)sub_020254B8, (SAVINITFN)sub_020254CC },
     { 10, 0, (SAVSIZEFN)sub_02024E64,          (SAVINITFN)sub_02024E6C },
     { 11, 0, (SAVSIZEFN)sub_02034D80,          (SAVINITFN)sub_02034D88 },

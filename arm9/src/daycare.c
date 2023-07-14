@@ -4,109 +4,96 @@
 #include "save.h"
 #include "daycare.h"
 
-u32 Save_DayCare_sizeof(void)
-{
-    return sizeof(struct DayCare);
+u32 Save_Daycare_sizeof(void) {
+    return sizeof(Daycare);
 }
 
-void Save_DayCare_Init(struct DayCare * daycare)
-{
-    memset(daycare, 0, sizeof(struct DayCare));
+void Save_Daycare_Init(Daycare *daycare) {
+    memset(daycare, 0, sizeof(Daycare));
     ZeroBoxMonData(&daycare->mons[0].mon);
     ZeroBoxMonData(&daycare->mons[1].mon);
     daycare->egg_pid = 0;
     daycare->egg_cycles = 0;
 }
 
-struct DayCareMon * Save_DayCare_GetMonX(struct DayCare * daycare, s32 i)
-{
+DaycareMon *Save_Daycare_GetMonX(Daycare *daycare, s32 i) {
     return &daycare->mons[i];
 }
 
-struct BoxPokemon * DayCareMon_GetBoxMon(struct DayCareMon * dcmon)
-{
+BoxPokemon *DaycareMon_GetBoxMon(DaycareMon *dcmon) {
     return &dcmon->mon;
 }
 
-struct DayCareMail * DayCareMon_GetExtras(struct DayCareMon * dcmon)
-{
+DaycareMail *DaycareMon_GetExtras(DaycareMon *dcmon) {
     return &dcmon->mail;
 }
 
-u32 DayCareMon_GetSteps(struct DayCareMon * dcmon)
-{
+u32 DaycareMon_GetSteps(DaycareMon *dcmon) {
     return dcmon->steps;
 }
 
-struct Mail * DayCareMail_GetCapsule(struct DayCareMail * dcmail)
-{
-    return &dcmail->seal;
+Mail *DayCareMail_GetMailPtr(DaycareMail *dcmail) {
+    return &dcmail->mail;
 }
 
-u32 Save_DayCare_GetEggPID(struct DayCare * daycare)
-{
+u32 Save_Daycare_GetEggPID(Daycare *daycare) {
     return daycare->egg_pid;
 }
 
-u8 Save_DayCare_GetEggCycleCounter(struct DayCare * daycare)
-{
+u8 Save_Daycare_GetEggCycleCounter(Daycare *daycare) {
     return daycare->egg_cycles;
 }
 
-void DayCareMon_SetSteps(struct DayCareMon * dcmon, u32 steps)
-{
+void DaycareMon_SetSteps(DaycareMon *dcmon, u32 steps) {
     dcmon->steps = steps;
 }
 
-void DayCareMon_AddSteps(struct DayCareMon * dcmon, u32 steps)
-{
+void DaycareMon_AddSteps(DaycareMon *dcmon, u32 steps) {
     dcmon->steps += steps;
 }
 
-void Save_DayCare_SetEggPID(struct DayCare * daycare, u32 pid)
-{
+void Save_Daycare_SetEggPID(Daycare *daycare, u32 pid) {
     daycare->egg_pid = pid;
 }
 
-void Save_DayCare_SetEggCycleCounter(struct DayCare * daycare, u8 count)
-{
+void Save_Daycare_SetEggCycleCounter(Daycare *daycare, u8 count) {
     daycare->egg_cycles = count;
 }
 
-BOOL Save_DayCare_MasudaCheck(struct DayCare * daycare)
-{
+BOOL Save_Daycare_MasudaCheck(Daycare *daycare) {
     // Checks if the pokemon come from different countries.
     // Uses language as a proxy for country, even though it
     // only accounts for European languages and Japanese.
-    // If true, shiny odds are increased (see overlay 05).
-    return GetBoxMonData(&daycare->mons[0].mon, MON_DATA_GAME_LANGUAGE, NULL) != GetBoxMonData(&daycare->mons[1].mon, MON_DATA_GAME_LANGUAGE, NULL);
+    // If true, shiny odds are increased.
+    return GetBoxMonData(&daycare->mons[0].mon, MON_DATA_GAME_LANGUAGE, NULL) !=
+           GetBoxMonData(&daycare->mons[1].mon, MON_DATA_GAME_LANGUAGE, NULL);
 }
 
-void DayCareMon_Copy(struct DayCareMon * dest, const struct DayCareMon * src)
-{
+void DaycareMon_Copy(DaycareMon *dest, const DaycareMon *src) {
     *dest = *src;
 }
 
-void DayCareMon_Extras_Init(struct DayCareMail * mail)
-{
+void DaycareMon_Extras_Init(DaycareMail *mail){
     int i;
 
-    for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
+    for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++) {
         mail->ot_name[i] = 0;
-    for (i = 0; i < POKEMON_NAME_LENGTH + 1; i++)
+    }
+
+    for (i = 0; i < POKEMON_NAME_LENGTH + 1; i++) {
         mail->nickname[i] = 0;
+    }
+
     mail->ot_name[0] = EOS;
     mail->nickname[0] = EOS;
 }
 
-void DayCareMon_Init(struct DayCareMon * mon)
-{
+void DaycareMon_Init(DaycareMon *mon) {
     ZeroBoxMonData(&mon->mon);
     mon->steps = 0;
-    DayCareMon_Extras_Init(&mon->mail);
+    DaycareMon_Extras_Init(&mon->mail);
 }
 
-struct DayCare * Save_DayCare_Get(struct SaveData * save)
-{
-    return (struct DayCare *)SaveArray_Get(save, 8);
+Daycare *Save_Daycare_Get(SaveData *savedata) {
+    return SaveArray_Get(savedata, SAVE_DAYCARE);
 }

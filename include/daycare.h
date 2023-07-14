@@ -2,47 +2,45 @@
 #define POKEDIAMOND_DAYCARE_H
 
 #include "global.h"
+#include "mail.h"
 
-struct DayCareMail
-{
-    struct Mail seal;
+typedef struct DaycareMail {
+    Mail mail;
     u16 ot_name[PLAYER_NAME_LENGTH + 1];
     u16 nickname[POKEMON_NAME_LENGTH + 1];
     u8 padding_5E[2];
-};
+} DaycareMail;
 
-struct DayCareMon
-{
-    struct BoxPokemon mon;
-    struct DayCareMail mail;
+typedef struct DaycareMon {
+    BoxPokemon mon;
+    DaycareMail mail;
     u32 steps;
-};
+} DaycareMon;
 
-struct DayCare
-{
-    struct DayCareMon mons[2];
+typedef struct Daycare {
+    DaycareMon mons[2];
     u32 egg_pid;
     u8 egg_cycles;
     u8 padding_1DD[3];
-};
+} Daycare;
 
-u32 Save_DayCare_sizeof(void);
-void Save_DayCare_Init(struct DayCare * daycare);
-struct DayCareMon * Save_DayCare_GetMonX(struct DayCare * daycare, s32 i);
-struct BoxPokemon * DayCareMon_GetBoxMon(struct DayCareMon * dcmon);
-struct DayCareMail * DayCareMon_GetExtras(struct DayCareMon * dcmon);
-u32 DayCareMon_GetSteps(struct DayCareMon * dcmon);
-struct Mail * DayCareMail_GetCapsule(struct DayCareMail * dcmail);
-u32 Save_DayCare_GetEggPID(struct DayCare * daycare);
-u8 Save_DayCare_GetEggCycleCounter(struct DayCare * daycare);
-void DayCareMon_SetSteps(struct DayCareMon * dcmon, u32 steps);
-void DayCareMon_AddSteps(struct DayCareMon * dcmon, u32 steps);
-void Save_DayCare_SetEggPID(struct DayCare * daycare, u32 pid);
-void Save_DayCare_SetEggCycleCounter(struct DayCare * daycare, u8 count);
-BOOL Save_DayCare_MasudaCheck(struct DayCare * daycare);
-void DayCareMon_Copy(struct DayCareMon * dest, const struct DayCareMon * src);
-void DayCareMon_Extras_Init(struct DayCareMail * mail);
-void DayCareMon_Init(struct DayCareMon * mon);
-struct DayCare * Save_DayCare_Get(struct SaveData * save);
+u32 Save_Daycare_sizeof(void);
+void Save_Daycare_Init(Daycare *daycare);
+DaycareMon *Save_Daycare_GetMonX(Daycare *daycare, s32 i);
+BoxPokemon *DaycareMon_GetBoxMon(DaycareMon *dcmon);
+DaycareMail *DaycareMon_GetExtras(DaycareMon *dcmon);
+u32 DaycareMon_GetSteps(DaycareMon *dcmon);
+Mail *DayCareMail_GetMailPtr(DaycareMail *dcmail);
+u32 Save_Daycare_GetEggPID(Daycare *daycare);
+u8 Save_Daycare_GetEggCycleCounter(Daycare *daycare);
+void DaycareMon_SetSteps(DaycareMon *dcmon, u32 steps);
+void DaycareMon_AddSteps(DaycareMon *dcmon, u32 steps);
+void Save_Daycare_SetEggPID(Daycare *daycare, u32 pid);
+void Save_Daycare_SetEggCycleCounter(Daycare *daycare, u8 count);
+BOOL Save_Daycare_MasudaCheck(Daycare *daycare);
+void DaycareMon_Copy(DaycareMon *dest, const DaycareMon *src);
+void DaycareMon_Extras_Init(DaycareMail *mail);
+void DaycareMon_Init(DaycareMon *mon);
+Daycare *Save_Daycare_Get(SaveData *savedata);
 
 #endif //POKEDIAMOND_DAYCARE_H
