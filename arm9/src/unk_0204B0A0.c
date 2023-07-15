@@ -29,7 +29,7 @@ void sub_0204B0F8(struct FieldSystem *fieldSystem)
     RTCDate date;
     RTCTime time;
 
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
     if (rtc_info->field_00 != 0)
     {
         GF_RTC_CopyDateTime(&date, &time);
@@ -38,7 +38,7 @@ void sub_0204B0F8(struct FieldSystem *fieldSystem)
     }
 }
 
-void sub_0204B130(struct FieldSystem *fieldSystem, SysInfo_RTC* rtc_info, struct RTCDate* date)
+void sub_0204B130(struct FieldSystem *fieldSystem, SysInfo_RTC *rtc_info, struct RTCDate* date)
 {
     u32 days = (u32)RTC_ConvertDateToDay(date);
     u32 days_since_nitro_epoch = (u32)rtc_info->daysSinceNitroEpoch;
@@ -54,7 +54,7 @@ void sub_0204B130(struct FieldSystem *fieldSystem, SysInfo_RTC* rtc_info, struct
     }
 }
 
-void sub_0204B158(struct FieldSystem *fieldSystem, SysInfo_RTC* rtc_info, struct RTCDate* date, struct RTCTime* time)
+void sub_0204B158(struct FieldSystem *fieldSystem, SysInfo_RTC *rtc_info, struct RTCDate* date, struct RTCTime* time)
 {
     s64 unk1 = RTC_ConvertDateTimeToSecond(date, time);
     s64 unk2 = RTC_ConvertDateTimeToSecond(&rtc_info->date, &rtc_info->time);
@@ -129,70 +129,70 @@ void sub_0204B270(struct FieldSystem *fieldSystem, s32 a1, struct RTCTime* time)
 
 u32 Script_GetTimeOfDay(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     return GF_RTC_GetTimeOfDayByHour(rtc_info->time.hour);
 }
 
 u32 Script_GetMonth(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     return rtc_info->date.month;
 }
 
 u32 Script_GetDay(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     return rtc_info->date.day;
 }
 
 RTCWeek Script_GetWeekday(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     return rtc_info->date.week;
 }
 
 u32 Script_GetHour(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     return rtc_info->time.hour;
 }
 
 u32 Script_GetMinute(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     return rtc_info->time.minute;
 }
 
 void Script_SavRTC_x24toDateTime(struct FieldSystem *fieldSystem, struct RTCDate* date, struct RTCTime* time)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     RTC_ConvertSecondToDateTime(date, time, rtc_info->secondsSinceNitroEpoch);
 }
 
 void Script_SavRTC_x2CtoDateTime(struct FieldSystem *fieldSystem, struct RTCDate* date, struct RTCTime* time)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     RTC_ConvertSecondToDateTime(date, time, rtc_info->field_2C);
 }
 
 void Script_SavRTC_DateTimeTox2C(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     rtc_info->field_2C = GF_RTC_DateTimeToSec();
 }
 
 BOOL sub_0204B33C(struct FieldSystem *fieldSystem)
 {
-    SysInfo_RTC* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveData);
 
     return sub_02023874(rtc_info);
 }

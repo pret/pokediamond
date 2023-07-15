@@ -381,7 +381,7 @@ u32 FieldSystem_GetWeather(FieldSystem *fieldSystem, u32 mapId) {
     if (weatherType < WEATHER_UNKNOWN_24) {
         return weatherType;
     }
-    SysInfo_RTC* sysInfoRTC = Save_SysInfo_RTC_Get(fieldSystem->saveData);
+    SysInfo_RTC *sysInfoRTC = Save_SysInfo_RTC_Get(fieldSystem->saveData);
     s32 dayOfYear = GF_RTC_GetDayOfYear(&sysInfoRTC->date) - 1;
     GF_ASSERT(dayOfYear >= 0 && dayOfYear < 366);
     if (sysInfoRTC->date.month > 2) {

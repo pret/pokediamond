@@ -7,8 +7,8 @@
 #include "script.h"
 
 void sub_0204B0F8(struct FieldSystem *fieldSystem);
-void sub_0204B130(struct FieldSystem *fieldSystem, SysInfo_RTC* rtc_info, struct RTCDate* date);
-void sub_0204B158(struct FieldSystem *fieldSystem, SysInfo_RTC* rtc_info, struct RTCDate* date, struct RTCTime* time);
+void sub_0204B130(struct FieldSystem *fieldSystem, SysInfo_RTC *rtc_info, struct RTCDate* date);
+void sub_0204B158(struct FieldSystem *fieldSystem, SysInfo_RTC *rtc_info, struct RTCDate* date, struct RTCTime* time);
 void sub_0204B1DC(struct FieldSystem *fieldSystem, s32 a1);
 void sub_0204B270(struct FieldSystem *fieldSystem, s32 a1, struct RTCTime* time);
 u32 Script_GetTimeOfDay(struct FieldSystem *fieldSystem);
