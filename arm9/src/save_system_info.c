@@ -24,7 +24,7 @@ struct SaveSysInfo * Save_SysInfo_Get(struct SaveData * save)
     return (struct SaveSysInfo *)SaveArray_Get(save, 0);
 }
 
-struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveData * save)
+SysInfo_RTC * Save_SysInfo_RTC_Get(struct SaveData * save)
 {
     return &Save_SysInfo_Get(save)->rtcInfo;
 }
@@ -87,7 +87,7 @@ void sub_02023834(struct SaveSysInfo * unk, u32 val)
         unk->field_4C = val;
 }
 
-void Save_SysInfo_RTC_Init(struct UnkSaveStruct_0202376C_sub * sub)
+void Save_SysInfo_RTC_Init(SysInfo_RTC * sub)
 {
     sub->field_00 = 1;
     GF_RTC_CopyDateTime(&sub->date, &sub->time);
@@ -97,12 +97,12 @@ void Save_SysInfo_RTC_Init(struct UnkSaveStruct_0202376C_sub * sub)
     sub->field_34 = 0;
 }
 
-BOOL sub_02023874(struct UnkSaveStruct_0202376C_sub * sub)
+BOOL sub_02023874(SysInfo_RTC * sub)
 {
     return sub->field_34 != 0;
 }
 
-void sub_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1)
+void sub_02023884(SysInfo_RTC * sub, u32 a1)
 {
     if (sub->field_34 > 1440)
         sub->field_34 = 1440;
@@ -112,7 +112,7 @@ void sub_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1)
         sub->field_34 -= a1;
 }
 
-void sub_020238A4(struct UnkSaveStruct_0202376C_sub * sub)
+void sub_020238A4(SysInfo_RTC * sub)
 {
     sub->field_34 = 1440;
     GF_RTC_CopyDateTime(&sub->date, &sub->time);

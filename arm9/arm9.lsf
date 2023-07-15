@@ -147,7 +147,7 @@ Static arm9
 	Object unk_02034A28.o
 	Object unk_02034D7C.o
 	Object unk_02034E84.o
-	Object unk_02034FE4.o
+	Object field_system_weather.o
 	Object unk_02035068.o
 	Object unk_02036FA4.o
 	Object unk_02037024.o
