@@ -1,5 +1,5 @@
 #include "global.h"
-#include "field_system_weather.h"
+#include "field_system_rtc_weather.h"
 #include "constants/weather.h"
 #include "gf_rtc.h"
 #include "map_header.h"
