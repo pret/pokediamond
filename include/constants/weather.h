@@ -3,12 +3,12 @@
 
 #define WEATHER_SUNNY             0
 #define WEATHER_CLOUDY            1
-#define WEATHER_RAIN_1            2
-#define WEATHER_RAIN_2            3
-#define WEATHER_RAIN_3            4
-#define WEATHER_SNOW_1            5
-#define WEATHER_SNOW_2            6
-#define WEATHER_SNOW_3            7
+#define WEATHER_RAIN              2
+#define WEATHER_HEAVY_RAIN        3
+#define WEATHER_THUNDERSTORM      4
+#define WEATHER_LIGHT_SNOW        5
+#define WEATHER_SNOW              6
+#define WEATHER_BLIZZARD          7
 #define WEATHER_FOG               8
 #define WEATHER_ASH               9
 #define WEATHER_SANDSTORM         10
@@ -18,14 +18,14 @@
 #define WEATHER_UNKNOWN_14        14  //WEATHER_MIST_1?
 #define WEATHER_UNKNOWN_15        15  //WEATHER_MIST_2?
 #define WEATHER_FLASH             16
-#define WEATHER_UNKNOWN_17        17  //WEATHER_SPARK?
+#define WEATHER_LIGHTNING         17
 #define WEATHER_UNKNOWN_18        18  //WEATHER_FOGS?
 #define WEATHER_UNKNOWN_19        19  //WEATHER_FOGM?
 #define WEATHER_UNKNOWN_20        20  //WEATHER_RAINBOW?
 #define WEATHER_UNKNOWN_21        21  //WEATHER_SNOW_STORM?
 #define WEATHER_UNKNOWN_22        22  //WEATHER_STORM?
 #define WEATHER_CANOPY            23
-#define WEATHER_CAVE_1            24
+#define WEATHER_UNKNOWN_24        24  //WEATHER_CAVE_1?
 #define WEATHER_CAVE_2            25
 #define WEATHER_UNKNOWN_26        26  //WEATHER_GALAXY?
 #define WEATHER_LOST_TOWER        27

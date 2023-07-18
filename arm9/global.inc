@@ -2576,7 +2576,7 @@
 .extern sub_02034F40
 .extern sub_02034F88
 .extern sub_02034FC0
-.extern sub_02034FE4
+.extern FieldSystem_GetWeather
 .extern sub_02035068
 .extern sub_02035080
 .extern sub_02035118

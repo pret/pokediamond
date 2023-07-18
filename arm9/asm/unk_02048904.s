@@ -195,7 +195,7 @@ _02048A50:
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	add r1, r7, #0x0
-	bl sub_02034FE4
+	bl FieldSystem_GetWeather
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	cmp r6, #0xe

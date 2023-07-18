@@ -2835,7 +2835,7 @@ _0206218C:
 	ldrh r5, [r0, r1]
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl sub_02034FE4
+	bl FieldSystem_GetWeather
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MapHeader_GetMapSec
