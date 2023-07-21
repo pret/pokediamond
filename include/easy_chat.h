@@ -1,11 +1,15 @@
-#ifndef POKEDIAMOND_UNK_020139D8_H
-#define POKEDIAMOND_UNK_020139D8_H
+#ifndef POKEDIAMOND_EASY_CHAT_H
+#define POKEDIAMOND_EASY_CHAT_H
 
-struct UnkStruct_020139D8
-{
+#include "msgdata.h"
+#include "constants/easy_chat.h"
+
+typedef u16 ecword_t;
+
+typedef struct EasyChatManager {
     HeapID heapId;
-    struct MsgData * msgDatas[11];
-};
+    MsgData *msgData[EC_GROUP_MAX];
+} EasyChatManager;
 
 typedef struct SaveEasyChat
 {
@@ -13,9 +17,9 @@ typedef struct SaveEasyChat
     u32 unk_4;
 } SaveEasyChat;
 
-struct UnkStruct_020139D8 * EasyChatManager_New(HeapID heapId);
-void EasyChatManager_Delete(struct UnkStruct_020139D8 * unk);
-void EasyChatManager_ReadWordIntoString(struct UnkStruct_020139D8 * unk, u16 a1, struct String * str);
+EasyChatManager *EasyChatManager_New(HeapID heapId);
+void EasyChatManager_Delete(EasyChatManager *easyChatManager);
+void EasyChatManager_ReadWordIntoString(struct EasyChatManager * unk, u16 a1, struct String * str);
 void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
 u16 GetECWordIndexByPair(u16 a0, u16 a1);
 void GetCategoryAndMsgNoByECWordIdx(u32 a0, s32 * a1, s32 * a2);
@@ -31,4 +35,4 @@ void sub_02013C18(struct SaveEasyChat * unk, u32 a1);
 s32 sub_02013C28(u16 a0);
 u16 sub_02013C6C(u16 a0, s32 a1);
 
-#endif //POKEDIAMOND_UNK_020139D8_H
+#endif //POKEDIAMOND_EASY_CHAT_H

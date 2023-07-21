@@ -16,7 +16,7 @@
 #include "string_control_code.h"
 #include "text.h"
 #include "trainer_data.h"
-#include "unk_020139D8.h"
+#include "easy_chat.h"
 #include "unk_02015CC0.h"
 #include "unk_02024E64.h"
 #include "unk_020286F8.h"

@@ -32,7 +32,7 @@
 #include "text.h"
 #include "text_02054590.h"
 #include "unk_0200CA44.h"
-#include "unk_020139D8.h"
+#include "easy_chat.h"
 #include "unk_02022504.h"
 #include "unk_02029FB0.h"
 #include "unk_020337E8.h"

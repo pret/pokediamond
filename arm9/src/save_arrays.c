@@ -13,7 +13,7 @@
 #include "daycare.h"
 #include "pokedex.h"
 #include "seal.h"
-#include "unk_020139D8.h"
+#include "easy_chat.h"
 #include "unk_02024E64.h"
 #include "sav_chatot.h"
 #include "unk_0202A1E0.h"
