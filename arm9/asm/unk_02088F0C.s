@@ -742,7 +742,7 @@ _02089078:
 	ldr r1, [sp, #0x8]
 	ldr r0, [sp, #0xc]
 	sub r1, r2, r1
-	bl sub_02013B68
+	bl Save_EasyChat_GetTrendySayingFlag
 	cmp r0, #0x0
 	beq _020890AA
 	ldrh r3, [r5, #0x0]
@@ -809,7 +809,7 @@ _020890F4:
 	bhi _0208910C
 	ldr r0, [sp, #0x10]
 	sub r1, r1, r6
-	bl sub_02013C0C
+	bl Save_EasyChat_GetGreetingsFlag
 	cmp r0, #0x0
 	beq _0208912E
 _0208910C:

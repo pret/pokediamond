@@ -9284,7 +9284,7 @@ _021DBF8C:
 	ldr r1, [r4, #0x14]
 	bl StringCopy
 	ldr r0, [r4, #0x14]
-	bl StringSetEmpty
+	bl String_SetEmpty
 _021DBF9A:
 	ldrh r1, [r4, #6]
 	cmp r1, #0

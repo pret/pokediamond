@@ -1443,7 +1443,7 @@ ov74_021D8008: ; 0x021D8008
 	add r1, sp, #0x10
 	bl sub_0202A864
 	ldr r0, [r4, #0x30]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #1

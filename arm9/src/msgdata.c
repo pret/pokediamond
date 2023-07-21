@@ -107,7 +107,7 @@ static void ReadMsgData_ExistingTable_ExistingString(struct MsgDataTable * table
     else
     {
         GF_ASSERT(FALSE);
-        StringSetEmpty(dest);
+        String_SetEmpty(dest);
     }
 }
 
@@ -179,7 +179,7 @@ static void ReadMsgData_ExistingNarc_ExistingString(NARC * narc, u32 group, u32 
     else
     {
         GF_ASSERT(FALSE);
-        StringSetEmpty(dest);
+        String_SetEmpty(dest);
     }
 }
 

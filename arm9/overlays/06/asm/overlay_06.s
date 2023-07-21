@@ -40451,25 +40451,25 @@ ov06_0224D14C: ; 0x0224D14C
 	ldr r0, [sp, #0x48]
 	str r0, [sp, #0x48]
 	ldr r0, [sp, #4]
-	bl sub_02013C28
+	bl GetDuplicateWordNum
 	add r0, r0, #1
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x2c]
 	ldr r0, [sp, #8]
-	bl sub_02013C28
+	bl GetDuplicateWordNum
 	add r0, r0, #1
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x28]
 	ldr r0, [sp, #0xc]
-	bl sub_02013C28
+	bl GetDuplicateWordNum
 	add r0, r0, #1
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x24]
 	ldr r0, [sp, #0x48]
-	bl sub_02013C28
+	bl GetDuplicateWordNum
 	add r0, r0, #1
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -40502,19 +40502,19 @@ _0224D1BA:
 _0224D1C2:
 	ldr r0, [sp, #4]
 	ldr r1, [sp, #0x18]
-	bl sub_02013C6C
+	bl RemapDuplicateWord
 	add r4, r0, #0
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0x14]
-	bl sub_02013C6C
+	bl RemapDuplicateWord
 	add r6, r0, #0
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #0x10]
-	bl sub_02013C6C
+	bl RemapDuplicateWord
 	add r7, r0, #0
 	ldr r0, [sp, #0x48]
 	add r1, r5, #0
-	bl sub_02013C6C
+	bl RemapDuplicateWord
 	str r0, [sp]
 	ldr r0, [sp, #0x1c]
 	add r1, r4, #0

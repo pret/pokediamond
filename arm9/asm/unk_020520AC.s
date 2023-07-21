@@ -1837,7 +1837,7 @@ _02052D3C:
 	cmp r1, #0x0
 	blt _02052D80
 	ldr r0, [sp, #0x20]
-	bl sub_02013C18
+	bl Save_EasyChat_SetGreetingFlag
 _02052D80:
 	cmp r4, #0x7
 	bhi _02052DB8

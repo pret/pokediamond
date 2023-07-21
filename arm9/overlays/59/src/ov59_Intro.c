@@ -2650,7 +2650,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
 
                 case -2:
                 case 2:
-                    StringSetEmpty(data->playerStruct->name);
+                    String_SetEmpty(data->playerStruct->name);
                     data->nextControllerCounter = 63;
                     data->controllerCounter = 81;
                     break;
@@ -2822,7 +2822,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
 
                 case -2:
                 case 2:
-                    StringSetEmpty(data->rivalStruct->name);
+                    String_SetEmpty(data->rivalStruct->name);
                     data->controllerCounter = 88;
                     break;
             }

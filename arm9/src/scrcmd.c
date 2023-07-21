@@ -4472,7 +4472,7 @@ BOOL ScrCmd_BufferRandomTrendySaying(ScriptContext *ctx) { //027D
     u16 *var = ScriptGetVarPointer(ctx);
     u16 fieldId = ScriptGetVar(ctx);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    u32 trendy = Save_EasyChat_RandomTrendySayingSet(Save_EasyChat_Get(ctx->fieldSystem->saveData));
+    u32 trendy = Save_EasyChat_SetRandomTrendySaying(Save_EasyChat_Get(ctx->fieldSystem->saveData));
     if (trendy == 32) {
         *var = -1;
         return FALSE;

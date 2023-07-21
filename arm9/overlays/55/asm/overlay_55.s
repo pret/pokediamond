@@ -2678,7 +2678,7 @@ ov55_021D8A28: ; 0x021D8A28
 	add r4, r6, #0
 _021D8A46:
 	ldr r0, [r5, #0x38]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	add r0, r7, #0
 	add r1, r4, #0
 	bl sub_0202842C
@@ -5094,7 +5094,7 @@ ov55_021D9E40: ; 0x021D9E40
 	b _021D9EBE
 _021D9EB8:
 	ldr r0, [r0, #0x18]
-	bl StringSetEmpty
+	bl String_SetEmpty
 _021D9EBE:
 	add r0, r6, #0
 	add sp, #4

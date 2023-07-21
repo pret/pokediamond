@@ -523,7 +523,7 @@ void BufferGenderSymbol(MessageFormat *messageFormat, u32 idx, u32 gender)
         ReadMsgDataIntoString(msgData, narc_0199_00069, messageFormat->buffer); // ♀
         break;
     default:
-        StringSetEmpty(messageFormat->buffer);
+        String_SetEmpty(messageFormat->buffer);
         break;
     }
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
@@ -715,7 +715,7 @@ void MessageFormat_UpperFirstChar(MessageFormat *messageFormat, u32 idx)
 void StringExpandPlaceholders(MessageFormat *messageFormat, struct String * dest, struct String * src)
 {
     const u16 * cstr = String_c_str(src);
-    StringSetEmpty(dest);
+    String_SetEmpty(dest);
     while (*cstr != EOS)
     {
         if (*cstr == EXT_CTRL_CODE_BEGIN)
@@ -743,7 +743,7 @@ void StringExpandPlaceholders(MessageFormat *messageFormat, struct String * dest
 void MessageFormat_ResetBuffers(MessageFormat *messageFormat)
 {
     for (int i = 0; i < messageFormat->count; i++)
-        StringSetEmpty(messageFormat->fields[i].msg);
+        String_SetEmpty(messageFormat->fields[i].msg);
 }
 
 struct UnkStruct_0200B870 * MessagePrinter_New(u32 color1, u32 color2, u32 color3, HeapID heapId)

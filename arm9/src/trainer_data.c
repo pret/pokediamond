@@ -137,7 +137,7 @@ void GetTrainerMessageByIdPair(u32 trainer_idx, u32 msg_id, struct String * str,
     }
     NARC_Delete(trTblNarc);
     if (rdbuf[0] == trTblSize)
-        StringSetEmpty(str);
+        String_SetEmpty(str);
 }
 
 void TrainerData_ReadTrData(u32 idx, struct TrainerData * dest)

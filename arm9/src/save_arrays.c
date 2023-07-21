@@ -98,7 +98,7 @@ const struct SaveChunkHeader UNK_020EE700[] = {
     { 31, 0, (SAVSIZEFN)sub_0202AC20, (SAVINITFN)sub_0202AC28 },
     { 32, 0, (SAVSIZEFN)sub_0202BE98, (SAVINITFN)sub_0202BEA0 },
     { 33, 0, (SAVSIZEFN)sub_0202C0E0, (SAVINITFN)sub_0202C0E4 },
-    { 34, 0, (SAVSIZEFN)sub_02013B28, (SAVINITFN)sub_02013B2C },
+    { 34, 0, (SAVSIZEFN)Save_EasyChat_sizeof, (SAVINITFN)Save_EasyChat_Init },
     { 35, 1, (SAVSIZEFN)PCStorage_sizeof, (SAVINITFN)PCStorage_Init },
 };
 

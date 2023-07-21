@@ -18,7 +18,7 @@ typedef struct String
 struct String * String_New(u32 count, HeapID heapId);
 BOOL String_Compare(struct String *, struct String *);
 void CopyU16ArrayToStringN(struct String *, u16 *, u32); // copy
-void StringSetEmpty(struct String *); // set empty
+void String_SetEmpty(struct String *); // set empty
 struct String * StringDup(struct String *, HeapID heapId);
 void String_Delete(struct String * str);
 void StringCopy(struct String * dest, struct String * src);
