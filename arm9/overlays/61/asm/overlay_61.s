@@ -1588,7 +1588,7 @@ _021D8164:
 	str r0, [sp, #0x18]
 _021D8196:
 	add r0, r5, #0
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldr r0, [r4, #0x20]
 	add r1, r6, #0
 	add r2, r5, #0

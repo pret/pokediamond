@@ -1,0 +1,257 @@
+#include "global.h"
+#include "msgdata.h"
+#include "heap.h"
+#include "save.h"
+#include "math_util.h"
+#include "easy_chat.h"
+#include "msgdata/msg.naix"
+#include "constants/abilities.h"
+#include "constants/easy_chat.h"
+#include "constants/moves.h"
+
+#include "msgdata/msg/narc_0390.h"
+
+static const u8 sLanguageToGreetingMap[6][2] = {
+    { LANGUAGE_JAPANESE, narc_0390_konnichiwa },
+    { LANGUAGE_ENGLISH,  narc_0390_hello },
+    { LANGUAGE_FRENCH,   narc_0390_bonjour },
+    { LANGUAGE_ITALIAN,  narc_0390_ciao },
+    { LANGUAGE_GERMAN,   narc_0390_hallo },
+    { LANGUAGE_SPANISH,  narc_0390_hola },
+};
+
+static const u16 sNarcMsgBanks[EC_GROUP_MAX] = {
+    NARC_msg_narc_0362_bin, // Species names
+    NARC_msg_narc_0589_bin, // Move names
+    NARC_msg_narc_0565_bin, // Type names
+    NARC_msg_narc_0553_bin, // Ability names
+    NARC_msg_narc_0388_bin, // Trainer
+    NARC_msg_narc_0389_bin, // People
+    NARC_msg_narc_0390_bin, // Greetings
+    NARC_msg_narc_0391_bin, // Lifestyle
+    NARC_msg_narc_0392_bin, // Feelings
+    NARC_msg_narc_0393_bin, // Tough words
+    NARC_msg_narc_0394_bin, // Union
+};
+
+static const u16 sNarcMsgCounts[EC_GROUP_MAX] = {
+    EC_WORDS_POKEMON_COUNT,
+    EC_WORDS_MOVE_COUNT,
+    EC_WORDS_TYPE_COUNT,
+    EC_WORDS_ABILITY_COUNT,
+    EC_WORDS_TRAINER_COUNT,
+    EC_WORDS_PEOPLE_COUNT,
+    EC_WORDS_GREETINGS_COUNT,
+    EC_WORDS_LIFESTYLE_COUNT,
+    EC_WORDS_FEELINGS_COUNT,
+    EC_WORDS_TOUGH_WORDS_COUNT,
+    EC_WORDS_UNION_COUNT,
+};
+
+static const ecword_t sEasyChatHey[] = {EC_WORD_GREETINGS_HEY, EC_WORD_GREETINGS_HEY_2};
+static const ecword_t sEasyChatHuh_[] = {EC_WORD_GREETINGS_HUH_, EC_WORD_GREETINGS_HUH__2};
+static const ecword_t sEasyChatI[] = {EC_WORD_PEOPLE_I, EC_WORD_PEOPLE_I_2, EC_WORD_PEOPLE_I_3, EC_WORD_PEOPLE_I_4};
+static const ecword_t sEasyChatKids[] = {EC_WORD_PEOPLE_KIDS, EC_WORD_PEOPLE_KIDS_2};
+static const ecword_t sEasyChatNoWay[] = {EC_WORD_GREETINGS_NO_WAY, EC_WORD_FEELINGS_NO_WAY};
+static const ecword_t sEasyChatYou[] = {EC_WORD_PEOPLE_YOU, EC_WORD_PEOPLE_YOU_2};
+static const ecword_t sEasyChatAnticipation[] = {EC_WORD_ABILITY(ABILITY_ANTICIPATION), EC_WORD_FEELINGS_ANTICIPATION};
+static const ecword_t sEasyChatSimple[] = {EC_WORD_ABILITY(ABILITY_SIMPLE), EC_WORD_FEELINGS_SIMPLE};
+static const ecword_t sEasyChatWelcome[] = {EC_WORD_GREETINGS_WELCOME, EC_WORD_GREETINGS_WELCOME_2};
+static const ecword_t sEasyChatWow[] = {EC_WORD_GREETINGS_WOW, EC_WORD_GREETINGS_WOW_2};
+static const ecword_t sEasyChatPsychic[] = {EC_WORD_MOVE(MOVE_PSYCHIC), EC_WORD_TYPE(TYPE_PSYCHIC)};
+static const ecword_t sEasyChatOk[] = {EC_WORD_GREETINGS_OK, EC_WORD_GREETINGS_OK_2};
+
+typedef struct ECIdenticalPhrases {
+    const ecword_t *data;
+    s32 count;
+} ECIdenticalPhrases;
+
+static const ECIdenticalPhrases sIdenticalPhrases[12] = {
+    { sEasyChatAnticipation, NELEMS(sEasyChatAnticipation) },
+    { sEasyChatHey, NELEMS(sEasyChatHey) },
+    { sEasyChatHuh_, NELEMS(sEasyChatHuh_) },
+    { sEasyChatI, NELEMS(sEasyChatI) },
+    { sEasyChatKids, NELEMS(sEasyChatKids) },
+    { sEasyChatNoWay, NELEMS(sEasyChatNoWay) },
+    { sEasyChatOk, NELEMS(sEasyChatOk) },
+    { sEasyChatPsychic, NELEMS(sEasyChatPsychic) },
+    { sEasyChatSimple, NELEMS(sEasyChatSimple) },
+    { sEasyChatWelcome, NELEMS(sEasyChatWelcome) },
+    { sEasyChatWow, NELEMS(sEasyChatWow) },
+    { sEasyChatYou, NELEMS(sEasyChatYou) },
+};
+
+EasyChatManager *EasyChatManager_New(HeapID heapId) {
+    EasyChatManager *ret = AllocFromHeap(heapId, sizeof(EasyChatManager));
+
+    for (s32 i = 0; i < EC_GROUP_MAX; i++) {
+        ret->heapId = heapId; // inadvertently inside the loop
+        ret->msgData[i] = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heapId);
+    }
+    return ret;
+}
+
+void EasyChatManager_Delete(EasyChatManager *easyChatManager) {
+    for (s32 i = 0; i < EC_GROUP_MAX; i++) {
+        DestroyMsgData(easyChatManager->msgData[i]);
+    }
+    FreeToHeap(easyChatManager);
+}
+
+void EasyChatManager_ReadWordIntoString(EasyChatManager *easyChatManager, u16 ecWord, String *dest) {
+    u32 category;
+    u32 msgNo;
+    GetCategoryAndMsgNoByECWordIdx(ecWord, &category, &msgNo);
+    ReadMsgDataIntoString(easyChatManager->msgData[category], msgNo, dest);
+}
+
+void GetECWordIntoStringByIndex(u32 ecWord, String *dest) {
+    u32 category;
+    u32 msgNo;
+    if (ecWord != EC_WORD_NULL) {
+        GetCategoryAndMsgNoByECWordIdx(ecWord, &category, &msgNo);
+        category = sNarcMsgBanks[category];
+        ReadMsgData_NewNarc_ExistingString(NARC_MSGDATA_MSG, category, msgNo, HEAP_ID_DEFAULT, dest);
+    }
+    else {
+        String_SetEmpty(dest);
+    }
+}
+
+u16 GetECWordIndexByPair(u32 category, u32 msgNo) {
+    u32 bank;
+    u16 count;
+    u16 i;
+    for (bank = 0; bank < EC_GROUP_MAX; bank++) {
+        if (category == sNarcMsgBanks[bank]) {
+            for (i = 0, count = 0; i < bank; i++) {
+                count += sNarcMsgCounts[i];
+            }
+            return (u16)(count + msgNo);
+        }
+    }
+    return EC_WORD_NULL;
+}
+
+void GetCategoryAndMsgNoByECWordIdx(u32 ecWord, u32 *category, u32 *msgNo) {
+    u32 bank;
+    u32 count;
+    u32 wordId = ecWord & EC_WORD_MASK;
+
+    count = 0;
+    for (bank = 0; bank < NELEMS(sNarcMsgCounts); bank++) {
+        count += sNarcMsgCounts[bank];
+        if (wordId < count) {
+            *category = bank;
+            *msgNo = (wordId - (count - sNarcMsgCounts[bank]));
+            return;
+        }
+    }
+}
+
+u32 Save_EasyChat_sizeof(void) {
+    return sizeof(SaveEasyChat);
+}
+
+void Save_EasyChat_Init(SaveEasyChat *saveEasyChat) {
+    u32 i;
+
+    saveEasyChat->greetings = 0;
+    saveEasyChat->trendy = 0;
+    for (i = 0; i < NELEMS(sLanguageToGreetingMap); i++) {
+        if (sLanguageToGreetingMap[i][0] == GAME_LANGUAGE) {
+            Save_EasyChat_SetGreetingFlag(saveEasyChat, sLanguageToGreetingMap[i][1]);
+            break;
+        }
+    }
+}
+
+SaveEasyChat *Save_EasyChat_Get(SaveData *saveData) {
+    return SaveArray_Get(saveData, SAVE_EASY_CHAT);
+}
+
+BOOL Save_EasyChat_GetTrendySayingFlag(SaveEasyChat *saveEasyChat, u32 flag) {
+    return (saveEasyChat->trendy >> flag) & 1;
+}
+
+u32 Save_EasyChat_SetRandomTrendySaying(SaveEasyChat *saveEasyChat) {
+    u32 i;
+    u32 count;
+    u32 bit;
+
+    for (i = 0, count = 0; i < EC_WORDS_TOUGH_WORDS_COUNT; i++) {
+        if (!((saveEasyChat->trendy >> i) & 1)) {
+            count++;
+        }
+    }
+
+    if (count != 0) {
+        bit = LCRandom() % count;
+        for (i = 0; i < EC_WORDS_TOUGH_WORDS_COUNT; i++) {
+            if (!((saveEasyChat->trendy >> i) & 1)) {
+                if (bit == 0) {
+                    saveEasyChat->trendy |= (1 << i);
+                    return i;
+                }
+                bit--;
+            }
+        }
+    }
+    return EC_WORDS_TOUGH_WORDS_COUNT;
+}
+
+BOOL Save_EasyChat_TrendySayingsUnlockedAllCheck(SaveEasyChat *saveEasyChat) {
+    for (u32 i = 0; i < EC_WORDS_TOUGH_WORDS_COUNT; i++) {
+        if (!((saveEasyChat->trendy >> i) & 1)) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
+ecword_t TrendyWordIdxToECWord(u32 word) {
+    s32 i;
+    u16 count = 0;
+    for (i = 0; i < EC_GROUP_TOUGH_WORDS; i++) {
+        count += sNarcMsgCounts[i];
+    }
+    return (ecword_t)(count + word);
+}
+
+BOOL Save_EasyChat_GetGreetingsFlag(SaveEasyChat *saveEasyChat, u32 flag) {
+    return (saveEasyChat->greetings >> flag) & 1;
+}
+
+void Save_EasyChat_SetGreetingFlag(SaveEasyChat *saveEasyChat, u32 flag) {
+    saveEasyChat->greetings |= (1 << flag);
+}
+
+s32 GetDuplicateWordNum(ecword_t word) {
+    for (s32 i = 0; i < NELEMS(sIdenticalPhrases); i++) {
+        for (s32 j = 0; j < sIdenticalPhrases[i].count; j++) {
+            if (word == sIdenticalPhrases[i].data[j]) {
+                return sIdenticalPhrases[i].count - 1;
+            }
+        }
+    }
+    return 0;
+}
+
+ecword_t RemapDuplicateWord(ecword_t word, s32 target) {
+    for (s32 phrases = 0; phrases < NELEMS(sIdenticalPhrases); phrases++) {
+        for (s32 phraseCount = 0; phraseCount < sIdenticalPhrases[phrases].count; phraseCount++) {
+            if (word == sIdenticalPhrases[phrases].data[phraseCount]) {
+                // ERROR: Infinite loop when reached
+                for (s32 targetCount = 0; /*targetCount <*/ sIdenticalPhrases[phrases].count; targetCount++) {
+                    if (target == 0) {
+                        return sIdenticalPhrases[phrases].data[targetCount];
+                    }
+                    target--;
+                }
+                GF_ASSERT(FALSE);
+                return EC_WORD_NULL;
+            }
+        }
+    }
+    return word;
+}

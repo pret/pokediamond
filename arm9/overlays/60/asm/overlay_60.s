@@ -1018,7 +1018,7 @@ ov60_021D7D18: ; 0x021D7D18
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldr r1, _021D7DF0 ; =gGameVersion
 	ldr r0, [r6, #0x20]
 	ldrb r1, [r1]
@@ -1042,7 +1042,7 @@ ov60_021D7D18: ; 0x021D7D18
 	add r7, #0x3c
 _021D7D7E:
 	add r0, r5, #0
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldr r0, [r6, #0x20]
 	add r1, r4, #3
 	add r2, r5, #0

@@ -43,7 +43,7 @@ Static arm9
 	Object unk_02012944.o
 	Object unk_02012CC8.o
 	Object mail_message.o
-	Object unk_020139D8.o
+	Object easy_chat.o
 	Object unk_02013CD4.o
 	Object unk_020142EC.o
 	Object unk_020144FC.o

@@ -547,7 +547,7 @@ sub_02083888: ; 0x02083888
 	add r4, #0xe8
 	lsl r7, r0, #0x2
 	ldr r0, [r4, r7]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldr r0, [r4, r7]
 	add r1, r5, #0x4
 	bl CopyU16ArrayToString

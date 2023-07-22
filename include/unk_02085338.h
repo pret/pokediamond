@@ -3,7 +3,7 @@
 
 #include "save.h"
 #include "pokedex.h"
-#include "unk_020139D8.h"
+#include "easy_chat.h"
 
 struct UnkStruct_02085338
 {

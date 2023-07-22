@@ -2165,7 +2165,7 @@ _021D85B4:
 	add r1, r1, r5
 	bl ov65_021D847C
 	ldr r0, [r4, #0x34]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldr r0, [r4, #0x20]
 	add r0, r0, r5
 	ldrb r2, [r0, #0x1f]
@@ -2339,7 +2339,7 @@ ov65_021D8718: ; 0x021D8718
 	sub sp, #8
 	add r4, r0, #0
 	ldr r0, [r4, #0x34]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldrb r1, [r4, #0x1a]
 	ldr r2, [r4, #0x20]
 	ldr r0, [r4, #0x28]
@@ -2376,7 +2376,7 @@ ov65_021D8764: ; 0x021D8764
 	sub sp, #8
 	add r4, r0, #0
 	ldr r0, [r4, #0x34]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldrb r1, [r4, #0x1a]
 	ldr r2, [r4, #0x20]
 	ldr r0, [r4, #0x28]
@@ -3844,7 +3844,7 @@ ov65_021D92C4: ; 0x021D92C4
 	mov r1, #0xff
 	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x20]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	mov r0, #1
 	str r0, [sp]
 	mov r3, #2

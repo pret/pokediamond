@@ -1787,7 +1787,7 @@ _020819A2:
 	add r0, r6, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	add r1, r6, #0x0
 	add r1, #0xe8
 	ldr r1, [r1, #0x0]

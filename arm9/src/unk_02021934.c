@@ -25,7 +25,7 @@ void String_Delete(struct String * str)
     FreeToHeap(str);
 }
 
-void StringSetEmpty(struct String * str)
+void String_SetEmpty(struct String * str)
 {
     ASSERT_STR16(str);
     str->size = 0;
@@ -87,7 +87,7 @@ void String16_FormatInteger(struct String * str, int num, u32 ndigits, enum Prin
     if (str->maxsize > ndigits + isNegative)
     {
         charbase = (whichCharset == 0) ? sCharset_JP : sCharset_EN;
-        StringSetEmpty(str);
+        String_SetEmpty(str);
         if (isNegative)
         {
             num *= -1;
@@ -203,7 +203,7 @@ void StringGetLineN(struct String * dest, volatile struct String * src, u32 n)
             }
         }
     }
-    StringSetEmpty(dest);
+    String_SetEmpty(dest);
     for (; i < src->size; i++)
     {
         u16 c = src->data[i];

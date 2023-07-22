@@ -1299,7 +1299,7 @@ _021D7EF8:
 	add r0, r6, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	ldr r2, [r4, #0x18]
 	ldr r3, [r4, #0x1c]
 	add r0, r6, #0
@@ -1717,7 +1717,7 @@ ov66_021D820C: ; 0x021D820C
 	ldr r6, [r5, #0x34]
 	add r7, r2, #0
 	str r3, [sp, #0x10]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	add r0, r4, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer

@@ -32,7 +32,7 @@
 #include "text.h"
 #include "text_02054590.h"
 #include "unk_0200CA44.h"
-#include "unk_020139D8.h"
+#include "easy_chat.h"
 #include "unk_02022504.h"
 #include "unk_02029FB0.h"
 #include "unk_020337E8.h"
@@ -4472,7 +4472,7 @@ BOOL ScrCmd_BufferRandomTrendySaying(ScriptContext *ctx) { //027D
     u16 *var = ScriptGetVarPointer(ctx);
     u16 fieldId = ScriptGetVar(ctx);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    u32 trendy = Save_EasyChat_RandomTrendySayingSet(Save_EasyChat_Get(ctx->fieldSystem->saveData));
+    u32 trendy = Save_EasyChat_SetRandomTrendySaying(Save_EasyChat_Get(ctx->fieldSystem->saveData));
     if (trendy == 32) {
         *var = -1;
         return FALSE;

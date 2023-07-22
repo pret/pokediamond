@@ -1538,7 +1538,7 @@ sub_02065FF8: ; 0x02065FF8
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _0206600E
-	bl StringSetEmpty
+	bl String_SetEmpty
 _0206600E:
 	pop {r3, pc}
 
@@ -2076,7 +2076,7 @@ _02066426:
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl StringSetEmpty
+	bl String_SetEmpty
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0x2
