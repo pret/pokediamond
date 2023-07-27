@@ -28,29 +28,29 @@ void BuildAnalyzer::AnalyzeObject(path fname_s) {
         if (sectionType != SECTION_OTHER) {
             sizes[sectionType][sourceType] += (hdr.sh_size + 3) & ~3;
             auto data = elf.ReadSectionData<unsigned>(hdr);
-//#ifndef NDEBUG
-//            unordered_set<unsigned> unique_addrs;
-//#endif
+#ifndef NDEBUG
+            unordered_set<unsigned> unique_addrs;
+#endif
             for (const auto & word : data) {
                 if (word == 0) {
                     continue; // might be a relocation
                 }
                 if (find_if(program.GetProgramHeaders().cbegin(), program.GetProgramHeaders().cend(), [&word](const auto & phdr) {
                     return phdr.p_vaddr <= word && word < phdr.p_vaddr + phdr.p_memsz;
-                }) != program.GetProgramHeaders().cend()) {
-//#ifndef NDEBUG
-//                    unique_addrs.insert(word);
-//#endif
+                }) != program.GetProgramHeaders().cend() && word > 0x01000000) {
+#ifndef NDEBUG
+                    unique_addrs.insert(word);
+#endif
                     n_hardcoded++;
                 }
             }
-//#ifndef NDEBUG
-//            if (!version.empty()) {
-//                for (const auto & word : unique_addrs) {
-//                    cerr << "hardcoded " << version << " pointer to " << hex << word << endl;
-//                }
-//            }
-//#endif
+#ifndef NDEBUG
+            if (!version.empty()) {
+                for (const auto & word : unique_addrs) {
+                    cerr << "hardcoded " << version << " pointer to " << hex << word << endl;
+                }
+            }
+#endif
         } else if (hdr.sh_type == SHT_RELA) {
             n_relocations += elf.GetSectionElementCount<Elf32_Rela>(hdr);
         }

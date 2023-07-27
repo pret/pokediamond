@@ -53,9 +53,9 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
-MWASFLAGS = -proc arm5te -ir ../..
-MWCFLAGS = -O4,p -inline on,noauto -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/MSL_C/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
-MWLDFLAGS = -library -nodead -w off -proc v5te -interworking -pic -msgstyle gcc
+MWASFLAGS = -proc arm5te -g -ir ../..
+MWCFLAGS = -O4,p -sym on -inline on,noauto -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/MSL_C/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWLDFLAGS = -library -sym on -nodead -w off -proc v5te -interworking -pic -msgstyle gcc
 ARFLAGS = rcS
 
 export MWCIncludes := MSL_C/include libnns/include NitroSDK/include
