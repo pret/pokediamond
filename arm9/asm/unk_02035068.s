@@ -85,7 +85,7 @@ sub_02035080: ; 0x02035080
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x1
 	bne _020350A6
 	add r0, r5, #0x0
@@ -141,7 +141,7 @@ _02035106:
 	ldr r1, _02035114 ; =sub_020352E4
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3-r5, pc}
 	nop
 _02035114: .word sub_020352E4
@@ -173,7 +173,7 @@ _0203514C:
 	ldr r1, _02035158 ; =sub_020352E4
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3-r5, pc}
 	.balign 4
 _02035158: .word sub_020352E4
@@ -205,7 +205,7 @@ _02035190:
 	ldr r1, _0203519C ; =sub_020352E4
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3-r5, pc}
 	.balign 4
 _0203519C: .word sub_020352E4
@@ -224,7 +224,7 @@ sub_020351A0: ; 0x020351A0
 	str r1, [r4, r0]
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x1
 	bne _020351D4
 	add r0, r5, #0x0
@@ -288,7 +288,7 @@ _02035240:
 	ldr r0, [r5, #0x10]
 	ldr r1, _02035250 ; =sub_020352E4
 	add r2, r4, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	pop {r3-r5, pc}
 	.balign 4
 _0203524C: .word 0x000005FD
@@ -390,7 +390,7 @@ sub_020352E4: ; 0x020352E4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldrh r1, [r4, #0x2a]
 	cmp r1, #0xf
@@ -420,7 +420,7 @@ _02035308: ; jump table (using 16-bit offset)
 	.short _02035432 - _02035308 - 2; case 15
 _02035328:
 	ldr r0, [r5, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	mov r1, #0x73
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
@@ -478,7 +478,7 @@ _02035398:
 	cmp r0, #0x0
 	beq _02035484
 	ldr r0, [r5, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	add r0, r6, #0x0
 	bl sub_0203549C
 	add r0, r6, #0x0
@@ -508,7 +508,7 @@ _020353D6:
 	add r0, r4, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
 	pop {r4-r6, pc}
 _020353F6:
@@ -517,7 +517,7 @@ _020353F6:
 	cmp r0, #0x0
 	beq _02035484
 	ldr r0, [r5, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	mov r0, #0x1
 	bl ov05_021D7CA4
 	mov r0, #0xb
@@ -533,14 +533,14 @@ _02035412:
 	add r2, #0x30
 	ldr r2, [r4, r2]
 	add r0, r6, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	add r0, r4, #0x0
 	bl FreeToHeap
 	b _02035484
 _02035432:
 	bl FreeToHeap
 	ldr r0, [r5, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
 	pop {r4-r6, pc}
 _02035440:
@@ -561,7 +561,7 @@ _02035440:
 	add r0, r4, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
 	pop {r4-r6, pc}
 _02035478:
@@ -591,7 +591,7 @@ sub_0203549C: ; 0x0203549C
 	bl TaskManager_GetFieldSystem
 	str r0, [sp, #0x1c]
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r1, r4, #0x0
 	add r1, #0x30
@@ -915,11 +915,11 @@ sub_02035734: ; 0x02035734
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x1
 	bne _0203575A
 	mov r6, #0x0
@@ -1074,11 +1074,11 @@ sub_020358A0: ; 0x020358A0
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x0
 	bne _020358CE
 	ldr r0, [r4, #0xc]
@@ -1105,7 +1105,7 @@ sub_020358E4: ; 0x020358E4
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x20]
 	bl sub_02001E5C
@@ -1583,7 +1583,7 @@ sub_02035CA0: ; 0x02035CA0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	bl sub_02035718
 	add r0, r4, #0x0
@@ -1608,10 +1608,10 @@ sub_02035CDC: ; 0x02035CDC
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _02035D02
 	mov r1, #0x72
@@ -1634,7 +1634,7 @@ sub_02035D04: ; 0x02035D04
 	thumb_func_start sub_02035D10
 sub_02035D10: ; 0x02035D10
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x0
 	bl ov05_021D7CA4
@@ -1657,7 +1657,7 @@ sub_02035D34: ; 0x02035D34
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r6, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x20
@@ -1721,7 +1721,7 @@ sub_02035DC8: ; 0x02035DC8
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204649C
@@ -1741,7 +1741,7 @@ _02035DF0:
 	thumb_func_start sub_02035DF8
 sub_02035DF8: ; 0x02035DF8
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x0
 	bl ov05_021D7CA4
@@ -1763,7 +1763,7 @@ sub_02035E1C: ; 0x02035E1C
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	mov r1, #0x7a
 	add r4, r0, #0x0
 	lsl r1, r1, #0x2
@@ -1790,7 +1790,7 @@ sub_02035E50: ; 0x02035E50
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x40
@@ -1849,7 +1849,7 @@ _02035ECC:
 	bl AllocFromHeap
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r7, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -1901,7 +1901,7 @@ _02035F4A:
 	bl AllocFromHeap
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r7, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -1958,7 +1958,7 @@ _02035FD0:
 	bl AllocFromHeap
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r7, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -2052,7 +2052,7 @@ _0203609C:
 	b _0203625E
 _020360AC:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r6, #0x0
 	add r1, #0x22
 	ldrb r1, [r1, #0x0]
@@ -2271,7 +2271,7 @@ _02036280: .word sub_020362E4
 	thumb_func_start sub_02036284
 sub_02036284: ; 0x02036284
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x0
 	bl ov05_021D7CA4
@@ -2293,7 +2293,7 @@ sub_020362A8: ; 0x020362A8
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	mov r1, #0x73
 	add r4, r0, #0x0
 	lsl r1, r1, #0x2
@@ -2323,7 +2323,7 @@ sub_020362E4: ; 0x020362E4
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0xb
 	bl BagView_New
@@ -2400,7 +2400,7 @@ _0203638A:
 	add r5, r0, #0x0
 	bl memset
 	ldr r0, [r6, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r5, #0x0]
 	ldr r0, [r6, #0xc]
 	bl Save_Bag_Get
@@ -2439,7 +2439,7 @@ _0203638A:
 	b _020364F8
 _020363F6:
 	ldr r0, [r6, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #0x4]
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
@@ -2566,7 +2566,7 @@ _0203650C: .word sub_02036BDC
 	thumb_func_start sub_02036510
 sub_02036510: ; 0x02036510
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x0
 	bl ov05_021D7CA4
@@ -2589,7 +2589,7 @@ sub_02036534: ; 0x02036534
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0xb
 	bl sub_02065054
@@ -2626,7 +2626,7 @@ sub_02036584: ; 0x02036584
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	mov r1, #0x7e
 	add r4, r0, #0x0
 	lsl r1, r1, #0x2
@@ -2649,7 +2649,7 @@ sub_02036584: ; 0x02036584
 sub_020365BC: ; 0x020365BC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	bl sub_02035718
 	add r0, r4, #0x0
@@ -2672,7 +2672,7 @@ sub_020365BC: ; 0x020365BC
 sub_020365F0: ; 0x020365F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -2684,7 +2684,7 @@ sub_020365F0: ; 0x020365F0
 	ldr r1, _0203663C ; =0x000007F2
 	add r0, r5, #0x0
 	add r3, r2, #0x0
-	bl sub_02038CD8
+	bl QueueScript
 	b _02036636
 _02036618:
 	mov r0, #0x20
@@ -2699,7 +2699,7 @@ _02036618:
 	ldr r1, _02036640 ; =0x000007D5
 	add r0, r5, #0x0
 	add r3, r3, #0x4
-	bl sub_02038CD8
+	bl QueueScript
 _02036636:
 	mov r0, #0x5
 	strh r0, [r4, #0x2a]
@@ -2715,7 +2715,7 @@ sub_02036644: ; 0x02036644
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
@@ -2745,7 +2745,7 @@ _02036678:
 	thumb_func_start sub_02036684
 sub_02036684: ; 0x02036684
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x0
 	bl ov05_021D7CA4
@@ -2767,7 +2767,7 @@ sub_020366A8: ; 0x020366A8
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02037EF8
@@ -2789,7 +2789,7 @@ sub_020366D4: ; 0x020366D4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
@@ -2806,7 +2806,7 @@ sub_020366D4: ; 0x020366D4
 	thumb_func_start sub_02036700
 sub_02036700: ; 0x02036700
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x0
 	bl ov05_021D7CA4
@@ -2829,7 +2829,7 @@ sub_02036724: ; 0x02036724
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r2, [r5, #0xc]
 	mov r0, #0x2
@@ -2870,7 +2870,7 @@ sub_0203677C: ; 0x0203677C
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
@@ -2919,7 +2919,7 @@ sub_020367E8: ; 0x020367E8
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	bl sub_02035718
 	add r0, r4, #0x0
@@ -2934,19 +2934,19 @@ sub_020367E8: ; 0x020367E8
 	bl sub_020358A0
 	ldr r0, [r6, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x1
 	bne _02036834
 	ldr r1, _02036848 ; =0x00002275
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	b _0203683E
 _02036834:
 	add r0, r5, #0x0
 	mov r1, #0x4
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 _0203683E:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -2962,7 +2962,7 @@ sub_0203684C: ; 0x0203684C
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x30
@@ -2992,7 +2992,7 @@ sub_0203684C: ; 0x0203684C
 	add r5, r0, #0x0
 	bl memset
 	ldr r0, [r6, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r5, #0x0]
 	ldr r0, [r6, #0xc]
 	bl Save_Bag_Get
@@ -3089,7 +3089,7 @@ sub_0203695C: ; 0x0203695C
 	bl TaskManager_GetFieldSystem
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r6, r0, #0x0
 	mov r0, #0xb
 	bl sub_020851B8
@@ -3172,7 +3172,7 @@ sub_02036A14: ; 0x02036A14
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
@@ -3217,7 +3217,7 @@ sub_02036A78: ; 0x02036A78
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	mov r1, #0x7e
 	add r4, r0, #0x0
 	lsl r1, r1, #0x2
@@ -3248,7 +3248,7 @@ sub_02036AB8: ; 0x02036AB8
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
@@ -3281,7 +3281,7 @@ sub_02036AB8: ; 0x02036AB8
 	b _02036B82
 _02036B0E:
 	ldr r0, [r6, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -3346,7 +3346,7 @@ sub_02036B90: ; 0x02036B90
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	mov r1, #0x73
 	add r4, r0, #0x0
 	lsl r1, r1, #0x2
@@ -3385,7 +3385,7 @@ sub_02036BDC: ; 0x02036BDC
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
@@ -3521,7 +3521,7 @@ sub_02036CEC: ; 0x02036CEC
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_Bag_Get
@@ -3585,7 +3585,7 @@ sub_02036D94: ; 0x02036D94
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
@@ -3614,7 +3614,7 @@ sub_02036DD4: ; 0x02036DD4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	mov r1, #0x73
 	add r4, r0, #0x0
 	lsl r1, r1, #0x2
@@ -3640,7 +3640,7 @@ sub_02036E08: ; 0x02036E08
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r6, r0, #0x0
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
@@ -3651,7 +3651,7 @@ sub_02036E08: ; 0x02036E08
 	lsl r2, r0, #0x10
 	bl CreateHeap
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	ldrb r1, [r5, #0x0]
 	str r0, [sp, #0x20]
 	bl GetPartyMonByIndex
@@ -3760,7 +3760,7 @@ sub_02036F1C: ; 0x02036F1C
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x7e
 	lsl r0, r0, #0x2

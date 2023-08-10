@@ -1762,7 +1762,7 @@ sub_02050968: ; 0x02050968
 	ldr r1, [r1, #0x0]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x44]
-	bl CopyPlayerParty
+	bl CopyParty
 _02050986:
 	cmp r5, #0x0
 	beq _02050994

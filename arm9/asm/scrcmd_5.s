@@ -40,7 +40,7 @@ ScrCmd_Unk024F: ; 0x020411C4
 	add r0, #0x80
 	ldr r7, [r0, #0x0]
 	ldr r0, [r7, #0xc]
-	bl GetStoragePCPointer
+	bl Save_PCStorage_Get
 	str r0, [sp, #0x20]
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -74,7 +74,7 @@ ScrCmd_Unk024F: ; 0x020411C4
 	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
@@ -85,7 +85,7 @@ ScrCmd_Unk024F: ; 0x020411C4
 	beq _02041286
 _0204123C:
 	ldr r0, [r7, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c

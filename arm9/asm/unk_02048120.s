@@ -137,7 +137,7 @@ _02048210: .word sub_02048214
 sub_02048214: ; 0x02048214
 	push {r3-r4, lr}
 	sub sp, #0xc
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x4
@@ -313,7 +313,7 @@ FieldTask_BlackOut: ; 0x0204837C
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x6
@@ -391,7 +391,7 @@ _0204840C:
 	b _02048488
 _02048434:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -412,14 +412,14 @@ _02048442:
 	ldr r1, _02048490 ; =0x000007E4
 	add r0, r5, #0x0
 	add r3, r2, #0x0
-	bl sub_02038CD8
+	bl QueueScript
 	b _0204847A
 _0204846E:
 	mov r2, #0x0
 	ldr r1, _02048494 ; =0x000007E5
 	add r0, r5, #0x0
 	add r3, r2, #0x0
-	bl sub_02038CD8
+	bl QueueScript
 _0204847A:
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1

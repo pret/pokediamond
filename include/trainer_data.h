@@ -73,7 +73,7 @@ struct TrainerDataLoaded
 struct BattleSetupStruct
 {
     u32 flags;
-    struct PlayerParty * parties[4];
+    struct Party * parties[4];
     u16 field_14[2];
     u32 trainer_idxs[4];
     struct TrainerDataLoaded datas[4];

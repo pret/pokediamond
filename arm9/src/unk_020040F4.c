@@ -208,7 +208,7 @@ BOOL sub_02004180(s32 param0)
     return res;
 }
 
-BOOL sub_0200433C(u8 param0, int param1, u32 param2)
+BOOL sub_0200433C(u8 param0, u16 param1, u32 param2)
 {
     u8 *st0 = sub_02003D38(20);
     u8 *st4 = sub_02003D38(21);

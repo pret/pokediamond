@@ -422,7 +422,7 @@ sub_02064A70: ; 0x02064A70
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x3
@@ -546,7 +546,7 @@ sub_02064B70: ; 0x02064B70
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x3

@@ -627,7 +627,7 @@ sub_02085DA4: ; 0x02085DA4
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	ldr r7, [r6, #0x8]
@@ -662,7 +662,7 @@ _02085DDC:
 	mov r1, #0x0
 	bl sub_02085D8C
 	ldr r0, [r6, #0x10]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r7, #0x1c]
 	bl GetPartyCount
 	mov r4, #0x0
@@ -799,7 +799,7 @@ _02085F0E:
 	b _02085F38
 _02085F14:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	mov r0, #0x6
 	str r0, [r6, #0x14]
 	b _02085F38

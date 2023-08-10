@@ -485,7 +485,7 @@ sub_0204BD40: ; 0x0204BD40
 	bl sub_02047800
 	add r1, r5, #0x0
 	add r7, r0, #0x0
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	ldr r0, [sp, #0x0]
 	ldr r1, [r6, #0x3c]
 	add r2, r4, #0x0

@@ -7519,7 +7519,7 @@ ov14_021DB220: ; 0x021DB220
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4]
-	bl GetStoragePCPointer
+	bl Save_PCStorage_Get
 	mov r1, #0x12
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -7527,7 +7527,7 @@ ov14_021DB220: ; 0x021DB220
 	sub r0, r1, #4
 	str r2, [r5, r0]
 	ldr r0, [r4]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0x49
 	lsl r1, r1, #2
 	str r0, [r5, r1]

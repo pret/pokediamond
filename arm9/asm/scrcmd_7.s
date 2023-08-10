@@ -266,7 +266,7 @@ ScrCmd_Unk00E5: ; 0x0204188C
 	mov r6, #0x0
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0x1
 	bne _020418F2
 	ldr r0, [r4, #0xc]
@@ -281,7 +281,7 @@ _020418F2:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x8]
 	add r3, r6, #0x0
-	bl sub_020470E8
+	bl SetupAndStartTrainerBattle
 	mov r0, #0x1
 	add sp, #0x10
 	pop {r3-r7, pc}
@@ -327,7 +327,7 @@ ScrCmd_Unk02A0: ; 0x0204190C
 	ldr r0, [r5, #0x74]
 	add r1, r7, #0x0
 	add r3, r6, #0x0
-	bl sub_020470E8
+	bl SetupAndStartTrainerBattle
 	mov r0, #0x1
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -524,7 +524,7 @@ ScrCmd_Unk00EC: ; 0x02041AE0
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_020480B8
+	bl IsBattleResultWin
 	strh r0, [r5, #0x0]
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -590,7 +590,7 @@ ScrCmd_Unk00EE: ; 0x02041B70
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl HasEnoughAlivePokemonForDoubleBattle
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -613,7 +613,7 @@ ScrCmd_Unk00EF: ; 0x02041B9C
 	ldr r0, [r4, #0x74]
 	mov r1, #0x1
 	add r3, r2, #0x0
-	bl sub_020470E8
+	bl SetupAndStartTrainerBattle
 	mov r0, #0x1
 	add sp, #0x8
 	pop {r4, pc}

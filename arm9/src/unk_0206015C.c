@@ -47,7 +47,7 @@ void CallTask_UseGreatMarshBinoculars(struct FieldSystem *fieldSystem)
 BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)sub_0204652C(taskManager);
+    struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)TaskManager_GetEnvironment(taskManager);
 
     switch (unkStruct1->action)
     {
@@ -55,7 +55,7 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager)
         sub_0206367C(fieldSystem, 1);
         ov06_02245198(unkStruct1->unkD, unkStruct1->unk4);
         unkStruct1->unk8 = ov06_022451F0(unkStruct1->unk4);
-        sub_0204AFC8(taskManager);
+        CallTask_FadeToBlack(taskManager);
         unkStruct1->action = 1;
         break;
 
@@ -80,7 +80,7 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager)
         break;
 
     case 3:
-        sub_0204AF84(taskManager);
+        CallTask_RestoreOverworld(taskManager);
         unkStruct1->action = 4;
         break;
 
@@ -101,7 +101,7 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager)
         else
         {
             MapObject_SetVisible(playerObject, FALSE);
-            sub_0204B00C(taskManager);
+            CallTask_FadeFromBlack(taskManager);
             unkStruct1->action = 8;
         }
         break;

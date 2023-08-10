@@ -283,7 +283,7 @@ _02042F0C: .word UNK_020F43E4
 sub_02042F10: ; 0x02042F10
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl GetPartyCount
 	cmp r0, #0x6
 	bge _02042F24
@@ -656,7 +656,7 @@ _0204322C:
 	bl CalcMonLevelAndStats
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r4, #0x0
 	bl AddMonToParty
 	cmp r0, #0x0

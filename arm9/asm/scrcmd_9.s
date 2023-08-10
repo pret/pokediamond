@@ -242,7 +242,7 @@ ScrCmd_Unk02B8: ; 0x02042000
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -407,7 +407,7 @@ _02042170:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -548,7 +548,7 @@ sub_02042288: ; 0x02042288
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl GetFirstNonEggInParty
 	bl sub_020690E4
 	add r2, r0, #0x0

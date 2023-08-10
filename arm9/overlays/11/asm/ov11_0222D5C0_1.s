@@ -1153,7 +1153,7 @@ _0222DFE4:
 _0222DFEC:
 	ldr r0, [r5, #0x68]
 	ldr r1, [r6, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [r5, #0x68]
 	bl FreeToHeap
 	add r1, r6, #0
@@ -1997,7 +1997,7 @@ _0222E734:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2102,7 +2102,7 @@ _0222E810:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2212,7 +2212,7 @@ _0222E8FE:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2342,7 +2342,7 @@ _0222EA0C:
 	ldr r0, [sp, #4]
 	ldr r1, [r7, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [r7, #0x68]
 	mov r5, #0
 	bl GetPartyCount
@@ -2428,7 +2428,7 @@ _0222EAC0:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2555,7 +2555,7 @@ _0222EBC6:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2664,7 +2664,7 @@ _0222ECA6:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2797,7 +2797,7 @@ _0222EDBC:
 	ldr r0, [sp, #4]
 	ldr r1, [r7, #0x68]
 	ldr r0, [r0, #4]
-	bl CopyPlayerParty
+	bl CopyParty
 	ldr r0, [r7, #0x68]
 	mov r5, #0
 	bl GetPartyCount

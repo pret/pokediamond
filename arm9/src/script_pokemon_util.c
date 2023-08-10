@@ -24,7 +24,7 @@ BOOL GiveMon(HeapID heapId, struct SaveData * save, u16 species, u8 level, u16 i
 {
     u32 ptr;
     PlayerProfile * data = Save_PlayerData_GetProfileAddr(save);
-    struct PlayerParty * party = SaveArray_PlayerParty_Get(save);
+    struct Party * party = SaveArray_Party_Get(save);
     struct Pokemon * mon = AllocMonZeroed(heapId);
     ZeroMonData(mon);
     CreateMon(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
@@ -45,7 +45,7 @@ BOOL GiveEgg(HeapID heapId, struct SaveData * save, u16 species, int level, int 
 {
 #pragma unused(heapId)
     PlayerProfile * data = Save_PlayerData_GetProfileAddr(save);
-    struct PlayerParty * party = SaveArray_PlayerParty_Get(save);
+    struct Party * party = SaveArray_Party_Get(save);
     struct Pokemon * mon = AllocMonZeroed(HEAP_ID_32);
     ZeroMonData(mon);
     ov05_SetEggStats(mon, species, level, data, 4, sub_02015CF8(metLocIndex, a3));
@@ -54,13 +54,13 @@ BOOL GiveEgg(HeapID heapId, struct SaveData * save, u16 species, int level, int 
     return isAdded;
 }
 
-void PartyMonSetMoveInSlot(struct PlayerParty * party, int partySlot, int moveSlot, u16 move)
+void PartyMonSetMoveInSlot(struct Party * party, int partySlot, int moveSlot, u16 move)
 {
     struct Pokemon * mon = GetPartyMonByIndex(party, partySlot);
     MonSetMoveInSlot(mon, move, (u8)moveSlot);
 }
 
-int GetIdxOfFirstPartyMonWithMove(struct PlayerParty * party, int move)
+int GetIdxOfFirstPartyMonWithMove(struct Party * party, int move)
 {
     int partyCount = GetPartyCount(party);
 
@@ -79,7 +79,7 @@ int GetIdxOfFirstPartyMonWithMove(struct PlayerParty * party, int move)
     return 0xFF;
 }
 
-int CountAlivePokemon(struct PlayerParty * party)
+int CountAlivePokemon(struct Party * party)
 {
     int partyCount = GetPartyCount(party);
     int i;
@@ -95,7 +95,7 @@ int CountAlivePokemon(struct PlayerParty * party)
     return aliveCount;
 }
 
-struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct PlayerParty * party)
+struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct Party * party)
 {
     int i;
     int partyCount = GetPartyCount(party);
@@ -111,7 +111,7 @@ struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct PlayerParty * party)
     return 0;
 }
 
-struct Pokemon * GetFirstNonEggInParty(struct PlayerParty * party)
+struct Pokemon * GetFirstNonEggInParty(struct Party * party)
 {
     u16 i;
     u16 partyCount = (u16)GetPartyCount(party);
@@ -126,12 +126,12 @@ struct Pokemon * GetFirstNonEggInParty(struct PlayerParty * party)
     return 0;
 }
 
-BOOL HasEnoughAlivePokemonForDoubleBattle(struct PlayerParty * party)
+BOOL HasEnoughAlivePokemonForDoubleBattle(struct Party * party)
 {
     return (CountAlivePokemon(party) >= 2);
 }
 
-void GiveAllMonsTheSinnohChampRibbon(struct PlayerParty * party)
+void GiveAllMonsTheSinnohChampRibbon(struct Party * party)
 {
     u8 var = 1;
     int partyCount = GetPartyCount(party);
@@ -148,7 +148,7 @@ void GiveAllMonsTheSinnohChampRibbon(struct PlayerParty * party)
     }
 }
 
-int ApplyPoisonStep(struct PlayerParty * party, int location)
+int ApplyPoisonStep(struct Party * party, int location)
 {
     u32 hp;
     int numPoisoned = 0;

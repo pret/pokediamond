@@ -18,7 +18,7 @@ void Save_HOF_Init(struct HallOfFame * hof)
     MI_CpuClear32(hof, sizeof(struct HallOfFame));
 }
 
-void Save_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, RTCDate * date)
+void Save_HOF_RecordParty(struct HallOfFame * hof, struct Party * party, RTCDate * date)
 {
     GF_ASSERT(hof != NULL);
     GF_ASSERT(hof->next_record < NUM_HOF_RECORDS);

@@ -229,7 +229,7 @@ sub_02086280: ; 0x02086280
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x6
@@ -369,7 +369,7 @@ _020863A8:
 	b _020863CE
 _020863B6:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

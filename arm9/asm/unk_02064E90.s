@@ -609,7 +609,7 @@ sub_02065370: ; 0x02065370
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, #0xa
@@ -650,7 +650,7 @@ _020653BA:
 	b _020653E2
 _020653C8:
 	add r0, r4, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _020653E2
 	ldr r0, [r4, #0x78]

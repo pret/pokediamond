@@ -8,6 +8,8 @@
 #include "constants/items.h"
 #include "constants/sndseq.h"
 #include "constants/weather.h"
+#include "easy_chat.h"
+#include "encounter.h"
 #include "fashion_case.h"
 #include "gf_rtc.h"
 #include "hall_of_fame.h"
@@ -31,8 +33,8 @@
 #include "task.h"
 #include "text.h"
 #include "text_02054590.h"
+#include "unk_020040F4.h"
 #include "unk_0200CA44.h"
-#include "easy_chat.h"
 #include "unk_02022504.h"
 #include "unk_02029FB0.h"
 #include "unk_020337E8.h"
@@ -90,14 +92,14 @@ extern LocalMapObject *sub_020580B4(MapObjectManager *mapObjectManager, u32 para
 extern LocalMapObject *GetMapObjectByID(MapObjectManager *mapObjectManager, u16 eventId);
 extern BOOL sub_0205AEF0(u32 param0);
 extern void sub_0205AEFC(u32 param0);
-extern void sub_02058780(MapObjectManager *mapObjectManager);
+extern void MapObjectManager_PauseAllMovement(MapObjectManager *mapObjectManager);
 extern LocalMapObject *PlayerAvatar_GetMapObject(PlayerAvatar *playerAvatar);
 extern u32 sub_0205AE28(LocalMapObject *event);
 extern void sub_02058908(LocalMapObject *event);
 extern u32 sub_02058854(LocalMapObject *event);
 extern LocalMapObject *sub_0205E7C4(LocalMapObject *event);
 extern void sub_02058914(LocalMapObject *event);
-extern void sub_020587B0(MapObjectManager *mapObjectManager);
+extern void MapObjectManager_UnpauseAllMovement(MapObjectManager *mapObjectManager);
 extern u32 sub_02034B64(FieldSystem *fieldSystem);
 extern u32 sub_02034B6C(FieldSystem *fieldSystem);
 extern u32 sub_020575D4(MapObjectManager *mapObjectManager, u16 eventVar, u32 param2, u32 mapId, u32 param4);
@@ -133,7 +135,6 @@ extern u16 sub_02037A78(void *runningAppData);
 extern u16 ov05_021E1858(FieldSystem *fieldSystem, LocalMapObject *event, u16 param2);
 extern void *sub_02029048(u32 param0);
 extern void sub_02028AD4(u32 *param0, void *param1, BOOL param2);
-extern void sub_0204AF3C(TaskManager *taskManager);
 extern SaveFashionData *Save_FashionData_Get(SaveData *save);
 extern BOOL CheckPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
 extern BOOL CheckContestPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
@@ -213,12 +214,8 @@ extern u16 MapNumToFloorNo(u32 mapId);
 extern void PrintCurrentFloorInNewWindow(FieldSystem *fieldSystem, u32 x, u32 y, u16 *var, MessageFormat *messageFormat);
 extern u16 sub_02054CC8(u32 param0, u16 param1);
 extern u16 sub_02054D1C(u32 param0, u16 param1);
-extern void SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL isLegendary);
-extern void SetupAndStartFirstBattle(TaskManager *taskManager, u16 species, u8 level);
-extern void SetupAndStartTutorialBattle(TaskManager *taskManager);
 extern void UpdateHoneyTree(FieldSystem *fieldSystem);
 extern u16 CheckHoneyTree(FieldSystem *fieldSystem);
-extern void SetupAndStartHoneyTreeBattle(TaskManager *taskManager, u32 *winFlag);
 extern void ov05_021F4E7C(FieldSystem *fieldSystem);
 extern void sub_020386B4(FieldSystem *fieldSystem);
 extern u16 Field_SaveGame(FieldSystem *fieldSystem);
@@ -254,7 +251,7 @@ extern u16 sub_020536D0(PlayerGender playerGender, u16 param1, u16 param2);
 extern void sub_02049EA4(TaskManager *taskManager);
 extern void LocalFieldData_SetBlackoutSpawn(LocalFieldData *localFieldData, u16 spawnPoint);
 extern void CallFieldTask_BlackOut(TaskManager *taskManager);
-extern void HealParty(PlayerParty *playerParty);
+extern void HealParty(Party *playerParty);
 extern void sub_02050024(void);
 extern u32 sub_02031810(void);
 extern u32 sub_0202EDF8(void);
@@ -311,7 +308,6 @@ extern u16 sub_02027100(FashionCase *fashionCase, u16 param1);
 extern PokedexAppData *sub_02038AF4(FieldSystem *fieldSystem, HeapID heapId, BOOL isNational);
 extern void ov06_0224CBB0(SaveData *saveData);
 extern u16 ov06_0224CC24(SaveData *saveData);
-extern SafariZone *Save_SafariZone_Get(SaveData *saveData);
 extern u16 *LocalFieldData_GetSafariBallsCounter(LocalFieldData *localFieldData);
 extern u16 *LocalFieldData_GetSafariStepsCounter(LocalFieldData *localFieldData);
 extern void Save_VarsFlags_SetSafariSysFlag(SaveVarsFlags *varsFlags);
@@ -319,7 +315,6 @@ extern void sub_02060FD0(SafariZone *safariZone);
 extern void Save_VarsFlags_ClearSafariSysFlag(SaveVarsFlags *varsFlags);
 extern void sub_02061574(FieldSystem *fieldSystem);
 extern u16 SpearPillarSequence(FieldSystem *fieldSystem, u8 operation);
-extern void sub_0200433C(u32 param0, u32 param1, u32 param2);
 extern void ov06_0224525C(FieldSystem *fieldSystem, u16 var, u16 type);
 extern u16 ov06_02245340(FieldSystem *fieldSystem, u16 position);
 extern void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag);
@@ -1722,7 +1717,7 @@ BOOL ScrCmd_LockAllEvents(ScriptContext *ctx) { //0060
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
 
     if (*lastInteracted == NULL) {
-        sub_02058780(fieldSystem->mapObjectManager);
+        MapObjectManager_PauseAllMovement(fieldSystem->mapObjectManager);
     } else {
         ScrCmd_LockAllEvents2(ctx);
     }
@@ -1776,7 +1771,7 @@ BOOL ScrCmd_LockAllEvents2(ScriptContext *ctx) { //02B4
     MapObjectManager *mapObjectManager = fieldSystem->mapObjectManager;
     UNK_021C5A0C[0] = 0;
 
-    sub_02058780(mapObjectManager);
+    MapObjectManager_PauseAllMovement(mapObjectManager);
     if (sub_0205AE28(playerAvatar) == 0) {
         UNK_021C5A0C[0] |= 1;
         sub_02058914(playerAvatar);
@@ -1787,7 +1782,7 @@ BOOL ScrCmd_LockAllEvents2(ScriptContext *ctx) { //02B4
     }
     if (unk1 != NULL) {
         SaveVarsFlags *state = Save_VarsFlags_Get(fieldSystem->saveData);
-        if (sub_0205ED3C(state) == TRUE) {
+        if (Save_VarsFlags_CheckHaveFollower(state) == TRUE) {
             if (sub_02058854(unk1) != 0) {
                 UNK_021C5A0C[0] |= 2;
                 sub_02058914(unk1);
@@ -1805,7 +1800,7 @@ BOOL ScrCmd_LockAllEvents2(ScriptContext *ctx) { //02B4
 }
 
 BOOL ScrCmd_ReleaseAllEvents(ScriptContext *ctx) { //0061
-    sub_020587B0(ctx->fieldSystem->mapObjectManager);
+    MapObjectManager_UnpauseAllMovement(ctx->fieldSystem->mapObjectManager);
     return TRUE;
 }
 
@@ -1985,7 +1980,7 @@ BOOL ScrCmd_GetPokemonForm(ScriptContext *ctx) { //0095
     u16 partyPosition = ScriptGetVar(ctx);
     u16 *variable = ScriptGetVarPointer(ctx);
 
-    PlayerParty *party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
+    Party *party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
     *variable = GetMonUnownLetter(GetPartyMonByIndex(party, partyPosition));
 
     return FALSE;
@@ -2113,7 +2108,7 @@ BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx) { //009F
     FieldSystem *fieldSystem = ctx->fieldSystem;
     void **runningAppData = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
 
-    if (sub_0204647C(fieldSystem)) {
+    if (FieldSystem_ApplicationIsRunning(fieldSystem)) {
         return FALSE;
     }
     FreeToHeap(*runningAppData);
@@ -2125,7 +2120,7 @@ static BOOL sub_0203BBBC(ScriptContext *ctx) {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     PCBoxAppData **pcBoxDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     PCBoxAppData *pcBoxData = *pcBoxDataPtr;
-    if (sub_0204647C(fieldSystem)) {
+    if (FieldSystem_ApplicationIsRunning(fieldSystem)) {
         return FALSE;
     }
     if (pcBoxData->unk08 == TRUE) {
@@ -2137,11 +2132,11 @@ static BOOL sub_0203BBBC(ScriptContext *ctx) {
 }
 
 BOOL sub_0203BC04(ScriptContext *ctx) {
-    return !sub_0204647C(ctx->fieldSystem);
+    return !FieldSystem_ApplicationIsRunning(ctx->fieldSystem);
 }
 
 BOOL ScrCmd_RestoreOverworld(ScriptContext *ctx) { //00A1
-    sub_0204AF84(ctx->fieldSystem->taskManager);
+    CallTask_RestoreOverworld(ctx->fieldSystem->taskManager);
     return TRUE;
 }
 
@@ -2214,7 +2209,7 @@ BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx) { //0208
 BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx) { //028C
     PokepicManager **pokepicManager = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 partyId = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), partyId);
+    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyId);
     LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, HEAP_ID_4);
     *pokepicManager = DrawPokemonPicFromMon(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, mon, HEAP_ID_4);
     u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
@@ -2507,7 +2502,7 @@ BOOL ScrCmd_NamePokemonScreen(ScriptContext *ctx) { //00BB
     FieldSystem *fieldSystem = ctx->fieldSystem;
 
     u16 partyPos = ScriptGetVar(ctx);
-    PlayerParty *party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
+    Party *party = SaveArray_Party_Get(fieldSystem->saveData);
     Pokemon *mon = GetPartyMonByIndex(party, partyPos);
 
     u16 monNick[20];
@@ -2660,7 +2655,7 @@ BOOL ScrCmd_Defog(ScriptContext *ctx) { //00C4
 BOOL ScrCmd_Cut(ScriptContext *ctx) { //00C5
     void **miscData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR); //todo identify
     u16 partyPosition = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), partyPosition);
+    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
     u32 gender = PlayerAvatar_GetGender(ctx->fieldSystem->playerAvatar);
     *miscData = ov06_0224666C(ctx->fieldSystem, 0, mon, gender);
     SetupNativeScript(ctx, sub_0203C9F8);
@@ -3274,7 +3269,7 @@ BOOL ScrCmd_GetPlayerGender(ScriptContext *ctx) { //014D
 
 BOOL ScrCmd_HealParty(ScriptContext *ctx) { //014E
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(ctx->taskManager);
-    HealParty(SaveArray_PlayerParty_Get(fieldSystem->saveData));
+    HealParty(SaveArray_Party_Get(fieldSystem->saveData));
     return FALSE;
 }
 
@@ -3848,7 +3843,7 @@ BOOL ScrCmd_KeepSafariTrain(ScriptContext *ctx) { //020E
 BOOL ScrCmd_MoveSafariTrain(ScriptContext *ctx) { //020F
     u16 *var = ScriptGetVarPointer(ctx);
     u16 type = ScriptReadHalfword(ctx);
-    sub_0200433C(65, 0, 0);
+    sub_0200433C(65, SEQ_PV001, 0);
     ov06_0224525C(ctx->fieldSystem, *var, type);
     return TRUE;
 }
@@ -3980,7 +3975,7 @@ BOOL ScrCmd_NationalDex(ScriptContext *ctx) { //022D
 BOOL ScrCmd_GetTotalPokemonEVs(ScriptContext *ctx) { //0233
     u16 *var = ScriptGetVarPointer(ctx);
     u16 partyPosition = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), partyPosition);
+    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
 
     u32 hpEv = GetMonData(mon, MON_DATA_HP_EV, NULL);
     u32 atkEv = GetMonData(mon, MON_DATA_ATK_EV, NULL);
@@ -4011,7 +4006,7 @@ BOOL ScrCmd_GetPokemonFootprint(ScriptContext *ctx) { //023A
     u16 *var = ScriptGetVarPointer(ctx);
     u16 *var2 = ScriptGetVarPointer(ctx);
     u16 partyPosition = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), partyPosition);
+    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     *var = ov05_021F61E8(species);
     *var2 = ov05_021F61DC(species);
@@ -4052,7 +4047,7 @@ BOOL ScrCmd_GiveWallpaper(ScriptContext *ctx) { //0249 - used for easy chat unlo
     FieldSystem *fieldSystem = ctx->fieldSystem;
     PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(fieldSystem));
     u16 *var = ScriptGetVarPointer(ctx);
-    PCStorage *pcStorage = GetStoragePCPointer(fieldSystem->saveData);
+    PCStorage *pcStorage = Save_PCStorage_Get(fieldSystem->saveData);
     u16 unk0 = ScriptGetVar(ctx);
     u16 unk1 = ScriptGetVar(ctx);
     u16 unk2 = ScriptGetVar(ctx);
@@ -4113,7 +4108,7 @@ static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species
 
 BOOL ScrCmd_CountPCFreeSpace(ScriptContext *ctx) { //0252
     u16 *var = ScriptGetVarPointer(ctx);
-    u16 count = PCStorage_CountMonsAndEggsInAllBoxes(GetStoragePCPointer(ctx->fieldSystem->saveData));
+    u16 count = PCStorage_CountMonsAndEggsInAllBoxes(Save_PCStorage_Get(ctx->fieldSystem->saveData));
     *var = MONS_PER_BOX * NUM_BOXES - count;
     return FALSE;
 }
@@ -4176,13 +4171,13 @@ BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx) { //0260
 BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx) { //0262
     u16 species = ScriptGetVar(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    *var = PartyHasMon(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData), species);
+    *var = PartyHasMon(SaveArray_Party_Get(ctx->fieldSystem->saveData), species);
     return TRUE;
 }
 
 BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx) { //0263
     u16 form = ScriptGetVar(ctx);
-    PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
+    Party *playerParty = SaveArray_Party_Get(ctx->fieldSystem->saveData);
     s32 partyCount = GetPartyCount(playerParty);
     Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
     
@@ -4200,7 +4195,7 @@ BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx) { //0263
 #ifdef NONMATCHING
 BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) { //0264
     u16 *var = ScriptGetVarPointer(ctx);
-    PlayerParty *playerParty = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
+    Party *playerParty = SaveArray_Party_Get(ctx->fieldSystem->saveData);
     s32 partyCount = GetPartyCount(playerParty);
 
     u32 unk0[PARTY_SIZE];
@@ -4244,7 +4239,7 @@ asm BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) {
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #0xc]
 	bl GetPartyCount
 	add r2, sp, #0x18

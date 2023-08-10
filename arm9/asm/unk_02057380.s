@@ -2734,8 +2734,8 @@ sub_02058774: ; 0x02058774
 	nop
 _0205877C: .word sub_02058384
 
-	thumb_func_start sub_02058780
-sub_02058780: ; 0x02058780
+	thumb_func_start MapObjectManager_PauseAllMovement
+MapObjectManager_PauseAllMovement: ; 0x02058780
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl sub_02058368
@@ -2759,8 +2759,8 @@ _020587A6:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start sub_020587B0
-sub_020587B0: ; 0x020587B0
+	thumb_func_start MapObjectManager_UnpauseAllMovement
+MapObjectManager_UnpauseAllMovement: ; 0x020587B0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl sub_02058368

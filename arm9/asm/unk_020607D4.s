@@ -195,10 +195,10 @@ sub_02060948: ; 0x02060948
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
@@ -215,7 +215,7 @@ _02060972:
 	b _02060994
 _0206097C:
 	add r0, r4, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	beq _02060994
 	mov r0, #0x0
@@ -241,7 +241,7 @@ sub_020609A0: ; 0x020609A0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldrb r1, [r4, #0x0]
 	cmp r1, #0x7

@@ -8,7 +8,7 @@
 #include "unk_0202AC20.h"
 
 SafariZone *Save_SafariZone_Get(struct SaveData *save);
-struct PCStorage *GetStoragePCPointer(struct SaveData *save);
+struct PCStorage *Save_PCStorage_Get(struct SaveData *save);
 struct UnkStruct_0202AC20 * sub_0202251C(struct SaveData *save);
 void *sub_02022528(struct SaveData *save);
 HallOfFame *LoadHallOfFame(struct SaveData *save, HeapID heapId, int *ret_p);

@@ -39,7 +39,7 @@ void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot);
 void sub_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
 s8 BoxMonGetFlavorPreference(struct BoxPokemon * boxmon, int flavor);
 s8 GetFlavorPreferenceFromPID(u32 personality, int flavor);
-u8 Party_MaskMonsWithPokerus(struct PlayerParty * party_p, u8 mask);
+u8 Party_MaskMonsWithPokerus(struct Party * party_p, u8 mask);
 BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
 BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
 void BoxMon_UpdateArceusForm(struct BoxPokemon * boxmon);
@@ -2498,7 +2498,7 @@ BOOL sub_020690E8(struct Pokemon * pokemon)
     return FALSE;
 }
 
-u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret)
+u16 GetMonEvolution(struct Party * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret)
 {
     u16 target = SPECIES_NONE;
     u32 sp40;
@@ -3009,7 +3009,7 @@ void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
     CalcMonLevelAndStats(dest);
 }
 
-u8 Party_GetMaxLevel(struct PlayerParty * party)
+u8 Party_GetMaxLevel(struct Party * party)
 {
     int i;
     int r7 = GetPartyCount(party);
@@ -3088,7 +3088,7 @@ int Species_LoadLearnsetTable(u16 species, u32 form, u16 * dest)
     return i;
 }
 
-void Party_GivePokerusAtRandom(struct PlayerParty * party)
+void Party_GivePokerusAtRandom(struct Party * party)
 {
     int count = GetPartyCount(party);
     int idx;
@@ -3120,7 +3120,7 @@ void Party_GivePokerusAtRandom(struct PlayerParty * party)
     }
 }
 
-u8 Party_MaskMonsWithPokerus(struct PlayerParty * party, u8 mask)
+u8 Party_MaskMonsWithPokerus(struct Party * party, u8 mask)
 {
     int i = 0;
     u32 flag = 1;
@@ -3151,7 +3151,7 @@ u8 Party_MaskMonsWithPokerus(struct PlayerParty * party, u8 mask)
     return ret;
 }
 
-void Party_UpdatePokerus(struct PlayerParty * party, int r5)
+void Party_UpdatePokerus(struct Party * party, int r5)
 {
     int i;
     u8 pokerus;
@@ -3177,7 +3177,7 @@ void Party_UpdatePokerus(struct PlayerParty * party, int r5)
     }
 }
 
-void Party_SpreadPokerus(struct PlayerParty * party)
+void Party_SpreadPokerus(struct Party * party)
 {
     int count = GetPartyCount(party);
     int i;

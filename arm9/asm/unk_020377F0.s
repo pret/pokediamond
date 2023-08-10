@@ -429,7 +429,7 @@ sub_0203797C: ; 0x0203797C
 	mov r2, #0x40
 	bl MIi_CpuClearFast
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_Bag_Get
@@ -557,10 +557,10 @@ sub_02037A7C: ; 0x02037A7C
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x4
@@ -587,7 +587,7 @@ _02037AB2:
 	b _02037B3A
 _02037AC2:
 	add r0, r6, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _02037B3A
 	ldr r0, [r4, #0x4]
@@ -630,7 +630,7 @@ _02037AF8:
 	b _02037B3A
 _02037B1A:
 	add r0, r6, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _02037B3A
 	ldr r0, [r4, #0x8]
@@ -755,7 +755,7 @@ sub_02037C00: ; 0x02037C00
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -814,7 +814,7 @@ sub_02037C7C: ; 0x02037C7C
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	mov r0, #0x1
 	strb r0, [r4, #0x11]
@@ -860,7 +860,7 @@ sub_02037CF0: ; 0x02037CF0
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -915,10 +915,10 @@ sub_02037D70: ; 0x02037D70
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r6, r0, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl TaskManager_GetFieldSystem
@@ -938,7 +938,7 @@ _02037D9A:
 	str r0, [r4, #0x0]
 	b _02037E12
 _02037DA8:
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _02037E12
 	ldr r0, [r4, #0x0]
@@ -1261,7 +1261,7 @@ sub_0203800C: ; 0x0203800C
 	add r4, r0, #0x0
 	bl memset
 	add r0, r5, #0x0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]
@@ -1298,7 +1298,7 @@ sub_02038070: ; 0x02038070
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
@@ -1316,7 +1316,7 @@ _0203808E:
 	b _020380C8
 _0203809E:
 	add r0, r4, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _020380C8
 	ldr r0, [r5, #0x8]
@@ -1410,7 +1410,7 @@ sub_02038144: ; 0x02038144
 	bl Save_PlayerData_GetProfileAddr
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x9
@@ -1493,7 +1493,7 @@ sub_020381FC: ; 0x020381FC
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x7
@@ -1803,7 +1803,7 @@ sub_0203847C: ; 0x0203847C
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x3
@@ -1837,7 +1837,7 @@ _020384B6:
 	b _02038544
 _020384C8:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1907,7 +1907,7 @@ sub_0203854C: ; 0x0203854C
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #0x0]
@@ -1936,7 +1936,7 @@ _02038580:
 	pop {r3-r5, pc}
 _02038590:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	ldr r1, [r4, #0x4]
 	bl GetPartyMonByIndex
 	ldr r2, [r4, #0xc]
@@ -2003,7 +2003,7 @@ CreateNamingScreen: ; 0x020385CC
 	b _02038660
 _02038620:
 	ldr r0, [r7, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	ldr r1, [r4, #0x4]
 	bl GetPartyMonByIndex
 	mov r1, #0x6f
@@ -2127,7 +2127,7 @@ sub_020386E0: ; 0x020386E0
 	bl SaveArray_Get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl GetStoragePCPointer
+	bl Save_PCStorage_Get
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -2329,7 +2329,7 @@ HatchEggInParty: ; 0x020388B4
 	sub sp, #0x10
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl ov05_021ED49C
 	add r5, r0, #0x0
 	bne _020388CC
@@ -2379,10 +2379,10 @@ sub_02038914: ; 0x02038914
 	bl Save_VarsFlags_Get
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x0]
 	cmp r0, #0x0
@@ -2401,7 +2401,7 @@ _02038944:
 	b _020389C6
 _02038956:
 	add r0, r4, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _020389C6
 	ldr r0, [r4, #0xc]
@@ -2556,7 +2556,7 @@ _02038AAC: .word UNK_020F2BE8
 	thumb_func_start sub_02038AB0
 sub_02038AB0: ; 0x02038AB0
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	bl ov06_0224D79C
 	cmp r0, #0x1

@@ -48,7 +48,7 @@ struct HofDisplayMon
 
 u32 Save_HOF_sizeof(void);
 void Save_HOF_Init(struct HallOfFame * hof);
-void Save_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, RTCDate * date);
+void Save_HOF_RecordParty(struct HallOfFame * hof, struct Party * party, RTCDate * date);
 u32 Save_HOF_GetNumRecords(struct HallOfFame * hof);
 int Save_HOF_TranslateRecordIdx(struct HallOfFame * hof, int a1);
 u32 Save_HOF_RecordCountMons(struct HallOfFame * hof, int a1);

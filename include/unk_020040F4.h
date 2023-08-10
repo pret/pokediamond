@@ -41,7 +41,7 @@ u16 sub_02004140(void);
 void sub_0200414C(u16 param0);
 void sub_0200415C(u8 param0);
 BOOL sub_02004180(s32 param0);
-BOOL sub_0200433C(u8 param0, int param1, u32 param2);
+BOOL sub_0200433C(u8 param0, u16 param1, u32 param2);
 void sub_020044A8(s32 param0);
 void sub_020044D4(int seqNo, u32 param1);
 void sub_02004568(int seqNo, u16 param1);

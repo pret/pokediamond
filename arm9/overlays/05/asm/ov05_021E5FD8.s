@@ -425,7 +425,7 @@ ov05_021E6304: ; 0x021E6304
 	ldr r1, _021E6328 ; =ov05_021E632C
 	add r0, r4, #0
 	str r6, [r2, #0xc]
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 _021E6328: .word ov05_021E632C
@@ -433,7 +433,7 @@ _021E6328: .word ov05_021E632C
 	thumb_func_start ov05_021E632C
 ov05_021E632C: ; 0x021E632C
 	push {r4, r5, r6, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl PlayerAvatar_GetMapObject
@@ -596,7 +596,7 @@ _021E647E:
 	thumb_func_start ov05_021E6484
 ov05_021E6484: ; 0x021E6484
 	push {r3, r4, r5, r6, r7, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #7
@@ -830,7 +830,7 @@ _021E6666:
 	ldr r1, _021E6674 ; =ov05_021E6678
 	add r0, r5, #0
 	add r2, r4, #0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021E6674: .word ov05_021E6678
@@ -838,7 +838,7 @@ _021E6674: .word ov05_021E6678
 	thumb_func_start ov05_021E6678
 ov05_021E6678: ; 0x021E6678
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #0
@@ -986,7 +986,7 @@ ov05_021E67A0: ; 0x021E67A0
 	ldr r1, _021E67BC ; =ov05_021E67C0
 	add r0, r5, #0
 	str r4, [r2, #0xc]
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 _021E67BC: .word ov05_021E67C0
@@ -996,7 +996,7 @@ ov05_021E67C0: ; 0x021E67C0
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
 	add r6, r0, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl PlayerAvatar_GetMapObject
@@ -1273,7 +1273,7 @@ _021E69F6:
 	thumb_func_start ov05_021E69FC
 ov05_021E69FC: ; 0x021E69FC
 	push {r4, r5, r6, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldr r6, _021E6A24 ; =ov05_021F7714
 	add r5, r0, #0
 _021E6A06:
@@ -1527,7 +1527,7 @@ ov05_021E6BD8: ; 0x021E6BD8
 	add r2, r0, #0
 	ldr r1, _021E6BF0 ; =ov05_021E6C30
 	add r0, r4, #0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r4, pc}
 	nop
 _021E6BF0: .word ov05_021E6C30
@@ -1563,7 +1563,7 @@ _021E6C2C: .word ov05_021E6C30
 	thumb_func_start ov05_021E6C30
 ov05_021E6C30: ; 0x021E6C30
 	push {r4, r5, r6, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldr r6, _021E6C70 ; =ov05_021F7700
 	ldr r4, _021E6C74 ; =ov05_021F76EC
 	add r5, r0, #0
@@ -2112,7 +2112,7 @@ _021E7068: .word ov05_021E706C
 	thumb_func_start ov05_021E706C
 ov05_021E706C: ; 0x021E706C
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
@@ -2421,7 +2421,7 @@ ov05_021E72E8: ; 0x021E72E8
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r4, #0
 	bl GetPartyMonByIndex
 	pop {r4, pc}

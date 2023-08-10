@@ -92,7 +92,7 @@ void sub_0204B1DC(struct FieldSystem *fieldSystem, s32 a1)
     u32 unk1 = sub_020287A4(unk_sav_ptr1);
     sub_0202A988(unk_sav_ptr2, unk1);
 
-    struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
+    struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
     Party_UpdatePokerus(party, a1);
 
     struct SaveVarsFlags* state = Save_VarsFlags_Get(fieldSystem->saveData);

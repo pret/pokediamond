@@ -10,23 +10,12 @@
 #include "render_window.h"
 #include "save.h"
 #include "task.h"
+#include "field_system.h"
 
 struct ScriptContext;
 
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
-
-struct UnkStruct_020464D4
-{
-    u16 unk0[4];
-    u8 padding[0x108];
-};
-
-struct UnkStruct_02046444
-{
-    u8 padding[0x90];
-    struct UnkStruct_020464D4 unk90[1]; //todo find size
-};
 
 typedef struct LocalMapObject { //todo move to local_map_object.c
     u8 padding[0x12C]; //todo verify size
@@ -78,19 +67,6 @@ typedef struct ScrCmdUnkStruct00F4 {
     u32 unk2C;
 } ScrCmdUnkStruct00F4; //todo identify and move to own file
 
-typedef struct Location {
-    u32 mapId;
-    u32 warpId;
-    u32 x;
-    u32 y;
-    u32 direction;
-} Location;
-
-typedef struct UnkFieldStruct04 {
-    u8 padding[0xC];
-    u32 unk0C;
-} UnkFieldStruct04;
-
 typedef struct LocalFieldData {
 
 } LocalFieldData; //todo fill out and move to own file
@@ -98,10 +74,6 @@ typedef struct LocalFieldData {
 typedef struct RoamerSaveData {
 
 } RoamerSaveData; //todo: fill out and move to own file
-
-typedef struct MapObjectManager {
-
-} MapObjectManager; //todo: fill out
 
 typedef struct PokedexAppData {
     
@@ -123,32 +95,6 @@ typedef struct SaveStatsPrinter {
 
 } SaveStatsPrinter; //todo: fill out and move to own file
 
-typedef struct FieldSystem //todo move to field_system.c
-{
-    u32 *unk00;
-    UnkFieldStruct04 *unk04;
-    struct BgConfig *bgConfig;
-    struct SaveData *saveData; //0xC
-    TaskManager *taskManager;
-    u8 padding2[0x8];
-    Location *location;
-    struct Camera *camera;
-    u32 unk24;
-    u8 padding3[0xC];
-    MapObjectManager *mapObjectManager;
-    struct PlayerAvatar *playerAvatar;
-    u8 padding4[0x24];
-    u32 unk60;
-    u8 padding5[0x14];
-    u32 unk78;
-    u32 unk7C;
-    u8 padding6[0x10];
-    u32 unk90;
-    u8 padding7[0x4];
-    u32 *unk98;
-    u8 padding8[0xC];
-    struct UnkStruct_02046444 * unkA8;
-} FieldSystem;
 
 typedef struct ScriptContext
 {

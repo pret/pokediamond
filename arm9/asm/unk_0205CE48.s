@@ -76,7 +76,7 @@ sub_0205CE80: ; 0x0205CE80
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetState
@@ -165,7 +165,7 @@ sub_0205CF34: ; 0x0205CF34
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0204649C
@@ -202,7 +202,7 @@ sub_0205CF78: ; 0x0205CF78
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, _0205CF9C ; =sub_0205CFA0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	add sp, #0x4
 	pop {r3-r4, pc}
 	nop
@@ -215,10 +215,10 @@ sub_0205CFA0: ; 0x0205CFA0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x0]
 	cmp r0, #0x0
@@ -236,7 +236,7 @@ _0205CFC6:
 	add r0, r7, #0x0
 	lsr r1, r1, #0x10
 	mov r3, #0x0
-	bl sub_02038CD8
+	bl QueueScript
 	add r0, r5, #0x0
 	mov r1, #0x29
 	bl FieldSysGetAttrAddr
@@ -278,7 +278,7 @@ sub_0205D024: ; 0x0205D024
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r7, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x40
@@ -288,7 +288,7 @@ sub_0205D024: ; 0x0205D024
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_Bag_Get
@@ -344,7 +344,7 @@ sub_0205D0BC: ; 0x0205D0BC
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02037EB8
@@ -383,7 +383,7 @@ sub_0205D104: ; 0x0205D104
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204649C
@@ -414,11 +414,11 @@ sub_0205D144: ; 0x0205D144
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	ldr r0, [r5, #0x0]
 	ldr r1, _0205D16C ; =sub_02049844
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	ldr r1, [r5, #0x0]
 	mov r0, #0x0
 	add r1, #0x8c
@@ -458,7 +458,7 @@ _0205D1A4:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x1
 	beq _0205D1C4
 	ldr r0, [r5, #0x18]
@@ -520,7 +520,7 @@ sub_0205D21C: ; 0x0205D21C
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204649C
@@ -543,7 +543,7 @@ sub_0205D250: ; 0x0205D250
 	ldr r0, [r0, #0x0]
 	ldr r1, _0205D260 ; =sub_0205D264
 	mov r2, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -556,7 +556,7 @@ sub_0205D264: ; 0x0205D264
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x3
@@ -633,7 +633,7 @@ _0205D314:
 	b _0205D324
 _0205D31A:
 	ldr r0, [r4, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _0205D324:
@@ -723,7 +723,7 @@ sub_0205D3B8: ; 0x0205D3B8
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -761,7 +761,7 @@ sub_0205D400: ; 0x0205D400
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r7, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x40
@@ -771,7 +771,7 @@ sub_0205D400: ; 0x0205D400
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_Bag_Get
@@ -827,7 +827,7 @@ sub_0205D498: ; 0x0205D498
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldrh r0, [r5, #0x4]
 	bl ItemToMailId
@@ -866,7 +866,7 @@ sub_0205D4E8: ; 0x0205D4E8
 	add r4, r1, #0x0
 	bl TaskManager_GetFieldSystem
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldrh r1, [r4, #0x10]
 	mov r0, #0x1
 	tst r0, r1
@@ -902,7 +902,7 @@ sub_0205D528: ; 0x0205D528
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xb
@@ -943,7 +943,7 @@ sub_0205D574: ; 0x0205D574
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r5, #0xc]
 	add r0, r5, #0x0
@@ -985,7 +985,7 @@ sub_0205D5C4: ; 0x0205D5C4
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x4
@@ -1019,7 +1019,7 @@ sub_0205D604: ; 0x0205D604
 	str r0, [r2, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r1, _0205D624 ; =sub_0205E30C
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	mov r0, #0x0
 	pop {r4, pc}
 	nop
@@ -1124,7 +1124,7 @@ sub_0205D6BC: ; 0x0205D6BC
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204649C
@@ -1197,7 +1197,7 @@ sub_0205D74C: ; 0x0205D74C
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204649C
@@ -1229,7 +1229,7 @@ sub_0205D788: ; 0x0205D788
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, _0205D7A4 ; =ov05_021F5C70
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -1243,7 +1243,7 @@ sub_0205D7A8: ; 0x0205D7A8
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204649C
@@ -1275,7 +1275,7 @@ sub_0205D7E4: ; 0x0205D7E4
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, _0205D800 ; =ov05_021F5C70
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -1289,7 +1289,7 @@ sub_0205D804: ; 0x0205D804
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204649C
@@ -1321,7 +1321,7 @@ sub_0205D840: ; 0x0205D840
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, _0205D85C ; =ov05_021F5C70
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -1402,7 +1402,7 @@ sub_0205D8B8: ; 0x0205D8B8
 	ldr r0, [r5, #0x0]
 	ldr r1, _0205D900 ; =sub_0205D904
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1415,7 +1415,7 @@ sub_0205D904: ; 0x0205D904
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldrh r0, [r4, #0x16]
 	cmp r0, #0x0
@@ -1427,7 +1427,7 @@ sub_0205D904: ; 0x0205D904
 	b _0205D9A0
 _0205D926:
 	ldr r0, [r5, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	ldr r0, [r5, #0x8]
 	add r1, r4, #0x0
 	mov r2, #0x3
@@ -1469,7 +1469,7 @@ _0205D95C:
 	b _0205D9A0
 _0205D984:
 	ldr r0, [r5, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	add r0, r4, #0x0
 	bl RemoveWindow
 	ldr r0, [r4, #0x10]
@@ -1492,7 +1492,7 @@ sub_0205D9A8: ; 0x0205D9A8
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r7, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x40
@@ -1502,7 +1502,7 @@ sub_0205D9A8: ; 0x0205D9A8
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_Bag_Get
@@ -1557,7 +1557,7 @@ sub_0205DA3C: ; 0x0205DA3C
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204649C
@@ -1615,7 +1615,7 @@ sub_0205DAAC: ; 0x0205DAAC
 	add r2, r0, #0x0
 	ldr r1, _0205DAC8 ; =0x0224C721
 	add r0, r4, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -1796,7 +1796,7 @@ sub_0205DBF0: ; 0x0205DBF0
 	ldr r0, [r5, #0x0]
 	ldr r1, _0205DC34 ; =sub_0205D904
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	add sp, #0x4
 	pop {r3-r6, pc}
 	.balign 4
@@ -1809,7 +1809,7 @@ sub_0205DC38: ; 0x0205DC38
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, #0x2a
 	ldrb r0, [r0, #0x0]
@@ -1829,7 +1829,7 @@ _0205DC5E: ; jump table (using 16-bit offset)
 	.short _0205DCE2 - _0205DC5E - 2; case 4
 _0205DC68:
 	ldr r0, [r5, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	mov r0, #0x0
 	bl ov05_021D7CA4
 	mov r0, #0x1
@@ -1850,7 +1850,7 @@ _0205DC7C:
 	b _0205DCFA
 _0205DC94:
 	add r0, r5, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _0205DCFA
 	ldr r0, [r4, #0x24]
@@ -1877,7 +1877,7 @@ _0205DCC4:
 	cmp r0, #0x0
 	beq _0205DCFA
 	ldr r0, [r5, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	mov r0, #0x1
 	bl ov05_021D7CA4
 	mov r0, #0x4
@@ -1889,7 +1889,7 @@ _0205DCE2:
 	cmp r0, #0x0
 	beq _0205DCFA
 	ldr r0, [r5, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1
@@ -1904,10 +1904,10 @@ _0205DD00: .word sub_0205D568
 sub_0205DD04: ; 0x0205DD04
 	add r2, r0, #0x0
 	str r1, [r2, #0x20]
-	ldr r3, _0205DD10 ; =sub_020463CC
+	ldr r3, _0205DD10 ; =FieldSystem_CreateTask
 	ldr r0, [r2, #0x0]
 	ldr r1, _0205DD14 ; =sub_0205DC38
 	bx r3
 	.balign 4
-_0205DD10: .word sub_020463CC
+_0205DD10: .word FieldSystem_CreateTask
 _0205DD14: .word sub_0205DC38

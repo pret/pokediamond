@@ -60,7 +60,7 @@ sub_0204C1F4: ; 0x0204C1F4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -130,7 +130,7 @@ sub_0204C260: ; 0x0204C260
 	ldr r0, [sp, #0x20]
 	str r0, [r2, #0x20]
 	add r0, r7, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3-r7, pc}
 	nop
 _0204C298: .word sub_0204C380
@@ -238,7 +238,7 @@ _0204C36A:
 	add r0, r7, #0x0
 	add r2, r6, #0x0
 	str r4, [r6, #0x20]
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
@@ -251,7 +251,7 @@ sub_0204C380: ; 0x0204C380
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r6, r4, #0x0
 	ldr r1, [r4, #0x0]
@@ -306,7 +306,7 @@ _0204C3E8:
 	b _0204C458
 _0204C3F8:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -365,7 +365,7 @@ sub_0204C468: ; 0x0204C468
 	add r5, r0, #0x0
 	bl TaskManager_GetFieldSystem
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
@@ -377,7 +377,7 @@ _0204C484:
 	ldr r0, _0204C4A0 ; =0x00000603
 	bl PlaySE
 	add r0, r5, #0x0
-	bl sub_0204AFC8
+	bl CallTask_FadeToBlack
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -398,7 +398,7 @@ sub_0204C4A4: ; 0x0204C4A4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x3
@@ -444,7 +444,7 @@ _0204C4F6:
 	b _0204C522
 _0204C510:
 	add r0, r6, #0x0
-	bl sub_0204AFC8
+	bl CallTask_FadeToBlack
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -464,7 +464,7 @@ sub_0204C528: ; 0x0204C528
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
@@ -522,7 +522,7 @@ sub_0204C5A0: ; 0x0204C5A0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x3
@@ -603,7 +603,7 @@ sub_0204C644: ; 0x0204C644
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x38]
 	bl PlayerAvatar_GetMapObject
@@ -639,7 +639,7 @@ sub_0204C68C: ; 0x0204C68C
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x38]
 	bl PlayerAvatar_GetMapObject
@@ -675,7 +675,7 @@ sub_0204C6D4: ; 0x0204C6D4
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x3
@@ -769,7 +769,7 @@ sub_0204C7A0: ; 0x0204C7A0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
@@ -801,7 +801,7 @@ _0204C7BE:
 	ldr r1, _0204C81C ; =sub_0204C6D4
 	add r0, r6, #0x0
 	add r2, r4, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	b _0204C818
 _0204C7FE:
 	bl ov05_021DB030
@@ -830,7 +830,7 @@ sub_0204C824: ; 0x0204C824
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
@@ -888,7 +888,7 @@ sub_0204C89C: ; 0x0204C89C
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x3
@@ -968,7 +968,7 @@ sub_0204C93C: ; 0x0204C93C
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x38]
 	bl PlayerAvatar_GetMapObject

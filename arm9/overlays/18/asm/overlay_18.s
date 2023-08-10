@@ -26733,7 +26733,7 @@ ov18_0224648C: ; 0x0224648C
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
@@ -26770,7 +26770,7 @@ ov18_022464D0: ; 0x022464D0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
@@ -26808,7 +26808,7 @@ ov18_02246514: ; 0x02246514
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	cmp r0, #0xd
@@ -27213,7 +27213,7 @@ ov18_0224686C: ; 0x0224686C
 	strb r1, [r0]
 	ldr r1, _02246894 ; =ov18_02246514
 	add r0, r4, #0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 _0224688E:
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -37225,7 +37225,7 @@ ov18_0224B84C: ; 0x0224B84C
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 	ldr r0, [r5]
 	cmp r0, #5
@@ -37707,7 +37707,7 @@ _0224BC5C:
 	ldr r0, [r4, #0xc]
 	ldr r1, _0224BD50 ; =ov18_0224B84C
 	add r2, r5, #0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 _0224BC86:
 	add r0, r6, #0
 	add r1, r4, #0
@@ -43203,7 +43203,7 @@ ov18_0224E824: ; 0x0224E824
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #7
@@ -43346,7 +43346,7 @@ ov18_0224E960: ; 0x0224E960
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, _0224EA68 ; =0x00000504
 	ldr r0, [r4, r0]
@@ -43515,7 +43515,7 @@ ov18_0224EAD4: ; 0x0224EAD4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	cmp r0, #5
@@ -43886,7 +43886,7 @@ ov18_0224EDDC: ; 0x0224EDDC
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	cmp r0, #6
@@ -44442,7 +44442,7 @@ ov18_0224F258: ; 0x0224F258
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 	ldr r0, [r5, #4]
 	cmp r0, #0
@@ -44786,7 +44786,7 @@ ov18_0224F528: ; 0x0224F528
 	bl TaskManager_GetFieldSystem
 	str r0, [sp]
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	cmp r0, #3
