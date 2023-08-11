@@ -1,5 +1,30 @@
-#ifndef POKEDIAMOND_BATTLE_H
-#define POKEDIAMOND_BATTLE_H
+#ifndef POKEDIAMOND_CONSTANTS_BATTLE_H
+#define POKEDIAMOND_CONSTANTS_BATTLE_H
+
+//Battler IDs
+#define BATTLER_NONE    0xFF
+#define BATTLER_PLAYER  0
+#define BATTLER_ENEMY   1
+#define BATTLER_PLAYER2 2
+#define BATTLER_ENEMY2  3
+
+//Battle Type
+#define BATTLE_TYPE_NONE                     0
+#define BATTLE_TYPE_TRAINER                 (1 << 0)
+#define BATTLE_TYPE_DOUBLES                 (1 << 1)
+#define BATTLE_TYPE_LINK                    (1 << 2)
+#define BATTLE_TYPE_MULTI                   (1 << 3)
+#define BATTLE_TYPE_INGAME_PARTNER          (1 << 4)
+#define BATTLE_TYPE_SAFARI                  (1 << 5)
+#define BATTLE_TYPE_6                       (1 << 6)
+#define BATTLE_TYPE_TOWER                   (1 << 7)
+#define BATTLE_TYPE_8                       (1 << 8)
+#define BATTLE_TYPE_PAL_PARK                (1 << 9)
+#define BATTLE_TYPE_TUTORIAL                (1 << 10)
+#define BATTLE_TYPE_11                      (1 << 11)
+#define BATTLE_TYPE_DEBUG                   (1 << 31)
+
+#define BATTLE_TYPE_NO_EXP                  (BATTLE_TYPE_LINK | BATTLE_TYPE_SAFARI | BATTLE_TYPE_TOWER | BATTLE_TYPE_PAL_PARK)
 
 #define MOVE_EFFECT_NORMAL_HIT                  0
 #define MOVE_EFFECT_SLEEP                       1
@@ -280,4 +305,4 @@
 #define MOVE_EFFECT_CHARGE_BEAM               276
 
 
-#endif //POKEDIAMOND_BATTLE_H
+#endif //POKEDIAMOND_CONSTANTS_BATTLE_H

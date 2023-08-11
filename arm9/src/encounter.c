@@ -1,5 +1,6 @@
 #include "global.h"
 #include "encounter.h"
+#include "constants/battle.h"
 #include "constants/game_stats.h"
 #include "event_data.h"
 #include "field_system.h"
@@ -120,7 +121,7 @@ static BOOL GetEncounterResult(Encounter *encounter) {
 }
 
 static void sub_020465E4(BattleSetup *setup, FieldSystem *fieldSystem) {
-    if (!(setup->flags & BATTLE_SETUP_FLAG_UNK_31)) {
+    if (!(setup->flags & BATTLE_TYPE_DEBUG)) {
         sub_02047F38(setup, fieldSystem);
     }
 }
@@ -146,7 +147,7 @@ static BOOL Task_StartEncounter(TaskManager *taskManager) { //todo: better name
             break;
         case 3:
             sub_020465E4(encounter->setup, fieldSystem);
-            if (encounter->setup->flags == BATTLE_SETUP_FLAG_NONE || encounter->setup->flags == BATTLE_SETUP_FLAG_UNK_8 || encounter->setup->flags == (BATTLE_SETUP_FLAG_UNK_1 | BATTLE_SETUP_FLAG_UNK_3 | BATTLE_SETUP_FLAG_UNK_6)) {
+            if (encounter->setup->flags == BATTLE_TYPE_NONE || encounter->setup->flags == BATTLE_TYPE_8 || encounter->setup->flags == (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_6)) {
                 sub_02061080(fieldSystem, encounter->setup->unk134, encounter->setup->winFlag);
             }
 
@@ -440,7 +441,7 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
             sub_020465E4(encounter->setup, fieldSystem);
             if (encounter->setup->winFlag == 4) {
                 SafariZone *safariZone = Save_SafariZone_Get(fieldSystem->saveData);
-                Pokemon *pokemon = GetPartyMonByIndex(encounter->setup->party[1], 0);
+                Pokemon *pokemon = GetPartyMonByIndex(encounter->setup->party[BATTLER_ENEMY], 0);
                 sub_02060FE0(safariZone, pokemon);
             }
 
@@ -488,7 +489,7 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
 void SetupAndStartHoneyTreeBattle(TaskManager *taskManager, u32 *winFlag) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     sub_0205DD40(fieldSystem->unk90);
-    BattleSetup *setup = BattleSetup_New(HEAP_ID_FIELD, BATTLE_SETUP_FLAG_NONE);
+    BattleSetup *setup = BattleSetup_New(HEAP_ID_FIELD, BATTLE_TYPE_NONE);
     BattleSetup_InitFromFieldSystem(setup, fieldSystem);
 
     setup->unk150 = 0;
@@ -504,7 +505,7 @@ void SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u3
     BattleSetup *setup;
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     sub_0205DD40(fieldSystem->unk90);
-    setup = BattleSetup_New(HEAP_ID_FIELD, BATTLE_SETUP_FLAG_NONE);
+    setup = BattleSetup_New(HEAP_ID_FIELD, BATTLE_TYPE_NONE);
     BattleSetup_InitFromFieldSystem(setup, fieldSystem);
     ov06_0223CD7C(fieldSystem, species, level, setup);
 
@@ -571,7 +572,7 @@ void sub_02046F70(FieldSystem *fieldSystem, BattleSetup *setup) {
 
 void SetupAndStartFirstBattle(TaskManager *taskManager, u16 species, u8 level) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    BattleSetup *setup = BattleSetup_New(HEAP_ID_FIELD, 0);
+    BattleSetup *setup = BattleSetup_New(HEAP_ID_FIELD, BATTLE_TYPE_NONE);
     BattleSetup_InitFromFieldSystem(setup, fieldSystem);
 
     ov06_0223CD7C(fieldSystem, species, level, setup);

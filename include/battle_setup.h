@@ -4,20 +4,6 @@
 #include "global.h"
 #include "party.h"
 
-#define BATTLE_SETUP_FLAG_NONE              (0)
-#define BATTLE_SETUP_FLAG_UNK_0             (1 << 0)
-#define BATTLE_SETUP_FLAG_UNK_1             (1 << 1)
-#define BATTLE_SETUP_FLAG_UNK_2             (1 << 2)
-#define BATTLE_SETUP_FLAG_UNK_3             (1 << 3)
-#define BATTLE_SETUP_FLAG_UNK_4             (1 << 4)
-#define BATTLE_SETUP_FLAG_UNK_5             (1 << 5)
-#define BATTLE_SETUP_FLAG_UNK_6             (1 << 6)
-#define BATTLE_SETUP_FLAG_UNK_8             (1 << 8)
-#define BATTLE_SETUP_FLAG_UNK_9             (1 << 9)
-#define BATTLE_SETUP_FLAG_UNK_10            (1 << 10)
-#define BATTLE_SETUP_FLAG_HEAL_AFTER_DEFEAT (1 << 11)
-#define BATTLE_SETUP_FLAG_UNK_31            (1 << 31)
-
 typedef struct BattleSetupUnkSub138 {
     u32 unk0;
     u32 unk4;
