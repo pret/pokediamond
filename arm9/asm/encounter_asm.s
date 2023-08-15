@@ -2,78 +2,10 @@
 	.include "global.inc"
 
 	.extern Encounter_New
-	.extern CallTask_StartEncounter
 	.extern sub_02046758
 	.extern sub_020467FC
 
 	.text
-
-	thumb_func_start SetupAndStartTrainerBattle
-SetupAndStartTrainerBattle: ; 0x020470E8
-	push {r4-r7, lr}
-	sub sp, #0xc
-	str r0, [sp, #0x4]
-	add r6, r1, #0x0
-	add r5, r2, #0x0
-	str r3, [sp, #0x8]
-	bl TaskManager_GetFieldSystem
-	add r7, r0, #0x0
-	cmp r5, #0x0
-	beq _02047110
-	cmp r6, r5
-	beq _02047110
-	ldr r0, [sp, #0x8]
-	cmp r0, #0x0
-	bne _0204710C
-	mov r4, #0x13
-	b _0204711A
-_0204710C:
-	mov r4, #0x4b
-	b _0204711A
-_02047110:
-	cmp r6, r5
-	bne _02047118
-	mov r4, #0x3
-	b _0204711A
-_02047118:
-	mov r4, #0x1
-_0204711A:
-	add r0, r7, #0x0
-	add r0, #0x90
-	ldr r0, [r0, #0x0]
-	bl sub_0205DD40
-	mov r0, #0xb
-	add r1, r4, #0x0
-	bl BattleSetup_New
-	add r4, r0, #0x0
-	add r1, r7, #0x0
-	bl BattleSetup_InitFromFieldSystem
-	str r6, [r4, #0x1c]
-	ldr r0, [sp, #0x8]
-	str r5, [r4, #0x24]
-	str r0, [r4, #0x20]
-	ldr r1, [r7, #0xc]
-	ldr r2, [sp, #0x20]
-	add r0, r4, #0x0
-	bl EnemyTrainerSet_Init
-	ldr r0, [r7, #0xc]
-	bl Save_GameStats_Get
-	mov r1, #0x8
-	bl GameStats_Inc
-	add r0, r4, #0x0
-	bl sub_020475A0
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl sub_020475B0
-	add r3, r0, #0x0
-	ldr r0, [sp, #0x24]
-	add r1, r4, #0x0
-	str r0, [sp, #0x0]
-	ldr r0, [sp, #0x4]
-	add r2, r5, #0x0
-	bl CallTask_StartEncounter
-	add sp, #0xc
-	pop {r4-r7, pc}
 
 	thumb_func_start sub_02047174
 sub_02047174: ; 0x02047174

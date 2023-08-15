@@ -59,7 +59,7 @@ static void Encounter_Delete(Encounter *encounter);
 static BOOL GetEncounterResult(Encounter *encounter);
 static void sub_020465E4(BattleSetup *setup, FieldSystem *fieldSystem);
 static BOOL Task_StartEncounter(TaskManager *taskManager);
-/*static*/ void CallTask_StartEncounter(TaskManager *taskManager, BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag);
+static void CallTask_StartEncounter(TaskManager *taskManager, BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag);
 static void sub_0204671C(s32 flag, FieldSystem *fieldSystem);
 /*static*/ BOOL sub_02046758(TaskManager *taskManager);
 /*static*/ BOOL sub_020467FC(TaskManager *taskManager);
@@ -179,7 +179,7 @@ static BOOL Task_StartEncounter(TaskManager *taskManager) { //todo: better name
     return FALSE;
 }
 
-/*static*/ void CallTask_StartEncounter(TaskManager *taskManager, BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag) {
+static void CallTask_StartEncounter(TaskManager *taskManager, BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag) {
     Encounter *encounter = Encounter_New(setup, effect, bgm, winFlag);
     TaskManager_Call(taskManager, Task_StartEncounter, encounter);
 }
@@ -631,4 +631,36 @@ void SetupAndStartTutorialBattle(TaskManager *taskManager) {
     encounter = Encounter_New(setup, sub_020475A0(setup), sub_020475B0(setup), NULL);
 
     TaskManager_Call(taskManager, Task_TutorialBattle, encounter);
+}
+
+void SetupAndStartTrainerBattle(TaskManager *taskManager, u32 opponentTrainer1, u32 opponentTrainer2, u32 followerTrainerNum, HeapID heapId, u32 *winFlag) {
+    u32 battleType;
+    BattleSetup *setup;
+    FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
+    
+    if (opponentTrainer2 != 0 && opponentTrainer1 != opponentTrainer2) {
+        if (followerTrainerNum == 0) {
+            battleType = (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_INGAME_PARTNER);
+        } else {
+            battleType = (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_6);
+        }
+    } else if (opponentTrainer1 == opponentTrainer2) {
+        battleType = (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES);
+    } else {
+        battleType = BATTLE_TYPE_TRAINER;
+    }
+    sub_0205DD40(fieldSystem->unk90);
+
+    setup = BattleSetup_New(HEAP_ID_FIELD, battleType);
+    BattleSetup_InitFromFieldSystem(setup, fieldSystem);
+
+    setup->trainerId[1] = opponentTrainer1;
+    setup->trainerId[3] = opponentTrainer2;
+    setup->trainerId[2] = followerTrainerNum;
+
+    EnemyTrainerSet_Init(setup, fieldSystem->saveData, heapId);
+
+    GameStats_Inc(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK8);
+    
+    CallTask_StartEncounter(taskManager, setup, sub_020475A0(setup), sub_020475B0(setup), winFlag);
 }

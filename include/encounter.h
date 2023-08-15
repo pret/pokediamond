@@ -30,5 +30,6 @@ void SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u3
 void sub_02046F70(FieldSystem *fieldSystem, BattleSetup *setup);
 void SetupAndStartFirstBattle(TaskManager *taskManager, u16 species, u8 level);
 void SetupAndStartTutorialBattle(TaskManager *taskManager);
+void SetupAndStartTrainerBattle(TaskManager *taskManager, u32 opponentTrainer1, u32 opponentTrainer2, u32 followerTrainerNum, HeapID heapId, u32 *winFlag);
 
 #endif //POKEDIAMOND_ENCOUNTER_H

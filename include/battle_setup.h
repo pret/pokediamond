@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "party.h"
+#include "trainer_data.h"
 
 typedef struct BattleSetupUnkSub138 {
     u32 unk0;
@@ -10,11 +11,13 @@ typedef struct BattleSetupUnkSub138 {
     u32 unk8;
 } BattleSetupUnkSub138;
 
-typedef struct BattleSetup {
+struct BattleSetup {
     u32 flags;
     Party *party[4];
     u32 winFlag;
-    u8 padding[0x11C];
+    u32 trainerId[4];
+    Trainer trainers[4];
+    u8 padding[0x3C];
     u32 unk134;
     BattleSetupUnkSub138 unk138;
     u8 padding2[0xC];
@@ -22,6 +25,6 @@ typedef struct BattleSetup {
     u32 unk154;
     u8 padding3[0x34];
     u32 unk18C;
-} BattleSetup;
+};
 
 #endif //POKEDIAMOND_BATTLE_SETUP_H

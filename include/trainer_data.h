@@ -52,40 +52,33 @@ union TrainerMon
 #define TRTYPE_MON_ITEM 2
 #define TRTYPE_MON_ITEM_MOVES 3
 
-struct TrainerData
+typedef struct TrainerData
 {
     u8 trainerType;
     u8 trainerClass;
     u8 unk_2;
     u8 npoke;
     u16 items[4];
-    u32 unk_C;
+    u32 aiFlags;
     u32 doubleBattle;
-};
+} TrainerData;
 
-struct TrainerDataLoaded
+typedef struct Trainer
 {
     struct TrainerData data;
     u16 name[PLAYER_NAME_LENGTH + 1];
     u8 padding[16];
-};
+} Trainer;
 
-struct BattleSetupStruct
-{
-    u32 flags;
-    struct Party * parties[4];
-    u16 field_14[2];
-    u32 trainer_idxs[4];
-    struct TrainerDataLoaded datas[4];
-};
+typedef struct BattleSetup BattleSetup;
 
-void EnemyTrainerSet_Init(struct BattleSetupStruct * sp0, struct SaveData * r4, HeapID heapId);
+void EnemyTrainerSet_Init(BattleSetup *setup, struct SaveData * r4, HeapID heapId);
 s32 TrainerData_GetAttr(u32 tr_idx, u32 attr_no);
 BOOL TrainerMessageWithIdPairExists(u32 pos, u32 idx, HeapID heapId);
 void GetTrainerMessageByIdPair(u32 pos, u32 idx, struct String * str, HeapID heapId);
 void TrainerData_ReadTrData(u32 idx, struct TrainerData * dest);
 void TrainerData_ReadTrPoke(u32 idx, union TrainerMon * dest);
 int TrainerClass_GetGenderOrTrainerCount(int a0);
-void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, HeapID heapId);
+void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId);
 
 #endif //POKEDIAMOND_TRAINER_DATA_H
