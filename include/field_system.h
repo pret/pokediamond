@@ -57,7 +57,8 @@ typedef struct FieldSystem
     PlayerAvatar *playerAvatar;
     u8 padding4[0x24];
     u32 unk60;
-    u8 padding5[0x14];
+    u8 padding5[0x12];
+    u16 unk76;
     u32 unk78;
     u32 unk7C;
     u8 padding6[0x10];

@@ -23,7 +23,11 @@ struct BattleSetup {
     u8 padding2[0xC];
     u32 unk150;
     u32 unk154;
-    u8 padding3[0x34];
+    u8 padding3[0x8];
+    u32 unk160;
+    u8 padding4[0xC];
+    u32 unk170;
+    u8 padding5[0x18];
     u32 unk18C;
 };
 

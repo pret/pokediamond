@@ -7,6 +7,6 @@
 
 BOOL SaveArray_IsNatDexEnabled(struct SaveData * save);
 BOOL Pokedex_IsNatDexEnabled(struct Pokedex * pokedex);
-u32 sub_0206BB48(BOOL isNationalDex, u32 species);
+u32 Pokedex_ConvertToCurrentDexNo(BOOL isNationalDex, u32 species);
 
 #endif //POKEDIAMOND_UNK_0206BB28_H

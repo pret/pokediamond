@@ -4893,7 +4893,7 @@
 .extern SaveArray_Party_Get
 .extern SaveArray_IsNatDexEnabled
 .extern Pokedex_IsNatDexEnabled
-.extern sub_0206BB48
+.extern Pokedex_ConvertToCurrentDexNo
 .extern sub_0206BB5C
 .extern sub_0206BB74
 .extern sub_0206BB84

@@ -9207,7 +9207,7 @@ ov14_021DBEAC: ; 0x021DBEAC
 	ldr r0, [r6, r0]
 	bl SaveArray_IsNatDexEnabled
 	ldrh r1, [r4, #4]
-	bl sub_0206BB48
+	bl Pokedex_ConvertToCurrentDexNo
 	strh r0, [r4, #8]
 	add r0, r5, #0
 	mov r1, #0xac

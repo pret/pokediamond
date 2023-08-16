@@ -4,6 +4,7 @@
 #include "constants/game_stats.h"
 #include "event_data.h"
 #include "field_system.h"
+#include "igt.h"
 #include "task.h"
 #include "unk_020040F4.h"
 #include "unk_02022504.h"
@@ -50,21 +51,24 @@ extern void StartScriptFromMenu(TaskManager *taskManager, u16 script, LocalMapOb
 extern BattleSetup *sub_02047814(HeapID heapId, FieldSystem *fieldSystem);
 extern void sub_02047F1C(BattleSetup *setup, FieldSystem *fieldSystem, void *param2);
 extern void sub_02047BC0(BattleSetup *setup, FieldSystem *fieldSystem, s32 maxLevel);
-
-extern void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup);
-extern void sub_020473CC(FieldSystem *fieldSystem, BattleSetup *setup);
+extern void sub_0204FF5C(FieldSystem *fieldSystem);
+extern void sub_02047D48(BattleSetup *setup, FieldSystem *fieldSystem, Party *party, void *param3);
+extern void *sub_0202920C(IGT *igt, u16 species, u8 gender, u8 param3, HeapID heapId);
+extern void *sub_0202918C(IGT *igt, u16 species, u8 gender, u8 param3, HeapID heapId);
+extern void sub_02028AD4(u32 *param0, void *param1, u32 param2);
+extern void sub_020299DC(u32 *param0, u16 mapId, u16 trainerId, HeapID heapId);
 
 static BOOL sub_0204653C(TaskManager *taskManager);
 static void sub_02046584(TaskManager *taskManager, BattleSetup *setup);
-/*static*/ Encounter *Encounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag);
+static Encounter *Encounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag);
 static void Encounter_Delete(Encounter *encounter);
 static BOOL GetEncounterResult(Encounter *encounter);
 static void sub_020465E4(BattleSetup *setup, FieldSystem *fieldSystem);
 static BOOL Task_StartEncounter(TaskManager *taskManager);
 static void CallTask_StartEncounter(TaskManager *taskManager, BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag);
 static void sub_0204671C(s32 flag, FieldSystem *fieldSystem);
-/*static*/ BOOL sub_02046758(TaskManager *taskManager);
-/*static*/ BOOL sub_020467FC(TaskManager *taskManager);
+static BOOL sub_02046758(TaskManager *taskManager);
+static BOOL sub_020467FC(TaskManager *taskManager);
 static BOOL sub_02046878(TaskManager *taskManager);
 static void sub_02046928(TaskManager *taskManager, BattleSetup *battleSetup, s32 effect, s32 bgm, u32 *winFlag);
 static WildEncounter *WildEncounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag);
@@ -73,6 +77,9 @@ static BOOL Task_WildEncounter(TaskManager *taskManager);
 static BOOL Task_SafariEncounter(TaskManager *taskManager);
 static BOOL Task_PalParkEncounter(TaskManager *taskManager);
 static BOOL Task_TutorialBattle(TaskManager *taskManager);
+static BOOL sub_02047220(TaskManager *taskManager);
+static void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup);
+static void sub_020473CC(FieldSystem *fieldSystem, BattleSetup *setup);
 
 static BOOL sub_0204653C(TaskManager *taskManager) { //Task_StartBattle
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
@@ -98,7 +105,7 @@ static void sub_02046584(TaskManager *taskManager, BattleSetup *setup) { //CallT
     TaskManager_Call(taskManager, sub_0204653C, setup);
 }
 
-/*static*/ Encounter *Encounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag) {
+static Encounter *Encounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag) {
     Encounter *encounter = AllocFromHeapAtEnd(HEAP_ID_FIELD, sizeof(Encounter));
     encounter->winFlag = winFlag;
     if (winFlag != NULL) {
@@ -199,7 +206,7 @@ static void sub_0204671C(s32 flag, FieldSystem *fieldSystem) {
     }
 }
 
-/*static*/ BOOL sub_02046758(TaskManager *taskManager) { //Task_02046758
+static BOOL sub_02046758(TaskManager *taskManager) { //Task_02046758
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     Encounter *encounter = TaskManager_GetEnvironment(taskManager);
     u32 *state = TaskManager_GetStatePtr(taskManager);
@@ -231,7 +238,7 @@ static void sub_0204671C(s32 flag, FieldSystem *fieldSystem) {
     return FALSE;
 }
 
-/*static*/ BOOL sub_020467FC(TaskManager *taskManager) {
+static BOOL sub_020467FC(TaskManager *taskManager) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     Encounter *encounter = TaskManager_GetEnvironment(taskManager);
     u32 *state = TaskManager_GetStatePtr(taskManager);
@@ -698,4 +705,104 @@ void sub_020471C0(TaskManager *taskManager, s32 target, s32 maxLevel, u32 flag) 
     encounter->unkC = target;
 
     TaskManager_Call(taskManager, sub_020467FC, encounter);
+}
+
+static BOOL sub_02047220(TaskManager *taskManager) {
+    FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
+    Encounter *encounter = TaskManager_GetEnvironment(taskManager);
+    u32 *state = TaskManager_GetStatePtr(taskManager);
+
+    switch (*state) {
+        case 0:
+            TaskManager_Call(taskManager, sub_02046758, encounter);
+            (*state)++;
+            break;
+        case 1:
+            sub_0204FF5C(fieldSystem);
+            return TRUE;
+    }
+    return FALSE;
+}
+
+void sub_0204726C(FieldSystem *fieldSystem, void *param1, s32 battleType) {
+    Encounter *encounter;
+    BattleSetup *setup = BattleSetup_New(HEAP_ID_FIELD, battleType);
+
+    sub_02047F1C(setup, fieldSystem, param1);
+
+    encounter = Encounter_New(setup, sub_020475A0(setup), sub_020475B0(setup), NULL);
+
+    FieldSystem_CreateTask(fieldSystem, sub_02047220, encounter);
+}
+
+void sub_020472B0(FieldSystem *fieldSystem, Party *party, s32 battleType) {
+    Encounter *encounter;
+    BattleSetup *setup = BattleSetup_New(HEAP_ID_FIELD, battleType);
+
+    sub_02047D48(setup, fieldSystem, party, NULL);
+
+    encounter = Encounter_New(setup, sub_020475A0(setup), sub_020475B0(setup), NULL);
+
+    FieldSystem_CreateTask(fieldSystem, sub_02047220, encounter);
+}
+
+static void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup) {
+    Pokemon *mon;
+    u32 battleType = setup->flags;
+    u32 winFlag = setup->winFlag;
+
+    if (battleType & BATTLE_TYPE_LINK || battleType & BATTLE_TYPE_TOWER) {
+        return;
+    }
+    
+    if (battleType == BATTLE_TYPE_NONE || battleType == BATTLE_TYPE_8 || battleType == (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_6)) {
+        if (winFlag == 1) {
+            GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK8);
+        } else if (winFlag == 4) {
+            mon = GetPartyMonByIndex(setup->party[BATTLER_ENEMY], 0);
+            if (Pokedex_ConvertToCurrentDexNo(FALSE, GetMonData(mon, MON_DATA_SPECIES, NULL)) != 0) {
+                GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK9);
+            } else {
+                GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK10);
+            }
+        }
+    } else if ((battleType & BATTLE_TYPE_TRAINER) || (battleType & BATTLE_TYPE_INGAME_PARTNER)) {
+        if (winFlag == 1) {
+            GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK11);
+        }
+    } else if ((battleType & BATTLE_TYPE_SAFARI || battleType & BATTLE_TYPE_PAL_PARK) && winFlag == 4) {
+        mon = GetPartyMonByIndex(setup->party[BATTLER_ENEMY], 0);
+        if (Pokedex_ConvertToCurrentDexNo(FALSE, GetMonData(mon, MON_DATA_SPECIES, NULL)) != 0) {
+            GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK9);
+        } else {
+            GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK10);
+        }
+    }
+}
+
+static void sub_020473CC(FieldSystem *fieldSystem, BattleSetup *setup) {
+    Pokemon *mon;
+    u32 battleType = setup->flags;
+    u32 winFlag = setup->winFlag;
+
+    if (battleType & BATTLE_TYPE_LINK || battleType & BATTLE_TYPE_TOWER || battleType & BATTLE_TYPE_PAL_PARK) {
+        return;
+    }
+    if (battleType == BATTLE_TYPE_NONE || battleType == BATTLE_TYPE_8 || battleType == (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_6) || battleType == BATTLE_TYPE_SAFARI) {
+        if (winFlag == 1) {
+            fieldSystem->unk76++;
+            if (fieldSystem->unk76 < 5) {
+                return;
+            }
+            mon = GetPartyMonByIndex(setup->party[BATTLER_ENEMY], 0);
+            sub_02028AD4(fieldSystem->unk98, sub_0202920C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), GetMonData(mon, MON_DATA_SPECIES, NULL), GetMonData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
+        } else if (winFlag == 4) {
+            mon = GetPartyMonByIndex(setup->party[setup->unk170], 0);
+            sub_02028AD4(fieldSystem->unk98, sub_0202918C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), GetMonData(mon, MON_DATA_SPECIES, NULL), GetMonData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
+        }
+    } else if ((battleType & BATTLE_TYPE_TRAINER) || (battleType & BATTLE_TYPE_INGAME_PARTNER)) {
+        if (winFlag == 1) {
+            sub_020299DC(fieldSystem->unk98, fieldSystem->location->mapId, setup->trainerId[BATTLER_ENEMY], HEAP_ID_FIELD);
+        }
+    }
 }

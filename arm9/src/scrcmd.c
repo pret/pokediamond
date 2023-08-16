@@ -134,7 +134,7 @@ extern void *sub_02037C00(u32 param0, FieldSystem *fieldSystem, u16 param2);
 extern u16 sub_02037A78(void *runningAppData);
 extern u16 ov05_021E1858(FieldSystem *fieldSystem, LocalMapObject *event, u16 param2);
 extern void *sub_02029048(u32 param0);
-extern void sub_02028AD4(u32 *param0, void *param1, BOOL param2);
+extern void sub_02028AD4(u32 *param0, void *param1, u32 param2);
 extern SaveFashionData *Save_FashionData_Get(SaveData *save);
 extern BOOL CheckPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
 extern BOOL CheckContestPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
@@ -2123,7 +2123,7 @@ static BOOL sub_0203BBBC(ScriptContext *ctx) {
         return FALSE;
     }
     if (pcBoxData->unk08 == TRUE) {
-        sub_02028AD4(fieldSystem->unk98, sub_02029048(11), TRUE);
+        sub_02028AD4(fieldSystem->unk98, sub_02029048(11), 1);
     }
     FreeToHeap(*pcBoxDataPtr);
     *pcBoxDataPtr = NULL;
@@ -3636,18 +3636,18 @@ BOOL ScrCmd_Unk01CD(ScriptContext *ctx) { //01CD
     u16 unk3 = ScriptGetVar(ctx);
     u16 unk4 = ScriptGetVar(ctx);
     void **miscDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR); //todo: identify this
-    BOOL unk5; //this will literally always be true... GF why?
+    u32 unk5; //this will literally always be 1... GF why?
     switch ((unk0 - 16)) {
         case 0:
-            unk5 = TRUE;
+            unk5 = 1;
             *miscDataPtr = sub_02029120(4);
             break;
         case 1:
-            unk5 = TRUE;
+            unk5 = 1;
             *miscDataPtr = sub_0202912C(4);
             break;
         case 2:
-            unk5 = TRUE;
+            unk5 = 1;
             *miscDataPtr = sub_02029138(unk1, 4);
             break;
         case 3:
@@ -3657,7 +3657,7 @@ BOOL ScrCmd_Unk01CD(ScriptContext *ctx) { //01CD
         case 8:
         case 9:
         case 10:
-            unk5 = TRUE;
+            unk5 = 1;
             *miscDataPtr = sub_0202914C(unk0 - 19, unk1, 4);
             break;
         default:
@@ -3814,7 +3814,7 @@ BOOL ScrCmd_EnableDisableSafariZone(ScriptContext *ctx) { //0202
         case 1: //disable
             Save_VarsFlags_ClearSafariSysFlag(varsFlags);
             sub_02061574(ctx->fieldSystem);
-            sub_02028AD4(ctx->fieldSystem->unk98, sub_0202912C(4), TRUE);
+            sub_02028AD4(ctx->fieldSystem->unk98, sub_0202912C(4), 1);
             *safariBalls = 0;
             *safariSteps = 0;
             break;

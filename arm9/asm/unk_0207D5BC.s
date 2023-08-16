@@ -1188,7 +1188,7 @@ sub_0207DE3C: ; 0x0207DE3C
 	add r1, #0x10
 	ldrh r1, [r4, r1]
 	ldr r0, [r0, #0x1c]
-	bl sub_0206BB48
+	bl Pokedex_ConvertToCurrentDexNo
 	add r2, r0, #0x0
 	beq _0207DEFE
 	mov r0, #0x2
