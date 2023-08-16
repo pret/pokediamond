@@ -206,7 +206,6 @@ extern u32 ov06_022407DC(void);
 extern void ov06_02240790(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
 extern void ov06_022407F8(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
 extern u32 ov06_02240844(void);
-extern void sub_02047174(TaskManager *taskManager, u32 *param1, u32 param2);
 extern void LocalFieldData_SetDynamicWarp(LocalFieldData *localFieldData, Location *warp);
 extern void sub_02080C38(TaskManager *taskManager);
 extern Location *LocalFieldData_GetDynamicWarp(LocalFieldData *localFieldData);

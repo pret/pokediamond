@@ -48,6 +48,8 @@ extern void sub_0204BAA0(FieldSystem *fieldSystem, BattleSetup *setup);
 extern u32 sub_0204BAB0(FieldSystem *fieldSystem);
 extern void StartScriptFromMenu(TaskManager *taskManager, u16 script, LocalMapObject *lastInteracted);
 extern BattleSetup *sub_02047814(HeapID heapId, FieldSystem *fieldSystem);
+extern void sub_02047F1C(BattleSetup *setup, FieldSystem *fieldSystem, void *param2);
+extern void sub_02047BC0(BattleSetup *setup, FieldSystem *fieldSystem, s32 maxLevel);
 
 extern void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup);
 extern void sub_020473CC(FieldSystem *fieldSystem, BattleSetup *setup);
@@ -197,7 +199,7 @@ static void sub_0204671C(s32 flag, FieldSystem *fieldSystem) {
     }
 }
 
-/*static*/ BOOL sub_02046758(TaskManager *taskManager) {
+/*static*/ BOOL sub_02046758(TaskManager *taskManager) { //Task_02046758
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     Encounter *encounter = TaskManager_GetEnvironment(taskManager);
     u32 *state = TaskManager_GetStatePtr(taskManager);
@@ -654,13 +656,46 @@ void SetupAndStartTrainerBattle(TaskManager *taskManager, u32 opponentTrainer1, 
     setup = BattleSetup_New(HEAP_ID_FIELD, battleType);
     BattleSetup_InitFromFieldSystem(setup, fieldSystem);
 
-    setup->trainerId[1] = opponentTrainer1;
-    setup->trainerId[3] = opponentTrainer2;
-    setup->trainerId[2] = followerTrainerNum;
+    setup->trainerId[BATTLER_ENEMY] = opponentTrainer1;
+    setup->trainerId[BATTLER_ENEMY2] = opponentTrainer2;
+    setup->trainerId[BATTLER_PLAYER2] = followerTrainerNum;
 
     EnemyTrainerSet_Init(setup, fieldSystem->saveData, heapId);
 
     GameStats_Inc(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK8);
     
     CallTask_StartEncounter(taskManager, setup, sub_020475A0(setup), sub_020475B0(setup), winFlag);
+}
+
+void sub_02047174(TaskManager *taskManager, void *param1, u32 battleType) {
+    FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
+    Encounter *encounter;
+    BattleSetup *setup;
+
+    setup = BattleSetup_New(HEAP_ID_FIELD, battleType);
+
+    sub_02047F1C(setup, fieldSystem, param1);
+
+    encounter = Encounter_New(setup, sub_020475A0(setup), sub_020475B0(setup), NULL);
+
+    TaskManager_Call(taskManager, sub_02046758, encounter);
+}
+
+void sub_020471C0(TaskManager *taskManager, s32 target, s32 maxLevel, u32 flag) {
+    FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
+    Encounter *encounter;
+    BattleSetup *setup;
+
+    if (flag != 0) {
+        setup = BattleSetup_New(HEAP_ID_FIELD, (BATTLE_TYPE_LINK | BATTLE_TYPE_TRAINER));
+    } else {
+        setup = BattleSetup_New(HEAP_ID_FIELD, (BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TRAINER));
+    }
+
+    sub_02047BC0(setup, fieldSystem, maxLevel);
+
+    encounter = Encounter_New(setup, sub_020475A0(setup), sub_020475B0(setup), NULL);
+    encounter->unkC = target;
+
+    TaskManager_Call(taskManager, sub_020467FC, encounter);
 }
