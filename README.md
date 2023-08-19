@@ -32,10 +32,12 @@ Other disassembly and/or decompilation projects:
 
 Gen 4 decompilation projects:
 * [**Pokémon Platinum**](https://github.com/pret/pokeplatinum)
-* [**Pokémon HeartGold**](https://github.com/pret/pokeheartgold)
+* [**Pokémon HeartGold and SoulSilver**](https://github.com/pret/pokeheartgold)
+* [**Pokémon Mystery Dungeon: Explorers of Sky**](https://github.com/pret/pmd-sky)
 
 ## Contacts
 
 You can find us on:
 
 * [Discord (PRET, #pokediamond)](https://discord.gg/d5dubZ3)
+* [IRC](https://web.libera.chat/?#pret)
