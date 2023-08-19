@@ -47,7 +47,7 @@ BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
+    struct Pokemon* pokemon = Party_GetMonByIndex(party, mon_idx);
     u16 *eligibleMoves = GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
 
     *ret_ptr = (u16)sub_02088EF8(eligibleMoves);
@@ -63,7 +63,7 @@ void sub_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16
 
     moveRelearner->pokemon = pokemon;
 
-    struct SaveData* save = FieldSystem_GetSaveDataPtr(ctx->fieldSystem);
+    struct SaveData* save = FieldSystem_GetSaveData(ctx->fieldSystem);
     moveRelearner->player = Save_PlayerData_GetProfileAddr(save);
 
     moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
@@ -85,7 +85,7 @@ BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
 {
     u16 mon_idx = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
+    struct Pokemon* pokemon = Party_GetMonByIndex(party, mon_idx);
     u16 *eligibleMoves  = GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
 
     sub_02045E74(ctx, 1, pokemon, eligibleMoves);
@@ -97,7 +97,7 @@ BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
     u16 mon_idx = ScriptGetVar(ctx);
     u16 move = ScriptGetVar(ctx);
     struct Party *party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon *pokemon = GetPartyMonByIndex(party, mon_idx);
+    struct Pokemon *pokemon = Party_GetMonByIndex(party, mon_idx);
 
     u16 *eligibleMoves = AllocFromHeap(HEAP_ID_32, 2 * sizeof(u16));
     eligibleMoves[0] = move;

@@ -47,7 +47,7 @@ sub_020647A4: ; 0x020647A4
 	push {r3-r7, lr}
 	sub sp, #0x30
 	add r4, r0, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #0x7
 	bl sub_020254A0
@@ -137,7 +137,7 @@ _02064868: .word UNK_020F7D4C
 sub_0206486C: ; 0x0206486C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	add r5, r0, #0x0
 	mov r1, #0x7
@@ -325,7 +325,7 @@ _020649AC: .word 0x00000125
 	thumb_func_start sub_020649B0
 sub_020649B0: ; 0x020649B0
 	push {r3, lr}
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #0x7
 	bl sub_020254A0
@@ -346,7 +346,7 @@ _020649CC:
 sub_020649D4: ; 0x020649D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #0x7
 	bl sub_020254A0

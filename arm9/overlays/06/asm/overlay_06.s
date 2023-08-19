@@ -4851,7 +4851,7 @@ _0223BA42:
 	add r4, r0, #0
 	add r0, r7, #0
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x20]
 	ldr r1, [sp, #0x20]
 	add r0, r5, #0
@@ -5042,7 +5042,7 @@ _0223BBDA:
 	cmp r0, #0xc
 	blt _0223BBDA
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5195,7 +5195,7 @@ _0223BD2E:
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Party_Get
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0x14]
@@ -5377,7 +5377,7 @@ _0223BEA4:
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x18]
 	ldr r1, [sp, #0x18]
 	add r0, r5, #0
@@ -5479,7 +5479,7 @@ _0223BF7E:
 	cmp r0, #0xc
 	blt _0223BF7E
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5633,7 +5633,7 @@ _0223C0CE:
 	str r0, [sp, #0x14]
 	add r0, r6, #0
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x1c]
 	ldr r1, [sp, #0x1c]
 	ldr r2, [sp, #0x14]
@@ -5789,7 +5789,7 @@ _0223C222:
 	cmp r0, #0xc
 	blt _0223C222
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5930,7 +5930,7 @@ _0223C350:
 	cmp r0, #1
 	bne _0223C38C
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerID
 	str r0, [sp]
@@ -7183,7 +7183,7 @@ ov06_0223CCDC: ; 0x0223CCDC
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Party_Get
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0xc]
 	ldr r1, [sp, #0xc]
 	add r0, r5, #0
@@ -7259,7 +7259,7 @@ ov06_0223CD7C: ; 0x0223CD7C
 	add r6, r3, #0
 	bl SaveArray_Party_Get
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -7702,7 +7702,7 @@ ov06_0223D044: ; 0x0223D044
 	bl SetMonData
 	ldr r0, [r6, #8]
 	add r1, r4, #0
-	bl AddMonToParty
+	bl Party_AddMon
 	cmp r0, #0
 	bne _0223D0D8
 	bl GF_AssertFail
@@ -7911,7 +7911,7 @@ _0223D25C:
 	lsl r0, r0, #2
 	add r0, r7, r0
 	ldr r0, [r0, #4]
-	bl AddMonToParty
+	bl Party_AddMon
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -11442,7 +11442,7 @@ _0223EF28:
 	str r0, [r2, #0x74]
 	ldr r0, [r1]
 	ldr r0, [r0, #0x68]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r1, [r1]
@@ -15699,7 +15699,7 @@ CheckPastoriaGymButton: ; 0x02241230
 	cmp r0, #0
 	beq _022412E0
 	add r0, r4, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #1
 	bl sub_020254A0
@@ -16188,7 +16188,7 @@ ov06_02241670: ; 0x02241670
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x2c
 	add r4, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #1
 	bl sub_020254A0
@@ -16412,7 +16412,7 @@ ov06_0224186C: ; 0x0224186C
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0x24
 	add r5, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #2
 	bl sub_020254A0
@@ -16499,7 +16499,7 @@ MoveHearthomeGymElevator: ; 0x02241914
 	mov r0, #0
 	str r0, [r6]
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #2
 	bl sub_020254A0
@@ -16820,7 +16820,7 @@ ov06_02241BB0: ; 0x02241BB0
 	add r5, r0, #0
 	ldr r0, [r5]
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #3
 	bl sub_020254A0
@@ -17604,7 +17604,7 @@ ov06_02242224: ; 0x02242224
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x5c
 	add r6, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #3
 	bl sub_020254A0
@@ -17830,7 +17830,7 @@ _02242400: .word 0x000076A0
 ov06_02242404: ; 0x02242404
 	push {r4, lr}
 	add r4, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	bl sub_020254B4
 	cmp r0, #3
@@ -17989,7 +17989,7 @@ ov06_0224252C: ; 0x0224252C
 	add r5, r0, #0
 	ldr r0, [r5]
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #4
 	bl sub_020254A0
@@ -18060,7 +18060,7 @@ ov06_022425C8: ; 0x022425C8
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x24
 	str r0, [sp, #8]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #4
 	bl sub_020254A0
@@ -18173,7 +18173,7 @@ ov06_02242698: ; 0x02242698
 ov06_022426AC: ; 0x022426AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	bl sub_020254B4
 	cmp r0, #4
@@ -18472,7 +18472,7 @@ ov06_022428D8: ; 0x022428D8
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x2c
 	add r5, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #5
 	bl sub_020254A0
@@ -18652,7 +18652,7 @@ RotateSunyshoreGymGear: ; 0x02242A38
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	add r5, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #5
 	bl sub_020254A0
@@ -19819,7 +19819,7 @@ _02243308:
 _02243312:
 	ldr r0, [sp, #4]
 	add r1, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	str r0, [sp, #0xc]
@@ -20346,7 +20346,7 @@ _02243726:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	ldr r0, [sp, #8]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	lsl r1, r4, #1
 	add r6, r5, r1
 	add r7, r0, #0
@@ -20398,7 +20398,7 @@ _0224379C:
 	add r1, r1, r5
 	add r1, #0x2a
 	ldrb r1, [r1]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #8]
 	lsl r6, r5, #1
 	mov r1, #5
@@ -20644,7 +20644,7 @@ _0224394A:
 	bne _0224396C
 	add r5, #0x2a
 	ldrb r1, [r5]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
@@ -20654,7 +20654,7 @@ _0224394A:
 _0224396C:
 	add r5, #0x2a
 	ldrb r1, [r5]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
@@ -21518,7 +21518,7 @@ _02243FFA:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	ldr r0, [sp]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r6, #0
 	mov r2, #0
 	str r0, [sp, #4]
@@ -21738,7 +21738,7 @@ _022441B8:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	add r0, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r5, #0
 	bl ov06_0224406C
@@ -22216,7 +22216,7 @@ _022445A6:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	ldr r0, [sp, #4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r4, #0
 	bl CopyPokemonToPokemon
 	add r0, r4, #0
@@ -22410,7 +22410,7 @@ _0224471C:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	add r0, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	bl GetMonData
@@ -23257,7 +23257,7 @@ _02244D8A:
 	bl ov06_02244388
 	ldr r0, [r7, #4]
 	add r1, r4, #0
-	bl AddMonToParty
+	bl Party_AddMon
 	ldr r0, [sp]
 	add r6, r6, #1
 	add r5, #0x38
@@ -23652,7 +23652,7 @@ _02245098:
 	cmp r0, #0xc
 	blo _02245098
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -23816,7 +23816,7 @@ ov06_022451F4: ; 0x022451F4
 	push {r3, r4, lr}
 	sub sp, #0x14
 	add r4, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -23871,7 +23871,7 @@ ov06_0224525C: ; 0x0224525C
 	add r7, r0, #0
 	add r6, r1, #0
 	str r2, [sp]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -23989,7 +23989,7 @@ _0224533C: .word ov06_02245360
 ov06_02245340: ; 0x02245340
 	push {r4, lr}
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -30826,7 +30826,7 @@ ov06_02248724: ; 0x02248724
 	ldr r0, [r1, #8]
 	str r1, [sp]
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
 	bl Save_Roamers_Get
@@ -31079,7 +31079,7 @@ ov06_0224891C: ; 0x0224891C
 	add r4, r3, #0
 	bl SaveArray_Party_Get
 	add r1, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa0
 	mov r2, #0
 	add r7, r0, #0
@@ -40845,7 +40845,7 @@ ov06_0224D46C: ; 0x0224D46C
 	bl sub_020377A8
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	str r0, [sp, #0x1c]
 	mov r0, #0xb
 	mov r1, #0x18

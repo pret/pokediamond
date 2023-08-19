@@ -322,7 +322,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId)
             // If you were treating the trainer type as a bitfield, you'd put the
             // checks for held item and moves here. You'd also treat the trpoke
             // data as a flat u16 array rather than an array of fixed-width structs.
-            AddMonToParty(setup->party[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }
@@ -345,7 +345,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId)
             {
                 MonSetMoveInSlot(pokemon, monSpeciesMoves[i].moves[j], (u8)j);
             }
-            AddMonToParty(setup->party[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }
@@ -365,7 +365,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId)
             iv = (u8)((monSpeciesItem[i].difficulty * 31) / 255);
             CreateMon(pokemon, monSpeciesItem[i].species, monSpeciesItem[i].level, iv, 1, (s32)personality, 2, 0);
             SetMonData(pokemon, MON_DATA_HELD_ITEM, &monSpeciesItem[i].item);
-            AddMonToParty(setup->party[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }
@@ -389,7 +389,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId)
             {
                 MonSetMoveInSlot(pokemon, monSpeciesItemMoves[i].moves[j], (u8)j);
             }
-            AddMonToParty(setup->party[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }

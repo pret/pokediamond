@@ -1313,7 +1313,7 @@ _0224D452:
 _0224D466:
 	add r0, r6, #0
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r4, r0, #0

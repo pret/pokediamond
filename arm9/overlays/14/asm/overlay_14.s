@@ -4711,7 +4711,7 @@ _021D9B9E:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	bl AcquireMonLock
 	add r7, r0, #0
@@ -5362,7 +5362,7 @@ _021DA0C2:
 	ldr r0, [sp, #4]
 	ldr r1, [sp, #8]
 	ldr r0, [r0, #0x18]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r4, _021DA164 ; =ov14_021E6224
 	ldr r5, [sp, #4]
 	add r7, r0, #0
@@ -8502,7 +8502,7 @@ _021DB96C:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [r4]
 	b _021DB998
 _021DB98E:
@@ -8661,7 +8661,7 @@ _021DBA98:
 	lsl r0, r0, #2
 	ldrsb r1, [r5, r1]
 	ldr r0, [r7, r0]
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 	mov r0, #1
 _021DBAB6:
 	strb r0, [r4, #0xb]
@@ -8878,7 +8878,7 @@ _021DBC42:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	ldr r1, [r4]
-	bl AddMonToParty
+	bl Party_AddMon
 	b _021DBC70
 _021DBC56:
 	mov r1, #0x1a
@@ -8891,7 +8891,7 @@ _021DBC56:
 	ldr r0, [r5, r1]
 	add r1, #0x7c
 	ldr r1, [r5, r1]
-	bl AddMonToParty
+	bl Party_AddMon
 _021DBC70:
 	mov r0, #0x49
 	lsl r0, r0, #2
@@ -8902,7 +8902,7 @@ _021DBC70:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	sub r1, r1, #1
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 _021DBC8A:
 	add r0, r7, #0
@@ -9108,7 +9108,7 @@ ov14_021DBE00: ; 0x021DBE00
 	lsl r0, r0, #2
 	ldrsb r1, [r4, r1]
 	ldr r0, [r5, r0]
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 	add r0, r5, #0
 	bl ov14_021DB934
 	mov r0, #1
@@ -9154,7 +9154,7 @@ _021DBE70:
 	lsl r0, r0, #2
 	ldrsb r1, [r4, r1]
 	ldr r0, [r5, r0]
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 _021DBE7E:
 	add r0, r5, #0
 	bl ov14_021DB934
@@ -24299,7 +24299,7 @@ _021E3330:
 	add r1, r4, #0
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]

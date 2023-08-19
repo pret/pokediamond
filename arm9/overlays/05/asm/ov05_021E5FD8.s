@@ -2423,7 +2423,7 @@ ov05_021E72E8: ; 0x021E72E8
 	add r4, r1, #0
 	bl SaveArray_Party_Get
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	pop {r4, pc}
 	.balign 4, 0
 

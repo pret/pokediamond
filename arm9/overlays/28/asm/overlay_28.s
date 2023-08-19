@@ -70,7 +70,7 @@ ov28_0225489C: ; 0x0225489C
 _022548D6:
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x4c
 	mov r2, #0
 	add r5, r0, #0

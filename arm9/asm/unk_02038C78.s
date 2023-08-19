@@ -2012,8 +2012,8 @@ FlagCheck: ; 0x02039528
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FlagSet
-FlagSet: ; 0x0203953C
+	thumb_func_start FieldSystem_FlagSet
+FieldSystem_FlagSet: ; 0x0203953C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -2167,8 +2167,8 @@ TrainerFlagCheck: ; 0x02039640
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start TrainerFlagSet
-TrainerFlagSet: ; 0x0203965C
+	thumb_func_start TrainerFieldSystem_FlagSet
+TrainerFieldSystem_FlagSet: ; 0x0203965C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0

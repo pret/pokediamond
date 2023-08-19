@@ -87,7 +87,7 @@ _0204123C:
 	ldr r0, [r7, #0xc]
 	bl SaveArray_Party_Get
 	add r1, r5, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x4c
 	mov r2, #0x0
 	add r4, r0, #0x0

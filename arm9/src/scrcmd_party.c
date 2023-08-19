@@ -36,7 +36,7 @@ BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - todo: GetPart
     u16* mon_slot = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx)); //for some reason this is *required* for matching, cannot use ScriptGetVarPointer here
     ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, *mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, *mon_slot);
 
     BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
     if (party_mon_is_egg == FALSE)
@@ -55,14 +55,14 @@ BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - todo: GetPart
 BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx) //0199 - todo: CheckPartyPokemonTraded?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct SaveData* save = FieldSystem_GetSaveDataPtr(fieldSystem);
+    struct SaveData* save = FieldSystem_GetSaveData(fieldSystem);
     PlayerProfile* player = Save_PlayerData_GetProfileAddr(save);
 
     u16* mon_slot = ScriptGetVarPointer(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, *mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, *mon_slot);
 
     u16 party_mon_otid = (u16)GetMonData(party_mon, MON_DATA_OTID, NULL);
     u16 player_otid = (u16)PlayerProfile_GetTrainerID(player);
@@ -95,7 +95,7 @@ BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
         s32 met_loc = sub_02015CF8(1, unk);
         ov05_SetEggStats(egg, species, 1, player, 3, met_loc);
 
-        AddMonToParty(party, egg);
+        Party_AddMon(party, egg);
         FreeToHeap(egg);
     }
 
@@ -121,7 +121,7 @@ BOOL ScrCmd_PartyMonHasMove(struct ScriptContext* ctx) //0099
     u16 required_move = ScriptGetVar(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = 0;
 
@@ -153,7 +153,7 @@ BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx) //009A - todo: Check
     for (i = 0, *ret_ptr = PARTY_SIZE; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
         if (party_mon_is_egg == FALSE)
@@ -177,7 +177,7 @@ BOOL ScrCmd_SurvivePsn(struct ScriptContext* ctx) //01F7
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = (u16)SurvivePoisoning(party_mon);
     return FALSE;
@@ -197,7 +197,7 @@ BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx) //01F6
     for (i = 0, mons = 0, *ret_ptr = 0; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
         if (party_mon_is_egg == FALSE)
@@ -220,7 +220,7 @@ BOOL ScrCmd_GetPartyMonLevel(struct ScriptContext* ctx) //0278
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = 0;
 
@@ -247,7 +247,7 @@ BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx) //0212
     }
 
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
     if (party_mon_is_egg)
@@ -271,7 +271,7 @@ BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx) //0213 - todo: Che
     for (i = 0, *ret_ptr = 0xFF; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
         if (party_mon_is_egg == FALSE)
@@ -294,7 +294,7 @@ BOOL ScrCmd_GetPartyMonFriendship(struct ScriptContext* ctx) //01B9
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = (u16)GetMonData(party_mon, MON_DATA_FRIENDSHIP, NULL);
     return FALSE;
@@ -307,7 +307,7 @@ BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
     u16 mon_slot = ScriptGetVar(ctx);
     u16 map_sec = MapHeader_GetMapSec(ctx->fieldSystem->location->mapId);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     u16 friendship = (u16)GetMonData(party_mon, MON_DATA_FRIENDSHIP, NULL);
 
@@ -350,7 +350,7 @@ BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx) //01BB
     u16 friendship_to_deplete = ScriptGetVar(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     u16 friendship = (u16)GetMonData(party_mon, MON_DATA_FRIENDSHIP, NULL);
     if (friendship_to_deplete > friendship)
@@ -373,7 +373,7 @@ BOOL ScrCmd_GetPartyMonContestCondition(struct ScriptContext* ctx) //0281
     u16 contest_condition_id = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = (u16)GetMonData(party_mon, MON_DATA_COOL + contest_condition_id, NULL);
     return FALSE;
@@ -394,7 +394,7 @@ BOOL ScrCmd_GetPartyMonTypes(struct ScriptContext* ctx) //0248
     u16* type2 = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *type1 = (u16)GetMonData(party_mon, MON_DATA_TYPE_1, NULL);
     *type2 = (u16)GetMonData(party_mon, MON_DATA_TYPE_2, NULL);
@@ -423,7 +423,7 @@ BOOL ScrCmd_CountPartyMons_OmitEggs(struct ScriptContext* ctx) //019A
     for (i = 0, non_egg_mons = 0; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
         if (party_mon_is_egg == FALSE)
@@ -454,7 +454,7 @@ BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* ctx) //019B
         if (i != slot_to_ignore)
         {
             struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-            struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+            struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
             BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
             if (party_mon_is_egg == FALSE)
@@ -487,7 +487,7 @@ BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx) //019C
     for (i = 0, mons = 0; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
         if (party_mon_is_egg == FALSE)
@@ -517,7 +517,7 @@ BOOL ScrCmd_GetPartyEggCount(struct ScriptContext* ctx) //019D
     for (i = 0, eggs_in_party = 0; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
         if (party_mon_is_egg)
@@ -542,7 +542,7 @@ BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx) //0119
     for (i = 0, *ret_ptr = 0; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_has_pokerus = (BOOL)GetMonData(party_mon, MON_DATA_POKERUS, NULL);
         if (party_mon_has_pokerus)
@@ -560,7 +560,7 @@ BOOL ScrCmd_GetPartyMonGender(struct ScriptContext* ctx) //011A
     u16 mon_slot = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = (u16)GetMonData(party_mon, MON_DATA_GENDER, NULL);
     return FALSE;
@@ -575,7 +575,7 @@ BOOL ScrCmd_CountPartyMonMoves(struct ScriptContext* ctx) //01C8
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    party_mon = GetPartyMonByIndex(party, mon_slot);
+    party_mon = Party_GetMonByIndex(party, mon_slot);
 
     BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
     if (party_mon_is_egg)
@@ -620,7 +620,7 @@ BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx) //01C9
     u16 mon_slot = ScriptGetVar(ctx);
     u16 move_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     sub_020699A4(party_mon, move_slot);
 
@@ -634,7 +634,7 @@ BOOL ScrCmd_GetPartyMonMove(struct ScriptContext* ctx) //01CA
     u16 mon_slot = ScriptGetVar(ctx);
     u16 move_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = (u16)GetMonData(party_mon, MON_DATA_MOVE1 + move_slot, NULL);
     return FALSE;
@@ -646,7 +646,7 @@ BOOL ScrCmd_GetPartyMonHeldItem(struct ScriptContext* ctx) //01EE
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = (u16)GetMonData(party_mon, MON_DATA_HELD_ITEM, NULL);
     return FALSE;
@@ -657,7 +657,7 @@ BOOL ScrCmd_ResetPartyMonHeldItem(struct ScriptContext* ctx) //01F0
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     u16 party_mon_held_item = ITEM_NONE;
     SetMonData(party_mon, MON_DATA_HELD_ITEM, &party_mon_held_item);
@@ -676,7 +676,7 @@ BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx) //01C0
     for (i = 0, *ret_ptr = 0; i < party_count; i++)
     {
         struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-        struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+        struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
         BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
         if (party_mon_is_egg == FALSE)
@@ -698,7 +698,7 @@ BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx) //022E
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     u16 ribbon_idx;
     u16 ribbons;
@@ -729,7 +729,7 @@ BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
     {
         for (u16 i = 0; i < party_count; i++)
         {
-            struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+            struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
 
             BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
             if (party_mon_is_egg)
@@ -758,7 +758,7 @@ BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx) //0230
     u16 mon_slot = ScriptGetVar(ctx);
     u16 ribbon_idx = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     *ret_ptr = (u16)GetMonData(party_mon, sub_0207FC5C((u8)ribbon_idx, 0), NULL);
     return FALSE;
@@ -770,7 +770,7 @@ BOOL ScrCmd_GivePartyMonRibbon(struct ScriptContext* ctx) //0231
     u16 ribbon_idx = ScriptGetVar(ctx);
     u8 mon_has_ribbon = TRUE;
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
+    struct Pokemon* party_mon = Party_GetMonByIndex(party, mon_slot);
 
     SetMonData(party_mon, (s32)sub_0207FC5C((u8)ribbon_idx, 0), &mon_has_ribbon);
 
@@ -791,7 +791,7 @@ BOOL ScrCmd_CheckPartyForBadEgg(struct ScriptContext* ctx) //02B7
     {
         for (u16 i = 0; i < party_count; i++)
         {
-            struct Pokemon* party_mon = GetPartyMonByIndex(party, i);
+            struct Pokemon* party_mon = Party_GetMonByIndex(party, i);
             BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
             if (party_mon_is_egg)
             {

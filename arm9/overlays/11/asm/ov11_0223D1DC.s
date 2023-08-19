@@ -9880,7 +9880,7 @@ _02241DD2:
 _02241DFE:
 	add r0, r6, #0
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r4, r0, #0
@@ -9967,7 +9967,7 @@ _02241E8A:
 _02241EB4:
 	add r0, r6, #0
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r4, r0, #0
@@ -10172,7 +10172,7 @@ _0224200C:
 _02242056:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r5, r0, #0
@@ -10252,7 +10252,7 @@ _022420CA:
 _022420FE:
 	add r0, r7, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r6, r0, #0
@@ -10287,7 +10287,7 @@ _0224213C:
 _0224214A:
 	ldr r0, [sp, #0x18]
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r6, r0, #0
@@ -10356,7 +10356,7 @@ _022421B0:
 _022421DC:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r5, r0, #0

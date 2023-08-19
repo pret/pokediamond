@@ -2199,7 +2199,7 @@ _0223A7EA:
 	ldr r0, _0223AB04 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r5, r0, #0
 	bl ov18_0223D638
@@ -3021,7 +3021,7 @@ ov18_0223AE88: ; 0x0223AE88
 	ldr r0, _0223AED0 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r6, r0, #0
 	bl sub_02026CC4
 	bl sub_02025C38
@@ -3153,7 +3153,7 @@ ov18_0223AF48: ; 0x0223AF48
 	ldr r0, [r0]
 	str r2, [sp, #8]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	str r0, [sp, #0x38]
 	bl ov18_0223AED4
@@ -5023,12 +5023,12 @@ ov18_0223BD94: ; 0x0223BD94
 	add r4, r1, #0
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CB4
 	ldr r0, _0223BDDC ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r6, r0, #0
 	add r0, r5, #0
@@ -5057,7 +5057,7 @@ ov18_0223BDE0: ; 0x0223BDE0
 	ldr r0, _0223BE24 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r5, r0, #0
 	add r0, r4, #0
@@ -5583,7 +5583,7 @@ ov18_0223C1F0: ; 0x0223C1F0
 	ldr r0, _0223C338 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r6, r0, #0
 	ldr r0, _0223C338 ; =0x02251380
@@ -6847,7 +6847,7 @@ ov18_0223CB94: ; 0x0223CB94
 	ldr r0, _0223CC28 ; =0x000004C8
 	str r4, [r1, r0]
 	add r0, r4, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	mov r4, #0
 	ldr r7, _0223CC20 ; =0x02251384
@@ -6910,7 +6910,7 @@ ov18_0223CC2C: ; 0x0223CC2C
 	ldr r1, [r0]
 	ldr r0, _0223CC74 ; =0x000004C8
 	ldr r0, [r1, r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	mov r4, #0
 	ldr r7, _0223CC70 ; =0x02251384
@@ -7769,7 +7769,7 @@ ov18_0223D298: ; 0x0223D298
 	ldr r1, [r0]
 	ldr r0, _0223D2E8 ; =0x000004C8
 	ldr r0, [r1, r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r4, r0, #0
 	mov r5, #0
@@ -9566,17 +9566,17 @@ ov18_0223E060: ; 0x0223E060
 	bl AllocFromHeap
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CB4
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
 	bl ov18_0224D2F0
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	bl ov18_022492F8
 _0223E110:
@@ -10646,7 +10646,7 @@ ov18_0223E8A8: ; 0x0223E8A8
 	ldr r0, _0223E948 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	mov r4, #0
 	ldr r7, _0223E948 ; =0x022513A0
@@ -10739,7 +10739,7 @@ ov18_0223E958: ; 0x0223E958
 	ldr r0, [r0, #4]
 	str r4, [r0, #0x40]
 	add r0, r4, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	ldr r2, _0223E9B0 ; =0x022513A0
 	mov r1, #0xa3
@@ -11874,7 +11874,7 @@ ov18_0223F1DC: ; 0x0223F1DC
 	ldr r0, _0223F228 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	mov r4, #0
 	add r7, r0, #0
@@ -12305,7 +12305,7 @@ ov18_0223F50C: ; 0x0223F50C
 	add r6, r2, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r7, r0, #0
 	add r0, r5, #0
@@ -12817,7 +12817,7 @@ ov18_0223F918: ; 0x0223F918
 	b _0223FA5E
 _0223F926:
 	ldr r0, [r0, #0x40]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CB4
 	add r6, r0, #0
 	ldr r0, _0223FA64 ; =0x00000622
@@ -15123,7 +15123,7 @@ ov18_02240A44: ; 0x02240A44
 	add r4, r2, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CB4
 	add r5, r0, #0
 	ldrb r0, [r4, #1]
@@ -24144,7 +24144,7 @@ _02245050: .word ov18_02246338
 ov18_02245054: ; 0x02245054
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CA8
 	add r4, r0, #0
 	bl sub_02026CC0
@@ -27700,7 +27700,7 @@ ov18_02246C94: ; 0x02246C94
 	add r5, r2, #0
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CB4
 	ldrb r4, [r5]
 	add r7, r0, #0
@@ -28092,13 +28092,13 @@ ov18_02246FB4: ; 0x02246FB4
 	ldr r0, _02247108 ; =0x022513EC
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CA8
 	str r0, [sp, #0xc]
 	ldr r0, _02247108 ; =0x022513EC
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r4, r0, #0
 	mov r0, #0
@@ -30029,7 +30029,7 @@ ov18_02247EA0: ; 0x02247EA0
 	add r3, r2, #0
 	bl ov18_0224DCB8
 	ldr r0, [r4, #8]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CB4
 	bl sub_02026940
 	add r4, #0x2a
@@ -31041,7 +31041,7 @@ ov18_022486B8: ; 0x022486B8
 	cmp r0, #0
 	beq _02248704
 	ldr r0, [r4, #4]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CB4
 	bl sub_02026B90
 	ldr r0, _0224873C ; =0x000005E3
@@ -32640,7 +32640,7 @@ _02249334: .word FreeToHeap
 ov18_02249338: ; 0x02249338
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	bl sub_0202623C
 	pop {r3, pc}
@@ -32651,7 +32651,7 @@ ov18_02249338: ; 0x02249338
 ov18_0224934C: ; 0x0224934C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	bl sub_02025DB0
 	pop {r3, pc}
@@ -32663,7 +32663,7 @@ ov18_02249360: ; 0x02249360
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r4, #0
 	bl sub_02025DC8
@@ -32675,7 +32675,7 @@ ov18_02249360: ; 0x02249360
 ov18_02249378: ; 0x02249378
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	bl sub_02025F80
 	pop {r3, pc}
@@ -32687,7 +32687,7 @@ ov18_0224938C: ; 0x0224938C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r4, #0
 	bl sub_02025F98
@@ -32719,7 +32719,7 @@ _022493C4: .word ov18_022513F8
 ov18_022493C8: ; 0x022493C8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	bl sub_02026050
 	pop {r3, pc}
@@ -32731,7 +32731,7 @@ ov18_022493DC: ; 0x022493DC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r4, #0
 	bl sub_02026258
@@ -32744,7 +32744,7 @@ ov18_022493F4: ; 0x022493F4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r4, #0
 	bl sub_02026068
@@ -32757,7 +32757,7 @@ ov18_0224940C: ; 0x0224940C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r4, #0
 	bl sub_02026074
@@ -32769,7 +32769,7 @@ ov18_0224940C: ; 0x0224940C
 ov18_02249424: ; 0x02249424
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	bl sub_0202616C
 	pop {r3, pc}
@@ -32781,7 +32781,7 @@ ov18_02249438: ; 0x02249438
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r4, #0
 	bl sub_02026188
@@ -32977,7 +32977,7 @@ _022495BA:
 	cmp r6, #4
 	bne _022495E2
 	ldr r0, [r5, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	mov r1, #4
 	bl PlayerProfile_GetPlayerName_NewString
@@ -35134,7 +35134,7 @@ ov18_0224A78C: ; 0x0224A78C
 	bl ov18_022498EC
 	bl ov18_0224D704
 	ldr r0, [r4, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #1
@@ -35433,7 +35433,7 @@ ov18_0224A9EC: ; 0x0224A9EC
 	add r5, r0, #0
 	bl ListMenuGetTemplateField
 	ldr r0, [r0, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r4, #0
 	bl sub_02025F0C
@@ -36386,7 +36386,7 @@ ov18_0224B190: ; 0x0224B190
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r4, r0, #0
 	add r1, r5, #0
@@ -36412,7 +36412,7 @@ ov18_0224B1C4: ; 0x0224B1C4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r1, r5, #0
 	add r4, r0, #0
@@ -37482,11 +37482,11 @@ _0224BA70:
 	bl ov18_0223D658
 	bl ov18_0224DD94
 	ldr r0, [r4, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	mov r3, #0
 	str r3, [sp]
@@ -38088,7 +38088,7 @@ ov18_0224BFAC: ; 0x0224BFAC
 	add r6, r0, #0
 	ldr r0, [r6, #0xc]
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	bl sub_02025D40
 	add r7, r4, r0
@@ -38223,7 +38223,7 @@ ov18_0224C0AC: ; 0x0224C0AC
 	add r6, r0, #0
 	ldr r0, [r6, #0xc]
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r5, r0, #0
 	bl sub_02026CC4
 	add r7, r0, #0
@@ -38366,7 +38366,7 @@ ov18_0224C1C0: ; 0x0224C1C0
 	ldr r0, [r5, #0xc]
 	add r7, r2, #0
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	add r6, r0, #0
 	add r0, r7, #0
@@ -38749,7 +38749,7 @@ ov18_0224C510: ; 0x0224C510
 	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	str r0, [sp, #0x2c]
 	add r0, r4, #0
@@ -39310,7 +39310,7 @@ ov18_0224C9C4: ; 0x0224C9C4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02026CC4
 	ldr r1, _0224CA24 ; =0x00000215
 	add r4, r0, #0

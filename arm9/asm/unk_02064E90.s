@@ -14,7 +14,7 @@ sub_02064E90: ; 0x02064E90
 	add r0, r6, #0x0
 	str r3, [sp, #0x1c]
 	ldr r5, [sp, #0xbc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	str r0, [sp, #0x20]
 	bl Save_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
@@ -218,7 +218,7 @@ _02065074: .word FreeToHeap
 	thumb_func_start GetTrainerCardLevel
 GetTrainerCardLevel: ; 0x02065078
 	push {r3-r7, lr}
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r7, r0, #0x0
 	bl Save_GameStats_Get
 	add r6, r0, #0x0

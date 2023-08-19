@@ -957,7 +957,7 @@ _020515BA:
 	add r1, #0x84
 	ldrb r1, [r1, #0x0]
 	ldr r0, [r4, #0x50]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x28]
@@ -1482,7 +1482,7 @@ _02051A16:
 	ldrb r1, [r1, #0x0]
 	ldr r0, [sp, #0x0]
 	sub r1, r1, #0x1
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl MI_CpuCopy8
@@ -1619,7 +1619,7 @@ _02051B04:
 	mul r1, r6
 	ldr r0, [r5, #0x50]
 	add r1, r2, r1
-	bl AddMonToParty
+	bl Party_AddMon
 	add r4, r4, #0x1
 	cmp r4, #0x3
 	blt _02051B04
@@ -1658,7 +1658,7 @@ _02051B52:
 	mul r1, r4
 	ldr r0, [r6, #0x50]
 	add r1, r2, r1
-	bl AddMonToParty
+	bl Party_AddMon
 	add r5, r5, #0x1
 	cmp r5, #0x3
 	blt _02051B52

@@ -49,10 +49,10 @@
 extern void *FieldSysGetAttrAddr(FieldSystem *fieldSystem, enum ScriptEnvField id);
 extern ScriptContext *CreateScriptContext(FieldSystem *fieldSystem, u16 id);
 extern u32 MapObject_GetID(LocalMapObject *lastInteracted);
-extern void FlagSet(FieldSystem *fieldSystem, u16 flag);
+extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void FlagClear(FieldSystem *fieldSystem, u16 flag);
 extern u8 FlagCheck(FieldSystem *fieldSystem, u16 flag);
-extern void TrainerFlagSet(FieldSystem *fieldSystem, u16 flag);
+extern void TrainerFieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void TrainerFlagClear(FieldSystem *fieldSystem, u16 flag);
 extern u8 TrainerFlagCheck(FieldSystem *fieldSystem, u16 flag);
 extern void ov05_ShowMessageInField(ScriptContext *ctx, MsgData *msgData, u16 id);
@@ -745,7 +745,7 @@ BOOL ScrCmd_SetFlag(ScriptContext *ctx) //001E
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 flag = ScriptReadHalfword(ctx);
-    FlagSet(fieldSystem, flag);
+    FieldSystem_FlagSet(fieldSystem, flag);
     return FALSE;
 }
 
@@ -778,7 +778,7 @@ BOOL ScrCmd_SetFlagVar(ScriptContext *ctx) //0022
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 *wk = ScriptGetVarPointer(ctx);
-    FlagSet(fieldSystem, *wk);
+    FieldSystem_FlagSet(fieldSystem, *wk);
     return FALSE;
 }
 
@@ -786,7 +786,7 @@ BOOL ScrCmd_SetTrainerFlag(ScriptContext *ctx) //0023
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 flag = ScriptGetVar(ctx);
-    TrainerFlagSet(fieldSystem, flag);
+    TrainerFieldSystem_FlagSet(fieldSystem, flag);
     return FALSE;
 }
 
@@ -1980,7 +1980,7 @@ BOOL ScrCmd_GetPokemonForm(ScriptContext *ctx) { //0095
     u16 *variable = ScriptGetVarPointer(ctx);
 
     Party *party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    *variable = GetMonUnownLetter(GetPartyMonByIndex(party, partyPosition));
+    *variable = GetMonUnownLetter(Party_GetMonByIndex(party, partyPosition));
 
     return FALSE;
 }
@@ -2208,7 +2208,7 @@ BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx) { //0208
 BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx) { //028C
     PokepicManager **pokepicManager = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 partyId = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyId);
+    Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyId);
     LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, HEAP_ID_4);
     *pokepicManager = DrawPokemonPicFromMon(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, mon, HEAP_ID_4);
     u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
@@ -2502,7 +2502,7 @@ BOOL ScrCmd_NamePokemonScreen(ScriptContext *ctx) { //00BB
 
     u16 partyPos = ScriptGetVar(ctx);
     Party *party = SaveArray_Party_Get(fieldSystem->saveData);
-    Pokemon *mon = GetPartyMonByIndex(party, partyPos);
+    Pokemon *mon = Party_GetMonByIndex(party, partyPos);
 
     u16 monNick[20];
     GetMonData(mon, MON_DATA_NICKNAME, monNick);
@@ -2654,7 +2654,7 @@ BOOL ScrCmd_Defog(ScriptContext *ctx) { //00C4
 BOOL ScrCmd_Cut(ScriptContext *ctx) { //00C5
     void **miscData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR); //todo identify
     u16 partyPosition = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
+    Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
     u32 gender = PlayerAvatar_GetGender(ctx->fieldSystem->playerAvatar);
     *miscData = ov06_0224666C(ctx->fieldSystem, 0, mon, gender);
     SetupNativeScript(ctx, sub_0203C9F8);
@@ -3065,8 +3065,8 @@ BOOL ScrCmd_Unk013C(ScriptContext *ctx) { //013C
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u16 unk0 = ScriptReadHalfword(ctx);
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(ctx->fieldSystem));
-    SaveEasyChat *easyChat = Save_EasyChat_Get(FieldSystem_GetSaveDataPtr(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
+    SaveEasyChat *easyChat = Save_EasyChat_Get(FieldSystem_GetSaveData(ctx->fieldSystem));
 
     u16 objId;
     if (unk0 == 0) {
@@ -3217,14 +3217,14 @@ BOOL ScrCmd_Unk0153(ScriptContext *ctx) { //0153
 }
 
 BOOL ScrCmd_Unk0154(ScriptContext *ctx) { //0154
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     sub_0205363C(PlayerProfile_GetTrainerID(playerProfile), PlayerProfile_GetTrainerGender(playerProfile), *messageFormat);
     return FALSE;
 }
 
 BOOL ScrCmd_Unk0155(ScriptContext *ctx) { //0155
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 unk0 = ScriptGetVar(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
     *var = sub_02053678(PlayerProfile_GetTrainerID(playerProfile), PlayerProfile_GetTrainerGender(playerProfile), unk0);
@@ -3233,7 +3233,7 @@ BOOL ScrCmd_Unk0155(ScriptContext *ctx) { //0155
 }
 
 BOOL ScrCmd_Unk029C(ScriptContext *ctx) { //029C
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 unk0 = ScriptGetVar(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
     *var = sub_02053678(PlayerProfile_GetTrainerID(playerProfile), PlayerProfile_GetTrainerGender(playerProfile), unk0);
@@ -3241,7 +3241,7 @@ BOOL ScrCmd_Unk029C(ScriptContext *ctx) { //029C
 }
 
 BOOL ScrCmd_SetPlayerAvatar(ScriptContext *ctx) { //0156
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 avatar = ScriptGetVar(ctx);
     PlayerProfile_SetAvatar(playerProfile, avatar);
     return FALSE;
@@ -3260,7 +3260,7 @@ BOOL ScrCmd_SetSpawn(ScriptContext *ctx) { //014C
 }
 
 BOOL ScrCmd_GetPlayerGender(ScriptContext *ctx) { //014D
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 *var = ScriptGetVarPointer(ctx);
     *var = PlayerProfile_GetTrainerGender(playerProfile);
     return FALSE;
@@ -3974,7 +3974,7 @@ BOOL ScrCmd_NationalDex(ScriptContext *ctx) { //022D
 BOOL ScrCmd_GetTotalPokemonEVs(ScriptContext *ctx) { //0233
     u16 *var = ScriptGetVarPointer(ctx);
     u16 partyPosition = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
+    Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
 
     u32 hpEv = GetMonData(mon, MON_DATA_HP_EV, NULL);
     u32 atkEv = GetMonData(mon, MON_DATA_ATK_EV, NULL);
@@ -4005,7 +4005,7 @@ BOOL ScrCmd_GetPokemonFootprint(ScriptContext *ctx) { //023A
     u16 *var = ScriptGetVarPointer(ctx);
     u16 *var2 = ScriptGetVarPointer(ctx);
     u16 partyPosition = ScriptGetVar(ctx);
-    Pokemon *mon = GetPartyMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
+    Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     *var = ov05_021F61E8(species);
     *var2 = ov05_021F61DC(species);
@@ -4044,7 +4044,7 @@ BOOL ScrCmd_GetGameVersion(ScriptContext *ctx) { //0246
 
 BOOL ScrCmd_GiveWallpaper(ScriptContext *ctx) { //0249 - used for easy chat unlock, todo: find better name
     FieldSystem *fieldSystem = ctx->fieldSystem;
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveDataPtr(fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(fieldSystem));
     u16 *var = ScriptGetVarPointer(ctx);
     PCStorage *pcStorage = Save_PCStorage_Get(fieldSystem->saveData);
     u16 unk0 = ScriptGetVar(ctx);
@@ -4181,7 +4181,7 @@ BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx) { //0263
     Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
     
     for (s32 i = 0; i < partyCount; i++) {
-        Pokemon *mon = GetPartyMonByIndex(playerParty, i);
+        Pokemon *mon = Party_GetMonByIndex(playerParty, i);
         if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_DEOXYS) {
             SetMonData(mon, MON_DATA_FORM, &form);
             CalcMonLevelAndStats(mon);
@@ -4204,7 +4204,7 @@ BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) { //0264
     for (s32 i = 0; i < partyCount; i++) {
         s32 j;
         BOOL hasMultiple;
-        Pokemon *mon = GetPartyMonByIndex(playerParty, i);
+        Pokemon *mon = Party_GetMonByIndex(playerParty, i);
         u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
         u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
         if (species == SPECIES_BURMY) {
@@ -4261,7 +4261,7 @@ asm BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) {
 _0203EFA2:
 	ldr r0, [sp, #0xc]
 	add r1, r4, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r6, r0, #0x0
 	mov r1, #0x5
 	mov r2, #0x0

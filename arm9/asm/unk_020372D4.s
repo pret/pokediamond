@@ -632,7 +632,7 @@ sub_020377A8: ; 0x020377A8
 	ldr r0, [r0, #0x8]
 	bx lr
 
-	thumb_func_start FieldSystem_GetSaveDataPtr
-FieldSystem_GetSaveDataPtr: ; 0x020377AC
+	thumb_func_start FieldSystem_GetSaveData
+FieldSystem_GetSaveData: ; 0x020377AC
 	ldr r0, [r0, #0xc]
 	bx lr

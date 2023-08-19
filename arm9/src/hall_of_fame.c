@@ -31,7 +31,7 @@ void Save_HOF_RecordParty(struct HallOfFame * hof, struct Party * party, RTCDate
         int i, j;
         for (i = 0, j = 0; i < nmons; i++)
         {
-            struct Pokemon * mon = GetPartyMonByIndex(party, i);
+            struct Pokemon * mon = Party_GetMonByIndex(party, i);
             BOOL lock = AcquireMonLock(mon);
             if (!GetMonData(mon, MON_DATA_IS_EGG, NULL))
             {

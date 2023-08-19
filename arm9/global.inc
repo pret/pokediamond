@@ -2612,7 +2612,7 @@
 .extern sub_02037778
 .extern sub_02037790
 .extern sub_020377A8
-.extern FieldSystem_GetSaveDataPtr
+.extern FieldSystem_GetSaveData
 .extern sub_020377B0
 .extern sub_020377C8
 .extern sub_020377E0
@@ -2682,7 +2682,7 @@
 .extern VarGet
 .extern sub_02039504
 .extern FlagCheck
-.extern FlagSet
+.extern FieldSystem_FlagSet
 .extern FlagClear
 .extern ResetTempFlagsAndVars
 .extern sub_0203959C
@@ -2691,7 +2691,7 @@
 .extern sub_02039618
 .extern TrainerIsDoubleBattle
 .extern TrainerFlagCheck
-.extern TrainerFlagSet
+.extern TrainerFieldSystem_FlagSet
 .extern TrainerFlagClear
 .extern sub_02039694
 .extern sub_02039754
@@ -4882,10 +4882,10 @@
 .extern SaveArray_Party_Alloc
 .extern SaveArray_Party_Init
 .extern InitPartyWithMaxSize
-.extern AddMonToParty
-.extern RemoveMonFromParty
+.extern Party_AddMon
+.extern Party_RemoveMon
 .extern GetPartyCount
-.extern GetPartyMonByIndex
+.extern Party_GetMonByIndex
 .extern ReplacePartySlotWithMon
 .extern SwapSlotsInParty
 .extern CopyParty

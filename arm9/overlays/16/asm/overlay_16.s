@@ -55038,7 +55038,7 @@ _021F0E5A:
 _021F0E68:
 	ldr r0, [sp, #0xc]
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r1, [sp, #8]
 	add r6, r0, #0
 	cmp r4, r1
@@ -55588,7 +55588,7 @@ _021F1276:
 _021F128E:
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r1, [sp, #8]
 	add r4, r0, #0
 	cmp r5, r1
@@ -55703,7 +55703,7 @@ _021F136A:
 _021F1382:
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r1, [sp, #8]
 	add r4, r0, #0
 	cmp r5, r1
@@ -62892,7 +62892,7 @@ _021F4A94:
 _021F4AA8:
 	add r0, r7, #0
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa2
 	mov r2, #0
 	add r6, r0, #0

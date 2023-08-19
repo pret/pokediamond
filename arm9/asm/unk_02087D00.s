@@ -540,7 +540,7 @@ sub_020880A0: ; 0x020880A0
 	ldr r0, [r5, #0xc]
 	ldrb r1, [r5, #0x8]
 	ldr r0, [r0, #0x10]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x18]

@@ -291,7 +291,7 @@ ov27_02254A48: ; 0x02254A48
 _02254A62:
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	bl AcquireMonLock
 	add r7, r0, #0

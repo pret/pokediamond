@@ -3017,7 +3017,7 @@ u8 Party_GetMaxLevel(struct Party * party)
     u8 level;
     for (i = 0; i < r7; i++)
     {
-        struct Pokemon * pokemon = GetPartyMonByIndex(party, i);
+        struct Pokemon * pokemon = Party_GetMonByIndex(party, i);
         if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE
          && !GetMonData(pokemon, MON_DATA_IS_EGG, NULL))
         {
@@ -3102,7 +3102,7 @@ void Party_GivePokerusAtRandom(struct Party * party)
         do
         {
             idx = LCRandom() % count;
-            pokemon = GetPartyMonByIndex(party, idx);
+            pokemon = Party_GetMonByIndex(party, idx);
         } while (GetMonData(pokemon, MON_DATA_SPECIES, NULL) == SPECIES_NONE || GetMonData(pokemon, MON_DATA_IS_EGG, NULL));
         if (!Party_MaskMonsWithPokerus(party, (u8)MaskOfFlagNo(idx)))
         {
@@ -3132,7 +3132,7 @@ u8 Party_MaskMonsWithPokerus(struct Party * party, u8 mask)
         {
             if (mask & 1)
             {
-                pokemon = GetPartyMonByIndex(party, i);
+                pokemon = Party_GetMonByIndex(party, i);
                 if (GetMonData(pokemon, MON_DATA_POKERUS, NULL))
                     ret |= flag;
             }
@@ -3144,7 +3144,7 @@ u8 Party_MaskMonsWithPokerus(struct Party * party, u8 mask)
     }
     else
     {
-        pokemon = GetPartyMonByIndex(party, 0);
+        pokemon = Party_GetMonByIndex(party, 0);
         if (GetMonData(pokemon, MON_DATA_POKERUS, NULL))
             ret++;
     }
@@ -3159,7 +3159,7 @@ void Party_UpdatePokerus(struct Party * party, int r5)
     int count = GetPartyCount(party);
     for (i = 0; i < count; i++)
     {
-        pokemon = GetPartyMonByIndex(party, i);
+        pokemon = Party_GetMonByIndex(party, i);
         if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
         {
             pokerus = (u8)GetMonData(pokemon, MON_DATA_POKERUS, NULL);
@@ -3187,7 +3187,7 @@ void Party_SpreadPokerus(struct Party * party)
     {
         for (i = 0; i < count; i++)
         {
-            pokemon = GetPartyMonByIndex(party, i);
+            pokemon = Party_GetMonByIndex(party, i);
             if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
             {
                 pokerus = (u8)GetMonData(pokemon, MON_DATA_POKERUS, NULL);
@@ -3195,13 +3195,13 @@ void Party_SpreadPokerus(struct Party * party)
                 {
                     if (i != 0)
                     {
-                        pokemon = GetPartyMonByIndex(party, i - 1);
+                        pokemon = Party_GetMonByIndex(party, i - 1);
                         if (!(GetMonData(pokemon, MON_DATA_POKERUS, NULL) & 0xF0))
                             SetMonData(pokemon, MON_DATA_POKERUS, &pokerus);
                     }
                     if (i < count - 1)
                     {
-                        pokemon = GetPartyMonByIndex(party, i + 1);
+                        pokemon = Party_GetMonByIndex(party, i + 1);
                         if (!(GetMonData(pokemon, MON_DATA_POKERUS, NULL) & 0xF0))
                         {
                             SetMonData(pokemon, MON_DATA_POKERUS, &pokerus);

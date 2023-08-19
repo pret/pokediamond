@@ -1858,7 +1858,7 @@ ov05_021D8FD0: ; 0x021D8FD0
 _021D8FF6:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	add r2, r5, #0
 	bl MonApplyFriendshipMod

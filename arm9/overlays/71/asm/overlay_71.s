@@ -650,7 +650,7 @@ ov71_0222DB5C: ; 0x0222DB5C
 _0222DB70:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	add r2, r0, #0
 	add r0, r7, #0
@@ -1097,7 +1097,7 @@ _0222DEF4:
 	ldr r0, _0222E0F8 ; =0x00002218
 	add r1, r5, #0
 	ldr r0, [r4, r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r6, #0
 	bl ov71_0222E118
 	ldr r0, [r4, r7]
@@ -1121,7 +1121,7 @@ _0222DF28:
 	ldr r0, _0222E0FC ; =0x0000221C
 	add r1, r5, #0
 	ldr r0, [r4, r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r5, #6
 	lsl r1, r1, #4
 	add r1, r6, r1
@@ -1233,7 +1233,7 @@ _0222E010:
 	ldr r0, _0222E0F8 ; =0x00002218
 	mov r1, #0
 	ldr r0, [r4, r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r2, #0x7f
 	ldr r3, _0222E104 ; =0x000020F0
 	lsl r2, r2, #4
@@ -1412,7 +1412,7 @@ ov71_0222E1A0: ; 0x0222E1A0
 	ldr r0, _0222E20C ; =0x0000221C
 	add r7, r1, #0
 	ldr r0, [r5, r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r6, r0, #0
 	add r0, r4, #0
 	mov r1, #6
@@ -1473,7 +1473,7 @@ ov71_0222E224: ; 0x0222E224
 	bge _0222E29E
 	ldr r0, _0222E2BC ; =0x00002218
 	ldr r0, [r5, r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	add r0, r5, #0
 	add r0, #0x88
@@ -2694,7 +2694,7 @@ ov71_0222EC5C: ; 0x0222EC5C
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x76
 	add r2, r4, #0
 	bl GetMonData
@@ -2728,7 +2728,7 @@ ov71_0222ECA8: ; 0x0222ECA8
 _0222ECB6:
 	add r0, r1, #0
 	add r1, r2, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x4d
 	mov r2, #0
 	bl GetMonData
@@ -2753,7 +2753,7 @@ ov71_0222ECD4: ; 0x0222ECD4
 	str r2, [sp, #8]
 	str r3, [sp, #0xc]
 	ldr r4, [sp, #0x50]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #2
 	bl sub_02068E14
 	str r0, [sp, #0x10]
@@ -2929,7 +2929,7 @@ _0222EE14:
 	bl ov71_02230EFC
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa0
 	mov r2, #0
 	bl GetMonData
@@ -2975,7 +2975,7 @@ _0222EEA6:
 	bl ov71_02230EFC
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #6
 	mov r2, #0
 	bl GetMonData
@@ -4875,7 +4875,7 @@ ov71_0222FDD8: ; 0x0222FDD8
 	add r1, #0x88
 	ldr r0, [r4, r0]
 	ldr r1, [r1]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -5694,7 +5694,7 @@ ov71_022304AC: ; 0x022304AC
 	add r1, #0x88
 	ldr r0, [r4, r0]
 	ldr r1, [r1]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -5708,7 +5708,7 @@ ov71_022304AC: ; 0x022304AC
 	ldr r1, [r1]
 	ldr r0, [r4, r0]
 	sub r1, r1, #6
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -6121,7 +6121,7 @@ ov71_02230810: ; 0x02230810
 	ldr r1, [r1]
 	ldr r0, [r4, r0]
 	sub r1, r1, #6
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -6327,12 +6327,12 @@ ov71_022309E8: ; 0x022309E8
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r7, #0
 	bl CopyPokemonToPokemon
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r4, #0
 	bl CopyPokemonToPokemon
 	add r0, r4, #0
@@ -6387,13 +6387,13 @@ _02230A98:
 	bl sub_0202C144
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
 	bl CopyPokemonToPokemon
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r7, #0
 	bl CopyPokemonToPokemon

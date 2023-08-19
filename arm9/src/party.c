@@ -33,7 +33,7 @@ void InitPartyWithMaxSize(struct Party * party, int count)
         ZeroMonData(&party->mons[i]);
 }
 
-BOOL AddMonToParty(struct Party * party, struct Pokemon * pokemon)
+BOOL Party_AddMon(struct Party * party, struct Pokemon * pokemon)
 {
     if (party->curCount >= party->maxCount)
         return FALSE;
@@ -42,7 +42,7 @@ BOOL AddMonToParty(struct Party * party, struct Pokemon * pokemon)
     return TRUE;
 }
 
-BOOL RemoveMonFromParty(struct Party * party, int pos)
+BOOL Party_RemoveMon(struct Party * party, int pos)
 {
     int i;
 
@@ -66,7 +66,7 @@ int GetPartyCount(struct Party * party)
     return party->curCount;
 }
 
-struct Pokemon * GetPartyMonByIndex(struct Party * party, int pos)
+struct Pokemon * Party_GetMonByIndex(struct Party * party, int pos)
 {
     GF_ASSERT(pos >= 0);
     GF_ASSERT(pos < party->curCount);

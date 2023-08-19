@@ -268,7 +268,7 @@ sub_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -281,7 +281,7 @@ sub_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x8]
 	add r1, r6, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	add r0, r6, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0xc]
@@ -405,7 +405,7 @@ _02047A0C:
 	add r0, r5, r0
 	ldr r0, [r0, #0x4]
 	add r1, r6, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	cmp r0, #0x0
 	bne _02047A20
 	bl GF_AssertFail
@@ -661,7 +661,7 @@ sub_02047BC0: ; 0x02047BC0
 _02047C40:
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r5, #0x0
 	bl CopyPokemonToPokemon
 	add r0, r5, #0x0
@@ -856,7 +856,7 @@ _02047DEE:
 	ldrb r1, [r7, r6]
 	ldr r0, [sp, #0x4]
 	sub r1, r1, #0x1
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r1, [sp, #0x8]
 	bl CopyPokemonToPokemon
 	ldr r1, [sp, #0x8]

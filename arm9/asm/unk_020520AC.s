@@ -181,7 +181,7 @@ sub_02052110: ; 0x02052110
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _0205211E:
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r6, r0, #0x0
 	bl sub_02031A7C
 	mov r1, #0x19

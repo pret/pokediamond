@@ -213,7 +213,7 @@ _0222D752:
 	bl CreateHeap
 	ldr r0, [r5, #4]
 	ldr r1, [sp, #0x24]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	mov r0, #0x5a
 	lsl r0, r0, #2
@@ -1141,7 +1141,7 @@ ov11_0222DFA4: ; 0x0222DFA4
 	beq _0222DFE4
 	ldr r0, [r4, #0x6c]
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov11_02230FA8
@@ -2020,7 +2020,7 @@ _0222E760:
 _0222E76C:
 	ldr r0, [r7, #0x68]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
@@ -2125,7 +2125,7 @@ _0222E83C:
 _0222E848:
 	ldr r0, [r7, #0x68]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
@@ -2240,7 +2240,7 @@ _0222E920:
 _0222E938:
 	ldr r0, [r7, #0x68]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r1, [sp, #0x14]
 	add r5, r0, #0
 	cmp r1, #1
@@ -2351,7 +2351,7 @@ _0222EA0C:
 _0222EA22:
 	ldr r0, [r7, #0x68]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
@@ -2578,7 +2578,7 @@ _0222EBEA:
 _0222EBF6:
 	ldr r0, [r7, #0x68]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
@@ -2692,7 +2692,7 @@ _0222ECC8:
 _0222ECE0:
 	ldr r0, [r7, #0x68]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r1, [sp, #0x20]
 	add r5, r0, #0
 	cmp r1, #1
@@ -2806,7 +2806,7 @@ _0222EDBC:
 _0222EDD2:
 	ldr r0, [r7, #0x68]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
@@ -2861,7 +2861,7 @@ _0222EE3E:
 	beq _0222EE5A
 	ldr r0, [r4, #0x6c]
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r2, r4, #0
 	mov r1, #0x8f
 	add r2, #0xf4
@@ -2893,7 +2893,7 @@ _0222EE7C:
 _0222EE8C:
 	ldr r0, [r4, #0x68]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r2, [r4, r6]
 	add r1, r7, #0
 	lsl r2, r2, #0x10
@@ -2915,7 +2915,7 @@ _0222EEAC:
 _0222EEBC:
 	ldr r0, [r4, #0x70]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r2, [r4, r6]
 	add r1, r7, #0
 	lsl r2, r2, #0x10

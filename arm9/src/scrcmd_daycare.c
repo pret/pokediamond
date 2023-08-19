@@ -54,7 +54,7 @@ BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx) //01A9
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct Daycare* daycare = SaveArray_Get(fieldSystem->saveData, 8);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    struct SaveData* save = FieldSystem_GetSaveDataPtr(ctx->fieldSystem);
+    struct SaveData* save = FieldSystem_GetSaveData(ctx->fieldSystem);
     PlayerProfile* player = Save_PlayerData_GetProfileAddr(save);
 
     ov05_Daycare_GiveEggToPlayer(daycare, party, player);

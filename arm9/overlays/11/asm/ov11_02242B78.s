@@ -5306,7 +5306,7 @@ _02245384:
 _022453A4:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa2
 	mov r2, #0
 	bl GetMonData
@@ -5363,7 +5363,7 @@ _022453F8:
 _02245418:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa2
 	mov r2, #0
 	bl GetMonData
@@ -8792,7 +8792,7 @@ _02246E72:
 _02246E76:
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r4, r0, #0

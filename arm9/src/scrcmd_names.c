@@ -29,7 +29,7 @@ BOOL ScrCmd_GetPlayerName(ScriptContext *ctx) //00CD - todo: BufferPlayerName? T
     FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    SaveData *save = FieldSystem_GetSaveDataPtr(fieldSystem);
+    SaveData *save = FieldSystem_GetSaveData(fieldSystem);
     PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
 
     BufferPlayersName(*messageFormat, idx, player);
@@ -66,7 +66,7 @@ BOOL ScrCmd_GetPokemonName(ScriptContext *ctx) //00D0 - todo: BufferPartyPokemon
     u8 idx = ScriptReadByte(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
     Party *party = SaveArray_Party_Get(fieldSystem->saveData);
-    Pokemon *mon = GetPartyMonByIndex(party, mon_idx);
+    Pokemon *mon = Party_GetMonByIndex(party, mon_idx);
 
     BufferBoxMonSpeciesName(*messageFormat, idx, &mon->box);
 
@@ -158,7 +158,7 @@ BOOL ScrCmd_GetPokemonNickname(ScriptContext *ctx) //00D6 - todo: BufferPartyPok
     u8 idx = ScriptReadByte(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
     Party *party = SaveArray_Party_Get(fieldSystem->saveData);
-    Pokemon *pokemon = GetPartyMonByIndex(party, mon_idx);
+    Pokemon *pokemon = Party_GetMonByIndex(party, mon_idx);
 
     BufferBoxMonNickname(*messageFormat, idx, &pokemon->box);
 
@@ -206,7 +206,7 @@ BOOL ScrCmd_GetTrainerClassName(ScriptContext *ctx) //00D8 - todo: BufferTrainer
 BOOL ScrCmd_Unk00D9(ScriptContext *ctx) //00D9 - todo: BufferPlayerTrainerClassName? TextPlayerTrainerClassName?
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
-    SaveData *save = FieldSystem_GetSaveDataPtr(fieldSystem);
+    SaveData *save = FieldSystem_GetSaveData(fieldSystem);
     PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -391,7 +391,7 @@ BOOL ScrCmd_GetPokemonMoveName(ScriptContext *ctx) //01CB - todo: BufferPartyPok
     u16 mon_idx = ScriptGetVar(ctx);
     u16 mon_move_idx = ScriptGetVar(ctx);
     Party *party = SaveArray_Party_Get(fieldSystem->saveData);
-    Pokemon *pokemon = GetPartyMonByIndex(party, mon_idx);
+    Pokemon *pokemon = Party_GetMonByIndex(party, mon_idx);
     u16 move = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + mon_move_idx, NULL);
 
     BufferMoveName(*messageFormat, idx, move);

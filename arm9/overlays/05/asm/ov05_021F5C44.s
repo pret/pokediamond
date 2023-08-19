@@ -77,7 +77,7 @@ _021F5CBA:
 	bne _021F5D10
 	ldr r0, [r0, #8]
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r2, [r5, #4]
 	add r3, r0, #0
 	lsl r2, r2, #0x10

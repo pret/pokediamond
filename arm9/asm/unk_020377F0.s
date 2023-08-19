@@ -1115,7 +1115,7 @@ sub_02037EF8: ; 0x02037EF8
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r5, #0x0
@@ -1140,7 +1140,7 @@ sub_02037F2C: ; 0x02037F2C
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	mov r1, #0xb
 	str r1, [sp, #0x0]
 	add r1, r4, #0x0
@@ -1164,13 +1164,13 @@ sub_02037F58: ; 0x02037F58
 	add r6, r3, #0x0
 	cmp r5, #0x3
 	bne _02037F74
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl sub_020855B0
 	b _02037F82
 _02037F74:
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	add r3, r6, #0x0
@@ -1189,7 +1189,7 @@ sub_02037F90: ; 0x02037F90
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r5, r0, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl sub_02085578
@@ -1216,7 +1216,7 @@ sub_02037FC4: ; 0x02037FC4
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r0, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r1, r5, #0x0
 	bl sub_02087D00
 	add r5, r0, #0x0
@@ -1263,7 +1263,7 @@ sub_0203800C: ; 0x0203800C
 	add r0, r5, #0x0
 	bl SaveArray_Party_Get
 	add r1, r7, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	bl Save_FashionData_Get
@@ -1684,7 +1684,7 @@ _02038386:
 	beq _020383C8
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x30]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x44]
 	bl CopyPokemonToPokemon
@@ -1938,7 +1938,7 @@ _02038590:
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Party_Get
 	ldr r1, [r4, #0x4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r2, [r4, #0xc]
 	mov r1, #0x75
 	add r2, #0x1c
@@ -2005,7 +2005,7 @@ _02038620:
 	ldr r0, [r7, #0xc]
 	bl SaveArray_Party_Get
 	ldr r1, [r4, #0x4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x6f
 	mov r2, #0x0
 	add r6, r0, #0x0

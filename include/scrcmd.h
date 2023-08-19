@@ -6,7 +6,7 @@
 
 extern u16 VarGet(FieldSystem *fieldSystem, u16);
 extern u16* GetVarPointer(FieldSystem *fieldSystem, u16);
-extern SaveData* FieldSystem_GetSaveDataPtr(FieldSystem *fieldSystem);
+extern SaveData* FieldSystem_GetSaveData(FieldSystem *fieldSystem);
 
 static inline u16 ScriptGetVar(ScriptContext *ctx)
 {

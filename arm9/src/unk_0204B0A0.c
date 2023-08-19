@@ -22,7 +22,7 @@ extern void* Save_Roamers_Get(struct SaveData* save);
 extern void sub_02060344(struct SaveData* save, s32);
 extern void sub_0203959C(struct FieldSystem*);
 extern void sub_02025A60(struct SaveData* save, s32);
-extern struct SaveData* FieldSystem_GetSaveDataPtr(struct FieldSystem*);
+extern struct SaveData* FieldSystem_GetSaveData(struct FieldSystem*);
 
 void sub_0204B0F8(struct FieldSystem *fieldSystem)
 {
@@ -79,7 +79,7 @@ void sub_0204B158(struct FieldSystem *fieldSystem, SysInfo_RTC *rtc_info, struct
 
 void sub_0204B1DC(struct FieldSystem *fieldSystem, s32 a1)
 {
-    struct SaveData* save = FieldSystem_GetSaveDataPtr(fieldSystem);
+    struct SaveData* save = FieldSystem_GetSaveData(fieldSystem);
     sub_02025A60(save, a1);
     sub_0203959C(fieldSystem);
     sub_02060344(fieldSystem->saveData, a1);

@@ -274,7 +274,7 @@ _020862D6:
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r5, [r4, #0xc]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
@@ -299,7 +299,7 @@ _020862D6:
 	mov r2, #0x0
 	bl SetMonData
 	add r0, r6, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	ldr r1, [r4, #0xc]
 	bl sub_0202C144
 	ldr r0, [r4, #0x4]
@@ -322,7 +322,7 @@ _0208633A:
 	bl GetMonData
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x0]
 	mov r0, #0xb

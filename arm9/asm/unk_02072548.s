@@ -582,7 +582,7 @@ _0207297E:
 	ldr r1, _020729CC ; =0x00000B25
 	ldr r0, [r2, #0x0]
 	ldrb r1, [r5, r1]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r6, r0, #0x0
 	ldr r0, _020729D0 ; =0x0000069C
 	mov r1, #0x25
@@ -1211,7 +1211,7 @@ _02072E98:
 	add r1, r4, #0x0
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0x0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0x0
 	mov r0, #0x0
 	ldr r3, _02072EE0 ; =0x000005A4
@@ -1280,7 +1280,7 @@ _02072F2C:
 	add r1, r4, #0x0
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0x0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02076AA0
@@ -1983,7 +1983,7 @@ sub_020734C0: ; 0x020734C0
 	ldr r0, [r5, r0]
 	ldrb r1, [r5, r1]
 	ldr r0, [r0, #0x0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa3
 	mov r2, #0x0
 	add r4, r0, #0x0

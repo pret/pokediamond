@@ -299,7 +299,7 @@ _02054E02:
 	add r0, r6, #0x0
 	bl SaveArray_Party_Get
 	add r1, r4, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r7, #0x0
 	mov r2, #0x0
 	bl GetMonData
@@ -335,7 +335,7 @@ Save_PlayerHasAllRegisInParty: ; 0x02054E30
 _02054E4A:
 	ldr r0, [sp, #0x0]
 	add r1, r6, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x5
 	mov r2, #0x0
 	bl GetMonData

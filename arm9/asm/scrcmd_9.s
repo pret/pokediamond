@@ -253,7 +253,7 @@ ScrCmd_Unk02B8: ; 0x02042000
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -417,7 +417,7 @@ _02042170:
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	mov r2, #0x4

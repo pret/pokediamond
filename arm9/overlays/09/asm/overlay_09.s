@@ -2437,7 +2437,7 @@ _022131E2:
 	ldr r0, [r0]
 	ldr r1, [sp, #8]
 	ldr r0, [r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [r4, #4]
 	mov r1, #5
 	mov r2, #0

@@ -78,7 +78,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -119,7 +119,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Party_Get
 	add r1, r6, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
 	mov r1, #0x4

@@ -8065,7 +8065,7 @@ _02251680:
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
 	ldr r0, [r0]
-	bl AddMonToParty
+	bl Party_AddMon
 	ldr r1, [r4, #8]
 	ldrb r0, [r5, #0x18]
 	ldr r1, [r1, #4]
@@ -9442,7 +9442,7 @@ _022521AE:
 	ldr r0, [r4, #4]
 	add r1, r6, #0
 	ldr r0, [r0]
-	bl AddMonToParty
+	bl Party_AddMon
 	add r5, r5, #1
 	cmp r5, #6
 	blt _022521AE
@@ -9468,7 +9468,7 @@ _022521DC:
 	ldr r0, [r4, #4]
 	add r1, r6, #0
 	ldr r0, [r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	ldr r0, [sp, #0x1c]
 	bl CopyPokemonToPokemon
@@ -9508,7 +9508,7 @@ _02252232:
 	ldr r0, [r4, #4]
 	ldr r1, [sp, #0xc]
 	ldr r0, [r0]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	ldr r0, [sp, #0x20]
 	bl CopyPokemonToPokemon
@@ -9593,7 +9593,7 @@ _022522E2:
 	add r1, r0, #0
 	ldr r0, [r4, #4]
 	ldr r0, [r0]
-	bl AddMonToParty
+	bl Party_AddMon
 	ldr r0, [r4, #4]
 	ldrb r1, [r6, #0x1c]
 	add r0, r0, r5

@@ -658,7 +658,7 @@ _0204322C:
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Party_Get
 	add r1, r4, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	cmp r0, #0x0
 	beq _02043266
 	ldr r0, [sp, #0x4]

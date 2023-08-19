@@ -635,7 +635,7 @@ ScrCmd_Unk00F0: ; 0x02041BC4
 	lsl r1, r1, #0x10
 	add r0, r4, #0x0
 	lsr r1, r1, #0x10
-	bl TrainerFlagSet
+	bl TrainerFieldSystem_FlagSet
 	mov r0, #0x0
 	pop {r3-r5, pc}
 

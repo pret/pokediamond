@@ -170,7 +170,7 @@ Field_CheckPokemonSizeRecord: ; 0x021F3A18
 	add r5, r1, #0
 	bl SaveArray_Party_Get
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	str r0, [sp]
@@ -239,7 +239,7 @@ Field_SetPokemonSizeRecord: ; 0x021F3AB4
 	add r5, r1, #0
 	bl SaveArray_Party_Get
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl ov05_021F38CC
 	add r1, sp, #0
 	strh r0, [r1]
@@ -335,7 +335,7 @@ Field_BufferPartyPokemonSize: ; 0x021F3B7C
 	add r7, r1, #0
 	bl SaveArray_Party_Get
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0

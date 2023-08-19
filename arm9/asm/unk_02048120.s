@@ -96,7 +96,7 @@ _0204817A:
 	add r1, #0xc
 	bl AddWindow
 	add r0, r5, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x20]

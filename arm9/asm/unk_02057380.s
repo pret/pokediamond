@@ -368,7 +368,7 @@ sub_02057688: ; 0x02057688
 	bl MapObject_GetFieldSysPtr
 	lsl r1, r5, #0x10
 	lsr r1, r1, #0x10
-	bl FlagSet
+	bl FieldSystem_FlagSet
 	add r0, r4, #0x0
 	bl sub_02057654
 	pop {r3-r5, pc}

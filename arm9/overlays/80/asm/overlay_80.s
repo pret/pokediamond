@@ -9976,7 +9976,7 @@ _022325CE:
 	add r1, #0xba
 	ldrh r1, [r1]
 	ldr r0, [r0, #8]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa1
 	add r2, r4, #0
 	bl GetMonData
@@ -10216,7 +10216,7 @@ _022327CE:
 	add r1, #0xba
 	ldrh r1, [r1]
 	ldr r0, [r0, #8]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa1
 	add r2, r4, #0
 	bl GetMonData
@@ -11040,7 +11040,7 @@ _02232E4A:
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x24]
 	bl sub_020690E4
 	ldr r1, _02232F84 ; =0x00001004
@@ -11230,7 +11230,7 @@ ov80_02232FB8: ; 0x02232FB8
 _02232FDC:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	pop {r3, r4, r5, r6, r7, pc}
 _02232FEA:
@@ -16102,7 +16102,7 @@ _02235590:
 	add r1, #0xba
 	ldrh r1, [r1]
 	ldr r0, [r0, #8]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	bl Pokemon_RemoveCapsule
 	add r2, r5, #0
@@ -16117,7 +16117,7 @@ _02235590:
 	add r1, #0xba
 	ldrh r1, [r1]
 	ldr r0, [r0, #8]
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 	ldr r0, [r5]
 	ldr r1, _022355EC ; =0x000001B9
 	ldr r0, [r0, #8]
@@ -16186,7 +16186,7 @@ _02235640:
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
-	bl AddMonToParty
+	bl Party_AddMon
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
 	bl GetPartyCount
@@ -16265,7 +16265,7 @@ _022356D2:
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
-	bl AddMonToParty
+	bl Party_AddMon
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
 	bl GetPartyCount
@@ -17717,7 +17717,7 @@ ov80_02236218: ; 0x02236218
 	add r5, #0xd0
 	ldr r0, [r0, #8]
 	ldr r1, [r5]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
 	bl CopyPokemonToPokemon

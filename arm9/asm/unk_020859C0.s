@@ -674,7 +674,7 @@ _02085DDC:
 _02085E0A:
 	ldr r0, [r7, #0x1c]
 	add r1, r4, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [r5, #0x4]
 	ldr r0, [sp, #0x0]
 	add r4, r4, #0x1

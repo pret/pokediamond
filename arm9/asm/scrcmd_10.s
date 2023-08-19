@@ -49,7 +49,7 @@ ScrCmd_Unk01DB: ; 0x02042364
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl ov06_022434D0

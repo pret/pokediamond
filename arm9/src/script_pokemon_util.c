@@ -31,7 +31,7 @@ BOOL GiveMon(HeapID heapId, struct SaveData * save, u16 species, u8 level, u16 i
     sub_0206A014(mon, data, ITEM_POKE_BALL, mapSec, encounterType, heapId);
     ptr = item;
     SetMonData(mon, MON_DATA_HELD_ITEM, &ptr);
-    BOOL isAdded = AddMonToParty(party, mon);
+    BOOL isAdded = Party_AddMon(party, mon);
     if (isAdded)
     {
         sub_0202C144(save, mon);
@@ -49,14 +49,14 @@ BOOL GiveEgg(HeapID heapId, struct SaveData * save, u16 species, int level, int 
     struct Pokemon * mon = AllocMonZeroed(HEAP_ID_32);
     ZeroMonData(mon);
     ov05_SetEggStats(mon, species, level, data, 4, sub_02015CF8(metLocIndex, a3));
-    BOOL isAdded = AddMonToParty(party, mon);
+    BOOL isAdded = Party_AddMon(party, mon);
     FreeToHeap(mon);
     return isAdded;
 }
 
 void PartyMonSetMoveInSlot(struct Party * party, int partySlot, int moveSlot, u16 move)
 {
-    struct Pokemon * mon = GetPartyMonByIndex(party, partySlot);
+    struct Pokemon * mon = Party_GetMonByIndex(party, partySlot);
     MonSetMoveInSlot(mon, move, (u8)moveSlot);
 }
 
@@ -66,7 +66,7 @@ int GetIdxOfFirstPartyMonWithMove(struct Party * party, int move)
 
     for (int i = 0; i < partyCount; i++)
     {
-        struct Pokemon * mon = GetPartyMonByIndex(party, i);
+        struct Pokemon * mon = Party_GetMonByIndex(party, i);
         
         if (GetMonData(mon, MON_DATA_IS_EGG, NULL))
             continue;
@@ -87,7 +87,7 @@ int CountAlivePokemon(struct Party * party)
 
     for (i = 0; i < partyCount; i++)
     {
-        struct Pokemon * mon = GetPartyMonByIndex(party, i);
+        struct Pokemon * mon = Party_GetMonByIndex(party, i);
         
         if(MonNotFaintedOrEgg(mon))
             aliveCount++;
@@ -102,7 +102,7 @@ struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct Party * party)
 
     for (i = 0; i < partyCount; i++)
     {
-        struct Pokemon * mon = GetPartyMonByIndex(party, i);
+        struct Pokemon * mon = Party_GetMonByIndex(party, i);
         
         if(MonNotFaintedOrEgg(mon))
             return mon;
@@ -118,7 +118,7 @@ struct Pokemon * GetFirstNonEggInParty(struct Party * party)
 
     for (i = 0; i < partyCount; i++)
     {
-        struct Pokemon * mon = GetPartyMonByIndex(party, i);
+        struct Pokemon * mon = Party_GetMonByIndex(party, i);
 
         if (!GetMonData(mon, MON_DATA_IS_EGG, NULL))
             return mon;
@@ -139,7 +139,7 @@ void GiveAllMonsTheSinnohChampRibbon(struct Party * party)
 
     for (int i = 0; i < partyCount; i++)
     {
-        struct Pokemon * mon = GetPartyMonByIndex(party, i);
+        struct Pokemon * mon = Party_GetMonByIndex(party, i);
         
         if (GetMonData(mon, MON_DATA_IS_EGG, NULL))
             continue;
@@ -157,7 +157,7 @@ int ApplyPoisonStep(struct Party * party, int location)
 
     for (int i = 0; i < partyCount; i++)
     {
-        struct Pokemon * mon = GetPartyMonByIndex(party, i);
+        struct Pokemon * mon = Party_GetMonByIndex(party, i);
         
         if(!MonNotFaintedOrEgg(mon))
             continue;

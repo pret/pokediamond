@@ -2329,7 +2329,7 @@ _0221312A:
 	bls _022131B0
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r7, r0, #0
@@ -3672,7 +3672,7 @@ _02213C0C:
 _02213C2E:
 	ldr r0, [sp]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x18
 	add r2, r6, #0
 	mul r2, r1
@@ -4488,13 +4488,13 @@ ov07_0221428C: ; 0x0221428C
 	bhs _022142B4
 	ldr r0, [r0, #4]
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x18]
 	b _022142BE
 _022142B4:
 	ldr r0, [r0, #0xc]
 	sub r1, r4, #3
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x18]
 _022142BE:
 	add r1, r4, #0

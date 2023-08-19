@@ -108,10 +108,10 @@ _02080CB4:
 	ldr r0, [r6, #0xc]
 	bl SaveArray_Party_Get
 	mov r1, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r0, [sp, #0x0]
