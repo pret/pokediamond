@@ -109,7 +109,7 @@ static Encounter *Encounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *wi
     Encounter *encounter = AllocFromHeapAtEnd(HEAP_ID_FIELD, sizeof(Encounter));
     encounter->winFlag = winFlag;
     if (winFlag != NULL) {
-        *winFlag = 0;
+        *winFlag = BATTLE_OUTCOME_NONE;
     }
     encounter->effect = effect;
     encounter->bgm = bgm;
@@ -315,7 +315,7 @@ static WildEncounter *WildEncounter_New(BattleSetup *setup, s32 effect, s32 bgm,
     WildEncounter *encounter = AllocFromHeapAtEnd(HEAP_ID_FIELD, sizeof(WildEncounter));
     encounter->winFlag = winFlag;
     if (winFlag != NULL) {
-        *winFlag = 0;
+        *winFlag = BATTLE_OUTCOME_NONE;
     }
     encounter->effect = effect;
     encounter->bgm = bgm;
@@ -392,7 +392,7 @@ static BOOL Task_WildEncounter(TaskManager *taskManager) {
             
             if (sub_0205E128(fieldSystem->unk90) != 0) {
                 if (sub_0205E0A4(fieldSystem->unk90) != 0) {
-                    if (encounter->setup->winFlag != 1 && encounter->setup->winFlag != 4) {
+                    if (encounter->setup->winFlag != BATTLE_OUTCOME_WIN && encounter->setup->winFlag != BATTLE_OUTCOME_MON_CAUGHT) {
                         sub_0205DD40(fieldSystem->unk90);
                     }
                 } else {
@@ -448,7 +448,7 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
             break;
         case 3:
             sub_020465E4(encounter->setup, fieldSystem);
-            if (encounter->setup->winFlag == 4) {
+            if (encounter->setup->winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
                 SafariZone *safariZone = Save_SafariZone_Get(fieldSystem->saveData);
                 Pokemon *pokemon = Party_GetMonByIndex(encounter->setup->party[BATTLER_ENEMY], 0);
                 sub_02060FE0(safariZone, pokemon);
@@ -456,7 +456,7 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
 
             sub_020472F4(fieldSystem, encounter->setup);
 
-            if (*safariBalls == 0 && encounter->setup->winFlag != 4) {
+            if (*safariBalls == 0 && encounter->setup->winFlag != BATTLE_OUTCOME_MON_CAUGHT) {
                 Location *location = LocalFieldData_GetDynamicWarp(Save_LocalFieldData_Get(fieldSystem->saveData));
                 sub_02049160(taskManager, location);
             }
@@ -474,7 +474,7 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
             break;
         case 6:
             if (*safariBalls == 0) {
-                if (encounter->setup->winFlag == 4) {
+                if (encounter->setup->winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
                     QueueScript(taskManager, 0x2262, NULL, NULL);
                 } else {
                     QueueScript(taskManager, 0x2269, NULL, NULL);
@@ -756,9 +756,9 @@ static void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup) {
     }
     
     if (battleType == BATTLE_TYPE_NONE || battleType == BATTLE_TYPE_8 || battleType == (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_6)) {
-        if (winFlag == 1) {
+        if (winFlag == BATTLE_OUTCOME_WIN) {
             GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK8);
-        } else if (winFlag == 4) {
+        } else if (winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
             mon = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
             if (Pokedex_ConvertToCurrentDexNo(FALSE, GetMonData(mon, MON_DATA_SPECIES, NULL)) != 0) {
                 GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK9);
@@ -767,10 +767,10 @@ static void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup) {
             }
         }
     } else if ((battleType & BATTLE_TYPE_TRAINER) || (battleType & BATTLE_TYPE_INGAME_PARTNER)) {
-        if (winFlag == 1) {
+        if (winFlag == BATTLE_OUTCOME_WIN) {
             GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK11);
         }
-    } else if ((battleType & BATTLE_TYPE_SAFARI || battleType & BATTLE_TYPE_PAL_PARK) && winFlag == 4) {
+    } else if ((battleType & BATTLE_TYPE_SAFARI || battleType & BATTLE_TYPE_PAL_PARK) && winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
         mon = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
         if (Pokedex_ConvertToCurrentDexNo(FALSE, GetMonData(mon, MON_DATA_SPECIES, NULL)) != 0) {
             GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK9);
@@ -789,19 +789,19 @@ static void sub_020473CC(FieldSystem *fieldSystem, BattleSetup *setup) {
         return;
     }
     if (battleType == BATTLE_TYPE_NONE || battleType == BATTLE_TYPE_8 || battleType == (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_6) || battleType == BATTLE_TYPE_SAFARI) {
-        if (winFlag == 1) {
+        if (winFlag == BATTLE_OUTCOME_WIN) {
             fieldSystem->unk76++;
             if (fieldSystem->unk76 < 5) {
                 return;
             }
             mon = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
             sub_02028AD4(fieldSystem->unk98, sub_0202920C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), GetMonData(mon, MON_DATA_SPECIES, NULL), GetMonData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
-        } else if (winFlag == 4) {
+        } else if (winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
             mon = Party_GetMonByIndex(setup->party[setup->unk170], 0);
             sub_02028AD4(fieldSystem->unk98, sub_0202918C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), GetMonData(mon, MON_DATA_SPECIES, NULL), GetMonData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
         }
     } else if ((battleType & BATTLE_TYPE_TRAINER) || (battleType & BATTLE_TYPE_INGAME_PARTNER)) {
-        if (winFlag == 1) {
+        if (winFlag == BATTLE_OUTCOME_WIN) {
             sub_020299DC(fieldSystem->unk98, fieldSystem->location->mapId, setup->trainerId[BATTLER_ENEMY], HEAP_ID_FIELD);
         }
     }
