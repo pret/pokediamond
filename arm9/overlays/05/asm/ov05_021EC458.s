@@ -130,7 +130,7 @@ _021EC544:
 	bl Party_RemoveMon
 	ldr r1, _021EC578 ; =0x000001B9
 	add r0, r6, #0
-	bl PartyHasMon
+	bl Party_HasMon
 	cmp r0, #0
 	bne _021EC572
 	add r0, r7, #0
@@ -1654,7 +1654,7 @@ _021ED168:
 ov05_021ED190: ; 0x021ED190
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	add r6, r0, #0
 	mov r4, #0
 	cmp r6, #0
@@ -1992,7 +1992,7 @@ _021ED3F8:
 	add r6, r0, #0
 	add r0, r7, #0
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	bls _021ED490
 _021ED430:
@@ -2039,7 +2039,7 @@ _021ED47E:
 _021ED484:
 	add r0, r7, #0
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blo _021ED430
 _021ED490:
@@ -2053,7 +2053,7 @@ _021ED498: .word 0x0000FFFF
 ov05_021ED49C: ; 0x021ED49C
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	add r6, r0, #0
 	mov r5, #0
 	cmp r6, #0

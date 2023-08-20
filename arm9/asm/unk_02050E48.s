@@ -50,7 +50,7 @@ sub_02050E48: ; 0x02050E48
 	ldr r0, [sp, #0x4]
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]
@@ -1380,7 +1380,7 @@ _02051938:
 	bl SaveArray_Party_Alloc
 	mov r1, #0x3
 	str r0, [r4, #0x50]
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	add r0, r4, #0x0
 	mov r1, #0x5
 	add r0, #0x44
@@ -1611,7 +1611,7 @@ sub_02051AF0: ; 0x02051AF0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	mov r4, #0x0
 _02051B04:
 	add r1, r4, #0x0
@@ -1650,7 +1650,7 @@ sub_02051B1C: ; 0x02051B1C
 	bl MI_CpuCopy8
 	ldr r0, [r6, #0x50]
 	mov r1, #0x3
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	mov r5, #0x0
 _02051B52:
 	add r1, r5, #0x0

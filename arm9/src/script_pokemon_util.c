@@ -62,7 +62,7 @@ void PartyMonSetMoveInSlot(struct Party * party, int partySlot, int moveSlot, u1
 
 int GetIdxOfFirstPartyMonWithMove(struct Party * party, int move)
 {
-    int partyCount = GetPartyCount(party);
+    int partyCount = Party_GetCount(party);
 
     for (int i = 0; i < partyCount; i++)
     {
@@ -81,7 +81,7 @@ int GetIdxOfFirstPartyMonWithMove(struct Party * party, int move)
 
 int CountAlivePokemon(struct Party * party)
 {
-    int partyCount = GetPartyCount(party);
+    int partyCount = Party_GetCount(party);
     int i;
     int aliveCount = 0;
 
@@ -98,7 +98,7 @@ int CountAlivePokemon(struct Party * party)
 struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct Party * party)
 {
     int i;
-    int partyCount = GetPartyCount(party);
+    int partyCount = Party_GetCount(party);
 
     for (i = 0; i < partyCount; i++)
     {
@@ -114,7 +114,7 @@ struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct Party * party)
 struct Pokemon * GetFirstNonEggInParty(struct Party * party)
 {
     u16 i;
-    u16 partyCount = (u16)GetPartyCount(party);
+    u16 partyCount = (u16)Party_GetCount(party);
 
     for (i = 0; i < partyCount; i++)
     {
@@ -134,7 +134,7 @@ BOOL HasEnoughAlivePokemonForDoubleBattle(struct Party * party)
 void GiveAllMonsTheSinnohChampRibbon(struct Party * party)
 {
     u8 var = 1;
-    int partyCount = GetPartyCount(party);
+    int partyCount = Party_GetCount(party);
     
 
     for (int i = 0; i < partyCount; i++)
@@ -153,7 +153,7 @@ int ApplyPoisonStep(struct Party * party, int location)
     u32 hp;
     int numPoisoned = 0;
     int numHealed = 0;
-    int partyCount = GetPartyCount(party);   
+    int partyCount = Party_GetCount(party);   
 
     for (int i = 0; i < partyCount; i++)
     {

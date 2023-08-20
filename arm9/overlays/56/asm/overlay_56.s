@@ -212,7 +212,7 @@ ov56_02211F88: ; 0x02211F88
 	ldr r0, [r0]
 	bl SaveArray_Party_Get
 	str r0, [sp]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r5, #0
 	add r7, r0, #0
 	add r4, r5, #0
@@ -1992,7 +1992,7 @@ ov56_02212E0C: ; 0x02212E0C
 	bl sub_02029AFC
 	str r0, [sp, #8]
 	ldr r0, [sp, #0xc]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r6, #0
 	str r0, [sp, #4]
 	cmp r0, #0

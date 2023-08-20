@@ -407,7 +407,7 @@ sub_0206BE48: ; 0x0206BE48
 	add r0, r1, #0x0
 	str r1, [sp, #0x10]
 	str r2, [sp, #0x14]
-	bl GetPartyCount
+	bl Party_GetCount
 	str r0, [sp, #0x20]
 	add r6, r0, #0x0
 	add r0, sp, #0x30

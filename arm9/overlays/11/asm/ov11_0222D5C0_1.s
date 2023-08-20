@@ -2014,7 +2014,7 @@ _0222E734:
 _0222E760:
 	ldr r0, [r7, #0x68]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222E7AA
 _0222E76C:
@@ -2042,7 +2042,7 @@ _0222E76C:
 _0222E79E:
 	ldr r0, [r7, #0x68]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222E76C
 _0222E7AA:
@@ -2119,7 +2119,7 @@ _0222E810:
 _0222E83C:
 	ldr r0, [r7, #0x68]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222E886
 _0222E848:
@@ -2147,7 +2147,7 @@ _0222E848:
 _0222E87A:
 	ldr r0, [r7, #0x68]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222E848
 _0222E886:
@@ -2234,7 +2234,7 @@ _0222E920:
 	add r7, r4, r0
 	ldr r0, [r7, #0x68]
 	mov r6, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222E9B8
 _0222E938:
@@ -2292,7 +2292,7 @@ _0222E984:
 _0222E9AC:
 	ldr r0, [r7, #0x68]
 	add r6, r6, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r6, r0
 	blt _0222E938
 _0222E9B8:
@@ -2345,7 +2345,7 @@ _0222EA0C:
 	bl CopyParty
 	ldr r0, [r7, #0x68]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222EA60
 _0222EA22:
@@ -2373,7 +2373,7 @@ _0222EA22:
 _0222EA54:
 	ldr r0, [r7, #0x68]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222EA22
 _0222EA60:
@@ -2572,7 +2572,7 @@ _0222EBC6:
 _0222EBEA:
 	ldr r0, [r7, #0x68]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222EC34
 _0222EBF6:
@@ -2600,7 +2600,7 @@ _0222EBF6:
 _0222EC28:
 	ldr r0, [r7, #0x68]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222EBF6
 _0222EC34:
@@ -2686,7 +2686,7 @@ _0222ECC8:
 	add r7, r4, r0
 	ldr r0, [r7, #0x68]
 	mov r6, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222ED60
 _0222ECE0:
@@ -2744,7 +2744,7 @@ _0222ED2C:
 _0222ED54:
 	ldr r0, [r7, #0x68]
 	add r6, r6, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r6, r0
 	blt _0222ECE0
 _0222ED60:
@@ -2800,7 +2800,7 @@ _0222EDBC:
 	bl CopyParty
 	ldr r0, [r7, #0x68]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222EE10
 _0222EDD2:
@@ -2828,7 +2828,7 @@ _0222EDD2:
 _0222EE04:
 	ldr r0, [r7, #0x68]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222EDD2
 _0222EE10:
@@ -2885,7 +2885,7 @@ _0222EE5A:
 _0222EE7C:
 	ldr r0, [r4, #0x68]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222EEAC
 	ldr r6, _0222EEEC ; =0x00002404
@@ -2901,13 +2901,13 @@ _0222EE8C:
 	bl MonApplyFriendshipMod
 	ldr r0, [r4, #0x68]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222EE8C
 _0222EEAC:
 	ldr r0, [r4, #0x70]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222EEDC
 	ldr r6, _0222EEEC ; =0x00002404
@@ -2923,7 +2923,7 @@ _0222EEBC:
 	bl MonApplyFriendshipMod
 	ldr r0, [r4, #0x70]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222EEBC
 _0222EEDC:

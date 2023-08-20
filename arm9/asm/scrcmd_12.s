@@ -284,7 +284,7 @@ sub_02042F10: ; 0x02042F10
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Party_Get
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0x6
 	bge _02042F24
 	mov r0, #0x1

@@ -4660,7 +4660,7 @@ _0222FA26:
 	beq _0222FA80
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #6
 	bne _0222FA80
 	ldr r0, _0222FAE4 ; =0x00000F0F
@@ -10458,7 +10458,7 @@ ov80_02232990: ; 0x02232990
 	beq _022329E6
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #6
 	bne _022329E6
 	ldr r0, _02232A2C ; =0x00000F0F
@@ -11031,7 +11031,7 @@ _02232E22:
 _02232E3A:
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r4, #0
 	str r0, [sp, #0x14]
 	cmp r0, #0
@@ -11221,7 +11221,7 @@ ov80_02232FB8: ; 0x02232FB8
 	cmp r0, #0
 	beq _02232FEA
 	add r0, r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	sub r0, r0, #1
 	cmp r4, r0
 	ble _02232FDC
@@ -11251,7 +11251,7 @@ ov80_02232FF8: ; 0x02232FF8
 	cmp r0, #0
 	beq _02233014
 	add r0, r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #2
 	bge _02233014
 	mov r0, #0
@@ -16121,7 +16121,7 @@ _02235590:
 	ldr r0, [r5]
 	ldr r1, _022355EC ; =0x000001B9
 	ldr r0, [r0, #8]
-	bl PartyHasMon
+	bl Party_HasMon
 	cmp r0, #0
 	bne _022355DC
 	ldr r0, [r5]
@@ -16161,7 +16161,7 @@ ov80_022355F0: ; 0x022355F0
 	str r0, [sp, #0x20]
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #6
 	bne _02235624
 	mov r0, #0
@@ -16189,7 +16189,7 @@ _02235640:
 	bl Party_AddMon
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r1, r5, #0
 	mov r2, #0x12
 	add r1, #0xcc
@@ -16246,7 +16246,7 @@ ov80_022356AC: ; 0x022356AC
 	str r0, [sp, #0x20]
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #6
 	bne _022356D2
 	mov r0, #0
@@ -16268,7 +16268,7 @@ _022356D2:
 	bl Party_AddMon
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r1, r5, #0
 	mov r2, #0x12
 	add r1, #0xcc
@@ -16395,7 +16395,7 @@ ov80_022357DC: ; 0x022357DC
 	beq _022357FA
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #6
 	bne _022357FA
 	mov r0, #2
@@ -16409,7 +16409,7 @@ _022357FA:
 	bne _02235816
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #6
 	bne _02235816
 	mov r0, #1

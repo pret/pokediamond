@@ -2917,7 +2917,7 @@ _02233938:
 	add r4, r0, #0
 	add r0, r7, #0
 	bl ov11_0222FF88
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _022339C6
 _02233950:
@@ -2971,7 +2971,7 @@ _022339B4:
 	mov r1, #0
 	add r4, r4, #1
 	bl ov11_0222FF88
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02233950
 _022339C6:
@@ -15691,7 +15691,7 @@ _02239DFA:
 	bl ov11_0222FF7C
 	add r0, r7, #0
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02239E68
 _02239E2A:
@@ -15719,7 +15719,7 @@ _02239E2A:
 _02239E5C:
 	add r0, r7, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02239E2A
 _02239E68:
@@ -15739,7 +15739,7 @@ _02239E76:
 _02239E82:
 	ldr r0, [sp, #8]
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02239ECC
 	ldr r7, _02239F48 ; =0x000001EE
@@ -15767,7 +15767,7 @@ _02239E90:
 _02239EC0:
 	ldr r0, [sp, #8]
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02239E90
 _02239ECC:
@@ -15787,7 +15787,7 @@ _02239EDA:
 	bl ov11_0222FF7C
 	add r0, r7, #0
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02239F36
 _02239EF8:
@@ -15815,7 +15815,7 @@ _02239EF8:
 _02239F2A:
 	add r0, r7, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02239EF8
 _02239F36:

@@ -1861,7 +1861,7 @@ _02035ECC:
 	ldrb r0, [r0, #0x0]
 	strb r0, [r7, #0x14]
 	ldr r0, [r7, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r7, #0x13]
 	mov r0, #0x0
 	strh r0, [r7, #0x18]

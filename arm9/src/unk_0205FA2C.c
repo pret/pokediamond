@@ -116,7 +116,7 @@ u32 sub_0205FB34(
     ptr->unk11 = 1;
     ptr->unk14 = param0->unk0d;
 
-    ptr->party_count = (u8)GetPartyCount(ptr->player_party);
+    ptr->party_count = (u8)Party_GetCount(ptr->player_party);
 
     ptr->unk18 = 0;
     ptr->unk12 = param0->unk09;

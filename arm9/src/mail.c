@@ -66,7 +66,7 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
     CopyU16StringArray(mail->author_name, PlayerProfile_GetNamePtr(profile));
     mail->author_gender = (u8)PlayerProfile_GetTrainerGender(profile);
     mail->author_otId = PlayerProfile_GetTrainerID(profile);
-    for (i = 0; monIdx < GetPartyCount(party); monIdx++)
+    for (i = 0; monIdx < Party_GetCount(party); monIdx++)
     {
         union MailPatternData * ptr;
         pokemon = Party_GetMonByIndex(party, monIdx);

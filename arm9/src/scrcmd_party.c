@@ -85,7 +85,7 @@ BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
     u16 species = ScriptGetVar(ctx);
     u16 unk = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
-    u8 party_count = (u8)GetPartyCount(party);
+    u8 party_count = (u8)Party_GetCount(party);
 
     if (party_count < PARTY_SIZE)
     {
@@ -147,7 +147,7 @@ BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx) //009A - todo: Check
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 required_move = ScriptGetVar(ctx);
-    u8 party_count = (u8)GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    u8 party_count = (u8)Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     u8 i;
     for (i = 0, *ret_ptr = PARTY_SIZE; i < party_count; i++)
@@ -191,7 +191,7 @@ BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx) //01F6
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 highest_level = ScriptGetVar(ctx);
-    party_count = (u8)GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    party_count = (u8)Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     u8 mons;
     for (i = 0, mons = 0, *ret_ptr = 0; i < party_count; i++)
@@ -238,7 +238,7 @@ BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx) //0212
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
-    u8 party_count = (u8)GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    u8 party_count = (u8)Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     if (mon_slot >= party_count)
     {
@@ -265,7 +265,7 @@ BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx) //0213 - todo: Che
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 required_nature = ScriptGetVar(ctx);
-    u8 party_count = (u8)GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    u8 party_count = (u8)Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     u8 i;
     for (i = 0, *ret_ptr = 0xFF; i < party_count; i++)
@@ -407,7 +407,7 @@ BOOL ScrCmd_CountPartyMons(struct ScriptContext* ctx) //0177
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct Party* party = SaveArray_Party_Get(fieldSystem->saveData);
 
-    *ret_ptr = (u16)GetPartyCount(party);
+    *ret_ptr = (u16)Party_GetCount(party);
     return FALSE;
 }
 
@@ -418,7 +418,7 @@ BOOL ScrCmd_CountPartyMons_OmitEggs(struct ScriptContext* ctx) //019A
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    s32 party_count = GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    s32 party_count = Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     for (i = 0, non_egg_mons = 0; i < party_count; i++)
     {
@@ -445,7 +445,7 @@ BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* ctx) //019B
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     slot_to_ignore = ScriptGetVar(ctx);
-    party_count = GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    party_count = Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     u32 available_mons;
     s32 i;
@@ -480,7 +480,7 @@ BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx) //019C
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     pc = Save_PCStorage_Get(fieldSystem->saveData);
-    party_count = GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    party_count = Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     u32 mons;
     s32 i;
@@ -511,7 +511,7 @@ BOOL ScrCmd_GetPartyEggCount(struct ScriptContext* ctx) //019D
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    party_count = GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    party_count = Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     s32 i;
     for (i = 0, eggs_in_party = 0; i < party_count; i++)
@@ -537,7 +537,7 @@ BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx) //0119
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    party_count = (u16)GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    party_count = (u16)Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     for (i = 0, *ret_ptr = 0; i < party_count; i++)
     {
@@ -670,7 +670,7 @@ BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx) //01C0
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 species = ScriptGetVar(ctx);
-    u8 party_count = (u8)GetPartyCount(SaveArray_Party_Get(fieldSystem->saveData));
+    u8 party_count = (u8)Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     u8 i;
     for (i = 0, *ret_ptr = 0; i < party_count; i++)
@@ -722,7 +722,7 @@ BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
     u16 ribbons;
 
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    u16 party_count = (u16)GetPartyCount(SaveArray_Party_Get(ctx->fieldSystem->saveData));
+    u16 party_count = (u16)Party_GetCount(SaveArray_Party_Get(ctx->fieldSystem->saveData));
     party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
 
     for (ribbon_idx = 0, ribbons = 0; ribbon_idx < 80; ribbon_idx++)
@@ -782,7 +782,7 @@ BOOL ScrCmd_CheckPartyForBadEgg(struct ScriptContext* ctx) //02B7
     u16 ribbon_idx;
 
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    u16 party_count = (u16)GetPartyCount(SaveArray_Party_Get(ctx->fieldSystem->saveData));
+    u16 party_count = (u16)Party_GetCount(SaveArray_Party_Get(ctx->fieldSystem->saveData));
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
 
     // BUG: Probably a copy-paste fail. Checks if your party has a Bad Egg in it,

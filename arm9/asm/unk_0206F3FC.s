@@ -1669,7 +1669,7 @@ sub_0207008C: ; 0x0207008C
 	ldr r0, _020701DC ; =0x000005A4
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	ldr r1, [sp, #0x0]
 	cmp r0, r1
 	bgt _020700BC

@@ -61,7 +61,7 @@ ov28_0225489C: ; 0x0225489C
 	mov r1, #0
 	str r0, [sp, #4]
 	str r1, [sp]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r6, #0
 	str r0, [r7, #4]
 	cmp r0, #0

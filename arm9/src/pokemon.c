@@ -2648,7 +2648,7 @@ u16 GetMonEvolution(struct Party * party, struct Pokemon * pokemon, u32 context,
                 }
                 break;
             case EVO_OTHER_PARTY_MON:
-                if (party != NULL && PartyHasMon(party, evoTable[i].param) == 1)
+                if (party != NULL && Party_HasMon(party, evoTable[i].param) == 1)
                 {
                     target = evoTable[i].target;
                     *method_ret = EVO_OTHER_PARTY_MON;
@@ -3012,7 +3012,7 @@ void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
 u8 Party_GetMaxLevel(struct Party * party)
 {
     int i;
-    int r7 = GetPartyCount(party);
+    int r7 = Party_GetCount(party);
     u8 ret = 1;
     u8 level;
     for (i = 0; i < r7; i++)
@@ -3090,7 +3090,7 @@ int Species_LoadLearnsetTable(u16 species, u32 form, u16 * dest)
 
 void Party_GivePokerusAtRandom(struct Party * party)
 {
-    int count = GetPartyCount(party);
+    int count = Party_GetCount(party);
     int idx;
     struct Pokemon * pokemon;
     u8 sp0;
@@ -3156,7 +3156,7 @@ void Party_UpdatePokerus(struct Party * party, int r5)
     int i;
     u8 pokerus;
     struct Pokemon * pokemon;
-    int count = GetPartyCount(party);
+    int count = Party_GetCount(party);
     for (i = 0; i < count; i++)
     {
         pokemon = Party_GetMonByIndex(party, i);
@@ -3179,7 +3179,7 @@ void Party_UpdatePokerus(struct Party * party, int r5)
 
 void Party_SpreadPokerus(struct Party * party)
 {
-    int count = GetPartyCount(party);
+    int count = Party_GetCount(party);
     int i;
     struct Pokemon * pokemon;
     u8 pokerus;

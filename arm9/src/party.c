@@ -3,7 +3,7 @@
 #include "heap.h"
 
 void SaveArray_Party_Init(struct Party * party);
-void InitPartyWithMaxSize(struct Party * party, int count);
+void Party_InitWithMaxSize(struct Party * party, int count);
 
 u32 SaveArray_Party_sizeof(void)
 {
@@ -19,10 +19,10 @@ struct Party * SaveArray_Party_Alloc(HeapID heapId)
 
 void SaveArray_Party_Init(struct Party * party)
 {
-    InitPartyWithMaxSize(party, PARTY_SIZE);
+    Party_InitWithMaxSize(party, PARTY_SIZE);
 }
 
-void InitPartyWithMaxSize(struct Party * party, int count)
+void Party_InitWithMaxSize(struct Party * party, int count)
 {
     int i;
     GF_ASSERT(count <= PARTY_SIZE);
@@ -61,7 +61,7 @@ BOOL Party_RemoveMon(struct Party * party, int pos)
     return TRUE;
 }
 
-int GetPartyCount(struct Party * party)
+int Party_GetCount(struct Party * party)
 {
     return party->curCount;
 }
@@ -107,7 +107,7 @@ void CopyParty(struct Party * src, struct Party * dest)
     *dest = *src;
 }
 
-BOOL PartyHasMon(struct Party * party, u16 species)
+BOOL Party_HasMon(struct Party * party, u16 species)
 {
     int i;
     for (i = 0; i < party->curCount; i++)

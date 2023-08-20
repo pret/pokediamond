@@ -4170,14 +4170,14 @@ BOOL ScrCmd_AddSpecialGameStat(ScriptContext *ctx) { //0260
 BOOL ScrCmd_CheckPokemonInParty(ScriptContext *ctx) { //0262
     u16 species = ScriptGetVar(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    *var = PartyHasMon(SaveArray_Party_Get(ctx->fieldSystem->saveData), species);
+    *var = Party_HasMon(SaveArray_Party_Get(ctx->fieldSystem->saveData), species);
     return TRUE;
 }
 
 BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx) { //0263
     u16 form = ScriptGetVar(ctx);
     Party *playerParty = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    s32 partyCount = GetPartyCount(playerParty);
+    s32 partyCount = Party_GetCount(playerParty);
     Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
     
     for (s32 i = 0; i < partyCount; i++) {
@@ -4195,7 +4195,7 @@ BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx) { //0263
 BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) { //0264
     u16 *var = ScriptGetVarPointer(ctx);
     Party *playerParty = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    s32 partyCount = GetPartyCount(playerParty);
+    s32 partyCount = Party_GetCount(playerParty);
 
     u32 unk0[PARTY_SIZE];
     memcpy(unk0, UNK_020F34FC, sizeof(unk0));
@@ -4240,7 +4240,7 @@ asm BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) {
 	ldr r0, [r0, #0xc]
 	bl SaveArray_Party_Get
 	str r0, [sp, #0xc]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r2, sp, #0x18
 	mov r4, #0x0
 	ldr r3, =UNK_020F34FC

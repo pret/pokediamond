@@ -420,11 +420,11 @@ ov71_0222D93C: ; 0x0222D93C
 	bl ov71_0222DB94
 	ldr r0, _0222D9B8 ; =0x00002218
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r4, r0, #0
 	ldr r0, _0222D9BC ; =0x0000221C
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r2, r0, #0
 	mov r0, #0x5d
 	lsl r0, r0, #2
@@ -644,7 +644,7 @@ ov71_0222DB5C: ; 0x0222DB5C
 	add r0, r5, #0
 	add r6, r2, #0
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222DB92
 _0222DB70:
@@ -658,7 +658,7 @@ _0222DB70:
 	bl BufferBoxMonNickname
 	add r0, r5, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _0222DB70
 _0222DB92:
@@ -676,7 +676,7 @@ ov71_0222DB94: ; 0x0222DB94
 	str r3, [sp, #0x10]
 	ldr r6, [sp, #0x28]
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222DBE6
 	add r7, r6, #1
@@ -701,7 +701,7 @@ _0222DBB0:
 	ldr r0, [sp, #0x10]
 	add r5, #0x10
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _0222DBB0
 _0222DBE6:
@@ -718,7 +718,7 @@ ov71_0222DBEC: ; 0x0222DBEC
 	str r1, [sp, #0xc]
 	str r2, [sp, #0x20]
 	mov r7, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	bgt _0222DC02
 	b _0222DD10
@@ -847,7 +847,7 @@ _0222DCE2:
 _0222DD02:
 	ldr r0, [sp, #8]
 	add r7, r7, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r7, r0
 	bge _0222DD10
 	b _0222DC0C
@@ -1086,7 +1086,7 @@ _0222DED6:
 	blt _0222DED6
 	ldr r0, _0222E0F8 ; =0x00002218
 	ldr r0, [r4, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222DF12
 	mov r0, #0x69
@@ -1103,14 +1103,14 @@ _0222DEF4:
 	ldr r0, [r4, r7]
 	add r6, #0x10
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222DEF4
 _0222DF12:
 	ldr r0, _0222E0FC ; =0x0000221C
 	mov r5, #0
 	ldr r0, [r4, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222DF48
 	mov r0, #0x69
@@ -1128,7 +1128,7 @@ _0222DF28:
 	bl ov71_0222E118
 	ldr r0, [r4, r7]
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222DF28
 _0222DF48:
@@ -1675,7 +1675,7 @@ ov71_0222E3D4: ; 0x0222E3D4
 	ldr r0, _0222E42C ; =0x00002218
 	mov r4, #0
 	ldr r0, [r6, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222E402
 	ldr r7, _0222E42C ; =0x00002218
@@ -1688,14 +1688,14 @@ _0222E3EA:
 	ldr r0, [r6, r7]
 	add r5, r5, #4
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _0222E3EA
 _0222E402:
 	ldr r0, _0222E430 ; =0x0000221C
 	mov r5, #0
 	ldr r0, [r6, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0222E42A
 	ldr r7, _0222E430 ; =0x0000221C
@@ -1707,7 +1707,7 @@ _0222E414:
 	ldr r0, [r6, r7]
 	add r4, r4, #4
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0222E414
 _0222E42A:
@@ -2151,7 +2151,7 @@ ov71_0222E76C: ; 0x0222E76C
 	str r0, [r5, r1]
 	ldr r0, [r5, r1]
 	mov r1, #6
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	bl SaveArray_Party_sizeof
 	add r2, r0, #0
 	ldr r0, _0222E844 ; =0x0000221C
@@ -3864,7 +3864,7 @@ ov71_0222F59C: ; 0x0222F59C
 	str r0, [r5, #0xc]
 	ldr r0, [r5, #8]
 	ldr r0, [r0, #8]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r5, #0x1f]
 	mov r0, #0
 	str r0, [r5, #0x34]
@@ -3880,7 +3880,7 @@ _0222F5CC:
 	ldr r1, [r5, r0]
 	str r1, [r5, #0xc]
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r5, #0x1f]
 	bl sub_02031190
 	mov r2, #1
@@ -6375,7 +6375,7 @@ _02230A40:
 	ldr r0, [sp, #4]
 	ldr r1, _02230AE0 ; =0x000001B9
 	str r6, [r5, #0x2c]
-	bl PartyHasMon
+	bl Party_HasMon
 	cmp r0, #0
 	bne _02230A98
 	ldr r0, [r5, #0x10]
@@ -6538,7 +6538,7 @@ ov71_02230BC4: ; 0x02230BC4
 	ldr r0, _02230C00 ; =0x00002218
 	mov r4, #0
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r3, r4, #0
 	cmp r0, #0
 	ble _02230BF0

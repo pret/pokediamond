@@ -9868,7 +9868,7 @@ _02241DD2:
 	bl ov11_0222FF7C
 	add r0, r6, #0
 	add r5, r7, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02241E4A
 	ldr r0, [sp, #0x2c]
@@ -9909,7 +9909,7 @@ _02241DFE:
 _02241E3E:
 	add r0, r6, #0
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _02241DFE
 _02241E4A:
@@ -9961,7 +9961,7 @@ _02241E8A:
 	bl ov11_0222FF7C
 	add r0, r6, #0
 	add r5, r7, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02241EF2
 _02241EB4:
@@ -9989,7 +9989,7 @@ _02241EB4:
 _02241EE6:
 	add r0, r6, #0
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _02241EB4
 _02241EF2:
@@ -10166,7 +10166,7 @@ _0224200C:
 	bl ov11_0222FF7C
 	add r0, r6, #0
 	add r4, r7, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02242094
 _02242056:
@@ -10194,7 +10194,7 @@ _02242056:
 _02242088:
 	add r0, r6, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02242056
 _02242094:
@@ -10246,7 +10246,7 @@ _022420CA:
 	str r0, [sp, #0x14]
 	add r0, r7, #0
 	add r4, r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0224213C
 _022420FE:
@@ -10274,13 +10274,13 @@ _022420FE:
 _02242130:
 	add r0, r7, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _022420FE
 _0224213C:
 	ldr r0, [sp, #0x18]
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02242186
 	ldr r7, _02242340 ; =0x000001EE
@@ -10308,7 +10308,7 @@ _0224214A:
 _0224217A:
 	ldr r0, [sp, #0x18]
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _0224214A
 _02242186:
@@ -10350,7 +10350,7 @@ _022421B0:
 	str r0, [sp, #0x10]
 	add r0, r6, #0
 	add r4, r7, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0224221A
 _022421DC:
@@ -10378,7 +10378,7 @@ _022421DC:
 _0224220E:
 	add r0, r6, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _022421DC
 _0224221A:

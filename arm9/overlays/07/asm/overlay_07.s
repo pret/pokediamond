@@ -2305,7 +2305,7 @@ ov07_02213104: ; 0x02213104
 	str r1, [sp]
 	str r2, [sp, #4]
 	add r7, r3, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
@@ -3643,7 +3643,7 @@ ov07_02213BEC: ; 0x02213BEC
 	add r0, r1, #0
 	str r1, [sp]
 	add r5, r2, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #8]

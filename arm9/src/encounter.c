@@ -482,7 +482,7 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
             } else {
                 PCStorage *pc = Save_PCStorage_Get(fieldSystem->saveData);
                 Party *party = SaveArray_Party_Get(fieldSystem->saveData);
-                if (PCStorage_FindFirstBoxWithEmptySlot(pc) == NUM_BOXES && GetPartyCount(party) == PARTY_SIZE) {
+                if (PCStorage_FindFirstBoxWithEmptySlot(pc) == NUM_BOXES && Party_GetCount(party) == PARTY_SIZE) {
                     QueueScript(taskManager, 0x2276, NULL, NULL);
                 }
             }

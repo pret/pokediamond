@@ -1307,7 +1307,7 @@ _0224D452:
 	bl ov11_0222FF88
 	add r6, r0, #0
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0224D4C0
 _0224D466:
@@ -1348,7 +1348,7 @@ _0224D4A8:
 _0224D4B4:
 	add r0, r6, #0
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _0224D466
 _0224D4C0:

@@ -695,7 +695,7 @@ void HealParty(struct Party * party)
     s32 i;
     s32 j;
 
-    nmons = GetPartyCount(party);
+    nmons = Party_GetCount(party);
     for (i = 0; i < nmons; i++)
     {
         struct Pokemon * pokemon = Party_GetMonByIndex(party, i);

@@ -664,7 +664,7 @@ _02085DDC:
 	ldr r0, [r6, #0x10]
 	bl SaveArray_Party_Get
 	str r0, [r7, #0x1c]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r4, #0x0
 	str r0, [sp, #0x0]
 	str r0, [r7, #0x0]

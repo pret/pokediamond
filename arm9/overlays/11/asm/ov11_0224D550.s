@@ -8047,10 +8047,10 @@ _02251662:
 	mov r1, #6
 	ldr r0, [r0, #4]
 	ldr r0, [r0]
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	ldr r0, [sp, #0x14]
 	mov r6, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _022516B0
 	mov r0, #6
@@ -8075,7 +8075,7 @@ _02251680:
 	strb r0, [r1]
 	ldr r0, [sp, #0x14]
 	add r6, r6, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r6, r0
 	blt _02251680
 _022516B0:
@@ -9579,7 +9579,7 @@ _022522C4:
 	bl ov11_0222FF88
 	str r0, [sp, #0x10]
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0225230E
 	mov r0, #6
@@ -9602,7 +9602,7 @@ _022522E2:
 	ldr r0, [sp, #0x10]
 	add r6, r6, #1
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _022522E2
 _0225230E:
@@ -9814,7 +9814,7 @@ _0225249A:
 	bl ov11_0222FF88
 	str r0, [sp, #8]
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _022524FE
 	ldr r0, [sp, #4]
@@ -9839,7 +9839,7 @@ _022524D0:
 _022524F2:
 	ldr r0, [sp, #8]
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _022524D0
 _022524FE:

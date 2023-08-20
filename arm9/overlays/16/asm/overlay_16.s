@@ -62886,7 +62886,7 @@ _021F4A94:
 	bl ov11_0222FF88
 	add r7, r0, #0
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _021F4AF2
 _021F4AA8:
@@ -62920,7 +62920,7 @@ _021F4AA8:
 _021F4AE6:
 	add r0, r7, #0
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blt _021F4AA8
 _021F4AF2:

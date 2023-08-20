@@ -289,7 +289,7 @@ sub_02054DEC: ; 0x02054DEC
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	bl SaveArray_Party_Get
-	bl GetPartyCount
+	bl Party_GetCount
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	ldr r4, _02054E2C ; =0x00000000
@@ -326,7 +326,7 @@ Save_PlayerHasAllRegisInParty: ; 0x02054E30
 	mov r7, #0x0
 	bl SaveArray_Party_Get
 	str r0, [sp, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r4, r0, #0x0
 	add r6, r7, #0x0
 	cmp r4, #0x0

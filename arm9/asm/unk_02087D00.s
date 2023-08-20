@@ -446,7 +446,7 @@ _02087FFE:
 	strb r0, [r4, #0x11]
 	strb r6, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r4, #0x13]
 	mov r1, #0x0
 	strh r1, [r4, #0x18]
@@ -608,7 +608,7 @@ sub_02088130: ; 0x02088130
 	ldrb r0, [r5, #0x8]
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r4, #0x13]
 	mov r1, #0x0
 	strh r1, [r4, #0x18]

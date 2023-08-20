@@ -649,13 +649,13 @@ sub_02047BC0: ; 0x02047BC0
 	bl AllocMonZeroed
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x14]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	ldr r0, [sp, #0x14]
 	mov r4, #0x0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0x0
 	ble _02047C98
 _02047C40:
@@ -692,7 +692,7 @@ _02047C82:
 	bl sub_020479FC
 	ldr r0, [sp, #0x14]
 	add r4, r4, #0x1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02047C40
 _02047C98:
@@ -848,7 +848,7 @@ _02047DD8:
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	mov r6, #0x0
 	cmp r4, #0x0
 	ble _02047E0E

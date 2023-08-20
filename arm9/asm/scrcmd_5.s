@@ -75,7 +75,7 @@ ScrCmd_Unk024F: ; 0x020411C4
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
 	bl SaveArray_Party_Get
-	bl GetPartyCount
+	bl Party_GetCount
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	ldr r0, _0204133C ; =0x00000000

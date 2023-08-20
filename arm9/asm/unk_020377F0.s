@@ -764,7 +764,7 @@ sub_02037C00: ; 0x02037C00
 	strb r0, [r4, #0x11]
 	strb r6, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]
@@ -821,7 +821,7 @@ sub_02037C7C: ; 0x02037C7C
 	mov r0, #0x0
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]

@@ -51,7 +51,7 @@ ov39_0225489C: ; 0x0225489C
 	bl ov20_02252C40
 	bl SaveArray_Party_Get
 	str r0, [sp, #0x10]
-	bl GetPartyCount
+	bl Party_GetCount
 	ldr r1, [sp, #4]
 	mov r6, #0
 	add r1, #0x34

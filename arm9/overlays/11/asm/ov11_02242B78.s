@@ -5300,7 +5300,7 @@ _02245384:
 	mov r6, #0
 	add r5, r0, #0
 	add r4, r6, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _022453C6
 _022453A4:
@@ -5316,7 +5316,7 @@ _022453A4:
 _022453BA:
 	add r0, r5, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _022453A4
 _022453C6:
@@ -5357,7 +5357,7 @@ _022453F8:
 	mov r6, #0
 	add r5, r0, #0
 	add r4, r6, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _0224543A
 _02245418:
@@ -5373,7 +5373,7 @@ _02245418:
 _0224542E:
 	add r0, r5, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02245418
 _0224543A:

@@ -281,7 +281,7 @@ ov27_02254A48: ; 0x02254A48
 	str r0, [sp]
 	add r0, r1, #0
 	str r1, [sp, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	ldr r1, [sp]
 	mov r6, #0
 	str r0, [r1]

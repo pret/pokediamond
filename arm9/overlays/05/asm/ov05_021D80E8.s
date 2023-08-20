@@ -1850,7 +1850,7 @@ ov05_021D8FD0: ; 0x021D8FD0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r6, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	add r7, r0, #0
 	mov r4, #0
 	cmp r7, #0

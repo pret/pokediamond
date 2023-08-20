@@ -50,7 +50,7 @@ HOF_OverlayInit: ; 0x0222D5C0
 	str r0, [r4, #4]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r6, r0, #0
 	mov r5, #0
 	cmp r6, #0

@@ -277,7 +277,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId)
     // We abuse the RNG for personality value generation, so back up the overworld
     // state
     seed_bak = GetLCRNGSeed();
-    InitPartyWithMaxSize(setup->party[party_id], PARTY_SIZE);
+    Party_InitWithMaxSize(setup->party[party_id], PARTY_SIZE);
     data = (union TrainerMon *)AllocFromHeap(heapId, sizeof(union TrainerMon) * PARTY_SIZE);
     pokemon = AllocMonZeroed(heapId);
     TrainerData_ReadTrPoke(setup->trainerId[party_id], data);

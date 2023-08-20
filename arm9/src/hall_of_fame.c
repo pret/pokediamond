@@ -25,7 +25,7 @@ void Save_HOF_RecordParty(struct HallOfFame * hof, struct Party * party, RTCDate
     if (hof->num_total < 9999)
     {
         struct HOFParty * hof_party = &hof->parties[hof->next_record];
-        int nmons = GetPartyCount(party);
+        int nmons = Party_GetCount(party);
         struct String * str = String_New(POKEMON_NAME_LENGTH + 1, HEAP_ID_DEFAULT);
         MI_CpuClear16(hof_party->party, 6 * sizeof(struct HOFMon));
         int i, j;

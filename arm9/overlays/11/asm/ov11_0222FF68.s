@@ -94,7 +94,7 @@ _0222FFE6:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
-	bl GetPartyCount
+	bl Party_GetCount
 	pop {r3, r4, r5, pc}
 _0222FFF2:
 	ldr r1, [r5, #0x2c]
@@ -105,13 +105,13 @@ _0222FFF2:
 	lsr r0, r0, #0x1d
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
-	bl GetPartyCount
+	bl Party_GetCount
 	pop {r3, r4, r5, pc}
 _02230008:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
-	bl GetPartyCount
+	bl Party_GetCount
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov11_02230014

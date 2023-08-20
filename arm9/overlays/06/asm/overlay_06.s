@@ -19800,7 +19800,7 @@ ov06_022432E4: ; 0x022432E4
 	add r0, r1, #0
 	bl SaveArray_Party_Get
 	str r0, [sp, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	str r1, [sp, #8]
@@ -22206,7 +22206,7 @@ ov06_02244558: ; 0x02244558
 	add r4, r0, #0
 	ldrb r1, [r5, #0xe]
 	ldr r0, [r7, #4]
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	ldrb r0, [r5, #0xe]
 	mov r6, #0
 	cmp r0, #0
