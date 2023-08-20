@@ -99,8 +99,8 @@ sub_0204BA90: ; 0x0204BA90
 _0204BA98: .word sub_0204BD40
 _0204BA9C: .word UNK_021C5A1C
 
-	thumb_func_start sub_0204BAA0
-sub_0204BAA0: ; 0x0204BAA0
+	thumb_func_start PalPark_HandleBattleEnd
+PalPark_HandleBattleEnd: ; 0x0204BAA0
 	ldr r3, _0204BAA8 ; =sub_0204BD18
 	ldr r2, _0204BAAC ; =UNK_021C5A1C
 	bx r3
@@ -108,8 +108,8 @@ sub_0204BAA0: ; 0x0204BAA0
 _0204BAA8: .word sub_0204BD18
 _0204BAAC: .word UNK_021C5A1C
 
-	thumb_func_start sub_0204BAB0
-sub_0204BAB0: ; 0x0204BAB0
+	thumb_func_start PalPark_CountMonsNotCaught
+PalPark_CountMonsNotCaught: ; 0x0204BAB0
 	push {r3, lr}
 	ldr r0, _0204BAC0 ; =UNK_021C5A1C
 	bl sub_0204BBA8
@@ -479,7 +479,7 @@ sub_0204BD40: ; 0x0204BD40
 	bl sub_02022528
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_0204BAB0
+	bl PalPark_CountMonsNotCaught
 	add r1, r0, #0x0
 	mov r0, #0xb
 	bl sub_02047800

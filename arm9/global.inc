@@ -3575,8 +3575,8 @@
 .extern sub_0204BA1C
 .extern sub_0204BA68
 .extern sub_0204BA90
-.extern sub_0204BAA0
-.extern sub_0204BAB0
+.extern PalPark_HandleBattleEnd
+.extern PalPark_CountMonsNotCaught
 .extern sub_0204BAC4
 .extern sub_0204BAD4
 .extern sub_0204BAE4

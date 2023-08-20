@@ -1023,7 +1023,7 @@ _020357D6:
 	b _0203584C
 _02035834:
 	add r0, r4, #0x0
-	bl sub_0204BAB0
+	bl PalPark_CountMonsNotCaught
 	mov r1, #0x0
 	add r2, r0, #0x0
 	str r1, [sp, #0x0]

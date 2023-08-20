@@ -45,8 +45,8 @@ extern BattleSetup *BattleSetup_New(HeapID heapId, u32 flags);
 extern void BattleSetup_InitFromFieldSystem(BattleSetup *setup, FieldSystem *fieldSystem);
 extern void ov06_0223CCDC(FieldSystem *fieldSystem, BattleSetup *setup);
 extern void ov06_0223CD7C(FieldSystem *fieldSystem, u16 species, u8 level, BattleSetup *setup);
-extern void sub_0204BAA0(FieldSystem *fieldSystem, BattleSetup *setup);
-extern u32 sub_0204BAB0(FieldSystem *fieldSystem);
+extern void PalPark_HandleBattleEnd(FieldSystem *fieldSystem, BattleSetup *setup);
+extern u32 PalPark_CountMonsNotCaught(FieldSystem *fieldSystem);
 extern void StartScriptFromMenu(TaskManager *taskManager, u16 script, LocalMapObject *lastInteracted);
 extern BattleSetup *sub_02047814(HeapID heapId, FieldSystem *fieldSystem);
 extern void sub_02047F1C(BattleSetup *setup, FieldSystem *fieldSystem, void *param2);
@@ -549,7 +549,7 @@ static BOOL Task_PalParkEncounter(TaskManager *taskManager) {
             break;
         case 3:
             sub_020465E4(encounter->setup, fieldSystem);
-            sub_0204BAA0(fieldSystem, encounter->setup);
+            PalPark_HandleBattleEnd(fieldSystem, encounter->setup);
             sub_020472F4(fieldSystem, encounter->setup);
             (*state)++;
             break;
@@ -564,7 +564,7 @@ static BOOL Task_PalParkEncounter(TaskManager *taskManager) {
             break;
         case 6:
             Encounter_Delete(encounter);
-            if (sub_0204BAB0(fieldSystem) == 0) {
+            if (PalPark_CountMonsNotCaught(fieldSystem) == 0) {
                 StartScriptFromMenu(taskManager, 3, NULL);
                 return FALSE;
             }
