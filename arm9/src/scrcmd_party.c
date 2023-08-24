@@ -479,7 +479,7 @@ BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx) //019C
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    pc = Save_PCStorage_Get(fieldSystem->saveData);
+    pc = SaveArray_PCStorage_Get(fieldSystem->saveData);
     party_count = Party_GetCount(SaveArray_Party_Get(fieldSystem->saveData));
 
     u32 mons;

@@ -7519,7 +7519,7 @@ ov14_021DB220: ; 0x021DB220
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4]
-	bl Save_PCStorage_Get
+	bl SaveArray_PCStorage_Get
 	mov r1, #0x12
 	lsl r1, r1, #4
 	str r0, [r5, r1]

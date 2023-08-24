@@ -2127,7 +2127,7 @@ sub_020386E0: ; 0x020386E0
 	bl SaveArray_Get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl Save_PCStorage_Get
+	bl SaveArray_PCStorage_Get
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get

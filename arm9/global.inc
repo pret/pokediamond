@@ -1427,7 +1427,7 @@
 .extern sub_02022450
 .extern Reset_To_File
 .extern Save_SafariZone_Get
-.extern Save_PCStorage_Get
+.extern SaveArray_PCStorage_Get
 .extern sub_0202251C
 .extern sub_02022528
 .extern LoadHallOfFame

@@ -18,7 +18,7 @@ extern void *FieldSysGetAttrAddr(FieldSystem *fieldSystem, int idx);
 extern u32 sub_020536D0(u32 gender, u32 avatar, u32 a2);
 extern u32 Save_VarsFlags_GetStarter(SaveVarsFlags *state);
 extern u32 sub_0205F398(SaveVarsFlags *state);
-extern PCStorage *Save_PCStorage_Get(SaveData *save);
+extern PCStorage *SaveArray_PCStorage_Get(SaveData *save);
 extern u32 sub_0205F3C0(SaveVarsFlags *state);
 extern u32 sub_02054C14(u32 number);
 
@@ -168,7 +168,7 @@ BOOL ScrCmd_GetPokemonNickname(ScriptContext *ctx) //00D6 - todo: BufferPartyPok
 BOOL ScrCmd_Unk0251(ScriptContext *ctx) //0251 - todo: BufferBoxPokemonNickname? TextBoxPokemonNickname?
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
-    PCStorage *pc = Save_PCStorage_Get(fieldSystem->saveData);
+    PCStorage *pc = SaveArray_PCStorage_Get(fieldSystem->saveData);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u16 box_mon_idx = ScriptGetVar(ctx);

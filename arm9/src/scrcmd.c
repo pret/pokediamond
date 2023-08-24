@@ -4046,7 +4046,7 @@ BOOL ScrCmd_GiveWallpaper(ScriptContext *ctx) { //0249 - used for easy chat unlo
     FieldSystem *fieldSystem = ctx->fieldSystem;
     PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(fieldSystem));
     u16 *var = ScriptGetVarPointer(ctx);
-    PCStorage *pcStorage = Save_PCStorage_Get(fieldSystem->saveData);
+    PCStorage *pcStorage = SaveArray_PCStorage_Get(fieldSystem->saveData);
     u16 unk0 = ScriptGetVar(ctx);
     u16 unk1 = ScriptGetVar(ctx);
     u16 unk2 = ScriptGetVar(ctx);
@@ -4107,7 +4107,7 @@ static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species
 
 BOOL ScrCmd_CountPCFreeSpace(ScriptContext *ctx) { //0252
     u16 *var = ScriptGetVarPointer(ctx);
-    u16 count = PCStorage_CountMonsAndEggsInAllBoxes(Save_PCStorage_Get(ctx->fieldSystem->saveData));
+    u16 count = PCStorage_CountMonsAndEggsInAllBoxes(SaveArray_PCStorage_Get(ctx->fieldSystem->saveData));
     *var = MONS_PER_BOX * NUM_BOXES - count;
     return FALSE;
 }
