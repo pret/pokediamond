@@ -402,6 +402,20 @@ VERSION101_SOPC_NCGR_FILES := files/application/wifi_earth/wifi_earth/narc_0005.
                                     files/poketool/pokegra/pokegra/narc_0053.NCLR \
                                     files/poketool/pokegra/pokegra/narc_0058.NCLR \
                                     files/poketool/pokegra/pokegra/narc_0059.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0064.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0065.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0070.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0071.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0076.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0077.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0082.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0083.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0088.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0089.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0094.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0095.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0100.NCLR \
+                                    files/poketool/pokegra/pokegra/narc_0101.NCLR \
                                     files/poketool/pokegra/pokegra/narc_2374.NCLR \
                                     files/poketool/pokegra/pokegra/narc_2375.NCLR
 
@@ -441,6 +455,34 @@ SCANNED_NCGR_FILES := files/poketool/pokegra/pokegra/narc_0006.NCGR \
                       files/poketool/pokegra/pokegra/narc_0055.NCGR \
                       files/poketool/pokegra/pokegra/narc_0056.NCGR \
                       files/poketool/pokegra/pokegra/narc_0057.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0060.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0061.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0062.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0063.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0066.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0067.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0068.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0069.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0072.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0073.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0074.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0075.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0078.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0079.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0080.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0081.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0084.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0085.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0086.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0087.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0090.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0091.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0092.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0093.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0096.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0097.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0098.NCGR \
+                      files/poketool/pokegra/pokegra/narc_0099.NCGR \
                       files/poketool/pokegra/pokegra/narc_2370.NCGR \
                       files/poketool/pokegra/pokegra/narc_2371.NCGR \
                       files/poketool/pokegra/pokegra/narc_2372.NCGR \
@@ -807,6 +849,34 @@ NCGR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
                    files/poketool/pokegra/pokegra/narc_0055.NCGR \
                    files/poketool/pokegra/pokegra/narc_0056.NCGR \
                    files/poketool/pokegra/pokegra/narc_0057.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0060.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0061.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0062.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0063.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0066.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0067.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0068.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0069.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0072.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0073.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0074.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0075.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0078.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0079.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0080.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0081.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0084.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0085.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0086.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0087.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0090.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0091.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0092.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0093.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0096.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0097.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0098.NCGR \
+                   files/poketool/pokegra/pokegra/narc_0099.NCGR \
                    files/poketool/pokegra/pokegra/narc_2370.NCGR \
                    files/poketool/pokegra/pokegra/narc_2371.NCGR \
                    files/poketool/pokegra/pokegra/narc_2372.NCGR \
@@ -1096,6 +1166,20 @@ NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/poketool/pokegra/pokegra/narc_0053.NCLR \
                    files/poketool/pokegra/pokegra/narc_0058.NCLR \
                    files/poketool/pokegra/pokegra/narc_0059.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0064.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0065.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0070.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0071.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0076.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0077.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0082.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0083.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0088.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0089.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0094.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0095.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0100.NCLR \
+                   files/poketool/pokegra/pokegra/narc_0101.NCLR \
                    files/poketool/pokegra/pokegra/narc_2374.NCLR \
                    files/poketool/pokegra/pokegra/narc_2375.NCLR \
                    files/poketool/trgra/trbgra/narc_0000.NCLR \
