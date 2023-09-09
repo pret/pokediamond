@@ -1969,8 +1969,8 @@ _020394DE:
 	nop
 _020394EC: .word 0x00007FD7
 
-	thumb_func_start VarGet
-VarGet: ; 0x020394F0
+	thumb_func_start FieldSystem_VarGet
+FieldSystem_VarGet: ; 0x020394F0
 	push {r4, lr}
 	add r4, r1, #0x0
 	bl GetVarPointer
@@ -1996,7 +1996,7 @@ _02039512:
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl VarGet
+	bl FieldSystem_VarGet
 	pop {r3-r5, pc}
 	nop
 _02039524: .word 0x00004020
@@ -2592,11 +2592,11 @@ _02039968:
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, #0x0
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl VarGet
+	bl FieldSystem_VarGet
 	cmp r7, r0
 	bne _02039996
 	ldrb r0, [r4, #0x5]

@@ -2679,7 +2679,7 @@
 .extern FieldSysGetAttrAddr
 .extern sub_02039460
 .extern GetVarPointer
-.extern VarGet
+.extern FieldSystem_VarGet
 .extern sub_02039504
 .extern FlagCheck
 .extern FieldSystem_FlagSet

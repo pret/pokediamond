@@ -15,7 +15,7 @@ ScrCmd_Unk00B6: ; 0x020416A8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r5, r0, #0x0
 	bne _02041708
 	add r0, r4, #0x0
@@ -100,7 +100,7 @@ ScrCmd_Unk00B7: ; 0x02041770
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -187,7 +187,7 @@ ScrCmd_Unk00B9: ; 0x02041808
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -250,7 +250,7 @@ ScrCmd_Unk00E5: ; 0x0204188C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -258,7 +258,7 @@ ScrCmd_Unk00E5: ; 0x0204188C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -303,7 +303,7 @@ ScrCmd_Unk02A0: ; 0x0204190C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -311,7 +311,7 @@ ScrCmd_Unk02A0: ; 0x0204190C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -319,7 +319,7 @@ ScrCmd_Unk02A0: ; 0x0204190C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r2, r0, #0x0
 	mov r0, #0xb
 	str r0, [sp, #0x0]
@@ -492,7 +492,7 @@ ScrCmd_Unk00EA: ; 0x02041AB4
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	bl sub_0204AD0C
 	bl sub_02004724
 	mov r0, #0x1

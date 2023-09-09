@@ -71,7 +71,7 @@ ScrCmd_Unk024F: ; 0x020411C4
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
 	bl SaveArray_Party_Get

@@ -89,7 +89,7 @@ ScrCmd_Unk01DD: ; 0x020423B0
 	add r0, r7, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl ScriptReadHalfword
@@ -516,7 +516,7 @@ ScrCmd_Unk01DE: ; 0x02042700
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -524,7 +524,7 @@ ScrCmd_Unk01DE: ; 0x02042700
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -610,7 +610,7 @@ ScrCmd_Unk01E1: ; 0x020427D0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -618,7 +618,7 @@ ScrCmd_Unk01E1: ; 0x020427D0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -680,7 +680,7 @@ ScrCmd_Unk01E2: ; 0x02042864
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -882,7 +882,7 @@ ScrCmd_Unk0298: ; 0x020429E8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl Save_FrontierData_Get
@@ -905,7 +905,7 @@ ScrCmd_Unk0299: ; 0x02042A18
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl Save_FrontierData_Get
@@ -929,7 +929,7 @@ ScrCmd_Unk029A: ; 0x02042A48
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -964,7 +964,7 @@ ScrCmd_Unk029B: ; 0x02042A98
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -972,7 +972,7 @@ ScrCmd_Unk029B: ; 0x02042A98
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword

@@ -4,13 +4,13 @@
 #include "global.h"
 #include "script.h"
 
-extern u16 VarGet(FieldSystem *fieldSystem, u16);
+extern u16 FieldSystem_VarGet(FieldSystem *fieldSystem, u16);
 extern u16* GetVarPointer(FieldSystem *fieldSystem, u16);
 extern SaveData* FieldSystem_GetSaveData(FieldSystem *fieldSystem);
 
 static inline u16 ScriptGetVar(ScriptContext *ctx)
 {
-    return VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    return FieldSystem_VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 }
 
 static inline u16 *ScriptGetVarPointer(ScriptContext *ctx)

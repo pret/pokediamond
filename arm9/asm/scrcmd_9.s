@@ -111,7 +111,7 @@ _02041ECA:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -173,7 +173,7 @@ _02041F68:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -181,7 +181,7 @@ _02041F68:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -226,7 +226,7 @@ ScrCmd_Unk0236: ; 0x02041FDC
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -250,7 +250,7 @@ ScrCmd_Unk02B8: ; 0x02042000
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl Party_GetMonByIndex
@@ -284,7 +284,7 @@ _02042058:
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -324,7 +324,7 @@ _020420A8:
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -332,7 +332,7 @@ _020420A8:
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -340,7 +340,7 @@ _020420A8:
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r5, #0x80
 	add r3, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -365,7 +365,7 @@ ScrCmd_Unk0238: ; 0x02042110
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -414,7 +414,7 @@ _02042170:
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	bl Party_GetMonByIndex
@@ -429,7 +429,7 @@ _020421A2:
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02060F9C
@@ -440,7 +440,7 @@ _020421BC:
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02060F88
