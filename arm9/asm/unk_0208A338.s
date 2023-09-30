@@ -133,7 +133,7 @@ _0208A456:
 	thumb_func_start sub_0208A458
 sub_0208A458: ; 0x0208A458
 	push {r3-r5, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x54]
 	cmp r1, #0xd
@@ -293,7 +293,7 @@ _0208A57A:
 	b _0208A6C8
 _0208A5A6:
 	ldr r0, [r4, #0x0]
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	beq _0208A5B2
 _0208A5B0:

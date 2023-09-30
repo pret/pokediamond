@@ -653,7 +653,7 @@ _021F0122:
 ov05_021F0128: ; 0x021F0128
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 
 	thumb_func_start ov05_021F0130
 ov05_021F0130: ; 0x021F0130
@@ -870,7 +870,7 @@ ov05_021F02C4: ; 0x021F02C4
 	ldr r1, _021F0300 ; =ov05_021F0128
 	add r0, r6, #0
 	add r2, r4, #0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r4, r5, r6, pc}
 _021F02F2:
 	ldr r1, _021F0300 ; =ov05_021F0128

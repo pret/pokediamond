@@ -514,7 +514,7 @@ _0206C2E8:
 	add r4, #0x20
 	ldr r0, [r0, #0x4]
 	add r1, r4, #0x0
-	bl CopyPlayerParty
+	bl CopyParty
 	mov r0, #0x1
 	pop {r4, pc}
 
@@ -788,7 +788,7 @@ _0206C4DA:
 	add r5, #0x20
 	ldr r0, [r0, #0x4]
 	add r1, r5, #0x0
-	bl CopyPlayerParty
+	bl CopyParty
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4

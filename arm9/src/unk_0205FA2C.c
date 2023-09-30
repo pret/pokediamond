@@ -1,5 +1,6 @@
 #include "global.h"
 #include "unk_0205FA2C.h"
+#include "battle_setup.h"
 #include "unk_020337E8.h"
 #include "unk_0202A1E0.h"
 #include "overlay_manager.h"
@@ -40,7 +41,7 @@ u32 sub_0205FA2C(
 
     ptr->options = Save_PlayerData_GetOptionsAddr(save);
 
-    ptr->player_party = SaveArray_PlayerParty_Get(save);
+    ptr->player_party = SaveArray_Party_Get(save);
 
     ptr->bag = Save_Bag_Get(save);
 
@@ -66,7 +67,7 @@ u32 sub_0205FA2C(
 u32 sub_0205FAD8(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (sub_0204647C(fieldSystem))
+    if (FieldSystem_ApplicationIsRunning(fieldSystem))
     {
         return 1;
     }
@@ -108,14 +109,14 @@ u32 sub_0205FB34(
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct2_0205FA2C));
 
     ptr->options = Save_PlayerData_GetOptionsAddr(save);
-    ptr->player_party = SaveArray_PlayerParty_Get(save);
+    ptr->player_party = SaveArray_Party_Get(save);
     ptr->IsNatDex = SaveArray_IsNatDexEnabled(save);
     ptr->unk2c = sub_02079C70(save);
 
     ptr->unk11 = 1;
     ptr->unk14 = param0->unk0d;
 
-    ptr->party_count = (u8)GetPartyCount(ptr->player_party);
+    ptr->party_count = (u8)Party_GetCount(ptr->player_party);
 
     ptr->unk18 = 0;
     ptr->unk12 = param0->unk09;
@@ -136,7 +137,7 @@ u32 sub_0205FB34(
 u32 sub_0205FBC0(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (sub_0204647C(fieldSystem))
+    if (FieldSystem_ApplicationIsRunning(fieldSystem))
     {
         return 3;
     }
@@ -154,7 +155,7 @@ BOOL sub_0205FBE8(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct1_0205FA2C *res2 =
-        (struct UnkCallbackStruct1_0205FA2C *)sub_0204652C(taskManager);
+        (struct UnkCallbackStruct1_0205FA2C *)TaskManager_GetEnvironment(taskManager);
     switch (res2->unk04)
     {
     case 0:
@@ -220,7 +221,7 @@ u32 sub_0205FC9C(
 u32 sub_0205FCC4(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (sub_0204647C(fieldSystem))
+    if (FieldSystem_ApplicationIsRunning(fieldSystem))
     {
         return 1;
     }
@@ -235,7 +236,7 @@ BOOL sub_0205FCE8(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct2_0205FA2C *res2 =
-        (struct UnkCallbackStruct2_0205FA2C *)sub_0204652C(taskManager);
+        (struct UnkCallbackStruct2_0205FA2C *)TaskManager_GetEnvironment(taskManager);
 
     switch (res2->unk04)
     {
@@ -273,7 +274,7 @@ void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 p
 BOOL sub_0205FD70(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    u16 *res2 = (u16 *)sub_0204652C(taskManager);
+    u16 *res2 = (u16 *)TaskManager_GetEnvironment(taskManager);
     u8 *res3 = sub_020316E0(1 - sub_02031190());
     if (res3 == NULL)
     {
@@ -459,13 +460,11 @@ u32 sub_0205FF5C(struct SaveData *save)
     return 3;
 }
 
-void sub_02060044(u16 **param0, u32 *param1)
-{
-    u16 *ptr = param0[42];
-
-    ptr[18] += param1[0];
-    ptr[20] += param1[1];
-    ptr[19] += param1[2];
+void sub_02060044(FieldSystem *fieldSystem, BattleSetupUnkSub138 *battleSetupSub) {
+    UnkStruct_02046444 *unkA8 = fieldSystem->unkA8;
+    unkA8->unk24 += battleSetupSub->unk0;
+    unkA8->unk28 += battleSetupSub->unk4;
+    unkA8->unk26 += battleSetupSub->unk8;
 }
 
 u32 sub_02060064(u32 param0)

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "proto.h"
 #include "unk_0205EC84.h"
+#include "constants/flags.h"
 #include "constants/sndseq.h"
 #include "constants/maps.h"
 
@@ -72,7 +73,7 @@ void sub_0205ED2C(struct SaveVarsFlags * state)
     _flag_clear(state, 0x961);
 }
 
-BOOL sub_0205ED3C(struct SaveVarsFlags * state)
+BOOL Save_VarsFlags_CheckHaveFollower(struct SaveVarsFlags * state)
 {
     return _flag_check(state, 0x961);
 }
@@ -353,17 +354,17 @@ BOOL sub_0205F1E4(struct SaveVarsFlags * state)
 
 void Save_VarsFlags_SetSafariSysFlag(struct SaveVarsFlags * state)
 {
-    _flag_set(state, 0x967);
+    _flag_set(state, FLAG_SYS_SAFARI);
 }
 
 void Save_VarsFlags_ClearSafariSysFlag(struct SaveVarsFlags * state)
 {
-    _flag_clear(state, 0x967);
+    _flag_clear(state, FLAG_SYS_SAFARI);
 }
 
-BOOL sub_0205F214(struct SaveVarsFlags * state)
+BOOL Save_VarsFlags_CheckSafariSysFlag(struct SaveVarsFlags * state) //Save_VarsFlags_CheckSafariSysFlag?
 {
-    return _flag_check(state, 0x967);
+    return _flag_check(state, FLAG_SYS_SAFARI);
 }
 
 void sub_0205F224(struct SaveVarsFlags * state)

@@ -221,7 +221,7 @@ ov05_021D825C: ; 0x021D825C
 _021D827C:
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0
 	bne _021D8290
 	add sp, #0x10
@@ -318,12 +318,12 @@ _021D8342:
 	lsr r0, r0, #0x1f
 	bne _021D8384
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl HasEnoughAlivePokemonForDoubleBattle
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #1
 	bne _021D8366
 	mov r6, #1
@@ -336,7 +336,7 @@ _021D8366:
 	ldr r0, [r4, #0x38]
 	bl sub_02055B14
 	ldr r0, [r4, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -385,7 +385,7 @@ _021D83C2:
 	orr r6, r0
 _021D83E4:
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0x7f
 	bl GetIdxOfFirstPartyMonWithMove
 	cmp r0, #0xff
@@ -1471,7 +1471,7 @@ _021D8C88:
 	cmp r0, #0
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0x39
 	bl GetIdxOfFirstPartyMonWithMove
 	cmp r0, #0xff
@@ -1762,7 +1762,7 @@ ov05_021D8F38: ; 0x021D8F38
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
 	bl Save_Daycare_Get
@@ -1842,7 +1842,7 @@ ov05_021D8FD0: ; 0x021D8FD0
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
@@ -1850,7 +1850,7 @@ ov05_021D8FD0: ; 0x021D8FD0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r6, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	add r7, r0, #0
 	mov r4, #0
 	cmp r7, #0
@@ -1858,7 +1858,7 @@ ov05_021D8FD0: ; 0x021D8FD0
 _021D8FF6:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	add r2, r5, #0
 	bl MonApplyFriendshipMod
@@ -1874,7 +1874,7 @@ ov05_021D9010: ; 0x021D9010
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
@@ -1938,7 +1938,7 @@ ov05_021D9090: ; 0x021D9090
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0
 	bne _021D90A6
 	mov r0, #0

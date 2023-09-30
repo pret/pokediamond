@@ -94,7 +94,7 @@ _0222FFE6:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
-	bl GetPartyCount
+	bl Party_GetCount
 	pop {r3, r4, r5, pc}
 _0222FFF2:
 	ldr r1, [r5, #0x2c]
@@ -105,13 +105,13 @@ _0222FFF2:
 	lsr r0, r0, #0x1d
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
-	bl GetPartyCount
+	bl Party_GetCount
 	pop {r3, r4, r5, pc}
 _02230008:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
-	bl GetPartyCount
+	bl Party_GetCount
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov11_02230014
@@ -136,7 +136,7 @@ _02230034:
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	pop {r4, r5, r6, pc}
 _02230042:
 	ldr r1, [r5, #0x2c]
@@ -148,14 +148,14 @@ _02230042:
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	pop {r4, r5, r6, pc}
 _0223005A:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, #0x68]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start ov11_02230068
@@ -1938,7 +1938,7 @@ _02230D9C:
 	cmp r1, #6
 	bge _02230DC4
 	ldr r0, [r5, #4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r3, #0x59
 	str r7, [sp]
 	lsl r3, r3, #2

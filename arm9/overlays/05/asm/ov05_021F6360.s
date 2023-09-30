@@ -10,10 +10,10 @@ ov05_021F6360: ; 0x021F6360
 	bl TaskManager_GetFieldSystem
 	str r0, [sp]
 	add r0, r7, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r6, r0, #0
 	add r0, r7, #0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r4, r0, #0
 	ldr r0, [r4]
 	ldr r5, [r6, #4]

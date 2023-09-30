@@ -3,7 +3,7 @@
 #include "script.h"
 #include "heap.h"
 
-struct TaskManager *FieldSys_CreateTask(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
+struct TaskManager *Task_New(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
 {
     struct TaskManager *taskManager = AllocFromHeapAtEnd(HEAP_ID_32, sizeof(struct TaskManager));
     taskManager->prev = NULL;
@@ -17,13 +17,13 @@ struct TaskManager *FieldSys_CreateTask(struct FieldSystem * fieldSystem, TaskFu
     return taskManager;
 }
 
-void sub_020463CC(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
+void FieldSystem_CreateTask(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
 {
     GF_ASSERT(fieldSystem->taskManager == NULL);
-    fieldSystem->taskManager = FieldSys_CreateTask(fieldSystem, taskFunc, env);
+    fieldSystem->taskManager = Task_New(fieldSystem, taskFunc, env);
 }
 
-void sub_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
+void TaskManager_Jump(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
 {
     taskManager->func = taskFunc;
     taskManager->state = 0;
@@ -38,7 +38,7 @@ void sub_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
 
 void TaskManager_Call(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
 {
-    struct TaskManager *taskManager2 = FieldSys_CreateTask(taskManager->fieldSystem, taskFunc, env);
+    struct TaskManager *taskManager2 = Task_New(taskManager->fieldSystem, taskFunc, env);
     taskManager2->prev = taskManager;
     taskManager->fieldSystem->taskManager = taskManager2;
 }
@@ -66,7 +66,7 @@ BOOL sub_0204646C(struct TaskManager *taskManager)
     return (taskManager->unk10 != NULL);
 }
 
-BOOL sub_0204647C(struct FieldSystem *fieldSystem)
+BOOL FieldSystem_ApplicationIsRunning(struct FieldSystem *fieldSystem)
 {
     return (sub_0203739C(fieldSystem) || sub_020373C4(fieldSystem));
 }
@@ -84,7 +84,7 @@ BOOL sub_020464A4(void * r0)
 BOOL sub_020464B8(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    u32 * r4_2 = sub_0204652C(taskManager);
+    u32 * r4_2 = TaskManager_GetEnvironment(taskManager);
     switch (r4_2[0])
     {
     case 0:
@@ -92,7 +92,7 @@ BOOL sub_020464B8(struct TaskManager *taskManager)
         r4_2[0]++;
         break;
     case 1:
-        if (!sub_0204647C(fieldSystem))
+        if (!FieldSystem_ApplicationIsRunning(fieldSystem))
         {
             FreeToHeap(r4_2);
             return TRUE;
@@ -116,12 +116,12 @@ struct FieldSystem *TaskManager_GetFieldSystem(struct TaskManager *taskManager)
     return taskManager->fieldSystem;
 }
 
-void * sub_0204652C(struct TaskManager *taskManager)
+void * TaskManager_GetEnvironment(struct TaskManager *taskManager)
 {
     return taskManager->env;
 }
 
-u32 * sub_02046530(struct TaskManager *taskManager)
+u32 * TaskManager_GetStatePtr(struct TaskManager *taskManager)
 {
     return &taskManager->state;
 }

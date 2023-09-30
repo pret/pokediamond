@@ -233,7 +233,7 @@ sub_02063AD0: ; 0x02063AD0
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -258,7 +258,7 @@ sub_02063B04: ; 0x02063B04
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -266,7 +266,7 @@ sub_02063B04: ; 0x02063B04
 	ldr r1, _02063B3C ; =0x00002718
 	ldr r2, [r4, #0x4]
 	add r0, r5, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -312,7 +312,7 @@ _02063B74:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0x1
 	bne _02063B88
 	mov r0, #0x3
@@ -321,7 +321,7 @@ _02063B88:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x1
 	beq _02063BA8
 	ldr r0, [r4, #0x4]
@@ -353,7 +353,7 @@ sub_02063BBC: ; 0x02063BBC
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x4
@@ -424,7 +424,7 @@ _02063C56:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0x1
 	bne _02063C6A
 	mov r0, #0x3
@@ -440,7 +440,7 @@ sub_02063C70: ; 0x02063C70
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -465,7 +465,7 @@ sub_02063CA4: ; 0x02063CA4
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -473,7 +473,7 @@ sub_02063CA4: ; 0x02063CA4
 	ldr r1, _02063CDC ; =0x0000271C
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -526,7 +526,7 @@ sub_02063D18: ; 0x02063D18
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -551,7 +551,7 @@ sub_02063D4C: ; 0x02063D4C
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -559,7 +559,7 @@ sub_02063D4C: ; 0x02063D4C
 	ldr r1, _02063D84 ; =0x0000271A
 	ldr r2, [r4, #0x4]
 	add r0, r5, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -612,7 +612,7 @@ sub_02063DC0: ; 0x02063DC0
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -637,7 +637,7 @@ sub_02063DF4: ; 0x02063DF4
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -645,7 +645,7 @@ sub_02063DF4: ; 0x02063DF4
 	ldr r1, _02063E2C ; =0x0000271E
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -698,7 +698,7 @@ sub_02063E68: ; 0x02063E68
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -723,7 +723,7 @@ sub_02063E9C: ; 0x02063E9C
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -731,7 +731,7 @@ sub_02063E9C: ; 0x02063E9C
 	ldr r1, _02063ED4 ; =0x00002719
 	ldr r2, [r4, #0x4]
 	add r0, r5, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -784,7 +784,7 @@ sub_02063F10: ; 0x02063F10
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -809,7 +809,7 @@ sub_02063F44: ; 0x02063F44
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -817,7 +817,7 @@ sub_02063F44: ; 0x02063F44
 	ldr r1, _02063F7C ; =0x0000271D
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -863,7 +863,7 @@ _02063FB2:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0x1
 	bne _02063FC6
 	mov r0, #0x3
@@ -879,7 +879,7 @@ sub_02063FCC: ; 0x02063FCC
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -904,7 +904,7 @@ sub_02064000: ; 0x02064000
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -912,7 +912,7 @@ sub_02064000: ; 0x02064000
 	ldr r1, _02064038 ; =0x0000271B
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -954,7 +954,7 @@ sub_0206405C: ; 0x0206405C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -979,7 +979,7 @@ sub_02064090: ; 0x02064090
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -987,7 +987,7 @@ sub_02064090: ; 0x02064090
 	ldr r1, _020640C8 ; =0x0000271F
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]
@@ -1024,7 +1024,7 @@ _020640EC:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0x1
 	bne _02064100
 	mov r0, #0x3
@@ -1033,7 +1033,7 @@ _02064100:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x1
 	beq _02064120
 	ldr r0, [r4, #0x4]
@@ -1065,7 +1065,7 @@ sub_02064134: ; 0x02064134
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204649C
@@ -1094,7 +1094,7 @@ sub_02064174: ; 0x02064174
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	add r0, r6, #0x0
@@ -1106,7 +1106,7 @@ sub_02064174: ; 0x02064174
 	ldr r1, _020641A8 ; =ov06_0224CB54
 	add r0, r5, #0x0
 	add r2, r6, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
@@ -1139,7 +1139,7 @@ _020641D6:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0x1
 	bne _020641EA
 	mov r0, #0x3
@@ -1157,7 +1157,7 @@ sub_020641F0: ; 0x020641F0
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204649C
@@ -1186,7 +1186,7 @@ sub_02064230: ; 0x02064230
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r6, r0, #0x0
 	ldr r1, [r6, #0x0]
 	add r0, r4, #0x0
@@ -1210,7 +1210,7 @@ sub_02064230: ; 0x02064230
 	ldr r1, _02064280 ; =ov06_0224CAAC
 	add r0, r5, #0x0
 	add r2, r7, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	nop
@@ -1253,7 +1253,7 @@ sub_020642B4: ; 0x020642B4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldrh r1, [r6, #0x4]
 	add r4, r0, #0x0
 	ldr r2, [r5, #0xc]
@@ -1311,7 +1311,7 @@ sub_02064324: ; 0x02064324
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -1336,7 +1336,7 @@ sub_02064360: ; 0x02064360
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -1344,7 +1344,7 @@ sub_02064360: ; 0x02064360
 	ldr r1, _02064398 ; =0x000022C4
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl sub_02038D10
+	bl StartScriptFromMenu
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	ldrh r1, [r4, #0xc]

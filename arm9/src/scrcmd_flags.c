@@ -13,7 +13,7 @@ extern void sub_0205ECFC(struct SaveVarsFlags* state);
 extern BOOL sub_0205ED0C(struct SaveVarsFlags* state);
 extern void sub_0205ED1C(struct SaveVarsFlags* state);
 extern void sub_0205ED2C(struct SaveVarsFlags* state);
-extern BOOL sub_0205ED3C(struct SaveVarsFlags* state);
+extern BOOL Save_VarsFlags_CheckHaveFollower(struct SaveVarsFlags* state);
 extern void sub_0205ED4C(struct SaveVarsFlags* state);
 extern void sub_0205ED5C(struct SaveVarsFlags* state);
 extern BOOL sub_0205ED6C(struct SaveVarsFlags* state);
@@ -136,7 +136,7 @@ BOOL ScrCmd_Unk0160(struct ScriptContext* ctx) //0160 - todo: HasPartner? CheckP
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct SaveVarsFlags* state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
 
-    *ret_ptr = (u16)sub_0205ED3C(state);
+    *ret_ptr = (u16)Save_VarsFlags_CheckHaveFollower(state);
 
     return FALSE;
 }

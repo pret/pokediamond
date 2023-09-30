@@ -184,7 +184,7 @@ Static arm9
 	Object unk_02046030.o
 	Object event_data.o
 	Object task.o
-	Object unk_0204653C.o
+	Object encounter.o
 	Object unk_02047500.o
 	Object unk_020476CC.o
 	Object unk_02048120.o

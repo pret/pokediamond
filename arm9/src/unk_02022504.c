@@ -7,7 +7,7 @@ SafariZone *Save_SafariZone_Get(struct SaveData *save)
     return SaveArray_Get(save, SAVE_SAFARI_ZONE);
 }
 
-struct PCStorage *GetStoragePCPointer(struct SaveData *save)
+struct PCStorage *SaveArray_PCStorage_Get(struct SaveData *save)
 {
     return SaveArray_Get(save, 35);
 }

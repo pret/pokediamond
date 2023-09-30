@@ -50,7 +50,7 @@ sub_02050E48: ; 0x02050E48
 	ldr r0, [sp, #0x4]
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]
@@ -94,7 +94,7 @@ sub_02050ED4: ; 0x02050ED4
 	str r0, [r4, #0x14]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
@@ -198,7 +198,7 @@ sub_02050FC8: ; 0x02050FC8
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r1, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	beq _02050FDA
 	mov r0, #0x0
@@ -246,7 +246,7 @@ sub_02051020: ; 0x02051020
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r1, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	beq _02051032
 	mov r0, #0x0
@@ -311,7 +311,7 @@ sub_02051094: ; 0x02051094
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -627,7 +627,7 @@ _02051308:
 _0205130E:
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -957,7 +957,7 @@ _020515BA:
 	add r1, #0x84
 	ldrb r1, [r1, #0x0]
 	ldr r0, [r4, #0x50]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	bl sub_020690E4
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x28]
@@ -1380,7 +1380,7 @@ _02051938:
 	bl SaveArray_Party_Alloc
 	mov r1, #0x3
 	str r0, [r4, #0x50]
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	add r0, r4, #0x0
 	mov r1, #0x5
 	add r0, #0x44
@@ -1408,7 +1408,7 @@ _02051988:
 	ldr r1, _02051994 ; =sub_02051094
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 _02051992:
 	pop {r4-r6, pc}
 	.balign 4
@@ -1451,11 +1451,11 @@ _020519BA:
 
 	thumb_func_start sub_020519E4
 sub_020519E4: ; 0x020519E4
-	ldr r3, _020519EC ; =sub_0204652C
+	ldr r3, _020519EC ; =TaskManager_GetEnvironment
 	ldr r0, [r0, #0x10]
 	bx r3
 	nop
-_020519EC: .word sub_0204652C
+_020519EC: .word TaskManager_GetEnvironment
 
 	thumb_func_start sub_020519F0
 sub_020519F0: ; 0x020519F0
@@ -1464,7 +1464,7 @@ sub_020519F0: ; 0x020519F0
 	ldr r0, [r7, #0x24]
 	add r5, r1, #0x0
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #0x0]
 	ldr r4, [r7, #0x4c]
 	bl sub_020690C4
@@ -1482,7 +1482,7 @@ _02051A16:
 	ldrb r1, [r1, #0x0]
 	ldr r0, [sp, #0x0]
 	sub r1, r1, #0x1
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl MI_CpuCopy8
@@ -1611,7 +1611,7 @@ sub_02051AF0: ; 0x02051AF0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	mov r4, #0x0
 _02051B04:
 	add r1, r4, #0x0
@@ -1619,7 +1619,7 @@ _02051B04:
 	mul r1, r6
 	ldr r0, [r5, #0x50]
 	add r1, r2, r1
-	bl AddMonToParty
+	bl Party_AddMon
 	add r4, r4, #0x1
 	cmp r4, #0x3
 	blt _02051B04
@@ -1650,7 +1650,7 @@ sub_02051B1C: ; 0x02051B1C
 	bl MI_CpuCopy8
 	ldr r0, [r6, #0x50]
 	mov r1, #0x3
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	mov r5, #0x0
 _02051B52:
 	add r1, r5, #0x0
@@ -1658,7 +1658,7 @@ _02051B52:
 	mul r1, r4
 	ldr r0, [r6, #0x50]
 	add r1, r2, r1
-	bl AddMonToParty
+	bl Party_AddMon
 	add r5, r5, #0x1
 	cmp r5, #0x3
 	blt _02051B52
@@ -2095,7 +2095,7 @@ sub_02051EB0: ; 0x02051EB0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r1, #0x0
 	ldr r0, [r4, #0x24]
@@ -2230,7 +2230,7 @@ _02051FDC:
 	b _0205203A
 _02051FEC:
 	add r0, r5, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _0205203A
 	ldr r0, [r4, #0x28]
@@ -2306,7 +2306,7 @@ _02052066:
 	str r0, [r2, #0x28]
 	ldr r0, [sp, #0x0]
 	ldr r1, _020520A8 ; =sub_02051EB0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	bl sub_02037760
 	pop {r3-r7, pc}
 _0205209C:

@@ -41,7 +41,7 @@ sub_02046068: ; 0x02046068
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
@@ -80,7 +80,7 @@ _020460AE:
 	mov r1, #0x1
 	bl sub_0206367C
 	add r0, r6, #0x0
-	bl sub_0204AFC8
+	bl CallTask_FadeToBlack
 	ldrb r0, [r4, #0x8]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x8]
@@ -113,7 +113,7 @@ _020460E2:
 	b _020461F8
 _0204610A:
 	add r0, r6, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldrb r0, [r4, #0x8]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x8]
@@ -200,7 +200,7 @@ _02046198:
 	b _020461F8
 _020461C0:
 	add r0, r6, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldrb r0, [r4, #0x8]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x8]
@@ -210,7 +210,7 @@ _020461CE:
 	mov r1, #0x0
 	bl sub_02046214
 	add r0, r6, #0x0
-	bl sub_0204B00C
+	bl CallTask_FadeFromBlack
 	ldrb r0, [r4, #0x8]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x8]

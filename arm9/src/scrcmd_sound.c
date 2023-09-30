@@ -1,5 +1,6 @@
 #include "global.h"
 #include "scrcmd.h"
+#include "constants/sndseq.h"
 #include "unk_020040F4.h"
 #include "sound_chatot.h"
 
@@ -245,7 +246,7 @@ BOOL ScrCmd_SaveChatotCry(struct ScriptContext* ctx) //005C
 BOOL ScrCmd_Unk005D(struct ScriptContext* ctx) //005D - todo: LoadSpearPillarAudio?
 {
 #pragma unused(ctx)
-    sub_0200433C(0x3F, 0, 0);
+    sub_0200433C(0x3F, SEQ_PV001, 0);
     return TRUE;
 }
 

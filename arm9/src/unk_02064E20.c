@@ -6,7 +6,7 @@
 
 void KeepSafariTrain(struct FieldSystem* fieldSystem)
 {
-    struct unk_2025484 * r4 = (struct unk_2025484 *)sub_02024ED8(FieldSystem_GetSaveDataPtr(fieldSystem));
+    struct unk_2025484 * r4 = (struct unk_2025484 *)sub_02024ED8(FieldSystem_GetSaveData(fieldSystem));
     if((u32)sub_020254B4(r4) == 6)
     {
         return;

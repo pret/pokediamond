@@ -56,7 +56,7 @@ ov27_0225489C: ; 0x0225489C
 	strb r0, [r5, #2]
 	add r0, r4, #0
 	bl ov20_02252C40
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r0, #0
 	add r0, r5, #4
 	bl ov27_02254A48
@@ -223,7 +223,7 @@ _0225499C:
 	blo _02254A02
 	ldr r0, [r4, #0x78]
 	bl ov20_02252C40
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r0, #0
 	add r0, r4, #4
 	bl ov27_02254A48
@@ -281,7 +281,7 @@ ov27_02254A48: ; 0x02254A48
 	str r0, [sp]
 	add r0, r1, #0
 	str r1, [sp, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	ldr r1, [sp]
 	mov r6, #0
 	str r0, [r1]
@@ -291,7 +291,7 @@ ov27_02254A48: ; 0x02254A48
 _02254A62:
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	bl AcquireMonLock
 	add r7, r0, #0

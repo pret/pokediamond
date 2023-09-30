@@ -33,7 +33,7 @@ sub_02063684: ; 0x02063684
 	strh r1, [r0, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	cmp r0, #0x0
 	bne _020636DA
 	ldr r0, [r5, #0xc]

@@ -1963,7 +1963,7 @@ sub_02063524: ; 0x02063524
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r2, [r4, #0x0]
 	ldr r1, [r4, #0x8]

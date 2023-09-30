@@ -68,7 +68,7 @@ sub_02080C60: ; 0x02080C60
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0xe
@@ -106,12 +106,12 @@ _02080CA6:
 	b _02080DF2
 _02080CB4:
 	ldr r0, [r6, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r0, [sp, #0x0]
@@ -240,7 +240,7 @@ _02080DCE:
 	b _02080DF2
 _02080DD4:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -308,7 +308,7 @@ sub_02080E5C: ; 0x02080E5C
 	add r5, r0, #0x0
 	bl TaskManager_GetFieldSystem
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0xd
@@ -491,7 +491,7 @@ _02080FBA:
 	b _02080FDC
 _02080FC0:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -523,7 +523,7 @@ sub_02081000: ; 0x02081000
 	add r5, r0, #0x0
 	bl TaskManager_GetFieldSystem
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x9
@@ -741,7 +741,7 @@ _0208117E:
 	b _020811B4
 _02081196:
 	add r0, r5, #0x0
-	bl sub_0204AF84
+	bl CallTask_RestoreOverworld
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]

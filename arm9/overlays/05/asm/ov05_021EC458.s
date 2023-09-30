@@ -92,7 +92,7 @@ ov05_021EC4F0: ; 0x021EC4F0
 	add r6, r0, #0
 	str r1, [sp]
 	add r7, r3, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	add r0, r5, #0
 	bl DaycareMon_GetExtras
@@ -127,10 +127,10 @@ _021EC544:
 	bl DaycareMon_SetSteps
 	ldr r1, [sp]
 	add r0, r6, #0
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 	ldr r1, _021EC578 ; =0x000001B9
 	add r0, r6, #0
-	bl PartyHasMon
+	bl Party_HasMon
 	cmp r0, #0
 	bne _021EC572
 	add r0, r7, #0
@@ -321,7 +321,7 @@ _021EC6E0:
 _021EC6FA:
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl AddMonToParty
+	bl Party_AddMon
 	add r0, r5, #0
 	bl ZeroBoxMonData
 	add r0, r6, #0
@@ -1642,7 +1642,7 @@ _021ED168:
 	bl SetMonData
 	ldr r0, [sp, #4]
 	add r1, r4, #0
-	bl AddMonToParty
+	bl Party_AddMon
 	add r0, r5, #0
 	bl ov05_021ECD64
 	add r0, r4, #0
@@ -1654,7 +1654,7 @@ _021ED168:
 ov05_021ED190: ; 0x021ED190
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	add r6, r0, #0
 	mov r4, #0
 	cmp r6, #0
@@ -1663,7 +1663,7 @@ ov05_021ED190: ; 0x021ED190
 _021ED1A2:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r7, #0
 	mov r2, #0
 	bl GetMonData
@@ -1671,7 +1671,7 @@ _021ED1A2:
 	bne _021ED1D6
 	add r0, r5, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa
 	mov r2, #0
 	bl GetMonData
@@ -1992,13 +1992,13 @@ _021ED3F8:
 	add r6, r0, #0
 	add r0, r7, #0
 	mov r5, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	bls _021ED490
 _021ED430:
 	add r0, r7, #0
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x4c
 	mov r2, #0
 	add r4, r0, #0
@@ -2039,7 +2039,7 @@ _021ED47E:
 _021ED484:
 	add r0, r7, #0
 	add r5, r5, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r5, r0
 	blo _021ED430
 _021ED490:
@@ -2053,7 +2053,7 @@ _021ED498: .word 0x0000FFFF
 ov05_021ED49C: ; 0x021ED49C
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	add r6, r0, #0
 	mov r5, #0
 	cmp r6, #0
@@ -2061,7 +2061,7 @@ ov05_021ED49C: ; 0x021ED49C
 _021ED4AC:
 	add r0, r7, #0
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x4c
 	mov r2, #0
 	add r4, r0, #0
@@ -2197,7 +2197,7 @@ _021ED5B4:
 ov05_021ED5C4: ; 0x021ED5C4
 	push {r3, r4, r5, lr}
 	add r5, r2, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	bl sub_020690E4
 	add r2, r0, #0
