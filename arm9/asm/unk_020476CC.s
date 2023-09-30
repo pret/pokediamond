@@ -11,8 +11,8 @@ UNK_020F45F8: ; 0x020F45F8
 
 	.text
 
-	thumb_func_start sub_020476CC
-sub_020476CC: ; 0x020476CC
+	thumb_func_start BattleSetup_New
+BattleSetup_New: ; 0x020476CC
 	push {r3-r7, lr}
 	add r4, r1, #0x0
 	mov r1, #0x67
@@ -156,7 +156,7 @@ sub_020477EC: ; 0x020477EC
 	push {r4, lr}
 	add r4, r1, #0x0
 	mov r1, #0x20
-	bl sub_020476CC
+	bl BattleSetup_New
 	mov r1, #0x19
 	lsl r1, r1, #0x4
 	str r4, [r0, r1]
@@ -169,7 +169,7 @@ sub_02047800: ; 0x02047800
 	add r4, r1, #0x0
 	mov r1, #0x2
 	lsl r1, r1, #0x8
-	bl sub_020476CC
+	bl BattleSetup_New
 	mov r1, #0x19
 	lsl r1, r1, #0x4
 	str r4, [r0, r1]
@@ -190,7 +190,7 @@ sub_02047814: ; 0x02047814
 	str r0, [sp, #0x14]
 	add r0, r6, #0x0
 	lsl r1, r1, #0xa
-	bl sub_020476CC
+	bl BattleSetup_New
 	add r4, r0, #0x0
 	ldr r2, _0204795C ; =0x000001F1
 	mov r0, #0x1
@@ -268,7 +268,7 @@ sub_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -281,11 +281,11 @@ sub_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x8]
 	add r1, r6, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	add r0, r6, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0xc]
-	bl GetStoragePCPointer
+	bl SaveArray_PCStorage_Get
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -317,8 +317,8 @@ sub_02047814: ; 0x02047814
 _0204795C: .word 0x000001F1
 _02047960: .word 0x0000018F
 
-	thumb_func_start sub_02047964
-sub_02047964: ; 0x02047964
+	thumb_func_start BattleSetup_Delete
+BattleSetup_Delete: ; 0x02047964
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	mov r4, #0x0
@@ -405,7 +405,7 @@ _02047A0C:
 	add r0, r5, r0
 	ldr r0, [r0, #0x4]
 	add r1, r6, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	cmp r0, #0x0
 	bne _02047A20
 	bl GF_AssertFail
@@ -427,7 +427,7 @@ _02047A34:
 	add r1, r5, r1
 	ldr r1, [r1, #0x4]
 	add r0, r6, #0x0
-	bl CopyPlayerParty
+	bl CopyParty
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -471,7 +471,7 @@ sub_02047A78: ; 0x02047A78
 	bl Save_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r7, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl Save_Bag_Get
@@ -519,7 +519,7 @@ sub_02047A78: ; 0x02047A78
 	mov r2, #0x0
 	bl sub_02047A64
 	ldr r0, [r4, #0xc]
-	bl GetStoragePCPointer
+	bl SaveArray_PCStorage_Get
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -594,8 +594,8 @@ sub_02047A78: ; 0x02047A78
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start sub_02047BB0
-sub_02047BB0: ; 0x02047BB0
+	thumb_func_start BattleSetup_InitFromFieldSystem
+BattleSetup_InitFromFieldSystem: ; 0x02047BB0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl sub_02047A78
@@ -616,7 +616,7 @@ sub_02047BC0: ; 0x02047BC0
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -649,19 +649,19 @@ sub_02047BC0: ; 0x02047BC0
 	bl AllocMonZeroed
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x14]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	ldr r0, [sp, #0x14]
 	mov r4, #0x0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0x0
 	ble _02047C98
 _02047C40:
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r5, #0x0
 	bl CopyPokemonToPokemon
 	add r0, r5, #0x0
@@ -692,7 +692,7 @@ _02047C82:
 	bl sub_020479FC
 	ldr r0, [sp, #0x14]
 	add r4, r4, #0x1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02047C40
 _02047C98:
@@ -719,7 +719,7 @@ _02047C98:
 	bl sub_02047A64
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl GetStoragePCPointer
+	bl SaveArray_PCStorage_Get
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
@@ -848,7 +848,7 @@ _02047DD8:
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	mov r6, #0x0
 	cmp r4, #0x0
 	ble _02047E0E
@@ -856,7 +856,7 @@ _02047DEE:
 	ldrb r1, [r7, r6]
 	ldr r0, [sp, #0x4]
 	sub r1, r1, #0x1
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r1, [sp, #0x8]
 	bl CopyPokemonToPokemon
 	ldr r1, [sp, #0x8]
@@ -903,7 +903,7 @@ _02047E2C:
 	bl sub_02047A64
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl GetStoragePCPointer
+	bl SaveArray_PCStorage_Get
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -995,7 +995,7 @@ sub_02047F1C: ; 0x02047F1C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	add r6, r2, #0x0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1013,7 +1013,7 @@ sub_02047F38: ; 0x02047F38
 	bl Save_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Bag_Get
@@ -1032,7 +1032,7 @@ sub_02047F38: ; 0x02047F38
 	bl PlayerProfile_Copy
 	ldr r0, [r4, #0x4]
 	add r1, r7, #0x0
-	bl CopyPlayerParty
+	bl CopyParty
 	mov r0, #0x42
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1058,7 +1058,7 @@ sub_02047FA4: ; 0x02047FA4
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetProfileAddr
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	ldr r0, [r5, #0xc]
 	bl Save_Bag_Get
 	ldr r0, [r5, #0xc]
@@ -1191,8 +1191,8 @@ sub_020480AC: ; 0x020480AC
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_020480B8
-sub_020480B8: ; 0x020480B8
+	thumb_func_start IsBattleResultWin
+IsBattleResultWin: ; 0x020480B8
 	cmp r0, #0x2
 	beq _020480C0
 	cmp r0, #0x3

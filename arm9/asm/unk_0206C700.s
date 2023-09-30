@@ -2085,7 +2085,7 @@ _0206D854:
 	cmp r0, #0x0
 	beq _0206D86C
 	ldr r0, [r4, #0x24]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0x6
 	blt _0206D86E
 _0206D86C:
@@ -2195,7 +2195,7 @@ _0206D8EA:
 	bl CalcMonLevelAndStats
 	ldr r0, [r4, #0x24]
 	add r1, r5, #0x0
-	bl AddMonToParty
+	bl Party_AddMon
 	ldr r0, [r4, #0x48]
 	add r1, r5, #0x0
 	bl Pokedex_SetMonCaughtFlag

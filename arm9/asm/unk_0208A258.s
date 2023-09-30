@@ -10,7 +10,7 @@ sub_0208A258: ; 0x0208A258
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, _0208A290 ; =0x0000022F
 	ldrb r0, [r4, r0]
@@ -40,7 +40,7 @@ sub_0208A294: ; 0x0208A294
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	beq _0208A2A6
 	mov r0, #0x10
@@ -66,7 +66,7 @@ sub_0208A2C4: ; 0x0208A2C4
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_020464A4
@@ -77,7 +77,7 @@ sub_0208A2C4: ; 0x0208A2C4
 	ldr r1, _0208A2F8 ; =0x0223D4AD
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	ldr r0, _0208A2FC ; =0x0000022F
 	mov r1, #0x12
 	strb r1, [r4, r0]

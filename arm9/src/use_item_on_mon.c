@@ -266,9 +266,9 @@ BOOL CanUseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveId, HeapI
     return FALSE;
 }
 
-BOOL CanUseItemOnMonInParty(struct PlayerParty * party, u16 itemId, s32 partyIdx, s32 moveIdx, HeapID heapId)
+BOOL CanUseItemOnMonInParty(struct Party * party, u16 itemId, s32 partyIdx, s32 moveIdx, HeapID heapId)
 {
-    struct Pokemon * pokemon = GetPartyMonByIndex(party, partyIdx);
+    struct Pokemon * pokemon = Party_GetMonByIndex(party, partyIdx);
     return CanUseItemOnPokemon(pokemon, itemId, moveIdx, heapId);
 }
 
@@ -534,9 +534,9 @@ BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 loc
 #undef sp54
 #undef sp50
 
-BOOL UseItemOnMonInParty(struct PlayerParty * party, u16 itemId, s32 partyIdx, s32 moveIdx, u16 location, HeapID heapId)
+BOOL UseItemOnMonInParty(struct Party * party, u16 itemId, s32 partyIdx, s32 moveIdx, u16 location, HeapID heapId)
 {
-    struct Pokemon * pokemon = GetPartyMonByIndex(party, partyIdx);
+    struct Pokemon * pokemon = Party_GetMonByIndex(party, partyIdx);
     return UseItemOnPokemon(pokemon, itemId, moveIdx, location, heapId);
 }
 
@@ -688,17 +688,17 @@ BOOL DoItemFriendshipMod(struct Pokemon * pokemon, s32 friendship, s32 mod, u16 
     return TRUE;
 }
 
-void HealParty(struct PlayerParty * party)
+void HealParty(struct Party * party)
 {
     u32 sp8;
     s32 nmons;
     s32 i;
     s32 j;
 
-    nmons = GetPartyCount(party);
+    nmons = Party_GetCount(party);
     for (i = 0; i < nmons; i++)
     {
-        struct Pokemon * pokemon = GetPartyMonByIndex(party, i);
+        struct Pokemon * pokemon = Party_GetMonByIndex(party, i);
         if (GetMonData(pokemon, MON_DATA_SPECIES_EXISTS, NULL))
         {
             sp8 = GetMonData(pokemon, MON_DATA_MAXHP, NULL);

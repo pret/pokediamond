@@ -55,7 +55,7 @@ sub_020653EC: ; 0x020653EC
 	bl MI_CpuFill8
 	add r0, r5, #0x0
 	str r6, [r4, #0x4]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	mov r1, #0x5b
 	lsl r1, r1, #0x2
 	str r5, [r4, r1]
@@ -1807,10 +1807,10 @@ sub_020661F8: ; 0x020661F8
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FieldSystem_GetSaveDataPtr
-	bl SaveArray_PlayerParty_Get
+	bl FieldSystem_GetSaveData
+	bl SaveArray_Party_Get
 	add r1, r7, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r2, r0, #0x0
 	mov r0, #0x6b
 	lsl r0, r0, #0x2
@@ -2376,19 +2376,19 @@ _02066676:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FieldSystem_GetSaveDataPtr
-	bl SaveArray_PlayerParty_Get
+	bl FieldSystem_GetSaveData
+	bl SaveArray_Party_Get
 	str r0, [r4, #0x0]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Bag_Get
 	str r0, [r4, #0x4]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x5b
@@ -2434,7 +2434,7 @@ _02066708:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _0206671E
 	mov r0, #0x0
@@ -2495,7 +2495,7 @@ _0206677A:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _020667D0
 	mov r0, #0x6a
@@ -2544,7 +2544,7 @@ sub_020667D4: ; 0x020667D4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x4]
 	cmp r1, #0x0

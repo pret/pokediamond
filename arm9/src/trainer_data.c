@@ -1,6 +1,7 @@
 #include "global.h"
 #include "heap.h"
 #include "trainer_data.h"
+#include "battle_setup.h"
 #include "math_util.h"
 #include "party.h"
 #include "proto.h"
@@ -10,9 +11,9 @@
 #include "unk_02024E64.h"
 
 // Loads all battle opponents, including multi-battle partner if exists.
-void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * save, HeapID heapId)
+void EnemyTrainerSet_Init(BattleSetup *setup, struct SaveData * save, HeapID heapId)
 {
-    struct TrainerDataLoaded trdata;
+    Trainer trdata;
     struct MsgData * msgData;
     u16 * rivalName;
     s32 i;
@@ -22,30 +23,30 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * 
     rivalName = GetRivalNamePtr(sub_02024EC0(save));
     for (i = 0; i < 4; i++)
     {
-        if (enemies->trainer_idxs[i] != 0)
+        if (setup->trainerId[i] != 0)
         {
-            TrainerData_ReadTrData(enemies->trainer_idxs[i], &trdata.data);
-            enemies->datas[i] = trdata;
+            TrainerData_ReadTrData(setup->trainerId[i], &trdata.data);
+            setup->trainers[i] = trdata;
             if (trdata.data.trainerClass == TRAINER_CLASS_PKMN_TRAINER_BARRY)
             {
-                CopyU16StringArray(enemies->datas[i].name, rivalName);
+                CopyU16StringArray(setup->trainers[i].name, rivalName);
             }
             else
             {
-                str = NewString_ReadMsgData(msgData, enemies->trainer_idxs[i]);
-                CopyStringToU16Array(str, enemies->datas[i].name, PLAYER_NAME_LENGTH + 1);
+                str = NewString_ReadMsgData(msgData, setup->trainerId[i]);
+                CopyStringToU16Array(str, setup->trainers[i].name, PLAYER_NAME_LENGTH + 1);
                 String_Delete(str);
             }
-            CreateNPCTrainerParty(enemies, i, heapId);
+            CreateNPCTrainerParty(setup, i, heapId);
         }
     }
-    enemies->flags |= trdata.data.doubleBattle;
+    setup->flags |= trdata.data.doubleBattle;
     DestroyMsgData(msgData);
 }
 
 s32 TrainerData_GetAttr(u32 tr_idx, u32 attr_no)
 {
-    struct TrainerDataLoaded trainer;
+    Trainer trainer;
     s32 ret;
 
     TrainerData_ReadTrData(tr_idx, &trainer.data);
@@ -71,7 +72,7 @@ s32 TrainerData_GetAttr(u32 tr_idx, u32 attr_no)
         ret = trainer.data.items[attr_no];
         break;
     case 8:
-        ret = (s32)trainer.data.unk_C;
+        ret = (s32)trainer.data.aiFlags;
         break;
     case 9:
         ret = (s32)trainer.data.doubleBattle;
@@ -257,7 +258,7 @@ int TrainerClass_GetGenderOrTrainerCount(int a0)
     return sTrainerClassGenderCountTbl[a0];
 }
 
-void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, HeapID heapId)
+void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId)
 {
     union TrainerMon * data;
     s32 i;
@@ -276,27 +277,27 @@ void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, Hea
     // We abuse the RNG for personality value generation, so back up the overworld
     // state
     seed_bak = GetLCRNGSeed();
-    InitPartyWithMaxSize(enemies->parties[party_id], PARTY_SIZE);
+    Party_InitWithMaxSize(setup->party[party_id], PARTY_SIZE);
     data = (union TrainerMon *)AllocFromHeap(heapId, sizeof(union TrainerMon) * PARTY_SIZE);
     pokemon = AllocMonZeroed(heapId);
-    TrainerData_ReadTrPoke(enemies->trainer_idxs[party_id], data);
+    TrainerData_ReadTrPoke(setup->trainerId[party_id], data);
 
     // If a Pokemon's gender ratio is 50/50, the generated Pokemon will be the same
     // gender as its trainer. Otherwise, it will assume the more abundant gender
     // according to its species gender ratio. In double battles, the behavior is
     // identical to that of a solitary male opponent.
-    pid_gender = (u32)((TrainerClass_GetGenderOrTrainerCount(enemies->datas[party_id].data.trainerClass) == 1) ? 0x78 : 0x88);
+    pid_gender = (u32)((TrainerClass_GetGenderOrTrainerCount(setup->trainers[party_id].data.trainerClass) == 1) ? 0x78 : 0x88);
 
     // The trainer types can be more efficiently and expandibly treated as a flag
     // array, with bit 0 being custom moveset and bit 1 being held item.
     // Nintendo didn't do it that way, instead using a switch statement and a lot
     // of code duplication. This has been the case since the 2nd generation games.
-    switch (enemies->datas[party_id].data.trainerType)
+    switch (setup->trainers[party_id].data.trainerType)
     {
     case TRTYPE_MON:
     {
         monSpecies = &data->species;
-        for (i = 0; i < enemies->datas[party_id].data.npoke; i++)
+        for (i = 0; i < setup->trainers[party_id].data.npoke; i++)
         {
             // Generate personality by seeding with a value based on the difficulty,
             // level, species, and opponent ID. Roll the RNG N times, where N is
@@ -304,9 +305,9 @@ void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, Hea
             // pseudorandom value and add the gender selector.
             // This guarantees that NPC trainers' Pokemon are generated in a
             // consistent manner between attempts.
-            seed = monSpecies[i].difficulty + monSpecies[i].level + monSpecies[i].species + enemies->trainer_idxs[party_id];
+            seed = monSpecies[i].difficulty + monSpecies[i].level + monSpecies[i].species + setup->trainerId[party_id];
             SetLCRNGSeed(seed);
-            for (j = 0; j < enemies->datas[party_id].data.trainerClass; j++)
+            for (j = 0; j < setup->trainers[party_id].data.trainerClass; j++)
             {
                 seed = LCRandom();
             }
@@ -321,18 +322,18 @@ void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, Hea
             // If you were treating the trainer type as a bitfield, you'd put the
             // checks for held item and moves here. You'd also treat the trpoke
             // data as a flat u16 array rather than an array of fixed-width structs.
-            AddMonToParty(enemies->parties[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }
     case TRTYPE_MON_MOVES:
     {
         monSpeciesMoves = &data->species_moves;
-        for (i = 0; i < enemies->datas[party_id].data.npoke; i++)
+        for (i = 0; i < setup->trainers[party_id].data.npoke; i++)
         {
-            seed = monSpeciesMoves[i].difficulty + monSpeciesMoves[i].level + monSpeciesMoves[i].species + enemies->trainer_idxs[party_id];
+            seed = monSpeciesMoves[i].difficulty + monSpeciesMoves[i].level + monSpeciesMoves[i].species + setup->trainerId[party_id];
             SetLCRNGSeed(seed);
-            for (j = 0; j < enemies->datas[party_id].data.trainerClass; j++)
+            for (j = 0; j < setup->trainers[party_id].data.trainerClass; j++)
             {
                 seed = LCRandom();
             }
@@ -344,18 +345,18 @@ void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, Hea
             {
                 MonSetMoveInSlot(pokemon, monSpeciesMoves[i].moves[j], (u8)j);
             }
-            AddMonToParty(enemies->parties[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }
     case TRTYPE_MON_ITEM:
     {
         monSpeciesItem = &data->species_item;
-        for (i = 0; i < enemies->datas[party_id].data.npoke; i++)
+        for (i = 0; i < setup->trainers[party_id].data.npoke; i++)
         {
-            seed = monSpeciesItem[i].difficulty + monSpeciesItem[i].level + monSpeciesItem[i].species + enemies->trainer_idxs[party_id];
+            seed = monSpeciesItem[i].difficulty + monSpeciesItem[i].level + monSpeciesItem[i].species + setup->trainerId[party_id];
             SetLCRNGSeed(seed);
-            for (j = 0; j < enemies->datas[party_id].data.trainerClass; j++)
+            for (j = 0; j < setup->trainers[party_id].data.trainerClass; j++)
             {
                 seed = LCRandom();
             }
@@ -364,18 +365,18 @@ void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, Hea
             iv = (u8)((monSpeciesItem[i].difficulty * 31) / 255);
             CreateMon(pokemon, monSpeciesItem[i].species, monSpeciesItem[i].level, iv, 1, (s32)personality, 2, 0);
             SetMonData(pokemon, MON_DATA_HELD_ITEM, &monSpeciesItem[i].item);
-            AddMonToParty(enemies->parties[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }
     case TRTYPE_MON_ITEM_MOVES:
     {
         monSpeciesItemMoves = &data->species_item_moves;
-        for (i = 0; i < enemies->datas[party_id].data.npoke; i++)
+        for (i = 0; i < setup->trainers[party_id].data.npoke; i++)
         {
-            seed = monSpeciesItemMoves[i].difficulty + monSpeciesItemMoves[i].level + monSpeciesItemMoves[i].species + enemies->trainer_idxs[party_id];
+            seed = monSpeciesItemMoves[i].difficulty + monSpeciesItemMoves[i].level + monSpeciesItemMoves[i].species + setup->trainerId[party_id];
             SetLCRNGSeed(seed);
-            for (j = 0; j < enemies->datas[party_id].data.trainerClass; j++)
+            for (j = 0; j < setup->trainers[party_id].data.trainerClass; j++)
             {
                 seed = LCRandom();
             }
@@ -388,7 +389,7 @@ void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, Hea
             {
                 MonSetMoveInSlot(pokemon, monSpeciesItemMoves[i].moves[j], (u8)j);
             }
-            AddMonToParty(enemies->parties[party_id], pokemon);
+            Party_AddMon(setup->party[party_id], pokemon);
         }
         break;
     }

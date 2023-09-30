@@ -395,7 +395,7 @@ ov05_021F57F0: ; 0x021F57F0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldrh r1, [r4, #8]
 	cmp r1, #9
@@ -557,7 +557,7 @@ _021F5936:
 	ldr r1, _021F5988 ; =0x000007ED
 	add r0, r6, #0
 	add r3, r2, #0
-	bl sub_02038CD8
+	bl QueueScript
 	mov r0, #9
 	strh r0, [r4, #8]
 	b _021F5980
@@ -566,7 +566,7 @@ _021F5956:
 	ldr r1, _021F598C ; =0x000007EC
 	add r0, r6, #0
 	add r3, r2, #0
-	bl sub_02038CD8
+	bl QueueScript
 	mov r0, #9
 	strh r0, [r4, #8]
 	b _021F5980

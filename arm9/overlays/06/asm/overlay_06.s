@@ -329,7 +329,7 @@ ov06_022398FC: ; 0x022398FC
 	add r4, r0, #0
 	bl TaskManager_GetFieldSystem
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
@@ -429,7 +429,7 @@ ov06_022399C8: ; 0x022399C8
 	add r4, r0, #0
 	bl TaskManager_GetFieldSystem
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	cmp r0, #7
@@ -4844,14 +4844,14 @@ ov06_0223BA04: ; 0x0223BA04
 	pop {r4, r5, r6, r7, pc}
 _0223BA42:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r7, r0, #0
 	add r0, r5, #0
 	bl sub_02034CE0
 	add r4, r0, #0
 	add r0, r7, #0
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x20]
 	ldr r1, [sp, #0x20]
 	add r0, r5, #0
@@ -4943,7 +4943,7 @@ _0223BB0C:
 _0223BB18:
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0
 	beq _0223BB2C
 	mov r0, #1
@@ -4976,10 +4976,10 @@ _0223BB30:
 	mov r0, #0xb
 	add r1, r0, #0
 	add r1, #0xf5
-	bl sub_020476CC
+	bl BattleSetup_New
 	str r0, [sp, #0x2c]
 	add r1, r5, #0
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	ldr r0, [sp, #0x30]
 	ldr r1, [sp, #0x28]
 	ldr r2, [sp, #0x2c]
@@ -5004,7 +5004,7 @@ _0223BB98:
 	bne _0223BBB6
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	str r0, [sp, #0x18]
 	ldr r1, [sp, #0x18]
 	add r0, r5, #0
@@ -5014,12 +5014,12 @@ _0223BB98:
 _0223BBB6:
 	mov r0, #0xb
 	mov r1, #0x4a
-	bl sub_020476CC
+	bl BattleSetup_New
 	str r0, [sp, #0x2c]
 _0223BBC0:
 	ldr r0, [sp, #0x2c]
 	add r1, r5, #0
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	add r0, sp, #0x24
 	ldrb r0, [r0, #1]
 	cmp r0, #0
@@ -5042,7 +5042,7 @@ _0223BBDA:
 	cmp r0, #0xc
 	blt _0223BBDA
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5135,7 +5135,7 @@ _0223BC90:
 _0223BCBC:
 	bl GF_AssertFail
 	ldr r0, [sp, #0x2c]
-	bl sub_02047964
+	bl BattleSetup_Delete
 	add sp, #0xb4
 	mov r0, #0
 	pop {r4, r5, r6, r7, pc}
@@ -5166,7 +5166,7 @@ _0223BCFA:
 	cmp r0, #0
 	bne _0223BD06
 	ldr r0, [sp, #0x2c]
-	bl sub_02047964
+	bl BattleSetup_Delete
 _0223BD06:
 	mov r0, #0
 	add r5, #0x74
@@ -5193,9 +5193,9 @@ ov06_0223BD14: ; 0x0223BD14
 _0223BD2E:
 	ldr r0, [sp, #8]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0x14]
@@ -5233,7 +5233,7 @@ _0223BD8A:
 	ldr r0, [sp, #8]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	add r1, r0, #0
 	ldr r0, [sp, #8]
 	ldr r2, [sp, #0x10]
@@ -5241,7 +5241,7 @@ _0223BD8A:
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #8]
 	ldr r0, [r0]
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0]
 	bl sub_020480AC
@@ -5370,14 +5370,14 @@ ov06_0223BE70: ; 0x0223BE70
 	pop {r4, r5, r6, r7, pc}
 _0223BEA4:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r6, r0, #0
 	add r0, r5, #0
 	bl sub_02034CE0
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x18]
 	ldr r1, [sp, #0x18]
 	add r0, r5, #0
@@ -5395,7 +5395,7 @@ _0223BEA4:
 	str r1, [r0, #0xc]
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0
 	beq _0223BEF0
 	mov r0, #1
@@ -5416,10 +5416,10 @@ _0223BEF4:
 	mov r0, #0xb
 	add r1, r0, #0
 	add r1, #0xf5
-	bl sub_020476CC
+	bl BattleSetup_New
 	str r0, [sp, #0x24]
 	add r1, r5, #0
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	ldr r0, [sp, #0x28]
 	ldr r1, [sp, #0x20]
 	ldr r2, [sp, #0x24]
@@ -5441,7 +5441,7 @@ _0223BF3C:
 	bne _0223BF5A
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	str r0, [sp, #0x14]
 	ldr r1, [sp, #0x14]
 	add r0, r5, #0
@@ -5451,12 +5451,12 @@ _0223BF3C:
 _0223BF5A:
 	mov r0, #0xb
 	mov r1, #0x4a
-	bl sub_020476CC
+	bl BattleSetup_New
 	str r0, [sp, #0x24]
 _0223BF64:
 	ldr r0, [sp, #0x24]
 	add r1, r5, #0
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	add r0, sp, #0x1c
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -5479,7 +5479,7 @@ _0223BF7E:
 	cmp r0, #0xc
 	blt _0223BF7E
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5626,14 +5626,14 @@ ov06_0223C08C: ; 0x0223C08C
 	pop {r4, r5, r6, r7, pc}
 _0223C0CE:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r6, r0, #0
 	add r0, r5, #0
 	bl sub_02034CE0
 	str r0, [sp, #0x14]
 	add r0, r6, #0
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x1c]
 	ldr r1, [sp, #0x1c]
 	ldr r2, [sp, #0x14]
@@ -5697,7 +5697,7 @@ _0223C162:
 	str r0, [sp, #0x48]
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205ED3C
+	bl Save_VarsFlags_CheckHaveFollower
 	cmp r0, #0
 	beq _0223C184
 	mov r0, #1
@@ -5727,10 +5727,10 @@ _0223C188:
 	mov r0, #0xb
 	add r1, r0, #0
 	add r1, #0xf5
-	bl sub_020476CC
+	bl BattleSetup_New
 	str r0, [r4]
 	add r1, r5, #0
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	ldr r0, [sp, #0x28]
 	ldr r1, [sp, #0x24]
 	ldr r2, [r4]
@@ -5751,7 +5751,7 @@ _0223C1E0:
 	bne _0223C1FE
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F214
+	bl Save_VarsFlags_CheckSafariSysFlag
 	str r0, [sp, #0x18]
 	ldr r1, [sp, #0x18]
 	add r0, r5, #0
@@ -5761,12 +5761,12 @@ _0223C1E0:
 _0223C1FE:
 	mov r0, #0xb
 	mov r1, #0x4a
-	bl sub_020476CC
+	bl BattleSetup_New
 	str r0, [r4]
 _0223C208:
 	ldr r0, [r4]
 	add r1, r5, #0
-	bl sub_02047BB0
+	bl BattleSetup_InitFromFieldSystem
 	add r0, sp, #0x20
 	ldrb r0, [r0, #1]
 	cmp r0, #0
@@ -5789,7 +5789,7 @@ _0223C222:
 	cmp r0, #0xc
 	blt _0223C222
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -5853,7 +5853,7 @@ _0223C2A2:
 _0223C2CC:
 	bl GF_AssertFail
 	ldr r0, [r4]
-	bl sub_02047964
+	bl BattleSetup_Delete
 	add sp, #0xac
 	mov r0, #0
 	pop {r4, r5, r6, r7, pc}
@@ -5879,7 +5879,7 @@ _0223C300:
 	cmp r0, #0
 	bne _0223C30E
 	ldr r0, [r4]
-	bl sub_02047964
+	bl BattleSetup_Delete
 	b _0223C314
 _0223C30E:
 	mov r0, #0
@@ -5930,7 +5930,7 @@ _0223C350:
 	cmp r0, #1
 	bne _0223C38C
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerID
 	str r0, [sp]
@@ -7181,9 +7181,9 @@ ov06_0223CCDC: ; 0x0223CCDC
 	bl ov05_021F51D0
 	str r0, [sp, #8]
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0xc]
 	ldr r1, [sp, #0xc]
 	add r0, r5, #0
@@ -7257,9 +7257,9 @@ ov06_0223CD7C: ; 0x0223CD7C
 	ldr r0, [r5, #0xc]
 	add r7, r1, #0
 	add r6, r3, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -7588,7 +7588,7 @@ ov06_0223CFD0: ; 0x0223CFD0
 	bne _0223CFE4
 	mov r0, #0xb
 	mov r1, #0
-	bl sub_020476CC
+	bl BattleSetup_New
 	str r0, [r4]
 	pop {r4, pc}
 _0223CFE4:
@@ -7702,7 +7702,7 @@ ov06_0223D044: ; 0x0223D044
 	bl SetMonData
 	ldr r0, [r6, #8]
 	add r1, r4, #0
-	bl AddMonToParty
+	bl Party_AddMon
 	cmp r0, #0
 	bne _0223D0D8
 	bl GF_AssertFail
@@ -7911,7 +7911,7 @@ _0223D25C:
 	lsl r0, r0, #2
 	add r0, r7, r0
 	ldr r0, [r0, #4]
-	bl AddMonToParty
+	bl Party_AddMon
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -8219,7 +8219,7 @@ ov06_0223D4AC: ; 0x0223D4AC
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldr r1, _0223D604 ; =0x0000022F
 	add r4, r0, #0
 	ldrb r1, [r4, r1]
@@ -11156,7 +11156,7 @@ ov06_0223ECF0: ; 0x0223ECF0
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	bl ov06_0223D7B8
 	ldr r0, [r5, #0xc]
@@ -11177,7 +11177,7 @@ ov06_0223ECF0: ; 0x0223ECF0
 	ldr r1, _0223ED4C ; =sub_0208A258
 	add r0, r6, #0
 	add r2, r4, #0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	ldr r0, _0223ED50 ; =0x0000022F
 	mov r1, #0x10
 	strb r1, [r4, r0]
@@ -11442,7 +11442,7 @@ _0223EF28:
 	str r0, [r2, #0x74]
 	ldr r0, [r1]
 	ldr r0, [r0, #0x68]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r1, [r1]
@@ -15300,7 +15300,7 @@ ov06_02240F40: ; 0x02240F40
 	add r4, r0, #0
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r0, #0
 	ldr r0, [r4, #0x10]
 	ldr r2, [r4, #0x6c]
@@ -15380,7 +15380,7 @@ ov06_02240FEC: ; 0x02240FEC
 	add r4, r0, #0
 	bl TaskManager_GetFieldSystem
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r1, [r4, #0x7c]
 	cmp r1, #0xb
@@ -15699,7 +15699,7 @@ CheckPastoriaGymButton: ; 0x02241230
 	cmp r0, #0
 	beq _022412E0
 	add r0, r4, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #1
 	bl sub_020254A0
@@ -15803,7 +15803,7 @@ ov06_02241348: ; 0x02241348
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 	ldr r1, [r5]
 	cmp r1, #3
@@ -15910,7 +15910,7 @@ ov06_02241428: ; 0x02241428
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 	ldr r1, [r5]
 	cmp r1, #5
@@ -16082,7 +16082,7 @@ ov06_0224158C: ; 0x0224158C
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 	ldr r1, [r5]
 	cmp r1, #3
@@ -16188,7 +16188,7 @@ ov06_02241670: ; 0x02241670
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x2c
 	add r4, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #1
 	bl sub_020254A0
@@ -16412,7 +16412,7 @@ ov06_0224186C: ; 0x0224186C
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0x24
 	add r5, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #2
 	bl sub_020254A0
@@ -16499,7 +16499,7 @@ MoveHearthomeGymElevator: ; 0x02241914
 	mov r0, #0
 	str r0, [r6]
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #2
 	bl sub_020254A0
@@ -16538,7 +16538,7 @@ ov06_02241974: ; 0x02241974
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r1, [r4]
 	cmp r1, #3
@@ -16637,7 +16637,7 @@ ov06_02241A44: ; 0x02241A44
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r1, [r4]
 	cmp r1, #3
@@ -16820,7 +16820,7 @@ ov06_02241BB0: ; 0x02241BB0
 	add r5, r0, #0
 	ldr r0, [r5]
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #3
 	bl sub_020254A0
@@ -16897,7 +16897,7 @@ _02241C34:
 	strb r1, [r0]
 	ldr r0, [r5]
 	ldr r1, _02241D70 ; =ov06_02241F7C
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _02241C64:
@@ -16958,7 +16958,7 @@ _02241CB2:
 	ldr r0, [r5]
 	ldr r1, _02241D7C ; =ov06_022420CC
 	ldr r2, [sp]
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _02241CDA:
@@ -17028,7 +17028,7 @@ _02241D54:
 	ldr r0, [r5]
 	ldr r1, _02241D8C ; =ov06_02241E58
 	ldr r2, [sp]
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -17145,7 +17145,7 @@ ov06_02241E58: ; 0x02241E58
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldr r1, [r6, #4]
 	add r4, r0, #0
 	ldr r5, [r1, #0x24]
@@ -17285,7 +17285,7 @@ ov06_02241F7C: ; 0x02241F7C
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r7, #4]
 	ldr r5, [r0, #0x24]
@@ -17444,7 +17444,7 @@ ov06_022420CC: ; 0x022420CC
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r6, #4]
 	ldr r5, [r0, #0x24]
@@ -17604,7 +17604,7 @@ ov06_02242224: ; 0x02242224
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x5c
 	add r6, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #3
 	bl sub_020254A0
@@ -17830,7 +17830,7 @@ _02242400: .word 0x000076A0
 ov06_02242404: ; 0x02242404
 	push {r4, lr}
 	add r4, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	bl sub_020254B4
 	cmp r0, #3
@@ -17989,7 +17989,7 @@ ov06_0224252C: ; 0x0224252C
 	add r5, r0, #0
 	ldr r0, [r5]
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #4
 	bl sub_020254A0
@@ -18047,7 +18047,7 @@ _022425A4:
 	ldr r0, [r5]
 	ldr r1, _022425C4 ; =ov06_02242744
 	ldr r2, [sp]
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _022425B8: .word ov06_0224F8BD
@@ -18060,7 +18060,7 @@ ov06_022425C8: ; 0x022425C8
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x24
 	str r0, [sp, #8]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #4
 	bl sub_020254A0
@@ -18173,7 +18173,7 @@ ov06_02242698: ; 0x02242698
 ov06_022426AC: ; 0x022426AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	bl sub_020254B4
 	cmp r0, #4
@@ -18260,7 +18260,7 @@ ov06_02242744: ; 0x02242744
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r6, #4]
 	ldr r5, [r0, #0x24]
@@ -18472,7 +18472,7 @@ ov06_022428D8: ; 0x022428D8
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x2c
 	add r5, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #5
 	bl sub_020254A0
@@ -18652,7 +18652,7 @@ RotateSunyshoreGymGear: ; 0x02242A38
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	add r5, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #5
 	bl sub_020254A0
@@ -18743,7 +18743,7 @@ ov06_02242AEC: ; 0x02242AEC
 	bl TaskManager_GetFieldSystem
 	str r0, [sp, #8]
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldr r1, [sp, #8]
 	str r0, [sp, #4]
 	ldr r1, [r1, #4]
@@ -19232,7 +19232,7 @@ _02242EB2:
 	thumb_func_start ov06_02242EC0
 ov06_02242EC0: ; 0x02242EC0
 	push {r4, lr}
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	add r1, r4, #0
 	add r1, #0x5c
@@ -19798,9 +19798,9 @@ ov06_022432E4: ; 0x022432E4
 	sub sp, #0x28
 	str r0, [sp]
 	add r0, r1, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	str r1, [sp, #8]
@@ -19819,7 +19819,7 @@ _02243308:
 _02243312:
 	ldr r0, [sp, #4]
 	add r1, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	str r0, [sp, #0xc]
@@ -20327,7 +20327,7 @@ _02243706:
 	pop {r4, r5, r6, r7, pc}
 _02243716:
 	add r0, r2, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #8]
 	ldrb r0, [r5, #0xe]
 	mov r4, #0
@@ -20346,7 +20346,7 @@ _02243726:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	ldr r0, [sp, #8]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	lsl r1, r4, #1
 	add r6, r5, r1
 	add r7, r0, #0
@@ -20383,7 +20383,7 @@ ov06_02243780: ; 0x02243780
 	sub sp, #0x1c
 	str r0, [sp]
 	add r0, r1, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #4]
 	ldr r0, [sp]
 	mov r5, #0
@@ -20398,7 +20398,7 @@ _0224379C:
 	add r1, r1, r5
 	add r1, #0x2a
 	ldrb r1, [r1]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #8]
 	lsl r6, r5, #1
 	mov r1, #5
@@ -20638,13 +20638,13 @@ ov06_02243938: ; 0x02243938
 	bne _02243980
 _0224394A:
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	ldrb r1, [r5, #0xf]
 	cmp r1, #0
 	bne _0224396C
 	add r5, #0x2a
 	ldrb r1, [r5]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
@@ -20654,7 +20654,7 @@ _0224394A:
 _0224396C:
 	add r5, #0x2a
 	ldrb r1, [r5]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
@@ -21506,7 +21506,7 @@ ov06_02243FDC: ; 0x02243FDC
 	mov r2, #1
 	add r1, sp, #8
 	strb r2, [r1]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp]
 	mov r7, #0
 	ldrb r0, [r5, #0xe]
@@ -21518,7 +21518,7 @@ _02243FFA:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	ldr r0, [sp]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r6, #0
 	mov r2, #0
 	str r0, [sp, #4]
@@ -21729,7 +21729,7 @@ ov06_02244190: ; 0x02244190
 	str r0, [sp, #4]
 	bl MI_CpuFill8
 	add r0, r4, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	ldr r5, [sp, #4]
 	add r7, r0, #0
 	mov r4, #0
@@ -21738,7 +21738,7 @@ _022441B8:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	add r0, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r5, #0
 	bl ov06_0224406C
@@ -22186,10 +22186,10 @@ ov06_02244558: ; 0x02244558
 	bl ov06_02244528
 	add r1, r0, #0
 	ldr r0, [r5, #4]
-	bl sub_020476CC
+	bl BattleSetup_New
 	add r7, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #4]
 	add r0, r7, #0
 	add r1, r4, #0
@@ -22206,7 +22206,7 @@ ov06_02244558: ; 0x02244558
 	add r4, r0, #0
 	ldrb r1, [r5, #0xe]
 	ldr r0, [r7, #4]
-	bl InitPartyWithMaxSize
+	bl Party_InitWithMaxSize
 	ldrb r0, [r5, #0xe]
 	mov r6, #0
 	cmp r0, #0
@@ -22216,7 +22216,7 @@ _022445A6:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	ldr r0, [sp, #4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r4, #0
 	bl CopyPokemonToPokemon
 	add r0, r4, #0
@@ -22401,7 +22401,7 @@ ov06_022446FC: ; 0x022446FC
 	ldr r1, _02244750 ; =0x0000083E
 	strh r0, [r6, r1]
 	add r0, r4, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r7, r0, #0
 	mov r4, #0
 	add r5, r6, #0
@@ -22410,7 +22410,7 @@ _0224471C:
 	add r1, #0x2a
 	ldrb r1, [r1]
 	add r0, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	bl GetMonData
@@ -23257,7 +23257,7 @@ _02244D8A:
 	bl ov06_02244388
 	ldr r0, [r7, #4]
 	add r1, r4, #0
-	bl AddMonToParty
+	bl Party_AddMon
 	ldr r0, [sp]
 	add r6, r6, #1
 	add r5, #0x38
@@ -23652,7 +23652,7 @@ _02245098:
 	cmp r0, #0xc
 	blo _02245098
 	add r0, r5, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
@@ -23816,7 +23816,7 @@ ov06_022451F4: ; 0x022451F4
 	push {r3, r4, lr}
 	sub sp, #0x14
 	add r4, r0, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -23871,7 +23871,7 @@ ov06_0224525C: ; 0x0224525C
 	add r7, r0, #0
 	add r6, r1, #0
 	str r2, [sp]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -23989,7 +23989,7 @@ _0224533C: .word ov06_02245360
 ov06_02245340: ; 0x02245340
 	push {r4, lr}
 	add r4, r1, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	mov r1, #6
 	bl sub_020254A0
@@ -24010,7 +24010,7 @@ ov06_02245360: ; 0x02245360
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldrb r1, [r4, #5]
 	cmp r1, #5
@@ -30826,7 +30826,7 @@ ov06_02248724: ; 0x02248724
 	ldr r0, [r1, #8]
 	str r1, [sp]
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
 	bl Save_Roamers_Get
@@ -31059,7 +31059,7 @@ ov06_022488FC: ; 0x022488FC
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0
 	add r6, r2, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	ldr r2, [r4, #4]
 	add r1, r6, #0
 	bl ReplacePartySlotWithMon
@@ -31077,9 +31077,9 @@ ov06_0224891C: ; 0x0224891C
 	add r7, r2, #0
 	add r5, r1, #0
 	add r4, r3, #0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r7, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xa0
 	mov r2, #0
 	add r7, r0, #0
@@ -38587,7 +38587,7 @@ ov06_0224C2F4: ; 0x0224C2F4
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldrb r1, [r4, #0xf]
 	cmp r1, #5
@@ -38879,7 +38879,7 @@ ov06_0224C560: ; 0x0224C560
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldrb r1, [r4, #2]
 	cmp r1, #4
@@ -39098,7 +39098,7 @@ ov06_0224C720: ; 0x0224C720
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 _0224C732:
 	ldr r3, [r5]
@@ -39323,7 +39323,7 @@ ov06_0224C8E8: ; 0x0224C8E8
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldr r7, _0224C928 ; =0x02251DF4
 	add r4, r0, #0
 _0224C8FC:
@@ -39550,7 +39550,7 @@ ov06_0224CAAC: ; 0x0224CAAC
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 _0224CABE:
 	ldr r3, [r5]
@@ -39639,7 +39639,7 @@ ov06_0224CB54: ; 0x0224CB54
 	bl TaskManager_GetFieldSystem
 	add r7, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 _0224CB66:
 	ldr r3, [r5]
@@ -40797,7 +40797,7 @@ ov06_0224D410: ; 0x0224D410
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r1, [r4, #4]
 	cmp r1, #0
@@ -40845,7 +40845,7 @@ ov06_0224D46C: ; 0x0224D46C
 	bl sub_020377A8
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	str r0, [sp, #0x1c]
 	mov r0, #0xb
 	mov r1, #0x18
@@ -42987,7 +42987,7 @@ ov06_0224E5D0: ; 0x0224E5D0
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldrb r1, [r4, #0xf]
 	cmp r1, #5
@@ -43238,7 +43238,7 @@ ov06_0224E7D8: ; 0x0224E7D8
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #0

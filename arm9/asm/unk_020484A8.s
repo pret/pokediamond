@@ -41,7 +41,7 @@ _020484C6:
 	bl Save_HOF_Init
 _020484CC:
 	ldr r0, [r5, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r6, r0, #0x0
 	add r0, sp, #0x4
 	bl GF_RTC_CopyDate
@@ -66,10 +66,10 @@ sub_020484F8: ; 0x020484F8
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02046530
+	bl TaskManager_GetStatePtr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x9
@@ -101,7 +101,7 @@ _0204853A:
 	b _02048688
 _0204854A:
 	add r0, r6, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	beq _02048556
 _02048554:
@@ -158,7 +158,7 @@ _020485AE:
 	b _02048688
 _020485C0:
 	ldr r0, [r6, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl HealParty
 	bl Save_SetDirtyBit
 	ldr r0, [r6, #0xc]
@@ -234,7 +234,7 @@ _02048644:
 	b _02048688
 _02048666:
 	add r0, r6, #0x0
-	bl sub_0204647C
+	bl FieldSystem_ApplicationIsRunning
 	cmp r0, #0x0
 	bne _02048688
 	add r0, r5, #0x0
@@ -285,7 +285,7 @@ CallTask_GameClear: ; 0x02048694
 	bl Save_PlayerData_GetProfileAddr
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0xc]
 	bl Save_PlayerData_GetIGTAddr
@@ -308,7 +308,7 @@ CallTask_GameClear: ; 0x02048694
 	bl Script_SavRTC_DateTimeTox2C
 _0204871E:
 	ldr r0, [r4, #0xc]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl GiveAllMonsTheSinnohChampRibbon
 	ldr r0, [sp, #0x8]
 	bl sub_020377B0

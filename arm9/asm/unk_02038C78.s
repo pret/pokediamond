@@ -891,7 +891,7 @@ sub_02038C78: ; 0x02038C78
 	ldr r1, _02038CA4 ; =sub_02038D48
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_020463CC
+	bl FieldSystem_CreateTask
 	pop {r3-r7, pc}
 	nop
 _02038CA4: .word sub_02038D48 
@@ -903,7 +903,7 @@ sub_02038CA8: ; 0x02038CA8
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	ldr r2, [sp, #0x1c]
 	mov r1, #0x1c
 	add r3, r2, #0x0
@@ -922,8 +922,8 @@ sub_02038CA8: ; 0x02038CA8
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start sub_02038CD8
-sub_02038CD8: ; 0x02038CD8
+	thumb_func_start QueueScript
+QueueScript: ; 0x02038CD8
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r6, r0, #0x0
@@ -949,8 +949,8 @@ sub_02038CD8: ; 0x02038CD8
 	.balign 4
 _02038D0C: .word sub_02038D48 
 
-	thumb_func_start sub_02038D10
-sub_02038D10: ; 0x02038D10
+	thumb_func_start StartScriptFromMenu
+StartScriptFromMenu: ; 0x02038D10
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -970,7 +970,7 @@ sub_02038D10: ; 0x02038D10
 	ldr r1, _02038D44 ; =sub_02038D48
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl sub_020463EC
+	bl TaskManager_Jump
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
@@ -981,7 +981,7 @@ sub_02038D48: ; 0x02038D48
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl TaskManager_GetFieldSystem
@@ -1874,7 +1874,7 @@ FieldSysGetAttrAddr: ; 0x02039438
 	push {r3-r5, lr}
 	ldr r0, [r0, #0x10]
 	add r5, r1, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	ldr r0, _0203945C ; =0x0003643F
@@ -1894,7 +1894,7 @@ sub_02039460: ; 0x02039460
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x10]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02035068
@@ -1969,8 +1969,8 @@ _020394DE:
 	nop
 _020394EC: .word 0x00007FD7
 
-	thumb_func_start VarGet
-VarGet: ; 0x020394F0
+	thumb_func_start FieldSystem_VarGet
+FieldSystem_VarGet: ; 0x020394F0
 	push {r4, lr}
 	add r4, r1, #0x0
 	bl GetVarPointer
@@ -1996,7 +1996,7 @@ _02039512:
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl VarGet
+	bl FieldSystem_VarGet
 	pop {r3-r5, pc}
 	nop
 _02039524: .word 0x00004020
@@ -2012,8 +2012,8 @@ FlagCheck: ; 0x02039528
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FlagSet
-FlagSet: ; 0x0203953C
+	thumb_func_start FieldSystem_FlagSet
+FieldSystem_FlagSet: ; 0x0203953C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -2167,8 +2167,8 @@ TrainerFlagCheck: ; 0x02039640
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start TrainerFlagSet
-TrainerFlagSet: ; 0x0203965C
+	thumb_func_start TrainerFieldSystem_FlagSet
+TrainerFieldSystem_FlagSet: ; 0x0203965C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -2592,11 +2592,11 @@ _02039968:
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, #0x0
-	bl VarGet
+	bl FieldSystem_VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl VarGet
+	bl FieldSystem_VarGet
 	cmp r7, r0
 	bne _02039996
 	ldrb r0, [r4, #0x5]

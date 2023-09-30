@@ -836,7 +836,7 @@ sub_0205E30C: ; 0x0205E30C
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0x0
 	ldr r1, [r5, #0x0]
 	cmp r1, #0x4
@@ -855,7 +855,7 @@ _0205E330: ; jump table (using 16-bit offset)
 	.short _0205E3DE - _0205E330 - 2; case 4
 _0205E33A:
 	ldr r0, [r4, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	ldr r0, [r4, #0xc]
 	bl Save_Roamers_Get
 	bl sub_0202AB40
@@ -867,7 +867,7 @@ _0205E33A:
 	ldr r1, _0205E400 ; =0x0000230A
 	add r0, r7, #0x0
 	add r3, r2, #0x0
-	bl sub_02038CD8
+	bl QueueScript
 	add r0, r4, #0x0
 	mov r1, #0x29
 	bl FieldSysGetAttrAddr
@@ -931,7 +931,7 @@ _0205E3CC:
 _0205E3DE:
 	bl FreeToHeap
 	ldr r0, [r4, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0205E3EC:
@@ -939,7 +939,7 @@ _0205E3EC:
 	ldr r1, _0205E408 ; =0x0000230B
 	add r0, r7, #0x0
 	add r3, r2, #0x0
-	bl sub_02038CD8
+	bl QueueScript
 	mov r0, #0x4
 	str r0, [r5, #0x0]
 _0205E3FC:

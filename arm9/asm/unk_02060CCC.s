@@ -2172,7 +2172,7 @@ sub_02061C5C: ; 0x02061C5C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	bl GetFirstNonEggInParty
 	add r1, sp, #0x8
 	add r2, sp, #0x4

@@ -39,7 +39,7 @@ void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot);
 void sub_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
 s8 BoxMonGetFlavorPreference(struct BoxPokemon * boxmon, int flavor);
 s8 GetFlavorPreferenceFromPID(u32 personality, int flavor);
-u8 Party_MaskMonsWithPokerus(struct PlayerParty * party_p, u8 mask);
+u8 Party_MaskMonsWithPokerus(struct Party * party_p, u8 mask);
 BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
 BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
 void BoxMon_UpdateArceusForm(struct BoxPokemon * boxmon);
@@ -2498,7 +2498,7 @@ BOOL sub_020690E8(struct Pokemon * pokemon)
     return FALSE;
 }
 
-u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret)
+u16 GetMonEvolution(struct Party * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret)
 {
     u16 target = SPECIES_NONE;
     u32 sp40;
@@ -2648,7 +2648,7 @@ u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 co
                 }
                 break;
             case EVO_OTHER_PARTY_MON:
-                if (party != NULL && PartyHasMon(party, evoTable[i].param) == 1)
+                if (party != NULL && Party_HasMon(party, evoTable[i].param) == 1)
                 {
                     target = evoTable[i].target;
                     *method_ret = EVO_OTHER_PARTY_MON;
@@ -3009,15 +3009,15 @@ void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
     CalcMonLevelAndStats(dest);
 }
 
-u8 Party_GetMaxLevel(struct PlayerParty * party)
+u8 Party_GetMaxLevel(struct Party * party)
 {
     int i;
-    int r7 = GetPartyCount(party);
+    int r7 = Party_GetCount(party);
     u8 ret = 1;
     u8 level;
     for (i = 0; i < r7; i++)
     {
-        struct Pokemon * pokemon = GetPartyMonByIndex(party, i);
+        struct Pokemon * pokemon = Party_GetMonByIndex(party, i);
         if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE
          && !GetMonData(pokemon, MON_DATA_IS_EGG, NULL))
         {
@@ -3088,9 +3088,9 @@ int Species_LoadLearnsetTable(u16 species, u32 form, u16 * dest)
     return i;
 }
 
-void Party_GivePokerusAtRandom(struct PlayerParty * party)
+void Party_GivePokerusAtRandom(struct Party * party)
 {
-    int count = GetPartyCount(party);
+    int count = Party_GetCount(party);
     int idx;
     struct Pokemon * pokemon;
     u8 sp0;
@@ -3102,7 +3102,7 @@ void Party_GivePokerusAtRandom(struct PlayerParty * party)
         do
         {
             idx = LCRandom() % count;
-            pokemon = GetPartyMonByIndex(party, idx);
+            pokemon = Party_GetMonByIndex(party, idx);
         } while (GetMonData(pokemon, MON_DATA_SPECIES, NULL) == SPECIES_NONE || GetMonData(pokemon, MON_DATA_IS_EGG, NULL));
         if (!Party_MaskMonsWithPokerus(party, (u8)MaskOfFlagNo(idx)))
         {
@@ -3120,7 +3120,7 @@ void Party_GivePokerusAtRandom(struct PlayerParty * party)
     }
 }
 
-u8 Party_MaskMonsWithPokerus(struct PlayerParty * party, u8 mask)
+u8 Party_MaskMonsWithPokerus(struct Party * party, u8 mask)
 {
     int i = 0;
     u32 flag = 1;
@@ -3132,7 +3132,7 @@ u8 Party_MaskMonsWithPokerus(struct PlayerParty * party, u8 mask)
         {
             if (mask & 1)
             {
-                pokemon = GetPartyMonByIndex(party, i);
+                pokemon = Party_GetMonByIndex(party, i);
                 if (GetMonData(pokemon, MON_DATA_POKERUS, NULL))
                     ret |= flag;
             }
@@ -3144,22 +3144,22 @@ u8 Party_MaskMonsWithPokerus(struct PlayerParty * party, u8 mask)
     }
     else
     {
-        pokemon = GetPartyMonByIndex(party, 0);
+        pokemon = Party_GetMonByIndex(party, 0);
         if (GetMonData(pokemon, MON_DATA_POKERUS, NULL))
             ret++;
     }
     return ret;
 }
 
-void Party_UpdatePokerus(struct PlayerParty * party, int r5)
+void Party_UpdatePokerus(struct Party * party, int r5)
 {
     int i;
     u8 pokerus;
     struct Pokemon * pokemon;
-    int count = GetPartyCount(party);
+    int count = Party_GetCount(party);
     for (i = 0; i < count; i++)
     {
-        pokemon = GetPartyMonByIndex(party, i);
+        pokemon = Party_GetMonByIndex(party, i);
         if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
         {
             pokerus = (u8)GetMonData(pokemon, MON_DATA_POKERUS, NULL);
@@ -3177,9 +3177,9 @@ void Party_UpdatePokerus(struct PlayerParty * party, int r5)
     }
 }
 
-void Party_SpreadPokerus(struct PlayerParty * party)
+void Party_SpreadPokerus(struct Party * party)
 {
-    int count = GetPartyCount(party);
+    int count = Party_GetCount(party);
     int i;
     struct Pokemon * pokemon;
     u8 pokerus;
@@ -3187,7 +3187,7 @@ void Party_SpreadPokerus(struct PlayerParty * party)
     {
         for (i = 0; i < count; i++)
         {
-            pokemon = GetPartyMonByIndex(party, i);
+            pokemon = Party_GetMonByIndex(party, i);
             if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
             {
                 pokerus = (u8)GetMonData(pokemon, MON_DATA_POKERUS, NULL);
@@ -3195,13 +3195,13 @@ void Party_SpreadPokerus(struct PlayerParty * party)
                 {
                     if (i != 0)
                     {
-                        pokemon = GetPartyMonByIndex(party, i - 1);
+                        pokemon = Party_GetMonByIndex(party, i - 1);
                         if (!(GetMonData(pokemon, MON_DATA_POKERUS, NULL) & 0xF0))
                             SetMonData(pokemon, MON_DATA_POKERUS, &pokerus);
                     }
                     if (i < count - 1)
                     {
-                        pokemon = GetPartyMonByIndex(party, i + 1);
+                        pokemon = Party_GetMonByIndex(party, i + 1);
                         if (!(GetMonData(pokemon, MON_DATA_POKERUS, NULL) & 0xF0))
                         {
                             SetMonData(pokemon, MON_DATA_POKERUS, &pokerus);

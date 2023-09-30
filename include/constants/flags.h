@@ -1,0 +1,6 @@
+#ifndef POKEDIAMOND_CONSTANTS_FLAGS_H
+#define POKEDIAMOND_CONSTANTS_FLAGS_H
+
+#define FLAG_SYS_SAFARI                                            0x967
+
+#endif //POKEDIAMOND_CONSTANTS_FLAGS_H
