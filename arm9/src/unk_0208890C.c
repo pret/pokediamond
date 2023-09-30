@@ -7,7 +7,7 @@
 #include "player_data.h"
 #include "poke_overlay.h"
 
-extern struct SaveData* FieldSystem_GetSaveDataPtr(struct FieldSystem *);
+extern struct SaveData* FieldSystem_GetSaveData(struct FieldSystem *);
 extern SavePoffinData *Save_PoffinData_Get(struct SaveData* save);
 extern void sub_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
 extern BOOL sub_020889B0(struct OverlayManager *, u32*);
@@ -44,7 +44,7 @@ void sub_02088950(struct FieldSystem *fieldSystem, struct PoffinCaseAppData *par
 
 struct PoffinCaseAppData* sub_02088960(struct FieldSystem *fieldSystem, u32 a1, HeapID heapId)
 {
-    struct SaveData* save = FieldSystem_GetSaveDataPtr(fieldSystem);
+    struct SaveData* save = FieldSystem_GetSaveData(fieldSystem);
     struct PoffinCaseAppData* ret = sub_0208890C(a1, save, heapId, fieldSystem->unk98);
 
     sub_02088950(fieldSystem, ret);

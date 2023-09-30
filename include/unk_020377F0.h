@@ -6,13 +6,13 @@
 // this file likely has to do with scrcmd apps.
 
 struct Options;
-struct PlayerParty;
+struct Party;
 
 // This struct gets created from a bunch of places, not just 0x02037CF0. This was
 // just the first place I (tgsm) found it being created.
 struct UnkStruct_02037CF0
 {
-    struct PlayerParty* party;
+    struct Party* party;
     struct Options* options;
     u16* name_buf;
     u32 trainer_id;

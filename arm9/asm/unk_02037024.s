@@ -359,7 +359,7 @@ _0203728A:
 	bge _020372BE
 	ldrh r1, [r5, #0xe]
 	ldr r0, [sp, #0x0]
-	bl VarGet
+	bl FieldSystem_VarGet
 	ldrh r1, [r5, #0xc]
 	cmp r1, r0
 	bne _020372BE

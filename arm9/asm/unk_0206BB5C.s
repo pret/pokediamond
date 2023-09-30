@@ -193,7 +193,7 @@ _0206BCBC:
 	beq _0206BD0A
 	ldr r0, [sp, #0x4]
 	sub r1, r1, #0x1
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r2, [sp, #0x8]
@@ -407,7 +407,7 @@ sub_0206BE48: ; 0x0206BE48
 	add r0, r1, #0x0
 	str r1, [sp, #0x10]
 	str r2, [sp, #0x14]
-	bl GetPartyCount
+	bl Party_GetCount
 	str r0, [sp, #0x20]
 	add r6, r0, #0x0
 	add r0, sp, #0x30
@@ -423,7 +423,7 @@ sub_0206BE48: ; 0x0206BE48
 _0206BE72:
 	ldr r0, [sp, #0x10]
 	add r1, r7, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [sp, #0x24]
 	mov r1, #0x5
 	mov r2, #0x0

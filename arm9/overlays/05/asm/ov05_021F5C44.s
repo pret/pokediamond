@@ -34,7 +34,7 @@ ov05_021F5C70: ; 0x021F5C70
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r6, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 	ldr r0, [r5]
 	cmp r0, #0
@@ -44,7 +44,7 @@ ov05_021F5C70: ; 0x021F5C70
 	b _021F5D28
 _021F5C8E:
 	ldr r0, [r4, #0x34]
-	bl sub_02058780
+	bl MapObjectManager_PauseAllMovement
 	mov r0, #0
 	str r0, [r5, #0x10]
 	add r2, r5, #0
@@ -77,7 +77,7 @@ _021F5CBA:
 	bne _021F5D10
 	ldr r0, [r0, #8]
 	mov r1, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r2, [r5, #4]
 	add r3, r0, #0
 	lsl r2, r2, #0x10
@@ -100,10 +100,10 @@ _021F5CBA:
 _021F5D10:
 	cmp r0, #0
 	beq _021F5D18
-	bl sub_02047964
+	bl BattleSetup_Delete
 _021F5D18:
 	ldr r0, [r4, #0x34]
-	bl sub_020587B0
+	bl MapObjectManager_UnpauseAllMovement
 	add r0, r5, #0
 	bl FreeToHeap
 	mov r0, #1

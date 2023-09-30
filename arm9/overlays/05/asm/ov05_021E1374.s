@@ -45,7 +45,7 @@ _021E13C0: .word ov05_021E13C4
 ov05_021E13C4: ; 0x021E13C4
 	push {r3, r4, r5, lr}
 	sub sp, #8
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r1, [r4]
 	cmp r1, #8

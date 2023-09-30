@@ -4,14 +4,14 @@
 #include "heap.h"
 #include "unk_020051F4.h"
 
-extern void sub_020463CC(u32 param0, void *func, UnkStruct021E7358 *param2);
+extern void FieldSystem_CreateTask(u32 param0, void *func, UnkStruct021E7358 *param2);
 extern u32 PlayerAvatar_GetMapObject(u32 param0);
 extern u32 sub_02058720(u32 param0);
 extern BOOL sub_02054B30(u8 param0);
 extern BOOL sub_02054B3C(u8 param0);
 extern BOOL sub_02054B48(u8 param0);
 extern BOOL sub_02054B54(u8 param0);
-extern UnkStruct021E7358 *sub_0204652C(UnkStruct021E7358 *param0);
+extern UnkStruct021E7358 *TaskManager_GetEnvironment(UnkStruct021E7358 *param0);
 extern void sub_02058410(u32 param0, u32 param1);
 extern BOOL sub_02057254(u32 param0);
 extern u32 sub_0205AFDC(u32 param0, u32 param1);
@@ -57,7 +57,7 @@ void ov05_021E7358(u32 param0, u32 param1, u32 param2)
     res->Unk10 = param1;
     res->Unk00 = param2;
     PlaySE(SEQ_SE_DP_F209);
-    sub_020463CC(param0, ov05_021E73B4, res);
+    FieldSystem_CreateTask(param0, ov05_021E73B4, res);
 }
 
 u32 ov05_021E7388(u32 param0)
@@ -78,7 +78,7 @@ u32 ov05_021E7388(u32 param0)
 
 BOOL ov05_021E73B4(UnkStruct021E7358 *param0)
 {
-    UnkStruct021E7358 *strct = sub_0204652C(param0);
+    UnkStruct021E7358 *strct = TaskManager_GetEnvironment(param0);
     u32 res = PlayerAvatar_GetMapObject(strct->Unk10);
     u8 res2 = (u8)sub_02058720(res);
     switch (strct->Unk08)

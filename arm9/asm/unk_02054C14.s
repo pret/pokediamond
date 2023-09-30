@@ -288,8 +288,8 @@ _02054DE8: .word 0x0000010D
 sub_02054DEC: ; 0x02054DEC
 	push {r3-r7, lr}
 	add r6, r0, #0x0
-	bl SaveArray_PlayerParty_Get
-	bl GetPartyCount
+	bl SaveArray_Party_Get
+	bl Party_GetCount
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	ldr r4, _02054E2C ; =0x00000000
@@ -297,9 +297,9 @@ sub_02054DEC: ; 0x02054DEC
 	mov r7, #0x4c
 _02054E02:
 	add r0, r6, #0x0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	add r1, r4, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r7, #0x0
 	mov r2, #0x0
 	bl GetMonData
@@ -324,9 +324,9 @@ Save_PlayerHasAllRegisInParty: ; 0x02054E30
 	push {r3-r7, lr}
 	sub sp, #0x10
 	mov r7, #0x0
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #0x0]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r4, r0, #0x0
 	add r6, r7, #0x0
 	cmp r4, #0x0
@@ -335,7 +335,7 @@ Save_PlayerHasAllRegisInParty: ; 0x02054E30
 _02054E4A:
 	ldr r0, [sp, #0x0]
 	add r1, r6, #0x0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x5
 	mov r2, #0x0
 	bl GetMonData
@@ -388,7 +388,7 @@ sub_02054EA0: ; 0x02054EA0
 	add r4, r0, #0x0
 	bl TaskManager_GetFieldSystem
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	mov r0, #0x2
 	lsl r0, r0, #0xe
@@ -538,7 +538,7 @@ sub_02054FE4: ; 0x02054FE4
 	add r4, r0, #0x0
 	bl TaskManager_GetFieldSystem
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldrb r1, [r4, #0x9]
 	ldr r0, [r4, #0x0]

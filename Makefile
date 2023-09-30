@@ -311,4 +311,8 @@ diamond:          ; @+$(MAKE) GAME_VERSION=DIAMOND
 pearl:            ; @+$(MAKE) GAME_VERSION=PEARL
 compare_diamond:  ; @+$(MAKE) GAME_VERSION=DIAMOND COMPARE=1
 compare_pearl:    ; @+$(MAKE) GAME_VERSION=PEARL COMPARE=1
-compare: compare_diamond
+clean_diamond:    ; @+$(MAKE) GAME_VERSION=DIAMOND clean
+clean_pearl:      ; @+$(MAKE) GAME_VERSION=PEARL clean
+compare:            compare_diamond
+
+.PHONY: diamond pearl compare_diamond compare_pearl compare clean_diamond clean_pearl

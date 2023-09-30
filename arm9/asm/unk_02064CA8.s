@@ -17,7 +17,7 @@ UNK_020F7E54: ; 0x020F7E54
 	thumb_func_start InitPastoriaGym
 InitPastoriaGym: ; 0x02064CA8
 	push {r4, lr}
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x1
@@ -33,7 +33,7 @@ InitPastoriaGym: ; 0x02064CA8
 InitHearthomeGym: ; 0x02064CC8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x2
@@ -67,7 +67,7 @@ _02064D08:
 	thumb_func_start InitCanalaveGym
 InitCanalaveGym: ; 0x02064D10
 	push {r4-r6, lr}
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x3
@@ -95,7 +95,7 @@ _02064D48: .word UNK_020F7E54
 	thumb_func_start InitVeilstoneGym
 InitVeilstoneGym: ; 0x02064D4C
 	push {r4-r6, lr}
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x4
@@ -130,7 +130,7 @@ InitSunyshoreGym: ; 0x02064D88
 	bl GF_AssertFail
 _02064D96:
 	add r0, r7, #0x0
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl sub_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x5

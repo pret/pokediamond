@@ -657,7 +657,7 @@ sub_0204B818: ; 0x0204B818
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x4

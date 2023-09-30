@@ -1072,7 +1072,7 @@ ov05_021DAE14: ; 0x021DAE14
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldrb r1, [r4]
 	ldr r0, [r5, #0x50]
@@ -1351,7 +1351,7 @@ ov05_021DB040: ; 0x021DB040
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #3
@@ -1472,7 +1472,7 @@ ov05_021DB144: ; 0x021DB144
 	bl TaskManager_GetFieldSystem
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r5, r0, #0
 	ldr r0, [r5]
 	cmp r0, #0
@@ -1539,7 +1539,7 @@ ov05_021DB1D0: ; 0x021DB1D0
 	bl TaskManager_GetFieldSystem
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #0
@@ -1602,7 +1602,7 @@ ov05_021DB250: ; 0x021DB250
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	ldr r0, [sp, #0x10]
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #3
@@ -1753,7 +1753,7 @@ ov05_021DB380: ; 0x021DB380
 	bl TaskManager_GetFieldSystem
 	add r5, r0, #0
 	add r0, r7, #0
-	bl sub_0204652C
+	bl TaskManager_GetEnvironment
 	add r4, r0, #0
 	ldr r0, [r4]
 	cmp r0, #3

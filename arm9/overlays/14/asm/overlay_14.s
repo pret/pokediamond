@@ -116,7 +116,7 @@ StoragePC_Overlay_Teardown: ; 0x021D75B8
 	lsl r1, r1, #2
 	ldr r0, [r4, r1]
 	add r1, #0x95
-	bl PartyHasMon
+	bl Party_HasMon
 	cmp r0, #0
 	bne _021D75DE
 	mov r0, #0x47
@@ -1905,7 +1905,7 @@ _021D8476:
 	add r0, #0x19
 	strb r2, [r4, r0]
 	ldr r0, [r4, r1]
-	bl GetPartyCount
+	bl Party_GetCount
 	ldr r1, _021D8504 ; =0x0000013F
 	strb r0, [r4, r1]
 	add r0, r4, #0
@@ -4031,7 +4031,7 @@ _021D95CA:
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	sub r0, r0, #1
 	cmp r6, r0
 	beq _021D9610
@@ -4238,7 +4238,7 @@ _021D979C:
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #6
 	beq _021D97F2
 	mov r0, #0x45
@@ -4699,7 +4699,7 @@ ov14_021D9B84: ; 0x021D9B84
 	lsl r1, r1, #2
 	str r0, [sp]
 	ldr r0, [r0, r1]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r6, #0
 	add r5, r6, #0
 	str r0, [sp, #4]
@@ -4711,7 +4711,7 @@ _021D9B9E:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r4, r0, #0
 	bl AcquireMonLock
 	add r7, r0, #0
@@ -5351,7 +5351,7 @@ _021DA0A4:
 _021DA0AE:
 	add r0, r1, #0
 	ldr r0, [r0, #0x18]
-	bl GetPartyCount
+	bl Party_GetCount
 	str r0, [sp, #0x10]
 	mov r0, #0
 	str r0, [sp, #8]
@@ -5362,7 +5362,7 @@ _021DA0C2:
 	ldr r0, [sp, #4]
 	ldr r1, [sp, #8]
 	ldr r0, [r0, #0x18]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	ldr r4, _021DA164 ; =ov14_021E6224
 	ldr r5, [sp, #4]
 	add r7, r0, #0
@@ -7519,7 +7519,7 @@ ov14_021DB220: ; 0x021DB220
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4]
-	bl GetStoragePCPointer
+	bl SaveArray_PCStorage_Get
 	mov r1, #0x12
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -7527,7 +7527,7 @@ ov14_021DB220: ; 0x021DB220
 	sub r0, r1, #4
 	str r2, [r5, r0]
 	ldr r0, [r4]
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0x49
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -8416,7 +8416,7 @@ ov14_021DB8D0: ; 0x021DB8D0
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	strb r0, [r4, #8]
 	mov r0, #8
 	ldrsb r0, [r4, r0]
@@ -8495,14 +8495,14 @@ _021DB96C:
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r6, r0
 	bge _021DB98E
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	str r0, [r4]
 	b _021DB998
 _021DB98E:
@@ -8661,7 +8661,7 @@ _021DBA98:
 	lsl r0, r0, #2
 	ldrsb r1, [r5, r1]
 	ldr r0, [r7, r0]
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 	mov r0, #1
 _021DBAB6:
 	strb r0, [r4, #0xb]
@@ -8878,7 +8878,7 @@ _021DBC42:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	ldr r1, [r4]
-	bl AddMonToParty
+	bl Party_AddMon
 	b _021DBC70
 _021DBC56:
 	mov r1, #0x1a
@@ -8891,18 +8891,18 @@ _021DBC56:
 	ldr r0, [r5, r1]
 	add r1, #0x7c
 	ldr r1, [r5, r1]
-	bl AddMonToParty
+	bl Party_AddMon
 _021DBC70:
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r1, r0, #0
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	sub r1, r1, #1
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 _021DBC8A:
 	add r0, r7, #0
@@ -9108,7 +9108,7 @@ ov14_021DBE00: ; 0x021DBE00
 	lsl r0, r0, #2
 	ldrsb r1, [r4, r1]
 	ldr r0, [r5, r0]
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 	add r0, r5, #0
 	bl ov14_021DB934
 	mov r0, #1
@@ -9154,7 +9154,7 @@ _021DBE70:
 	lsl r0, r0, #2
 	ldrsb r1, [r4, r1]
 	ldr r0, [r5, r0]
-	bl RemoveMonFromParty
+	bl Party_RemoveMon
 _021DBE7E:
 	add r0, r5, #0
 	bl ov14_021DB934
@@ -9207,7 +9207,7 @@ ov14_021DBEAC: ; 0x021DBEAC
 	ldr r0, [r6, r0]
 	bl SaveArray_IsNatDexEnabled
 	ldrh r1, [r4, #4]
-	bl sub_0206BB48
+	bl Pokedex_ConvertToCurrentDexNo
 	strh r0, [r4, #8]
 	add r0, r5, #0
 	mov r1, #0xac
@@ -23402,7 +23402,7 @@ ov14_021E2C7C: ; 0x021E2C7C
 	add r6, r0, #0
 	ldr r0, [r6, #0xc]
 	ldr r0, [r0, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	add r1, r6, #0
 	add r1, #0x28
 	ldrb r4, [r1]
@@ -23570,7 +23570,7 @@ ov14_021E2DB4: ; 0x021E2DB4
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	sub r4, r0, #1
 	add r0, r5, #0
 	add r0, #0x28
@@ -23975,7 +23975,7 @@ ov14_021E30C0: ; 0x021E30C0
 	str r1, [sp]
 	ldr r0, [r0, #4]
 	str r2, [sp, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	sub r6, r0, #1
 	add r4, r5, #0
 	mov r0, #0x34
@@ -24281,7 +24281,7 @@ _021E330E:
 	ldr r0, [sp, #0x24]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r4, #0
 	str r0, [sp, #0x20]
 	cmp r0, #0
@@ -24299,7 +24299,7 @@ _021E3330:
 	add r1, r4, #0
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -24347,7 +24347,7 @@ ov14_021E3390: ; 0x021E3390
 	add r7, r0, #0
 	ldr r0, [r7, #0xc]
 	ldr r0, [r0, #4]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r6, #0
 	str r0, [sp]
 	cmp r0, #0

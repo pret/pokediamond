@@ -6,7 +6,7 @@
 #include "pokemon_storage_system.h"
 #include "unk_0202C144.h"
 
-extern struct PCStorage* GetStoragePCPointer(struct SaveData* save);
+extern struct PCStorage* SaveArray_PCStorage_Get(struct SaveData* save);
 extern void* sub_02022528(struct SaveData* save);
 extern void sub_0202BEDC(struct Pokemon* pokemon);
 extern void sub_0202BFD8(void* a0, s32 a1, struct Pokemon* pokemon);
@@ -64,7 +64,7 @@ BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
 {
     void* unk = sub_02022528(ctx->fieldSystem->saveData);
-    struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveData);
+    struct PCStorage* pc = SaveArray_PCStorage_Get(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = AllocMonZeroed(HEAP_ID_32);
     PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
     struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData); // unused

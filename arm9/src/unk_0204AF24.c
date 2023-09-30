@@ -18,7 +18,7 @@ BOOL sub_0204AF24(struct TaskManager *taskManager)
 
 void sub_0204AF3C(struct TaskManager *taskManager)
 {
-    struct FieldSystem * fieldSystem= TaskManager_GetFieldSystem(taskManager);
+    struct FieldSystem * fieldSystem = TaskManager_GetFieldSystem(taskManager);
     if(!sub_0203739C(fieldSystem))
     {
         GF_ASSERT(FALSE);
@@ -37,7 +37,7 @@ BOOL sub_0204AF6C(struct TaskManager *taskManager)
     return FALSE;
 }
 
-void sub_0204AF84(struct TaskManager *taskManager) //TODO: RestoreOverworld
+void CallTask_RestoreOverworld(struct TaskManager *taskManager) //TODO: RestoreOverworld
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     if(sub_0203739C(fieldSystem))
@@ -49,7 +49,7 @@ void sub_0204AF84(struct TaskManager *taskManager) //TODO: RestoreOverworld
     TaskManager_Call(taskManager, &sub_0204AF6C, NULL);
 }
 
-BOOL sub_0204AFB4(struct TaskManager *taskManager)
+BOOL Task_ProcessFade(struct TaskManager *taskManager)
 {
 #pragma unused(taskManager)
     if(IsPaletteFadeFinished())
@@ -59,18 +59,18 @@ BOOL sub_0204AFB4(struct TaskManager *taskManager)
     return FALSE;
 }
 
-void sub_0204AFC8(struct TaskManager *taskManager)
+void CallTask_FadeToBlack(struct TaskManager *taskManager)
 {
     if(!sub_0203739C(TaskManager_GetFieldSystem(taskManager)))
     {
         GF_ASSERT(0);
         return;
     }
-    BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, HEAP_ID_4);
-    TaskManager_Call(taskManager, &sub_0204AFB4, 0);
+    BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, HEAP_ID_4); //TODO: find constants for palette fade
+    TaskManager_Call(taskManager, Task_ProcessFade, 0);
 }
 
-void sub_0204B00C(struct TaskManager *taskManager)
+void CallTask_FadeFromBlack(struct TaskManager *taskManager)
 {
     if(!sub_0203739C(TaskManager_GetFieldSystem(taskManager)))
     {
@@ -78,16 +78,16 @@ void sub_0204B00C(struct TaskManager *taskManager)
         return;
     }
     BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, HEAP_ID_4);
-    TaskManager_Call(taskManager, sub_0204AFB4, 0);
+    TaskManager_Call(taskManager, Task_ProcessFade, 0);
 }
 
 BOOL sub_0204B050(struct TaskManager *taskManager)
 {
-    u32 * r4 = sub_02046530(taskManager);
+    u32 * r4 = TaskManager_GetStatePtr(taskManager);
     switch(r4[0])
     {
         case 0:
-            sub_0204AFC8(taskManager);
+            CallTask_FadeToBlack(taskManager);
             r4[0]++;
             break;
         case 1:
@@ -109,17 +109,17 @@ void sub_0204B090(struct TaskManager *taskManager)
 
 BOOL sub_0204B0A0(struct TaskManager *taskManager)
 {
-    u32 * r4 = sub_02046530(taskManager);
+    u32 * r4 = TaskManager_GetStatePtr(taskManager);
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     switch(r4[0])
     {
         case 0:
-            sub_0204AF84(taskManager);
+            CallTask_RestoreOverworld(taskManager);
             r4[0]++;
             break;
         case 1:
             ov05_021E331C(fieldSystem);
-            sub_0204B00C(taskManager);
+            CallTask_FadeFromBlack(taskManager);
             r4[0]++;
             break;
         case 2:

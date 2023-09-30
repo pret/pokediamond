@@ -4,6 +4,7 @@
 #include "global.h"
 #include "MI_memory.h"
 #include "bag.h"
+#include "battle_setup.h"
 #include "heap.h"
 #include "party.h"
 #include "player_data.h"
@@ -17,7 +18,7 @@
 
 struct UnkPlayerStruct1_0205FA2C
 {
-    /* 0x00 */ struct PlayerParty *player_party;
+    /* 0x00 */ struct Party *player_party;
     /* 0x04 */ struct Bag *bag;
     u32 unk08;
     /* 0x0c */ struct Options *options;
@@ -36,7 +37,7 @@ struct UnkPlayerStruct1_0205FA2C
 
 struct UnkPlayerStruct2_0205FA2C
 {
-    /* 0x00 */ struct PlayerParty *player_party;
+    /* 0x00 */ struct Party *player_party;
     /* 0x04 */ struct Options *options;
     u32 unk08;
     u32 unk0c;
@@ -110,7 +111,7 @@ void sub_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2);
 
 u32 sub_0205FE10(struct SaveData *save);
 u32 sub_0205FF5C(struct SaveData *save);
-void sub_02060044(u16 **param0, u32 *param1);
+void sub_02060044(FieldSystem *fieldSystem, BattleSetupUnkSub138 *battleSetupSub);
 u32 sub_02060064(u32 param0);
 u32 sub_02060070(u32 param0);
 u32 sub_0206007C(struct SaveData *save);

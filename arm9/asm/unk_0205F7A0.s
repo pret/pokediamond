@@ -70,7 +70,7 @@ _0205F806:
 	str r0, [r5, #0x4]
 _0205F812:
 	ldr r0, [sp, #0x0]
-	bl FieldSystem_GetSaveDataPtr
+	bl FieldSystem_GetSaveData
 	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0xc]

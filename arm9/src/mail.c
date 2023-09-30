@@ -52,7 +52,7 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
     u32 form;
     BOOL is_egg;
     u16 species;
-    struct PlayerParty * party;
+    struct Party * party;
     PlayerProfile * profile;
     struct Pokemon * pokemon;
     u16 r7;
@@ -60,16 +60,16 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
 
     Mail_Init(mail);
     mail->mail_type = type;
-    party = SaveArray_PlayerParty_Get(save);
+    party = SaveArray_Party_Get(save);
     profile = Save_PlayerData_GetProfileAddr(save);
 
     CopyU16StringArray(mail->author_name, PlayerProfile_GetNamePtr(profile));
     mail->author_gender = (u8)PlayerProfile_GetTrainerGender(profile);
     mail->author_otId = PlayerProfile_GetTrainerID(profile);
-    for (i = 0; monIdx < GetPartyCount(party); monIdx++)
+    for (i = 0; monIdx < Party_GetCount(party); monIdx++)
     {
         union MailPatternData * ptr;
-        pokemon = GetPartyMonByIndex(party, monIdx);
+        pokemon = Party_GetMonByIndex(party, monIdx);
         species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
         is_egg = (BOOL)GetMonData(pokemon, MON_DATA_IS_EGG, NULL);
         form = GetMonData(pokemon, MON_DATA_FORM, NULL);

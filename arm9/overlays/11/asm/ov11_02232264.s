@@ -2917,7 +2917,7 @@ _02233938:
 	add r4, r0, #0
 	add r0, r7, #0
 	bl ov11_0222FF88
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _022339C6
 _02233950:
@@ -2971,7 +2971,7 @@ _022339B4:
 	mov r1, #0
 	add r4, r4, #1
 	bl ov11_0222FF88
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02233950
 _022339C6:
@@ -8819,7 +8819,7 @@ _0223678C:
 _02236794:
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r4, r0, #0
@@ -8872,7 +8872,7 @@ _022367EA:
 	beq _022367EA
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r1, r7, #0
 	mov r2, #0
 	add r4, r0, #0
@@ -15691,13 +15691,13 @@ _02239DFA:
 	bl ov11_0222FF7C
 	add r0, r7, #0
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02239E68
 _02239E2A:
 	add r0, r7, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r6, r0, #0
@@ -15719,7 +15719,7 @@ _02239E2A:
 _02239E5C:
 	add r0, r7, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02239E2A
 _02239E68:
@@ -15739,14 +15739,14 @@ _02239E76:
 _02239E82:
 	ldr r0, [sp, #8]
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02239ECC
 	ldr r7, _02239F48 ; =0x000001EE
 _02239E90:
 	ldr r0, [sp, #8]
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r6, r0, #0
@@ -15767,7 +15767,7 @@ _02239E90:
 _02239EC0:
 	ldr r0, [sp, #8]
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02239E90
 _02239ECC:
@@ -15787,13 +15787,13 @@ _02239EDA:
 	bl ov11_0222FF7C
 	add r0, r7, #0
 	mov r4, #0
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r0, #0
 	ble _02239F36
 _02239EF8:
 	add r0, r7, #0
 	add r1, r4, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0xad
 	mov r2, #0
 	add r6, r0, #0
@@ -15815,7 +15815,7 @@ _02239EF8:
 _02239F2A:
 	add r0, r7, #0
 	add r4, r4, #1
-	bl GetPartyCount
+	bl Party_GetCount
 	cmp r4, r0
 	blt _02239EF8
 _02239F36:
@@ -18327,7 +18327,7 @@ ov11_0223B2DC: ; 0x0223B2DC
 	add r7, r0, #0
 	ldr r0, [sp]
 	ldr r1, [sp, #4]
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #6
 	add r2, r4, #0
 	str r0, [sp, #0x14]
@@ -19494,7 +19494,7 @@ _0223BC8A:
 	bl ov11_022564A8
 	ldr r0, [sp, #0x28]
 	add r1, r6, #0
-	bl AddMonToParty
+	bl Party_AddMon
 	cmp r0, #1
 	bne _0223BD1E
 	ldr r0, [r4, #0x28]

@@ -362,7 +362,7 @@ void BufferTrainerClassNameWithArticle(MessageFormat *messageFormat, u32 idx, u3
     }
 }
 
-void BufferTrainerClassNameFromDataStruct(MessageFormat *messageFormat, u32 idx, struct TrainerDataLoaded * tr)
+void BufferTrainerClassNameFromDataStruct(MessageFormat *messageFormat, u32 idx, Trainer * tr)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0560_bin, messageFormat->heapId);
     if (msgData != NULL)
@@ -384,7 +384,7 @@ void BufferTrainerName(MessageFormat *messageFormat, u32 idx, u32 msgno)
     }
 }
 
-void BufferTrainerNameFromDataStruct(MessageFormat *messageFormat, u32 idx, struct TrainerDataLoaded * trdata)
+void BufferTrainerNameFromDataStruct(MessageFormat *messageFormat, u32 idx, Trainer * trdata)
 {
     CopyU16ArrayToString(messageFormat->buffer, trdata->name);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);

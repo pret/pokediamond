@@ -57,11 +57,11 @@ ov28_0225489C: ; 0x0225489C
 	strb r0, [r7, #2]
 	str r4, [r7, #0x60]
 	bl sub_020225F8
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	mov r1, #0
 	str r0, [sp, #4]
 	str r1, [sp]
-	bl GetPartyCount
+	bl Party_GetCount
 	mov r6, #0
 	str r0, [r7, #4]
 	cmp r0, #0
@@ -70,7 +70,7 @@ ov28_0225489C: ; 0x0225489C
 _022548D6:
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	mov r1, #0x4c
 	mov r2, #0
 	add r5, r0, #0

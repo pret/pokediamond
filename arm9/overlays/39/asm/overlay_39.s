@@ -49,9 +49,9 @@ ov39_0225489C: ; 0x0225489C
 	str r1, [sp, #8]
 	str r2, [sp, #0xc]
 	bl ov20_02252C40
-	bl SaveArray_PlayerParty_Get
+	bl SaveArray_Party_Get
 	str r0, [sp, #0x10]
-	bl GetPartyCount
+	bl Party_GetCount
 	ldr r1, [sp, #4]
 	mov r6, #0
 	add r1, #0x34
@@ -66,7 +66,7 @@ ov39_0225489C: ; 0x0225489C
 _022548CC:
 	ldr r0, [sp, #0x10]
 	add r1, r6, #0
-	bl GetPartyMonByIndex
+	bl Party_GetMonByIndex
 	add r7, r0, #0
 	bl sub_0206B688
 	str r0, [r4, #4]
