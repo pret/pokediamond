@@ -3,15 +3,12 @@
 #include "error_message_reset.h"
 #include "unk_02031734.h"
 
+void GF_AssertFail(void) {
+    if (!sub_02031810()) {
+        return;
+    }
 
-
-void GF_AssertFail(void)
-{
-    if (sub_02031810())
-    {
-        if (OS_GetProcMode() != OS_PROCMODE_IRQ)
-        {
-            PrintErrorMessageAndReset();
-        }
+    if (OS_GetProcMode() != OS_PROCMODE_IRQ) {
+        PrintErrorMessageAndReset();
     }
 }
