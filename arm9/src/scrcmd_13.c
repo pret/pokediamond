@@ -1,6 +1,6 @@
 #include "global.h"
 #include "scrcmd.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "heap.h"
 #include "pokedex.h"
 #include "pokemon_storage_system.h"

@@ -3,7 +3,7 @@
 #include "player_data.h"
 #include "save.h"
 #include "party.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "pokemon_storage_system.h"
 #include "save_system_info.h"
 #include "poketch.h"

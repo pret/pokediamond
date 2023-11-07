@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_UNK_0205EC84_H
 #define POKEDIAMOND_UNK_0205EC84_H
 
-#include "event_data.h"
+#include "save_vars_flags.h"
 
 void sub_0205ECD4(struct SaveVarsFlags * state);
 BOOL sub_0205ECE0(struct SaveVarsFlags * state);

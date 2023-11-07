@@ -2,7 +2,7 @@
 #include "unk_0206015C.h"
 
 #include "constants/sndseq.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "heap.h"
 #include "main.h"
 #include "unk_020051F4.h"

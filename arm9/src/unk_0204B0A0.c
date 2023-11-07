@@ -1,5 +1,5 @@
 #include "global.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "unk_02022504.h"
 #include "unk_0204B0A0.h"
 #include "unk_0205FA2C.h"
