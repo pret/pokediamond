@@ -182,7 +182,7 @@ Static arm9
 	Object scrcmd_move_relearner.o
 	Object scrcmd_25.o
 	Object unk_02046030.o
-	Object event_data.o
+	Object save_vars_flags.o
 	Object task.o
 	Object encounter.o
 	Object unk_02047500.o

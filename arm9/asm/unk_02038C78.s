@@ -1958,7 +1958,7 @@ _020394D0:
 	cmp r4, r1
 	bhs _020394DE
 	add r1, r4, #0x0
-	bl GetVarAddr
+	bl Save_VarsFlags_GetVarAddr
 	pop {r3-r5, pc}
 _020394DE:
 	ldr r1, _020394EC ; =0x00007FD7
@@ -2008,7 +2008,7 @@ FlagCheck: ; 0x02039528
 	add r4, r1, #0x0
 	bl Save_VarsFlags_Get
 	add r1, r4, #0x0
-	bl CheckFlagInArray
+	bl Save_VarsFlags_CheckFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2019,7 +2019,7 @@ FieldSystem_FlagSet: ; 0x0203953C
 	add r4, r1, #0x0
 	bl Save_VarsFlags_Get
 	add r1, r4, #0x0
-	bl SetFlagInArray
+	bl Save_VarsFlags_SetFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2030,7 +2030,7 @@ FlagClear: ; 0x02039550
 	add r4, r1, #0x0
 	bl Save_VarsFlags_Get
 	add r1, r4, #0x0
-	bl ClearFlagInArray
+	bl Save_VarsFlags_ClearFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2041,7 +2041,7 @@ ResetTempFlagsAndVars: ; 0x02039564
 	bl Save_VarsFlags_Get
 	mov r1, #0x1
 	add r4, r0, #0x0
-	bl GetFlagAddr
+	bl Save_VarsFlags_GetFlagAddr
 	mov r1, #0x0
 	strb r1, [r0, #0x0]
 	strb r1, [r0, #0x1]
@@ -2054,7 +2054,7 @@ ResetTempFlagsAndVars: ; 0x02039564
 	mov r1, #0x1
 	add r0, r4, #0x0
 	lsl r1, r1, #0xe
-	bl GetVarAddr
+	bl Save_VarsFlags_GetVarAddr
 	mov r1, #0x0
 	mov r2, #0x40
 	bl memset
@@ -2068,7 +2068,7 @@ sub_0203959C: ; 0x0203959C
 	bl Save_VarsFlags_Get
 	mov r1, #0xaa
 	lsl r1, r1, #0x4
-	bl GetFlagAddr
+	bl Save_VarsFlags_GetFlagAddr
 	mov r2, #0x18
 	mov r1, #0x0
 _020395B0:
@@ -2163,7 +2163,7 @@ TrainerFlagCheck: ; 0x02039640
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl CheckFlagInArray
+	bl Save_VarsFlags_CheckFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2178,7 +2178,7 @@ TrainerFieldSystem_FlagSet: ; 0x0203965C
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl SetFlagInArray
+	bl Save_VarsFlags_SetFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2193,7 +2193,7 @@ TrainerFlagClear: ; 0x02039678
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl ClearFlagInArray
+	bl Save_VarsFlags_ClearFlagInArray
 	pop {r4, pc}
 	.balign 4
 

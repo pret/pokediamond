@@ -7,17 +7,17 @@
 
 static void _flag_set(struct SaveVarsFlags * state, u16 flag_id)
 {
-    SetFlagInArray(state, flag_id);
+    Save_VarsFlags_SetFlagInArray(state, flag_id);
 }
 
 static void _flag_clear(struct SaveVarsFlags * state, u16 flag_id)
 {
-    ClearFlagInArray(state, flag_id);
+    Save_VarsFlags_ClearFlagInArray(state, flag_id);
 }
 
 static BOOL _flag_check(struct SaveVarsFlags * state, u16 flag_id)
 {
-    return CheckFlagInArray(state, flag_id);
+    return Save_VarsFlags_CheckFlagInArray(state, flag_id);
 }
 
 static BOOL _flag_op(struct SaveVarsFlags * state, u32 op, u32 flag_id)

@@ -3423,11 +3423,11 @@
 .extern Save_VarsFlags_sizeof
 .extern Save_VarsFlags_Init
 .extern Save_VarsFlags_Get
-.extern CheckFlagInArray
-.extern SetFlagInArray
-.extern ClearFlagInArray
-.extern GetFlagAddr
-.extern GetVarAddr
+.extern Save_VarsFlags_CheckFlagInArray
+.extern Save_VarsFlags_SetFlagInArray
+.extern Save_VarsFlags_ClearFlagInArray
+.extern Save_VarsFlags_GetFlagAddr
+.extern Save_VarsFlags_GetVarAddr
 .extern FieldSystem_CreateTask
 .extern TaskManager_Jump
 .extern TaskManager_Call

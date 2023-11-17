@@ -2,7 +2,7 @@
 #include "encounter.h"
 #include "constants/battle.h"
 #include "constants/game_stats.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "field_system.h"
 #include "igt.h"
 #include "task.h"

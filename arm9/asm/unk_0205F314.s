@@ -18,7 +18,7 @@ sub_0205F314: ; 0x0205F314
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl GetVarAddr
+	bl Save_VarsFlags_GetVarAddr
 	mov r1, #0x1
 	lsl r1, r1, #0xe
 	cmp r5, r1
@@ -44,7 +44,7 @@ _0205F33C:
 	thumb_func_start sub_0205F344
 sub_0205F344: ; 0x0205F344
 	push {r3, lr}
-	bl GetVarAddr
+	bl Save_VarsFlags_GetVarAddr
 	cmp r0, #0x0
 	bne _0205F352
 	mov r0, #0x0

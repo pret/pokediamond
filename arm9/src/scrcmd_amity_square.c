@@ -2,7 +2,7 @@
 #include "scrcmd.h"
 #include "constants/accessories.h"
 #include "constants/pokemon.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 
 extern void sub_0205F54C(struct SaveVarsFlags* state);
 extern u16 sub_0205F55C(struct SaveVarsFlags* state);

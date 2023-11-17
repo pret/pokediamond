@@ -1,6 +1,6 @@
 #include "global.h"
 #include "heap.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "unk_02085338.h"
 
 extern BOOL sub_0205ED0C(struct SaveVarsFlags * state);
