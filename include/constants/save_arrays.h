@@ -2,6 +2,7 @@
 #define POKEDIAMOND_CONSTANTS_SAVE_ARRAYS_H
 
 #define SAVE_BAG                  3
+#define SAVE_FLAGS                4
 #define SAVE_DAYCARE              8
 #define SAVE_SAFARI_ZONE         27
 #define SAVE_EASY_CHAT           34

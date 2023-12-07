@@ -1,6 +1,6 @@
 #include "global.h"
 #include "scrcmd.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "pokedex.h"
 
 extern void* sub_02034E20(void*);

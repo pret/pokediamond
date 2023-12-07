@@ -1,5 +1,5 @@
 #include "global.h"
-#include "event_data.h"
+#include "save_vars_flags.h"
 #include "itemtool.h"
 #include "message_format.h"
 #include "msgdata.h"
