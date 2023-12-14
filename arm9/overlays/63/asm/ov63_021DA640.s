@@ -460,7 +460,7 @@ _021DA9DC:
 	blt _021DA9DC
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

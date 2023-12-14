@@ -2,88 +2,12 @@
 	.include "global.inc"
 
 	.extern gSystem
-	.extern Blackout_WindowTemplate
+	.extern Blackout_DrawMessage
 
 	.text
 
-	thumb_func_start sub_02048164
-sub_02048164: ; 0x02048164
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	add r6, r1, #0x0
-	mov r0, #0xb
-	mov r1, #0x24
-	bl AllocFromHeap
-	add r4, r0, #0x0
-	bne _0204817A
-	bl GF_AssertFail
-_0204817A:
-	add r0, r4, #0x0
-	mov r1, #0x0
-	mov r2, #0x24
-	bl memset
-	mov r0, #0x0
-	str r0, [r4, #0x0]
-	str r5, [r4, #0x4]
-	mov r0, #0xb
-	bl BgConfig_Alloc
-	str r0, [r4, #0x8]
-	bl Blackout_InitDisplays
-	mov r2, #0x52
-	mov r0, #0x1
-	mov r1, #0x1a
-	lsl r2, r2, #0x2
-	mov r3, #0xb
-	bl NewMsgDataFromNarc
-	str r0, [r4, #0x1c]
-	mov r0, #0xb
-	bl MessageFormat_New
-	str r0, [r4, #0x20]
-	add r1, r4, #0x0
-	ldr r0, [r4, #0x8]
-	ldr r2, _02048208 ; =Blackout_WindowTemplate
-	add r1, #0xc
-	bl AddWindow
-	add r0, r5, #0x0
-	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
-	add r2, r0, #0x0
-	ldr r0, [r4, #0x20]
-	mov r1, #0x0
-	bl BufferPlayersName
-	ldr r0, [r5, #0x1c]
-	ldr r1, [r0, #0x0]
-	ldr r0, _0204820C ; =0x0000019E
-	cmp r1, r0
-	bne _020481E6
-	mov r2, #0x0
-	add r0, r4, #0x0
-	mov r1, #0x4
-	add r3, r2, #0x0
-	bl sub_020482F4
-	b _020481F2
-_020481E6:
-	mov r2, #0x0
-	add r0, r4, #0x0
-	mov r1, #0x3
-	add r3, r2, #0x0
-	bl sub_020482F4
-_020481F2:
-	add r0, r4, #0x0
-	add r0, #0xc
-	bl CopyWindowToVram
-	ldr r1, _02048210 ; =sub_02048214
-	add r0, r6, #0x0
-	add r2, r4, #0x0
-	bl TaskManager_Call
-	pop {r4-r6, pc}
-	nop
-_02048208: .word Blackout_WindowTemplate
-_0204820C: .word 0x0000019E
-_02048210: .word sub_02048214
-
-	thumb_func_start sub_02048214
-sub_02048214: ; 0x02048214
+	thumb_func_start Task_ShowPrintedBlackoutMessage
+Task_ShowPrintedBlackoutMessage: ; 0x02048214
 	push {r3-r4, lr}
 	sub sp, #0xc
 	bl TaskManager_GetEnvironment
@@ -333,7 +257,7 @@ _0204840C:
 	bl SetBlendBrightness
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl sub_02048164
+	bl Blackout_DrawMessage
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

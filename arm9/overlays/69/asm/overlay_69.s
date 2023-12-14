@@ -738,7 +738,7 @@ ov69_0222DBAC: ; 0x0222DBAC
 	bl BgConfig_Alloc
 	str r0, [r4, #0x10]
 	ldr r0, _0222DCF4 ; =0x0222F8CC
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _0222DCF8 ; =0x04000304
 	ldr r0, _0222DCFC ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -964,7 +964,7 @@ ov69_0222DD54: ; 0x0222DD54
 	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _0222DDF8 ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -1115,7 +1115,7 @@ ov69_0222DE98: ; 0x0222DE98
 	bl ov69_0222DF0C
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #0x1c
 	pop {r3, r4, pc}
 	.align 2, 0

@@ -2143,7 +2143,7 @@ ov09_02212F5C: ; 0x02212F5C
 	add r4, r0, #0
 	mov r0, #0x1f
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r4, #0
 	mov r1, #4
 	bl FreeBgTilemapBuffer
@@ -8759,7 +8759,7 @@ ov09_02216734: ; 0x02216734
 	bl ov09_02217750
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	pop {r4, pc}
 
 	thumb_func_start ov09_02216770
@@ -13962,7 +13962,7 @@ ov09_02219198: ; 0x02219198
 	add r4, r0, #0
 	mov r0, #0x17
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r4, #0
 	mov r1, #4
 	bl FreeBgTilemapBuffer
@@ -15495,7 +15495,7 @@ ov09_02219DC8: ; 0x02219DC8
 	bl ov09_0221A244
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	pop {r4, pc}
 	.align 2, 0
 

@@ -28,7 +28,7 @@ ov05_021F5518: ; 0x021F5518
 	bl SetBgPriority
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021F5560 ; =0x00000648
 	bl PlaySE
 	add sp, #4
@@ -240,7 +240,7 @@ ov05_021F56B8: ; 0x021F56B8
 	strh r1, [r0]
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _021F5714 ; =0x0400000C
 	mov r0, #3
 	ldrh r2, [r1]
@@ -265,7 +265,7 @@ ov05_021F56B8: ; 0x021F56B8
 	bl BgFillTilemapBufferAndCommit
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r4, #0
 	bl ov05_021F569C
 	add sp, #8
@@ -285,7 +285,7 @@ ov05_021F571C: ; 0x021F571C
 	strh r1, [r0]
 	mov r0, #8
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _021F5778 ; =0x0400000E
 	mov r0, #3
 	ldrh r2, [r1]
@@ -309,7 +309,7 @@ ov05_021F571C: ; 0x021F571C
 	bl BgFillTilemapBufferAndCommit
 	mov r0, #8
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r4, #0
 	bl ov05_021F569C
 	add sp, #8
@@ -450,7 +450,7 @@ _021F5856:
 	bl SetBgPriority
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021F5980
 _021F5872:
 	ldr r0, [r4]
@@ -520,7 +520,7 @@ _021F58EE:
 	beq _021F5980
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021F5984 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]

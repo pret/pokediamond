@@ -625,8 +625,8 @@ _0222DA48:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -926,7 +926,7 @@ _0222DCEE:
 	sub r2, r2, #1
 	bne _0222DCEE
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -1194,10 +1194,10 @@ _0222DED4:
 	blt _0222DED4
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	bl sub_02033E74
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
@@ -1382,16 +1382,16 @@ ov82_0222E050: ; 0x0222E050
 	bl ov82_0222E35C
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
 	bl sub_02033288
@@ -1506,7 +1506,7 @@ ov82_0222E15C: ; 0x0222E15C
 	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r4, #0
 	mov r1, #0
 	bl BgClearTilemapBufferAndCommit
@@ -1527,7 +1527,7 @@ ov82_0222E15C: ; 0x0222E15C
 	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r5, _0222E238 ; =0x0222F8B0
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -1545,7 +1545,7 @@ ov82_0222E15C: ; 0x0222E15C
 	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r4, #0
 	mov r1, #4
 	bl BgClearTilemapBufferAndCommit
@@ -1566,7 +1566,7 @@ ov82_0222E15C: ; 0x0222E15C
 	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0

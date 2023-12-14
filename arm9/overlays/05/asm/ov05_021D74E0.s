@@ -99,7 +99,7 @@ _021D757A:
 	bl sub_0201B2EC
 	bl ov05_021D7BA0
 	bl ov05_021D7B38
-	bl GX_SwapDisplay
+	bl GfGfx_SwapDisplay
 	mov r0, #4
 	bl BgConfig_Alloc
 	str r0, [r4, #8]
@@ -584,7 +584,7 @@ _021D7A0A:
 	sub r2, r2, #1
 	bne _021D7A0A
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.balign 4, 0
@@ -710,7 +710,7 @@ ov05_021D7B10: ; 0x021D7B10
 	add r4, r0, #0
 	mov r0, #0xf
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r4, #0
 	mov r1, #1
 	bl FreeBgTilemapBuffer
@@ -942,7 +942,7 @@ ov05_021D7CF0: ; 0x021D7CF0
 	add r5, r0, #0
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021D7D44 ; =gG3dDepthBufferingMode
 	ldr r0, [r0]
 	lsl r1, r0, #1
@@ -1097,8 +1097,8 @@ ov05_021D7E4C: ; 0x021D7E4C
 	add r4, r0, #0
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
-	bl GX_BothDispOn
+	bl GfGfx_EngineATogglePlanes
+	bl GfGfx_BothDispOn
 	bl ov05_021DBABC
 	str r0, [r4, #0x40]
 	bl ov05_021D7B64

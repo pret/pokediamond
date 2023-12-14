@@ -3,7 +3,7 @@
 
 #include "NNS_g2d.h"
 #include "global.h"
-#include "GX_layers.h"
+#include "gf_gfx_planes.h"
 #include "MI_uncompress.h"
 #include "OS_cache.h"
 #include "gx.h"
@@ -213,7 +213,7 @@ void InitBgFromTemplate(BgConfig *bgConfig, u8 bgId, const BgTemplate *template,
 void SetBgControlParam(BgConfig *config, u8 bgId, enum GFBgCntSet attr, u8 value);
 void FreeBgTilemapBuffer(BgConfig *bgConfig, u8 bgId);
 void SetBgPriority(u8 bgId, u16 priority);
-void ToggleBgLayer(u8 bgId, GXLayerToggle toggle);
+void ToggleBgLayer(u8 bgId, GXPlaneToggle toggle);
 void BgSetPosTextAndCommit(BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, fx32 val);
 fx32 Bg_GetXpos(const BgConfig *bgConfig, enum GFBgLayer bgId);
 fx32 Bg_GetYpos(BgConfig *bgConfig, enum GFBgLayer bgId);

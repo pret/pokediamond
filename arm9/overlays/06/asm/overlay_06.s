@@ -126,7 +126,7 @@ _0223977A:
 	sub r2, r2, #1
 	bne _0223977A
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -148,7 +148,7 @@ ov06_02239790: ; 0x02239790
 	bl SetBothScreensModesAndDisable
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r5, _022397F0 ; =0x0224F1D8
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -225,7 +225,7 @@ ov06_02239840: ; 0x02239840
 	add r4, r1, #0
 	add r5, r0, #0
 	add r0, r4, #4
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
 	bl ov06_02239864
@@ -249,7 +249,7 @@ ov06_0223986C: ; 0x0223986C
 	bl ov05_021D7A20
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	pop {r3, pc}
 
 	thumb_func_start ov06_0223987C
@@ -8949,7 +8949,7 @@ _0223DA88: .word 0x00000241
 ov06_0223DA8C: ; 0x0223DA8C
 	push {r4, lr}
 	add r4, r0, #0
-	bl GX_GetEngineALayers
+	bl GfGfx_EngineAGetPlanes
 	mov r1, #0x8e
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -8988,16 +8988,16 @@ ov06_0223DA8C: ; 0x0223DA8C
 	bl SetBgPriority
 	mov r0, #0
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #3
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	pop {r4, pc}
 	nop
 _0223DB10: .word 0x00000235
@@ -9028,7 +9028,7 @@ ov06_0223DB1C: ; 0x0223DB1C
 	mov r0, #0x8e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl GX_SetEngineALayers
+	bl GfGfx_EngineASetPlanes
 	pop {r4, pc}
 	nop
 _0223DB58: .word 0x00000235
@@ -10997,7 +10997,7 @@ _0223EBA8:
 	blo _0223EBA8
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223EBCC: .word ov06_0224F370
@@ -27738,7 +27738,7 @@ ov06_02246F0C: ; 0x02246F0C
 	strh r0, [r2, #4]
 	mov r0, #8
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r2, r5, #0
 	add r0, r4, #0
 	mov r1, #2
@@ -27771,7 +27771,7 @@ ov06_02246F0C: ; 0x02246F0C
 	str r0, [r5, r1]
 	mov r0, #8
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02246FB4: .word 0x0400000A
@@ -27782,7 +27782,7 @@ ov06_02246FB8: ; 0x02246FB8
 	add r4, r0, #0
 	mov r0, #8
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x1e
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -27809,7 +27809,7 @@ ov06_02246FB8: ; 0x02246FB8
 	bl sub_02054590
 	mov r0, #8
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	pop {r4, pc}
 	nop
 _02247008: .word 0x04000008

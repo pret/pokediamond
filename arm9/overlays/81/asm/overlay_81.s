@@ -153,8 +153,8 @@ _02237F22:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -2151,7 +2151,7 @@ ov81_02238E44: ; 0x02238E44
 	sub sp, #0x1c
 	add r4, r0, #0
 	ldr r0, _02239040 ; =0x0223D054
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _02239044 ; =0x04000304
 	ldr r0, _02239048 ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -2176,7 +2176,7 @@ ov81_02238E44: ; 0x02238E44
 	bl InitBgFromTemplate
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r2, _02239058 ; =0x04000008
 	mov r0, #3
 	ldrh r3, [r2]
@@ -2344,10 +2344,10 @@ ov81_02238E44: ; 0x02238E44
 	bl ov81_02238B40
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r4, #0
 	bl ov81_022393F4
 	ldr r0, _02239064 ; =0x04000050
@@ -3634,7 +3634,7 @@ ov81_022399FC: ; 0x022399FC
 	sub sp, #0x10
 	add r4, r0, #0
 	ldr r0, _02239C78 ; =0x0223D0EC
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _02239C7C ; =0x04000304
 	ldr r0, _02239C80 ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -3872,10 +3872,10 @@ _02239C02:
 	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r4, #0
 	add r0, #0xc0
 	mov r1, #3
@@ -4013,7 +4013,7 @@ ov81_02239CDC: ; 0x02239CDC
 	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _02239DDC ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -5703,7 +5703,7 @@ ov81_0223AA68: ; 0x0223AA68
 	sub sp, #0x14
 	add r4, r0, #0
 	ldr r0, _0223ABAC ; =0x0223D158
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _0223ABB0 ; =0x04000304
 	ldr r0, _0223ABB4 ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -5846,10 +5846,10 @@ _0223AAE8:
 	bl BgSetPosTextAndCommit
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -5930,7 +5930,7 @@ ov81_0223ABD8: ; 0x0223ABD8
 	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _0223ACCC ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -6725,7 +6725,7 @@ ov81_0223B264: ; 0x0223B264
 	sub sp, #0x10
 	add r4, r0, #0
 	ldr r0, _0223B45C ; =0x0223D1EC
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _0223B460 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -6936,10 +6936,10 @@ ov81_0223B264: ; 0x0223B264
 	bl ov81_0223B4B0
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -7212,7 +7212,7 @@ ov81_0223B670: ; 0x0223B670
 	sub sp, #0x14
 	add r4, r0, #0
 	ldr r0, _0223B7C0 ; =0x0223D258
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _0223B7C4 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -7355,10 +7355,10 @@ _0223B6F0:
 	bl BgSetPosTextAndCommit
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	bl sub_02033E74
 	mov r0, #1
 	mov r1, #0x39
@@ -7442,7 +7442,7 @@ ov81_0223B7E8: ; 0x0223B7E8
 	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _0223B8E8 ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -8374,7 +8374,7 @@ ov81_0223BF74: ; 0x0223BF74
 	sub sp, #0x10
 	add r4, r0, #0
 	ldr r0, _0223C18C ; =0x0223D2EC
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _0223C190 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -8596,10 +8596,10 @@ _0223C14A:
 	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -8694,7 +8694,7 @@ ov81_0223C1DC: ; 0x0223C1DC
 	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _0223C2E0 ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -9208,7 +9208,7 @@ ov81_0223C658: ; 0x0223C658
 	sub sp, #0x1c
 	add r4, r0, #0
 	ldr r0, _0223C808 ; =0x0223D374
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _0223C80C ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -9228,7 +9228,7 @@ ov81_0223C658: ; 0x0223C658
 	bl InitBgFromTemplate
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r2, _0223C81C ; =0x04000008
 	mov r0, #3
 	ldrh r3, [r2]
@@ -9369,10 +9369,10 @@ ov81_0223C658: ; 0x0223C658
 	bl ov81_0223CBE0
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, _0223C824 ; =0x04000050

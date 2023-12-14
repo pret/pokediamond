@@ -1,9 +1,10 @@
 #include "global.h"
 #include "bg_window.h"
+#include "constants/rgb.h"
 #include "filesystem.h"
 #include "font.h"
 #include "game_init.h"
-#include "GX_layers.h"
+#include "gf_gfx_planes.h"
 #include "main.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
@@ -76,8 +77,8 @@ void ShowWFCUserInfoWarning(HeapID heapId, u32 a1)
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
 
-    GX_DisableEngineALayers();
-    GX_DisableEngineBLayers();
+    GfGfx_DisableEngineAPlanes();
+    GfGfx_DisableEngineBPlanes();
     GX_SetVisiblePlane(0);
     GXS_SetVisiblePlane(0);
 
@@ -85,12 +86,12 @@ void ShowWFCUserInfoWarning(HeapID heapId, u32 a1)
 
     gSystem.screensFlipped = 0;
 
-    GX_SwapDisplay();
+    GfGfx_SwapDisplay();
     G2_BlendNone();
     G2S_BlendNone();
     GX_SetVisibleWnd(0);
     GXS_SetVisibleWnd(0);
-    GX_SetBanks(&sWFCWarningMsgGraphicsBanks);
+    GfGfx_SetBanks(&sWFCWarningMsgGraphicsBanks);
 
     struct BgConfig* bg_config = BgConfig_Alloc(heapId);
 
@@ -101,8 +102,8 @@ void ShowWFCUserInfoWarning(HeapID heapId, u32 a1)
     LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heapId);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
-    BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
-    BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
+    BG_SetMaskColor(GF_BG_LYR_MAIN_0, RGB(1, 1, 27));
+    BG_SetMaskColor(GF_BG_LYR_SUB_0, RGB(1, 1, 27));
 
     struct MsgData* warning_messages_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0613_bin, heapId);
     struct String* warning_message = String_New(384, heapId);
@@ -115,7 +116,7 @@ void ShowWFCUserInfoWarning(HeapID heapId, u32 a1)
     AddTextPrinterParameterized(&window, 0, warning_message, 0, 0, 0, 0);
     String_Delete(warning_message);
 
-    GX_BothDispOn();
+    GfGfx_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);
     SetMasterBrightnessNeutral(PM_LCD_BOTTOM);
     SetBlendBrightness(0, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BD | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG0), SCREEN_MASK_MAIN | SCREEN_MASK_SUB);
@@ -137,14 +138,14 @@ void ShowWFCUserInfoWarning(HeapID heapId, u32 a1)
     RemoveWindow(&window);
     DestroyMsgData(warning_messages_data);
 
-    ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_0, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_1, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_0, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_1, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_2, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_3, GX_PLANE_TOGGLE_OFF);
 
     FreeBgTilemapBuffer(bg_config, GF_BG_LYR_MAIN_0);
     FreeToHeap(bg_config);

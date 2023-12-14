@@ -271,8 +271,8 @@ ov78_021D7708: ; 0x021D7708
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -295,7 +295,7 @@ ov78_021D7708: ; 0x021D7708
 	strh r0, [r2]
 	ldr r0, _021D7768 ; =0x021D7888
 	bl G3X_SetEdgeColorTable
-	bl GX_SwapDisplay
+	bl GfGfx_SwapDisplay
 	pop {r3, pc}
 	nop
 _021D7758: .word 0xFFFFE0FF
@@ -318,7 +318,7 @@ _021D7776:
 	sub r2, r2, #1
 	bne _021D7776
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0

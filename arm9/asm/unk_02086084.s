@@ -171,16 +171,16 @@ sub_020861DC: ; 0x020861DC
 	bl sub_020223BC
 	mov r0, #0x1
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x2
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x3
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x4
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r0, [r4, #0x8]
 	mov r1, #0x0
 	bl PaletteData_FreeBuffers

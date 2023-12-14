@@ -1,7 +1,8 @@
 #include "global.h"
 #include "ov59_TV.h"
-#include "GX_layers.h"
+#include "gf_gfx_planes.h"
 #include "PAD_pad.h"
+#include "constants/rgb.h"
 #include "constants/sndseq.h"
 #include "demo/intro/intro_tv.naix"
 #include "filesystem.h"
@@ -150,8 +151,8 @@ BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status)
             Main_SetVBlankIntrCB(NULL, NULL);
             Main_SetHBlankIntrCB(NULL, NULL);
 
-            GX_DisableEngineALayers();
-            GX_DisableEngineBLayers();
+            GfGfx_DisableEngineAPlanes();
+            GfGfx_DisableEngineBPlanes();
 
             GX_SetVisiblePlane(0);
             GXS_SetVisiblePlane(0);
@@ -163,7 +164,7 @@ BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status)
 
             Main_SetVBlankIntrCB((void (*)(void *))ov59_TVDoGpuBgUpdate, data);
 
-            GX_BothDispOn();
+            GfGfx_BothDispOn();
 
             data->unk24 = 60;
 
@@ -193,7 +194,7 @@ BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status)
             }
             data->unk24 = 0; //??
 
-            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heapId);
+            BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapId);
 
             *status = 3;
             break;
@@ -217,7 +218,7 @@ BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status)
                 break;
             }
 
-            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heapId);
+            BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapId);
 
             *status = 5;
             break;
@@ -259,7 +260,7 @@ void ov59_TVDoGpuBgUpdate(ov59_TVOverlayData *data)
 void ov59_TVSetupGraphics(ov59_TVOverlayData *data)
 {
     const struct GraphicsBanks banks = ov59_021DA0D4; //sp #0x90
-    GX_SetBanks(&banks);
+    GfGfx_SetBanks(&banks);
 
     data->bgConfig = BgConfig_Alloc(data->heapId);
 
@@ -302,14 +303,14 @@ void ov59_TVSetupGraphics(ov59_TVOverlayData *data)
 
 void ov59_TVDestroyGraphics(ov59_TVOverlayData *data)
 {
-    ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_0, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_1, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
-    ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_0, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_1, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_2, GX_PLANE_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_3, GX_PLANE_TOGGLE_OFF);
 
     reg_G2_BLDCNT = 0;
 
@@ -340,7 +341,7 @@ BOOL ov59_021D9C74(ov59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3)
     switch (data->unk0C)
     {
         case 0:
-            ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
+            ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_PLANE_TOGGLE_OFF);
             struct String *string = String_New(1024, data->heapId);
             ReadMsgDataIntoString(data->msgData, msgNo, string);
             AddWindow(data->bgConfig, &data->window, &ov59_021DA04C);
@@ -351,7 +352,7 @@ BOOL ov59_021D9C74(ov59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3)
             AddTextPrinterParameterized2(&data->window, 0, string, unk0, param3, 0, MakeFontColor(15, 2, 0), NULL);
             String_Delete(string);
             CopyWindowToVram(&data->window);
-            ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_PLANE_TOGGLE_ON);
             data->unk24 = 240;
             data->unk0C = 1;
             break;

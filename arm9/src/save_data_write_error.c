@@ -1,6 +1,7 @@
 #include "global.h"
 #include "bg_window.h"
 #include "brightness.h"
+#include "constants/rgb.h"
 #include "font.h"
 #include "game_init.h"
 #include "msgdata.h"
@@ -77,8 +78,8 @@ void ShowSaveDataWriteError(HeapID heapId, u32 err_no)
     Main_SetVBlankIntrCB(NULL, NULL);
     Main_SetHBlankIntrCB(NULL, NULL);
 
-    GX_DisableEngineALayers();
-    GX_DisableEngineBLayers();
+    GfGfx_DisableEngineAPlanes();
+    GfGfx_DisableEngineBPlanes();
     GX_SetVisiblePlane(0);
     GXS_SetVisiblePlane(0);
 
@@ -86,12 +87,12 @@ void ShowSaveDataWriteError(HeapID heapId, u32 err_no)
 
     gSystem.screensFlipped = FALSE;
 
-    GX_SwapDisplay();
+    GfGfx_SwapDisplay();
     G2_BlendNone();
     G2S_BlendNone();
     GX_SetVisibleWnd(0);
     GXS_SetVisibleWnd(0);
-    GX_SetBanks(&sSaveDataWriteErrorGraphicsBanks);
+    GfGfx_SetBanks(&sSaveDataWriteErrorGraphicsBanks);
 
     struct BgConfig* bg_config = BgConfig_Alloc(heapId);
 
@@ -102,8 +103,8 @@ void ShowSaveDataWriteError(HeapID heapId, u32 err_no)
     LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heapId);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
-    BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
-    BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
+    BG_SetMaskColor(GF_BG_LYR_MAIN_0, RGB(1, 1, 27));
+    BG_SetMaskColor(GF_BG_LYR_SUB_0, RGB(1, 1, 27));
 
     struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0006_bin, heapId);
     struct String* str = String_New(384, heapId);
@@ -118,7 +119,7 @@ void ShowSaveDataWriteError(HeapID heapId, u32 err_no)
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
     String_Delete(str);
 
-    GX_BothDispOn();
+    GfGfx_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);
     SetMasterBrightnessNeutral(PM_LCD_BOTTOM);
     SetBlendBrightness(0, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BD | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG0), SCREEN_MASK_MAIN | SCREEN_MASK_SUB);
