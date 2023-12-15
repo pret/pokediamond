@@ -96,7 +96,7 @@ void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, enum GFPalL
     }
 }
 
-u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 layer, u32 baseAddr, u32 szByte, BOOL isCompressed, HeapID heapId)
+u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 layer, u32 baseAddr, u32 szByte, BOOL isCompressed, HeapID heapId) //todo: change this to new format
 {
     static void (*const load_funcs[])(void *, u32, u32) = {
         GX_LoadOBJ,

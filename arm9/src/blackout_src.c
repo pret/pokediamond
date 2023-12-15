@@ -1,16 +1,21 @@
 #include "blackout.h"
 #include "bg_window.h"
 #include "constants/maps.h"
+#include "constants/rgb.h"
 #include "msgdata/msg.naix"
 #include "msgdata/msg/narc_0328.h"
 #include "graphic/font.naix"
 #include "gf_gfx_loader.h"
+#include "PAD_pad.h"
+#include "render_window.h"
 
 static void Blackout_InitDisplays(BgConfig *bgConfig);
 /*static*/ void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager);
+static BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager);
 
-extern BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager);
 extern void sub_020482F4(BlackoutScreenEnvironment *environment, s32 msgNo, u8 x, u8 y);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
+extern BOOL IsPaletteFadeFinished(void);
 
 extern SaveData *FieldSystem_GetSaveData(FieldSystem *fieldSystem);
 
@@ -92,4 +97,42 @@ static void Blackout_InitDisplays(BgConfig *bgConfig) {
     }
     CopyWindowToVram(&env->window);
     TaskManager_Call(taskManager, Task_ShowPrintedBlackoutMessage, env);
+}
+
+static BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager) {
+    BlackoutScreenEnvironment *env = TaskManager_GetEnvironment(taskManager);
+    switch (env->state) {
+        case 0:
+            BeginNormalPaletteFade(3, 1, 42, RGB_BLACK, 8, 1, HEAP_ID_32);
+            env->state++;
+            break;
+        case 1:
+            if (IsPaletteFadeFinished()) {
+                env->state++;
+            }
+            break;
+        case 2:
+            if (gSystem.newKeys & PAD_BUTTON_A || gSystem.newKeys & PAD_BUTTON_B) {
+                BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 8, 1, HEAP_ID_32);
+                env->state++;
+            }
+            break;
+        case 3:
+            if (IsPaletteFadeFinished()) {
+                FillWindowPixelBuffer(&env->window, 0);
+                env->state++;
+            }
+            break;
+        case 4:
+            ClearFrameAndWindow2(&env->window, FALSE);
+            RemoveWindow(&env->window);
+            MessageFormat_Delete(env->msgFmt);
+            DestroyMsgData(env->msgData);
+            FreeBgTilemapBuffer(env->bgConfig, GF_BG_LYR_MAIN_3);
+            FreeToHeap(env->bgConfig);
+            FreeToHeap(env);
+            return TRUE;
+    }
+
+    return FALSE;
 }
