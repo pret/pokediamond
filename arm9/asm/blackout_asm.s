@@ -1,72 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gSystem
 	.extern Blackout_DrawMessage
 
 	.text
-
-	thumb_func_start sub_020482F4
-sub_020482F4: ; 0x020482F4
-	push {r4-r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0x0
-	mov r0, #0x1
-	str r1, [sp, #0x10]
-	lsl r0, r0, #0xa
-	mov r1, #0xb
-	add r7, r3, #0x0
-	bl String_New
-	add r6, r0, #0x0
-	mov r0, #0x1
-	lsl r0, r0, #0xa
-	mov r1, #0xb
-	bl String_New
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0xc
-	mov r1, #0x0
-	bl FillWindowPixelBuffer
-	ldr r0, [r5, #0x1c]
-	ldr r1, [sp, #0x10]
-	add r2, r6, #0x0
-	bl ReadMsgDataIntoString
-	ldr r0, [r5, #0x20]
-	add r1, r4, #0x0
-	add r2, r6, #0x0
-	bl StringExpandPlaceholders
-	mov r0, #0x0
-	add r1, r4, #0x0
-	add r2, r0, #0x0
-	bl sub_02002F08
-	add r3, r0, #0x0
-	str r7, [sp, #0x0]
-	mov r0, #0xff
-	str r0, [sp, #0x4]
-	ldr r0, _02048378 ; =0x000F0200
-	mov r1, #0x0
-	str r0, [sp, #0x8]
-	add r0, r5, #0x0
-	str r1, [sp, #0xc]
-	ldrb r5, [r5, #0x13]
-	add r0, #0xc
-	add r2, r4, #0x0
-	lsl r5, r5, #0x3
-	sub r3, r5, r3
-	lsl r3, r3, #0x18
-	lsr r3, r3, #0x19
-	sub r3, r3, #0x4
-	lsl r3, r3, #0x18
-	lsr r3, r3, #0x18
-	bl AddTextPrinterParameterized2
-	add r0, r6, #0x0
-	bl String_Delete
-	add r0, r4, #0x0
-	bl String_Delete
-	add sp, #0x14
-	pop {r4-r7, pc}
-	.balign 4
-_02048378: .word 0x000F0200
 
 	thumb_func_start FieldTask_BlackOut
 FieldTask_BlackOut: ; 0x0204837C

@@ -3703,7 +3703,7 @@ _021D92CE:
 	mov r0, #0
 	ldr r1, [r1]
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xa8
 	sub r0, r1, r0
 	mov r1, #0

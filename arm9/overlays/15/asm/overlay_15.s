@@ -7762,7 +7762,7 @@ ov15_021DB100: ; 0x021DB100
 	add r1, r6, #0
 	mov r2, #0
 	add r7, r3, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0x58
 	sub r0, r1, r0
 	lsr r0, r0, #1

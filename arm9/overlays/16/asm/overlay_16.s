@@ -17091,7 +17091,7 @@ _021DF394:
 	mov r0, #0
 	add r1, r6, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xd0
 	sub r0, r1, r0
 	lsr r4, r0, #1
@@ -17143,7 +17143,7 @@ ov16_021DF3E4: ; 0x021DF3E4
 	mov r0, #0
 	add r1, r6, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xd0
 	sub r0, r1, r0
 	lsr r5, r0, #1
@@ -29933,7 +29933,7 @@ ov16_021E51AC: ; 0x021E51AC
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	cmp r0, #0xf0
 	bhs _021E51D8
 	lsr r1, r0, #1
@@ -34543,7 +34543,7 @@ ov16_021E739C: ; 0x021E739C
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	cmp r0, #0xf0
 	bhs _021E73C8
 	lsr r1, r0, #1

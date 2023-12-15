@@ -30,15 +30,7 @@ struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cur
     list->overrideEnabled = FALSE;
     if (list->template.totalItems < list->template.maxShowed)
         list->template.maxShowed = list->template.totalItems;
-    ListMenuCursorSetColor(
-        list->cursor,
-//        MakeFontColor(list->template.cursorPal, list->template.cursorShadowPal, list->fillValue)
-        (u32)(
-            ((u32)(list->template.cursorPal << 24) >> 8)
-            | ((u32)(list->template.cursorShadowPal << 24) >> 16)
-            | ((u32)(list->template.fillValue << 24) >> 24)
-        )
-    );
+    ListMenuCursorSetColor(list->cursor, MAKE_TEXT_COLOR(list->template.cursorPal, list->template.cursorShadowPal, list->template.fillValue));
     FillWindowPixelBuffer(list->template.window, list->template.fillValue);
     ListMenuPrintEntries(list, list->cursorPos, 0, list->template.maxShowed);
     ListMenuDrawCursor(list);
@@ -312,11 +304,11 @@ void ListMenuPrint(struct ListMenu * list, struct String * str, u8 x, u8 y)
     {
         if (list->overrideEnabled)
         {
-            AddTextPrinterParameterized3(list->template.window, list->fontId, str, x, y, 0xFF, MakeFontColor(list->cursorPal, list->cursorShadowPal, list->fillValue), list->lettersSpacing, 0, NULL);
+            AddTextPrinterParameterized3(list->template.window, list->fontId, str, x, y, 0xFF, MAKE_TEXT_COLOR(list->cursorPal, list->cursorShadowPal, list->fillValue), list->lettersSpacing, 0, NULL);
         }
         else
         {
-            AddTextPrinterParameterized3(list->template.window, list->template.fontId, str, x, y, 0xFF, MakeFontColor(list->template.cursorPal, list->template.cursorShadowPal, list->template.fillValue), list->template.lettersSpacing, 0, NULL);
+            AddTextPrinterParameterized3(list->template.window, list->template.fontId, str, x, y, 0xFF, MAKE_TEXT_COLOR(list->template.cursorPal, list->template.cursorShadowPal, list->template.fillValue), list->template.lettersSpacing, 0, NULL);
         }
     }
 }

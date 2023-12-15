@@ -346,10 +346,10 @@ BOOL ov59_021D9C74(ov59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3)
             ReadMsgDataIntoString(data->msgData, msgNo, string);
             AddWindow(data->bgConfig, &data->window, &ov59_021DA04C);
             FillWindowPixelRect(&data->window, 0, 0, 0, 256, 192);
-            u32 unk0 = (u32)sub_02002F08(0, string, 0);
+            u32 width = FontID_String_GetWidthMultiline(0, string, 0);
 
-            unk0 = (256 - unk0 ) / 2;
-            AddTextPrinterParameterized2(&data->window, 0, string, unk0, param3, 0, MakeFontColor(15, 2, 0), NULL);
+            width = (256 - width) / 2;
+            AddTextPrinterParameterized2(&data->window, 0, string, width, param3, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
             String_Delete(string);
             CopyWindowToVram(&data->window);
             ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_PLANE_TOGGLE_ON);

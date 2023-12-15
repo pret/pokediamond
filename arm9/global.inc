@@ -239,7 +239,7 @@
 .extern GetFontAttribute
 .extern LoadFontPal0
 .extern LoadFontPal1
-.extern sub_02002F08
+.extern FontID_String_GetWidthMultiline
 .extern sub_02002F40
 .extern sub_02002F90
 .extern sub_02002F9C

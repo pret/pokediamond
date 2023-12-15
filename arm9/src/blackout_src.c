@@ -8,12 +8,13 @@
 #include "gf_gfx_loader.h"
 #include "PAD_pad.h"
 #include "render_window.h"
+#include "text.h"
 
 static void Blackout_InitDisplays(BgConfig *bgConfig);
 /*static*/ void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager);
 static BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager);
+static void Blackout_PrintMessage(BlackoutScreenEnvironment *environment, s32 msgNo, u8 x, u8 y);
 
-extern void sub_020482F4(BlackoutScreenEnvironment *environment, s32 msgNo, u8 x, u8 y);
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
 extern BOOL IsPaletteFadeFinished(void);
 
@@ -90,10 +91,10 @@ static void Blackout_InitDisplays(BgConfig *bgConfig) {
     BufferPlayersName(env->msgFmt, 0, Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(fieldSystem)));
     if (fieldSystem->location->mapId == MAP_T01R0201) {
         // {STRVAR_1 3, 0} scurried back\nhome, protecting the exhausted\nand fainted Pokémon from further\nharm...
-        sub_020482F4(env, narc_0328_00004, 0, 0);
+        Blackout_PrintMessage(env, narc_0328_00004, 0, 0);
     } else {
         // {STRVAR_1 3, 0} scurried to\na Pokémon Center, protecting\nthe exhausted and fainted\nPokémon from further harm...
-        sub_020482F4(env, narc_0328_00003, 0, 0);
+        Blackout_PrintMessage(env, narc_0328_00003, 0, 0);
     }
     CopyWindowToVram(&env->window);
     TaskManager_Call(taskManager, Task_ShowPrintedBlackoutMessage, env);
@@ -135,4 +136,23 @@ static BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager) {
     }
 
     return FALSE;
+}
+
+static void Blackout_PrintMessage(BlackoutScreenEnvironment *environment, s32 msgNo, u8 x, u8 y) {
+    String *tmpStr = String_New(1024, HEAP_ID_FIELD);
+    String *finStr = String_New(1024, HEAP_ID_FIELD);
+
+    FillWindowPixelBuffer(&environment->window, 0);
+    ReadMsgDataIntoString(environment->msgData, msgNo, tmpStr);
+    StringExpandPlaceholders(environment->msgFmt, finStr, tmpStr);
+        
+    u32 width = FontID_String_GetWidthMultiline(0, finStr, 0);
+    x = (environment->window.width * 8 - width);
+    x /= 2;
+    x -= 4;
+
+    AddTextPrinterParameterized2(&environment->window, 0, finStr, x, y, TEXT_SPEED_NOTRANSFER, MAKE_TEXT_COLOR(15, 2, 0), NULL);
+
+    String_Delete(tmpStr);
+    String_Delete(finStr);
 }

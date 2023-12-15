@@ -961,7 +961,7 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
                 template.height = (u8)(count * 2);
                 AddWindow(data->bgConfig, &data->window, &template);
                 FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
-                AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(1, 2, 0), NULL);
+                AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
             }
             else
             {
@@ -970,7 +970,7 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
                 template.height = (u8)height;
                 AddWindow(data->bgConfig, &data->window, &template);
                 FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
-                AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(15, 2, 0), NULL);
+                AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
             }
             String_Delete(data->string);
             data->displayControlMessageCounter = 1;
