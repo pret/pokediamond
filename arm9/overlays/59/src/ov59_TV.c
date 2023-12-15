@@ -291,9 +291,9 @@ void ov59_TVSetupGraphics(ov59_TVOverlayData *data)
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0000_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapId);
     GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0003_NSCR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapId);
 
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_0, 0, data->heapId);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 0, data->heapId);
 
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, data->heapId);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_1_OFFSET, data->heapId);
 
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0);
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);

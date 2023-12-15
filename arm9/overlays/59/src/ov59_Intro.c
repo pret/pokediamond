@@ -593,8 +593,8 @@ void ov59_IntroSetupBg(ov59_IntroOverlayData *data)
 
     sub_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heapId);
     LoadUserFrameGfx1(data->bgConfig, GF_BG_LYR_MAIN_0, 985, 3, 0, data->heapId);
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_5, data->heapId);
-    LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_6, data->heapId);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_5_OFFSET, data->heapId);
+    LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_6_OFFSET, data->heapId);
 
     struct BgTemplate bgTemplateSub = ov59_021D9EBC;
     bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7800;
@@ -1026,8 +1026,8 @@ void ov59_LoadInitialTilemap(ov59_IntroOverlayData *data)
         mainPal = NARC_intro_main_background_pearl_NCLR;
         subPal = NARC_intro_sub_background_pearl_NCLR;
     }
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_0, 0x60, data->heapId);
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_OFFSET_0, 0xa0, data->heapId);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 0x60, data->heapId);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0xa0, data->heapId);
     ov59_LoadMainScrnData(data);
     ov59_LoadCharDataFromIndex(data);
     ov59_LoadSubScrnData(data);
@@ -1051,14 +1051,14 @@ void ov59_LoadCharDataFromIndex(ov59_IntroOverlayData *data)
     if (data->spriteDataIndex0 != 0 && data->spriteDataIndex0 < 12)
     {
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_7, 0x20, data->heapId);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_7_OFFSET, 0x20, data->heapId);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
         ov59_TilemapChangePalette(data, GF_BG_LYR_MAIN_1, 7);
     }
     if (data->spriteDataIndex1 != 0 && data->spriteDataIndex1 < 12)
     {
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapId);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_8, 0x20, data->heapId);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_8_OFFSET, 0x20, data->heapId);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapId);
         ov59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
     }
@@ -1100,16 +1100,16 @@ void ov59_DrawMunchlax(ov59_IntroOverlayData *data)
     ov59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 9);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 32, 0, data->heapId);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_MAIN_2, charData, 0xc80, 1);
-    BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, GF_PAL_SLOT_OFFSET_8); //r2 and r3 regswap
-    BG_LoadPlttData(GF_BG_LYR_MAIN_2, ov59_021D9ED8, 32, GF_PAL_SLOT_OFFSET_9);
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, GF_PAL_SLOT_8_OFFSET); //r2 and r3 regswap
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, ov59_021D9ED8, 32, GF_PAL_SLOT_9_OFFSET);
 
     FillBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, 0, 0, 0, 32, 24, 10);
     LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, src, 11, 7, 10, 10);
     ov59_TilemapChangePalette(data, GF_BG_LYR_SUB_1, 10);
     BG_ClearCharDataRange(GF_BG_LYR_SUB_1, 32, 0, data->heapId);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_SUB_1, charData, 0xc80, 1);
-    BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, GF_PAL_SLOT_OFFSET_10);
-    BG_LoadPlttData(GF_BG_LYR_SUB_1, ov59_021D9ED8, 32, GF_PAL_SLOT_OFFSET_10);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, GF_PAL_SLOT_10_OFFSET);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, ov59_021D9ED8, 32, GF_PAL_SLOT_10_OFFSET);
     FreeToHeap(plttData);
     FreeToHeap(charData);
     FreeToHeap(src);
@@ -1271,7 +1271,7 @@ void ov59_LoadPokeballButton(ov59_IntroOverlayData *data)
 {
     GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0038_NSCR, data->bgConfig, GF_BG_LYR_SUB_2, 0, 0, FALSE, data->heapId);
     ov59_TilemapChangePalette(data, GF_BG_LYR_SUB_2, 9);
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0039_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_OFFSET_7, 0x60, data->heapId);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0039_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_7_OFFSET, 0x60, data->heapId);
     BG_ClearCharDataRange(GF_BG_LYR_SUB_2, 0x20, 0, data->heapId);
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_pokeball_button_1_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heapId);
 }

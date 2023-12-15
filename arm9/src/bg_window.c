@@ -865,7 +865,7 @@ void BG_LoadPlttData(u32 location, void *plttData, u32 size, enum GFPalSlotOffse
 }
 
 void BG_SetMaskColor(u8 bgId, u16 value) {
-    BG_LoadPlttData(bgId, &value, sizeof(u16), GF_PAL_SLOT_OFFSET_0);
+    BG_LoadPlttData(bgId, &value, sizeof(u16), GF_PAL_SLOT_0_OFFSET);
 }
 
 static u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 size) {

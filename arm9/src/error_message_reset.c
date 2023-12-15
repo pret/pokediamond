@@ -124,7 +124,7 @@ void PrintErrorMessageAndReset()
 
         LoadUserFrameGfx1(ptr, GF_BG_LYR_MAIN_0, 503, 2, 0, HEAP_ID_DEFAULT);
 
-        LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, HEAP_ID_DEFAULT);
+        LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_1_OFFSET, HEAP_ID_DEFAULT);
         BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, HEAP_ID_DEFAULT);
         BG_SetMaskColor(GF_BG_LYR_MAIN_0, RGB(1, 1, 27));
         BG_SetMaskColor(GF_BG_LYR_SUB_0, RGB(1, 1, 27));

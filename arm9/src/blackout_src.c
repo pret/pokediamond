@@ -70,7 +70,7 @@ static void Blackout_InitDisplays(BgConfig *bgConfig) {
     GfGfx_SetBanks(&Blackout_GraphicsBanks);
     SetBothScreensModesAndDisable(&Blackout_GraphicsModes);
     InitBgFromTemplate(bgConfig, GF_BG_LYR_MAIN_3, &Blackout_BgTemplate, GF_BG_TYPE_TEXT);
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_13, 0x20, HEAP_ID_FIELD);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_13_OFFSET, 0x20, HEAP_ID_FIELD);
 }
 
 /*static*/ void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager) {
