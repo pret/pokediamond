@@ -40997,7 +40997,7 @@ _021EA400:
 _021EA40C:
 	mov r0, #0
 	mov r1, #3
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]

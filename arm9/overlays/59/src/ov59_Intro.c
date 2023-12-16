@@ -2865,7 +2865,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data)
             {
                 break;
             }
-            sub_020053CC(0, 50); //fade music
+            GF_SndStartFadeOutBGM(0, 50); //fade music
             data->controllerCounter = 102;
             break;
 

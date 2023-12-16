@@ -143,7 +143,7 @@ void sub_0200538C(s32 param0, u16 param1, u32 param2)
     sub_02003CE8(3);
 }
 
-void sub_020053CC(s32 param0, s32 param1)
+void GF_SndStartFadeOutBGM(u16 param0, u16 param1)
 {
     u8 r6 = sub_020048D0(sub_02004124());
     if (r6 == 0xff)

@@ -2729,7 +2729,7 @@ _021D89B8: ; jump table
 _021D89E2:
 	mov r0, #0x2a
 	mov r1, #0x1e
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]

@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start FieldTask_BlackOut
-FieldTask_BlackOut: ; 0x0204837C
+	thumb_func_start Task_BlackOut
+Task_BlackOut: ; 0x0204837C
 	push {r3-r7, lr}
 	sub sp, #0x18
 	add r5, r0, #0x0
@@ -36,15 +36,15 @@ _020483B0:
 	ldr r0, [r6, #0xc]
 	bl Save_LocalFieldData_Get
 	add r7, r0, #0x0
-	bl sub_02034DFC
+	bl LocalFieldData_GetBlackoutSpawn
 	add r1, sp, #0x4
 	str r0, [sp, #0x0]
-	bl sub_02034EC4
+	bl GetDeathWarpData
 	add r0, r7, #0x0
 	bl LocalFieldData_GetSpecialSpawnWarpPtr
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl sub_02034E90
+	bl GetSpecialSpawnWarpData
 	add r0, r5, #0x0
 	add r1, sp, #0x4
 	bl sub_02049160
@@ -57,7 +57,7 @@ _020483B0:
 _020483E8:
 	mov r0, #0x0
 	mov r1, #0x14
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -105,7 +105,7 @@ _02048442:
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl Save_LocalFieldData_Get
-	bl sub_02034DFC
+	bl LocalFieldData_GetBlackoutSpawn
 	cmp r7, r0
 	bne _0204846E
 	mov r2, #0x0
@@ -137,12 +137,12 @@ _02048488:
 _02048490: .word 0x000007E4
 _02048494: .word 0x000007E5
 
-	thumb_func_start CallFieldTask_BlackOut
-CallFieldTask_BlackOut: ; 0x02048498
+	thumb_func_start CallTask_BlackOut
+CallTask_BlackOut: ; 0x02048498
 	ldr r3, _020484A0 ; =TaskManager_Call
-	ldr r1, _020484A4 ; =FieldTask_BlackOut
+	ldr r1, _020484A4 ; =Task_BlackOut
 	mov r2, #0x0
 	bx r3
 	.balign 4
 _020484A0: .word TaskManager_Call
-_020484A4: .word FieldTask_BlackOut
+_020484A4: .word Task_BlackOut

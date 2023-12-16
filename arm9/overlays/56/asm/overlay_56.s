@@ -8517,7 +8517,7 @@ ov56_0221617C: ; 0x0221617C
 	bne _022161A8
 	mov r0, #0
 	mov r1, #0x1e
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	b _022161C8
 _022161A8:
 	cmp r4, #0x10

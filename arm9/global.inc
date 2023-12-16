@@ -344,7 +344,7 @@
 .extern sub_02005308
 .extern sub_02005350
 .extern sub_0200538C
-.extern sub_020053CC
+.extern GF_SndStartFadeOutBGM
 .extern sub_02005404
 .extern sub_02005410
 .extern sub_0200541C
@@ -2556,7 +2556,7 @@
 .extern sub_02034DE8
 .extern LocalFieldData_GetWeatherType
 .extern LocalFieldData_SetWeatherType
-.extern sub_02034DFC
+.extern LocalFieldData_GetBlackoutSpawn
 .extern LocalFieldData_SetBlackoutSpawn
 .extern sub_02034E0C
 .extern sub_02034E10
@@ -2569,8 +2569,8 @@
 .extern sub_02034E48
 .extern sub_02034E60
 .extern sub_02034E8C
-.extern sub_02034E90
-.extern sub_02034EC4
+.extern GetSpecialSpawnWarpData
+.extern GetDeathWarpData
 .extern sub_02034EF8
 .extern sub_02034F1C
 .extern sub_02034F40
@@ -3474,8 +3474,8 @@
 .extern sub_020480C8
 .extern sub_020480D8
 .extern sub_020480E4
-.extern FieldTask_BlackOut
-.extern CallFieldTask_BlackOut
+.extern Task_BlackOut
+.extern CallTask_BlackOut
 .extern CallTask_GameClear
 .extern sub_020489DC
 .extern sub_020489FC

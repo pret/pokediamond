@@ -362,7 +362,7 @@ sub_0204AD60: ; 0x0204AD60
 	beq _0204AD88
 	mov r0, #0x0
 	mov r1, #0x28
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 _0204AD88:
 	pop {r4-r6, pc}
 	.balign 4

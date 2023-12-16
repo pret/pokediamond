@@ -2,25 +2,15 @@
 #include "scrcmd.h"
 #include "constants/sndseq.h"
 #include "unk_020040F4.h"
+#include "unk_020051F4.h"
 #include "sound_chatot.h"
 
 //todo make compatible with the headers
 
 extern BOOL sub_02005CBC(void);
-extern void PlaySound(u16);
 extern void FieldSystem_SetSavedMusicId(struct FieldSystem *fieldSystem, u16);
 extern u16 sub_0204ABA8(struct FieldSystem *fieldSystem, u32);
-extern void sub_0200521C(u16);
-extern void sub_02005308(u32, u16);
-extern void sub_02005350(u32, u32);
-extern void sub_0200538C(u32, u16, u32);
-extern void sub_020053CC(u16, u16);
-extern BOOL sub_02005404(void);
 extern u16 sub_02005410(u16);
-extern void PlaySE(u16);
-extern void sub_020054F0(u16, u32);
-extern BOOL sub_02005508(u16);
-extern void sub_02005578(u16);
 extern BOOL sub_02005670(void);
 
 BOOL ScrCmd_Unk02AE(struct ScriptContext *ctx) //02AE
@@ -42,7 +32,7 @@ BOOL ScrCmd_PlayBgm(struct ScriptContext *ctx) //0050
 BOOL ScrCmd_StopBgm(struct ScriptContext *ctx) //0051
 {
     ScriptReadHalfword(ctx);
-    u32 unk0 = sub_02004124();
+    u16 unk0 = sub_02004124();
     sub_02005350(unk0, 0);
     return FALSE;
 }
@@ -65,7 +55,7 @@ BOOL ScrCmd_FadeOutBgm(struct ScriptContext *ctx) //0054
     u16 unk1 = ScriptReadHalfword(ctx);
     u16 unk2 = ScriptReadHalfword(ctx);
 
-    sub_020053CC(unk1, unk2);
+    GF_SndStartFadeOutBGM(unk1, unk2);
     SetupNativeScript(ctx, sub_02041464);
 
     return TRUE;
@@ -75,7 +65,7 @@ BOOL sub_02041464(struct ScriptContext* ctx)
 {
 #pragma unused(ctx)
 
-    if(!sub_02005404())
+    if(sub_02005404() == 0)
         return TRUE;
     else
         return FALSE;
@@ -142,7 +132,7 @@ BOOL ScrCmd_PlayFanfareWait(struct ScriptContext* ctx) //004B
 
 BOOL sub_02041540(struct ScriptContext* ctx)
 {
-    if(!sub_02005508((u16)ctx->data[0]))
+    if(sub_02005508((u16)ctx->data[0]) == 0)
         return TRUE;
     else
         return FALSE;

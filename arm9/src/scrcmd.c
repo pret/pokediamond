@@ -249,7 +249,7 @@ extern u16 sub_02053678(u32 trainerId, PlayerGender playerGender, u32 param2);
 extern u16 sub_020536D0(PlayerGender playerGender, u16 param1, u16 param2);
 extern void sub_02049EA4(TaskManager *taskManager);
 extern void LocalFieldData_SetBlackoutSpawn(LocalFieldData *localFieldData, u16 spawnPoint);
-extern void CallFieldTask_BlackOut(TaskManager *taskManager);
+extern void CallTask_BlackOut(TaskManager *taskManager);
 extern void HealParty(Party *playerParty);
 extern void sub_02050024(void);
 extern u32 sub_02031810(void);
@@ -3248,7 +3248,7 @@ BOOL ScrCmd_SetPlayerAvatar(ScriptContext *ctx) { //0156
 }
 
 BOOL ScrCmd_DummyBlackOut(ScriptContext *ctx) { //014B
-    CallFieldTask_BlackOut(ctx->taskManager);
+    CallTask_BlackOut(ctx->taskManager);
     return TRUE;
 }
 

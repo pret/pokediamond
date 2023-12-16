@@ -452,7 +452,7 @@ _022399EA: ; jump table
 _022399FA:
 	mov r0, #0
 	mov r1, #1
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
 	str r0, [r4, #0xc]
@@ -39279,9 +39279,9 @@ ov06_0224C888: ; 0x0224C888
 	ldr r1, [r4, #8]
 	cmp r1, #2
 	bne _0224C8B2
-	bl sub_02034DFC
+	bl LocalFieldData_GetBlackoutSpawn
 	add r1, sp, #0
-	bl sub_02034E90
+	bl GetSpecialSpawnWarpData
 	ldr r2, [r4, #8]
 	add r0, r5, #0
 	add r1, sp, #0

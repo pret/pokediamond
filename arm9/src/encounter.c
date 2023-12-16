@@ -27,7 +27,7 @@ extern void sub_02047FA4(BattleSetup *setup, FieldSystem *fieldSystem);
 extern BattleSetup *ov06_02244558(u32 param0, FieldSystem *fieldSystem);
 extern s32 sub_020475A0(BattleSetup *battleSetup);
 extern s32 sub_020475B0(BattleSetup *battleSetup);
-extern BOOL FieldTask_BlackOut(TaskManager *taskManager);
+extern BOOL Task_BlackOut(TaskManager *taskManager);
 extern void sub_0205DD40(u32 param0);
 extern u32 sub_0205E128(u32 param0);
 extern void sub_0205DED4(FieldSystem *fieldSystem, u32 winFlag, u32 param2);
@@ -379,7 +379,7 @@ static BOOL Task_WildEncounter(TaskManager *taskManager) {
             if (IsBattleResultWin(encounter->setup->winFlag) == FALSE) {
                 WildEncounter_Delete(encounter);
                 sub_0205DD40(fieldSystem->unk90);
-                TaskManager_Jump(taskManager, FieldTask_BlackOut, NULL);
+                TaskManager_Jump(taskManager, Task_BlackOut, NULL);
                 return FALSE;
             }
 

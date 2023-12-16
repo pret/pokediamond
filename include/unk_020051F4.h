@@ -13,7 +13,7 @@ u32 sub_02005308(u32 param0, u16 param1);
 void sub_02005350(u16 param0, u32 param1);
 void sub_02005374();
 void sub_0200538C(s32 param0, u16 param1, u32 param2);
-void sub_020053CC(s32 param0, s32 param1);
+void GF_SndStartFadeOutBGM(u16 param0, u16 param1);
 u16 sub_02005404();
 u16 sub_02005410(u16 param0);
 void sub_0200541C();

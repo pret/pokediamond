@@ -212,7 +212,7 @@ _021D768C:
 	strh r1, [r4, r0]
 	mov r0, #0
 	mov r1, #0x3c
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, _021D77AC ; =0x000005F4
 	bl PlaySE
 	mov r0, #4
@@ -254,7 +254,7 @@ _021D76D4:
 	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0
 	mov r1, #0x3c
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	mov r0, #5
 	str r0, [r5]
 	b _021D779C

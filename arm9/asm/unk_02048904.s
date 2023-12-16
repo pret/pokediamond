@@ -2144,7 +2144,7 @@ _020499D0:
 _020499E2:
 	mov r0, #0x0
 	mov r1, #0x1e
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2305,7 +2305,7 @@ _02049B2C:
 	bne _02049BDC
 	mov r0, #0x0
 	mov r1, #0x1e
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

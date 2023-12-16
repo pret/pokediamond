@@ -330,7 +330,7 @@ _02060A4E:
 	bl BeginNormalPaletteFade
 	mov r0, #0x0
 	mov r1, #0x6
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	mov r0, #0x3
 	strb r0, [r4, #0x0]
 	b _02060B00

@@ -102,8 +102,8 @@ LocalFieldData_SetWeatherType: ; 0x02034DF4
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02034DFC
-sub_02034DFC: ; 0x02034DFC
+	thumb_func_start LocalFieldData_GetBlackoutSpawn
+LocalFieldData_GetBlackoutSpawn: ; 0x02034DFC
 	add r0, #0x68
 	ldrh r0, [r0, #0x0]
 	bx lr
