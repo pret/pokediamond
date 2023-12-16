@@ -338,7 +338,7 @@ _0222D8A6:
 	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222D8BC
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _0222D8BC
 	add sp, #0xc

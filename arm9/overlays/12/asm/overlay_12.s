@@ -36965,7 +36965,7 @@ _0223F308:
 	strb r0, [r4, #0x10]
 	pop {r3, r4, r5, pc}
 _0223F318:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _0223F3A0
 	ldrb r0, [r4, #0x10]
@@ -47042,7 +47042,7 @@ _02244132:
 	strb r0, [r4, #0x10]
 	pop {r4, r5, r6, r7, pc}
 _0224415A:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _022441B2
 	mov r0, #6
@@ -47738,7 +47738,7 @@ _0224469E:
 	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _02244700
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _02244700
 	ldr r0, [r4]

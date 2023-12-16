@@ -2735,7 +2735,7 @@ _021D89E2:
 	str r0, [r4]
 	b _021D8C64
 _021D89F2:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	beq _021D89FC
 _021D89FA:

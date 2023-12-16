@@ -65,7 +65,7 @@ BOOL sub_02041464(struct ScriptContext* ctx)
 {
 #pragma unused(ctx)
 
-    if(sub_02005404() == 0)
+    if(GF_SndGetFadeTimer() == 0)
         return TRUE;
     else
         return FALSE;

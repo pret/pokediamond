@@ -326,7 +326,7 @@ _0204C416:
 	str r0, [r4, #0x0]
 	b _0204C458
 _0204C41E:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _0204C458
 	ldr r1, [r6, #0x0]

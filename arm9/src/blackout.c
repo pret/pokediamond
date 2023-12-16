@@ -1,5 +1,6 @@
 #include "blackout.h"
 #include "bg_window.h"
+#include "brightness.h"
 #include "constants/maps.h"
 #include "constants/rgb.h"
 #include "msgdata/msg.naix"
@@ -8,17 +9,30 @@
 #include "gf_gfx_loader.h"
 #include "PAD_pad.h"
 #include "render_window.h"
+#include "save_local_field_data.h"
+#include "script.h" //TODO: temp include, remove when structs are split
 #include "text.h"
+#include "unk_020051F4.h"
+#include "unk_0204AF24.h"
 
 static void Blackout_InitDisplays(BgConfig *bgConfig);
-/*static*/ void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager);
+static void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager);
 static BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager);
 static void Blackout_PrintMessage(BlackoutScreenEnvironment *environment, s32 msgNo, u8 x, u8 y);
 
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
 extern BOOL IsPaletteFadeFinished(void);
-
 extern SaveData *FieldSystem_GetSaveData(FieldSystem *fieldSystem);
+extern LocalFieldData *Save_LocalFieldData_Get(SaveData *save);
+extern u16 LocalFieldData_GetBlackoutSpawn(LocalFieldData *localFieldData);
+extern void GetDeathWarpData(u16 spawnId, Location *dest);
+extern void GetSpecialSpawnWarpData(u16 spawnId, Location *dest);
+extern Location *LocalFieldData_GetSpecialSpawnWarpPtr(LocalFieldData *localFieldData);
+extern void sub_02049160(TaskManager *taskManager, Location *location);
+extern void FieldSystem_ClearFollowingTrainer(FieldSystem *fieldSystem);
+extern void QueueScript(TaskManager *taskManager, u16 script, LocalMapObject *lastInteracted, void *param3);
+extern void sub_0204AB0C(void);
+extern u16 GetMomSpawnId(void);
 
 static const struct GraphicsBanks Blackout_GraphicsBanks = {
     .bg = GX_VRAM_BG_128_B,
@@ -73,7 +87,7 @@ static void Blackout_InitDisplays(BgConfig *bgConfig) {
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_13_OFFSET, 0x20, HEAP_ID_FIELD);
 }
 
-/*static*/ void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager) {
+static void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager) {
     BlackoutScreenEnvironment *env = AllocFromHeap(HEAP_ID_FIELD, sizeof(BlackoutScreenEnvironment));
 
     GF_ASSERT(env != NULL);
@@ -155,4 +169,61 @@ static void Blackout_PrintMessage(BlackoutScreenEnvironment *environment, s32 ms
 
     String_Delete(tmpStr);
     String_Delete(finStr);
+}
+
+BOOL Task_BlackOut(TaskManager *taskManager) {
+    FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
+    u32 *state = TaskManager_GetStatePtr(taskManager);
+    LocalFieldData *localFieldData;
+    Location deathWarp;
+    u16 deathSpawn;
+
+    switch (*state) {
+        case 0:
+            localFieldData = Save_LocalFieldData_Get(fieldSystem->saveData);
+            deathSpawn = LocalFieldData_GetBlackoutSpawn(localFieldData);
+            GetDeathWarpData(deathSpawn, &deathWarp);
+            GetSpecialSpawnWarpData(deathSpawn, LocalFieldData_GetSpecialSpawnWarpPtr(localFieldData));
+            sub_02049160(taskManager, &deathWarp);
+            FieldSystem_ClearFollowingTrainer(fieldSystem);
+            (*state)++;
+            break;
+        case 1:
+            GF_SndStartFadeOutBGM(0, 20);
+            (*state)++;
+            break;
+        case 2:
+            if (GF_SndGetFadeTimer() == 0) {
+                sub_0204AB0C();
+                (*state)++;
+            }
+            break;
+        case 3:
+            SetBlendBrightness(-16, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BD | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG0), SCREEN_MASK_MAIN);
+            SetBlendBrightness(-16, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BD | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG0), SCREEN_MASK_SUB);
+            Blackout_DrawMessage(fieldSystem, taskManager);
+            (*state)++;
+            break;
+        case 4:
+            CallTask_RestoreOverworld(taskManager);
+            (*state)++;
+            break;
+        case 5:
+            SetBlendBrightness(0, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BD | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG0), SCREEN_MASK_MAIN | SCREEN_MASK_SUB);
+            if (GetMomSpawnId() == LocalFieldData_GetBlackoutSpawn(Save_LocalFieldData_Get(fieldSystem->saveData))) {
+                QueueScript(taskManager, 0x7E4, NULL, NULL);
+            } else {
+                QueueScript(taskManager, 0x7E5, NULL, NULL);
+            }
+            (*state)++;
+            break;
+        case 6:
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+void CallTask_BlackOut(TaskManager *taskManager) {
+    TaskManager_Call(taskManager, Task_BlackOut, NULL);
 }

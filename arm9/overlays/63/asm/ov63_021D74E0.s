@@ -268,7 +268,7 @@ _021D76FA:
 	ldr r2, [r4]
 	add r0, #0xb4
 	bl ov63_021D8260
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _021D779C
 	ldr r0, _021D77A8 ; =0x00000495
@@ -298,7 +298,7 @@ _021D773C:
 	ldr r2, [r4]
 	add r0, #0xb4
 	bl ov63_021D8260
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _021D779C
 	ldr r0, _021D77A8 ; =0x00000495

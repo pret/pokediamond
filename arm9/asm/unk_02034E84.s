@@ -81,8 +81,8 @@ _02034E88:
 	sub r0, r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start sub_02034E8C
-sub_02034E8C: ; 0x02034E8C
+	thumb_func_start GetMomSpawnId
+GetMomSpawnId: ; 0x02034E8C
 	mov r0, #0x1
 	bx lr
 

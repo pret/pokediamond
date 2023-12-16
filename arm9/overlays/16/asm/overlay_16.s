@@ -41019,7 +41019,7 @@ _021EA42E:
 _021EA438:
 	cmp r0, #1
 	bne _021EA458
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _021EA458
 	mov r0, #1

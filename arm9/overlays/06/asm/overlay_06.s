@@ -458,7 +458,7 @@ _022399FA:
 	str r0, [r4, #0xc]
 	b _02239AA4
 _02239A0A:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _02239AA4
 	ldr r0, [r4, #0xc]
@@ -517,7 +517,7 @@ _02239A72:
 	str r0, [r4, #0xc]
 	b _02239AA4
 _02239A84:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _02239AA4
 	ldr r0, [r4, #0xc]

@@ -1341,7 +1341,7 @@ void sub_0200516C(u32 param0)
 
 void sub_020051AC(void)
 {
-    if (sub_02005404() == 0 && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
+    if (GF_SndGetFadeTimer() == 0 && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
         sub_02004124() != 0x47e)
     {
 

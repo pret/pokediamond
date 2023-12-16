@@ -187,8 +187,7 @@ Static arm9
 	Object encounter.o
 	Object unk_02047500.o
 	Object unk_020476CC.o
-	Object blackout_src.o
-	Object blackout_asm.o
+	Object blackout.o
 	Object unk_020484A8.o
 	Object unk_02048904.o
 	Object script_pokemon_util.o

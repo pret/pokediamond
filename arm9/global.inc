@@ -345,7 +345,7 @@
 .extern sub_02005350
 .extern sub_0200538C
 .extern GF_SndStartFadeOutBGM
-.extern sub_02005404
+.extern GF_SndGetFadeTimer
 .extern sub_02005410
 .extern sub_0200541C
 .extern sub_02005454
@@ -2568,7 +2568,7 @@
 .extern Save_LocalFieldData_Get
 .extern sub_02034E48
 .extern sub_02034E60
-.extern sub_02034E8C
+.extern GetMomSpawnId
 .extern GetSpecialSpawnWarpData
 .extern GetDeathWarpData
 .extern sub_02034EF8
@@ -4685,7 +4685,7 @@
 .extern sub_020637A8
 .extern sub_020637C4
 .extern sub_020637E0
-.extern sub_020637F0
+.extern FieldSystem_ClearFollowingTrainer
 .extern sub_02063808
 .extern sub_02063888
 .extern sub_020638BC

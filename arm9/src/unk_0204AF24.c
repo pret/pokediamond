@@ -38,7 +38,7 @@ BOOL sub_0204AF6C(struct TaskManager *taskManager)
     return FALSE;
 }
 
-void CallTask_RestoreOverworld(struct TaskManager *taskManager) //TODO: RestoreOverworld
+void CallTask_RestoreOverworld(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     if(sub_0203739C(fieldSystem))
