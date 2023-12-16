@@ -2949,7 +2949,7 @@
 .extern ScrCmd_Unk0155
 .extern ScrCmd_Unk029C
 .extern ScrCmd_SetPlayerAvatar
-.extern ScrCmd_DummyBlackOut
+.extern ScrCmd_DummyBlackout
 .extern ScrCmd_SetSpawn
 .extern ScrCmd_GetPlayerGender
 .extern ScrCmd_HealParty
@@ -3474,8 +3474,8 @@
 .extern sub_020480C8
 .extern sub_020480D8
 .extern sub_020480E4
-.extern Task_BlackOut
-.extern CallTask_BlackOut
+.extern Task_Blackout
+.extern CallTask_Blackout
 .extern CallTask_GameClear
 .extern sub_020489DC
 .extern sub_020489FC

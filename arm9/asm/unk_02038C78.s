@@ -480,7 +480,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_SpecialMart
 	.word ScrCmd_GoodsMart
 	.word ScrCmd_SealsMart
-	.word ScrCmd_DummyBlackOut
+	.word ScrCmd_DummyBlackout
 	.word ScrCmd_SetSpawn
 	.word ScrCmd_GetPlayerGender
 	.word ScrCmd_HealParty

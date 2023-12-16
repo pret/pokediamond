@@ -285,7 +285,7 @@ BOOL ScrCmd_Unk0154(ScriptContext *ctx);
 BOOL ScrCmd_Unk0155(ScriptContext *ctx);
 BOOL ScrCmd_Unk029C(ScriptContext *ctx);
 BOOL ScrCmd_SetPlayerAvatar(ScriptContext *ctx);
-BOOL ScrCmd_DummyBlackOut(ScriptContext *ctx);
+BOOL ScrCmd_DummyBlackout(ScriptContext *ctx);
 BOOL ScrCmd_SetSpawn(ScriptContext *ctx);
 BOOL ScrCmd_GetPlayerGender(ScriptContext *ctx);
 BOOL ScrCmd_HealParty(ScriptContext *ctx);

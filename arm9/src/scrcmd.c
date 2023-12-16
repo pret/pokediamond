@@ -3247,8 +3247,8 @@ BOOL ScrCmd_SetPlayerAvatar(ScriptContext *ctx) { //0156
     return FALSE;
 }
 
-BOOL ScrCmd_DummyBlackOut(ScriptContext *ctx) { //014B
-    CallTask_BlackOut(ctx->taskManager);
+BOOL ScrCmd_DummyBlackout(ScriptContext *ctx) { //014B
+    CallTask_Blackout(ctx->taskManager);
     return TRUE;
 }
 
