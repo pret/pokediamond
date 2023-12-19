@@ -173,7 +173,7 @@ void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotO
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0007_NCLR, location, palSlotOffset, 0x20, heapId);
 }
 
-s32 sub_02002F08(u32 param0, struct String *str, u32 param2)
+u32 FontID_String_GetWidthMultiline(u32 param0, struct String *str, u32 param2)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 

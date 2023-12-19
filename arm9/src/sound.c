@@ -3,6 +3,7 @@
 #include "SPI_mic.h"
 #include "SPI_pm.h"
 #include "unk_020040F4.h"
+#include "unk_020051F4.h"
 #include "sound_chatot.h"
 
 static struct SoundData sSoundDataBuffer;
@@ -16,10 +17,6 @@ void GF_SoundDataInit(struct SoundData *);
 void sub_02004088(struct SoundData *);
 void sub_020040A4(struct SoundData *);
 void sub_020040DC(void);
-
-extern void sub_0200521C(int);
-extern void sub_0200538C(int, int, int);
-extern BOOL sub_02005404(void);
 
 void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options)
 {
@@ -59,26 +56,26 @@ void sub_02003C40(void)
         sub_02003CE8(2);
         break;
     case 3:
-        if (!sub_02005404())
+        if (GF_SndGetFadeTimer() == 0)
             sub_02003CE8(2);
         break;
     case 4:
-        if (!sub_02005404())
+        if (GF_SndGetFadeTimer() == 0)
             sub_02003CE8(2);
         break;
     case 5:
-        if (!sub_02005404() && !sub_02004D94())
+        if (GF_SndGetFadeTimer() == 0 && !sub_02004D94())
         {
             sub_020040DC();
             sub_0200521C(sdat->unk_BCD0E);
         }
         break;
     case 6:
-        if (!sub_02005404() && !sub_02004D94())
+        if (GF_SndGetFadeTimer() == 0 && !sub_02004D94())
         {
             sub_020040DC();
             sub_0200521C(sdat->unk_BCD0E);
-            sub_0200538C(0x7F, (int)sdat->unk_BCD08, 0);
+            sub_0200538C(0x7F, sdat->unk_BCD08, 0);
         }
         break;
     }

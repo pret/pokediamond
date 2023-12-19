@@ -10495,8 +10495,8 @@ _021DC79C:
 	mov r5, #1
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -12835,7 +12835,7 @@ ov14_021DDA38: ; 0x021DDA38
 	add r5, r0, #0
 	ldr r0, _021DDB20 ; =ov14_021E63A4
 	add r4, r1, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _021DDB24 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -13061,10 +13061,10 @@ _021DDBF2:
 _021DDC48:
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	bl GX_DispOn
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
@@ -13083,7 +13083,7 @@ ov14_021DDC78: ; 0x021DDC78
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021DDCDC ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]

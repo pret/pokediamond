@@ -1314,7 +1314,7 @@ _021D8AEC: ; jump table
 _021D8AF4:
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r1, #0
 	mov r0, #3
 	add r2, r1, #0
@@ -1362,7 +1362,7 @@ _021D8B4E:
 	beq _021D8B66
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, pc}
@@ -1611,10 +1611,10 @@ _021D8D24: ; jump table
 _021D8D2C:
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r1, #0
 	mov r0, #3
 	add r2, r1, #0
@@ -1692,10 +1692,10 @@ _021D8DC8:
 	beq _021D8DE6
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8DE6:
@@ -2473,7 +2473,7 @@ _021D93F4: ; jump table
 _021D93FC:
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r1, #0
 	mov r0, #3
 	add r2, r1, #0
@@ -2521,7 +2521,7 @@ _021D9456:
 	beq _021D946E
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, pc}
@@ -3346,7 +3346,7 @@ _021D9AB4: ; jump table
 _021D9ABC:
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r1, #0
 	mov r0, #3
 	add r2, r1, #0
@@ -3394,7 +3394,7 @@ _021D9B16:
 	beq _021D9B2E
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, pc}
@@ -3989,7 +3989,7 @@ _021D9FBE:
 	beq _021DA068
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0x10]
 	mov r1, #0
 	bl sub_020200A0

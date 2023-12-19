@@ -16,7 +16,7 @@ _021D889A:
 	sub r2, r2, #1
 	bne _021D889A
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -36,7 +36,7 @@ _021D88BA:
 	sub r2, r2, #1
 	bne _021D88BA
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -56,7 +56,7 @@ _021D88DA:
 	sub r2, r2, #1
 	bne _021D88DA
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -578,8 +578,8 @@ ov63_021D8D10: ; 0x021D8D10
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetHBlankIntrCB
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r0, #4
 	mov r1, #8
 	bl SetKeyRepeatTimers
@@ -606,7 +606,7 @@ ov63_021D8D10: ; 0x021D8D10
 	strb r1, [r4, r0]
 	ldr r0, _021D8D94 ; =gSystem + 0x60
 	strb r1, [r0, #5]
-	bl GX_SwapDisplay
+	bl GfGfx_SwapDisplay
 	bl GetLCRNGSeed
 	str r0, [r4, #0x14]
 	mov r0, #0
@@ -985,10 +985,10 @@ ov63_021D8F38: ; 0x021D8F38
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x10
 	str r0, [sp]
 	ldr r0, _021D90C8 ; =0x04000050
@@ -1010,7 +1010,7 @@ ov63_021D8F38: ; 0x021D8F38
 	bl SetMasterBrightnessNeutral
 	mov r0, #1
 	bl SetMasterBrightnessNeutral
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	add sp, #0x10
 	pop {r4, pc}
 	nop
@@ -1089,10 +1089,10 @@ _021D9148:
 	blt _021D9208
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x10
 	str r0, [sp]
 	ldr r0, _021D9220 ; =0x04000050
@@ -1109,10 +1109,10 @@ _021D9148:
 	bl G2x_SetBlendAlpha_
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r2, #0
 	strb r2, [r4, #7]
 	strb r2, [r4, #6]
@@ -1546,7 +1546,7 @@ ov63_021D9498: ; 0x021D9498
 	str r0, [r5, #0x40]
 	ldr r0, _021D9588 ; =gSystem + 0x60
 	strb r1, [r0, #5]
-	bl GX_SwapDisplay
+	bl GfGfx_SwapDisplay
 	ldr r6, _021D958C ; =ov63_021DBDE8
 	ldr r7, _021D9590 ; =ov63_021DBAD0
 	mov r4, #0
@@ -1886,10 +1886,10 @@ _021D96F8:
 	bl ov63_021DABCC
 	mov r0, #0xe
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0
 	bl SetMasterBrightnessNeutral
 	mov r0, #1
@@ -2171,7 +2171,7 @@ _021D9A42:
 	blt _021D9B0C
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #8
@@ -2197,14 +2197,14 @@ _021D9A7A:
 	bne _021D9A88
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 _021D9A88:
 	ldr r0, _021D9DD0 ; =0x000003C5
 	cmp r5, r0
 	blt _021D9B0C
 	mov r0, #7
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x12
 	str r0, [sp]
 	mov r1, #1
@@ -2319,13 +2319,13 @@ _021D9B72:
 	bl G2x_SetBlendAlpha_
 	mov r0, #6
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #8
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r1, #0
 	ldr r0, [r4, #0x10]
 	add r2, r1, #0
@@ -2526,7 +2526,7 @@ _021D9D48:
 	bl ov63_021DAD18
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0x10]
 	mov r1, #0
 	mov r2, #1
@@ -2610,7 +2610,7 @@ _021D9DF8:
 	bl ov63_021D9EA8
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #4
 	str r0, [sp]
 	mov r1, #1
@@ -3172,13 +3172,13 @@ _021DA192:
 	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xe
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r0, [r4, #0xc]
 	mov r1, #3
 	mov r2, #1
@@ -3532,11 +3532,11 @@ ov63_021DA588: ; 0x021DA588
 	strb r2, [r0, #3]
 	mov r2, #0
 	strb r2, [r0, #1]
-	ldr r3, _021DA59C ; =GX_EngineAToggleLayers
+	ldr r3, _021DA59C ; =GfGfx_EngineATogglePlanes
 	add r0, r1, #0
 	bx r3
 	nop
-_021DA59C: .word GX_EngineAToggleLayers
+_021DA59C: .word GfGfx_EngineATogglePlanes
 	thumb_func_end ov63_021DA588
 
 	thumb_func_start ov63_021DA5A0
@@ -3610,7 +3610,7 @@ _021DA618:
 	blo _021DA630
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 _021DA630:
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}

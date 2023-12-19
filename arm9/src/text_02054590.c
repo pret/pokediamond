@@ -12,8 +12,8 @@ void sub_02054590(enum GFPalLoadLocation location, u32 param1)
     {
         ResetAllTextPrinters();
     }
-    LoadFontPal0(location, GF_PAL_SLOT_OFFSET_13, HEAP_ID_4);
-    LoadFontPal1(location, GF_PAL_SLOT_OFFSET_12, HEAP_ID_4);
+    LoadFontPal0(location, GF_PAL_SLOT_13_OFFSET, HEAP_ID_4);
+    LoadFontPal1(location, GF_PAL_SLOT_12_OFFSET, HEAP_ID_4);
 }
 
 void sub_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2)

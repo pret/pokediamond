@@ -30,7 +30,7 @@ void ov19_02252440(struct BgConfig * bgConfig)
     InitBgFromTemplate(bgConfig, GF_BG_LYR_SUB_0, &ov19_02252508, GF_BG_TYPE_TEXT);
     GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0010_NCGR_lz, bgConfig, GF_BG_LYR_SUB_0, 0, 0, TRUE, HEAP_ID_8);
     GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0011_NSCR_lz, bgConfig, GF_BG_LYR_SUB_0, 0, 0, TRUE, HEAP_ID_8);
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0012_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_OFFSET_0, 0x20, HEAP_ID_8);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0012_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0x20, HEAP_ID_8);
     GXS_SetVisibleWnd(GX_WNDMASK_NONE);
     GXS_SetVisiblePlane(GX_PLANEMASK_BG0);
 }

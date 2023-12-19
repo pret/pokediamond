@@ -22,8 +22,8 @@ _021D74F6:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -462,7 +462,7 @@ _021D78DA:
 	sub r2, r2, #1
 	bne _021D78DA
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -1289,10 +1289,10 @@ _021D7F74:
 	blt _021D7F74
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x64
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

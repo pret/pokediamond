@@ -1467,7 +1467,7 @@ _0223A194:
 	sub r2, r2, #1
 	bne _0223A194
 	add r0, sp, #0x80
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r5, _0223A2A8 ; =0x02250000
 	add r3, sp, #0x70
 	add r2, r3, #0
@@ -1733,16 +1733,16 @@ ov18_0223A3D4: ; 0x0223A3D4
 	bl ov18_022396A0
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #8
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r2, #5
 	mov r0, #3
 	mov r1, #0x1d
@@ -2128,16 +2128,16 @@ _0223A73A:
 	bl BeginNormalPaletteFade
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #8
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -6124,10 +6124,10 @@ _0223C634:
 	blt _0223C57A
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x64
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14393,7 +14393,7 @@ _022404A4:
 	bl SetBgPriority
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	bl sub_0204F774
 	ldr r0, _022404EC ; =0x022513A0
@@ -14652,7 +14652,7 @@ _02240672: ; jump table
 _0224068C:
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	bl ov18_022400A0
 	str r0, [r4, #4]
 	ldr r0, [r4]
@@ -14793,7 +14793,7 @@ _0224079E:
 	bl StartBrightnessTransition
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #7
 	str r0, [r4]
 	bl ov18_0223D638
@@ -17110,10 +17110,10 @@ _0224195E:
 _022419BE:
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -18293,10 +18293,10 @@ _0224227A:
 _02242308:
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x60
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -18857,10 +18857,10 @@ _02242704:
 	blt _02242704
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -20398,10 +20398,10 @@ ov18_022432B4: ; 0x022432B4
 	bl sub_02020238
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x5c
 	pop {pc}
 	nop
@@ -21585,10 +21585,10 @@ _02243CBE:
 	blt _02243C60
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -22580,7 +22580,7 @@ _02244460:
 	blt _02244460
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r0, [r4]
 	add sp, #0x60
 	add r0, r0, #1
@@ -22594,16 +22594,16 @@ _022444A4:
 _022444AC:
 	mov r0, #8
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #4
 	mov r1, #0
 	bl BG_SetMaskColor
@@ -23101,7 +23101,7 @@ ov18_0224486C: ; 0x0224486C
 	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r6, _02244990 ; =0x02250498
 	add r3, sp, #0x2c
 	ldmia r6!, {r0, r1}
@@ -23119,7 +23119,7 @@ ov18_0224486C: ; 0x0224486C
 	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r6, _02244994 ; =0x0225047C
 	add r3, sp, #0x10
 	ldmia r6!, {r0, r1}
@@ -23137,7 +23137,7 @@ ov18_0224486C: ; 0x0224486C
 	bl InitBgFromTemplate
 	mov r0, #8
 	mov r1, #0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r5, #0
 	mov r1, #7
 	bl BgClearTilemapBufferAndCommit
@@ -32427,7 +32427,7 @@ _02249184:
 	str r2, [r0, r1]
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #0xb4
 	pop {r4, r5, r6, r7, pc}
 	nop

@@ -338,10 +338,10 @@ _021DB040:
 	bl sub_02009CF0
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

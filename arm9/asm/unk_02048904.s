@@ -949,7 +949,7 @@ _02049080:
 	str r0, [r4, #0x0]
 	b _020490B6
 _02049090:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _020490B6
 	ldr r1, [r4, #0x4]
@@ -1142,7 +1142,7 @@ _02049206:
 	str r0, [r4, #0x0]
 	b _0204923C
 _02049216:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _0204923C
 	ldr r1, [r4, #0x4]
@@ -1309,7 +1309,7 @@ _0204934A:
 	str r0, [r4, #0x0]
 	b _02049390
 _02049364:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _02049390
 	ldr r1, [r5, #0x0]
@@ -1542,7 +1542,7 @@ _02049512:
 	str r0, [r4, #0x0]
 	b _02049570
 _0204952C:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _02049570
 	ldr r1, [r6, #0x0]
@@ -1756,7 +1756,7 @@ _020496BC:
 	str r0, [r4, #0x0]
 	b _02049712
 _020496CC:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _02049712
 	ldr r1, [r5, #0x0]
@@ -2144,7 +2144,7 @@ _020499D0:
 _020499E2:
 	mov r0, #0x0
 	mov r1, #0x1e
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2188,7 +2188,7 @@ _02049A14:
 	str r0, [r4, #0x0]
 	b _02049AB2
 _02049A42:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _02049AB2
 	mov r0, #0x0
@@ -2305,7 +2305,7 @@ _02049B2C:
 	bne _02049BDC
 	mov r0, #0x0
 	mov r1, #0x1e
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2346,7 +2346,7 @@ _02049B76:
 	str r0, [r4, #0x0]
 	b _02049BDC
 _02049B9C:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _02049BDC
 	mov r0, #0x0
@@ -2825,7 +2825,7 @@ _02049F58:
 	str r0, [r4, #0x0]
 	b _02049F8E
 _02049F68:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0x0
 	bne _02049F8E
 	ldr r1, [r4, #0x4]

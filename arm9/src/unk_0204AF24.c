@@ -1,4 +1,5 @@
 #include "global.h"
+#include "constants/rgb.h"
 #include "gx.h"
 #include "unk_0204AF24.h"
 
@@ -37,7 +38,7 @@ BOOL sub_0204AF6C(struct TaskManager *taskManager)
     return FALSE;
 }
 
-void CallTask_RestoreOverworld(struct TaskManager *taskManager) //TODO: RestoreOverworld
+void CallTask_RestoreOverworld(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     if(sub_0203739C(fieldSystem))
@@ -66,7 +67,7 @@ void CallTask_FadeToBlack(struct TaskManager *taskManager)
         GF_ASSERT(0);
         return;
     }
-    BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, HEAP_ID_4); //TODO: find constants for palette fade
+    BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, HEAP_ID_4); //TODO: find constants for palette fade
     TaskManager_Call(taskManager, Task_ProcessFade, 0);
 }
 
@@ -77,7 +78,7 @@ void CallTask_FadeFromBlack(struct TaskManager *taskManager)
         GF_ASSERT(0);
         return;
     }
-    BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, HEAP_ID_4);
+    BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, HEAP_ID_4);
     TaskManager_Call(taskManager, Task_ProcessFade, 0);
 }
 

@@ -414,7 +414,7 @@ ov17_021D7794: ; 0x021D7794
 	ldr r0, _021D77B0 ; =gSystem + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
-	bl GX_SwapDisplay
+	bl GfGfx_SwapDisplay
 	pop {r3, pc}
 	nop
 _021D77B0: .word gSystem + 0x60
@@ -426,7 +426,7 @@ ov17_021D77B4: ; 0x021D77B4
 	ldr r0, _021D77D0 ; =gSystem + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
-	bl GX_SwapDisplay
+	bl GfGfx_SwapDisplay
 	bl ov17_021D7E0C
 	bl ov17_021D7E00
 	bl GX_ResetBankForTex
@@ -1163,7 +1163,7 @@ _021D7D12:
 	sub r2, r2, #1
 	bne _021D7D12
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -1177,7 +1177,7 @@ ov17_021D7D28: ; 0x021D7D28
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021D7D9C ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -1254,14 +1254,14 @@ ov17_021D7DB0: ; 0x021D7DB0
 	orr r0, r1
 	str r0, [r2]
 	bl NNS_G2dInitOamManagerModule
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r0, #0x1f
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x13
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -1280,8 +1280,8 @@ ov17_021D7E00: ; 0x021D7E00
 	thumb_func_start ov17_021D7E0C
 ov17_021D7E0C: ; 0x021D7E0C
 	push {r3, lr}
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	bl NNS_G2dInitOamManagerModule
 	pop {r3, pc}
 	thumb_func_end ov17_021D7E0C
@@ -2729,13 +2729,13 @@ _021D89B8: ; jump table
 _021D89E2:
 	mov r0, #0x2a
 	mov r1, #0x1e
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D8C64
 _021D89F2:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	beq _021D89FC
 _021D89FA:
@@ -4497,19 +4497,19 @@ ov17_021D9778: ; 0x021D9778
 	bic r2, r3
 	strh r2, [r1, #6]
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #8
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0
 	bl SetMasterBrightnessNeutral
 	pop {r4, pc}
@@ -4535,16 +4535,16 @@ ov17_021D9800: ; 0x021D9800
 	bl sub_0201FD98
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	pop {r4, pc}
 	thumb_func_end ov17_021D9800
 
@@ -13824,7 +13824,7 @@ _021DDBBC:
 	ldr r0, _021DDC2C ; =gSystem + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
-	bl GX_SwapDisplay
+	bl GfGfx_SwapDisplay
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0xe

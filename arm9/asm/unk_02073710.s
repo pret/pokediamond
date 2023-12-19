@@ -129,10 +129,10 @@ sub_02073710: ; 0x02073710
 	add r4, r0, #0x0
 	mov r0, #0x10
 	mov r1, #0x1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #0x1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x20
 	mov r1, #0xc
 	bl sub_0201C24C

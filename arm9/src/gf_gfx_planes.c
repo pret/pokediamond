@@ -1,15 +1,15 @@
 #include "global.h"
-#include "GX_layers.h"
+#include "gf_gfx_planes.h"
 #include "GX_vramcnt.h"
 #include "gx.h"
 #include "main.h"
 
-/* TODO: rename - name implies that this is part of the SDK, when it is a GF custom */
+/* TODO: cleanup this file, it changed a lot in HG, so needs to be reflected here */
 
-static u32 EngineA_DISPCNT_LayerMask;
-static u32 EngineB_DISPCNT_LayerMask;
+static u32 sEngineAPlanes;
+static u32 sEngineBPlanes;
 
-void GX_SetBanks(const struct GraphicsBanks *banks)
+void GfGfx_SetBanks(const struct GraphicsBanks *banks)
 {
     GX_ResetBankForBG();
     GX_ResetBankForBGExtPltt();
@@ -35,69 +35,69 @@ void GX_SetBanks(const struct GraphicsBanks *banks)
 }
 
 
-void GX_DisableEngineALayers()
+void GfGfx_DisableEngineAPlanes()
 {
-    EngineA_DISPCNT_LayerMask = 0;
+    sEngineAPlanes = 0;
 }
 
-void GX_EngineAToggleLayers(u32 layer_mask, GXLayerToggle layer_toggle)
+void GfGfx_EngineATogglePlanes(u32 layer_mask, GXPlaneToggle layer_toggle)
 {
-    if (layer_toggle == GX_LAYER_TOGGLE_ON)
+    if (layer_toggle == GX_PLANE_TOGGLE_ON)
     {
-        if ((EngineA_DISPCNT_LayerMask & layer_mask) != 0)
+        if ((sEngineAPlanes & layer_mask) != 0)
         {
             return;
         }
     }
     else
     {
-        if ((EngineA_DISPCNT_LayerMask & layer_mask) == 0)
+        if ((sEngineAPlanes & layer_mask) == 0)
         {
             return;
         }
     }
 
-    GX_SetVisiblePlane(EngineA_DISPCNT_LayerMask ^= layer_mask);
+    GX_SetVisiblePlane(sEngineAPlanes ^= layer_mask);
 }
 
-void GX_SetEngineALayers(u32 layer_mask)
+void GfGfx_EngineASetPlanes(u32 layer_mask)
 {
-    EngineA_DISPCNT_LayerMask = layer_mask;
+    sEngineAPlanes = layer_mask;
     GX_SetVisiblePlane(layer_mask);
 }
 
-void GX_DisableEngineBLayers()
+void GfGfx_DisableEngineBPlanes()
 {
-    EngineB_DISPCNT_LayerMask = 0;
+    sEngineBPlanes = 0;
 }
 
-void GX_EngineBToggleLayers(u32 layer_mask, GXLayerToggle layer_toggle)
+void GfGfx_EngineBTogglePlanes(u32 layer_mask, GXPlaneToggle layer_toggle)
 {
-    if (layer_toggle == GX_LAYER_TOGGLE_ON)
+    if (layer_toggle == GX_PLANE_TOGGLE_ON)
     {
-        if ((EngineB_DISPCNT_LayerMask & layer_mask) != 0)
+        if ((sEngineBPlanes & layer_mask) != 0)
         {
             return;
         }
     }
     else
     {
-        if ((EngineB_DISPCNT_LayerMask & layer_mask) == 0)
+        if ((sEngineBPlanes & layer_mask) == 0)
         {
             return;
         }
     }
 
-    GXS_SetVisiblePlane(EngineB_DISPCNT_LayerMask ^= layer_mask);
+    GXS_SetVisiblePlane(sEngineBPlanes ^= layer_mask);
 }
 
-void GX_BothDispOn()
+void GfGfx_BothDispOn()
 {
     GX_DispOn();
     GXS_DispOn();
 }
 
-void GX_SwapDisplay()
+void GfGfx_SwapDisplay()
 {
     if (gSystem.screensFlipped == 0)
     {
@@ -109,7 +109,7 @@ void GX_SwapDisplay()
     }
 }
 
-u32 GX_GetEngineALayers()
+u32 GfGfx_EngineAGetPlanes()
 {
-    return EngineA_DISPCNT_LayerMask;
+    return sEngineAPlanes;
 }

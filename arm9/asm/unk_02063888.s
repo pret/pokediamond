@@ -81,7 +81,7 @@ _020638F8:
 _02063920:
 	add r0, r6, #0x0
 	add r1, sp, #0x8
-	bl sub_02034E90
+	bl GetSpecialSpawnWarpData
 	ldr r0, [sp, #0x14]
 	mov r2, #0x1
 	str r0, [sp, #0x0]

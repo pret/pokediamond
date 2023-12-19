@@ -49,7 +49,7 @@ ov11_0222F29C: ; 0x0222F29C
 	str r0, [r5, #8]
 	add r0, r5, #0
 	bl sub_0206BFF0
-	bl GX_DisableEngineALayers
+	bl GfGfx_DisableEngineAPlanes
 	ldr r6, _0222F4C8 ; =ov11_0225DA40
 	add r3, sp, #0x40
 	mov r2, #5
@@ -59,7 +59,7 @@ _0222F30E:
 	sub r2, r2, #1
 	bne _0222F30E
 	add r0, sp, #0x40
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	mov r1, #6
 	mov r2, #2
 	mov r0, #0
@@ -165,10 +165,10 @@ _0222F30E:
 	add r2, r1, #0
 	add r3, r1, #0
 	bl PaletteData_FillPalette
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -813,7 +813,7 @@ ov11_0222F93C: ; 0x0222F93C
 	bl WindowArray_Delete
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #4]
 	mov r1, #1
 	bl FreeBgTilemapBuffer

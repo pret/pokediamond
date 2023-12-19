@@ -145,7 +145,7 @@ sub_0207EF6C: ; 0x0207EF6C
 	str r0, [r1, #0x40]
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _0207F004 ; =0x04000008
 	mov r0, #0x3
 	ldrh r2, [r1, #0x0]

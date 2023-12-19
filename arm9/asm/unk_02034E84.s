@@ -81,13 +81,13 @@ _02034E88:
 	sub r0, r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start sub_02034E8C
-sub_02034E8C: ; 0x02034E8C
+	thumb_func_start GetMomSpawnId
+GetMomSpawnId: ; 0x02034E8C
 	mov r0, #0x1
 	bx lr
 
-	thumb_func_start sub_02034E90
-sub_02034E90: ; 0x02034E90
+	thumb_func_start GetSpecialSpawnWarpData
+GetSpecialSpawnWarpData: ; 0x02034E90
 	push {r4, lr}
 	add r4, r1, #0x0
 	bl sub_02034E78
@@ -112,8 +112,8 @@ _02034EB8: .word UNK_020F2224 + 6
 _02034EBC: .word UNK_020F2224 + 8
 _02034EC0: .word UNK_020F2224 + 10
 
-	thumb_func_start sub_02034EC4
-sub_02034EC4: ; 0x02034EC4
+	thumb_func_start GetDeathWarpData
+GetDeathWarpData: ; 0x02034EC4
 	push {r4, lr}
 	add r4, r1, #0x0
 	bl sub_02034E78

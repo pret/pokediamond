@@ -1984,7 +1984,7 @@ _021D840E:
 	sub r2, r2, #1
 	bne _021D840E
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -2207,10 +2207,10 @@ ov16_021D8534: ; 0x021D8534
 	str r0, [r5, r1]
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x4f
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -3372,7 +3372,7 @@ ov16_021D8DC0: ; 0x021D8DC0
 	bl SetBgPriority
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r6, _021D8F1C ; =0x021FF4D8
 	add r3, sp, #0x54
 	ldmia r6!, {r0, r1}
@@ -17091,7 +17091,7 @@ _021DF394:
 	mov r0, #0
 	add r1, r6, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xd0
 	sub r0, r1, r0
 	lsr r4, r0, #1
@@ -17143,7 +17143,7 @@ ov16_021DF3E4: ; 0x021DF3E4
 	mov r0, #0
 	add r1, r6, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xd0
 	sub r0, r1, r0
 	lsr r5, r0, #1
@@ -25839,7 +25839,7 @@ _021E3288:
 _021E329E:
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E32D0 ; =0x00000804
 	ldr r0, [r5, r0]
 	bl FreeToHeap
@@ -27619,7 +27619,7 @@ ov16_021E4094: ; 0x021E4094
 	add r0, r0, #4
 	str r1, [r6, r0]
 	mov r0, #2
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r6, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -27658,7 +27658,7 @@ ov16_021E40D4: ; 0x021E40D4
 	bl G2x_SetBlendAlpha_
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r6, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -27725,7 +27725,7 @@ _021E4158:
 _021E4162:
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x81
 	add r1, r4, #0
 	lsl r0, r0, #4
@@ -27773,7 +27773,7 @@ _021E417E:
 	bne _021E41CC
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	pop {r3, r4, r5, r6, r7, pc}
 _021E41CC:
 	add r0, r5, #0
@@ -29933,7 +29933,7 @@ ov16_021E51AC: ; 0x021E51AC
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	cmp r0, #0xf0
 	bhs _021E51D8
 	lsr r1, r0, #1
@@ -34543,7 +34543,7 @@ ov16_021E739C: ; 0x021E739C
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	cmp r0, #0xf0
 	bhs _021E73C8
 	lsr r1, r0, #1
@@ -40997,7 +40997,7 @@ _021EA400:
 _021EA40C:
 	mov r0, #0
 	mov r1, #3
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -41019,7 +41019,7 @@ _021EA42E:
 _021EA438:
 	cmp r0, #1
 	bne _021EA458
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _021EA458
 	mov r0, #1
@@ -51397,7 +51397,7 @@ ov16_021EF218: ; 0x021EF218
 	bl SetBgPriority
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r5, #0
 	mov r1, #0
 	bl FreeBgTilemapBuffer

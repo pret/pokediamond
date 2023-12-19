@@ -105,8 +105,8 @@ _020894FC:
 	add r0, r6, #0x0
 	add r1, r0, #0x0
 	bl Main_SetHBlankIntrCB
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #0x1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2, #0x0]
@@ -127,7 +127,7 @@ _020894FC:
 	ldr r0, _020895EC ; =sub_02089610
 	add r1, r4, #0x0
 	bl Main_SetVBlankIntrCB
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	mov r0, #0x6
 	mov r1, #0x1
 	str r0, [sp, #0x0]
@@ -225,7 +225,7 @@ _02089628:
 	sub r2, r2, #0x1
 	bne _02089628
 	add r0, sp, #0x34
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r0, [r4, #0x0]
 	bl BgConfig_Alloc
 	add r3, sp, #0x24

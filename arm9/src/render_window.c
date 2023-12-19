@@ -777,7 +777,7 @@ void sub_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2)
     ((u16 *)UNK_020ECEC0)[1] = (u16)((param2 + 5) * 8);
     param0->unk164 = ov05_021D9820(param0, UNK_020ECEC0);
     sub_0201FDEC(param0->unk000);
-    GX_EngineBToggleLayers(0x10, GX_LAYER_TOGGLE_ON);
+    GfGfx_EngineBTogglePlanes(0x10, GX_PLANE_TOGGLE_ON);
 }
 
 void sub_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2)

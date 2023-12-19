@@ -4,15 +4,6 @@
 #include "global.h"
 #include "text.h"
 
-static inline u32 MakeFontColor(u32 fgPal, u32 shdwPal, u32 bgPal)
-{
-    return (u32)(
-        ((u32)(fgPal << 24) >> 8)
-        | ((u32)(shdwPal << 24) >> 16)
-        | ((u32)(bgPal << 24) >> 24)
-    );
-}
-
 struct UnkStruct_02002C14_sub
 {
     const char buf[0x80];
@@ -41,7 +32,7 @@ u32 sub_02002E14(u32 param0, struct String *str, u32 param2);
 s32 GetFontAttribute(u8 fontId, s32 attr);
 void LoadFontPal0(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, HeapID heapId);
 void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, HeapID heapId);
-s32 sub_02002F08(u32 param0, struct String *str, u32 param2);
+u32 FontID_String_GetWidthMultiline(u32 param0, struct String *str, u32 param2);
 u32 sub_02002F40(u32 param0, struct String *str, u32 param2, u32 param3);
 u32 sub_02002F58(const u16 *str);
 u32 sub_02002F90(struct String *str);

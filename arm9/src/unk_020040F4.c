@@ -2,6 +2,7 @@
 #include "unk_020040F4.h"
 #include "OS_cache.h"
 #include "sound.h"
+#include "unk_020051F4.h"
 #include "unk_0202F150.h"
 #include "SPI_mic.h"
 
@@ -13,8 +14,6 @@ const u8 UNK_020ECB8C[] = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 extern void sub_02005454();
 extern void sub_0200541C();
-extern void sub_0200521C(int);
-extern void sub_0200538C(u32, u16, u32);
 extern void NNS_SndPlayerPause(u32 *, u8);
 extern void NNS_SndPlayerMoveVolume(u32 *, s32, s32);
 extern void NNS_SndPlayerSetInitialVolume(u32 *, s32);
@@ -43,12 +42,10 @@ extern void NNS_SndCaptureStopEffect();
 extern void NNS_SndPlayerSetTrackPitch(u32 *, u32, s32);
 extern void NNS_SndPlayerSetTrackPan(u32 *, u32, s32);
 extern void NNS_SndSetMonoFlag(u32 param0);
-extern void sub_020053CC(u32, u32);
 extern u32 NNS_SndArcGetFileAddress(u32);
 extern u32 SND_GetWaveDataAddress(u32, u32);
 extern u32 NNS_SndPlayerGetTick(u32 *);
 extern void NNS_SndPlayerSetAllocatableChannel(u32, u32);
-extern BOOL sub_02005404(void);
 extern void NNS_SndPlayerSetPlayerVolume(u32, u8);
 
 void sub_020040F4(u8 param0)
@@ -308,7 +305,7 @@ void sub_020044A8(s32 param0)
     GF_Snd_SaveState(ptr3);
 }
 
-void sub_020044D4(int seqNo, u32 param1)
+void sub_020044D4(u16 seqNo, u32 param1)
 {
 #pragma unused(param1)
 
@@ -403,7 +400,7 @@ void sub_020045C4(int seqNo, u32 param1)
     GF_Snd_SaveState((int *)sub_02003D38(26));
 }
 
-void sub_02004648(int param0, u32 param1)
+void sub_02004648(u16 param0, u32 param1)
 {
 #pragma unused(param1)
     sub_02003D38(23);
@@ -416,7 +413,7 @@ void sub_02004648(int param0, u32 param1)
     sub_0200521C(param0);
 }
 
-void sub_02004680(int param0, u32 param1)
+void sub_02004680(u16 param0, u32 param1)
 {
 #pragma unused(param1)
     sub_02003D38(23);
@@ -426,7 +423,7 @@ void sub_02004680(int param0, u32 param1)
     sub_0200521C(param0);
 }
 
-void sub_020046A0(int param0, u32 param1)
+void sub_020046A0(u16 param0, u32 param1)
 {
 #pragma unused(param1)
     sub_02003D38(23);
@@ -436,7 +433,7 @@ void sub_020046A0(int param0, u32 param1)
     sub_0200521C(param0);
 }
 
-void sub_020046C4(int param0, u32 param1)
+void sub_020046C4(u16 param0, u32 param1)
 {
 #pragma unused(param1)
     sub_02003D38(23);
@@ -453,7 +450,7 @@ void sub_020046E8(s32 param0)
     GF_Snd_SaveState((int *)sub_02003D38(27));
 }
 
-void sub_02004704(s32 param0, int param1, u32 param2)
+void sub_02004704(s32 param0, u16 param1, u32 param2)
 {
 #pragma unused(param2)
     sub_02003D38(23);
@@ -462,7 +459,7 @@ void sub_02004704(s32 param0, int param1, u32 param2)
     sub_0200521C(param1);
 }
 
-void sub_02004724(int param0)
+void sub_02004724(u16 param0)
 {
     GetSoundDataPointer();
     sub_020051AC();
@@ -1020,7 +1017,7 @@ void sub_02004DBC(u8 param0)
     *(u8 *)sub_02003D38(18) = param0;
 }
 
-u32 sub_02004DCC(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
+u32 sub_02004DCC(u32 param0, u16 param1, u16 param2, u32 param3, u8 param4, u32 param5)
 {
     u8 *ptr = sub_02003D38(21);
 
@@ -1032,7 +1029,7 @@ u32 sub_02004DCC(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 
 }
 
 u32 sub_02004E08(
-    u32 param0, u16 param1, u32 param2, u32 param3, u32 param35, u8 param4, u32 param5)
+    u32 param0, u16 param1, u16 param2, u32 param3, u32 param35, u8 param4, u32 param5)
 {
     u32 *ptr = sub_02003D38(8);
 
@@ -1043,13 +1040,13 @@ u32 sub_02004E08(
     return 1;
 }
 
-void sub_02004E44(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
+void sub_02004E44(u32 param0, u16 param1, u16 param2, u32 param3, u8 param4, u32 param5)
 {
 #pragma unused(param0)
 #pragma unused(param5)
     u32 *ptr = sub_02003D38(2);
 
-    sub_020053CC(0, param2);
+    GF_SndStartFadeOutBGM(0, param2);
     sub_02004110(0);
     sub_02004130(param1);
     sub_02004D84(param3);
@@ -1344,7 +1341,7 @@ void sub_0200516C(u32 param0)
 
 void sub_020051AC(void)
 {
-    if (sub_02005404() == FALSE && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
+    if (GF_SndGetFadeTimer() == 0 && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
         sub_02004124() != 0x47e)
     {
 

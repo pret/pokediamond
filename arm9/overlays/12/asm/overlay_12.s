@@ -12,8 +12,8 @@ ov12_0222D5C0: ; 0x0222D5C0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -255,13 +255,13 @@ _0222D7BC:
 	ldr r0, _0222D88C ; =0x00000824
 	mov r1, #1
 	strb r1, [r4, r0]
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r1, _0222D890 ; =0x0000046F
 	mov r0, #6
 	mov r2, #1
@@ -448,10 +448,10 @@ ov12_0222D9B0: ; 0x0222D9B0
 	bl RemoveWindow
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0x30]
 	mov r1, #1
 	bl FreeBgTilemapBuffer
@@ -589,7 +589,7 @@ ov12_0222DB50: ; 0x0222DB50
 	push {r4, r5, lr}
 	sub sp, #0x8c
 	add r4, r0, #0
-	bl GX_DisableEngineALayers
+	bl GfGfx_DisableEngineAPlanes
 	ldr r5, _0222DC70 ; =ov12_022449E8
 	add r3, sp, #0x10
 	mov r2, #5
@@ -599,7 +599,7 @@ _0222DB60:
 	sub r2, r2, #1
 	bne _0222DB60
 	add r0, sp, #0x10
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	mov r1, #6
 	mov r2, #2
 	mov r0, #0
@@ -706,7 +706,7 @@ _0222DBC0:
 	strh r0, [r1]
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r4, #0
 	bl ov12_022319A4
 	add sp, #0x8c
@@ -1079,7 +1079,7 @@ ov12_0222DF30: ; 0x0222DF30
 	bne _0222DFBE
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 _0222DF9A:
@@ -3147,8 +3147,8 @@ ov12_0222EF04: ; 0x0222EF04
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -3357,13 +3357,13 @@ ov12_0222EF04: ; 0x0222EF04
 	ldr r0, _0222F188 ; =0x000004F8
 	mov r1, #1
 	strb r1, [r5, r0]
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0
 	bl sub_0200415C
 	ldr r1, _0222F18C ; =0x0000046F
@@ -3604,10 +3604,10 @@ ov12_0222F324: ; 0x0222F324
 	bl RemoveWindow
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0x30]
 	mov r1, #1
 	bl FreeBgTilemapBuffer
@@ -3818,7 +3818,7 @@ ov12_0222F548: ; 0x0222F548
 	push {r3, r4, r5, lr}
 	sub sp, #0xa8
 	add r4, r0, #0
-	bl GX_DisableEngineALayers
+	bl GfGfx_DisableEngineAPlanes
 	ldr r5, _0222F6A0 ; =ov12_02244B1C
 	add r3, sp, #0x2c
 	mov r2, #5
@@ -3828,7 +3828,7 @@ _0222F558:
 	sub r2, r2, #1
 	bne _0222F558
 	add r0, sp, #0x2c
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	mov r1, #6
 	mov r2, #2
 	mov r0, #0
@@ -3934,7 +3934,7 @@ _0222F5B8:
 	orr r2, r0
 	strh r2, [r1]
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r5, _0222F6B0 ; =ov12_02244AE0
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -4987,8 +4987,8 @@ ov12_0222FE4C: ; 0x0222FE4C
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -5219,13 +5219,13 @@ ov12_0222FE4C: ; 0x0222FE4C
 	ldr r0, _02230110 ; =0x00001154
 	mov r1, #1
 	strb r1, [r5, r0]
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r1, _02230114 ; =0x0000046F
 	mov r0, #6
 	mov r2, #1
@@ -5442,10 +5442,10 @@ _02230296:
 	blt _02230296
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0x74]
 	mov r1, #1
 	bl FreeBgTilemapBuffer
@@ -5764,7 +5764,7 @@ ov12_02230574: ; 0x02230574
 	push {r4, r5, lr}
 	sub sp, #0x8c
 	add r4, r0, #0
-	bl GX_DisableEngineALayers
+	bl GfGfx_DisableEngineAPlanes
 	ldr r5, _02230694 ; =ov12_02244C38
 	add r3, sp, #0x10
 	mov r2, #5
@@ -5774,7 +5774,7 @@ _02230584:
 	sub r2, r2, #1
 	bne _02230584
 	add r0, sp, #0x10
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	mov r1, #6
 	mov r2, #2
 	mov r0, #0
@@ -5881,7 +5881,7 @@ _022305E4:
 	strh r0, [r1]
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r4, #0
 	bl ov12_0223B41C
 	add sp, #0x8c
@@ -7479,7 +7479,7 @@ ov12_022312F4: ; 0x022312F4
 	push {r3, lr}
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _02231360 ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -36965,7 +36965,7 @@ _0223F308:
 	strb r0, [r4, #0x10]
 	pop {r3, r4, r5, pc}
 _0223F318:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _0223F3A0
 	ldrb r0, [r4, #0x10]
@@ -41074,8 +41074,8 @@ ov12_02241210: ; 0x02241210
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -41276,13 +41276,13 @@ ov12_02241210: ; 0x02241210
 	mov r1, #1
 	lsl r0, r0, #4
 	strb r1, [r5, r0]
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	ldr r1, _0224147C ; =0x0000046F
 	mov r0, #6
 	mov r2, #1
@@ -41479,10 +41479,10 @@ _022415D4:
 	blt _022415D4
 	mov r0, #1
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0x30]
 	mov r1, #1
 	bl FreeBgTilemapBuffer
@@ -41754,7 +41754,7 @@ ov12_02241864: ; 0x02241864
 	push {r3, r4, r5, lr}
 	sub sp, #0xa8
 	add r4, r0, #0
-	bl GX_DisableEngineALayers
+	bl GfGfx_DisableEngineAPlanes
 	ldr r5, _022419BC ; =ov12_0224656C
 	add r3, sp, #0x2c
 	mov r2, #5
@@ -41764,7 +41764,7 @@ _02241874:
 	sub r2, r2, #1
 	bne _02241874
 	add r0, sp, #0x2c
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	mov r1, #6
 	mov r2, #2
 	mov r0, #0
@@ -41870,7 +41870,7 @@ _022418D4:
 	orr r2, r0
 	strh r2, [r1]
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r5, _022419CC ; =ov12_02246530
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -47042,7 +47042,7 @@ _02244132:
 	strb r0, [r4, #0x10]
 	pop {r4, r5, r6, r7, pc}
 _0224415A:
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _022441B2
 	mov r0, #6
@@ -47738,7 +47738,7 @@ _0224469E:
 	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _02244700
-	bl sub_02005404
+	bl GF_SndGetFadeTimer
 	cmp r0, #0
 	bne _02244700
 	ldr r0, [r4]

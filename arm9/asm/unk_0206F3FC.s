@@ -124,8 +124,8 @@ sub_0206F3FC: ; 0x0206F3FC
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r0, #0x1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0, #0x0]
@@ -289,7 +289,7 @@ _0206F564:
 	bne _0206F582
 	mov r0, #0x1
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 _0206F582:
 	ldr r0, _0206F5A8 ; =sub_0206FB58
 	add r1, r4, #0x0
@@ -1064,7 +1064,7 @@ _0206FB8A:
 	sub r2, r2, #0x1
 	bne _0206FB8A
 	add r0, sp, #0x0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.balign 4
@@ -1213,10 +1213,10 @@ sub_0206FCD4: ; 0x0206FCD4
 	add r4, r0, #0x0
 	mov r0, #0x1f
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x13
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r4, #0x0
 	mov r1, #0x5
 	bl FreeBgTilemapBuffer

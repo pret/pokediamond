@@ -10984,7 +10984,7 @@ _02252DDE:
 	bl sub_02007E98
 	mov r0, #0
 	mov r1, #0x10
-	bl sub_020053CC
+	bl GF_SndStartFadeOutBGM
 	ldrb r0, [r5, #6]
 	add r0, r0, #1
 	strb r0, [r5, #6]

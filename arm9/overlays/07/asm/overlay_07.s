@@ -110,7 +110,7 @@ _02211F1E:
 	sub r2, r2, #1
 	bne _02211F1E
 	add r0, sp, #0
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -126,8 +126,8 @@ ov07_02211F34: ; 0x02211F34
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0]
@@ -1358,7 +1358,7 @@ ov07_02212968: ; 0x02212968
 	bne _022129AC
 	mov r0, #2
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	add r3, r0, #0
@@ -1750,7 +1750,7 @@ ov07_02212C04: ; 0x02212C04
 	bl sub_0200BF60
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -1966,7 +1966,7 @@ ov07_02212D98: ; 0x02212D98
 	bl BgClearTilemapBufferAndCommit
 	mov r0, #2
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #0x64
 	pop {r4, r5, pc}
 	nop
@@ -1981,7 +1981,7 @@ ov07_02212E64: ; 0x02212E64
 	add r4, r0, #0
 	mov r0, #0x1f
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0xc]
 	mov r1, #3
 	bl FreeBgTilemapBuffer
@@ -3269,7 +3269,7 @@ ov07_022138F8: ; 0x022138F8
 	add r4, r0, #0
 	mov r0, #0x1e
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0xc]
 	mov r1, #3
 	bl FreeBgTilemapBuffer

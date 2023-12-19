@@ -3,7 +3,7 @@
 
 #include "NNS_g2d.h"
 #include "global.h"
-#include "GX_layers.h"
+#include "gf_gfx_planes.h"
 #include "MI_uncompress.h"
 #include "OS_cache.h"
 #include "gx.h"
@@ -132,22 +132,22 @@ enum GFPalLoadLocation {
 };
 
 enum GFPalSlotOffset {
-    GF_PAL_SLOT_OFFSET_0 = 0x00,
-    GF_PAL_SLOT_OFFSET_1 = 0x20,
-    GF_PAL_SLOT_OFFSET_2 = 0x40,
-    GF_PAL_SLOT_OFFSET_3 = 0x60,
-    GF_PAL_SLOT_OFFSET_4 = 0x80,
-    GF_PAL_SLOT_OFFSET_5 = 0xA0,
-    GF_PAL_SLOT_OFFSET_6 = 0xC0,
-    GF_PAL_SLOT_OFFSET_7 = 0xE0,
-    GF_PAL_SLOT_OFFSET_8 = 0x100,
-    GF_PAL_SLOT_OFFSET_9 = 0x120,
-    GF_PAL_SLOT_OFFSET_10 = 0x140,
-    GF_PAL_SLOT_OFFSET_11 = 0x160,
-    GF_PAL_SLOT_OFFSET_12 = 0x180,
-    GF_PAL_SLOT_OFFSET_13 = 0x1A0,
-    GF_PAL_SLOT_OFFSET_14 = 0X1C0,
-    GF_PAL_SLOT_OFFSET_15 = 0X1E0
+    GF_PAL_SLOT_0_OFFSET = 0x00,
+    GF_PAL_SLOT_1_OFFSET = 0x20,
+    GF_PAL_SLOT_2_OFFSET = 0x40,
+    GF_PAL_SLOT_3_OFFSET = 0x60,
+    GF_PAL_SLOT_4_OFFSET = 0x80,
+    GF_PAL_SLOT_5_OFFSET = 0xA0,
+    GF_PAL_SLOT_6_OFFSET = 0xC0,
+    GF_PAL_SLOT_7_OFFSET = 0xE0,
+    GF_PAL_SLOT_8_OFFSET = 0x100,
+    GF_PAL_SLOT_9_OFFSET = 0x120,
+    GF_PAL_SLOT_10_OFFSET = 0x140,
+    GF_PAL_SLOT_11_OFFSET = 0x160,
+    GF_PAL_SLOT_12_OFFSET = 0x180,
+    GF_PAL_SLOT_13_OFFSET = 0x1A0,
+    GF_PAL_SLOT_14_OFFSET = 0X1C0,
+    GF_PAL_SLOT_15_OFFSET = 0X1E0
 };
 
 enum GFBgType {
@@ -213,7 +213,7 @@ void InitBgFromTemplate(BgConfig *bgConfig, u8 bgId, const BgTemplate *template,
 void SetBgControlParam(BgConfig *config, u8 bgId, enum GFBgCntSet attr, u8 value);
 void FreeBgTilemapBuffer(BgConfig *bgConfig, u8 bgId);
 void SetBgPriority(u8 bgId, u16 priority);
-void ToggleBgLayer(u8 bgId, GXLayerToggle toggle);
+void ToggleBgLayer(u8 bgId, GXPlaneToggle toggle);
 void BgSetPosTextAndCommit(BgConfig *bgConfig, u8 bgId, enum BgPosAdjustOp op, fx32 val);
 fx32 Bg_GetXpos(const BgConfig *bgConfig, enum GFBgLayer bgId);
 fx32 Bg_GetYpos(BgConfig *bgConfig, enum GFBgLayer bgId);

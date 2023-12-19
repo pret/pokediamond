@@ -308,10 +308,10 @@ _02053912:
 	bl BG_LoadPlttData
 	mov r0, #0x1
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x2
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r1, #0x57
 	lsl r1, r1, #0x2
 	add r0, r4, #0x0
@@ -488,7 +488,7 @@ _02053A78:
 	bge _02053B30
 	mov r0, #0x1
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	ldr r1, [r4, r0]
@@ -559,7 +559,7 @@ _02053B00:
 _02053B16:
 	mov r0, #0x2
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x62
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -878,10 +878,10 @@ sub_02053D70: ; 0x02053D70
 	str r0, [r4, #0x0]
 	mov r0, #0x10
 	mov r1, #0x1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #0x1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	pop {r4, pc}
 
 	thumb_func_start sub_02053D94

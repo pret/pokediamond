@@ -445,28 +445,28 @@ sub_02085C08: ; 0x02085C08
 	add r4, r0, #0x0
 	mov r0, #0x1
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x2
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x4
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x8
 	mov r1, #0x0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x1
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x2
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x4
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #0x8
 	mov r1, #0x0
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]

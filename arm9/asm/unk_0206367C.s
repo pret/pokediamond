@@ -170,8 +170,8 @@ sub_020637E0: ; 0x020637E0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start sub_020637F0
-sub_020637F0: ; 0x020637F0
+	thumb_func_start FieldSystem_ClearFollowingTrainer
+FieldSystem_ClearFollowingTrainer: ; 0x020637F0
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get

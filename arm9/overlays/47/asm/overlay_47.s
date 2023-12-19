@@ -1233,7 +1233,7 @@ ov47_02255184: ; 0x02255184
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xc0
 	sub r0, r1, r0
 	lsr r3, r0, #1
@@ -1353,7 +1353,7 @@ ov47_02255250: ; 0x02255250
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xc0
 	sub r0, r1, r0
 	lsr r3, r0, #1

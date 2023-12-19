@@ -1,6 +1,7 @@
 #include "global.h"
 #include "error_message_reset.h"
-#include "GX_layers.h"
+#include "constants/rgb.h"
+#include "gf_gfx_planes.h"
 #include "gx.h"
 #include "heap.h"
 #include "unk_02031734.h"
@@ -97,8 +98,8 @@ void PrintErrorMessageAndReset()
         Main_SetVBlankIntrCB(NULL, NULL);
         Main_SetHBlankIntrCB(NULL, NULL);
 
-        GX_DisableEngineALayers();
-        GX_DisableEngineBLayers();
+        GfGfx_DisableEngineAPlanes();
+        GfGfx_DisableEngineBPlanes();
 
         GX_SetVisiblePlane(0);
         GXS_SetVisiblePlane(0);
@@ -106,7 +107,7 @@ void PrintErrorMessageAndReset()
         SetKeyRepeatTimers(4, 8);
 
         gSystem.screensFlipped = FALSE;
-        GX_SwapDisplay();
+        GfGfx_SwapDisplay();
 
         G2_BlendNone();
         G2S_BlendNone();
@@ -114,7 +115,7 @@ void PrintErrorMessageAndReset()
         GX_SetVisibleWnd(0);
         GXS_SetVisibleWnd(0);
 
-        GX_SetBanks(&sErrorMessageBanksConfig);
+        GfGfx_SetBanks(&sErrorMessageBanksConfig);
         ptr = BgConfig_Alloc(HEAP_ID_DEFAULT);
         SetBothScreensModesAndDisable(&sErrorMessageBgModeSet);
 
@@ -123,10 +124,10 @@ void PrintErrorMessageAndReset()
 
         LoadUserFrameGfx1(ptr, GF_BG_LYR_MAIN_0, 503, 2, 0, HEAP_ID_DEFAULT);
 
-        LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, HEAP_ID_DEFAULT);
+        LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_1_OFFSET, HEAP_ID_DEFAULT);
         BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, HEAP_ID_DEFAULT);
-        BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
-        BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
+        BG_SetMaskColor(GF_BG_LYR_MAIN_0, RGB(1, 1, 27));
+        BG_SetMaskColor(GF_BG_LYR_SUB_0, RGB(1, 1, 27));
 
         struct MsgData *msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, HEAP_ID_DEFAULT);
         struct String *str = String_New(6 << 6, HEAP_ID_DEFAULT);
@@ -141,7 +142,7 @@ void PrintErrorMessageAndReset()
         AddTextPrinterParameterized(&buf, 0, str, 0, 0, 0, NULL);
 
         String_Delete(str);
-        GX_BothDispOn();
+        GfGfx_BothDispOn();
         SetMasterBrightnessNeutral(PM_LCD_TOP);
         SetMasterBrightnessNeutral(PM_LCD_BOTTOM);
         SetBlendBrightness(0, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BD | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG0), SCREEN_MASK_MAIN | SCREEN_MASK_SUB);

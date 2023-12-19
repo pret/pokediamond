@@ -6,6 +6,7 @@
 #include "camera.h"
 #include "fashion_case.h"
 #include "field_player_avatar.h"
+#include "save_local_field_data.h"
 #include "msgdata.h"
 #include "render_window.h"
 #include "save.h"
@@ -66,10 +67,6 @@ typedef struct ScrCmdUnkStruct00F4 {
     u8 padding[0x2C];
     void *unk2C;
 } ScrCmdUnkStruct00F4; //todo identify and move to own file
-
-typedef struct LocalFieldData {
-
-} LocalFieldData; //todo fill out and move to own file
 
 typedef struct RoamerSaveData {
 

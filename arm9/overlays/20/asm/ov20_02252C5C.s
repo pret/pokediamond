@@ -358,10 +358,10 @@ ov20_02252ED0: ; 0x02252ED0
 	mov r0, #0x10
 	orr r0, r1
 	str r0, [r2]
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineBPlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]

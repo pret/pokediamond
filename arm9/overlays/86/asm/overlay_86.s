@@ -43,8 +43,8 @@ ov86_021D74E0: ; 0x021D74E0
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetHBlankIntrCB
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -65,7 +65,7 @@ ov86_021D74E0: ; 0x021D74E0
 	ldr r0, _021D7588 ; =ov86_021D76E0
 	add r1, r4, #0
 	bl Main_SetVBlankIntrCB
-	bl GX_BothDispOn
+	bl GfGfx_BothDispOn
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
@@ -262,7 +262,7 @@ _021D76F8:
 	sub r2, r2, #1
 	bne _021D76F8
 	add r0, sp, #0x2c
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r0, [r4]
 	bl BgConfig_Alloc
 	add r3, sp, #0x1c

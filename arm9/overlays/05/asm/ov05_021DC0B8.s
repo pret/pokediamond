@@ -32,7 +32,7 @@ _021DC0CC:
 	str r0, [r4, #0x10]
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 
@@ -681,7 +681,7 @@ _021DC5A2:
 	strh r0, [r1]
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4]
 	add r0, #8
 	bl ov05_021DC4AC
@@ -1252,7 +1252,7 @@ _021DCA04:
 	beq _021DCA30
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r2, _021DCA40 ; =0x0400000C
 	mov r1, #3
 	ldrh r3, [r2]
@@ -1336,7 +1336,7 @@ ov05_021DCA94: ; 0x021DCA94
 	beq _021DCAD2
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021DCB5C ; =0x0400000C
 	mov r2, #3
 	ldrh r3, [r0]
@@ -1436,7 +1436,7 @@ ov05_021DCB6C: ; 0x021DCB6C
 	beq _021DCBA2
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021DCBD4 ; =0x0400000C
 	mov r2, #3
 	ldrh r3, [r0]
@@ -1967,7 +1967,7 @@ ov05_021DCF68: ; 0x021DCF68
 	beq _021DD00A
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r1, #0xc
 	mov r0, #0x42
 	lsl r0, r0, #2
@@ -5337,7 +5337,7 @@ _021DE8EE:
 	strh r0, [r1]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021DEA68 ; =0x00000F62
 	mov r1, #1
 	add sp, #0x10
@@ -5395,7 +5395,7 @@ _021DE9A0:
 	strh r0, [r1]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021DEA68 ; =0x00000F62
 	mov r1, #3
 	add sp, #0x10
@@ -6061,7 +6061,7 @@ _021DEF00:
 	strh r1, [r5, r0]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021DF08A
 _021DEF10:
 	mov r2, #8
@@ -6119,7 +6119,7 @@ _021DEF54:
 	strh r1, [r5, r0]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021DF08A
 _021DEF8A:
 	mov r0, #6
@@ -6192,7 +6192,7 @@ _021DF008:
 	mov r0, #4
 	strh r0, [r5, r1]
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021DF08A
 _021DF01E:
 	add r0, r4, #0
@@ -6425,7 +6425,7 @@ _021DF1EC:
 	strh r1, [r5, r0]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021DF366
 _021DF1FC:
 	mov r2, #0xa
@@ -6480,7 +6480,7 @@ _021DF240:
 	strh r1, [r5, r0]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021DF366
 _021DF270:
 	mov r1, #6
@@ -6548,7 +6548,7 @@ _021DF2E2:
 	mov r0, #4
 	strh r0, [r5, r1]
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021DF366
 _021DF2F8:
 	add r0, r4, #0
@@ -7339,7 +7339,7 @@ _021DF934:
 	str r1, [r0]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021DFAA0 ; =0x00000F62
 	mov r1, #1
 	strh r1, [r5, r0]
@@ -8366,7 +8366,7 @@ _021E0180:
 	strh r1, [r5, r0]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021E02E8
 _021E0190:
 	mov r2, #1
@@ -8428,7 +8428,7 @@ _021E01EE:
 	strh r1, [r5, r0]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021E02E8
 _021E0212:
 	mov r0, #6
@@ -8479,7 +8479,7 @@ _021E025C:
 	add r1, #0xc8
 	str r2, [r1]
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	b _021E02E8
 _021E027A:
 	add r0, r4, #0
@@ -8918,7 +8918,7 @@ _021E05D4:
 	bl ov05_021DC6D4
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E06F0 ; =0x00000F62
 	mov r1, #3
 	strh r1, [r5, r0]
@@ -9452,7 +9452,7 @@ _021E0A02:
 	strh r0, [r1]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0AC4 ; =0x00000F62
 	mov r1, #1
 	strh r1, [r4, r0]
@@ -9484,7 +9484,7 @@ _021E0A52:
 	strh r0, [r1]
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0AC4 ; =0x00000F62
 	mov r1, #3
 	strh r1, [r4, r0]
@@ -9562,7 +9562,7 @@ _021E0AF2:
 	bl ov05_021DC6D4
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0B94 ; =0x00000F62
 	mov r1, #1
 	strh r1, [r4, r0]
@@ -9587,7 +9587,7 @@ _021E0B34:
 	bl ov05_021DC6D4
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0B94 ; =0x00000F62
 	mov r1, #3
 	strh r1, [r4, r0]
@@ -9687,7 +9687,7 @@ _021E0BC6:
 	bl ov05_021DC6D4
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0D1C ; =0x00000F62
 	mov r1, #1
 	add sp, #0x10
@@ -9738,7 +9738,7 @@ _021E0C6A:
 	bl ov05_021DC6D4
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0D1C ; =0x00000F62
 	mov r1, #3
 	add sp, #0x10
@@ -9880,7 +9880,7 @@ _021E0D4E:
 	bl ov05_021DC6D4
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0EA8 ; =0x00000F62
 	mov r1, #1
 	add sp, #0x10
@@ -9931,7 +9931,7 @@ _021E0DF2:
 	bl ov05_021DC6D4
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0EA8 ; =0x00000F62
 	mov r1, #3
 	add sp, #0x10
@@ -10072,7 +10072,7 @@ _021E0F0A:
 	bne _021E0F98
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r5, #0
 	bl ov05_021E1290
 	ldr r0, _021E0FA0 ; =0x00000F62
@@ -10083,7 +10083,7 @@ _021E0F0A:
 _021E0F2C:
 	mov r0, #4
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E0FA0 ; =0x00000F62
 	mov r1, #3
 	add sp, #8
@@ -10116,7 +10116,7 @@ _021E0F3E:
 _021E0F70:
 	mov r0, #4
 	mov r1, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add r0, r5, #0
 	bl ov05_021E11EC
 	cmp r0, #1

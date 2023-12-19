@@ -503,7 +503,7 @@ ScrCmd_Unk00EA: ; 0x02041AB4
 ScrCmd_Unk00EB: ; 0x02041AD4
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
-	bl CallFieldTask_BlackOut
+	bl CallTask_Blackout
 	mov r0, #0x1
 	pop {r3, pc}
 

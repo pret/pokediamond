@@ -38,8 +38,8 @@ _021D7516:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -565,7 +565,7 @@ ov84_021D7968: ; 0x021D7968
 	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	ldr r0, _021D7A60 ; =0x021DA68C
-	bl GX_SetBanks
+	bl GfGfx_SetBanks
 	ldr r2, _021D7A64 ; =0x04000304
 	ldr r0, _021D7A68 ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -768,7 +768,7 @@ ov84_021D7AC8: ; 0x021D7AC8
 	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r1, _021D7B50 ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -1348,10 +1348,10 @@ ov84_021D7F94: ; 0x021D7F94
 	bl sub_020200D8
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	add sp, #0x30
 	pop {r4, pc}
 	thumb_func_end ov84_021D7F94

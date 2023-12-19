@@ -3,6 +3,7 @@
 #include "PAD_pad.h"
 #include "bag.h"
 #include "bg_window.h"
+#include "blackout.h"
 #include "camera.h"
 #include "constants/global_fieldmap.h"
 #include "constants/items.h"
@@ -249,7 +250,6 @@ extern u16 sub_02053678(u32 trainerId, PlayerGender playerGender, u32 param2);
 extern u16 sub_020536D0(PlayerGender playerGender, u16 param1, u16 param2);
 extern void sub_02049EA4(TaskManager *taskManager);
 extern void LocalFieldData_SetBlackoutSpawn(LocalFieldData *localFieldData, u16 spawnPoint);
-extern void CallFieldTask_BlackOut(TaskManager *taskManager);
 extern void HealParty(Party *playerParty);
 extern void sub_02050024(void);
 extern u32 sub_02031810(void);
@@ -3247,8 +3247,8 @@ BOOL ScrCmd_SetPlayerAvatar(ScriptContext *ctx) { //0156
     return FALSE;
 }
 
-BOOL ScrCmd_DummyBlackOut(ScriptContext *ctx) { //014B
-    CallFieldTask_BlackOut(ctx->taskManager);
+BOOL ScrCmd_DummyBlackout(ScriptContext *ctx) { //014B
+    CallTask_Blackout(ctx->taskManager);
     return TRUE;
 }
 

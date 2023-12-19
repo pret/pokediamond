@@ -29,8 +29,8 @@ ov55_021D7504: ; 0x021D7504
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl sub_02015F1C
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
+	bl GfGfx_DisableEngineAPlanes
+	bl GfGfx_DisableEngineBPlanes
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -385,11 +385,11 @@ _021D7808: .word 0x00003FF8
 
 	thumb_func_start ov55_021D780C
 ov55_021D780C: ; 0x021D780C
-	ldr r3, _021D7814 ; =GX_SetBanks
+	ldr r3, _021D7814 ; =GfGfx_SetBanks
 	ldr r0, _021D7818 ; =0x021DA458
 	bx r3
 	nop
-_021D7814: .word GX_SetBanks
+_021D7814: .word GfGfx_SetBanks
 _021D7818: .word ov55_021DA458
 	thumb_func_end ov55_021D780C
 
@@ -1198,7 +1198,7 @@ _021D7EB8:
 	blt _021D7E56
 	mov r0, #0x10
 	mov r1, #1
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov55_021D7DA0
@@ -3703,7 +3703,7 @@ _021D92CE:
 	mov r0, #0
 	ldr r1, [r1]
 	add r2, r0, #0
-	bl sub_02002F08
+	bl FontID_String_GetWidthMultiline
 	mov r1, #0xa8
 	sub r0, r1, r0
 	mov r1, #0
@@ -4017,7 +4017,7 @@ ov55_021D9574: ; 0x021D9574
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021D95D8 ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -5576,11 +5576,11 @@ ov55_021DA27C: ; 0x021DA27C
 	lsl r1, r4, #0x18
 	mov r0, #0xf
 	lsr r1, r1, #0x18
-	bl GX_EngineAToggleLayers
+	bl GfGfx_EngineATogglePlanes
 	lsl r1, r4, #0x18
 	mov r0, #1
 	lsr r1, r1, #0x18
-	bl GX_EngineBToggleLayers
+	bl GfGfx_EngineBTogglePlanes
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov55_021DA27C
