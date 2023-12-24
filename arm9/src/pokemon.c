@@ -2778,14 +2778,6 @@ u16 GetEggSpecies(u16 species)
     }
 }
 
-#define WOTBL_END           0xFFFF
-#define WOTBL_MOVE_MASK     0x01FF
-#define WOTBL_MOVE_SHIFT         0
-#define WOTBL_LVL_MASK      0xFE00
-#define WOTBL_LVL_SHIFT          9
-#define WOTBL_MOVE(x) ((u16)(((x) & WOTBL_MOVE_MASK) >> WOTBL_MOVE_SHIFT))
-#define WOTBL_LVL(x) ((u8)(((x) & WOTBL_LVL_MASK) >> WOTBL_LVL_SHIFT))
-
 void InitBoxMonMoveset(struct BoxPokemon * boxmon)
 {
     BOOL decry;
@@ -2803,7 +2795,7 @@ void InitBoxMonMoveset(struct BoxPokemon * boxmon)
     LoadWotbl_HandleAlternateForm(species, (int)form, wotbl);
     for (i = 0; wotbl[i] != WOTBL_END; i++)
     {
-        if ((wotbl[i] & WOTBL_LVL_MASK) > (level << WOTBL_LVL_SHIFT))
+        if ((wotbl[i] & WOTBL_LEVEL_MASK) > (level << WOTBL_LEVEL_SHIFT))
             break;
         move = WOTBL_MOVE(wotbl[i]);
         if (sub_020696A8(boxmon, move) == 0xFFFF)
@@ -2908,7 +2900,7 @@ u32 sub_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
         FreeToHeap(wotbl);
         return 0;
     }
-    while ((wotbl[*r5] & WOTBL_LVL_MASK) != (level << WOTBL_LVL_SHIFT))
+    while ((wotbl[*r5] & WOTBL_LEVEL_MASK) != (level << WOTBL_LEVEL_SHIFT))
     {
         (*r5)++;
         if (wotbl[*r5] == 0xFFFF)
@@ -2917,7 +2909,7 @@ u32 sub_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
             return 0;
         }
     }
-    if ((wotbl[*r5] & WOTBL_LVL_MASK) == (level << WOTBL_LVL_SHIFT))
+    if ((wotbl[*r5] & WOTBL_LEVEL_MASK) == (level << WOTBL_LEVEL_SHIFT))
     {
         *sp0 = WOTBL_MOVE(wotbl[*r5]);
         (*r5)++;

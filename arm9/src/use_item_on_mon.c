@@ -96,7 +96,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveId, HeapI
     }
     if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PP_RESTORE_ALL))
     {
-        for (int i = 0; i < MON_MOVES; i++)
+        for (int i = 0; i < MAX_MON_MOVES; i++)
         {
             if (MonMoveCanRestorePP(pokemon, i) == TRUE)
             {
@@ -388,7 +388,7 @@ BOOL UseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveIdx, u16 loc
     else if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PP_RESTORE_ALL))
     {
         sp50 = 0;
-        for (; sp50 < MON_MOVES; sp50++)
+        for (; sp50 < MAX_MON_MOVES; sp50++)
         {
             if (MonMoveRestorePP(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PP_RESTORE_PARAM)) == 1)
                 hadEffect = TRUE;
@@ -707,7 +707,7 @@ void HealParty(struct Party * party)
             sp8 = 0;
             SetMonData(pokemon, MON_DATA_STATUS, &sp8);
 
-            for (j = 0; j < MON_MOVES; j++)
+            for (j = 0; j < MAX_MON_MOVES; j++)
             {
                 if (MonMoveCanRestorePP(pokemon, j) == 1)
                     MonMoveRestorePP(pokemon, j, PP_RESTORE_ALL);
