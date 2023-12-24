@@ -21,7 +21,7 @@
 #define WOTBL_LEVEL_SHIFT          9
 
 #define WOTBL_MOVE(x) ((u16)(((x) & WOTBL_MOVEID_MASK) >> WOTBL_MOVEID_SHIFT))
-#define WOTBL_LVL(x) ((u8)(((x) & WOTBL_LEVEL_MASK) >> WOTBL_LEVEL_SHIFT))
+#define WOTBL_LVL(x) (((x) & WOTBL_LEVEL_MASK) >> WOTBL_LEVEL_SHIFT)
 
 struct BaseStats {
     /* 0x00 */ u8 hp;
