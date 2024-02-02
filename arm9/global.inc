@@ -4815,7 +4815,7 @@
 .extern Pokemon_UpdateArceusForm
 .extern BoxMon_UpdateArceusForm
 .extern GetArceusTypeByHeldItemEffect
-.extern LoadWotbl_HandleAlternateForm
+.extern LoadLevelUpLearnset_HandleAlternateForm
 .extern sub_02069FB0
 .extern sub_0206A014
 .extern sub_0206A094

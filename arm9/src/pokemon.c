@@ -43,7 +43,7 @@ u8 Party_MaskMonsWithPokerus(struct Party * party_p, u8 mask);
 BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
 BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
 void BoxMon_UpdateArceusForm(struct BoxPokemon * boxmon);
-void LoadWotbl_HandleAlternateForm(int species, int form, u16 * wotbl);
+void LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u16 *levelUpLearnset);
 void sub_0206A054(struct BoxPokemon *  boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 BOOL sub_0206A144(struct BoxPokemon * boxmon, u32 a1);
@@ -2781,27 +2781,27 @@ u16 GetEggSpecies(u16 species)
 void InitBoxMonMoveset(struct BoxPokemon * boxmon)
 {
     BOOL decry;
-    u16 * wotbl;
+    u16 *levelUpLearnset;
     int i;
     u16 species;
     u32 form;
     u8 level;
     u16 move;
-    wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
+    levelUpLearnset = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
     decry = AcquireBoxMonLock(boxmon);
     species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     form = GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
     level = (u8)CalcBoxMonLevel(boxmon);
-    LoadWotbl_HandleAlternateForm(species, (int)form, wotbl);
-    for (i = 0; wotbl[i] != WOTBL_END; i++)
+    LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
+    for (i = 0; levelUpLearnset[i] != LEVEL_UP_LEARNSET_END; i++)
     {
-        if ((wotbl[i] & WOTBL_LEVEL_MASK) > (level << WOTBL_LEVEL_SHIFT))
+        if ((levelUpLearnset[i] & LEVEL_UP_LEARNSET_LEVEL_MASK) > (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
             break;
-        move = WOTBL_MOVE(wotbl[i]);
+        move = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]);
         if (sub_020696A8(boxmon, move) == 0xFFFF)
             sub_02069718(boxmon, move);
     }
-    FreeToHeap(wotbl);
+    FreeToHeap(levelUpLearnset);
     ReleaseBoxMonLock(boxmon, decry);
 }
 
@@ -2888,34 +2888,34 @@ void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot)
 u32 sub_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
 {
     u32 ret = 0;
-    u16 * wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
+    u16 *levelUpLearnset = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     u32 form = GetMonData(pokemon, MON_DATA_FORM, NULL);
     u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
-    LoadWotbl_HandleAlternateForm(species, (int)form, wotbl);
+    LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
 
 
-    if (wotbl[*r5] == 0xFFFF)
+    if (levelUpLearnset[*r5] == 0xFFFF)
     {
-        FreeToHeap(wotbl);
+        FreeToHeap(levelUpLearnset);
         return 0;
     }
-    while ((wotbl[*r5] & WOTBL_LEVEL_MASK) != (level << WOTBL_LEVEL_SHIFT))
+    while ((levelUpLearnset[*r5] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
     {
         (*r5)++;
-        if (wotbl[*r5] == 0xFFFF)
+        if (levelUpLearnset[*r5] == 0xFFFF)
         {
-            FreeToHeap(wotbl);
+            FreeToHeap(levelUpLearnset);
             return 0;
         }
     }
-    if ((wotbl[*r5] & WOTBL_LEVEL_MASK) == (level << WOTBL_LEVEL_SHIFT))
+    if ((levelUpLearnset[*r5] & LEVEL_UP_LEARNSET_LEVEL_MASK) == (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
     {
-        *sp0 = WOTBL_MOVE(wotbl[*r5]);
+        *sp0 = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*r5]);
         (*r5)++;
         ret = sub_02069698(pokemon, *sp0);
     }
-    FreeToHeap(wotbl);
+    FreeToHeap(levelUpLearnset);
     return ret;
 }
 
@@ -3070,13 +3070,13 @@ s8 GetFlavorPreferenceFromPID(u32 personality, int flavor)
 int Species_LoadLearnsetTable(u16 species, u32 form, u16 * dest)
 {
     int i;
-    u16 * wotbl = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
-    LoadWotbl_HandleAlternateForm(species, (int)form, wotbl);
-    for (i = 0; wotbl[i] != WOTBL_END; i++)
+    u16 * levelUpLearnset = AllocFromHeap(HEAP_ID_DEFAULT, 22 * sizeof(u16));
+    LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
+    for (i = 0; levelUpLearnset[i] != LEVEL_UP_LEARNSET_END; i++)
     {
-        dest[i] = WOTBL_MOVE(wotbl[i]);
+        dest[i] = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]);
     }
-    FreeToHeap(wotbl);
+    FreeToHeap(levelUpLearnset);
     return i;
 }
 
@@ -3290,9 +3290,9 @@ u32 GetArceusTypeByHeldItemEffect(u16 heldEffect)
     }
 }
 
-void LoadWotbl_HandleAlternateForm(int species, int form, u16 * wotbl)
+void LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u16 *levelUpLearnset)
 {
-    ReadWholeNarcMemberByIdPair(wotbl, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForm(species, form));
+    ReadWholeNarcMemberByIdPair(levelUpLearnset, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForm(species, form));
 }
 
 void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, HeapID heapId)

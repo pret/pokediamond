@@ -12,16 +12,16 @@
 #include "player_data.h"
 #include "sound_chatot.h"
 
-#define WOTBL_END             0xFFFF
-#define WOTBL_MAX                 22
+#define LEVEL_UP_LEARNSET_END             0xFFFF
+#define LEVEL_UP_LEARNSET_MAX                 22
 
-#define WOTBL_MOVEID_MASK     0x01FF
-#define WOTBL_MOVEID_SHIFT         0
-#define WOTBL_LEVEL_MASK      0xFE00
-#define WOTBL_LEVEL_SHIFT          9
+#define LEVEL_UP_LEARNSET_MOVEID_MASK     0x01FF
+#define LEVEL_UP_LEARNSET_MOVEID_SHIFT         0
+#define LEVEL_UP_LEARNSET_LEVEL_MASK      0xFE00
+#define LEVEL_UP_LEARNSET_LEVEL_SHIFT          9
 
-#define WOTBL_MOVE(x) ((u16)(((x) & WOTBL_MOVEID_MASK) >> WOTBL_MOVEID_SHIFT))
-#define WOTBL_LVL(x) (((x) & WOTBL_LEVEL_MASK) >> WOTBL_LEVEL_SHIFT)
+#define LEVEL_UP_LEARNSET_MOVE(x) ((u16)(((x) & LEVEL_UP_LEARNSET_MOVEID_MASK) >> LEVEL_UP_LEARNSET_MOVEID_SHIFT))
+#define LEVEL_UP_LEARNSET_LVL(x) (((x) & LEVEL_UP_LEARNSET_LEVEL_MASK) >> LEVEL_UP_LEARNSET_LEVEL_SHIFT)
 
 struct BaseStats {
     /* 0x00 */ u8 hp;
@@ -277,7 +277,7 @@ u32 sub_020690C4(void);
 u32 sub_020690C8(void);
 u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon);
 u8 GetMonUnownLetter(struct Pokemon * pokemon);
-void LoadWotbl_HandleAlternateForm(int species, int form, u16 *wotbl);
+void LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u16 *levelUpLearnset);
 struct BoxPokemon * sub_020690E4(struct Pokemon * pokemon);
 
 u16 GetMonEvolution(struct Party * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret);
