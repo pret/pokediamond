@@ -1361,7 +1361,7 @@ void ReadNtrAnimation(char *path, struct JsonToAnimationOptions *options)
     {
         options->animationResults[i] = malloc(sizeof(struct AnimationResults));
     }
-    
+
     int resultOffset = 0;
     for (int i = 0; i < options->resultCount; i++)
     {
