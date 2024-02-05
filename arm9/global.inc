@@ -5451,7 +5451,7 @@
 .extern MoveRelearner_New
 .extern MoveRelearner_Delete
 .extern MoveRelearner_GetEligibleLevelUpMoves
-.extern sub_02088EF8
+.extern MoveRelearner_IsValidMove
 .extern sub_02088F0C
 .extern sub_02088F4C
 .extern sub_020892C4

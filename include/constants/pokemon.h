@@ -2,10 +2,11 @@
 #define POKEDIAMOND_CONSTANTS_POKEMON_H
 
 // Value and data limits
-#define MAX_LEVEL     100
-#define MAX_MON_MOVES       4
-#define MAX_EV        100
-#define MAX_EV_SUM    510
+#define MAX_LEVEL            100
+#define MAX_MON_MOVES          4
+#define MAX_EV               100
+#define MAX_EV_SUM           510
+#define MAX_LEARNED_MOVES     22
 
 // Pokemon types
 #define TYPE_NONE             255

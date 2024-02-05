@@ -50,7 +50,7 @@ BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     struct Pokemon* pokemon = Party_GetMonByIndex(party, mon_idx);
     u16 *eligibleMoves = MoveRelearner_GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
 
-    *ret_ptr = (u16)sub_02088EF8(eligibleMoves);
+    *ret_ptr = (u16)MoveRelearner_IsValidMove(eligibleMoves);
     FreeToHeap(eligibleMoves);
 
     return FALSE;
