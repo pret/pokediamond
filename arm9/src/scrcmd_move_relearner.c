@@ -3,7 +3,7 @@
 #include "heap.h"
 #include "party.h"
 #include "unk_020377F0.h"
-#include "unk_02088DD8.h"
+#include "move_relearner.h"
 
 extern void* FieldSysGetAttrAddr(struct FieldSystem*, int idx);
 
@@ -48,9 +48,9 @@ BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     u16 mon_idx = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = Party_GetMonByIndex(party, mon_idx);
-    u16 *eligibleMoves = GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
+    u16 *eligibleMoves = MoveRelearner_GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
 
-    *ret_ptr = (u16)sub_02088EF8(eligibleMoves);
+    *ret_ptr = (u16)MoveRelearner_IsValidMove(eligibleMoves);
     FreeToHeap(eligibleMoves);
 
     return FALSE;
@@ -58,13 +58,13 @@ BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
 
 void sub_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16 *eligibleMoves) {
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    MoveRelearner *moveRelearner = sub_02088DD8(HEAP_ID_32);
+    MoveRelearner *moveRelearner = MoveRelearner_New(HEAP_ID_32);
     *moveRelearnerPtr = moveRelearner;
 
-    moveRelearner->pokemon = pokemon;
+    moveRelearner->mon = pokemon;
 
     struct SaveData* save = FieldSystem_GetSaveData(ctx->fieldSystem);
-    moveRelearner->player = Save_PlayerData_GetProfileAddr(save);
+    moveRelearner->profile = Save_PlayerData_GetProfileAddr(save);
 
     moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
     moveRelearner->eligibleMoves = eligibleMoves;
@@ -86,7 +86,7 @@ BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
     u16 mon_idx = ScriptGetVar(ctx);
     struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = Party_GetMonByIndex(party, mon_idx);
-    u16 *eligibleMoves  = GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
+    u16 *eligibleMoves  = MoveRelearner_GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
 
     sub_02045E74(ctx, 1, pokemon, eligibleMoves);
     return TRUE;
@@ -130,7 +130,7 @@ BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: RememberMoveRespon
         *ret_ptr = 0xFF;
     }
 
-    sub_02088DF0(moveRelearner);
+    MoveRelearner_Delete(moveRelearner);
     return FALSE;
 }
 
@@ -151,6 +151,6 @@ BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMoveResponse?
         *ret_ptr = 0xFF;
     }
 
-    sub_02088DF0(moveRelearner);
+    MoveRelearner_Delete(moveRelearner);
     return FALSE;
 }
