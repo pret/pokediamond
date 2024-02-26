@@ -4815,7 +4815,7 @@
 .extern Pokemon_UpdateArceusForm
 .extern BoxMon_UpdateArceusForm
 .extern GetArceusTypeByHeldItemEffect
-.extern LoadWotbl_HandleAlternateForm
+.extern LoadLevelUpLearnset_HandleAlternateForm
 .extern sub_02069FB0
 .extern sub_0206A014
 .extern sub_0206A094
@@ -5448,10 +5448,10 @@
 .extern sub_02088D84
 .extern sub_02088DA0
 .extern sub_02088DBC
-.extern sub_02088DD8
-.extern sub_02088DF0
-.extern GetEligibleLevelUpMoves
-.extern sub_02088EF8
+.extern MoveRelearner_New
+.extern MoveRelearner_Delete
+.extern MoveRelearner_GetEligibleLevelUpMoves
+.extern MoveRelearner_IsValidMove
 .extern sub_02088F0C
 .extern sub_02088F4C
 .extern sub_020892C4

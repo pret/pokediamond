@@ -12,6 +12,17 @@
 #include "player_data.h"
 #include "sound_chatot.h"
 
+#define LEVEL_UP_LEARNSET_END             0xFFFF
+#define LEVEL_UP_LEARNSET_MAX                 22
+
+#define LEVEL_UP_LEARNSET_MOVEID_MASK     0x01FF
+#define LEVEL_UP_LEARNSET_MOVEID_SHIFT         0
+#define LEVEL_UP_LEARNSET_LEVEL_MASK      0xFE00
+#define LEVEL_UP_LEARNSET_LEVEL_SHIFT          9
+
+#define LEVEL_UP_LEARNSET_MOVE(x) ((u16)(((x) & LEVEL_UP_LEARNSET_MOVEID_MASK) >> LEVEL_UP_LEARNSET_MOVEID_SHIFT))
+#define LEVEL_UP_LEARNSET_LVL(x) (((x) & LEVEL_UP_LEARNSET_LEVEL_MASK) >> LEVEL_UP_LEARNSET_LEVEL_SHIFT)
+
 struct BaseStats {
     /* 0x00 */ u8 hp;
     /* 0x01 */ u8 atk;
@@ -266,6 +277,7 @@ u32 sub_020690C4(void);
 u32 sub_020690C8(void);
 u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon);
 u8 GetMonUnownLetter(struct Pokemon * pokemon);
+void LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u16 *levelUpLearnset);
 struct BoxPokemon * sub_020690E4(struct Pokemon * pokemon);
 
 u16 GetMonEvolution(struct Party * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret);

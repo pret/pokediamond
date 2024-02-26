@@ -5,14 +5,14 @@
 
 struct SaveData;
 
-struct Options {
+typedef struct Options {
     u16 textSpeed:4;
     u16 soundMethod:2;
     u16 battleStyle:1;
     u16 battleScene:1;
     u16 buttonMode:2;
     u16 frame:5;
-};
+} Options;
 
 struct Options * Options_New(HeapID heapId);
 void Options_Copy(struct Options * src, struct Options * dest);

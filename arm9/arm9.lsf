@@ -310,7 +310,7 @@ Static arm9
 	Object unk_0208898C.o
 	Object unk_02088AAC.o
 	Object unk_02088D1C.o
-	Object unk_02088DD8.o
+	Object move_relearner.o
 	Object unk_02088F0C.o
 	Object unk_020893E0.o
 	Object unk_02089498.o
