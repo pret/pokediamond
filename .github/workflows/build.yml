@@ -34,8 +34,8 @@ jobs:
         run: |
           mkdir -p ~/download
           cd ~/download
-          wget https://github.com/pret/pokediamond/raw/workflows/assets/mwccarm.zip
-          wget https://github.com/pret/pokediamond/raw/workflows/assets/NitroSDK-3_2-060901.7z
+          wget https://github.com/pret/pokediamond/raw/assets/workflow/mwccarm.zip
+          wget https://github.com/pret/pokediamond/raw/assets/workflow/NitroSDK-3_2-060901.7z
           unzip mwccarm.zip
           mv mwccarm $GITHUB_WORKSPACE/tools
           7z x NitroSDK-3_2-060901.7z
