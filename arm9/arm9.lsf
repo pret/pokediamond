@@ -215,7 +215,8 @@ Static arm9
 	Object unk_02054C14.o
 	Object unk_02055068.o
 	Object unk_020557F4.o
-	Object unk_02057380.o
+	Object map_object.o
+	Object map_object_s.o
 	Object unk_02058EE8.o
 	Object unk_02059F04.o
 	Object unk_0205AD98.o

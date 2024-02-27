@@ -1175,7 +1175,7 @@ _021E6938:
 	add r0, r4, #0
 	bl ov05_021F1AF8
 	add r0, r4, #0
-	bl sub_02057654
+	bl MapObject_Remove
 	ldr r0, _021E6950 ; =0x0000065B
 	bl PlaySE
 	mov r0, #0

@@ -126,7 +126,7 @@ sub_02055168: ; 0x02055168
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl PlayerAvatar_GetMapObject
-	bl sub_02057654
+	bl MapObject_Remove
 	add r0, r4, #0x0
 	bl sub_02055160
 	pop {r4, pc}

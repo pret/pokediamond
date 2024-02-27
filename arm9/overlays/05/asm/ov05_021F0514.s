@@ -2593,7 +2593,7 @@ ov05_021F19A4: ; 0x021F19A4
 	add r6, r1, #0
 	lsl r1, r4, #9
 	add r5, r0, #0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F19B8
 	mov r4, #0
@@ -2601,13 +2601,13 @@ _021F19B8:
 	mov r1, #1
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F19D6
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0
 	bne _021F19D6
 	mov r4, #0

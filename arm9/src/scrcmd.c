@@ -111,7 +111,7 @@ extern LocalMapObject *MapObject_SetVisible(LocalMapObject *target, BOOL visible
 extern LocalMapObject *sub_020588B8(LocalMapObject *target, u32 param1);
 extern VecFx32 *sub_02058B7C(LocalMapObject *target);
 extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
-extern void sub_02057654(LocalMapObject *target);
+extern void MapObject_Remove(LocalMapObject *target);
 extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
@@ -1851,7 +1851,7 @@ BOOL ScrCmd_LockCamera(ScriptContext *ctx) { //0066
 
 BOOL ScrCmd_ReleaseCamera(ScriptContext *ctx) { //0067
     LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
-    sub_02057654(*targetPtr);
+    MapObject_Remove(*targetPtr);
     VecFx32 *position = sub_02058B7C(GetMapObjectByID(ctx->fieldSystem->mapObjectManager, 0xff));
     ov05_021EF5E0(position, ctx->fieldSystem->unk24);
     Camera_SetFixedTarget(position, ctx->fieldSystem->camera);

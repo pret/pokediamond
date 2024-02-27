@@ -471,7 +471,7 @@ ov05_021F2284: ; 0x021F2284
 	add r5, r0, #0
 	add r6, r1, #0
 	add r7, r2, #0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0
 	add r0, r5, #0
 	bl sub_020583BC
@@ -480,7 +480,7 @@ _021F229A:
 	ldr r0, [sp]
 	cmp r0, r6
 	beq _021F22CE
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #1
 	bne _021F22CE
 	ldr r0, [sp]
@@ -2202,7 +2202,7 @@ ov05_021F2F6C: ; 0x021F2F6C
 	add r6, r1, #0
 	lsl r1, r4, #9
 	add r5, r0, #0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F2F80
 	mov r4, #0
@@ -2210,13 +2210,13 @@ _021F2F80:
 	mov r1, #1
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F2F9E
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0
 	bne _021F2F9E
 	mov r4, #0
@@ -2803,7 +2803,7 @@ _021F338A:
 	mov r1, #2
 	ldr r0, [r4, #4]
 	lsl r1, r1, #0x14
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	ldr r0, [r4, #4]
 	bne _021F33A8
@@ -3188,7 +3188,7 @@ ov05_021F36D8: ; 0x021F36D8
 	pop {r4, r5, r6, pc}
 _021F36EC:
 	add r0, r4, #0
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #0
 	beq _021F3700
 	add r0, r4, #0

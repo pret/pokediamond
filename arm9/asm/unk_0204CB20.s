@@ -1104,7 +1104,7 @@ sub_0204D328: ; 0x0204D328
 	bl GetMapObjectByID
 	cmp r0, #0x0
 	beq _0204D37C
-	bl sub_02057654
+	bl MapObject_Remove
 _0204D37C:
 	ldr r0, _0204D430 ; =UNK_021C5A68
 	lsl r4, r5, #0x3

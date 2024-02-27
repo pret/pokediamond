@@ -16,7 +16,7 @@ sub_0205AD98: ; 0x0205AD98
 	push {r4, lr}
 	mov r1, #0x1
 	add r4, r0, #0x0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _0205ADAA
 	mov r0, #0x0
@@ -24,7 +24,7 @@ sub_0205AD98: ; 0x0205AD98
 _0205ADAA:
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x1
 	bne _0205ADBA
 	mov r0, #0x0
@@ -32,12 +32,12 @@ _0205ADAA:
 _0205ADBA:
 	add r0, r4, #0x0
 	mov r1, #0x10
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x1
 	bne _0205ADD6
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _0205ADD6
 	mov r0, #0x0
@@ -89,7 +89,7 @@ sub_0205AE28: ; 0x0205AE28
 	push {r4, lr}
 	mov r1, #0x10
 	add r4, r0, #0x0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _0205AE3A
 	mov r0, #0x1
@@ -97,7 +97,7 @@ sub_0205AE28: ; 0x0205AE28
 _0205AE3A:
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	beq _0205AE4A
 	mov r0, #0x1
@@ -112,7 +112,7 @@ sub_0205AE50: ; 0x0205AE50
 	push {r4, lr}
 	mov r1, #0x10
 	add r4, r0, #0x0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _0205AE62
 	mov r0, #0x1
@@ -120,7 +120,7 @@ sub_0205AE50: ; 0x0205AE50
 _0205AE62:
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _0205AE72
 	mov r0, #0x0
@@ -431,7 +431,7 @@ sub_0205B080: ; 0x0205B080
 	bl sub_0205B058
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _0205B098
 	mov r0, #0x0

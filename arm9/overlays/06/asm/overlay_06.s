@@ -32754,7 +32754,7 @@ _022495D6:
 	str r0, [r4, #0xc]
 	ldr r1, _02249604 ; =0x00100200
 	add r0, r6, #0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _022495EE
 	mov r0, #1
@@ -32878,7 +32878,7 @@ _022496D0:
 	str r0, [r4, #0xc]
 	ldr r1, _022496FC ; =0x00100200
 	add r0, r6, #0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _022496E8
 	mov r0, #1
@@ -34573,7 +34573,7 @@ _0224A3A6:
 	str r0, [r5, #8]
 	add r0, r4, #0
 	lsl r1, r1, #8
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	beq _0224A3C8
 	add r0, r4, #0

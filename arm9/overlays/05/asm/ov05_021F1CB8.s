@@ -20,7 +20,7 @@ _021F1CD2:
 	add r0, r5, #0
 	bl ov05_021F1D68
 	add r0, r5, #0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	bl sub_0205839C

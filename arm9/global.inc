@@ -3983,14 +3983,14 @@
 .extern sub_02057260
 .extern sub_02057278
 .extern sub_020572B8
-.extern sub_02057380
-.extern sub_020573AC
+.extern MapObjectManager_Init
+.extern MapObjectManager_Delete
 .extern sub_020573C8
 .extern sub_0205753C
 .extern sub_020575D4
 .extern sub_02057614
 .extern sub_02057634
-.extern sub_02057654
+.extern MapObject_Remove
 .extern sub_02057688
 .extern sub_020576A8
 .extern sub_0205771C
@@ -4005,7 +4005,7 @@
 .extern sub_0205829C
 .extern sub_020582A8
 .extern sub_020582F8
-.extern sub_02058368
+.extern MapObjectManager_GetObjectCount
 .extern sub_0205837C
 .extern sub_02058384
 .extern sub_02058390
@@ -4020,7 +4020,7 @@
 .extern sub_02058410
 .extern sub_02058418
 .extern sub_02058424
-.extern sub_0205842C
+.extern MapObject_TestFlagsBits
 .extern sub_02058444
 .extern MapObject_GetID
 .extern sub_02058450
@@ -4082,7 +4082,7 @@
 .extern sub_020587F4
 .extern sub_02058804
 .extern sub_0205881C
-.extern sub_02058830
+.extern MapObject_IsInUse
 .extern sub_0205883C
 .extern sub_02058848
 .extern sub_02058854

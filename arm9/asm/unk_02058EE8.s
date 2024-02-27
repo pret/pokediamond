@@ -2483,7 +2483,7 @@ sub_0205995C: ; 0x0205995C
 	bl sub_020583BC
 	str r0, [sp, #0x8]
 	add r0, r7, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	str r0, [sp, #0x4]
 _0205997C:
 	ldr r0, [sp, #0x8]

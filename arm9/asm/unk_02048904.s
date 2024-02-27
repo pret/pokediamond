@@ -265,7 +265,7 @@ sub_02048AE4: ; 0x02048AE4
 	add r5, r0, #0x0
 	mov r1, #0x40
 	mov r2, #0x5
-	bl sub_02057380
+	bl MapObjectManager_Init
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetProfileAddr
@@ -303,7 +303,7 @@ sub_02048B34: ; 0x02048B34
 	ldr r0, [r4, #0x34]
 	bl sub_0205771C
 	ldr r0, [r4, #0x34]
-	bl sub_020573AC
+	bl MapObjectManager_Delete
 	pop {r4, pc}
 
 	thumb_func_start sub_02048B50
@@ -312,7 +312,7 @@ sub_02048B50: ; 0x02048B50
 	add r5, r0, #0x0
 	mov r1, #0x40
 	mov r2, #0x5
-	bl sub_02057380
+	bl MapObjectManager_Init
 	str r0, [r5, #0x34]
 	add r0, r5, #0x0
 	bl sub_02034E60

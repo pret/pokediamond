@@ -5,103 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_02057380
-sub_02057380: ; 0x02057380
-	push {r3-r7, lr}
-	add r5, r1, #0x0
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	add r7, r2, #0x0
-	bl sub_02057444
-	add r4, r0, #0x0
-	add r1, r6, #0x0
-	bl sub_020583E0
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl sub_02058364
-	add r0, r4, #0x0
-	add r1, r7, #0x0
-	bl sub_02058398
-	add r0, r4, #0x0
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_020573AC
-sub_020573AC: ; 0x020573AC
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl sub_020583CC
-	add r1, r0, #0x0
-	mov r0, #0xb
-	bl FreeToHeapExplicit
-	mov r0, #0xb
-	add r1, r4, #0x0
-	bl FreeToHeapExplicit
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start sub_020573C8
-sub_020573C8: ; 0x020573C8
-	push {r3-r7, lr}
-	sub sp, #0x8
-	str r0, [sp, #0x0]
-	add r5, r2, #0x0
-	str r3, [sp, #0x4]
-	ldr r7, [sp, #0x20]
-	bl sub_02058368
-	add r6, r0, #0x0
-	ldr r0, [sp, #0x0]
-	bl sub_020583CC
-	add r4, r0, #0x0
-	cmp r6, #0x0
-	beq _02057430
-_020573E6:
-	add r0, r4, #0x0
-	bl sub_02058830
-	cmp r0, #0x1
-	bne _02057426
-	ldr r2, [sp, #0x4]
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	add r3, r7, #0x0
-	bl sub_02057F90
-	cmp r0, #0x0
-	beq _02057408
-	cmp r0, #0x1
-	beq _02057426
-	cmp r0, #0x2
-	b _02057426
-_02057408:
-	add r0, r4, #0x0
-	bl sub_02058450
-	cmp r5, r0
-	beq _02057426
-	mov r1, #0x1
-	add r0, r4, #0x0
-	lsl r1, r1, #0xa
-	bl sub_0205842C
-	cmp r0, #0x0
-	bne _02057426
-	add r0, r4, #0x0
-	bl sub_02057654
-_02057426:
-	mov r0, #0x4a
-	lsl r0, r0, #0x2
-	add r4, r4, r0
-	sub r6, r6, #0x1
-	bne _020573E6
-_02057430:
-	ldr r0, [sp, #0x0]
-	bl sub_020583A0
-	add r1, r0, #0x0
-	ldr r0, [sp, #0x0]
-	bl ov05_021F2AF4
-	add sp, #0x8
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_02057444
-sub_02057444: ; 0x02057444
+	thumb_func_start MapObjectManager_New
+MapObjectManager_New: ; 0x02057444
 	push {r4-r6, lr}
 	mov r1, #0x4b
 	add r4, r0, #0x0
@@ -336,8 +241,8 @@ _02057648:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start sub_02057654
-sub_02057654: ; 0x02057654
+	thumb_func_start MapObject_Remove
+MapObject_Remove: ; 0x02057654
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl sub_02058578
@@ -370,7 +275,7 @@ sub_02057688: ; 0x02057688
 	lsr r1, r1, #0x10
 	bl FieldSystem_FlagSet
 	add r0, r4, #0x0
-	bl sub_02057654
+	bl MapObject_Remove
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_020576A8
@@ -426,10 +331,10 @@ sub_0205771C: ; 0x0205771C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	mov r4, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020583CC
+	bl MapObjectManager_GetObjects
 	mov r7, #0x4a
 	add r5, r0, #0x0
 	lsl r7, r7, #0x2
@@ -440,7 +345,7 @@ _02057734:
 	cmp r0, #0x0
 	beq _02057746
 	add r0, r5, #0x0
-	bl sub_02057654
+	bl MapObject_Remove
 _02057746:
 	add r4, r4, #0x1
 	add r5, r5, r7
@@ -459,10 +364,10 @@ sub_02057750: ; 0x02057750
 _02057760:
 	add r0, r5, #0x0
 	mov r4, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020583CC
+	bl MapObjectManager_GetObjects
 	mov r7, #0x4a
 	add r5, r0, #0x0
 	lsl r7, r7, #0x2
@@ -501,16 +406,16 @@ sub_020577A8: ; 0x020577A8
 _020577B8:
 	add r0, r5, #0x0
 	mov r4, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020583CC
+	bl MapObjectManager_GetObjects
 	mov r7, #0x4a
 	add r5, r0, #0x0
 	lsl r7, r7, #0x2
 _020577CE:
 	add r0, r5, #0x0
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #0x1
 	bne _020577F6
 	add r0, r5, #0x0
@@ -1046,10 +951,10 @@ sub_02057C64: ; 0x02057C64
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	mov r4, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020583CC
+	bl MapObjectManager_GetObjects
 	mov r7, #0x4a
 	add r5, r0, #0x0
 	lsl r7, r7, #0x2
@@ -1515,7 +1420,7 @@ GetMapObjectByID: ; 0x02058060
 	bl GF_AssertFail
 _0205806E:
 	add r0, r5, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_020583C4
@@ -1525,7 +1430,7 @@ _0205806E:
 _02058082:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x1
 	bne _020580A6
 	add r0, r5, #0x0
@@ -1552,7 +1457,7 @@ sub_020580B4: ; 0x020580B4
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r6, r1, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_020583C4
@@ -1562,7 +1467,7 @@ sub_020580B4: ; 0x020580B4
 _020580CC:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x1
 	bne _020580E6
 	add r0, r5, #0x0
@@ -1587,7 +1492,7 @@ sub_020580F4: ; 0x020580F4
 	add r4, r0, #0x0
 	str r1, [sp, #0x0]
 	add r6, r3, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, r7
@@ -1811,7 +1716,7 @@ sub_020582A8: ; 0x020582A8
 	mov r1, #0x1
 	add r5, r0, #0x0
 	add r4, r2, #0x0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _020582BE
 	mov r0, #0x0
@@ -1854,7 +1759,7 @@ sub_020582F8: ; 0x020582F8
 	add r5, r0, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x0
 	bne _02058310
 	mov r0, #0x0
@@ -1881,7 +1786,7 @@ sub_0205832C: ; 0x0205832C
 	add r0, r4, #0x0
 	bl sub_02058EF8
 	add r0, r4, #0x0
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #0x0
 	beq _02058346
 	add r0, r4, #0x0
@@ -1907,13 +1812,13 @@ sub_02058360: ; 0x02058360
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02058364
-sub_02058364: ; 0x02058364
+	thumb_func_start MapObjectManager_SetObjectCount
+MapObjectManager_SetObjectCount: ; 0x02058364
 	str r1, [r0, #0x4]
 	bx lr
 
-	thumb_func_start sub_02058368
-sub_02058368: ; 0x02058368
+	thumb_func_start MapObjectManager_GetObjectCount
+MapObjectManager_GetObjectCount: ; 0x02058368
 	ldr r0, [r0, #0x4]
 	bx lr
 
@@ -1954,8 +1859,8 @@ sub_02058390: ; 0x02058390
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02058398
-sub_02058398: ; 0x02058398
+	thumb_func_start MapObjectManager_SetHeapID
+MapObjectManager_SetHeapID: ; 0x02058398
 	str r1, [r0, #0xc]
 	bx lr
 
@@ -2004,8 +1909,8 @@ sub_020583C4: ; 0x020583C4
 	ldr r0, [r0, r1]
 	bx lr
 
-	thumb_func_start sub_020583CC
-sub_020583CC: ; 0x020583CC
+	thumb_func_start MapObjectManager_GetObjects
+MapObjectManager_GetObjects: ; 0x020583CC
 	mov r1, #0x49
 	lsl r1, r1, #0x2
 	ldr r0, [r0, r1]
@@ -2020,8 +1925,8 @@ sub_020583D4: ; 0x020583D4
 	str r1, [r0, #0x0]
 	bx lr
 
-	thumb_func_start sub_020583E0
-sub_020583E0: ; 0x020583E0
+	thumb_func_start MapObjectManager_SetFieldSystemPtr
+MapObjectManager_SetFieldSystemPtr: ; 0x020583E0
 	mov r2, #0x4a
 	lsl r2, r2, #0x2
 	str r1, [r0, r2]
@@ -2085,8 +1990,8 @@ sub_02058424: ; 0x02058424
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_0205842C
-sub_0205842C: ; 0x0205842C
+	thumb_func_start MapObject_TestFlagsBits
+MapObject_TestFlagsBits: ; 0x0205842C
 	ldr r0, [r0, #0x0]
 	tst r0, r1
 	beq _02058436
@@ -2738,16 +2643,16 @@ _0205877C: .word sub_02058384
 MapObjectManager_PauseAllMovement: ; 0x02058780
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020583CC
+	bl MapObjectManager_GetObjects
 	mov r6, #0x4a
 	add r5, r0, #0x0
 	lsl r6, r6, #0x2
 _02058796:
 	add r0, r5, #0x0
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #0x0
 	beq _020587A6
 	add r0, r5, #0x0
@@ -2763,16 +2668,16 @@ _020587A6:
 MapObjectManager_UnpauseAllMovement: ; 0x020587B0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020583CC
+	bl MapObjectManager_GetObjects
 	mov r6, #0x4a
 	add r5, r0, #0x0
 	lsl r6, r6, #0x2
 _020587C6:
 	add r0, r5, #0x0
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #0x0
 	beq _020587D6
 	add r0, r5, #0x0
@@ -2833,13 +2738,13 @@ _0205882C:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start sub_02058830
-sub_02058830: ; 0x02058830
-	ldr r3, _02058838 ; =sub_0205842C
+	thumb_func_start MapObject_IsInUse
+MapObject_IsInUse: ; 0x02058830
+	ldr r3, _02058838 ; =MapObject_TestFlagsBits
 	mov r1, #0x1
 	bx r3
 	nop
-_02058838: .word sub_0205842C
+_02058838: .word MapObject_TestFlagsBits
 
 	thumb_func_start sub_0205883C
 sub_0205883C: ; 0x0205883C
@@ -2859,11 +2764,11 @@ _02058850: .word sub_02058418
 
 	thumb_func_start sub_02058854
 sub_02058854: ; 0x02058854
-	ldr r3, _0205885C ; =sub_0205842C
+	ldr r3, _0205885C ; =MapObject_TestFlagsBits
 	mov r1, #0x2
 	bx r3
 	nop
-_0205885C: .word sub_0205842C
+_0205885C: .word MapObject_TestFlagsBits
 
 	thumb_func_start sub_02058860
 sub_02058860: ; 0x02058860
@@ -2892,21 +2797,21 @@ _02058880: .word sub_02058410
 
 	thumb_func_start sub_02058884
 sub_02058884: ; 0x02058884
-	ldr r3, _0205888C ; =sub_0205842C
+	ldr r3, _0205888C ; =MapObject_TestFlagsBits
 	mov r1, #0x1
 	lsl r1, r1, #0xe
 	bx r3
 	.balign 4
-_0205888C: .word sub_0205842C
+_0205888C: .word MapObject_TestFlagsBits
 
 	thumb_func_start sub_02058890
 sub_02058890: ; 0x02058890
-	ldr r3, _02058898 ; =sub_0205842C
+	ldr r3, _02058898 ; =MapObject_TestFlagsBits
 	mov r1, #0x2
 	lsl r1, r1, #0x8
 	bx r3
 	.balign 4
-_02058898: .word sub_0205842C
+_02058898: .word MapObject_TestFlagsBits
 
 	thumb_func_start MapObject_SetVisible
 MapObject_SetVisible: ; 0x0205889C
@@ -2945,7 +2850,7 @@ sub_020588D4: ; 0x020588D4
 	push {r3, lr}
 	mov r1, #0x2
 	lsl r1, r1, #0x12
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x1
 	beq _020588E6
 	mov r0, #0x1
@@ -2991,7 +2896,7 @@ _0205891C: .word sub_02058418
 sub_02058920: ; 0x02058920
 	push {r3, lr}
 	mov r1, #0x40
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0x1
 	bne _02058930
 	mov r0, #0x1
@@ -3808,10 +3713,10 @@ sub_02058D74: ; 0x02058D74
 	add r5, r0, #0x0
 	add r6, r1, #0x0
 	add r7, r2, #0x0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020583CC
+	bl MapObjectManager_GetObjects
 	add r5, r0, #0x0
 _02058D8A:
 	add r0, r5, #0x0
