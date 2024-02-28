@@ -5,44 +5,6 @@
 
 	.text
 
-	thumb_func_start MapObjectManager_New
-MapObjectManager_New: ; 0x02057444
-	push {r4-r6, lr}
-	mov r1, #0x4b
-	add r4, r0, #0x0
-	mov r0, #0xb
-	lsl r1, r1, #0x2
-	bl AllocFromHeap
-	add r5, r0, #0x0
-	bne _0205745A
-	bl GF_AssertFail
-_0205745A:
-	mov r2, #0x4b
-	add r0, r5, #0x0
-	mov r1, #0x0
-	lsl r2, r2, #0x2
-	bl memset
-	mov r0, #0x4a
-	lsl r0, r0, #0x2
-	add r6, r4, #0x0
-	mul r6, r0
-	mov r0, #0xb
-	add r1, r6, #0x0
-	bl AllocFromHeap
-	add r4, r0, #0x0
-	bne _0205747E
-	bl GF_AssertFail
-_0205747E:
-	add r0, r4, #0x0
-	mov r1, #0x0
-	add r2, r6, #0x0
-	bl memset
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl sub_020583B4
-	add r0, r5, #0x0
-	pop {r4-r6, pc}
-
 	thumb_func_start sub_02057494
 sub_02057494: ; 0x02057494
 	push {r3-r7, lr}
@@ -1888,8 +1850,8 @@ sub_020583AC: ; 0x020583AC
 	ldr r0, [r0, r1]
 	bx lr
 
-	thumb_func_start sub_020583B4
-sub_020583B4: ; 0x020583B4
+	thumb_func_start MapObjectManager_SetObjects
+MapObjectManager_SetObjects: ; 0x020583B4
 	mov r2, #0x49
 	lsl r2, r2, #0x2
 	str r1, [r0, r2]

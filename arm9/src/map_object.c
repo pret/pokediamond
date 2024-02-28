@@ -3,7 +3,8 @@
 #include "field_system.h"
 #include "heap.h"
 
-extern MapObjectManager *MapObjectManager_New(u32 objectCount);
+static MapObjectManager *MapObjectManager_New(u32 objectCount);
+
 extern void MapObjectManager_SetFieldSystemPtr(MapObjectManager *manager, FieldSystem *fieldSystem);
 extern void MapObjectManager_SetObjectCount(MapObjectManager *manager, u32 objectCount);
 extern void MapObjectManager_SetHeapID(MapObjectManager *manager, HeapID heapId);
@@ -16,6 +17,7 @@ extern void *sub_020583A0(MapObjectManager *manager);
 extern u32 sub_02058450(LocalMapObject *object);
 extern BOOL MapObject_TestFlagsBits(LocalMapObject *object, u32 flags);
 extern u32 sub_02057F90(LocalMapObject *object, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
+extern void MapObjectManager_SetObjects(MapObjectManager *manager, LocalMapObject *objects);
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, HeapID heapId) {
     MapObjectManager *ret = MapObjectManager_New(objectCount);
@@ -53,4 +55,19 @@ void sub_020573C8(MapObjectManager *manager, u32 unused, u32 a2, u32 objectCount
     }
 
     ov05_021F2AF4(manager, sub_020583A0(manager));
+}
+
+static MapObjectManager *MapObjectManager_New(u32 objectCount) {
+    LocalMapObject *objects;
+    MapObjectManager *manager = AllocFromHeap(HEAP_ID_FIELD, sizeof(MapObjectManager));
+    GF_ASSERT(manager != NULL);
+    memset(manager, 0, sizeof(MapObjectManager));
+
+    objects = AllocFromHeap(HEAP_ID_FIELD, objectCount * sizeof(LocalMapObject));
+    GF_ASSERT(objects != NULL);
+    memset(objects, 0, objectCount * sizeof(LocalMapObject));
+
+    MapObjectManager_SetObjects(manager, objects);
+
+    return manager;
 }
