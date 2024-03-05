@@ -67,7 +67,7 @@ _021F1B76:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 

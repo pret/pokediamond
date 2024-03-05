@@ -12,7 +12,7 @@ extern BOOL sub_02054B3C(u8 param0);
 extern BOOL sub_02054B48(u8 param0);
 extern BOOL sub_02054B54(u8 param0);
 extern UnkStruct021E7358 *TaskManager_GetEnvironment(UnkStruct021E7358 *param0);
-extern void sub_02058410(u32 param0, u32 param1);
+extern void MapObject_SetFlagsBits(u32 param0, u32 param1);
 extern BOOL sub_02057254(u32 param0);
 extern u32 sub_0205AFDC(u32 param0, u32 param1);
 extern void sub_02057260(u32 param0, u32 param1);
@@ -84,7 +84,7 @@ BOOL ov05_021E73B4(UnkStruct021E7358 *param0)
     switch (strct->Unk08)
     {
         case 0:
-            sub_02058410(res, 1 << 8);
+            MapObject_SetFlagsBits(res, 1 << 8);
             strct->Unk08++;
             break;
         case 1:

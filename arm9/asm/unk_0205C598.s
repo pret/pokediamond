@@ -778,7 +778,7 @@ _0205CB44:
 	bl ov05_021F1EC0
 	add r0, r5, #0x0
 	mov r1, #0x40
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r0, #0x2
 	str r0, [r4, #0x0]
 	mov r0, #0x1

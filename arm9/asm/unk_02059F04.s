@@ -1998,7 +1998,7 @@ _0205AD6E:
 	bl sub_020584AC
 	add r0, r7, #0x0
 	mov r1, #0x80
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3-r7, pc}
 	nop
 _0205AD84: .word UNK_020F6964

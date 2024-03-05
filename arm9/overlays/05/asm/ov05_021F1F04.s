@@ -2030,7 +2030,7 @@ ov05_021F2E0C: ; 0x021F2E0C
 	bne _021F2E1C
 	mov r1, #1
 	lsl r1, r1, #0x16
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, pc}
 _021F2E1C:
 	mov r1, #1

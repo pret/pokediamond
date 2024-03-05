@@ -152,7 +152,7 @@ _021F061C:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 
@@ -808,7 +808,7 @@ _021F0B44:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021F0B58
@@ -1067,7 +1067,7 @@ _021F0D5C:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021F0D70

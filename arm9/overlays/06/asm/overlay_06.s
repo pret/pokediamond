@@ -314,7 +314,7 @@ ov06_022398D8: ; 0x022398D8
 	bne _022398F0
 	mov r1, #1
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4, pc}
 _022398F0:
 	mov r1, #1

@@ -4017,7 +4017,7 @@
 .extern sub_020583D4
 .extern sub_020583F0
 .extern sub_020583F4
-.extern sub_02058410
+.extern MapObject_SetFlagsBits
 .extern sub_02058418
 .extern sub_02058424
 .extern MapObject_TestFlagsBits

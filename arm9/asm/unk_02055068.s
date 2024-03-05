@@ -60,7 +60,7 @@ sub_020550A4: ; 0x020550A4
 	mov r1, #0x9
 	add r0, r4, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
@@ -245,7 +245,7 @@ _02055228:
 	mov r1, #0x9
 	add r0, r5, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x6
 	add r0, r5, #0x0
 	lsl r1, r1, #0x6
@@ -407,7 +407,7 @@ sub_0205537C: ; 0x0205537C
 _02055392:
 	mov r1, #0x2
 	lsl r1, r1, #0x8
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4, pc}
 
 	thumb_func_start sub_0205539C

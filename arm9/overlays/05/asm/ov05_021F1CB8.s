@@ -281,7 +281,7 @@ ov05_021F1EDC: ; 0x021F1EDC
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4, pc}
 	.balign 4, 0
 

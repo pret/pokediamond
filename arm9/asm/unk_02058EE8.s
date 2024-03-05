@@ -1980,7 +1980,7 @@ _02059578:
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4-r6, pc}
 _02059584:
 	mov r1, #0x2
@@ -1994,7 +1994,7 @@ _02059584:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0xe
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 _020595A2:
 	pop {r4-r6, pc}
 
@@ -2050,7 +2050,7 @@ _02059614:
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4-r6, pc}
 _02059620:
 	mov r1, #0x1
@@ -3026,7 +3026,7 @@ _02059DA2:
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0xc
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 _02059DAC:
 	add r0, r4, #0x0
 	add sp, #0x18
@@ -3071,7 +3071,7 @@ sub_02059DB4: ; 0x02059DB4
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _02059E18:

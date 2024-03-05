@@ -629,7 +629,7 @@ _02055CE4:
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r6, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC
@@ -676,7 +676,7 @@ _02055D54:
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r6, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC
@@ -700,7 +700,7 @@ _02055D8E:
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	bl sub_020560D0
@@ -762,7 +762,7 @@ _02055E18:
 	mov r1, #0x6
 	add r0, r6, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC
@@ -824,7 +824,7 @@ _02055EAC:
 	mov r1, #0x6
 	add r0, r6, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC

@@ -670,7 +670,7 @@ sub_0205E9C8: ; 0x0205E9C8
 	mov r1, #0x1
 	add r0, r4, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	ldr r5, _0205EA0C ; =UNK_020F7398
 	add r3, sp, #0x0
 	ldmia r5!, {r0-r1}

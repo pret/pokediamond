@@ -215,7 +215,7 @@ _0205C4C0:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_0205C4D8
