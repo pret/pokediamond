@@ -2,135 +2,9 @@
 	.include "global.inc"
 
 	.extern UNK_020F6364
-	.extern MapObject_CreateFromObjectEventInternal
+	.extern MapObject_CreateFromObjectEvent
 
 	.text
-
-	thumb_func_start sub_0205753C
-sub_0205753C: ; 0x0205753C
-	push {r3-r7, lr}
-	sub sp, #0x20
-	add r5, r0, #0x0
-	add r4, r1, #0x0
-	add r0, sp, #0x0
-	mov r1, #0x0
-	add r6, r2, #0x0
-	add r7, r3, #0x0
-	bl sub_02058BF8
-	ldr r1, [sp, #0x38]
-	add r0, sp, #0x0
-	bl sub_02058C00
-	ldr r1, [sp, #0x3c]
-	add r0, sp, #0x0
-	bl sub_02058C08
-	add r0, sp, #0x0
-	mov r1, #0x0
-	bl sub_02058C10
-	add r0, sp, #0x0
-	mov r1, #0x0
-	bl sub_02058C18
-	add r0, sp, #0x0
-	mov r1, #0x0
-	bl sub_02058C20
-	add r0, sp, #0x0
-	add r1, r7, #0x0
-	bl sub_02058C28
-	mov r1, #0x0
-	add r0, sp, #0x0
-	add r2, r1, #0x0
-	bl sub_02058C34
-	add r0, sp, #0x0
-	mov r1, #0x0
-	mov r2, #0x1
-	bl sub_02058C34
-	add r0, sp, #0x0
-	mov r1, #0x0
-	mov r2, #0x2
-	bl sub_02058C34
-	add r0, sp, #0x0
-	mov r1, #0x0
-	bl sub_02058C7C
-	add r0, sp, #0x0
-	mov r1, #0x0
-	bl sub_02058C88
-	add r0, sp, #0x0
-	add r1, r4, #0x0
-	bl sub_02058C94
-	add r0, sp, #0x0
-	add r1, r6, #0x0
-	bl sub_02058CA4
-	add r0, sp, #0x0
-	mov r1, #0x0
-	bl sub_02058C9C
-	ldr r2, [sp, #0x40]
-	add r0, r5, #0x0
-	add r1, sp, #0x0
-	bl MapObject_CreateFromObjectEventInternal
-	add sp, #0x20
-	pop {r3-r7, pc}
-
-	thumb_func_start sub_020575D4
-sub_020575D4: ; 0x020575D4
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	add r0, r1, #0x0
-	add r1, r2, #0x0
-	ldr r2, [sp, #0x18]
-	add r7, r3, #0x0
-	mov r4, #0x0
-	bl sub_02058CAC
-	str r0, [sp, #0x0]
-	cmp r0, #0x0
-	beq _02057610
-	bl sub_02058C1C
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObjectManager_GetFieldSystemPtr
-	lsl r1, r6, #0x10
-	lsr r1, r1, #0x10
-	bl FlagCheck
-	cmp r0, #0x0
-	bne _02057610
-	ldr r1, [sp, #0x0]
-	add r0, r5, #0x0
-	add r2, r7, #0x0
-	bl MapObject_CreateFromObjectEventInternal
-	add r4, r0, #0x0
-_02057610:
-	add r0, r4, #0x0
-	pop {r3-r7, pc}
-
-	thumb_func_start sub_02057614
-sub_02057614: ; 0x02057614
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl sub_02058454
-	add r0, r4, #0x0
-	bl sub_02058148
-	mov r1, #0x1
-	add r0, r4, #0x0
-	lsl r1, r1, #0xe
-	bl sub_02058418
-	add r0, r4, #0x0
-	bl sub_020581B4
-	pop {r4, pc}
-
-	thumb_func_start sub_02057634
-sub_02057634: ; 0x02057634
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r4, r1, #0x0
-	bl sub_02058934
-	cmp r0, #0x1
-	bne _02057648
-	add r0, r5, #0x0
-	bl sub_020576A8
-_02057648:
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl sub_02057614
-	pop {r3-r5, pc}
-	.balign 4
 
 	thumb_func_start MapObject_Remove
 MapObject_Remove: ; 0x02057654
@@ -189,11 +63,11 @@ _020576CC:
 	mov r1, #0x1
 	add r0, r4, #0x0
 	lsl r1, r1, #0xe
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _020576D6:
 	ldr r1, _02057708 ; =0x0000FFFF
 	add r0, r4, #0x0
-	bl sub_02058454
+	bl MapObject_SetGfxId
 	ldr r1, _0205770C ; =sub_02058ED8
 	add r0, r4, #0x0
 	bl sub_02058684
@@ -556,7 +430,7 @@ sub_020579C4: ; 0x020579C4
 	bl sub_0205844C
 	ldrh r1, [r4, #0x12]
 	add r0, r5, #0x0
-	bl sub_02058454
+	bl MapObject_SetGfxId
 	ldrb r1, [r4, #0x9]
 	add r0, r5, #0x0
 	bl sub_0205847C
@@ -701,7 +575,7 @@ sub_02057B34: ; 0x02057B34
 	bl MapObject_SetFlagsBits
 	ldr r1, _02057B50 ; =0x00EF4248
 	add r0, r4, #0x0
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	bl sub_0205815C
 	pop {r4, pc}
@@ -809,14 +683,14 @@ _02057C1A:
 	beq _02057C30
 	ldrh r1, [r4, #0x8]
 	add r0, r7, #0x0
-	bl FlagCheck
+	bl FieldSystem_FlagCheck
 	cmp r0, #0x0
 	bne _02057C42
 _02057C30:
 	ldr r0, [r5, #0xc]
 	ldr r2, [r5, #0x0]
 	add r1, r4, #0x0
-	bl MapObject_CreateFromObjectEventInternal
+	bl MapObject_CreateFromObjectEvent
 	cmp r0, #0x0
 	bne _02057C42
 	bl GF_AssertFail
@@ -958,7 +832,7 @@ MapObject_InitFromObjectEvent: ; 0x02057D2C
 	bl sub_02058170
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058454
+	bl MapObject_SetGfxId
 	add r0, r4, #0x0
 	bl sub_02058C0C
 	add r1, r0, #0x0
@@ -970,7 +844,7 @@ MapObject_InitFromObjectEvent: ; 0x02057D2C
 	add r0, r5, #0x0
 	bl sub_02058484
 	add r0, r4, #0x0
-	bl sub_02058C1C
+	bl ObjectEvent_GetFlagId
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0205848C
@@ -1434,11 +1308,11 @@ sub_02058148: ; 0x02058148
 
 	thumb_func_start sub_0205815C
 sub_0205815C: ; 0x0205815C
-	ldr r3, _02058164 ; =sub_02058418
+	ldr r3, _02058164 ; =MapObject_ClearFlagsBits
 	ldr r1, _02058168 ; =0x05108000
 	bx r3
 	nop
-_02058164: .word sub_02058418
+_02058164: .word MapObject_ClearFlagsBits
 _02058168: .word 0x05108000
 
 	thumb_func_start sub_0205816C
@@ -1555,7 +1429,7 @@ _02058228:
 	add r0, r5, #0x0
 	bl sub_02058494
 	add r0, r4, #0x0
-	bl sub_02058C1C
+	bl ObjectEvent_GetFlagId
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0205848C
@@ -1865,8 +1739,8 @@ MapObject_SetFlagsBits: ; 0x02058410
 	str r1, [r0, #0x0]
 	bx lr
 
-	thumb_func_start sub_02058418
-sub_02058418: ; 0x02058418
+	thumb_func_start MapObject_ClearFlagsBits
+MapObject_ClearFlagsBits: ; 0x02058418
 	ldr r2, [r0, #0x0]
 	mvn r1, r1
 	and r1, r2
@@ -1923,8 +1797,8 @@ sub_02058450: ; 0x02058450
 	ldr r0, [r0, #0xc]
 	bx lr
 
-	thumb_func_start sub_02058454
-sub_02058454: ; 0x02058454
+	thumb_func_start MapObject_SetGfxId
+MapObject_SetGfxId: ; 0x02058454
 	str r1, [r0, #0x10]
 	bx lr
 
@@ -2647,11 +2521,11 @@ _02058844: .word MapObject_SetFlagsBits
 
 	thumb_func_start sub_02058848
 sub_02058848: ; 0x02058848
-	ldr r3, _02058850 ; =sub_02058418
+	ldr r3, _02058850 ; =MapObject_ClearFlagsBits
 	mov r1, #0x2
 	bx r3
 	nop
-_02058850: .word sub_02058418
+_02058850: .word MapObject_ClearFlagsBits
 
 	thumb_func_start sub_02058854
 sub_02058854: ; 0x02058854
@@ -2671,11 +2545,11 @@ _02058868: .word MapObject_SetFlagsBits
 
 	thumb_func_start sub_0205886C
 sub_0205886C: ; 0x0205886C
-	ldr r3, _02058874 ; =sub_02058418
+	ldr r3, _02058874 ; =MapObject_ClearFlagsBits
 	mov r1, #0x8
 	bx r3
 	nop
-_02058874: .word sub_02058418
+_02058874: .word MapObject_ClearFlagsBits
 
 	thumb_func_start sub_02058878
 sub_02058878: ; 0x02058878
@@ -2716,7 +2590,7 @@ MapObject_SetVisible: ; 0x0205889C
 _020588AC:
 	mov r1, #0x2
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -2727,7 +2601,7 @@ sub_020588B8: ; 0x020588B8
 	bne _020588C8
 	mov r1, #0x1
 	lsl r1, r1, #0x12
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 _020588C8:
 	mov r1, #0x1
@@ -2763,7 +2637,7 @@ sub_020588EC: ; 0x020588EC
 _020588FC:
 	mov r1, #0x2
 	lsl r1, r1, #0x12
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -2777,11 +2651,11 @@ _02058910: .word MapObject_SetFlagsBits
 
 	thumb_func_start sub_02058914
 sub_02058914: ; 0x02058914
-	ldr r3, _0205891C ; =sub_02058418
+	ldr r3, _0205891C ; =MapObject_ClearFlagsBits
 	mov r1, #0x40
 	bx r3
 	nop
-_0205891C: .word sub_02058418
+_0205891C: .word MapObject_ClearFlagsBits
 
 	thumb_func_start sub_02058920
 sub_02058920: ; 0x02058920
@@ -2832,7 +2706,7 @@ sub_02058960: ; 0x02058960
 _02058970:
 	mov r1, #0x2
 	lsl r1, r1, #0x16
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -2863,7 +2737,7 @@ sub_02058994: ; 0x02058994
 _020589A4:
 	mov r1, #0x1
 	lsl r1, r1, #0xa
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -2879,7 +2753,7 @@ sub_020589B0: ; 0x020589B0
 _020589C0:
 	mov r1, #0x2
 	lsl r1, r1, #0x18
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -2910,7 +2784,7 @@ sub_020589E4: ; 0x020589E4
 _020589F4:
 	mov r1, #0x1
 	lsl r1, r1, #0x1a
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -2941,7 +2815,7 @@ sub_02058A18: ; 0x02058A18
 _02058A28:
 	mov r1, #0x2
 	lsl r1, r1, #0x1a
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -2972,7 +2846,7 @@ sub_02058A4C: ; 0x02058A4C
 _02058A5C:
 	mov r1, #0x1
 	lsl r1, r1, #0x1c
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -3003,7 +2877,7 @@ sub_02058A80: ; 0x02058A80
 _02058A90:
 	mov r1, #0x1
 	lsl r1, r1, #0x18
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -3047,7 +2921,7 @@ sub_02058AC8: ; 0x02058AC8
 _02058AD8:
 	mov r1, #0x2
 	lsl r1, r1, #0x1c
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -3287,8 +3161,8 @@ sub_02058BE4: ; 0x02058BE4
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start sub_02058BF8
-sub_02058BF8: ; 0x02058BF8
+	thumb_func_start ObjectEvent_SetId
+ObjectEvent_SetId: ; 0x02058BF8
 	strh r1, [r0, #0x0]
 	bx lr
 
@@ -3297,8 +3171,8 @@ ObjectEvent_GetID: ; 0x02058BFC
 	ldrh r0, [r0, #0x0]
 	bx lr
 
-	thumb_func_start sub_02058C00
-sub_02058C00: ; 0x02058C00
+	thumb_func_start ObjectEvent_SetSprite
+ObjectEvent_SetSprite: ; 0x02058C00
 	strh r1, [r0, #0x2]
 	bx lr
 
@@ -3307,8 +3181,8 @@ sub_02058C04: ; 0x02058C04
 	ldrh r0, [r0, #0x2]
 	bx lr
 
-	thumb_func_start sub_02058C08
-sub_02058C08: ; 0x02058C08
+	thumb_func_start ObjectEvent_SetMovement
+ObjectEvent_SetMovement: ; 0x02058C08
 	strh r1, [r0, #0x4]
 	bx lr
 
@@ -3317,8 +3191,8 @@ sub_02058C0C: ; 0x02058C0C
 	ldrh r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start sub_02058C10
-sub_02058C10: ; 0x02058C10
+	thumb_func_start ObjectEvent_SetType
+ObjectEvent_SetType: ; 0x02058C10
 	strh r1, [r0, #0x6]
 	bx lr
 
@@ -3327,18 +3201,18 @@ sub_02058C14: ; 0x02058C14
 	ldrh r0, [r0, #0x6]
 	bx lr
 
-	thumb_func_start sub_02058C18
-sub_02058C18: ; 0x02058C18
+	thumb_func_start ObjectEvent_SetFlagId
+ObjectEvent_SetFlagId: ; 0x02058C18
 	strh r1, [r0, #0x8]
 	bx lr
 
-	thumb_func_start sub_02058C1C
-sub_02058C1C: ; 0x02058C1C
+	thumb_func_start ObjectEvent_GetFlagId
+ObjectEvent_GetFlagId: ; 0x02058C1C
 	ldrh r0, [r0, #0x8]
 	bx lr
 
-	thumb_func_start sub_02058C20
-sub_02058C20: ; 0x02058C20
+	thumb_func_start ObjectEvent_SetScript
+ObjectEvent_SetScript: ; 0x02058C20
 	strh r1, [r0, #0xa]
 	bx lr
 
@@ -3347,8 +3221,8 @@ sub_02058C24: ; 0x02058C24
 	ldrh r0, [r0, #0xa]
 	bx lr
 
-	thumb_func_start sub_02058C28
-sub_02058C28: ; 0x02058C28
+	thumb_func_start ObjectEvent_SetFacing
+ObjectEvent_SetFacing: ; 0x02058C28
 	strh r1, [r0, #0xc]
 	bx lr
 
@@ -3359,8 +3233,8 @@ sub_02058C2C: ; 0x02058C2C
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02058C34
-sub_02058C34: ; 0x02058C34
+	thumb_func_start ObjectEvent_SetParam
+ObjectEvent_SetParam: ; 0x02058C34
 	push {r3, lr}
 	cmp r2, #0x0
 	beq _02058C44
@@ -3407,8 +3281,8 @@ _02058C74:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start sub_02058C7C
-sub_02058C7C: ; 0x02058C7C
+	thumb_func_start ObjectEvent_SetXRange
+ObjectEvent_SetXRange: ; 0x02058C7C
 	strh r1, [r0, #0x14]
 	bx lr
 
@@ -3419,8 +3293,8 @@ sub_02058C80: ; 0x02058C80
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02058C88
-sub_02058C88: ; 0x02058C88
+	thumb_func_start ObjectEvent_SetYRange
+ObjectEvent_SetYRange: ; 0x02058C88
 	strh r1, [r0, #0x16]
 	bx lr
 
@@ -3431,8 +3305,8 @@ sub_02058C8C: ; 0x02058C8C
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02058C94
-sub_02058C94: ; 0x02058C94
+	thumb_func_start ObjectEvent_SetXCoord
+ObjectEvent_SetXCoord: ; 0x02058C94
 	strh r1, [r0, #0x18]
 	bx lr
 
@@ -3441,8 +3315,8 @@ sub_02058C98: ; 0x02058C98
 	ldrh r0, [r0, #0x18]
 	bx lr
 
-	thumb_func_start sub_02058C9C
-sub_02058C9C: ; 0x02058C9C
+	thumb_func_start ObjectEvent_SetHeight
+ObjectEvent_SetHeight: ; 0x02058C9C
 	str r1, [r0, #0x1c]
 	bx lr
 
@@ -3451,8 +3325,8 @@ sub_02058CA0: ; 0x02058CA0
 	ldr r0, [r0, #0x1c]
 	bx lr
 
-	thumb_func_start sub_02058CA4
-sub_02058CA4: ; 0x02058CA4
+	thumb_func_start ObjectEvent_SetYCoord
+ObjectEvent_SetYCoord: ; 0x02058CA4
 	strh r1, [r0, #0x1a]
 	bx lr
 
@@ -3461,8 +3335,8 @@ sub_02058CA8: ; 0x02058CA8
 	ldrh r0, [r0, #0x1a]
 	bx lr
 
-	thumb_func_start sub_02058CAC
-sub_02058CAC: ; 0x02058CAC
+	thumb_func_start ObjectEvent_GetById
+ObjectEvent_GetById: ; 0x02058CAC
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	add r7, r1, #0x0
@@ -3517,7 +3391,7 @@ ObjectEvent_GetFlagID_AssertScriptIdIsUnset: ; 0x02058CFC
 	bl GF_AssertFail
 _02058D0C:
 	add r0, r4, #0x0
-	bl sub_02058C1C
+	bl ObjectEvent_GetFlagId
 	pop {r4, pc}
 
 	thumb_func_start sub_02058D14
@@ -3678,7 +3552,7 @@ sub_02058DBC: ; 0x02058DBC
 	bl MapObject_SetFlagsBits
 	add r0, r5, #0x0
 	mov r1, #0xa
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -3721,7 +3595,7 @@ sub_02058E28: ; 0x02058E28
 	bl MapObject_SetFlagsBits
 	add r0, r5, #0x0
 	mov r1, #0xa
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r5, #0x0
 	bl sub_0205AE80
 	add sp, #0xc

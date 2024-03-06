@@ -2,25 +2,24 @@
 #include "ov05_021E72FC.h"
 #include "constants/sndseq.h"
 #include "heap.h"
+#include "map_object.h"
 #include "unk_020051F4.h"
 
-extern void FieldSystem_CreateTask(u32 param0, void *func, UnkStruct021E7358 *param2);
-extern u32 PlayerAvatar_GetMapObject(u32 param0);
-extern u32 sub_02058720(u32 param0);
+extern LocalMapObject *PlayerAvatar_GetMapObject(u32 param0);
+extern u32 sub_02058720(LocalMapObject *object);
 extern BOOL sub_02054B30(u8 param0);
 extern BOOL sub_02054B3C(u8 param0);
 extern BOOL sub_02054B48(u8 param0);
 extern BOOL sub_02054B54(u8 param0);
-extern UnkStruct021E7358 *TaskManager_GetEnvironment(UnkStruct021E7358 *param0);
-extern void MapObject_SetFlagsBits(u32 param0, u32 param1);
+extern void MapObject_SetFlagsBits(LocalMapObject *object, u32 bits);
 extern BOOL sub_02057254(u32 param0);
 extern u32 sub_0205AFDC(u32 param0, u32 param1);
 extern void sub_02057260(u32 param0, u32 param1);
 extern void sub_02055304(u32 param0, u32 param1);
-extern BOOL sub_02056B74(u32 param0, u32 param1, u32 param2);
-extern void sub_02058418(u32 param0, u32 param1);
+extern BOOL sub_02056B74(u32 param0, LocalMapObject *object, u32 param2);
+extern void MapObject_ClearFlagsBits(LocalMapObject *object, u32 bits);
 
-BOOL ov05_021E72FC(u32 param0, u32 param1)
+BOOL ov05_021E72FC(FieldSystem *fieldSystem, u32 param1)
 {
     u8 res = (u8)sub_02058720(PlayerAvatar_GetMapObject(param1));
     u32 r2;
@@ -46,18 +45,18 @@ BOOL ov05_021E72FC(u32 param0, u32 param1)
     }
     return FALSE;
 label:
-    ov05_021E7358(param0, param1, r2);
+    ov05_021E7358(fieldSystem, param1, r2);
     return TRUE;
 }
 
-void ov05_021E7358(u32 param0, u32 param1, u32 param2)
+void ov05_021E7358(FieldSystem *fieldSystem, u32 param1, u32 param2)
 {
     UnkStruct021E7358 *res = ov05_021E74D4(24);
-    res->Unk0C = param0;
+    res->fieldSystem = fieldSystem;
     res->Unk10 = param1;
     res->Unk00 = param2;
     PlaySE(SEQ_SE_DP_F209);
-    FieldSystem_CreateTask(param0, ov05_021E73B4, res);
+    FieldSystem_CreateTask(fieldSystem, ov05_021E73B4, res);
 }
 
 u32 ov05_021E7388(u32 param0)
@@ -76,15 +75,15 @@ u32 ov05_021E7388(u32 param0)
     return 0;
 }
 
-BOOL ov05_021E73B4(UnkStruct021E7358 *param0)
+BOOL ov05_021E73B4(TaskManager *taskManager)
 {
-    UnkStruct021E7358 *strct = TaskManager_GetEnvironment(param0);
-    u32 res = PlayerAvatar_GetMapObject(strct->Unk10);
-    u8 res2 = (u8)sub_02058720(res);
+    UnkStruct021E7358 *strct = TaskManager_GetEnvironment(taskManager);
+    LocalMapObject *playerObject = PlayerAvatar_GetMapObject(strct->Unk10);
+    u8 res2 = (u8)sub_02058720(playerObject);
     switch (strct->Unk08)
     {
         case 0:
-            MapObject_SetFlagsBits(res, 1 << 8);
+            MapObject_SetFlagsBits(playerObject, MAPOBJECTFLAG_UNK8);
             strct->Unk08++;
             break;
         case 1:
@@ -127,13 +126,13 @@ BOOL ov05_021E73B4(UnkStruct021E7358 *param0)
             {
                 strct->Unk00 = ov05_021E7388(strct->Unk00);
             }
-            if (sub_02056B74(strct->Unk10, res, strct->Unk00) == FALSE)
+            if (sub_02056B74(strct->Unk10, playerObject, strct->Unk00) == FALSE)
             {
                 strct->Unk08 = 1;
                 break;
             }
-            sub_02058418(res, 0x80);
-            sub_02058418(res, 1 << 8);
+            MapObject_ClearFlagsBits(playerObject, MAPOBJECTFLAG_UNK7);
+            MapObject_ClearFlagsBits(playerObject, MAPOBJECTFLAG_UNK8);
             sub_02055304(strct->Unk10, strct->Unk00);
             ov05_021E74F8(strct);
             sub_020054F0(1624, 0);

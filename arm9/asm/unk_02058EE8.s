@@ -1317,7 +1317,7 @@ sub_02058FD0: ; 0x02058FD0
 _02058FE4:
 	ldr r1, _02058FF0 ; =0x00010004
 	add r0, r4, #0x0
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4, pc}
 	nop
 _02058FF0: .word 0x00010004
@@ -1345,7 +1345,7 @@ _0205900C:
 _0205901E:
 	ldr r1, _02059028 ; =0x00010004
 	add r0, r4, #0x0
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4, pc}
 	.balign 4
 _02059028: .word 0x00010004
@@ -1373,7 +1373,7 @@ _02059044:
 _02059056:
 	ldr r1, _02059060 ; =0x00020008
 	add r0, r4, #0x0
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4, pc}
 	.balign 4
 _02059060: .word 0x00020008
@@ -2056,7 +2056,7 @@ _02059620:
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _0205962A:
 	pop {r4-r6, pc}
 
@@ -2983,7 +2983,7 @@ sub_02059D1C: ; 0x02059D1C
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0xc
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add sp, #0x18
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -3020,7 +3020,7 @@ _02059D4E:
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0xc
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	b _02059DAC
 _02059DA2:
 	mov r1, #0x1
@@ -3078,7 +3078,7 @@ _02059E18:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	mov r0, #0x1
 	pop {r3-r7, pc}
 	.balign 4

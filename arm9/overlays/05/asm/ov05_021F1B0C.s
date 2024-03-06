@@ -99,7 +99,7 @@ _021F1BAE:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _021F1BCC:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0

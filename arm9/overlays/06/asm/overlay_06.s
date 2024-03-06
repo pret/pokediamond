@@ -319,7 +319,7 @@ ov06_022398D8: ; 0x022398D8
 _022398F0:
 	mov r1, #1
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4, pc}
 	.align 2, 0
 

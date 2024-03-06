@@ -982,7 +982,7 @@ sub_02055FFC: ; 0x02055FFC
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x6
 	lsl r1, r1, #0x6
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	bl sub_020557E8
 	cmp r0, #0x0

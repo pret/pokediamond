@@ -11,6 +11,7 @@ typedef struct LocalMapObject {
 
 typedef struct ObjectEvent
 {
+    u8 padding[0x20];
     //todo fill out
     //todo this should be in map_events_internal.h
 } ObjectEvent;
@@ -53,5 +54,9 @@ typedef enum MapObjectFlagBits {
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, HeapID heapId);
 void MapObjectManager_Delete(MapObjectManager *manager);
 void sub_020573C8(MapObjectManager *manager, u32 unused, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
+LocalMapObject *MapObject_Create(MapObjectManager *manager, u32 x, u32 y, u32 direction, u32 sprite, u32 movement, u32 mapNo);
+LocalMapObject *MapObject_CreateFromObjectEventWithId(MapObjectManager *manager, u16 id, u32 objectEventCount, u32 mapNo, const ObjectEvent *events);
+void sub_02057614(LocalMapObject *object, u32 sprite);
+void sub_02057634(LocalMapObject *object, u32 sprite);
 
 #endif //POKEDIAMOND_MAP_OBJECT_H

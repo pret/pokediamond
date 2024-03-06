@@ -2681,7 +2681,7 @@
 .extern GetVarPointer
 .extern FieldSystem_VarGet
 .extern sub_02039504
-.extern FlagCheck
+.extern FieldSystem_FlagCheck
 .extern FieldSystem_FlagSet
 .extern FlagClear
 .extern ResetTempFlagsAndVars
@@ -2690,7 +2690,7 @@
 .extern sub_020395F4
 .extern sub_02039618
 .extern TrainerIsDoubleBattle
-.extern TrainerFlagCheck
+.extern TrainerFieldSystem_FlagCheck
 .extern TrainerFieldSystem_FlagSet
 .extern TrainerFlagClear
 .extern sub_02039694
@@ -3986,8 +3986,8 @@
 .extern MapObjectManager_Init
 .extern MapObjectManager_Delete
 .extern sub_020573C8
-.extern sub_0205753C
-.extern sub_020575D4
+.extern MapObject_Create
+.extern MapObject_CreateFromObjectEventWithId
 .extern sub_02057614
 .extern sub_02057634
 .extern MapObject_Remove
@@ -4018,13 +4018,13 @@
 .extern sub_020583F0
 .extern sub_020583F4
 .extern MapObject_SetFlagsBits
-.extern sub_02058418
+.extern MapObject_ClearFlagsBits
 .extern sub_02058424
 .extern MapObject_TestFlagsBits
 .extern sub_02058444
 .extern MapObject_GetID
 .extern sub_02058450
-.extern sub_02058454
+.extern MapObject_SetGfxId
 .extern sub_02058458
 .extern sub_0205845C
 .extern sub_02058480

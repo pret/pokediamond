@@ -2412,7 +2412,7 @@ _0204DD5E:
 	beq _0204DDB4
 	add r0, r4, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	ldr r0, _0204DE28 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	add r1, r0, r5
@@ -3057,11 +3057,11 @@ sub_0204E254: ; 0x0204E254
 	bl sub_0205AE50
 	add r0, r5, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	ldr r0, _0204E2A0 ; =UNK_021C5A68
 	mov r2, #0x0
 	ldr r0, [r0, #0x0]

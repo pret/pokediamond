@@ -2010,6 +2010,6 @@ sub_0205AD88: ; 0x0205AD88
 	cmp r1, #0x0
 	bne _0205AD96
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _0205AD96:
 	pop {r3, pc}

@@ -67,7 +67,7 @@ _0205ADEA:
 	bl MapObject_SetFlagsBits
 	add r0, r5, #0x0
 	mov r1, #0x20
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_0205AE0C
@@ -80,7 +80,7 @@ sub_0205AE0C: ; 0x0205AE0C
 	bl sub_020586F8
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4, pc}
 	.balign 4
 
@@ -128,7 +128,7 @@ _0205AE62:
 _0205AE72:
 	add r0, r4, #0x0
 	mov r1, #0x30
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
@@ -138,7 +138,7 @@ sub_0205AE80: ; 0x0205AE80
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r1, #0x10
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x20
 	bl MapObject_SetFlagsBits
@@ -439,7 +439,7 @@ sub_0205B080: ; 0x0205B080
 _0205B098:
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0xff
 	bl sub_020586E8
@@ -1935,7 +1935,7 @@ sub_0205BB20: ; 0x0205BB20
 	mov r1, #0x2
 	add r4, r0, #0x0
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	bl sub_02058700
 	mov r0, #0x1
@@ -1958,7 +1958,7 @@ sub_0205BB4C: ; 0x0205BB4C
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	bl sub_02058700
 	mov r0, #0x1
@@ -1983,7 +1983,7 @@ sub_0205BB78: ; 0x0205BB78
 	mov r1, #0x1
 	add r4, r0, #0x0
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	bl sub_02058700
 	mov r0, #0x1
@@ -2346,7 +2346,7 @@ _0205BDFE:
 	mov r1, #0x1
 	add r0, r4, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	bl sub_02058700
 	mov r0, #0x0

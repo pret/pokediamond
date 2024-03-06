@@ -200,7 +200,7 @@ _0205C6E8:
 	lsl r1, r1, #0x10
 	add r0, r6, #0x0
 	lsr r1, r1, #0x10
-	bl TrainerFlagCheck
+	bl TrainerFieldSystem_FlagCheck
 	cmp r0, #0x0
 	bne _0205C724
 	ldr r0, [sp, #0x28]
@@ -1057,7 +1057,7 @@ _0205CD38:
 	bne _0205CD64
 	add r0, r4, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r6, #0x0
 	mov r1, #0x0
 	bl sub_0205AFDC

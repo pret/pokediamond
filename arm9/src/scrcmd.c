@@ -15,6 +15,7 @@
 #include "gf_rtc.h"
 #include "hall_of_fame.h"
 #include "main.h"
+#include "map_object.h"
 #include "math_util.h"
 #include "message_format.h"
 #include "msgdata.h"
@@ -52,10 +53,10 @@ extern ScriptContext *CreateScriptContext(FieldSystem *fieldSystem, u16 id);
 extern u32 MapObject_GetID(LocalMapObject *lastInteracted);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void FlagClear(FieldSystem *fieldSystem, u16 flag);
-extern u8 FlagCheck(FieldSystem *fieldSystem, u16 flag);
+extern u8 FieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);
 extern void TrainerFieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void TrainerFlagClear(FieldSystem *fieldSystem, u16 flag);
-extern u8 TrainerFlagCheck(FieldSystem *fieldSystem, u16 flag);
+extern u8 TrainerFieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);
 extern void ov05_ShowMessageInField(ScriptContext *ctx, MsgData *msgData, u16 id);
 extern void ov05_021E2BD0(ScriptContext *ctx, MsgData *msgData, u16 msgId, u32 param4, void *param5);
 extern void ov05_021E2C58(ScriptContext *ctx, u16 typ, u16 id, u16 word1, s16 word2, u8 param5);
@@ -102,10 +103,8 @@ extern LocalMapObject *sub_0205E7C4(LocalMapObject *event);
 extern void sub_02058914(LocalMapObject *event);
 extern void MapObjectManager_UnpauseAllMovement(MapObjectManager *mapObjectManager);
 extern u32 sub_02034B64(FieldSystem *fieldSystem);
-extern u32 sub_02034B6C(FieldSystem *fieldSystem);
-extern u32 sub_020575D4(MapObjectManager *mapObjectManager, u16 eventVar, u32 param2, u32 mapId, u32 param4);
+extern const ObjectEvent *sub_02034B6C(FieldSystem *fieldSystem);
 extern void sub_02057688(LocalMapObject *event);
-extern LocalMapObject *sub_0205753C(MapObjectManager *mapObjectManager, u16 x, u16 y, u16 z, u32 param4, u32 param5, u32 mapId);
 extern u32 sub_02059D1C(LocalMapObject *target);
 extern LocalMapObject *MapObject_SetVisible(LocalMapObject *target, BOOL visible);
 extern LocalMapObject *sub_020588B8(LocalMapObject *target, u32 param1);
@@ -761,7 +760,7 @@ BOOL ScrCmd_CheckFlag(ScriptContext *ctx) //0020
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 flag = ScriptReadHalfword(ctx);
-    ctx->comparisonResult = FlagCheck(fieldSystem, flag);
+    ctx->comparisonResult = FieldSystem_FlagCheck(fieldSystem, flag);
     return FALSE;
 }
 
@@ -770,7 +769,7 @@ BOOL ScrCmd_CheckFlagVar(ScriptContext *ctx) //0021
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 *wk1 = ScriptGetVarPointer(ctx);
     u16 *wk2 = ScriptGetVarPointer(ctx);
-    *wk2 = FlagCheck(fieldSystem, *wk1);
+    *wk2 = FieldSystem_FlagCheck(fieldSystem, *wk1);
     return FALSE;
 }
 
@@ -802,7 +801,7 @@ BOOL ScrCmd_CheckTrainerFlag(ScriptContext *ctx) //0025
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 flag = ScriptGetVar(ctx);
-    ctx->comparisonResult = TrainerFlagCheck(fieldSystem, flag);
+    ctx->comparisonResult = TrainerFieldSystem_FlagCheck(fieldSystem, flag);
     return FALSE;
 }
 
@@ -1820,11 +1819,11 @@ BOOL ScrCmd_ReleaseEvent(ScriptContext *ctx) { //0063
 BOOL ScrCmd_AddEvent(ScriptContext *ctx) { //0064
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
-    u32 unk0 = sub_02034B64(fieldSystem);
-    u32 unk1 = sub_02034B6C(fieldSystem);
-    u32 res = sub_020575D4(fieldSystem->mapObjectManager, eventId, unk0, fieldSystem->location->mapId, unk1);
+    u32 eventCount = sub_02034B64(fieldSystem);
+    const ObjectEvent *objectEvents = sub_02034B6C(fieldSystem);
+    LocalMapObject *object = MapObject_CreateFromObjectEventWithId(fieldSystem->mapObjectManager, eventId, eventCount, fieldSystem->location->mapId, objectEvents);
 
-    GF_ASSERT(res);
+    GF_ASSERT(object);
     return FALSE;
 }
 
@@ -1839,7 +1838,7 @@ BOOL ScrCmd_LockCamera(ScriptContext *ctx) { //0066
     u16 x = ScriptGetVar(ctx);
     u16 y = ScriptGetVar(ctx);
     LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
-    *targetPtr = sub_0205753C(ctx->fieldSystem->mapObjectManager, x, y, 0, 0x2000, 0, ctx->fieldSystem->location->mapId);
+    *targetPtr = MapObject_Create(ctx->fieldSystem->mapObjectManager, x, y, 0, 0x2000, 0, ctx->fieldSystem->location->mapId);
     sub_02059D1C(*targetPtr);
     MapObject_SetVisible(*targetPtr, TRUE);
     sub_020588B8(*targetPtr, 0);

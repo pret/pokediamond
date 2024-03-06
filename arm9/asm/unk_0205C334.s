@@ -244,7 +244,7 @@ _0205C506:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _0205C510:
 	add r0, r5, #0x0
 	bl ov06_0224A310
@@ -261,7 +261,7 @@ _0205C516:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _0205C536:
 	pop {r3-r5, pc}
 	.balign 4

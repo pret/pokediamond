@@ -186,7 +186,7 @@ _021F0658:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _021F0678:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -840,7 +840,7 @@ _021F0B7A:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _021F0B9A:
 	pop {r3, r4, r5, pc}
 
@@ -1099,7 +1099,7 @@ _021F0D92:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _021F0DB2:
 	pop {r3, r4, r5, pc}
 

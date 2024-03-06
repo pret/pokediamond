@@ -660,7 +660,7 @@ ScrCmd_Unk00F1: ; 0x02041BF0
 	lsl r1, r1, #0x10
 	add r0, r7, #0x0
 	lsr r1, r1, #0x10
-	bl TrainerFlagCheck
+	bl TrainerFieldSystem_FlagCheck
 	cmp r0, #0x1
 	bne _02041C34
 	ldr r1, [r6, #0x8]
