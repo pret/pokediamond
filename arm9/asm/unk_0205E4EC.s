@@ -132,7 +132,7 @@ sub_0205E5B4: ; 0x0205E5B4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	bl sub_020552A4
 	cmp r0, #0x0
 	bne _0205E5CC
@@ -155,7 +155,7 @@ _0205E5DA:
 sub_0205E5E0: ; 0x0205E5E0
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	bl sub_02055698
 	mov r1, #0x1
 	add r4, r0, #0x0
@@ -174,7 +174,7 @@ sub_0205E5E0: ; 0x0205E5E0
 sub_0205E608: ; 0x0205E608
 	push {r4-r6, lr}
 	add r5, r1, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	bl sub_02055698
 	add r6, r0, #0x0
 	beq _0205E638
@@ -201,7 +201,7 @@ _0205E638:
 sub_0205E63C: ; 0x0205E63C
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	bl sub_02055698
 	add r4, r0, #0x0
 	bl GetPlayerXCoord
@@ -215,7 +215,7 @@ sub_0205E63C: ; 0x0205E63C
 	thumb_func_start sub_0205E65C
 sub_0205E65C: ; 0x0205E65C
 	push {r3, lr}
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	bl sub_02055698
 	bl sub_02055464
 	add r1, r0, #0x0
@@ -253,7 +253,7 @@ sub_0205E698: ; 0x0205E698
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	bl sub_02055698
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -416,7 +416,7 @@ sub_0205E7C4: ; 0x0205E7C4
 	bl sub_0205C9E8
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	ldr r1, [sp, #0x0]
 	add r7, r0, #0x0
 	cmp r1, #0x8
@@ -478,7 +478,7 @@ sub_0205E854: ; 0x0205E854
 	sub sp, #0xc
 	add r5, r0, #0x0
 	str r1, [sp, #0x0]
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x8]
@@ -579,7 +579,7 @@ _0205E91E:
 	mov r1, #0x61
 	add r0, r5, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	bne _0205E93A
 _0205E936:

@@ -104,13 +104,11 @@ extern void sub_02058914(LocalMapObject *event);
 extern void MapObjectManager_UnpauseAllMovement(MapObjectManager *mapObjectManager);
 extern u32 sub_02034B64(FieldSystem *fieldSystem);
 extern const ObjectEvent *sub_02034B6C(FieldSystem *fieldSystem);
-extern void sub_02057688(LocalMapObject *event);
 extern u32 sub_02059D1C(LocalMapObject *target);
 extern LocalMapObject *MapObject_SetVisible(LocalMapObject *target, BOOL visible);
 extern LocalMapObject *sub_020588B8(LocalMapObject *target, u32 param1);
 extern VecFx32 *sub_02058B7C(LocalMapObject *target);
 extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
-extern void MapObject_Remove(LocalMapObject *target);
 extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
@@ -1830,7 +1828,7 @@ BOOL ScrCmd_AddEvent(ScriptContext *ctx) { //0064
 BOOL ScrCmd_RemoveEvent(ScriptContext *ctx) { //0065
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
-    sub_02057688(GetMapObjectByID(fieldSystem->mapObjectManager, eventId));
+    MapObject_Delete(GetMapObjectByID(fieldSystem->mapObjectManager, eventId));
     return FALSE;
 }
 

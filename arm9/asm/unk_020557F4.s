@@ -1009,7 +1009,7 @@ sub_02056040: ; 0x02056040
 	add r5, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r1, sp, #0xc
@@ -2547,7 +2547,7 @@ sub_02056C0C: ; 0x02056C0C
 	orr r4, r0
 _02056C60:
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	ldr r2, [sp, #0x14]
 	add r1, sp, #0x18
 	str r1, [sp, #0x0]
@@ -2610,7 +2610,7 @@ sub_02056CCC: ; 0x02056CCC
 	cmp r4, r0
 	beq _02056D54
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl sub_02058B2C
@@ -2679,7 +2679,7 @@ sub_02056D58: ; 0x02056D58
 	cmp r4, r0
 	beq _02056E00
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02058B2C
@@ -2763,7 +2763,7 @@ sub_02056E04: ; 0x02056E04
 	cmp r5, r0
 	beq _02056E68
 	add r0, r4, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	bl sub_02058B2C
@@ -2813,7 +2813,7 @@ sub_02056E6C: ; 0x02056E6C
 	cmp r4, r0
 	beq _02056EC2
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl sub_02058B2C
@@ -2857,7 +2857,7 @@ sub_02056EC8: ; 0x02056EC8
 	cmp r4, r0
 	beq _02056F72
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	bl sub_02058B2C
@@ -2945,7 +2945,7 @@ sub_02056F78: ; 0x02056F78
 	cmp r0, #0x1
 	bne _0205701A
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl sub_02058B2C
@@ -3404,7 +3404,7 @@ sub_020572B8: ; 0x020572B8
 sub_020572D4: ; 0x020572D4
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	ldr r0, [r0, #0xc]
 	bl Save_GameStats_Get
 	mov r1, #0x5

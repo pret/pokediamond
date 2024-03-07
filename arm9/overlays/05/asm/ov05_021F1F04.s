@@ -155,7 +155,7 @@ ov05_021F202C: ; 0x021F202C
 	mov r0, #0
 	str r0, [r4]
 	add r0, r5, #0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r1, r5, #0
 	add r2, r6, #0
 	bl ov05_021F2284
@@ -213,7 +213,7 @@ _021F20AE:
 	cmp r4, r0
 	beq _021F20D2
 	add r0, r6, #0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r1, r6, #0
 	add r2, r4, #0
 	bl ov05_021F2284
@@ -2044,7 +2044,7 @@ ov05_021F2E28: ; 0x021F2E28
 	push {r3, lr}
 	mov r1, #1
 	lsl r1, r1, #0x16
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0
 	beq _021F2E3A
 	mov r0, #1
@@ -2172,7 +2172,7 @@ ov05_021F2ED0: ; 0x021F2ED0
 	thumb_func_start ov05_021F2F3C
 ov05_021F2F3C: ; 0x021F2F3C
 	push {r3, lr}
-	bl sub_02058578
+	bl MapObject_GetManager
 	bl sub_020583A0
 	pop {r3, pc}
 
@@ -2935,7 +2935,7 @@ _021F34A8:
 	bl sub_02058458
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r7, r0, #0
 	add r0, r5, #0
 	bl sub_020576A8

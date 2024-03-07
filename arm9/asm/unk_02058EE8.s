@@ -1212,7 +1212,7 @@ sub_02058EF8: ; 0x02058EF8
 	bl sub_02058FD0
 	add r0, r4, #0x0
 	mov r1, #0x10
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _02058F2C
 	add r0, r4, #0x0
@@ -1255,7 +1255,7 @@ _02058F70:
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	bne _02058F82
 	mov r0, #0x1
@@ -1277,7 +1277,7 @@ sub_02058F94: ; 0x02058F94
 	mov r1, #0x1
 	lsl r1, r1, #0xc
 	add r4, r0, #0x0
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _02058FAA
 	add r0, r4, #0x0
@@ -1291,7 +1291,7 @@ sub_02058FAC: ; 0x02058FAC
 	mov r1, #0x2
 	lsl r1, r1, #0xa
 	add r4, r0, #0x0
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _02058FCC
 	add r0, r4, #0x0
@@ -1309,7 +1309,7 @@ sub_02058FD0: ; 0x02058FD0
 	push {r4, lr}
 	mov r1, #0x4
 	add r4, r0, #0x0
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _02058FE4
 	add r0, r4, #0x0
@@ -1328,7 +1328,7 @@ sub_02058FF4: ; 0x02058FF4
 	mov r1, #0x1
 	lsl r1, r1, #0x10
 	add r4, r0, #0x0
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _0205900C
 	add r0, r4, #0x0
@@ -1337,7 +1337,7 @@ sub_02058FF4: ; 0x02058FF4
 _0205900C:
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _0205901E
 	add r0, r4, #0x0
@@ -1356,7 +1356,7 @@ sub_0205902C: ; 0x0205902C
 	mov r1, #0x2
 	lsl r1, r1, #0x10
 	add r4, r0, #0x0
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _02059044
 	add r0, r4, #0x0
@@ -1365,7 +1365,7 @@ sub_0205902C: ; 0x0205902C
 _02059044:
 	add r0, r4, #0x0
 	mov r1, #0x8
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _02059056
 	add r0, r4, #0x0
@@ -1934,7 +1934,7 @@ sub_02059508: ; 0x02059508
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r3, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	bl sub_0205881C
 	cmp r0, #0x0
 	beq _020595A2
@@ -1986,7 +1986,7 @@ _02059584:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0xe
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	bne _020595A2
 	add r0, r5, #0x0
@@ -2004,7 +2004,7 @@ sub_020595A4: ; 0x020595A4
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r3, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	bl sub_0205881C
 	cmp r0, #0x0
 	beq _0205962A
@@ -2374,7 +2374,7 @@ sub_02059874: ; 0x02059874
 	orr r4, r0
 _02059896:
 	add r0, r6, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r1, sp, #0xc
 	str r1, [sp, #0x0]
 	ldr r1, [sp, #0x4]
@@ -2478,7 +2478,7 @@ sub_0205995C: ; 0x0205995C
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r7, r0, #0x0
 	bl sub_020583BC
 	str r0, [sp, #0x8]
@@ -2491,13 +2491,13 @@ _0205997C:
 	cmp r0, r1
 	beq _020599F4
 	mov r1, #0x1
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _020599F4
 	mov r1, #0x1
 	ldr r0, [sp, #0x8]
 	lsl r1, r1, #0x12
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	bne _020599F4
 	ldr r0, [sp, #0x8]
@@ -2606,7 +2606,7 @@ sub_02059A60: ; 0x02059A60
 	add r6, r1, #0x0
 	add r7, r2, #0x0
 	add r5, r3, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	bl sub_02058720
@@ -2906,7 +2906,7 @@ sub_02059C90: ; 0x02059C90
 	bl sub_02059C00
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	ldr r2, [sp, #0x0]
 	add r1, r6, r7
 	add r2, r2, r5
@@ -2992,7 +2992,7 @@ _02059D4E:
 	bl sub_02058AE4
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r1, sp, #0x0
 	add r2, r4, #0x0
 	bl sub_02059EC8
@@ -3043,7 +3043,7 @@ sub_02059DB4: ; 0x02059DB4
 	bl sub_02058B24
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	add r7, r0, #0x0

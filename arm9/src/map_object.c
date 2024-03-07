@@ -12,11 +12,10 @@ extern void MapObjectManager_SetHeapID(MapObjectManager *manager, HeapID heapId)
 extern LocalMapObject *MapObjectManager_GetObjects(MapObjectManager *manager);
 extern u32 MapObjectManager_GetObjectCount(MapObjectManager *manager);
 extern BOOL MapObject_IsInUse(LocalMapObject *object);
-extern void MapObject_Remove(LocalMapObject *object);
 extern void ov05_021F2AF4(MapObjectManager *manager, void *param0);
 extern void *sub_020583A0(MapObjectManager *manager);
 extern u32 sub_02058450(LocalMapObject *object);
-extern BOOL MapObject_TestFlagsBits(LocalMapObject *object, u32 flags);
+extern BOOL MapObject_TestFlagsBits(LocalMapObject *object, MapObjectFlagBits flags);
 extern u32 sub_02057F90(LocalMapObject *object, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
 extern void MapObjectManager_SetObjects(MapObjectManager *manager, LocalMapObject *objects);
 extern u32 ObjectEvent_GetID(ObjectEvent *objectEvent);
@@ -33,7 +32,7 @@ extern void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
 extern void sub_0205844C(LocalMapObject *object, u32 mapNo);
 extern void sub_020581A4(LocalMapObject *object);
 extern void sub_020581B4(LocalMapObject *object);
-extern void MapObject_SetFlagsBits(LocalMapObject *object, u32 bits);
+extern void MapObject_SetFlagsBits(LocalMapObject *object, MapObjectFlagBits bits);
 extern void sub_02057CF0(MapObjectManager *manager, LocalMapObject *object);
 extern MapObjectManager *MapObjectManager_GetMapObjectManager(MapObjectManager *manager);
 extern void sub_0205836C(MapObjectManager *manager);
@@ -55,9 +54,29 @@ extern ObjectEvent *ObjectEvent_GetById(u32 id, u32 objectEventCount, ObjectEven
 extern u8 FieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);
 extern void MapObject_SetGfxId(LocalMapObject *object, u32 sprite);
 extern void sub_02058148(LocalMapObject *object);
-extern void MapObject_ClearFlagsBits(LocalMapObject *object, u32 bits);
+extern void MapObject_ClearFlagsBits(LocalMapObject *object, MapObjectFlagBits bits);
 extern BOOL sub_02058934(LocalMapObject *object);
-extern void sub_020576A8(LocalMapObject *object);
+extern MapObjectManager *MapObject_GetManager(LocalMapObject *object);
+extern BOOL sub_020587E0(MapObjectManager *manager);
+extern void sub_020586B4(LocalMapObject *object);
+extern void sub_02058660(LocalMapObject *object);
+extern void sub_02058564(LocalMapObject *object);
+extern MapObjectManager *sub_02058580(LocalMapObject *object);
+extern void sub_02058374(MapObjectManager *manager);
+extern void sub_02057F80(LocalMapObject *object);
+extern u32 MapObject_GetFlagId(LocalMapObject *object);
+extern FieldSystem *MapObject_GetFieldSystemPtr(LocalMapObject *object);
+extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
+extern void sub_02058ED8(LocalMapObject *object);
+extern void sub_02058EDC(LocalMapObject *object);
+extern void sub_02058EE0(LocalMapObject *object);
+extern void sub_02058EE4(LocalMapObject *object);
+extern u32 MapObject_GetFlagsBits(LocalMapObject *object, MapObjectFlagBits bits);
+extern void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern void sub_02058698(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern void sub_020586AC(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, HeapID heapId) {
     MapObjectManager *ret = MapObjectManager_New(objectCount);
@@ -193,4 +212,36 @@ void sub_02057634(LocalMapObject *object, u32 sprite) {
         sub_020576A8(object);
     }
     sub_02057614(object, sprite);
+}
+
+void MapObject_Remove(LocalMapObject *object) {
+    if (sub_020587E0(MapObject_GetManager(object)) == TRUE) {
+        sub_020586B4(object);
+    }
+    sub_02058660(object);
+    sub_02058564(object);
+    sub_02058374(sub_02058580(object));
+    sub_02057F80(object);
+}
+
+void MapObject_Delete(LocalMapObject *object) {
+    u32 flagId = MapObject_GetFlagId(object);
+    FieldSystem *fieldSystem = MapObject_GetFieldSystemPtr(object);
+    FieldSystem_FlagSet(fieldSystem, (u16)flagId);
+    MapObject_Remove(object);
+}
+
+void sub_020576A8(LocalMapObject *object) {
+    if (sub_020587E0(MapObject_GetManager(object)) == TRUE) {
+        if (MapObject_GetFlagsBits(object, MAPOBJECTFLAG_UNK14) != 0) {
+            sub_020586B4(object);
+        }
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK14);
+    }
+    MapObject_SetGfxId(object, MAP_OBJECT_GFX_ID_INVALID);
+    sub_02058684(object, sub_02058ED8);
+    sub_02058698(object, sub_02058EDC);
+    sub_020586AC(object, sub_02058EDC);
+    sub_020586C0(object, sub_02058EE0);
+    sub_020586D4(object, sub_02058EE4);
 }

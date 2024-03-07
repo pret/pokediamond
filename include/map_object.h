@@ -16,6 +16,8 @@ typedef struct ObjectEvent
     //todo this should be in map_events_internal.h
 } ObjectEvent;
 
+typedef void (*LocalMapObject_UnkCallback)(LocalMapObject* object);
+
 typedef enum MapObjectFlagBits {
     MAPOBJECTFLAG_ACTIVE = (1 << 0),
     MAPOBJECTFLAG_SINGLE_MOVEMENT = (1 << 1),
@@ -51,6 +53,8 @@ typedef enum MapObjectFlagBits {
     MAPOBJECTFLAG_UNK31 = (1 << 31),
 } MapObjectFlagBits;
 
+#define MAP_OBJECT_GFX_ID_INVALID 0xFFFF
+
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, HeapID heapId);
 void MapObjectManager_Delete(MapObjectManager *manager);
 void sub_020573C8(MapObjectManager *manager, u32 unused, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
@@ -58,5 +62,8 @@ LocalMapObject *MapObject_Create(MapObjectManager *manager, u32 x, u32 y, u32 di
 LocalMapObject *MapObject_CreateFromObjectEventWithId(MapObjectManager *manager, u16 id, u32 objectEventCount, u32 mapNo, const ObjectEvent *events);
 void sub_02057614(LocalMapObject *object, u32 sprite);
 void sub_02057634(LocalMapObject *object, u32 sprite);
+void MapObject_Remove(LocalMapObject *object);
+void MapObject_Delete(LocalMapObject *object);
+void sub_020576A8(LocalMapObject *object);
 
 #endif //POKEDIAMOND_MAP_OBJECT_H

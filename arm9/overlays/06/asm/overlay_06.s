@@ -33028,7 +33028,7 @@ ov06_022497E8: ; 0x022497E8
 	sub sp, #0x24
 	add r5, r0, #0
 	add r4, r1, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #8]
 	add r0, r5, #0
 	bl ov05_021E4C24
@@ -33334,7 +33334,7 @@ ov06_02249A68: ; 0x02249A68
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4, #0x20]
-	bl sub_02058578
+	bl MapObject_GetManager
 	ldr r1, [r4, #8]
 	add r2, sp, #0
 	bl ov05_021F220C
@@ -34577,7 +34577,7 @@ _0224A3A6:
 	cmp r0, #1
 	beq _0224A3C8
 	add r0, r4, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r1, r4, #0
 	bl sub_0204B5FC
 	cmp r0, #0
@@ -34589,7 +34589,7 @@ _0224A3C8:
 	pop {r3, r4, r5, r6, pc}
 _0224A3D0:
 	add r0, r4, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r1, r4, #0
 	bl sub_0204B684
 	str r0, [r5, #0xc]
@@ -35649,7 +35649,7 @@ ov06_0224ABAC: ; 0x0224ABAC
 	cmp r0, #0
 	bne _0224ABF6
 	add r0, r5, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	mov r1, #2
 	lsl r2, r4, #0x10
 	lsl r1, r1, #0xe
@@ -36083,7 +36083,7 @@ ov06_0224AEE8: ; 0x0224AEE8
 	str r4, [sp, #0x1c]
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x20]
 	add r0, r4, #0
 	mov r1, #0x12
@@ -37464,7 +37464,7 @@ ov06_0224B9E0: ; 0x0224B9E0
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x17
@@ -37719,7 +37719,7 @@ ov06_0224BBEC: ; 0x0224BBEC
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x19
@@ -40651,7 +40651,7 @@ ov06_0224D2E0: ; 0x0224D2E0
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x1d

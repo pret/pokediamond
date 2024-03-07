@@ -627,7 +627,7 @@ ScrCmd_Unk00F0: ; 0x02041BC4
 	bl FieldSysGetAttrAddr
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl MapObject_GetID
@@ -652,7 +652,7 @@ ScrCmd_Unk00F1: ; 0x02041BF0
 	bl ScriptReadWord
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl MapObject_GetID

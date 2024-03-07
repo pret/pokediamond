@@ -85,7 +85,7 @@ sub_02055108: ; 0x02055108
 	bl GF_AssertFail
 _02055118:
 	add r0, r4, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r0, r5, #0x0
 	bl ov05_021EDBC8
 	add r0, r5, #0x0

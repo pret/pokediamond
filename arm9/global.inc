@@ -3991,7 +3991,7 @@
 .extern sub_02057614
 .extern sub_02057634
 .extern MapObject_Remove
-.extern sub_02057688
+.extern MapObject_Delete
 .extern sub_020576A8
 .extern sub_0205771C
 .extern sub_02057750
@@ -4019,7 +4019,7 @@
 .extern sub_020583F4
 .extern MapObject_SetFlagsBits
 .extern MapObject_ClearFlagsBits
-.extern sub_02058424
+.extern MapObject_GetFlagsBits
 .extern MapObject_TestFlagsBits
 .extern sub_02058444
 .extern MapObject_GetID
@@ -4049,7 +4049,7 @@
 .extern sub_02058540
 .extern sub_02058544
 .extern sub_0205854C
-.extern sub_02058578
+.extern MapObject_GetManager
 .extern sub_0205858C
 .extern sub_020585B0
 .extern sub_020585B4
@@ -4071,7 +4071,7 @@
 .extern sub_02058720
 .extern sub_02058728
 .extern sub_02058730
-.extern MapObject_GetFieldSysPtr
+.extern MapObject_GetFieldSystemPtr
 .extern sub_02058744
 .extern sub_02058750
 .extern sub_02058768

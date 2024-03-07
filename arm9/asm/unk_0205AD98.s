@@ -171,7 +171,7 @@ _0205AEC0:
 	sub r1, r1, #0x1
 	bne _0205AEC0
 	add r0, r5, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	bl sub_0205839C
 	sub r2, r0, #0x1
 	ldr r0, _0205AEEC ; =sub_0205AF2C

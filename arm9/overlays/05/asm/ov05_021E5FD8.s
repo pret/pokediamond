@@ -129,7 +129,7 @@ _021E60D2:
 	add r0, r5, #0
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	mov r0, #1
 	mov r1, #0
 	str r0, [sp]
@@ -2380,7 +2380,7 @@ ov05_021E727C: ; 0x021E727C
 	add r5, r0, #0
 	add r0, r4, #0
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058578
+	bl MapObject_GetManager
 	ldr r2, [sp]
 	add r1, r6, r7
 	add r2, r2, r5
