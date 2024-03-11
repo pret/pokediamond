@@ -301,7 +301,7 @@ sub_02048B34: ; 0x02048B34
 	ldr r0, [r4, #0x38]
 	bl sub_02055160
 	ldr r0, [r4, #0x34]
-	bl sub_0205771C
+	bl MapObjectManager_RemoveAllActiveObjects
 	ldr r0, [r4, #0x34]
 	bl MapObjectManager_Delete
 	pop {r4, pc}

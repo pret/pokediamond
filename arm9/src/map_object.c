@@ -77,6 +77,10 @@ extern void sub_02058698(LocalMapObject *object, LocalMapObject_UnkCallback call
 extern void sub_020586AC(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern void sub_020586C8(LocalMapObject *object);
+extern void sub_0205816C(LocalMapObject *object);
+extern BOOL MapObject_CheckFlag14(LocalMapObject *object);
+extern void sub_020586DC(LocalMapObject *object);
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, HeapID heapId) {
     MapObjectManager *ret = MapObjectManager_New(objectCount);
@@ -244,4 +248,60 @@ void sub_020576A8(LocalMapObject *object) {
     sub_020586AC(object, sub_02058EDC);
     sub_020586C0(object, sub_02058EE0);
     sub_020586D4(object, sub_02058EE4);
+}
+
+void MapObjectManager_RemoveAllActiveObjects(MapObjectManager *manager) {
+    s32 i = 0;
+    s32 count = MapObjectManager_GetObjectCount(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects(manager);
+
+    do { //BUG: does not check for if count is zero, and will always execute at least once
+        if (MapObject_GetFlagsBits(objects, MAPOBJECTFLAG_ACTIVE) != 0) {
+            MapObject_Remove(objects);
+        }
+
+        i++;
+        objects++;
+    } while (i < count);
+}
+
+void sub_02057750(MapObjectManager *manager) {
+    GF_ASSERT(sub_020587E0(manager) == TRUE);
+
+    s32 i = 0;
+    s32 count = MapObjectManager_GetObjectCount(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects(manager);
+
+    do {
+        if (MapObject_GetFlagsBits(objects, MAPOBJECTFLAG_ACTIVE) != 0 && MapObject_GetFlagsBits(objects, MAPOBJECTFLAG_UNK14) != 0) {
+            sub_020586C8(objects);
+            sub_0205816C(objects);
+        }
+
+        i++;
+        objects++;
+    } while (i < count);
+}
+
+void sub_020577A8(MapObjectManager *manager) {
+    GF_ASSERT(sub_020587E0(manager) == TRUE);
+
+    s32 i = 0;
+    s32 count = MapObjectManager_GetObjectCount(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects(manager);
+
+    do {
+        if (MapObject_IsInUse(objects) == TRUE) {
+            if (MapObject_CheckFlag14(objects) == TRUE) {
+                sub_020586DC(objects);
+            } else {
+                sub_020581B4(objects);
+            }
+
+            sub_02058148(objects);
+        }
+
+        i++;
+        objects++;
+    } while (i < count);
 }

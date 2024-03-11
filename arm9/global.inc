@@ -3993,7 +3993,7 @@
 .extern MapObject_Remove
 .extern MapObject_Delete
 .extern sub_020576A8
-.extern sub_0205771C
+.extern MapObjectManager_RemoveAllActiveObjects
 .extern sub_02057750
 .extern sub_020577A8
 .extern sub_02057800
@@ -4088,7 +4088,7 @@
 .extern sub_02058854
 .extern sub_02058860
 .extern sub_0205886C
-.extern sub_02058884
+.extern MapObject_CheckFlag14
 .extern sub_02058890
 .extern MapObject_SetVisible
 .extern sub_020588B8

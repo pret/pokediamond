@@ -65,5 +65,8 @@ void sub_02057634(LocalMapObject *object, u32 sprite);
 void MapObject_Remove(LocalMapObject *object);
 void MapObject_Delete(LocalMapObject *object);
 void sub_020576A8(LocalMapObject *object);
+void MapObjectManager_RemoveAllActiveObjects(MapObjectManager *manager);
+void sub_02057750(MapObjectManager *manager);
+void sub_020577A8(MapObjectManager *manager);
 
 #endif //POKEDIAMOND_MAP_OBJECT_H

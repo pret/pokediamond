@@ -6,118 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_0205771C
-sub_0205771C: ; 0x0205771C
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	mov r4, #0x0
-	bl MapObjectManager_GetObjectCount
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObjectManager_GetObjects
-	mov r7, #0x4a
-	add r5, r0, #0x0
-	lsl r7, r7, #0x2
-_02057734:
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl MapObject_GetFlagsBits
-	cmp r0, #0x0
-	beq _02057746
-	add r0, r5, #0x0
-	bl MapObject_Remove
-_02057746:
-	add r4, r4, #0x1
-	add r5, r5, r7
-	cmp r4, r6
-	blt _02057734
-	pop {r3-r7, pc}
-
-	thumb_func_start sub_02057750
-sub_02057750: ; 0x02057750
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	bl sub_020587E0
-	cmp r0, #0x1
-	beq _02057760
-	bl GF_AssertFail
-_02057760:
-	add r0, r5, #0x0
-	mov r4, #0x0
-	bl MapObjectManager_GetObjectCount
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObjectManager_GetObjects
-	mov r7, #0x4a
-	add r5, r0, #0x0
-	lsl r7, r7, #0x2
-_02057776:
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl MapObject_GetFlagsBits
-	cmp r0, #0x0
-	beq _0205779C
-	mov r1, #0x1
-	add r0, r5, #0x0
-	lsl r1, r1, #0xe
-	bl MapObject_GetFlagsBits
-	cmp r0, #0x0
-	beq _0205779C
-	add r0, r5, #0x0
-	bl sub_020586C8
-	add r0, r5, #0x0
-	bl sub_0205816C
-_0205779C:
-	add r4, r4, #0x1
-	add r5, r5, r7
-	cmp r4, r6
-	blt _02057776
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_020577A8
-sub_020577A8: ; 0x020577A8
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	bl sub_020587E0
-	cmp r0, #0x1
-	beq _020577B8
-	bl GF_AssertFail
-_020577B8:
-	add r0, r5, #0x0
-	mov r4, #0x0
-	bl MapObjectManager_GetObjectCount
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObjectManager_GetObjects
-	mov r7, #0x4a
-	add r5, r0, #0x0
-	lsl r7, r7, #0x2
-_020577CE:
-	add r0, r5, #0x0
-	bl MapObject_IsInUse
-	cmp r0, #0x1
-	bne _020577F6
-	add r0, r5, #0x0
-	bl sub_02058884
-	cmp r0, #0x1
-	bne _020577EA
-	add r0, r5, #0x0
-	bl sub_020586DC
-	b _020577F0
-_020577EA:
-	add r0, r5, #0x0
-	bl sub_020581B4
-_020577F0:
-	add r0, r5, #0x0
-	bl sub_02058148
-_020577F6:
-	add r4, r4, #0x1
-	add r5, r5, r7
-	cmp r4, r6
-	blt _020577CE
-	pop {r3-r7, pc}
-
 	thumb_func_start sub_02057800
 sub_02057800: ; 0x02057800
 	push {r3-r7, lr}
@@ -1292,7 +1180,7 @@ sub_020581B4: ; 0x020581B4
 	mov r1, #0x0
 	bl ov05_021F2E0C
 	add r0, r4, #0x0
-	bl sub_02058884
+	bl MapObject_CheckFlag14
 	cmp r0, #0x0
 	bne _020581F6
 	add r0, r4, #0x0
@@ -2475,8 +2363,8 @@ sub_02058878: ; 0x02058878
 	.balign 4
 _02058880: .word MapObject_SetFlagsBits
 
-	thumb_func_start sub_02058884
-sub_02058884: ; 0x02058884
+	thumb_func_start MapObject_CheckFlag14
+MapObject_CheckFlag14: ; 0x02058884
 	ldr r3, _0205888C ; =MapObject_TestFlagsBits
 	mov r1, #0x1
 	lsl r1, r1, #0xe

@@ -263,7 +263,7 @@ ov05_021F1EC0: ; 0x021F1EC0
 	add r4, r0, #0
 	bl sub_020584AC
 	add r0, r4, #0
-	bl sub_02058884
+	bl MapObject_CheckFlag14
 	cmp r0, #1
 	bne _021F1ED8
 	add r0, r4, #0
