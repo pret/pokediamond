@@ -1,4 +1,4 @@
-// Copyright (c) 2021-2023 red031000
+// Copyright (c) 2021-2024 red031000
 
 #include "global.h"
 #include "cJSON.h"
