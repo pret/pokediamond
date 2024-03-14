@@ -155,7 +155,7 @@ ov05_021F202C: ; 0x021F202C
 	mov r0, #0
 	str r0, [r4]
 	add r0, r5, #0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r1, r5, #0
 	add r2, r6, #0
 	bl ov05_021F2284
@@ -213,7 +213,7 @@ _021F20AE:
 	cmp r4, r0
 	beq _021F20D2
 	add r0, r6, #0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r1, r6, #0
 	add r2, r4, #0
 	bl ov05_021F2284
@@ -471,7 +471,7 @@ ov05_021F2284: ; 0x021F2284
 	add r5, r0, #0
 	add r6, r1, #0
 	add r7, r2, #0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0
 	add r0, r5, #0
 	bl sub_020583BC
@@ -480,7 +480,7 @@ _021F229A:
 	ldr r0, [sp]
 	cmp r0, r6
 	beq _021F22CE
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #1
 	bne _021F22CE
 	ldr r0, [sp]
@@ -2030,12 +2030,12 @@ ov05_021F2E0C: ; 0x021F2E0C
 	bne _021F2E1C
 	mov r1, #1
 	lsl r1, r1, #0x16
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, pc}
 _021F2E1C:
 	mov r1, #1
 	lsl r1, r1, #0x16
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4, 0
 
@@ -2044,7 +2044,7 @@ ov05_021F2E28: ; 0x021F2E28
 	push {r3, lr}
 	mov r1, #1
 	lsl r1, r1, #0x16
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0
 	beq _021F2E3A
 	mov r0, #1
@@ -2172,7 +2172,7 @@ ov05_021F2ED0: ; 0x021F2ED0
 	thumb_func_start ov05_021F2F3C
 ov05_021F2F3C: ; 0x021F2F3C
 	push {r3, lr}
-	bl sub_02058578
+	bl MapObject_GetManager
 	bl sub_020583A0
 	pop {r3, pc}
 
@@ -2202,7 +2202,7 @@ ov05_021F2F6C: ; 0x021F2F6C
 	add r6, r1, #0
 	lsl r1, r4, #9
 	add r5, r0, #0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F2F80
 	mov r4, #0
@@ -2210,13 +2210,13 @@ _021F2F80:
 	mov r1, #1
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F2F9E
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0
 	bne _021F2F9E
 	mov r4, #0
@@ -2803,7 +2803,7 @@ _021F338A:
 	mov r1, #2
 	ldr r0, [r4, #4]
 	lsl r1, r1, #0x14
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	ldr r0, [r4, #4]
 	bne _021F33A8
@@ -2935,7 +2935,7 @@ _021F34A8:
 	bl sub_02058458
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r7, r0, #0
 	add r0, r5, #0
 	bl sub_020576A8
@@ -3188,7 +3188,7 @@ ov05_021F36D8: ; 0x021F36D8
 	pop {r4, r5, r6, pc}
 _021F36EC:
 	add r0, r4, #0
-	bl sub_02058830
+	bl MapObject_IsInUse
 	cmp r0, #0
 	beq _021F3700
 	add r0, r4, #0

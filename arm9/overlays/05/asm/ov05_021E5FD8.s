@@ -129,7 +129,7 @@ _021E60D2:
 	add r0, r5, #0
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	mov r0, #1
 	mov r1, #0
 	str r0, [sp]
@@ -1175,7 +1175,7 @@ _021E6938:
 	add r0, r4, #0
 	bl ov05_021F1AF8
 	add r0, r4, #0
-	bl sub_02057654
+	bl MapObject_Remove
 	ldr r0, _021E6950 ; =0x0000065B
 	bl PlaySE
 	mov r0, #0
@@ -2380,7 +2380,7 @@ ov05_021E727C: ; 0x021E727C
 	add r5, r0, #0
 	add r0, r4, #0
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058578
+	bl MapObject_GetManager
 	ldr r2, [sp]
 	add r1, r6, r7
 	add r2, r2, r5

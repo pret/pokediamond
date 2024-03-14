@@ -56,15 +56,15 @@ sub_020550A4: ; 0x020550A4
 	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058454
+	bl MapObject_SetGfxId
 	mov r1, #0x9
 	add r0, r4, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl sub_02058AC8
@@ -85,7 +85,7 @@ sub_02055108: ; 0x02055108
 	bl GF_AssertFail
 _02055118:
 	add r0, r4, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r0, r5, #0x0
 	bl ov05_021EDBC8
 	add r0, r5, #0x0
@@ -126,7 +126,7 @@ sub_02055168: ; 0x02055168
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl PlayerAvatar_GetMapObject
-	bl sub_02057654
+	bl MapObject_Remove
 	add r0, r4, #0x0
 	bl sub_02055160
 	pop {r4, pc}
@@ -205,7 +205,7 @@ sub_02055208: ; 0x02055208
 	add r0, r1, #0x0
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x1c]
-	bl sub_0205753C
+	bl MapObject_Create
 	add r5, r0, #0x0
 	bne _02055228
 	bl GF_AssertFail
@@ -245,11 +245,11 @@ _02055228:
 	mov r1, #0x9
 	add r0, r5, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x6
 	add r0, r5, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r5, #0x0
 	mov r1, #0x1
 	bl sub_02058AC8
@@ -402,12 +402,12 @@ sub_0205537C: ; 0x0205537C
 	bne _02055392
 	mov r1, #0x2
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4, pc}
 _02055392:
 	mov r1, #0x2
 	lsl r1, r1, #0x8
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4, pc}
 
 	thumb_func_start sub_0205539C

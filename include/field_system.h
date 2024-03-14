@@ -22,7 +22,7 @@ typedef struct UnkFieldStruct04 {
 } UnkFieldStruct04;
 
 typedef struct MapObjectManager {
-
+    u8 padding[0x12C];
 } MapObjectManager; //todo: fill out
 
 typedef struct UnkStruct_020464D4

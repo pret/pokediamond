@@ -1104,7 +1104,7 @@ sub_0204D328: ; 0x0204D328
 	bl GetMapObjectByID
 	cmp r0, #0x0
 	beq _0204D37C
-	bl sub_02057654
+	bl MapObject_Remove
 _0204D37C:
 	ldr r0, _0204D430 ; =UNK_021C5A68
 	lsl r4, r5, #0x3
@@ -2412,7 +2412,7 @@ _0204DD5E:
 	beq _0204DDB4
 	add r0, r4, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	ldr r0, _0204DE28 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	add r1, r0, r5
@@ -2427,7 +2427,7 @@ _0204DD5E:
 	bl sub_02055304
 	add r0, r4, #0x0
 	mov r1, #0x80
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 _0204DDB4:
 	add r0, r4, #0x0
 	bl sub_0205AE28
@@ -3018,11 +3018,11 @@ sub_0204E214: ; 0x0204E214
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x80
 	add r6, r0, #0x0
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x1
 	add r0, r6, #0x0
 	lsl r1, r1, #0x8
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	ldr r0, _0204E24C ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	add r1, r0, r5
@@ -3057,11 +3057,11 @@ sub_0204E254: ; 0x0204E254
 	bl sub_0205AE50
 	add r0, r5, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	ldr r0, _0204E2A0 ; =UNK_021C5A68
 	mov r2, #0x0
 	ldr r0, [r0, #0x0]

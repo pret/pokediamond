@@ -1694,7 +1694,7 @@ sub_0205AB20: ; 0x0205AB20
 	pop {r3-r7, pc}
 _0205AB36:
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	bl sub_02055698
 	add r6, r0, #0x0
 	bl sub_02057124
@@ -1823,7 +1823,7 @@ _0205AC22:
 	bl sub_02058B4C
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystemPtr
 	bl sub_02055698
 	str r0, [sp, #0xc]
 	bl GetPlayerXCoord
@@ -1984,7 +1984,7 @@ _0205AD3E:
 	ldr r4, [r1, r0]
 	add r0, r7, #0x0
 	mov r1, #0x80
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0x0
 	beq _0205AD6C
 	mov r0, #0x1
@@ -1998,7 +1998,7 @@ _0205AD6E:
 	bl sub_020584AC
 	add r0, r7, #0x0
 	mov r1, #0x80
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3-r7, pc}
 	nop
 _0205AD84: .word UNK_020F6964
@@ -2010,6 +2010,6 @@ sub_0205AD88: ; 0x0205AD88
 	cmp r1, #0x0
 	bne _0205AD96
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _0205AD96:
 	pop {r3, pc}

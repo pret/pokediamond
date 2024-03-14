@@ -12,15 +12,12 @@
 #include "save.h"
 #include "task.h"
 #include "field_system.h"
+#include "map_object.h"
 
 struct ScriptContext;
 
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
-
-typedef struct LocalMapObject { //todo move to local_map_object.c
-    u8 padding[0x12C]; //todo verify size
-} LocalMapObject;
 
 typedef struct PartyMenuAppData PartyMenuAppData; //todo move to own file
 

@@ -20,7 +20,7 @@ _021F1CD2:
 	add r0, r5, #0
 	bl ov05_021F1D68
 	add r0, r5, #0
-	bl sub_02058368
+	bl MapObjectManager_GetObjectCount
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	bl sub_0205839C
@@ -103,7 +103,7 @@ ov05_021F1D80: ; 0x021F1D80
 ov05_021F1D8C: ; 0x021F1D8C
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_02058578
+	bl MapObject_GetManager
 	mov r1, #4
 	bl sub_02058390
 	cmp r0, #0
@@ -111,7 +111,7 @@ ov05_021F1D8C: ; 0x021F1D8C
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #0xe
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0
 	beq _021F1DC6
 	add r0, r4, #0
@@ -175,7 +175,7 @@ _021F1E16:
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #8
-	bl sub_02058424
+	bl MapObject_GetFlagsBits
 	cmp r0, #0
 	beq _021F1E28
 	mov r0, #1
@@ -263,7 +263,7 @@ ov05_021F1EC0: ; 0x021F1EC0
 	add r4, r0, #0
 	bl sub_020584AC
 	add r0, r4, #0
-	bl sub_02058884
+	bl MapObject_CheckFlag14
 	cmp r0, #1
 	bne _021F1ED8
 	add r0, r4, #0
@@ -281,7 +281,7 @@ ov05_021F1EDC: ; 0x021F1EDC
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4, pc}
 	.balign 4, 0
 
