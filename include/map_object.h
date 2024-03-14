@@ -5,6 +5,35 @@
 #include "field_system.h"
 #include "heap.h"
 
+typedef struct SavedMapObject {
+    u32 unk0;
+    u32 unk4;
+    u8 objId;
+    u8 movement;
+    s8 xRange;
+    s8 yRange;
+    s8 initialFacing;
+    s8 currentFacing;
+    s8 nextFacing;
+    u16 unk10;
+    u16 gfxId;
+    u16 type;
+    u16 flagId;
+    u16 script;
+    s16 unk1A;
+    s16 unk1C;
+    s16 unk1E;
+    s16 initialX;
+    s16 initialHeight;
+    s16 initialY;
+    s16 currentX;
+    s16 currentHeight;
+    s16 currentY;
+    fx32 unk2C;
+    u8 unk30[16];
+    u8 unk40[16];
+} SavedMapObject;
+
 typedef struct LocalMapObject {
     u8 padding[0x128]; //todo verify size
 } LocalMapObject;
@@ -68,5 +97,6 @@ void sub_020576A8(LocalMapObject *object);
 void MapObjectManager_RemoveAllActiveObjects(MapObjectManager *manager);
 void sub_02057750(MapObjectManager *manager);
 void sub_020577A8(MapObjectManager *manager);
+void FieldSystem_SyncMapObjectsToSaveEx(FieldSystem *fieldSystem, MapObjectManager *manager, SavedMapObject *savedObjects, s32 count);
 
 #endif //POKEDIAMOND_MAP_OBJECT_H

@@ -163,25 +163,25 @@ Save_LocalFieldData_Get: ; 0x02034E30
 	nop
 _02034E38: .word SaveArray_Get
 
-	thumb_func_start sub_02034E3C
-sub_02034E3C: ; 0x02034E3C
+	thumb_func_start Save_MapObjects_Get
+Save_MapObjects_Get: ; 0x02034E3C
 	ldr r3, _02034E44 ; =SaveArray_Get
 	mov r1, #0xb
 	bx r3
 	nop
 _02034E44: .word SaveArray_Get
 
-	thumb_func_start sub_02034E48
-sub_02034E48: ; 0x02034E48
+	thumb_func_start FieldSystem_SyncMapObjectsToSave
+FieldSystem_SyncMapObjectsToSave: ; 0x02034E48
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl sub_02034E3C
+	bl Save_MapObjects_Get
 	add r2, r0, #0x0
 	ldr r1, [r4, #0x34]
 	add r0, r4, #0x0
 	mov r3, #0x40
-	bl sub_02057800
+	bl FieldSystem_SyncMapObjectsToSaveEx
 	pop {r4, pc}
 
 	thumb_func_start sub_02034E60
@@ -189,10 +189,10 @@ sub_02034E60: ; 0x02034E60
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl sub_02034E3C
+	bl Save_MapObjects_Get
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x34]
 	mov r2, #0x40
-	bl sub_0205785C
+	bl MapObjectManager_RestoreFromSave
 	pop {r4, pc}
 	.balign 4

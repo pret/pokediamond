@@ -377,7 +377,7 @@ extern u32 sub_02026CC4(SaveData *saveData);
 extern void sub_02025C30(u32 param0);
 extern void sub_02033E74(void);
 extern void sub_02033ED0(void);
-extern void sub_02034E48(FieldSystem *fieldSystem);
+extern void FieldSystem_SyncMapObjectsToSave(FieldSystem *fieldSystem);
 extern Location *LocalFieldData_GetSpecialSpawnWarpPtr(LocalFieldData *localFieldData);
 extern u16 GetTrainerCardLevel(FieldSystem *fieldSystem);
 extern SaveStatsPrinter *Field_SaveStatsPrinter_New(FieldSystem *fieldSystem, HeapID heapId, u32 param2);
@@ -4784,7 +4784,7 @@ BOOL ScrCmd_Unk02B1(ScriptContext *ctx) { //02B1
 }
 
 BOOL ScrCmd_Unk02B2(ScriptContext *ctx) { //02B2
-    sub_02034E48(ctx->fieldSystem);
+    FieldSystem_SyncMapObjectsToSave(ctx->fieldSystem);
     return FALSE;
 }
 

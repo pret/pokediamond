@@ -6,56 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_02057800
-sub_02057800: ; 0x02057800
-	push {r3-r7, lr}
-	sub sp, #0x8
-	add r7, r0, #0x0
-	add r6, r1, #0x0
-	mov r0, #0x0
-	add r5, r2, #0x0
-	add r4, r3, #0x0
-	str r0, [sp, #0x4]
-	add r0, r6, #0x0
-	add r1, sp, #0x0
-	add r2, sp, #0x4
-	mov r3, #0x1
-	bl sub_020580F4
-	cmp r0, #0x0
-	beq _02057846
-_02057820:
-	ldr r1, [sp, #0x0]
-	add r0, r7, #0x0
-	add r2, r5, #0x0
-	bl sub_02057894
-	sub r4, r4, #0x1
-	add r5, #0x50
-	cmp r4, #0x0
-	bgt _02057836
-	bl GF_AssertFail
-_02057836:
-	add r0, r6, #0x0
-	add r1, sp, #0x0
-	add r2, sp, #0x4
-	mov r3, #0x1
-	bl sub_020580F4
-	cmp r0, #0x0
-	bne _02057820
-_02057846:
-	cmp r4, #0x0
-	beq _02057856
-	mov r2, #0x50
-	add r0, r5, #0x0
-	mov r1, #0x0
-	mul r2, r4
-	bl memset
-_02057856:
-	add sp, #0x8
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_0205785C
-sub_0205785C: ; 0x0205785C
+	thumb_func_start MapObjectManager_RestoreFromSave
+MapObjectManager_RestoreFromSave: ; 0x0205785C
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	add r5, r1, #0x0

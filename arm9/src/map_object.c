@@ -6,6 +6,9 @@
 static MapObjectManager *MapObjectManager_New(u32 objectCount);
 /*static*/ LocalMapObject *MapObject_CreateFromObjectEvent(MapObjectManager *manager, ObjectEvent *objectEvent, u32 mapNo);
 
+extern BOOL sub_020580F4(MapObjectManager *manager, LocalMapObject **object, s32 *index, MapObjectFlagBits bits);
+extern /*static*/ void sub_02057894(FieldSystem *fieldSystem, LocalMapObject *object, SavedMapObject *savedObject);
+
 extern void MapObjectManager_SetFieldSystemPtr(MapObjectManager *manager, FieldSystem *fieldSystem);
 extern void MapObjectManager_SetObjectCount(MapObjectManager *manager, u32 objectCount);
 extern void MapObjectManager_SetHeapID(MapObjectManager *manager, HeapID heapId);
@@ -304,4 +307,22 @@ void sub_020577A8(MapObjectManager *manager) {
         i++;
         objects++;
     } while (i < count);
+}
+
+void FieldSystem_SyncMapObjectsToSaveEx(FieldSystem *fieldSystem, MapObjectManager *manager, SavedMapObject *savedObjects, s32 count) {
+    s32 index = 0;
+    LocalMapObject *object;
+
+    while (sub_020580F4(manager, &object, &index, MAPOBJECTFLAG_ACTIVE)) { //MapObjectManager_GetNextActiveObject? this is an iterator however
+        sub_02057894(fieldSystem, object, savedObjects); //SavedMapObject_InitFromLocalMapIObject?
+
+        count--;
+        savedObjects++;
+
+        GF_ASSERT(count > 0);
+    }
+
+    if (count != 0) {
+        memset(savedObjects, 0, count * sizeof(SavedMapObject));
+    }
 }

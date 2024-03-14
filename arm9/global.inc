@@ -2566,7 +2566,7 @@
 .extern LocalFieldData_GetSafariStepsCounter
 .extern sub_02034E2C
 .extern Save_LocalFieldData_Get
-.extern sub_02034E48
+.extern FieldSystem_SyncMapObjectsToSave
 .extern sub_02034E60
 .extern GetMomSpawnId
 .extern GetSpecialSpawnWarpData
@@ -3996,8 +3996,8 @@
 .extern MapObjectManager_RemoveAllActiveObjects
 .extern sub_02057750
 .extern sub_020577A8
-.extern sub_02057800
-.extern sub_0205785C
+.extern FieldSystem_SyncMapObjectsToSaveEx
+.extern MapObjectManager_RestoreFromSave
 .extern sub_02057BAC
 .extern GetMapObjectByID
 .extern sub_020580B4
