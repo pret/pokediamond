@@ -233,7 +233,7 @@ sub_0205C73C: ; 0x0205C73C
 	str r2, [r5, #0x0]
 	str r3, [r5, #0x4]
 	add r0, r4, #0x0
-	bl sub_02058498
+	bl MapObject_GetScript
 	str r0, [r5, #0x8]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -250,7 +250,7 @@ sub_0205C73C: ; 0x0205C73C
 	thumb_func_start sub_0205C768
 sub_0205C768: ; 0x0205C768
 	push {r3, lr}
-	bl sub_02058488
+	bl MapObject_GetType
 	cmp r0, #0x8
 	bhi _0205C792
 	add r1, r0, r0
@@ -291,11 +291,11 @@ sub_0205C794: ; 0x0205C794
 	bl GetPlayerYCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r2, r0, #0x0
 	str r6, [sp, #0x0]
 	mov r0, #0x0
@@ -336,7 +336,7 @@ _0205C802:
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	str r0, [sp, #0xc]
 	mov r4, #0x0
 _0205C822:
@@ -402,11 +402,11 @@ sub_0205C888: ; 0x0205C888
 	add r5, r1, #0x0
 	add r6, r2, #0x0
 	add r4, r3, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	cmp r0, r6
 	bne _0205C8AE
 	add r0, r7, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	cmp r4, r0
 	bge _0205C8AE
 	sub r1, r0, r5
@@ -426,11 +426,11 @@ sub_0205C8B4: ; 0x0205C8B4
 	add r5, r1, #0x0
 	add r6, r2, #0x0
 	add r4, r3, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	cmp r0, r6
 	bne _0205C8DA
 	add r0, r7, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	cmp r4, r0
 	ble _0205C8DA
 	add r1, r0, r5
@@ -450,11 +450,11 @@ sub_0205C8E0: ; 0x0205C8E0
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	cmp r0, r6
 	bne _0205C906
 	add r0, r7, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	cmp r4, r0
 	bge _0205C906
 	sub r1, r0, r5
@@ -474,11 +474,11 @@ sub_0205C90C: ; 0x0205C90C
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	cmp r0, r6
 	bne _0205C932
 	add r0, r7, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	cmp r4, r0
 	ble _0205C932
 	add r1, r0, r5
@@ -504,13 +504,13 @@ sub_0205C938: ; 0x0205C938
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0205C94C:
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x4]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0
 	bl sub_02059BF4
@@ -573,7 +573,7 @@ _0205C9D0:
 	thumb_func_start sub_0205C9D8
 sub_0205C9D8: ; 0x0205C9D8
 	push {r3, lr}
-	bl sub_02058498
+	bl MapObject_GetScript
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl sub_020395F4
@@ -797,7 +797,7 @@ sub_0205CB5C: ; 0x0205CB5C
 	pop {r4, pc}
 _0205CB72:
 	ldr r0, [r4, #0x24]
-	bl sub_02058480
+	bl MapObject_GetMovement
 	sub r0, #0x33
 	cmp r0, #0x3
 	bhi _0205CB9A
@@ -1024,16 +1024,16 @@ sub_0205CCEC: ; 0x0205CCEC
 	ldr r0, [r5, #0x28]
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x24]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x24]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r3, r0, #0x0
 	ldr r2, [sp, #0x0]
 	add r0, r6, #0x0

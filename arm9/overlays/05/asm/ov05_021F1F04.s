@@ -101,7 +101,7 @@ ov05_021F1FC8: ; 0x021F1FC8
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -179,7 +179,7 @@ ov05_021F2060: ; 0x021F2060
 	cmp r0, #0
 	beq _021F2092
 	add r0, r5, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r6, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -484,7 +484,7 @@ _021F229A:
 	cmp r0, #1
 	bne _021F22CE
 	ldr r0, [sp]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r5, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -1596,7 +1596,7 @@ _021F2B2E:
 	beq _021F2B5A
 _021F2B38:
 	ldr r0, [sp]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r4, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -1647,7 +1647,7 @@ _021F2B8E:
 	beq _021F2BDE
 _021F2B98:
 	ldr r0, [sp]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r4, r0, #0
 	ldr r0, _021F2BF4 ; =0x0000FFFF
 	cmp r4, r0
@@ -1726,7 +1726,7 @@ _021F2C20:
 	cmp r0, #1
 	bne _021F2C64
 	ldr r0, [sp]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r4, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -2932,7 +2932,7 @@ ov05_021F3490: ; 0x021F3490
 	bne _021F34D2
 _021F34A8:
 	add r0, r5, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r6, r0, #0
 	add r0, r5, #0
 	bl MapObject_GetManager
@@ -2977,7 +2977,7 @@ ov05_021F34DC: ; 0x021F34DC
 	str r0, [r5]
 	add r0, r7, #0
 	str r7, [r5, #0x50]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r6, r0, #0
 	bl ov05_021F2DE8
 	ldr r4, _021F36C4 ; =ov05_021F9094
@@ -3216,7 +3216,7 @@ _021F370A:
 	pop {r4, r5, r6, pc}
 _021F3730:
 	add r0, r4, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	ldr r1, [r5]
 	cmp r1, r0
 	beq _021F377C

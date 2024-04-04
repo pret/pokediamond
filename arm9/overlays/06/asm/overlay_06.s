@@ -1127,11 +1127,11 @@ ov06_02239F04: ; 0x02239F04
 	bl GF_AssertFail
 _02239F18:
 	add r0, r5, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	mov r0, #4
@@ -32697,7 +32697,7 @@ ov06_0224954C: ; 0x0224954C
 	bl sub_02064754
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0x1c]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	str r0, [r4]
 	ldr r0, [r4, #0x1c]
 	bl MapObject_GetID
@@ -33080,7 +33080,7 @@ ov06_02249834: ; 0x02249834
 	bl sub_02058450
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x20]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	str r0, [r4, #8]
 	bl sub_0205C334
 	cmp r0, #1
@@ -33129,7 +33129,7 @@ ov06_022498BC: ; 0x022498BC
 	ldr r6, [r4, #0x20]
 	add r5, r0, #0
 	add r0, r6, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r7, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -33205,7 +33205,7 @@ ov06_02249954: ; 0x02249954
 	ldr r4, [r5, #0x20]
 	add r6, r0, #0
 	add r0, r4, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	add r7, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -33899,10 +33899,10 @@ ov06_02249E9C: ; 0x02249E9C
 	bl sub_02058B24
 	str r0, [sp, #0x10]
 	add r0, r5, #0
-	bl sub_02058B80
+	bl MapObject_GetPosVecYCoord
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	bl sub_020584C8
@@ -34255,7 +34255,7 @@ ov06_0224A130: ; 0x0224A130
 	bl ov05_021E4C08
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	bl ov06_0224A0F0
 	add r2, r0, #0
 	add r0, sp, #0x14
@@ -35762,7 +35762,7 @@ _0224ACBA:
 	mov r0, #0
 	str r0, [r5]
 	add r0, r4, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0
 	mvn r1, r1
 	str r0, [r5, #4]
@@ -36887,13 +36887,13 @@ ov06_0224B568: ; 0x0224B568
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -36957,7 +36957,7 @@ ov06_0224B5D0: ; 0x0224B5D0
 	lsl r0, r0, #0x10
 	str r0, [sp, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058B80
+	bl MapObject_GetPosVecYCoord
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x24]
 	add r1, sp, #0
@@ -37092,10 +37092,10 @@ _0224B710:
 	pop {r3, r4, r5, r6, r7, pc}
 _0224B72A:
 	add r0, r6, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224B744
@@ -37731,10 +37731,10 @@ ov06_0224BBEC: ; 0x0224BBEC
 	str r5, [sp, #0x20]
 	bl sub_02058B5C
 	add r0, r5, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
@@ -37925,13 +37925,13 @@ ov06_0224BD90: ; 0x0224BD90
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -37995,7 +37995,7 @@ ov06_0224BDF8: ; 0x0224BDF8
 	lsl r0, r0, #0x10
 	str r0, [sp, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058B80
+	bl MapObject_GetPosVecYCoord
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x24]
 	add r1, sp, #0
@@ -38121,10 +38121,10 @@ _0224BF2A:
 	str r0, [r4]
 _0224BF40:
 	add r0, r6, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224BF5A
@@ -38252,13 +38252,13 @@ ov06_0224C038: ; 0x0224C038
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -38322,7 +38322,7 @@ ov06_0224C0A0: ; 0x0224C0A0
 	lsl r0, r0, #0x10
 	str r0, [sp, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058B80
+	bl MapObject_GetPosVecYCoord
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x24]
 	add r1, sp, #0
@@ -38454,10 +38454,10 @@ _0224C1DE:
 	str r0, [r4]
 _0224C1F4:
 	add r0, r6, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224C20E
@@ -40118,10 +40118,10 @@ ov06_0224CECC: ; 0x0224CECC
 	bl ov05_021E4C20
 	add r7, r0, #0
 	add r0, r5, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r1, r0, #0
 	ldr r0, [sp, #8]
 	add r2, sp, #0x20
@@ -40663,10 +40663,10 @@ ov06_0224D2E0: ; 0x0224D2E0
 	str r5, [sp, #0x20]
 	bl sub_02058B5C
 	add r0, r5, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0
 	add r0, r5, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
@@ -43303,13 +43303,13 @@ ov06_0224E858: ; 0x0224E858
 	add r1, sp, #0
 	bl sub_02058B5C
 	add r0, r6, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r5, r0, #0
 	add r0, r6, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r4, r0, #0
 	add r0, r6, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	cmp r0, #3
 	bhi _0224E8A8
 	add r0, r0, r0

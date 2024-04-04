@@ -584,7 +584,7 @@ sub_02055C78: ; 0x02055C78
 	add r5, r0, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -718,7 +718,7 @@ sub_02055DAC: ; 0x02055DAC
 	add r7, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0x0
 	ldr r0, _02055EF4 ; =0x00000654
 	bl PlaySE
@@ -860,7 +860,7 @@ sub_02055EF8: ; 0x02055EF8
 	add r5, r0, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_020554BC
 	cmp r0, #0x1
@@ -895,7 +895,7 @@ sub_02055F44: ; 0x02055F44
 	add r5, r0, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_020554BC
 	cmp r0, #0x1
@@ -1319,7 +1319,7 @@ sub_02056288: ; 0x02056288
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0x0
 	bl sub_0205AFDC
 	add r2, r0, #0x0
@@ -1766,7 +1766,7 @@ sub_020565F0: ; 0x020565F0
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0x0
 	bl sub_0205AFDC
 	add r2, r0, #0x0
@@ -1813,7 +1813,7 @@ _02056656:
 	beq _02056680
 	add r0, r6, #0x0
 	mov r7, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
@@ -1850,7 +1850,7 @@ _020566A0:
 _020566B0:
 	add r0, r6, #0x0
 	mov r7, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
@@ -2158,7 +2158,7 @@ sub_02056914: ; 0x02056914
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0x0
 	bl sub_0205AFDC
 	add r2, r0, #0x0
@@ -2231,7 +2231,7 @@ _020569BA:
 	tst r0, r4
 	beq _020569EC
 	add r0, r6, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0x0
 	mov r1, #0x0
 	bl sub_0205AFDC
@@ -2274,7 +2274,7 @@ _02056A14:
 	b _02056A6C
 _02056A24:
 	add r0, r6, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0x0
 	mov r1, #0x0
 	bl sub_0205AFDC
@@ -2515,16 +2515,16 @@ sub_02056C0C: ; 0x02056C0C
 	add r5, r1, #0x0
 	str r2, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	bl sub_02059BF4
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x4]
 	bl sub_02059C00
@@ -2613,13 +2613,13 @@ sub_02056CCC: ; 0x02056CCC
 	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2682,10 +2682,10 @@ sub_02056D58: ; 0x02056D58
 	bl MapObject_GetFieldSystemPtr
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x0]
 	ldr r2, [sp, #0x0]
 	add r0, r7, #0x0
@@ -2766,13 +2766,13 @@ sub_02056E04: ; 0x02056E04
 	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -2816,13 +2816,13 @@ sub_02056E6C: ; 0x02056E6C
 	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2860,13 +2860,13 @@ sub_02056EC8: ; 0x02056EC8
 	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2948,13 +2948,13 @@ sub_02056F78: ; 0x02056F78
 	bl MapObject_GetFieldSystemPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00

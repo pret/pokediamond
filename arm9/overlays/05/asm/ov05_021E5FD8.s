@@ -385,7 +385,7 @@ _021E62C4:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _021E62D4:
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	cmp r0, #0x54
 	beq _021E62E0
 	mov r0, #0
@@ -1166,7 +1166,7 @@ _021E6916:
 	mov r0, #0
 	pop {r4, pc}
 _021E692C:
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	cmp r0, #0x76
 	beq _021E6938
 	mov r0, #0
@@ -1433,7 +1433,7 @@ ov05_021E6B1C: ; 0x021E6B1C
 	pop {r3, r4, r5, pc}
 _021E6B2E:
 	ldr r0, [r5, #0x14]
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0
@@ -1647,14 +1647,14 @@ ov05_021E6CC4: ; 0x021E6CC4
 	sub sp, #0x18
 	add r5, r0, #0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0
 	mov r0, #0
 	bl sub_02059BF4
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r6, r0, #0
 	mov r0, #0
 	bl sub_02059C00
@@ -1878,14 +1878,14 @@ ov05_021E6E90: ; 0x021E6E90
 	sub sp, #0x18
 	add r5, r0, #0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0
 	mov r0, #1
 	bl sub_02059BF4
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r6, r0, #0
 	mov r0, #1
 	bl sub_02059C00
@@ -2184,7 +2184,7 @@ ov05_021E70F0: ; 0x021E70F0
 	cmp r0, #0
 	bne _021E7136
 	add r0, r5, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	sub r0, #0xc4
 	cmp r0, #1
 	bls _021E7136
@@ -2216,7 +2216,7 @@ ov05_021E7138: ; 0x021E7138
 	cmp r0, #0
 	bne _021E7180
 	add r0, r5, #0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	cmp r0, #0xc4
 	beq _021E7162
 	cmp r0, #0xc5

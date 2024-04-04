@@ -313,7 +313,7 @@ _02037244:
 	cmp r0, #0x1
 	bne _02037260
 	ldr r0, [r4, #0x0]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	sub r0, #0x5b
 	cmp r0, #0x5
 	bhi _02037260

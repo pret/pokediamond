@@ -257,10 +257,10 @@ sub_0205E698: ; 0x0205E698
 	bl sub_02055698
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02055338
@@ -407,7 +407,7 @@ sub_0205E7C4: ; 0x0205E7C4
 	mov r1, #0x0
 	add r4, r0, #0x0
 	str r1, [sp, #0x8]
-	bl sub_02058488
+	bl MapObject_GetType
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	bl sub_02058450
@@ -541,10 +541,10 @@ sub_0205E8D0: ; 0x0205E8D0
 	add r4, r2, #0x0
 	strb r0, [r5, #0x1]
 	add r0, r4, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	strh r0, [r5, #0x4]
 	mov r0, #0xff
 	strh r0, [r5, #0x6]
@@ -557,10 +557,10 @@ sub_0205E8F4: ; 0x0205E8F4
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r5, [r1, #0x8]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02058B14
@@ -596,16 +596,16 @@ sub_0205E940: ; 0x0205E940
 	sub sp, #0xc
 	str r0, [sp, #0x0]
 	add r5, r1, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x8]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x8]
 	bl sub_02058B14

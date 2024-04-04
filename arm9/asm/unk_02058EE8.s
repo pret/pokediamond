@@ -1262,7 +1262,7 @@ _02058F70:
 	pop {r4, pc}
 _02058F82:
 	add r0, r4, #0x0
-	bl sub_02058480
+	bl MapObject_GetMovement
 	cmp r0, #0x32
 	bne _02058F90
 	mov r0, #0x1
@@ -2185,13 +2185,13 @@ sub_0205970C: ; 0x0205970C
 	cmp r0, #0x1
 	bne _0205973C
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2235,13 +2235,13 @@ sub_02059774: ; 0x02059774
 	cmp r0, #0x1
 	bne _020597A4
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2445,16 +2445,16 @@ sub_02059918: ; 0x02059918
 	sub sp, #0xc
 	add r4, r1, #0x0
 	add r5, r0, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2501,16 +2501,16 @@ _0205997C:
 	cmp r0, #0x0
 	bne _020599F4
 	ldr r0, [sp, #0x8]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x8]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	cmp r7, r5
 	bne _020599C8
 	cmp r0, r6
 	bne _020599C8
 	ldr r0, [sp, #0x8]
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	sub r0, r0, r4
 	bpl _020599BE
 	neg r0, r0
@@ -2531,7 +2531,7 @@ _020599C8:
 	cmp r0, r6
 	bne _020599F4
 	ldr r0, [sp, #0x8]
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	sub r0, r0, r4
 	bpl _020599EA
 	neg r0, r0
@@ -2558,10 +2558,10 @@ sub_02059A08: ; 0x02059A08
 	add r6, r0, #0x0
 	add r5, r1, #0x0
 	add r4, r3, #0x0
-	bl sub_02058AFC
+	bl MapObject_GetInitialX
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_02058538
+	bl MapObject_GetXRange
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r0, r1
@@ -2577,10 +2577,10 @@ _02059A30:
 	pop {r3-r7, pc}
 _02059A34:
 	add r0, r6, #0x0
-	bl sub_02058B0C
+	bl MapObject_GetInitialY
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_02058540
+	bl MapObject_GetYRange
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r0, r1
@@ -2839,17 +2839,17 @@ sub_02059C0C: ; 0x02059C0C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02058B18
 	add r0, r5, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02058B20
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02058B28
@@ -2872,17 +2872,17 @@ sub_02059C0C: ; 0x02059C0C
 sub_02059C60: ; 0x02059C60
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02058B18
 	add r0, r4, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02058B20
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02058B28
@@ -2894,13 +2894,13 @@ sub_02059C90: ; 0x02059C90
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	add r4, r0, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -2989,7 +2989,7 @@ sub_02059D1C: ; 0x02059D1C
 	pop {r3-r5, pc}
 _02059D4E:
 	add r0, r5, #0x0
-	bl sub_02058AE4
+	bl MapObject_CheckFlag29
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_GetFieldSystemPtr
@@ -3005,7 +3005,7 @@ _02059D4E:
 	add r0, r5, #0x0
 	bl sub_02058B6C
 	add r0, r5, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02058B20
@@ -3052,10 +3052,10 @@ sub_02059DB4: ; 0x02059DB4
 	add r0, r5, #0x0
 	bl sub_02058728
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r2, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0

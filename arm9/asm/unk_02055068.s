@@ -279,7 +279,7 @@ sub_020552A4: ; 0x020552A4
 	mov r7, #0x1
 _020552C4:
 	ldr r0, [sp, #0x0]
-	bl sub_02058480
+	bl MapObject_GetMovement
 	cmp r0, #0x1
 	beq _020552DE
 	add r0, r5, #0x0
@@ -310,7 +310,7 @@ _020552F2:
 PlayerAvatar_GetFacingDirection: ; 0x020552F8
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	pop {r3, pc}
 
 	thumb_func_start sub_02055304
@@ -326,21 +326,21 @@ sub_02055304: ; 0x02055304
 sub_02055314: ; 0x02055314
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	pop {r3, pc}
 
 	thumb_func_start GetPlayerXCoord
 GetPlayerXCoord: ; 0x02055320
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	pop {r3, pc}
 
 	thumb_func_start GetPlayerYCoord
 GetPlayerYCoord: ; 0x0205532C
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	pop {r3, pc}
 
 	thumb_func_start sub_02055338

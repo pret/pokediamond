@@ -63,11 +63,11 @@ extern void ov05_021E2C58(ScriptContext *ctx, u16 typ, u16 id, u16 word1, s16 wo
 extern MessageFormat *ov06_02244210(SaveData *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
 extern void ov05_021E2CBC(ScriptContext *ctx, MessageFormat *messageFormat, u8 param2, u32 param3);
 extern void ov05_021E2BB8(void *param0, ScriptContext *ctx);
-extern u32 sub_02058488(LocalMapObject *lastInteracted);
+extern u32 MapObject_GetType(LocalMapObject *lastInteracted);
 extern BOOL sub_02030F40(void);
 extern void sub_02055304(PlayerAvatar *playerAvatar, u32 param1);
 extern void sub_02039460(FieldSystem *arg);
-extern u32 sub_02058510(LocalMapObject *event, u32 param1);
+extern u32 MapObject_GetParam(LocalMapObject *event, u32 param1);
 extern void ov05_021E8128(u32 param0, u8 type, u16 map);
 extern void ov05_021E8130(u32 param0, u32 param1);
 extern void ov05_021E8158(FieldSystem *fieldSystem);
@@ -88,8 +88,8 @@ extern void ov05_021E26CC(u32 param0, u8 param1);
 extern void ov05_021E2B80(u32 param0, u8 param1);
 extern void ov05_021E2B9C(u32 param0, u8 param1);
 extern u32 sub_0205AEA4(LocalMapObject *event, const void *ptr);
-extern u32 sub_02058B2C(LocalMapObject *event);
-extern u32 sub_02058B4C(LocalMapObject *event);
+extern u32 MapObject_GetCurrentX(LocalMapObject *event);
+extern u32 MapObject_GetCurrentY(LocalMapObject *event);
 extern LocalMapObject *sub_020580B4(MapObjectManager *mapObjectManager, u32 param1);
 extern LocalMapObject *GetMapObjectByID(MapObjectManager *mapObjectManager, u16 eventId);
 extern BOOL sub_0205AEF0(u32 param0);
@@ -117,7 +117,7 @@ extern u16 GetPlayerYCoord(PlayerAvatar *playerAvatar);
 extern void sub_02058BB4(LocalMapObject *event, VecFx32 *param1);
 extern void sub_02058994(LocalMapObject *event, u8 value);
 extern void sub_02058E90(LocalMapObject *event, u16 movement);
-extern u16 sub_02058480(LocalMapObject *event);
+extern u16 MapObject_GetMovement(LocalMapObject *event);
 extern void sub_02058EB0(LocalMapObject *event, u32 param1);
 extern u16 sub_02029E0C(SealCase *sealCase);
 extern u16 SealCase_CountSealOccurrenceAnywhere(SealCase *sealCase, u16 sealId);
@@ -995,7 +995,7 @@ BOOL ScrCmd_Unk002E(ScriptContext *ctx) //002E - todo: MessageWait? MessageNoSki
 BOOL ScrCmd_Unk020C(ScriptContext *ctx) //020C
 {
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
-    u8 msg = (u8)sub_02058488(*lastInteracted);
+    u8 msg = (u8)MapObject_GetType(*lastInteracted);
     ov05_021E2BD0(ctx, ctx->msgData, msg, 1, NULL);
     SetupNativeScript(ctx, sub_0203A2F0);
     return TRUE;
@@ -1237,7 +1237,7 @@ BOOL ScrCmd_CreateMessageBox(ScriptContext *ctx) //003C
 
     if (map == 0) {
         LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
-        map = (u16)sub_02058510(*lastInteracted, 0);
+        map = (u16)MapObject_GetParam(*lastInteracted, 0);
     }
 
     ov05_021E8128(fieldSystem->unk60, typ, map);
@@ -1612,8 +1612,8 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { //02A1
     GF_ASSERT(event);
 
     u16 *unk4 = AllocFromHeap(HEAP_ID_4, 0x100);
-    u16 xVal = (u16)sub_02058B2C(event);
-    u16 yVal = (u16)sub_02058B4C(event);
+    u16 xVal = (u16)MapObject_GetCurrentX(event);
+    u16 yVal = (u16)MapObject_GetCurrentY(event);
 
     u32 pos = 0;
 
@@ -1888,8 +1888,8 @@ BOOL ScrCmd_GetEventPosition(ScriptContext *ctx) { //006A
     u16 *x = ScriptGetVarPointer(ctx);
     u16 *y = ScriptGetVarPointer(ctx);
 
-    *x = (u16)sub_02058B2C(event);
-    *y = (u16)sub_02058B4C(event);
+    *x = (u16)MapObject_GetCurrentX(event);
+    *y = (u16)MapObject_GetCurrentY(event);
     return FALSE;
 }
 
@@ -1937,7 +1937,7 @@ BOOL ScrCmd_GetEventMovement(ScriptContext *ctx) { //02AD
 
     LocalMapObject *event = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     if (event != NULL) {
-        *variable = sub_02058480(event);
+        *variable = MapObject_GetMovement(event);
     }
     return FALSE;
 }

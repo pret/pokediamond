@@ -630,13 +630,13 @@ sub_0205339C: ; 0x0205339C
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
 	str r3, [sp, #0x8]
-	bl sub_02058AFC
+	bl MapObject_GetInitialX
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B04
+	bl MapObject_GetInitialHeight
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
-	bl sub_02058B0C
+	bl MapObject_GetInitialY
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x4]
 	cmp r7, r0

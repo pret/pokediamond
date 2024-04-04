@@ -6,8 +6,8 @@
 #include "heap.h"
 
 typedef struct SavedMapObject {
-    u32 unk0;
-    u32 unk4;
+    u32 flags;
+    u32 flags2;
     u8 objId;
     u8 movement;
     s8 xRange;
@@ -20,16 +20,14 @@ typedef struct SavedMapObject {
     u16 type;
     u16 flagId;
     u16 script;
-    s16 unk1A;
-    s16 unk1C;
-    s16 unk1E;
+    s16 param[3];
     s16 initialX;
     s16 initialHeight;
     s16 initialY;
     s16 currentX;
     s16 currentHeight;
     s16 currentY;
-    fx32 unk2C;
+    fx32 vecY;
     u8 unk30[16];
     u8 unk40[16];
 } SavedMapObject;
@@ -98,5 +96,6 @@ void MapObjectManager_RemoveAllActiveObjects(MapObjectManager *manager);
 void sub_02057750(MapObjectManager *manager);
 void sub_020577A8(MapObjectManager *manager);
 void FieldSystem_SyncMapObjectsToSaveEx(FieldSystem *fieldSystem, MapObjectManager *manager, SavedMapObject *savedObjects, s32 count);
+void MapObjectManager_RestoreFromSave(MapObjectManager *manager, SavedMapObject *savedObjects, u32 objectCount);
 
 #endif //POKEDIAMOND_MAP_OBJECT_H

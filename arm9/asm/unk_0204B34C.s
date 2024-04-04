@@ -217,7 +217,7 @@ sub_0204B490: ; 0x0204B490
 	mov r7, #0x1
 _0204B4B6:
 	ldr r0, [sp, #0x0]
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	bl sub_0205C334
 	cmp r0, #0x1
 	bne _0204B4E8
@@ -230,7 +230,7 @@ _0204B4B6:
 	beq _0204B4E8
 	ldr r0, [sp, #0x0]
 	add r1, r6, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r2, r7, #0x0
@@ -258,7 +258,7 @@ sub_0204B4FC: ; 0x0204B4FC
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r4, #0x0
@@ -312,7 +312,7 @@ sub_0204B57C: ; 0x0204B57C
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204B37C
@@ -334,7 +334,7 @@ sub_0204B5A8: ; 0x0204B5A8
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_0204B35C
@@ -357,7 +357,7 @@ sub_0204B5DC: ; 0x0204B5DC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_020252AC
@@ -373,7 +373,7 @@ sub_0204B5FC: ; 0x0204B5FC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02025238
@@ -389,7 +389,7 @@ sub_0204B61C: ; 0x0204B61C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02025244
@@ -405,7 +405,7 @@ sub_0204B63C: ; 0x0204B63C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02025244
@@ -422,7 +422,7 @@ sub_0204B660: ; 0x0204B660
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_020252D0
@@ -439,7 +439,7 @@ sub_0204B684: ; 0x0204B684
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0202524C
@@ -455,7 +455,7 @@ sub_0204B6A4: ; 0x0204B6A4
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058510
+	bl MapObject_GetParam
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_020252E8
@@ -470,7 +470,7 @@ sub_0204B6C4: ; 0x0204B6C4
 	ldr r4, _0204B708 ; =0x00000000
 	beq _0204B6D8
 	add r0, r5, #0x0
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	cmp r0, #0x64
 	beq _0204B6DC
 _0204B6D8:
@@ -615,7 +615,7 @@ _0204B7CC:
 	thumb_func_start sub_0204B7D8
 sub_0204B7D8: ; 0x0204B7D8
 	push {r3, lr}
-	bl sub_02058458
+	bl MapObject_GetGfxID
 	cmp r0, #0x64
 	bne _0204B7E6
 	mov r0, #0x1
