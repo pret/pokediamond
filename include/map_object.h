@@ -82,6 +82,14 @@ typedef enum MapObjectFlagBits {
 
 #define MAP_OBJECT_GFX_ID_INVALID 0xFFFF
 
+typedef struct MapObjectInitArgs {
+    u32 mapNo;
+    int objectEventCount;
+    int index;
+    MapObjectManager *manager;
+    ObjectEvent *objectEvents;
+} MapObjectInitArgs;
+
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, HeapID heapId);
 void MapObjectManager_Delete(MapObjectManager *manager);
 void sub_020573C8(MapObjectManager *manager, u32 unused, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
@@ -97,5 +105,6 @@ void sub_02057750(MapObjectManager *manager);
 void sub_020577A8(MapObjectManager *manager);
 void FieldSystem_SyncMapObjectsToSaveEx(FieldSystem *fieldSystem, MapObjectManager *manager, SavedMapObject *savedObjects, s32 count);
 void MapObjectManager_RestoreFromSave(MapObjectManager *manager, SavedMapObject *savedObjects, u32 objectCount);
+void MapObject_CreateFromMultipleObjectEvents(MapObjectManager *manager, u32 mapNo, u32 objectEventCount, ObjectEvent *objectEvents);
 
 #endif //POKEDIAMOND_MAP_OBJECT_H

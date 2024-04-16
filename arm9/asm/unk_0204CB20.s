@@ -1140,7 +1140,7 @@ _0204D3B2:
 	mov r1, #0x1
 	lsl r1, r1, #0x8
 	add r1, r5, r1
-	bl sub_02058444
+	bl MapObject_SetID
 	ldr r0, _0204D430 ; =UNK_021C5A68
 	ldr r1, [r0, #0x0]
 	ldr r0, _0204D438 ; =0x000002BE
@@ -5967,10 +5967,10 @@ _0204F89E:
 	ldrsb r1, [r1, r2]
 	str r1, [sp, #0x4]
 	ldr r1, [sp, #0x8]
-	bl sub_02058B30
+	bl MapObject_SetCurrentX
 	ldr r0, [sp, #0xc]
 	add r1, r7, #0x0
-	bl sub_02058B50
+	bl MapObject_SetCurrentY
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x8]
 	str r0, [sp, #0x0]

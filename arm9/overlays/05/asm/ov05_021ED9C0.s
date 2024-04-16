@@ -192,7 +192,7 @@ ov05_021EDB10: ; 0x021EDB10
 _021EDB32:
 	add r0, r4, #0
 	add r1, sp, #0xc
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r0, r4, #0
 	add r1, sp, #0
 	bl sub_02058B84

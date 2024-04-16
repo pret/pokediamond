@@ -1032,7 +1032,7 @@ sub_0205A640: ; 0x0205A640
 _0205A65A:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_0205ACE0
 	cmp r0, #0x0
@@ -1076,7 +1076,7 @@ sub_0205A67C: ; 0x0205A67C
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_0205ACE0
 	cmp r0, #0x0
@@ -1513,7 +1513,7 @@ _0205A9C0:
 	ldr r6, [r7, r0]
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_0205ACE0
 	cmp r0, #0x0
@@ -1537,7 +1537,7 @@ _0205A9EA:
 	ldr r6, [r7, r0]
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_0205ACE0
 	cmp r0, #0x0

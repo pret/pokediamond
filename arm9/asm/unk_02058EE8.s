@@ -2427,7 +2427,7 @@ sub_020598F0: ; 0x020598F0
 	add r5, r0, #0x0
 	add r7, r2, #0x0
 	add r4, r3, #0x0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r0, [sp, #0x28]
 	str r4, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -2842,17 +2842,17 @@ sub_02059C0C: ; 0x02059C0C
 	bl MapObject_GetCurrentX
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B18
+	bl MapObject_SetPreviousX
 	add r0, r5, #0x0
 	bl MapObject_GetCurrentHeight
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B20
+	bl MapObject_SetPreviousHeight
 	add r0, r5, #0x0
 	bl MapObject_GetCurrentY
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B28
+	bl MapObject_SetPreviousY
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r1, r0, #0x0
@@ -2875,17 +2875,17 @@ sub_02059C60: ; 0x02059C60
 	bl MapObject_GetCurrentX
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B18
+	bl MapObject_SetPreviousX
 	add r0, r4, #0x0
 	bl MapObject_GetCurrentHeight
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B20
+	bl MapObject_SetPreviousHeight
 	add r0, r4, #0x0
 	bl MapObject_GetCurrentY
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B28
+	bl MapObject_SetPreviousY
 	pop {r4, pc}
 	.balign 4
 
@@ -2922,7 +2922,7 @@ sub_02059CC8: ; 0x02059CC8
 	add r1, sp, #0x0
 	add r6, r0, #0x0
 	add r4, r2, #0x0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	cmp r5, #0x3
 	bhi _02059D0E
 	add r0, r5, r5
@@ -2958,7 +2958,7 @@ _02059D08:
 _02059D0E:
 	add r0, r6, #0x0
 	add r1, sp, #0x0
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4
@@ -2969,7 +2969,7 @@ sub_02059D1C: ; 0x02059D1C
 	sub sp, #0x18
 	add r1, sp, #0xc
 	add r5, r0, #0x0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r3, sp, #0xc
 	ldmia r3!, {r0-r1}
 	add r2, sp, #0x0
@@ -3003,12 +3003,12 @@ _02059D4E:
 	add r1, sp, #0xc
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	add r0, r5, #0x0
 	bl MapObject_GetCurrentHeight
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B20
+	bl MapObject_SetPreviousHeight
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0x0
 	asr r2, r1, #0x3
@@ -3016,7 +3016,7 @@ _02059D4E:
 	lsr r1, r1, #0x14
 	add r1, r2, r1
 	asr r1, r1, #0xc
-	bl sub_02058B40
+	bl MapObject_SetCurrentHeight
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0xc

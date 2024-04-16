@@ -479,7 +479,7 @@ sub_02055B8C: ; 0x02055B8C
 	add r0, r4, #0x0
 	bl sub_02059C60
 	add r0, r4, #0x0
-	bl sub_0205AE80
+	bl MapObject_ClearHeldMovement
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl sub_0205AFDC
@@ -1013,7 +1013,7 @@ sub_02056040: ; 0x02056040
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r1, sp, #0xc
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r4, sp, #0xc
 	add r3, sp, #0x0
 	ldmia r4!, {r0-r1}
@@ -1358,7 +1358,7 @@ _020562CA:
 _020562DC:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	b _0205636C
 _020562E6:
 	add r0, r5, #0x0
@@ -1419,7 +1419,7 @@ _02056356:
 _02056364:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 _0205636C:
 	ldr r0, [sp, #0x0]
 	add r1, r7, #0x0
@@ -1447,7 +1447,7 @@ sub_02056384: ; 0x02056384
 	bl sub_02056B5C
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	pop {r4-r6, pc}
 
 	thumb_func_start sub_020563A8
@@ -1817,7 +1817,7 @@ _02056656:
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	sub r1, r7, #0x1
@@ -1843,7 +1843,7 @@ _02056680:
 _020566A0:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _020566EA
@@ -1854,7 +1854,7 @@ _020566B0:
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	sub r1, r7, #0x1
@@ -1905,7 +1905,7 @@ sub_02056704: ; 0x02056704
 	bl sub_02056B5C
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 _0205673E:
@@ -1963,7 +1963,7 @@ _0205678C:
 _020567AA:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _020567C4
@@ -2222,7 +2222,7 @@ _02056994:
 _020569AA:
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _02056A6C
@@ -2238,7 +2238,7 @@ _020569BA:
 	str r0, [sp, #0x0]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	mov r1, #0x0
@@ -2268,7 +2268,7 @@ _020569EC:
 _02056A14:
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _02056A6C
@@ -2281,7 +2281,7 @@ _02056A24:
 	str r0, [sp, #0x0]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	mov r1, #0x0
@@ -2332,7 +2332,7 @@ sub_02056A7C: ; 0x02056A7C
 	bl sub_02056B5C
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 _02056AB6:
@@ -2390,7 +2390,7 @@ _02056B04:
 _02056B22:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _02056B3C
@@ -2531,7 +2531,7 @@ sub_02056C0C: ; 0x02056C0C
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
 	add r1, sp, #0x1c
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #0x14]
 	ldr r6, [sp, #0xc]
 	ldr r3, [sp, #0x10]

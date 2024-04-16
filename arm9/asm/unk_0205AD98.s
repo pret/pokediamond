@@ -133,8 +133,8 @@ _0205AE72:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start sub_0205AE80
-sub_0205AE80: ; 0x0205AE80
+	thumb_func_start MapObject_ClearHeldMovement
+MapObject_ClearHeldMovement: ; 0x0205AE80
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r1, #0x10

@@ -219,7 +219,7 @@ ov05_021F1E64: ; 0x021F1E64
 	add r4, r1, #0
 	add r5, r0, #0
 	add r1, sp, #0x24
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r0, r5, #0
 	add r1, sp, #0x18
 	bl sub_02058B84

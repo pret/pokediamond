@@ -80,7 +80,7 @@ ov05_021E5E8C: ; 0x021E5E8C
 	str r0, [sp, #0xc]
 	add r0, r4, #0
 	add r1, sp, #0x10
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r0, r4, #0
 	bl MapObject_GetFacingDirection
 	cmp r0, #3

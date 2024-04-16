@@ -490,10 +490,10 @@ _02053272:
 	bl sub_02058E90
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02058534
+	bl MapObject_SetXRange
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205853C
+	bl MapObject_SetYRange
 	mov r0, #0x1
 	strb r0, [r4, #0x15]
 _020532A8:
@@ -662,7 +662,7 @@ _020533CC:
 	bl sub_02058E28
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020584A4
+	bl MapObject_SetFacingDirectionDirect
 	add r0, r4, #0x0
 	mov r1, #0x44
 	bl sub_0205ADDC
@@ -818,7 +818,7 @@ _02053524:
 	bl sub_02057634
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020584A4
+	bl MapObject_SetFacingDirectionDirect
 	add r0, r4, #0x0
 	mov r1, #0x44
 	bl sub_0205ADDC

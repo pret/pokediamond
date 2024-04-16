@@ -56,7 +56,7 @@ sub_020550A4: ; 0x020550A4
 	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_SetGfxId
+	bl MapObject_SetGfxID
 	mov r1, #0x9
 	add r0, r4, #0x0
 	lsl r1, r1, #0xa
@@ -212,36 +212,36 @@ sub_02055208: ; 0x02055208
 _02055228:
 	add r0, r5, #0x0
 	mov r1, #0xff
-	bl sub_02058444
+	bl MapObject_SetID
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058484
+	bl MapObject_SetType
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205848C
+	bl MapObject_SetFlagID
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058494
+	bl MapObject_SetScript
 	mov r1, #0x0
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_020584EC
+	bl MapObject_SetParam
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x1
-	bl sub_020584EC
+	bl MapObject_SetParam
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x2
-	bl sub_020584EC
+	bl MapObject_SetParam
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
-	bl sub_02058534
+	bl MapObject_SetXRange
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
-	bl sub_0205853C
+	bl MapObject_SetYRange
 	mov r1, #0x9
 	add r0, r5, #0x0
 	lsl r1, r1, #0xa
@@ -363,7 +363,7 @@ sub_02055350: ; 0x02055350
 	add r4, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	pop {r4, pc}
 
 	thumb_func_start sub_02055360
@@ -738,11 +738,11 @@ sub_02055540: ; 0x02055540
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	add r1, sp, #0x0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r0, r4, #0x0
 	add r1, sp, #0x0
 	str r5, [sp, #0x4]
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	add sp, #0xc
 	pop {r4-r5, pc}
 

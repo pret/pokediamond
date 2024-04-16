@@ -104,7 +104,7 @@ _02034AD8:
 	ldr r1, [r1, #0x0]
 	ldr r3, [r3, #0x14]
 	add r2, r4, #0x0
-	bl sub_02057BAC
+	bl MapObject_CreateFromMultipleObjectEvents
 _02034AEC:
 	pop {r3-r5, pc}
 	.balign 4
