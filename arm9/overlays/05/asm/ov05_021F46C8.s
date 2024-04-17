@@ -71,7 +71,7 @@ _021F4732:
 	ldr r0, _021F47A8 ; =ov05_021F47B4
 	add r1, r4, #0
 	add r2, #0xec
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r2, #0xc7
 	lsl r2, r2, #2
 	str r0, [r4, r2]

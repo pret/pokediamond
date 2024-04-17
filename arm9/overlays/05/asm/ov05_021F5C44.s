@@ -126,7 +126,7 @@ ov05_021F5D2C: ; 0x021F5D2C
 	ldr r0, _021F5D4C ; =ov05_021F5D7C
 	mov r2, #0x80
 	str r6, [r1]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021F5D4C: .word ov05_021F5D7C

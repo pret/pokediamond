@@ -46,7 +46,7 @@ ov05_021E3474: ; 0x021E3474
 	ldr r0, _021E34B4 ; =ov05_021E34B8
 	add r1, r4, #0
 	mov r2, #5
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r5, [r4, #0x48]
 	cmp r5, #0
 	beq _021E34A4

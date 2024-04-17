@@ -134,7 +134,7 @@ _021D8034:
 	ldr r0, _021D809C ; =ov05_021D7FDC
 	ldr r2, [r6]
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	ldr r0, [r5, #0x10]
 	ldr r1, _021D80A0 ; =ov05_021D8000

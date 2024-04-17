@@ -1017,7 +1017,7 @@ _022573C4:
 	ldr r0, _022573D0 ; =ov11_022573D8
 	ldr r2, _022573D4 ; =0x000003DE
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _022573D0: .word ov11_022573D8
@@ -2633,7 +2633,7 @@ ov11_0225805C: ; 0x0225805C
 	add r1, r4, #0
 	lsl r2, r2, #2
 	str r6, [r4, #4]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	nop
 _0225808C: .word ov11_02258090
@@ -2779,7 +2779,7 @@ ov11_02258188: ; 0x02258188
 	ldr r0, _022581A8 ; =ov11_022581D4
 	ldr r2, _022581AC ; =0x000003F2
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x50]
 _022581A6:
 	pop {r4, pc}

@@ -23,7 +23,7 @@ _021F1CD2:
 	bl MapObjectManager_GetObjectCount
 	str r0, [sp, #0x10]
 	add r0, r5, #0
-	bl sub_0205839C
+	bl MapObjectManager_GetPriority
 	sub r0, r0, #1
 	str r0, [sp, #0xc]
 	add r0, r5, #0

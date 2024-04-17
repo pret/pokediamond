@@ -25,7 +25,7 @@ ov11_0225464C: ; 0x0225464C
 	ldr r0, _02254684 ; =ov11_022546B4
 	ldr r2, _02254688 ; =0x000003F2
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x66
 	lsl r1, r1, #2
 	str r0, [r4, r1]

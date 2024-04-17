@@ -172,11 +172,11 @@ _0205AEC0:
 	bne _0205AEC0
 	add r0, r5, #0x0
 	bl MapObject_GetManager
-	bl sub_0205839C
+	bl MapObjectManager_GetPriority
 	sub r2, r0, #0x1
 	ldr r0, _0205AEEC ; =sub_0205AF2C
 	add r1, r4, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r7, r0, #0x0
 	bne _0205AEE4
 	bl GF_AssertFail

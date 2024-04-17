@@ -5,7 +5,7 @@
 
 extern struct TextPrinter *sub_0201B6C8(void);
 
-BOOL sub_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, HeapID heapId)
+SysTask *sub_020061E8(SysTaskFunc func, u32 r1, u32 r2, HeapID heapId)
 {
     void * r4;
     if(r1 != 0)
@@ -13,7 +13,7 @@ BOOL sub_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, HeapID heapId)
         r4 = AllocFromHeap(heapId, r1);
         if(r4 == 0)
         {
-            return FALSE;
+            return NULL;
         }
         memset(r4, 0, r1);
     }
@@ -21,7 +21,7 @@ BOOL sub_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, HeapID heapId)
     {
         r4 = NULL;
     }
-    return sub_0200CA44(r0, r4, r2);
+    return SysTask_CreateOnMainQueue(func, r4, r2);
 }
 
 void sub_0200621C(s32 r4)

@@ -4309,7 +4309,7 @@ ov16_021D95C4: ; 0x021D95C4
 	ldr r0, _021D95E0 ; =ov16_021D95F4
 	add r1, r4, r1
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x9d
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -4533,7 +4533,7 @@ ov16_021D9760: ; 0x021D9760
 	ldr r0, _021D977C ; =ov16_021D9724
 	add r1, r4, r1
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x9e
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -49129,7 +49129,7 @@ _021EE18A:
 	ldr r0, _021EE19C ; =ov16_021EE1A0
 	add r1, #0x40
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x3c]
 	pop {r4, pc}
 	.align 2, 0
@@ -49421,7 +49421,7 @@ _021EE3B4:
 	ldr r0, _021EE3C4 ; =ov16_021EE3C8
 	add r1, #0x74
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x3c]
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -49535,7 +49535,7 @@ _021EE438:
 	add r1, r5, #0
 	ldr r0, _021EE494 ; =ov16_021EE498
 	add r1, #0x98
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #0x3c]
 	pop {r3, r4, r5, pc}
 	nop
@@ -50999,7 +50999,7 @@ ov16_021EEF0C: ; 0x021EEF0C
 	ldr r0, _021EEF64 ; =ov16_021EF90C
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #7
 	lsl r1, r1, #6
 	str r0, [r4, r1]

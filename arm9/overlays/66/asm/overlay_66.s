@@ -3173,7 +3173,7 @@ _021D8DAA:
 	ldr r1, [sp, #8]
 	ldr r0, _021D8DDC ; =ov66_021D8DE0
 	add r1, #0xa4
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp, #8]
 	add r1, #0xa8
 	str r1, [sp, #8]
@@ -3277,7 +3277,7 @@ ov66_021D8E70: ; 0x021D8E70
 	bne _021D8E90
 	ldr r0, _021D8EA0 ; =ov66_021D8EA8
 	add r1, r3, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x43
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3285,7 +3285,7 @@ ov66_021D8E70: ; 0x021D8E70
 _021D8E90:
 	ldr r0, _021D8EA4 ; =ov66_021D9020
 	add r1, r3, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x43
 	lsl r1, r1, #2
 	str r0, [r4, r1]

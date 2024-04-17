@@ -2,133 +2,14 @@
 	.include "global.inc"
 
 	.extern UNK_020F6364
-	.extern MapObject_CreateFromObjectEvent
 
 	.text
-
-	thumb_func_start sub_02057C08
-sub_02057C08: ; 0x02057C08
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	ldr r0, [r5, #0xc]
-	bl MapObjectManager_GetFieldSystemPtr
-	add r6, r5, #0x0
-	ldr r4, [r5, #0x10]
-	add r7, r0, #0x0
-	add r6, #0x8
-_02057C1A:
-	add r0, r4, #0x0
-	bl ObjectEvent_ScriptIdIsUnset
-	cmp r0, #0x1
-	beq _02057C30
-	ldrh r1, [r4, #0x8]
-	add r0, r7, #0x0
-	bl FieldSystem_FlagCheck
-	cmp r0, #0x0
-	bne _02057C42
-_02057C30:
-	ldr r0, [r5, #0xc]
-	ldr r2, [r5, #0x0]
-	add r1, r4, #0x0
-	bl MapObject_CreateFromObjectEvent
-	cmp r0, #0x0
-	bne _02057C42
-	bl GF_AssertFail
-_02057C42:
-	ldr r0, [r6, #0x0]
-	add r4, #0x20
-	add r0, r0, #0x1
-	str r0, [r6, #0x0]
-	ldr r1, [r5, #0x8]
-	ldr r0, [r5, #0x4]
-	cmp r1, r0
-	blt _02057C1A
-	ldr r1, [r5, #0x10]
-	mov r0, #0xb
-	bl FreeToHeapExplicit
-	mov r0, #0xb
-	add r1, r5, #0x0
-	bl FreeToHeapExplicit
-	pop {r3-r7, pc}
-
-	thumb_func_start MapObjectManager_GetFirstInactiveObject
-MapObjectManager_GetFirstInactiveObject: ; 0x02057C64
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	mov r4, #0x0
-	bl MapObjectManager_GetObjectCount
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObjectManager_GetObjects
-	mov r7, #0x4a
-	add r5, r0, #0x0
-	lsl r7, r7, #0x2
-_02057C7C:
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl MapObject_GetFlagsBits
-	cmp r0, #0x0
-	bne _02057C8C
-	add r0, r5, #0x0
-	pop {r3-r7, pc}
-_02057C8C:
-	add r4, r4, #0x1
-	add r5, r5, r7
-	cmp r4, r6
-	blt _02057C7C
-	mov r0, #0x0
-	pop {r3-r7, pc}
-
-	thumb_func_start sub_02057C98
-sub_02057C98: ; 0x02057C98
-	push {r3-r7, lr}
-	sub sp, #0x8
-	add r5, r1, #0x0
-	mov r1, #0x0
-	add r4, r2, #0x0
-	str r1, [sp, #0x4]
-	add r1, sp, #0x0
-	add r2, sp, #0x4
-	mov r3, #0x1
-	add r6, r0, #0x0
-	bl sub_020580F4
-	cmp r0, #0x1
-	bne _02057CEA
-	add r7, sp, #0x0
-_02057CB6:
-	ldr r0, [sp, #0x0]
-	bl sub_020589CC
-	cmp r0, #0x1
-	bne _02057CDA
-	ldr r0, [sp, #0x0]
-	bl MapObject_GetID
-	cmp r5, r0
-	bne _02057CDA
-	ldr r0, [sp, #0x0]
-	bl sub_02058750
-	cmp r4, r0
-	bne _02057CDA
-	ldr r0, [sp, #0x0]
-	add sp, #0x8
-	pop {r3-r7, pc}
-_02057CDA:
-	add r0, r6, #0x0
-	add r1, r7, #0x0
-	add r2, sp, #0x4
-	mov r3, #0x1
-	bl sub_020580F4
-	cmp r0, #0x1
-	beq _02057CB6
-_02057CEA:
-	mov r0, #0x0
-	add sp, #0x8
-	pop {r3-r7, pc}
 
 	thumb_func_start sub_02057CF0
 sub_02057CF0: ; 0x02057CF0
 	push {r3-r5, lr}
 	add r4, r1, #0x0
-	bl sub_0205839C
+	bl MapObjectManager_GetPriority
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl MapObject_GetMovement
@@ -142,7 +23,7 @@ _02057D0A:
 	ldr r0, _02057D28 ; =sub_0205832C
 	add r1, r4, #0x0
 	add r2, r5, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r5, r0, #0x0
 	bne _02057D1C
 	bl GF_AssertFail
@@ -435,7 +316,7 @@ _02057F9E:
 	bl ObjectEvent_GetFlagID_AssertScriptIdIsUnset
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020589CC
+	bl MapObject_CheckFlag25
 	cmp r0, #0x1
 	bne _02057FDA
 	add r0, r5, #0x0
@@ -453,7 +334,7 @@ _02057FDA:
 	pop {r3-r7, pc}
 _02057FE8:
 	add r0, r5, #0x0
-	bl sub_020589CC
+	bl MapObject_CheckFlag25
 	cmp r0, #0x1
 	bne _02058002
 	add r0, r5, #0x0
@@ -539,7 +420,7 @@ _02058082:
 	cmp r0, #0x1
 	bne _020580A6
 	add r0, r5, #0x0
-	bl sub_020589CC
+	bl MapObject_CheckFlag25
 	cmp r0, #0x0
 	bne _020580A6
 	add r0, r5, #0x0
@@ -752,7 +633,7 @@ sub_02058214: ; 0x02058214
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl sub_020589CC
+	bl MapObject_CheckFlag25
 	cmp r0, #0x1
 	beq _02058228
 	bl GF_AssertFail
@@ -839,7 +720,7 @@ _020582CC:
 	cmp r4, r0
 	beq _020582F2
 	add r0, r5, #0x0
-	bl sub_020589CC
+	bl MapObject_CheckFlag25
 	cmp r0, #0x0
 	bne _020582E4
 	mov r0, #0x0
@@ -964,13 +845,13 @@ sub_02058390: ; 0x02058390
 	bx lr
 	.balign 4
 
-	thumb_func_start MapObjectManager_SetHeapID
-MapObjectManager_SetHeapID: ; 0x02058398
+	thumb_func_start MapObjectManager_SetPriority
+MapObjectManager_SetPriority: ; 0x02058398
 	str r1, [r0, #0xc]
 	bx lr
 
-	thumb_func_start sub_0205839C
-sub_0205839C: ; 0x0205839C
+	thumb_func_start MapObjectManager_GetPriority
+MapObjectManager_GetPriority: ; 0x0205839C
 	ldr r0, [r0, #0xc]
 	bx lr
 
@@ -1712,14 +1593,14 @@ MapObject_GetFieldSystemPtr: ; 0x02058738
 sub_02058744: ; 0x02058744
 	push {r3, lr}
 	bl MapObject_GetManager
-	bl sub_0205839C
+	bl MapObjectManager_GetPriority
 	pop {r3, pc}
 
 	thumb_func_start sub_02058750
 sub_02058750: ; 0x02058750
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_020589CC
+	bl MapObject_CheckFlag25
 	cmp r0, #0x1
 	beq _02058760
 	bl GF_AssertFail
@@ -2097,8 +1978,8 @@ _020589C0:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start sub_020589CC
-sub_020589CC: ; 0x020589CC
+	thumb_func_start MapObject_CheckFlag25
+MapObject_CheckFlag25: ; 0x020589CC
 	push {r3, lr}
 	mov r1, #0x2
 	lsl r1, r1, #0x18

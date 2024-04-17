@@ -496,7 +496,7 @@ ov63_021DB1F8: ; 0x021DB1F8
 	mov r2, #0xa
 	strb r0, [r4, #5]
 	ldr r0, _021DB22C ; =ov63_021DB2F8
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #8]
 	pop {r4, pc}
 	.align 2, 0
@@ -565,7 +565,7 @@ _021DB248:
 	ldr r0, _021DB2C4 ; =ov63_021DB334
 	add r1, r4, #0
 	mov r2, #0x14
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #8]
 	add r0, r5, #1
 	lsl r0, r0, #0x18
@@ -742,7 +742,7 @@ _021DB3A8:
 	ldr r0, _021DB420 ; =ov63_021DB424
 	add r1, r4, #0
 	mov r2, #0x14
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #8]
 	add r0, r5, #1
 	lsl r0, r0, #0x18

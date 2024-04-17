@@ -31,7 +31,7 @@ sub_02052EE8: ; 0x02052EE8
 	ldr r0, _02052F5C ; =sub_02052FC8
 	add r1, r4, #0x0
 	mov r2, #0xb
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
 	bl sub_020524BC

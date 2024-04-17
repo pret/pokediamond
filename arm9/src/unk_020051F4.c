@@ -568,14 +568,14 @@ void sub_02005AE0(u32 param0, HeapID heapId)
     ((u8 *)ptr)[7] = 0;
 
     ptr[0] = param0;
-    u32 r0 = (u32)sub_0200CA44((void (*)(u32, void *))sub_02005B2C, (void *)ptr, 0);
+    u32 r0 = (u32)SysTask_CreateOnMainQueue((SysTaskFunc)sub_02005B2C, (void *)ptr, 0); //TODO: fix this func
     ptr[1] = r0;
     *r6 = r0;
 }
 
-void sub_02005B2C(u32 param0, s32 *param1)
+void sub_02005B2C(SysTask *task, s32 *param1)
 {
-#pragma unused(param0)
+#pragma unused(task)
     u8 *r6 = sub_02003D38(15);
     u8 *r4 = sub_02003D38(16);
 

@@ -24,7 +24,7 @@ ov28_02254854: ; 0x02254854
 	ldr r0, _02254898 ; =ov28_022549C0
 	add r1, r4, #0
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	cmp r0, #0
 	beq _0225488C
 	str r4, [r5]
@@ -897,7 +897,7 @@ _02254EF8:
 	ldr r0, _02254F14 ; =ov28_02254F84
 	ldr r1, [sp]
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp]
 	add r1, #0xb0
 	str r1, [sp]

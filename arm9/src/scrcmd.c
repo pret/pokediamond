@@ -412,7 +412,7 @@ static BOOL sub_0203AD78(ScriptContext *ctx);
 static LocalMapObject *sub_0203B120(FieldSystem *fieldSystem, u16 eventId);
 static BOOL IsAllMovementFinished(ScriptContext *ctx);
 static void sub_0203B174(FieldSystem *fieldSystem, u32 param1, void *param2);
-static void sub_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
+static void sub_0203B1A8(SysTask *task, UnkStruct_0203B174 *param1);
 static BOOL sub_0203B218(ScriptContext *ctx);
 /*static*/ BOOL sub_0203BB90(ScriptContext *ctx);
 static BOOL sub_0203BBBC(ScriptContext *ctx);
@@ -1680,12 +1680,11 @@ static void sub_0203B174(FieldSystem *fieldSystem, u32 param1, void *param2) {
     unkStruct->fieldSystem = fieldSystem;
     unkStruct->Unk04 = param1;
     unkStruct->Unk08 = param2;
-    unkStruct->Unk00 = sub_0200CA44((void (*)(u32, void *))sub_0203B1A8, unkStruct, 0);
+    unkStruct->sysTask = SysTask_CreateOnMainQueue((SysTaskFunc)sub_0203B1A8, unkStruct, 0);
 }
 
-void sub_0203B1A8(u32 param0, UnkStruct_0203B174 *param1) {
-    //is it tho?
-#pragma unused(param0)
+void sub_0203B1A8(SysTask *task, UnkStruct_0203B174 *param1) {
+#pragma unused(task)
     u8 *movementCounter = (u8 *)FieldSysGetAttrAddr(param1->fieldSystem, SCRIPTENV_ACTIVE_MOVEMENT_COUNTER);
 
     if (sub_0205AEF0(param1->Unk04) != TRUE) {
@@ -1693,7 +1692,7 @@ void sub_0203B1A8(u32 param0, UnkStruct_0203B174 *param1) {
     }
 
     sub_0205AEFC(param1->Unk04);
-    sub_0200CAB4((s32)param1->Unk00);
+    sub_0200CAB4((s32)param1->sysTask);
 
     if (param1->Unk08 != NULL) {
         FreeToHeap(param1->Unk08);

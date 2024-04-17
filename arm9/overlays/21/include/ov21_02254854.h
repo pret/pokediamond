@@ -3,6 +3,7 @@
 
 #include "nitro/types.h"
 #include "ov21_02254A6C.h"
+#include "unk_0200CA44.h"
 
 typedef struct Time
 {
@@ -25,7 +26,7 @@ typedef struct UnkStruct02254854
 BOOL ov21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param2, u32 param3);
 BOOL ov21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2, u32 param3);
 void ov21_02254918(UnkStruct02254854 *param0);
-void ov21_02254930(u32 param0, UnkStruct02254854 *param1);
+void ov21_02254930(SysTask *task, UnkStruct02254854 *param1);
 void ov21_0225496C(UnkStruct02254854 *param0);
 void ov21_02254974(u32 param0, u32 param1, u32 param2, UnkStruct02254854 * param3);
 void ov21_02254990(UnkStruct02254854 * param0, u8 param1);

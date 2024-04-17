@@ -2616,7 +2616,7 @@ ov15_021D87F8: ; 0x021D87F8
 	ldr r0, _021D8880 ; =ov15_021D88D8
 	add r1, r4, #0
 	mov r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	ldr r0, _021D8884 ; =ov15_021D88DC
 	add r1, r4, #0
@@ -2733,7 +2733,7 @@ _021D8928:
 	ldr r0, [r0, r2]
 	mov r2, #1
 	str r4, [r1, #0x10]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	lsl r1, r4, #2
 	add r1, r5, r1
 	str r0, [r1, #8]
@@ -8023,7 +8023,7 @@ ov15_021DB2D0: ; 0x021DB2D0
 	add r1, r4, #0
 	strh r0, [r4, #0x16]
 	ldr r0, _021DB350 ; =ov15_021DB36C
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _021DB354 ; =0x000004FC
 	str r0, [r5, r1]
 	pop {r3, r4, r5, pc}

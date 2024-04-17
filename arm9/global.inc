@@ -681,7 +681,7 @@
 .extern sub_0200C9D8
 .extern sub_0200CA0C
 .extern sub_0200CA40
-.extern sub_0200CA44
+.extern SysTask_CreateOnMainQueue
 .extern sub_0200CA60
 .extern sub_0200CA7C
 .extern sub_0200CA98
@@ -4009,7 +4009,7 @@
 .extern sub_0205837C
 .extern sub_02058384
 .extern sub_02058390
-.extern sub_0205839C
+.extern MapObjectManager_GetPriority
 .extern sub_020583A0
 .extern sub_020583A4
 .extern sub_020583AC
@@ -4101,7 +4101,7 @@
 .extern sub_02058960
 .extern sub_0205897C
 .extern sub_02058994
-.extern sub_020589CC
+.extern MapObject_CheckFlag25
 .extern sub_020589E4
 .extern sub_02058A00
 .extern sub_02058A18

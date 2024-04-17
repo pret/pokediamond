@@ -38,7 +38,9 @@ typedef struct LocalMapObject {
 
 typedef struct ObjectEvent
 {
-    u8 padding[0x20];
+    u8 padding[0x8];
+    u16 flag;
+    u8 padding2[0x16];
     //todo fill out
     //todo this should be in map_events_internal.h
 } ObjectEvent;
@@ -90,7 +92,7 @@ typedef struct MapObjectInitArgs {
     ObjectEvent *objectEvents;
 } MapObjectInitArgs;
 
-MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, HeapID heapId);
+MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority);
 void MapObjectManager_Delete(MapObjectManager *manager);
 void sub_020573C8(MapObjectManager *manager, u32 unused, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
 LocalMapObject *MapObject_Create(MapObjectManager *manager, u32 x, u32 y, u32 direction, u32 sprite, u32 movement, u32 mapNo);

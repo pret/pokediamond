@@ -169,7 +169,7 @@ _0204CB7A:
 	ldr r0, _0204CC44 ; =sub_0204D4F0
 	mov r1, #0x0
 	mov r2, #0xc8
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _0204CC34 ; =UNK_021C5A68
 	ldr r1, [r1, #0x0]
 	str r0, [r1, #0x50]
@@ -510,7 +510,7 @@ _0204CDFA:
 	ldr r0, _0204CEF4 ; =sub_0204D4F0
 	mov r1, #0x0
 	mov r2, #0xc8
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _0204CED4 ; =UNK_021C5A68
 	ldr r1, [r1, #0x0]
 	str r0, [r1, #0x50]
@@ -5074,7 +5074,7 @@ sub_0204F178: ; 0x0204F178
 	strb r2, [r0, #0x0]
 	ldr r0, _0204F1AC ; =sub_0204F124
 	mov r2, #0x64
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl sub_0204EAD8

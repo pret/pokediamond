@@ -2271,7 +2271,7 @@ _021E7198:
 	ldr r0, _021E71E0 ; =ov05_021E7218
 	ldr r2, _021E71E4 ; =0x0000FFFF
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r4, r0, #0
 	bne _021E71DA
 	bl GF_AssertFail

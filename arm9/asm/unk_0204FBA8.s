@@ -77,7 +77,7 @@ sub_0204FBB0: ; 0x0204FBB0
 	strh r1, [r0, #0x3c]
 	ldr r0, _0204FC0C ; =sub_0205006C
 	mov r1, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _0204FC08 ; =UNK_021C5A6C
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x38]

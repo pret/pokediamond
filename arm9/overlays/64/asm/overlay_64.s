@@ -2539,7 +2539,7 @@ _021D8876:
 	ldr r0, _021D88C0 ; =ov64_021D88C4
 	add r1, r5, #0
 	str r2, [r5, #0x38]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021D88B8: .word 0xFFFFEAAB
@@ -2839,7 +2839,7 @@ _021D8AEE:
 	ldr r0, _021D8B0C ; =ov64_021D8B10
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x28]
 	pop {r4, pc}
 	nop
@@ -3043,7 +3043,7 @@ _021D8C50:
 	str r0, [r5, #0x50]
 	ldr r0, _021D8C90 ; =ov64_021D8CC8
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #0x54]
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3073,7 +3073,7 @@ _021D8CB6:
 	ldr r0, _021D8CC4 ; =ov64_021D8CC8
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x54]
 	pop {r4, pc}
 	.align 2, 0
@@ -3267,7 +3267,7 @@ _021D8DF0:
 	str r0, [r5, #0x38]
 	ldr r0, _021D8E30 ; =ov64_021D8E68
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #0x3c]
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3297,7 +3297,7 @@ _021D8E56:
 	ldr r0, _021D8E64 ; =ov64_021D8E68
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x3c]
 	pop {r4, pc}
 	.align 2, 0

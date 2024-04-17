@@ -528,7 +528,7 @@ ov05_021E3270: ; 0x021E3270
 	ldr r0, _021E32EC ; =ov05_021E3124
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #8]
 	mov r0, #1
 	strb r0, [r4, #4]

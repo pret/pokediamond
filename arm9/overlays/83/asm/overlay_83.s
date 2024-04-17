@@ -4181,7 +4181,7 @@ ov83_0222F74C: ; 0x0222F74C
 	strh r1, [r0, #0x24]
 	ldr r0, _0222F7A0 ; =ov83_0222F89C
 	mov r1, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _0222F79C ; =ov83_0223B884
 	ldr r2, [r1]
 	str r0, [r2, #0x1c]

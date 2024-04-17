@@ -2862,17 +2862,17 @@ _021F33E2:
 	str r4, [r5, r0]
 	add r0, r0, #4
 	ldr r0, [r5, r0]
-	bl sub_0205839C
+	bl MapObjectManager_GetPriority
 	add r6, r0, #0
 	ldr r0, _021F3448 ; =ov05_021F30C4
 	add r1, r5, #0
 	add r2, r6, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x18]
 	ldr r0, _021F344C ; =ov05_021F3358
 	add r1, r5, #0
 	add r2, r6, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x1c]
 	ldr r0, _021F3450 ; =ov05_021F3240
 	add r1, r5, #0
@@ -3153,7 +3153,7 @@ _021F367A:
 	ldr r0, [sp, #0x18]
 	lsl r1, r1, #2
 	ldr r0, [r0, r1]
-	bl sub_0205839C
+	bl MapObjectManager_GetPriority
 	ldr r0, _021F36D4 ; =ov05_021F36D8
 	add r1, r5, #0
 	mov r2, #0xff

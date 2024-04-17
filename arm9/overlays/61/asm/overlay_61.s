@@ -1345,7 +1345,7 @@ _021D7E00:
 	ldr r0, _021D7FB0 ; =ov61_021D7AA8
 	add r1, r5, #0
 	strb r2, [r5, #0x15]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 _021D7FA6:
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}

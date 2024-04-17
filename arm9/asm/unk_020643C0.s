@@ -251,7 +251,7 @@ sub_020645B0: ; 0x020645B0
 	add r2, r1, #0x0
 	ldr r0, _020645CC ; =sub_020645D0
 	add r1, r3, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r4, r0, #0x0
 	bne _020645C6
 	bl GF_AssertFail

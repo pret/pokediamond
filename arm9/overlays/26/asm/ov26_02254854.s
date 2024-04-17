@@ -25,7 +25,7 @@ ov26_02254854: ; 0x02254854
 	ldr r0, _022548A0 ; =ov26_02254A4C
 	add r1, r4, #0
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	cmp r0, #0
 	beq _02254896
 	ldr r0, _022548A4 ; =ov26_02254A30

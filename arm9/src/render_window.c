@@ -30,7 +30,7 @@ extern u32 sub_0202022C(u32 param0);
 extern void sub_020201E4(u32 param0, u32 param1);
 extern void sub_0201FDEC(u32 param0);
 extern void ov05_021D99F8(struct UnkStruct_0200CABC_2 *param0);
-extern void *sub_0201B6C8(BOOL);
+extern void *sub_0201B6C8(SysTask *sysTask);
 extern void ov05_021D959C(
     struct UnkStruct_0200CABC_2 *param0, void *param1, u32 param2, HeapID heapId);
 extern void ov05_021D967C(struct UnkStruct_0200CABC_2 *param0,
@@ -694,7 +694,7 @@ PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 p
     return &r4->pokepicManager;
 }
 
-void sub_0200DCF8(u32 param0, void *param1)
+void sub_0200DCF8(SysTask *task, void *param1)
 {
     struct UnkStruct_0200CABC_2 *unk = (struct UnkStruct_0200CABC_2 *)param1;
     switch (unk->pokepicManager.unk00)
@@ -703,7 +703,7 @@ void sub_0200DCF8(u32 param0, void *param1)
             ClearFramed10x10Square(unk);
             sub_0200C3DC(unk->unk164);
             ov05_021D99F8(unk);
-            sub_0200621C((s32)param0);
+            sub_0200621C((s32)task);
             return;
         case 2:
             unk->pokepicManager.unk00 = 3;
@@ -723,7 +723,7 @@ void sub_0200DCF8(u32 param0, void *param1)
 struct UnkStruct_0200CABC_2 *sub_0200DD70(
     struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, HeapID heapId)
 {
-    struct UnkStruct_0200CABC_2 *res = sub_0201B6C8(sub_020061E8(sub_0200DCF8, 0x170, 0, heapId));
+    struct UnkStruct_0200CABC_2 *res = sub_0201B6C8(sub_020061E8((SysTaskFunc)sub_0200DCF8, 0x170, 0, heapId));
 
     res->pokepicManager.unk00 = 0;
     res->bgConfig = bg_config;

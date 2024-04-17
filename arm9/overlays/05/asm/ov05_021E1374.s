@@ -501,7 +501,7 @@ _021E173C:
 	add r1, r4, #0
 	mov r2, #0
 	str r6, [r4, #4]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	pop {r4, r5, r6, pc}
 	nop

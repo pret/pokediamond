@@ -698,7 +698,7 @@ _0205CA9A:
 	str r5, [r4, #0x24]
 	ldr r0, _0205CAD0 ; =sub_0205CAF8
 	str r6, [r4, #0x28]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r4, r0, #0x0
 	bne _0205CACC
 	bl GF_AssertFail

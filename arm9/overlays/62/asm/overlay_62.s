@@ -1725,7 +1725,7 @@ _0222E22E:
 	ldr r0, _0222E2B8 ; =ov62_0222E0F8
 	ldr r1, [sp, #0x1c]
 	lsl r2, r3, #0xc
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -5257,7 +5257,7 @@ ov62_0222FE24: ; 0x0222FE24
 	ldr r0, _0222FE54 ; =ov62_0222FDD0
 	add r1, r4, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0222FE54: .word ov62_0222FDD0
