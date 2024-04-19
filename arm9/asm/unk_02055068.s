@@ -56,7 +56,7 @@ sub_020550A4: ; 0x020550A4
 	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_SetGfxID
+	bl MapObject_SetSpriteID
 	mov r1, #0x9
 	add r0, r4, #0x0
 	lsl r1, r1, #0xa

@@ -32697,7 +32697,7 @@ ov06_0224954C: ; 0x0224954C
 	bl sub_02064754
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0x1c]
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	str r0, [r4]
 	ldr r0, [r4, #0x1c]
 	bl MapObject_GetID
@@ -33080,7 +33080,7 @@ ov06_02249834: ; 0x02249834
 	bl sub_02058450
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x20]
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	str r0, [r4, #8]
 	bl sub_0205C334
 	cmp r0, #1
@@ -33129,7 +33129,7 @@ ov06_022498BC: ; 0x022498BC
 	ldr r6, [r4, #0x20]
 	add r5, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	add r7, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -33205,7 +33205,7 @@ ov06_02249954: ; 0x02249954
 	ldr r4, [r5, #0x20]
 	add r6, r0, #0
 	add r0, r4, #0
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	add r7, r0, #0
 	bl sub_0205C334
 	cmp r0, #1
@@ -34255,7 +34255,7 @@ ov06_0224A130: ; 0x0224A130
 	bl ov05_021E4C08
 	add r6, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	bl ov06_0224A0F0
 	add r2, r0, #0
 	add r0, sp, #0x14

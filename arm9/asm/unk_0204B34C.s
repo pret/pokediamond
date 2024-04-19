@@ -217,7 +217,7 @@ sub_0204B490: ; 0x0204B490
 	mov r7, #0x1
 _0204B4B6:
 	ldr r0, [sp, #0x0]
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	bl sub_0205C334
 	cmp r0, #0x1
 	bne _0204B4E8
@@ -470,7 +470,7 @@ sub_0204B6C4: ; 0x0204B6C4
 	ldr r4, _0204B708 ; =0x00000000
 	beq _0204B6D8
 	add r0, r5, #0x0
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	cmp r0, #0x64
 	beq _0204B6DC
 _0204B6D8:
@@ -615,7 +615,7 @@ _0204B7CC:
 	thumb_func_start sub_0204B7D8
 sub_0204B7D8: ; 0x0204B7D8
 	push {r3, lr}
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	cmp r0, #0x64
 	bne _0204B7E6
 	mov r0, #0x1

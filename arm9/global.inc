@@ -4024,8 +4024,8 @@
 .extern MapObject_SetID
 .extern MapObject_GetID
 .extern sub_02058450
-.extern MapObject_SetGfxID
-.extern MapObject_GetGfxID
+.extern MapObject_SetSpriteID
+.extern MapObject_GetSpriteID
 .extern sub_0205845C
 .extern MapObject_GetMovement
 .extern MapObject_SetType

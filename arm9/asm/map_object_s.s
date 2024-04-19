@@ -5,119 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_02057CF0
-sub_02057CF0: ; 0x02057CF0
-	push {r3-r5, lr}
-	add r4, r1, #0x0
-	bl MapObjectManager_GetPriority
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl MapObject_GetMovement
-	cmp r0, #0x30
-	beq _02057D08
-	cmp r0, #0x32
-	bne _02057D0A
-_02057D08:
-	add r5, r5, #0x2
-_02057D0A:
-	ldr r0, _02057D28 ; =sub_0205832C
-	add r1, r4, #0x0
-	add r2, r5, #0x0
-	bl SysTask_CreateOnMainQueue
-	add r5, r0, #0x0
-	bne _02057D1C
-	bl GF_AssertFail
-_02057D1C:
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl sub_02058554
-	pop {r3-r5, pc}
-	nop
-_02057D28: .word sub_0205832C
-
-	thumb_func_start MapObject_InitFromObjectEvent
-MapObject_InitFromObjectEvent: ; 0x02057D2C
-	push {r4-r6, lr}
-	add r4, r1, #0x0
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	add r6, r2, #0x0
-	bl ObjectEvent_GetID
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetID
-	add r0, r4, #0x0
-	bl sub_02058C04
-	add r1, r0, #0x0
-	add r0, r6, #0x0
-	bl sub_02058170
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetGfxID
-	add r0, r4, #0x0
-	bl sub_02058C0C
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetMovement
-	add r0, r4, #0x0
-	bl sub_02058C14
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetType
-	add r0, r4, #0x0
-	bl ObjectEvent_GetFlagId
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetFlagID
-	add r0, r4, #0x0
-	bl sub_02058C24
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetScript
-	add r0, r4, #0x0
-	bl sub_02058C2C
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetInitialFacingDirection
-	add r0, r4, #0x0
-	mov r1, #0x0
-	bl sub_02058C58
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	mov r2, #0x0
-	bl MapObject_SetParam
-	add r0, r4, #0x0
-	mov r1, #0x1
-	bl sub_02058C58
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	mov r2, #0x1
-	bl MapObject_SetParam
-	add r0, r4, #0x0
-	mov r1, #0x2
-	bl sub_02058C58
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	mov r2, #0x2
-	bl MapObject_SetParam
-	add r0, r4, #0x0
-	bl sub_02058C80
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetXRange
-	add r0, r4, #0x0
-	bl sub_02058C8C
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetYRange
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl sub_02057DFC
-	pop {r4-r6, pc}
-	.balign 4
-
-	thumb_func_start sub_02057DFC
-sub_02057DFC: ; 0x02057DFC
+	thumb_func_start MapObject_SetPositionVecFromObjectEvent
+MapObject_SetPositionVecFromObjectEvent: ; 0x02057DFC
 	push {r3-r6, lr}
 	sub sp, #0xc
 	add r6, r1, #0x0
@@ -241,7 +130,7 @@ sub_02057EE0: ; 0x02057EE0
 sub_02057F18: ; 0x02057F18
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	mov r1, #0x2
 	lsl r1, r1, #0xc
 	cmp r0, r1
@@ -541,8 +430,8 @@ sub_0205816C: ; 0x0205816C
 	bx lr
 	.balign 4
 
-	thumb_func_start sub_02058170
-sub_02058170: ; 0x02058170
+	thumb_func_start FieldSystem_ResolveObjectSpriteID
+FieldSystem_ResolveObjectSpriteID: ; 0x02058170
 	push {r3, lr}
 	cmp r1, #0x65
 	blt _02058186
@@ -645,12 +534,12 @@ _02058228:
 	add r1, r6, #0x0
 	bl sub_0205844C
 	add r0, r4, #0x0
-	bl sub_02058C24
+	bl ObjectEvent_GetScript
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetScript
 	add r0, r4, #0x0
-	bl ObjectEvent_GetFlagId
+	bl ObjectEvent_GetFlagID
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetFlagID
@@ -673,7 +562,7 @@ _0205826E:
 	mov r1, #0x1
 	bl sub_020589B0
 	add r0, r6, #0x0
-	bl sub_02058C24
+	bl ObjectEvent_GetScript
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetScript
@@ -1018,13 +907,13 @@ sub_02058450: ; 0x02058450
 	ldr r0, [r0, #0xc]
 	bx lr
 
-	thumb_func_start MapObject_SetGfxID
-MapObject_SetGfxID: ; 0x02058454
+	thumb_func_start MapObject_SetSpriteID
+MapObject_SetSpriteID: ; 0x02058454
 	str r1, [r0, #0x10]
 	bx lr
 
-	thumb_func_start MapObject_GetGfxID
-MapObject_GetGfxID: ; 0x02058458
+	thumb_func_start MapObject_GetSpriteID
+MapObject_GetSpriteID: ; 0x02058458
 	ldr r0, [r0, #0x10]
 	bx lr
 
@@ -1032,7 +921,7 @@ MapObject_GetGfxID: ; 0x02058458
 sub_0205845C: ; 0x0205845C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	add r4, r0, #0x0
 	bl sub_0205C334
 	cmp r0, #0x1
@@ -2397,8 +2286,8 @@ ObjectEvent_SetSprite: ; 0x02058C00
 	strh r1, [r0, #0x2]
 	bx lr
 
-	thumb_func_start sub_02058C04
-sub_02058C04: ; 0x02058C04
+	thumb_func_start ObjectEvent_GetSpriteID
+ObjectEvent_GetSpriteID: ; 0x02058C04
 	ldrh r0, [r0, #0x2]
 	bx lr
 
@@ -2407,8 +2296,8 @@ ObjectEvent_SetMovement: ; 0x02058C08
 	strh r1, [r0, #0x4]
 	bx lr
 
-	thumb_func_start sub_02058C0C
-sub_02058C0C: ; 0x02058C0C
+	thumb_func_start ObjectEvent_GetMovement
+ObjectEvent_GetMovement: ; 0x02058C0C
 	ldrh r0, [r0, #0x4]
 	bx lr
 
@@ -2417,8 +2306,8 @@ ObjectEvent_SetType: ; 0x02058C10
 	strh r1, [r0, #0x6]
 	bx lr
 
-	thumb_func_start sub_02058C14
-sub_02058C14: ; 0x02058C14
+	thumb_func_start ObjectEvent_GetType
+ObjectEvent_GetType: ; 0x02058C14
 	ldrh r0, [r0, #0x6]
 	bx lr
 
@@ -2427,8 +2316,8 @@ ObjectEvent_SetFlagId: ; 0x02058C18
 	strh r1, [r0, #0x8]
 	bx lr
 
-	thumb_func_start ObjectEvent_GetFlagId
-ObjectEvent_GetFlagId: ; 0x02058C1C
+	thumb_func_start ObjectEvent_GetFlagID
+ObjectEvent_GetFlagID: ; 0x02058C1C
 	ldrh r0, [r0, #0x8]
 	bx lr
 
@@ -2437,8 +2326,8 @@ ObjectEvent_SetScript: ; 0x02058C20
 	strh r1, [r0, #0xa]
 	bx lr
 
-	thumb_func_start sub_02058C24
-sub_02058C24: ; 0x02058C24
+	thumb_func_start ObjectEvent_GetScript
+ObjectEvent_GetScript: ; 0x02058C24
 	ldrh r0, [r0, #0xa]
 	bx lr
 
@@ -2447,8 +2336,8 @@ ObjectEvent_SetFacing: ; 0x02058C28
 	strh r1, [r0, #0xc]
 	bx lr
 
-	thumb_func_start sub_02058C2C
-sub_02058C2C: ; 0x02058C2C
+	thumb_func_start ObjectEvent_GetInitialFacingDirection
+ObjectEvent_GetInitialFacingDirection: ; 0x02058C2C
 	mov r1, #0xc
 	ldrsh r0, [r0, r1]
 	bx lr
@@ -2478,8 +2367,8 @@ _02058C50:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start sub_02058C58
-sub_02058C58: ; 0x02058C58
+	thumb_func_start ObjectEvent_GetParam
+ObjectEvent_GetParam: ; 0x02058C58
 	push {r3, lr}
 	cmp r1, #0x0
 	beq _02058C68
@@ -2507,8 +2396,8 @@ ObjectEvent_SetXRange: ; 0x02058C7C
 	strh r1, [r0, #0x14]
 	bx lr
 
-	thumb_func_start sub_02058C80
-sub_02058C80: ; 0x02058C80
+	thumb_func_start ObjectEvent_GetXRange
+ObjectEvent_GetXRange: ; 0x02058C80
 	mov r1, #0x14
 	ldrsh r0, [r0, r1]
 	bx lr
@@ -2519,8 +2408,8 @@ ObjectEvent_SetYRange: ; 0x02058C88
 	strh r1, [r0, #0x16]
 	bx lr
 
-	thumb_func_start sub_02058C8C
-sub_02058C8C: ; 0x02058C8C
+	thumb_func_start ObjectEvent_GetYRange
+ObjectEvent_GetYRange: ; 0x02058C8C
 	mov r1, #0x16
 	ldrsh r0, [r0, r1]
 	bx lr
@@ -2588,7 +2477,7 @@ _02058CD4:
 	thumb_func_start ObjectEvent_ScriptIdIsUnset
 ObjectEvent_ScriptIdIsUnset: ; 0x02058CE0
 	push {r3, lr}
-	bl sub_02058C24
+	bl ObjectEvent_GetScript
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	ldr r0, _02058CF8 ; =0x0000FFFF
@@ -2612,7 +2501,7 @@ ObjectEvent_GetFlagID_AssertScriptIdIsUnset: ; 0x02058CFC
 	bl GF_AssertFail
 _02058D0C:
 	add r0, r4, #0x0
-	bl ObjectEvent_GetFlagId
+	bl ObjectEvent_GetFlagID
 	pop {r4, pc}
 
 	thumb_func_start sub_02058D14

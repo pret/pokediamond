@@ -16,7 +16,7 @@ typedef struct SavedMapObject {
     s8 currentFacing;
     s8 nextFacing;
     u16 unk10;
-    u16 gfxId;
+    u16 spriteId;
     u16 type;
     u16 flagId;
     u16 script;

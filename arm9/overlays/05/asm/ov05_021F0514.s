@@ -7,7 +7,7 @@
 ov05_021F0514: ; 0x021F0514
 	push {r4, lr}
 	add r4, r0, #0
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	cmp r0, #0x97
 	bgt _021F053E
 	bge _021F05B2

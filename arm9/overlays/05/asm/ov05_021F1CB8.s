@@ -131,7 +131,7 @@ _021F1DC6:
 	thumb_func_start ov05_021F1DC8
 ov05_021F1DC8: ; 0x021F1DC8
 	push {r3, lr}
-	bl MapObject_GetGfxID
+	bl MapObject_GetSpriteID
 	bl ov05_021F1DD4
 	pop {r3, pc}
 
