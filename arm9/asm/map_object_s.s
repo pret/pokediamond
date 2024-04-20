@@ -5,104 +5,6 @@
 
 	.text
 
-	thumb_func_start MapObject_SetPositionVecFromObjectEvent
-MapObject_SetPositionVecFromObjectEvent: ; 0x02057DFC
-	push {r3-r6, lr}
-	sub sp, #0xc
-	add r6, r1, #0x0
-	add r4, r0, #0x0
-	add r0, r6, #0x0
-	bl sub_02058C98
-	add r5, r0, #0x0
-	mov r0, #0x2
-	lsl r1, r5, #0x10
-	lsl r0, r0, #0xe
-	add r0, r1, r0
-	str r0, [sp, #0x0]
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetInitialX
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetPreviousX
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetCurrentX
-	add r0, r6, #0x0
-	bl sub_02058CA0
-	asr r1, r0, #0x3
-	str r0, [sp, #0x4]
-	asr r0, r1, #0xb
-	lsr r0, r0, #0x14
-	add r0, r1, r0
-	asr r5, r0, #0xc
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetInitialHeight
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetPreviousHeight
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetCurrentHeight
-	add r0, r6, #0x0
-	bl sub_02058CA8
-	add r5, r0, #0x0
-	mov r0, #0x2
-	lsl r1, r5, #0x10
-	lsl r0, r0, #0xe
-	add r0, r1, r0
-	str r0, [sp, #0x8]
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetInitialY
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetPreviousY
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl MapObject_SetCurrentY
-	add r0, r4, #0x0
-	add r1, sp, #0x0
-	bl MapObject_SetPositionVec
-	add sp, #0xc
-	pop {r3-r6, pc}
-	.balign 4
-
-	thumb_func_start sub_02057E90
-sub_02057E90: ; 0x02057E90
-	push {r3-r5, lr}
-	add r4, r1, #0x0
-	ldr r1, _02057EDC ; =0x00001801
-	add r5, r0, #0x0
-	bl MapObject_SetFlagsBits
-	add r0, r5, #0x0
-	bl sub_020581F8
-	cmp r0, #0x1
-	bne _02057EAE
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl sub_020589B0
-_02057EAE:
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl sub_02058570
-	add r0, r5, #0x0
-	bl MapObject_GetInitialFacingDirection
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetFacingDirectionDirect
-	add r0, r5, #0x0
-	bl MapObject_GetInitialFacingDirection
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetNextFacingDirection
-	add r0, r5, #0x0
-	bl MapObject_ClearHeldMovement
-	pop {r3-r5, pc}
-	nop
-_02057EDC: .word 0x00001801
-
 	thumb_func_start sub_02057EE0
 sub_02057EE0: ; 0x02057EE0
 	push {r3-r5, lr}
@@ -499,8 +401,8 @@ sub_020581B4: ; 0x020581B4
 _020581F6:
 	pop {r4, pc}
 
-	thumb_func_start sub_020581F8
-sub_020581F8: ; 0x020581F8
+	thumb_func_start MapObject_ScriptIdIsFFFF
+MapObject_ScriptIdIsFFFF: ; 0x020581F8
 	push {r3, lr}
 	bl MapObject_GetScript
 	lsl r0, r0, #0x10
@@ -529,7 +431,7 @@ sub_02058214: ; 0x02058214
 _02058228:
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020589B0
+	bl MapObject_SetFlag25
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	bl sub_0205844C
@@ -560,7 +462,7 @@ sub_02058258: ; 0x02058258
 _0205826E:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020589B0
+	bl MapObject_SetFlag25
 	add r0, r6, #0x0
 	bl ObjectEvent_GetScript
 	add r1, r0, #0x0
@@ -1142,8 +1044,8 @@ sub_02058564: ; 0x02058564
 	bl sub_0200CAB4
 	pop {r3, pc}
 
-	thumb_func_start sub_02058570
-sub_02058570: ; 0x02058570
+	thumb_func_start MapObject_SetManager
+MapObject_SetManager: ; 0x02058570
 	add r0, #0xb4
 	str r1, [r0, #0x0]
 	bx lr
@@ -1851,8 +1753,8 @@ _020589A4:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start sub_020589B0
-sub_020589B0: ; 0x020589B0
+	thumb_func_start MapObject_SetFlag25
+MapObject_SetFlag25: ; 0x020589B0
 	push {r3, lr}
 	cmp r1, #0x1
 	bne _020589C0
@@ -2420,8 +2322,8 @@ ObjectEvent_SetXCoord: ; 0x02058C94
 	strh r1, [r0, #0x18]
 	bx lr
 
-	thumb_func_start sub_02058C98
-sub_02058C98: ; 0x02058C98
+	thumb_func_start ObjectEvent_GetXCoord
+ObjectEvent_GetXCoord: ; 0x02058C98
 	ldrh r0, [r0, #0x18]
 	bx lr
 
@@ -2430,8 +2332,8 @@ ObjectEvent_SetHeight: ; 0x02058C9C
 	str r1, [r0, #0x1c]
 	bx lr
 
-	thumb_func_start sub_02058CA0
-sub_02058CA0: ; 0x02058CA0
+	thumb_func_start ObjectEvent_GetHeight
+ObjectEvent_GetHeight: ; 0x02058CA0
 	ldr r0, [r0, #0x1c]
 	bx lr
 
@@ -2440,8 +2342,8 @@ ObjectEvent_SetYCoord: ; 0x02058CA4
 	strh r1, [r0, #0x1a]
 	bx lr
 
-	thumb_func_start sub_02058CA8
-sub_02058CA8: ; 0x02058CA8
+	thumb_func_start ObjectEvent_GetYCoord
+ObjectEvent_GetYCoord: ; 0x02058CA8
 	ldrh r0, [r0, #0x1a]
 	bx lr
 

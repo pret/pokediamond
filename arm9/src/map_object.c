@@ -16,6 +16,8 @@ static LocalMapObject *MapObjectManager_GetFirstInactiveObject(MapObjectManager 
 static LocalMapObject *sub_02057C98(MapObjectManager *manager, u32 id, u32 mapNo);
 static void sub_02057CF0(MapObjectManager *manager, LocalMapObject *object);
 static void MapObject_InitFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent, FieldSystem *fieldSystem);
+static void MapObject_SetPositionVecFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent);
+static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
 
 extern BOOL sub_020580F4(MapObjectManager *manager, LocalMapObject **object, s32 *index, MapObjectFlagBits bits);
 
@@ -137,7 +139,7 @@ extern void MapObject_SetCurrentX(LocalMapObject *object, u32 currentX);
 extern void MapObject_SetCurrentHeight(LocalMapObject *object, u32 currentHeight);
 extern void MapObject_SetCurrentY(LocalMapObject *object, u32 currentY);
 extern void MapObject_SetPositionVec(LocalMapObject *object, VecFx32 *coords);
-extern void sub_02058570(LocalMapObject *object, MapObjectManager *manager);
+extern void MapObject_SetManager(LocalMapObject *object, MapObjectManager *manager);
 extern void sub_02057EE0(LocalMapObject *object);
 extern void MapObject_ClearHeldMovement(LocalMapObject *object);
 extern void sub_0205866C(LocalMapObject *object);
@@ -161,7 +163,11 @@ extern u16 ObjectEvent_GetInitialFacingDirection(ObjectEvent *objectEvent);
 extern u32 ObjectEvent_GetParam(ObjectEvent *objectEvent, u32 param);
 extern u32 ObjectEvent_GetXRange(ObjectEvent *objectEvent);
 extern u32 ObjectEvent_GetYRange(ObjectEvent *objectEvent);
-extern void MapObject_SetPositionVecFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent);
+extern u16 ObjectEvent_GetXCoord(ObjectEvent *objectEvent);
+extern u16 ObjectEvent_GetYCoord(ObjectEvent *objectEvent);
+extern u32 ObjectEvent_GetHeight(ObjectEvent *objectEvent);
+extern BOOL MapObject_ScriptIdIsFFFF(LocalMapObject *object);
+extern void MapObject_SetFlag25(LocalMapObject *object, BOOL flag);
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority) {
     MapObjectManager *ret = MapObjectManager_New(objectCount);
@@ -494,7 +500,7 @@ static void LocalMapObject_InitFromSavedMapObject(LocalMapObject *localObject, S
 static void sub_02057AEC(MapObjectManager *manager, LocalMapObject *object) {
     sub_02057B34(object);
     MapObject_ConvertXYToPositionVec(object);
-    sub_02058570(object, manager);
+    MapObject_SetManager(object, manager);
     sub_02057EE0(object);
     MapObject_ClearHeldMovement(object);
     sub_020581B4(object);
@@ -621,4 +627,39 @@ static void MapObject_InitFromObjectEvent(LocalMapObject *object, ObjectEvent *o
     MapObject_SetYRange(object, ObjectEvent_GetYRange(objectEvent));
 
     MapObject_SetPositionVecFromObjectEvent(object, objectEvent);
+}
+
+static void MapObject_SetPositionVecFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent) {
+    VecFx32 coords;
+
+    u16 x = ObjectEvent_GetXCoord(objectEvent);
+    coords.x = x * FX32_CONST(16) + FX32_CONST(8);
+    MapObject_SetInitialX(object, x);
+    MapObject_SetPreviousX(object, x);
+    MapObject_SetCurrentX(object, x);
+
+    coords.y = ObjectEvent_GetHeight(objectEvent);
+    u32 height = (coords.y >> 3) / FX32_ONE;
+    MapObject_SetInitialHeight(object, height);
+    MapObject_SetPreviousHeight(object, height);
+    MapObject_SetCurrentHeight(object, height);
+
+    u16 y = ObjectEvent_GetYCoord(objectEvent);
+    coords.z = y * FX32_CONST(16) + FX32_CONST(8);
+    MapObject_SetInitialY(object, y);
+    MapObject_SetPreviousY(object, y);
+    MapObject_SetCurrentY(object, y);
+
+    MapObject_SetPositionVec(object, &coords);
+}
+
+static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager) { //setup facing and flags? also sets manager?
+    MapObject_SetFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK12 | MAPOBJECTFLAG_UNK11 | MAPOBJECTFLAG_ACTIVE));
+    if (MapObject_ScriptIdIsFFFF(object) == TRUE) {
+        MapObject_SetFlag25(object, TRUE);
+    }
+    MapObject_SetManager(object, manager);
+    MapObject_SetFacingDirectionDirect(object, MapObject_GetInitialFacingDirection(object));
+    MapObject_SetNextFacingDirection(object, MapObject_GetInitialFacingDirection(object));
+    MapObject_ClearHeldMovement(object);
 }
