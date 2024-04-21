@@ -4001,7 +4001,7 @@
 .extern MapObject_CreateFromMultipleObjectEvents
 .extern GetMapObjectByID
 .extern sub_020580B4
-.extern sub_020580F4
+.extern MapObjectManager_GetFirstObjectAndIndexWithFlag
 .extern sub_0205829C
 .extern sub_020582A8
 .extern sub_020582F8

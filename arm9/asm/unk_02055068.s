@@ -271,7 +271,7 @@ sub_020552A4: ; 0x020552A4
 	add r2, sp, #0x4
 	mov r3, #0x1
 	add r5, r0, #0x0
-	bl sub_020580F4
+	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
 	cmp r0, #0x0
 	beq _020552DE
 	add r4, sp, #0x0
@@ -286,7 +286,7 @@ _020552C4:
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl sub_020580F4
+	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
 	cmp r0, #0x0
 	bne _020552C4
 _020552DE:

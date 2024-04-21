@@ -92,9 +92,25 @@ typedef struct MapObjectInitArgs {
     ObjectEvent *objectEvents;
 } MapObjectInitArgs;
 
+typedef struct UnkLMOCallbackStruct {
+    u32 unk0;
+    LocalMapObject_UnkCallback unk4;
+    LocalMapObject_UnkCallback unk8;
+    LocalMapObject_UnkCallback unkC;
+    LocalMapObject_UnkCallback unk10;
+} UnkLMOCallbackStruct;
+
+typedef struct UnkLMOCallbackStruct2 {
+    LocalMapObject_UnkCallback unk0;
+    LocalMapObject_UnkCallback unk4;
+    LocalMapObject_UnkCallback unk8;
+    LocalMapObject_UnkCallback unkC;
+    LocalMapObject_UnkCallback unk10;
+} UnkLMOCallbackStruct2;
+
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority);
 void MapObjectManager_Delete(MapObjectManager *manager);
-void sub_020573C8(MapObjectManager *manager, u32 unused, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
+void sub_020573C8(MapObjectManager *manager, u32 unused, u32 flagId, u32 objectCount, ObjectEvent *objectEvents);
 LocalMapObject *MapObject_Create(MapObjectManager *manager, u32 x, u32 y, u32 direction, u32 sprite, u32 movement, u32 mapNo);
 LocalMapObject *MapObject_CreateFromObjectEventWithId(MapObjectManager *manager, u16 id, u32 objectEventCount, u32 mapNo, const ObjectEvent *events);
 void sub_02057614(LocalMapObject *object, u32 sprite);

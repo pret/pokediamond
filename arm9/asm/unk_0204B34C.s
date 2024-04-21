@@ -210,7 +210,7 @@ sub_0204B490: ; 0x0204B490
 	add r1, sp, #0x0
 	add r2, sp, #0x4
 	mov r3, #0x1
-	bl sub_020580F4
+	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
 	cmp r0, #0x1
 	bne _0204B4F8
 	mov r6, #0x0
@@ -240,7 +240,7 @@ _0204B4E8:
 	add r1, sp, #0x0
 	add r2, sp, #0x4
 	mov r3, #0x1
-	bl sub_020580F4
+	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
 	cmp r0, #0x1
 	beq _0204B4B6
 _0204B4F8:

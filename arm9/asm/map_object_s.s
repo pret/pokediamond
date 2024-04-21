@@ -2,190 +2,10 @@
 	.include "global.inc"
 
 	.extern UNK_020F6364
+	.extern sub_02057EE0
+	.extern sub_02057F18
 
 	.text
-
-	thumb_func_start sub_02057EE0
-sub_02057EE0: ; 0x02057EE0
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	bl MapObject_GetMovement
-	bl sub_02058D14
-	add r4, r0, #0x0
-	bl sub_02058D2C
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl sub_02058630
-	add r0, r4, #0x0
-	bl sub_02058D30
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl sub_02058644
-	add r0, r4, #0x0
-	bl sub_02058D34
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl sub_02058658
-	pop {r3-r5, pc}
-
-	thumb_func_start sub_02057F18
-sub_02057F18: ; 0x02057F18
-	push {r3-r5, lr}
-	add r4, r0, #0x0
-	bl MapObject_GetSpriteID
-	mov r1, #0x2
-	lsl r1, r1, #0xc
-	cmp r0, r1
-	bne _02057F2C
-	ldr r5, _02057F7C ; =ov05_021F9080
-	b _02057F32
-_02057F2C:
-	bl sub_02058D4C
-	add r5, r0, #0x0
-_02057F32:
-	add r0, r5, #0x0
-	bl sub_02058D38
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	bl sub_02058684
-	add r0, r5, #0x0
-	bl sub_02058D3C
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	bl sub_02058698
-	add r0, r5, #0x0
-	bl sub_02058D40
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	bl sub_020586AC
-	add r0, r5, #0x0
-	bl sub_02058D44
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	bl sub_020586C0
-	add r0, r5, #0x0
-	bl sub_02058D48
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	bl sub_020586D4
-	pop {r3-r5, pc}
-	nop
-_02057F7C: .word ov05_021F9080
-
-	thumb_func_start sub_02057F80
-sub_02057F80: ; 0x02057F80
-	ldr r3, _02057F8C ; =memset
-	mov r2, #0x4a
-	mov r1, #0x0
-	lsl r2, r2, #0x2
-	bx r3
-	nop
-_02057F8C: .word memset
-
-	thumb_func_start sub_02057F90
-sub_02057F90: ; 0x02057F90
-	push {r3-r7, lr}
-	add r6, r2, #0x0
-	add r5, r0, #0x0
-	add r4, r3, #0x0
-	str r1, [sp, #0x0]
-	cmp r6, #0x0
-	beq _0205800A
-_02057F9E:
-	add r0, r4, #0x0
-	bl ObjectEvent_GetID
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_GetID
-	cmp r7, r0
-	bne _02058002
-	add r0, r4, #0x0
-	bl ObjectEvent_ScriptIdIsUnset
-	cmp r0, #0x1
-	bne _02057FE8
-	add r0, r4, #0x0
-	bl ObjectEvent_GetFlagID_AssertScriptIdIsUnset
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_CheckFlag25
-	cmp r0, #0x1
-	bne _02057FDA
-	add r0, r5, #0x0
-	bl sub_02058750
-	cmp r7, r0
-	bne _02058002
-	mov r0, #0x1
-	pop {r3-r7, pc}
-_02057FDA:
-	add r0, r5, #0x0
-	bl sub_02058450
-	cmp r7, r0
-	bne _02058002
-	mov r0, #0x2
-	pop {r3-r7, pc}
-_02057FE8:
-	add r0, r5, #0x0
-	bl MapObject_CheckFlag25
-	cmp r0, #0x1
-	bne _02058002
-	add r0, r5, #0x0
-	bl sub_02058750
-	ldr r1, [sp, #0x0]
-	cmp r1, r0
-	bne _02058002
-	mov r0, #0x2
-	pop {r3-r7, pc}
-_02058002:
-	sub r6, r6, #0x1
-	add r4, #0x20
-	cmp r6, #0x0
-	bne _02057F9E
-_0205800A:
-	mov r0, #0x0
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_02058010
-sub_02058010: ; 0x02058010
-	push {r3-r7, lr}
-	sub sp, #0x8
-	add r5, r1, #0x0
-	mov r1, #0x0
-	add r4, r2, #0x0
-	str r1, [sp, #0x4]
-	add r1, sp, #0x0
-	add r2, sp, #0x4
-	mov r3, #0x1
-	add r6, r0, #0x0
-	bl sub_020580F4
-	cmp r0, #0x1
-	bne _02058058
-	add r7, sp, #0x0
-_0205802E:
-	ldr r0, [sp, #0x0]
-	bl MapObject_GetID
-	cmp r5, r0
-	bne _02058048
-	ldr r0, [sp, #0x0]
-	bl sub_02058450
-	cmp r4, r0
-	bne _02058048
-	ldr r0, [sp, #0x0]
-	add sp, #0x8
-	pop {r3-r7, pc}
-_02058048:
-	add r0, r6, #0x0
-	add r1, r7, #0x0
-	add r2, sp, #0x4
-	mov r3, #0x1
-	bl sub_020580F4
-	cmp r0, #0x1
-	beq _0205802E
-_02058058:
-	mov r0, #0x0
-	add sp, #0x8
-	pop {r3-r7, pc}
-	.balign 4
 
 	thumb_func_start GetMapObjectByID
 GetMapObjectByID: ; 0x02058060
@@ -262,8 +82,8 @@ _020580E6:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start sub_020580F4
-sub_020580F4: ; 0x020580F4
+	thumb_func_start MapObjectManager_GetFirstObjectAndIndexWithFlag
+MapObjectManager_GetFirstObjectAndIndexWithFlag: ; 0x020580F4
 	push {r3-r7, lr}
 	add r5, r2, #0x0
 	add r4, r0, #0x0
@@ -455,7 +275,7 @@ sub_02058258: ; 0x02058258
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	add r4, r1, #0x0
-	bl ObjectEvent_ScriptIdIsUnset
+	bl ObjectEvent_ScriptIDIsUnset
 	cmp r0, #0x1
 	beq _0205826E
 	bl GF_AssertFail
@@ -469,7 +289,7 @@ _0205826E:
 	add r0, r5, #0x0
 	bl MapObject_SetScript
 	add r0, r6, #0x0
-	bl ObjectEvent_GetFlagID_AssertScriptIdIsUnset
+	bl ObjectEvent_GetFlagID_AssertScriptIDIsUnset
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetFlagID
@@ -2357,7 +2177,7 @@ ObjectEvent_GetById: ; 0x02058CAC
 	add r5, r2, #0x0
 _02058CB8:
 	add r0, r5, #0x0
-	bl ObjectEvent_ScriptIdIsUnset
+	bl ObjectEvent_ScriptIDIsUnset
 	cmp r0, #0x0
 	bne _02058CD4
 	add r0, r5, #0x0
@@ -2376,8 +2196,8 @@ _02058CD4:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start ObjectEvent_ScriptIdIsUnset
-ObjectEvent_ScriptIdIsUnset: ; 0x02058CE0
+	thumb_func_start ObjectEvent_ScriptIDIsUnset
+ObjectEvent_ScriptIDIsUnset: ; 0x02058CE0
 	push {r3, lr}
 	bl ObjectEvent_GetScript
 	lsl r0, r0, #0x10
@@ -2393,11 +2213,11 @@ _02058CF4:
 	.balign 4
 _02058CF8: .word 0x0000FFFF
 
-	thumb_func_start ObjectEvent_GetFlagID_AssertScriptIdIsUnset
-ObjectEvent_GetFlagID_AssertScriptIdIsUnset: ; 0x02058CFC
+	thumb_func_start ObjectEvent_GetFlagID_AssertScriptIDIsUnset
+ObjectEvent_GetFlagID_AssertScriptIDIsUnset: ; 0x02058CFC
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl ObjectEvent_ScriptIdIsUnset
+	bl ObjectEvent_ScriptIDIsUnset
 	cmp r0, #0x1
 	beq _02058D0C
 	bl GF_AssertFail

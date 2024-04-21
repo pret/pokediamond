@@ -2,6 +2,7 @@
 #include "map_object.h"
 #include "field_system.h"
 #include "heap.h"
+#include "constants/sprites.h"
 #include "unk_0200CA44.h"
 
 static MapObjectManager *MapObjectManager_New(u32 objectCount);
@@ -18,8 +19,13 @@ static void sub_02057CF0(MapObjectManager *manager, LocalMapObject *object);
 static void MapObject_InitFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent, FieldSystem *fieldSystem);
 static void MapObject_SetPositionVecFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent);
 static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
+/*static*/ void sub_02057EE0(LocalMapObject *object);
+/*static*/ void sub_02057F18(LocalMapObject *object);
+static void MapObject_Clear(LocalMapObject *object);
+static u32 sub_02057F90(LocalMapObject *object, u32 flagId, u32 objectEventCount, ObjectEvent *objectEvents);
+static LocalMapObject *MapObjectManager_GetFirstObjectWithID(MapObjectManager *manager, u32 objectId, u32 flagId);
 
-extern BOOL sub_020580F4(MapObjectManager *manager, LocalMapObject **object, s32 *index, MapObjectFlagBits bits);
+extern BOOL MapObjectManager_GetFirstObjectAndIndexWithFlag(MapObjectManager *manager, LocalMapObject **object, s32 *index, MapObjectFlagBits bits);
 
 extern void MapObjectManager_SetFieldSystemPtr(MapObjectManager *manager, FieldSystem *fieldSystem);
 extern void MapObjectManager_SetObjectCount(MapObjectManager *manager, u32 objectCount);
@@ -31,13 +37,11 @@ extern void ov05_021F2AF4(MapObjectManager *manager, void *param0);
 extern void *sub_020583A0(MapObjectManager *manager);
 extern u32 sub_02058450(LocalMapObject *object);
 extern BOOL MapObject_TestFlagsBits(LocalMapObject *object, MapObjectFlagBits flags);
-extern u32 sub_02057F90(LocalMapObject *object, u32 a2, u32 objectCount, ObjectEvent *objectEvents);
 extern void MapObjectManager_SetObjects(MapObjectManager *manager, LocalMapObject *objects);
 extern u32 ObjectEvent_GetID(ObjectEvent *objectEvent);
-extern BOOL ObjectEvent_ScriptIdIsUnset(ObjectEvent *objectEvent);
+extern BOOL ObjectEvent_ScriptIDIsUnset(ObjectEvent *objectEvent);
 extern void sub_02058214(LocalMapObject *object, ObjectEvent *objectEvent, u32 mapNo);
-extern u16 ObjectEvent_GetFlagID_AssertScriptIdIsUnset(ObjectEvent *objectEvent);
-extern LocalMapObject *sub_02058010(MapObjectManager *manager, u32 objectId, u16 flagId);
+extern u16 ObjectEvent_GetFlagID_AssertScriptIDIsUnset(ObjectEvent *objectEvent);
 extern void sub_02058258(LocalMapObject *object, u32 mapNo, ObjectEvent *objectEvent);
 extern FieldSystem *MapObjectManager_GetFieldSystemPtr(MapObjectManager *manager);
 extern void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
@@ -74,7 +78,6 @@ extern void sub_02058660(LocalMapObject *object);
 extern void sub_02058564(LocalMapObject *object);
 extern MapObjectManager *sub_02058580(LocalMapObject *object);
 extern void sub_02058374(MapObjectManager *manager);
-extern void sub_02057F80(LocalMapObject *object);
 extern u32 MapObject_GetFlagID(LocalMapObject *object);
 extern FieldSystem *MapObject_GetFieldSystemPtr(LocalMapObject *object);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
@@ -140,7 +143,6 @@ extern void MapObject_SetCurrentHeight(LocalMapObject *object, u32 currentHeight
 extern void MapObject_SetCurrentY(LocalMapObject *object, u32 currentY);
 extern void MapObject_SetPositionVec(LocalMapObject *object, VecFx32 *coords);
 extern void MapObject_SetManager(LocalMapObject *object, MapObjectManager *manager);
-extern void sub_02057EE0(LocalMapObject *object);
 extern void MapObject_ClearHeldMovement(LocalMapObject *object);
 extern void sub_0205866C(LocalMapObject *object);
 extern void sub_0205815C(LocalMapObject *object);
@@ -168,6 +170,24 @@ extern u16 ObjectEvent_GetYCoord(ObjectEvent *objectEvent);
 extern u32 ObjectEvent_GetHeight(ObjectEvent *objectEvent);
 extern BOOL MapObject_ScriptIdIsFFFF(LocalMapObject *object);
 extern void MapObject_SetFlag25(LocalMapObject *object, BOOL flag);
+extern UnkLMOCallbackStruct *sub_02058D14(u32 movement);
+extern LocalMapObject_UnkCallback sub_02058D2C(UnkLMOCallbackStruct *callbackStruct);
+extern void sub_02058630(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern LocalMapObject_UnkCallback sub_02058D30(UnkLMOCallbackStruct *callbackStruct);
+extern void sub_02058644(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern LocalMapObject_UnkCallback sub_02058D34(UnkLMOCallbackStruct *callbackStruct);
+extern void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern UnkLMOCallbackStruct2 *sub_02058D4C(u32 spriteId);
+extern LocalMapObject_UnkCallback sub_02058D38(UnkLMOCallbackStruct2 *callbackStruct);
+extern void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern LocalMapObject_UnkCallback sub_02058D3C(UnkLMOCallbackStruct2 *callbackStruct);
+extern void sub_02058698(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern LocalMapObject_UnkCallback sub_02058D40(UnkLMOCallbackStruct2 *callbackStruct);
+extern void sub_020586AC(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern LocalMapObject_UnkCallback sub_02058D44(UnkLMOCallbackStruct2 *callbackStruct);
+extern void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern LocalMapObject_UnkCallback sub_02058D48(UnkLMOCallbackStruct2 *callbackStruct);
+extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority) {
     MapObjectManager *ret = MapObjectManager_New(objectCount);
@@ -183,15 +203,15 @@ void MapObjectManager_Delete(MapObjectManager *manager) {
     FreeToHeapExplicit(HEAP_ID_FIELD, manager);
 }
 
-void sub_020573C8(MapObjectManager *manager, u32 unused, u32 a2, u32 objectCount, ObjectEvent *objectEvents) {
+void sub_020573C8(MapObjectManager *manager, u32 unused, u32 flagId, u32 objectCount, ObjectEvent *objectEvents) {
     u32 count = MapObjectManager_GetObjectCount(manager);
     LocalMapObject *objects = MapObjectManager_GetObjects(manager);
 
     for (; count != 0; count--) {
         if (MapObject_IsInUse(objects) == TRUE) {
-            switch (sub_02057F90(objects, a2, objectCount, objectEvents)) {
+            switch (sub_02057F90(objects, flagId, objectCount, objectEvents)) {
                 case 0:
-                    if (sub_02058450(objects) != a2 && !MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_UNK10)) {
+                    if (sub_02058450(objects) != flagId && !MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_UNK10)) {
                         MapObject_Remove(objects);
                     }
                     break;
@@ -226,14 +246,14 @@ static LocalMapObject *MapObject_CreateFromObjectEvent(MapObjectManager *manager
     LocalMapObject *ret;
 
     u32 objectId = ObjectEvent_GetID(objectEvent);
-    if (!ObjectEvent_ScriptIdIsUnset(objectEvent)) {
+    if (!ObjectEvent_ScriptIDIsUnset(objectEvent)) {
         ret = sub_02057C98(manager, objectId, mapNo);
         if (ret != NULL) {
             sub_02058214(ret, objectEvent, mapNo);
             return ret;
         }
     } else {
-        ret = sub_02058010(manager, objectId, ObjectEvent_GetFlagID_AssertScriptIdIsUnset(objectEvent));
+        ret = MapObjectManager_GetFirstObjectWithID(manager, objectId, ObjectEvent_GetFlagID_AssertScriptIDIsUnset(objectEvent));
         if (ret != NULL) {
             sub_02058258(ret, mapNo, objectEvent);
             return ret;
@@ -312,7 +332,7 @@ void MapObject_Remove(LocalMapObject *object) {
     sub_02058660(object);
     sub_02058564(object);
     sub_02058374(sub_02058580(object));
-    sub_02057F80(object);
+    MapObject_Clear(object);
 }
 
 void MapObject_Delete(LocalMapObject *object) {
@@ -397,7 +417,7 @@ void FieldSystem_SyncMapObjectsToSaveEx(FieldSystem *fieldSystem, MapObjectManag
     s32 index = 0;
     LocalMapObject *object;
 
-    while (sub_020580F4(manager, &object, &index, MAPOBJECTFLAG_ACTIVE)) { //MapObjectManager_GetNextActiveObject? this is an iterator however
+    while (MapObjectManager_GetFirstObjectAndIndexWithFlag(manager, &object, &index, MAPOBJECTFLAG_ACTIVE)) { //MapObjectManager_GetNextActiveObject? this is an iterator however
         SavedMapObject_InitFromLocalMapObject(fieldSystem, object, savedObjects);
 
         count--;
@@ -558,7 +578,7 @@ static void MapObject_CreateFromInitArgs(MapObjectInitArgs *args) {
     ObjectEvent *objectEvents = args->objectEvents;
 
     do { //must be do while due to initial check
-        GF_ASSERT((ObjectEvent_ScriptIdIsUnset(objectEvents) != TRUE && FieldSystem_FlagCheck(fieldSystem, objectEvents->flag) != FALSE) ||
+        GF_ASSERT((ObjectEvent_ScriptIDIsUnset(objectEvents) != TRUE && FieldSystem_FlagCheck(fieldSystem, objectEvents->flag) != FALSE) ||
                   MapObject_CreateFromObjectEvent(args->manager, objectEvents, args->mapNo) != NULL); //this is dumb, but is required to match
 
         objectEvents++;
@@ -590,7 +610,7 @@ static LocalMapObject *sub_02057C98(MapObjectManager *manager, u32 id, u32 mapNo
     s32 index = 0;
     LocalMapObject *object;
 
-    while (sub_020580F4(manager, &object, &index, MAPOBJECTFLAG_ACTIVE) == TRUE) {
+    while (MapObjectManager_GetFirstObjectAndIndexWithFlag(manager, &object, &index, MAPOBJECTFLAG_ACTIVE) == TRUE) {
         if (MapObject_CheckFlag25(object) == TRUE && MapObject_GetID(object) == id && sub_02058750(object) == mapNo) {
             return object;
         }
@@ -662,4 +682,66 @@ static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager) { //
     MapObject_SetFacingDirectionDirect(object, MapObject_GetInitialFacingDirection(object));
     MapObject_SetNextFacingDirection(object, MapObject_GetInitialFacingDirection(object));
     MapObject_ClearHeldMovement(object);
+}
+
+/*static*/ void sub_02057EE0(LocalMapObject *object) {
+    UnkLMOCallbackStruct *unk = sub_02058D14(MapObject_GetMovement(object));
+    sub_02058630(object, sub_02058D2C(unk));
+    sub_02058644(object, sub_02058D30(unk));
+    sub_02058658(object, sub_02058D34(unk));
+}
+
+extern const UnkLMOCallbackStruct2 ov05_021F9080;
+
+/*static*/ void sub_02057F18(LocalMapObject *object) {
+    u32 spriteId = MapObject_GetSpriteID(object);
+    UnkLMOCallbackStruct2 *unk = (spriteId == SPRITE_CAMERA_FOCUS) ? (UnkLMOCallbackStruct2 *)&ov05_021F9080 : sub_02058D4C(spriteId);
+
+    sub_02058684(object, sub_02058D38(unk));
+    sub_02058698(object, sub_02058D3C(unk));
+    sub_020586AC(object, sub_02058D40(unk));
+    sub_020586C0(object, sub_02058D44(unk));
+    sub_020586D4(object, sub_02058D48(unk));
+}
+
+static void MapObject_Clear(LocalMapObject *object) {
+    memset(object, 0, sizeof(LocalMapObject));
+}
+
+static u32 sub_02057F90(LocalMapObject *object, u32 flagId, u32 objectEventCount, ObjectEvent *objectEvents) {
+    for (; objectEventCount != 0; objectEventCount--, objectEvents++) {
+        if (ObjectEvent_GetID(objectEvents) != MapObject_GetID(object)) {
+            continue;
+        }
+
+        if (ObjectEvent_ScriptIDIsUnset(objectEvents) == TRUE) {
+            u16 flagIdUnset = ObjectEvent_GetFlagID_AssertScriptIDIsUnset(objectEvents);
+            if (MapObject_CheckFlag25(object) == TRUE) { //this and the one below cannot be combined as it doesn't match
+                if (sub_02058750(object) == flagIdUnset) {
+                    return 1;
+                }
+            } else if (sub_02058450(object) == flagIdUnset) {
+                return 2;
+            }
+        } else if (MapObject_CheckFlag25(object) == TRUE && sub_02058750(object) == flagId) {
+            return 2;
+        }
+    }
+
+    return 0;
+}
+
+//TODO: this also gets based on the second param, which is currently labelled as flagId, but is not
+//see the note attached to sub_02058450
+static LocalMapObject *MapObjectManager_GetFirstObjectWithID(MapObjectManager *manager, u32 objectId, u32 flagId) {
+    s32 index = 0;
+    LocalMapObject *object;
+
+    while (MapObjectManager_GetFirstObjectAndIndexWithFlag(manager, &object, &index, MAPOBJECTFLAG_ACTIVE) == TRUE) {
+        if (MapObject_GetID(object) == objectId && sub_02058450(object) == flagId) {
+            return object;
+        }
+    }
+
+    return NULL;
 }
