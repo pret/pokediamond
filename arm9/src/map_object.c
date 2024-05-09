@@ -188,6 +188,7 @@ extern LocalMapObject_UnkCallback sub_02058D44(UnkLMOCallbackStruct2 *callbackSt
 extern void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D48(UnkLMOCallbackStruct2 *callbackStruct);
 extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+extern const LocalMapObject *MapObjectManager_GetConstObjects(MapObjectManager *manager);
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority) {
     MapObjectManager *ret = MapObjectManager_New(objectCount);
@@ -742,6 +743,41 @@ static LocalMapObject *MapObjectManager_GetFirstObjectWithID(MapObjectManager *m
             return object;
         }
     }
+
+    return NULL;
+}
+
+LocalMapObject *MapObjectManager_GetFirstActiveObjectByID(MapObjectManager *manager, u32 id) {
+    GF_ASSERT(manager != NULL);
+
+    s32 count = MapObjectManager_GetObjectCount(manager);
+    LocalMapObject *objects = (LocalMapObject *)MapObjectManager_GetConstObjects(manager);
+    do {
+        if (MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_ACTIVE) == TRUE &&
+            MapObject_CheckFlag25(objects) == FALSE && MapObject_GetID(objects) == id)
+        {
+            return objects;
+        }
+
+        count--;
+        objects++;
+    } while (count > 0);
+
+    return NULL;
+}
+
+LocalMapObject *MapObjectManager_GetFirstActiveObjectWithMovement(MapObjectManager *manager, u32 movement) {
+    s32 count = MapObjectManager_GetObjectCount(manager);
+    LocalMapObject *objects = (LocalMapObject *)MapObjectManager_GetConstObjects(manager);
+
+    do {
+        if (MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_ACTIVE) == TRUE && MapObject_GetMovement(objects) == movement) {
+            return objects;
+        }
+
+        count--;
+        objects++;
+    } while (count > 0);
 
     return NULL;
 }

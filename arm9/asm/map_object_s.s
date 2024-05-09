@@ -7,81 +7,6 @@
 
 	.text
 
-	thumb_func_start GetMapObjectByID
-GetMapObjectByID: ; 0x02058060
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	add r6, r1, #0x0
-	cmp r5, #0x0
-	bne _0205806E
-	bl GF_AssertFail
-_0205806E:
-	add r0, r5, #0x0
-	bl MapObjectManager_GetObjectCount
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl sub_020583C4
-	mov r7, #0x4a
-	add r5, r0, #0x0
-	lsl r7, r7, #0x2
-_02058082:
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl MapObject_TestFlagsBits
-	cmp r0, #0x1
-	bne _020580A6
-	add r0, r5, #0x0
-	bl MapObject_CheckFlag25
-	cmp r0, #0x0
-	bne _020580A6
-	add r0, r5, #0x0
-	bl MapObject_GetID
-	cmp r6, r0
-	bne _020580A6
-	add r0, r5, #0x0
-	pop {r3-r7, pc}
-_020580A6:
-	sub r4, r4, #0x1
-	add r5, r5, r7
-	cmp r4, #0x0
-	bgt _02058082
-	mov r0, #0x0
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_020580B4
-sub_020580B4: ; 0x020580B4
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	add r6, r1, #0x0
-	bl MapObjectManager_GetObjectCount
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl sub_020583C4
-	mov r7, #0x4a
-	add r5, r0, #0x0
-	lsl r7, r7, #0x2
-_020580CC:
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl MapObject_TestFlagsBits
-	cmp r0, #0x1
-	bne _020580E6
-	add r0, r5, #0x0
-	bl MapObject_GetMovement
-	cmp r6, r0
-	bne _020580E6
-	add r0, r5, #0x0
-	pop {r3-r7, pc}
-_020580E6:
-	sub r4, r4, #0x1
-	add r5, r5, r7
-	cmp r4, #0x0
-	bgt _020580CC
-	mov r0, #0x0
-	pop {r3-r7, pc}
-	.balign 4
-
 	thumb_func_start MapObjectManager_GetFirstObjectAndIndexWithFlag
 MapObjectManager_GetFirstObjectAndIndexWithFlag: ; 0x020580F4
 	push {r3-r7, lr}
@@ -98,7 +23,7 @@ MapObjectManager_GetFirstObjectAndIndexWithFlag: ; 0x020580F4
 	pop {r3-r7, pc}
 _0205810E:
 	add r0, r4, #0x0
-	bl sub_020583C4
+	bl MapObjectManager_GetConstObjects
 	mov r1, #0x4a
 	ldr r2, [r5, #0x0]
 	lsl r1, r1, #0x2
@@ -499,8 +424,8 @@ sub_020583BC: ; 0x020583BC
 	ldr r0, [r0, r1]
 	bx lr
 
-	thumb_func_start sub_020583C4
-sub_020583C4: ; 0x020583C4
+	thumb_func_start MapObjectManager_GetConstObjects
+MapObjectManager_GetConstObjects: ; 0x020583C4
 	mov r1, #0x49
 	lsl r1, r1, #0x2
 	ldr r0, [r0, r1]

@@ -309,7 +309,7 @@ ov06_022398D8: ; 0x022398D8
 	push {r4, lr}
 	ldr r0, [r0, #0x34]
 	add r4, r2, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	cmp r4, #1
 	bne _022398F0
 	mov r1, #1
@@ -1121,7 +1121,7 @@ ov06_02239F04: ; 0x02239F04
 	ldr r0, [r1, #0x34]
 	mov r1, #5
 	add r4, r2, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r5, r0, #0
 	bne _02239F18
 	bl GF_AssertFail
@@ -3115,7 +3115,7 @@ ov06_0223ADB4: ; 0x0223ADB4
 	add r4, r0, #0
 	ldr r0, [r1, #0x34]
 	add r1, r2, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	str r0, [r4]
 	cmp r0, #0
 	bne _0223ADCA
@@ -4672,7 +4672,7 @@ ov06_0223B8EC: ; 0x0223B8EC
 	add r0, #0xd8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r1, sp, #0
 	bl MapObject_GetPositionVec
 	ldr r1, [sp]
@@ -43298,7 +43298,7 @@ ov06_0224E858: ; 0x0224E858
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
 	add r7, r2, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r6, r0, #0
 	add r1, sp, #0
 	bl MapObject_GetPositionVec

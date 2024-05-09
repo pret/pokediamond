@@ -295,7 +295,7 @@ _021E15A6:
 	add r1, r6, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0
 	beq _021E161A
 	bl MapObject_GetType
@@ -447,7 +447,7 @@ ov05_021E16C8: ; 0x021E16C8
 _021E16D6:
 	ldr r0, [r6, #0x34]
 	add r1, r5, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0
 	beq _021E16F2
 	bl MapObject_GetMovement
@@ -869,7 +869,7 @@ ov05_021E19E0: ; 0x021E19E0
 _021E19F0:
 	ldr r0, [r6, #0x34]
 	add r1, r5, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0
 	beq _021E1A16
 	bl sub_02058854
@@ -929,7 +929,7 @@ _021E1A66:
 	ldr r0, [sp]
 	add r1, r4, #0
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r5, r0, #0
 	beq _021E1ACC
 	ldr r1, [sp, #4]

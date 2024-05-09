@@ -40405,7 +40405,7 @@ _0224D2AE:
 	ldr r0, [r6, #0xc]
 	add r1, r4, #0
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	ldr r1, [sp]
 	bl sub_020584AC
 _0224D2CE:

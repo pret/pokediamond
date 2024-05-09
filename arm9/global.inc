@@ -3999,8 +3999,8 @@
 .extern FieldSystem_SyncMapObjectsToSaveEx
 .extern MapObjectManager_RestoreFromSave
 .extern MapObject_CreateFromMultipleObjectEvents
-.extern GetMapObjectByID
-.extern sub_020580B4
+.extern MapObjectManager_GetFirstActiveObjectByID
+.extern MapObjectManager_GetFirstActiveObjectWithMovement
 .extern MapObjectManager_GetFirstObjectAndIndexWithFlag
 .extern sub_0205829C
 .extern sub_020582A8

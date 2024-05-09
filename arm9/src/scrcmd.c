@@ -90,8 +90,6 @@ extern void ov05_021E2B9C(u32 param0, u8 param1);
 extern u32 sub_0205AEA4(LocalMapObject *event, const void *ptr);
 extern u32 MapObject_GetCurrentX(LocalMapObject *event);
 extern u32 MapObject_GetCurrentY(LocalMapObject *event);
-extern LocalMapObject *sub_020580B4(MapObjectManager *mapObjectManager, u32 param1);
-extern LocalMapObject *GetMapObjectByID(MapObjectManager *mapObjectManager, u16 eventId);
 extern BOOL sub_0205AEF0(u32 param0);
 extern void sub_0205AEFC(u32 param0);
 extern void MapObjectManager_PauseAllMovement(MapObjectManager *mapObjectManager);
@@ -1651,12 +1649,12 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { //02A1
 
 static LocalMapObject *sub_0203B120(FieldSystem *fieldSystem, u16 eventId) {
     if (eventId == 242) {
-        return sub_020580B4(fieldSystem->mapObjectManager, 48);
+        return MapObjectManager_GetFirstActiveObjectWithMovement(fieldSystem->mapObjectManager, 48);
     } else if (eventId == 241) {
         LocalMapObject **cameraTarget = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_CAMERA_TARGET);
         return *cameraTarget;
     } else {
-        return GetMapObjectByID(fieldSystem->mapObjectManager, eventId);
+        return MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId);
     }
 }
 
@@ -1736,7 +1734,7 @@ static BOOL sub_0203B218(ScriptContext *ctx) {
         }
     }
     if (UNK_021C5A0C[0] & 2) {
-        LocalMapObject *unk1 = sub_020580B4(fieldSystem->mapObjectManager, 48);
+        LocalMapObject *unk1 = MapObjectManager_GetFirstActiveObjectWithMovement(fieldSystem->mapObjectManager, 48);
         if (sub_02058854(unk1) == 0) {
             sub_02058908(unk1);
             UNK_021C5A0C[0] &= 0xfd;
@@ -1761,7 +1759,7 @@ BOOL ScrCmd_LockAllEvents2(ScriptContext *ctx) { //02B4
     FieldSystem *fieldSystem = ctx->fieldSystem;
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
     LocalMapObject *playerAvatar = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
-    LocalMapObject *unk1 = sub_020580B4(fieldSystem->mapObjectManager, 48);
+    LocalMapObject *unk1 = MapObjectManager_GetFirstActiveObjectWithMovement(fieldSystem->mapObjectManager, 48);
     LocalMapObject *unk2 = sub_0205E7C4(*lastInteracted);
     MapObjectManager *mapObjectManager = fieldSystem->mapObjectManager;
     UNK_021C5A0C[0] = 0;
@@ -1802,14 +1800,14 @@ BOOL ScrCmd_ReleaseAllEvents(ScriptContext *ctx) { //0061
 BOOL ScrCmd_LockEvent(ScriptContext *ctx) { //0062
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptReadHalfword(ctx);
-    sub_02058908(GetMapObjectByID(fieldSystem->mapObjectManager, eventId));
+    sub_02058908(MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId));
     return FALSE;
 }
 
 BOOL ScrCmd_ReleaseEvent(ScriptContext *ctx) { //0063
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptReadHalfword(ctx);
-    sub_02058914(GetMapObjectByID(fieldSystem->mapObjectManager, eventId));
+    sub_02058914(MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId));
     return FALSE;
 }
 
@@ -1827,7 +1825,7 @@ BOOL ScrCmd_AddEvent(ScriptContext *ctx) { //0064
 BOOL ScrCmd_RemoveEvent(ScriptContext *ctx) { //0065
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
-    MapObject_Delete(GetMapObjectByID(fieldSystem->mapObjectManager, eventId));
+    MapObject_Delete(MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId));
     return FALSE;
 }
 
@@ -1848,7 +1846,7 @@ BOOL ScrCmd_LockCamera(ScriptContext *ctx) { //0066
 BOOL ScrCmd_ReleaseCamera(ScriptContext *ctx) { //0067
     LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
     MapObject_Remove(*targetPtr);
-    VecFx32 *position = sub_02058B7C(GetMapObjectByID(ctx->fieldSystem->mapObjectManager, 0xff));
+    VecFx32 *position = sub_02058B7C(MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, 0xff));
     ov05_021EF5E0(position, ctx->fieldSystem->unk24);
     Camera_SetFixedTarget(position, ctx->fieldSystem->camera);
     return FALSE;
@@ -1882,7 +1880,7 @@ BOOL ScrCmd_GetPlayerPosition(ScriptContext *ctx) { //0069
 BOOL ScrCmd_GetEventPosition(ScriptContext *ctx) { //006A
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
-    LocalMapObject *event = GetMapObjectByID(fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *event = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId);
 
     u16 *x = ScriptGetVarPointer(ctx);
     u16 *y = ScriptGetVarPointer(ctx);
@@ -1916,14 +1914,14 @@ BOOL ScrCmd_Unk006B(ScriptContext *ctx) { //006B - todo: CheckPersonPosition?
 
 BOOL ScrCmd_KeepEvent(ScriptContext *ctx) { //006C
     u16 eventId = ScriptGetVar(ctx);
-    LocalMapObject *event = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *event = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     sub_02058994(event, ScriptReadByte(ctx));
     return FALSE;
 }
 
 BOOL ScrCmd_SetEventMovement(ScriptContext *ctx) { //006D
     u16 eventId = ScriptGetVar(ctx);
-    LocalMapObject *event = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *event = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     u16 movement = ScriptReadHalfword(ctx);
     sub_02058E90(event, movement);
     return FALSE;
@@ -1934,7 +1932,7 @@ BOOL ScrCmd_GetEventMovement(ScriptContext *ctx) { //02AD
     *variable = 0;
     u16 eventId = ScriptGetVar(ctx);
 
-    LocalMapObject *event = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *event = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     if (event != NULL) {
         *variable = MapObject_GetMovement(event);
     }
@@ -1942,7 +1940,7 @@ BOOL ScrCmd_GetEventMovement(ScriptContext *ctx) { //02AD
 }
 
 BOOL ScrCmd_EventStopFollowing(ScriptContext *ctx) { //006E
-    LocalMapObject *event = sub_020580B4(ctx->fieldSystem->mapObjectManager, 0x30);
+    LocalMapObject *event = MapObjectManager_GetFirstActiveObjectWithMovement(ctx->fieldSystem->mapObjectManager, 0x30);
     sub_02058EB0(event, 0xFE);
     return FALSE;
 }
@@ -3324,7 +3322,7 @@ BOOL ScrCmd_SetEventPosition(ScriptContext *ctx) { //0187
     u16 z = ScriptGetVar(ctx);
     u16 y = ScriptGetVar(ctx);
     u16 direction = ScriptGetVar(ctx);
-    LocalMapObject *object = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     sub_02058E28(object, x, z, y, direction);
     sub_02059D1C(object);
     return FALSE;
@@ -3363,7 +3361,7 @@ BOOL ScrCmd_SetBgEventPosition(ScriptContext *ctx) { //018B
 BOOL ScrCmd_SetEventDirection(ScriptContext *ctx) { //018C
     u16 eventId = ScriptGetVar(ctx);
     u16 direction = ScriptGetVar(ctx);
-    LocalMapObject *localMapObject = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *localMapObject = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     GF_ASSERT(localMapObject);
     ov05_021F1EC0(localMapObject, direction);
     return FALSE;
@@ -3521,7 +3519,7 @@ BOOL ScrCmd_Unk003F(ScriptContext *ctx) { //003F
 BOOL ScrCmd_HideEvent(ScriptContext *ctx) { //01B1
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
-    LocalMapObject *localMapObject = GetMapObjectByID(fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *localMapObject = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId);
     GF_ASSERT(localMapObject);
     MapObject_SetVisible(localMapObject, FALSE);
     return FALSE;
@@ -3530,7 +3528,7 @@ BOOL ScrCmd_HideEvent(ScriptContext *ctx) { //01B1
 BOOL ScrCmd_ShowEvent(ScriptContext *ctx) { //01B2
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
-    LocalMapObject *localMapObject = GetMapObjectByID(fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *localMapObject = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId);
     GF_ASSERT(localMapObject);
     MapObject_SetVisible(localMapObject, TRUE);
     return FALSE;
@@ -4339,7 +4337,7 @@ BOOL ScrCmd_ShakeEvent(ScriptContext *ctx) { //0269
     u16 frames = ScriptGetVar(ctx);
     u16 x = ScriptGetVar(ctx);
     u16 y = ScriptGetVar(ctx);
-    LocalMapObject *mapObject = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *mapObject = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     GF_ASSERT(mapObject != NULL);
     sub_02054F50(ctx->taskManager, mapObject, count, frames, x, y);
     return TRUE;
@@ -4349,7 +4347,7 @@ BOOL ScrCmd_BlinkEvent(ScriptContext *ctx) { //026A
     u16 eventId = ScriptGetVar(ctx);
     u16 count = ScriptGetVar(ctx);
     u16 frames = ScriptGetVar(ctx);
-    LocalMapObject *mapObject = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
+    LocalMapObject *mapObject = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
     GF_ASSERT(mapObject != NULL);
     sub_0205502C(ctx->taskManager, mapObject, count, frames);
     return TRUE;
@@ -4803,7 +4801,7 @@ BOOL ScrCmd_Unk02B5(ScriptContext *ctx) { //02B5
 BOOL ScrCmd_Unk02B6(ScriptContext *ctx) { //02B6
     u16 objectId = ScriptGetVar(ctx);
     u8 unk0 = ScriptReadByte(ctx);
-    LocalMapObject *object = GetMapObjectByID(ctx->fieldSystem->mapObjectManager, objectId);
+    LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, objectId);
     GF_ASSERT(object != NULL);
     sub_020588B8(object, unk0);
     return FALSE;

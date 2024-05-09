@@ -1101,7 +1101,7 @@ sub_0204D328: ; 0x0204D328
 	ldr r0, [r0, #0x54]
 	add r1, r5, r1
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	cmp r0, #0x0
 	beq _0204D37C
 	bl MapObject_Remove
