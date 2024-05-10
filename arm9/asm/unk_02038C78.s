@@ -1982,8 +1982,8 @@ _020394FE:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start sub_02039504
-sub_02039504: ; 0x02039504
+	thumb_func_start FieldSystem_VarGetObjectEventGraphicsId
+FieldSystem_VarGetObjectEventGraphicsId: ; 0x02039504
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0

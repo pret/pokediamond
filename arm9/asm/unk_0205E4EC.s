@@ -441,7 +441,7 @@ _0205E810:
 	add r1, sp, #0x4
 	add r2, sp, #0x8
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x1
 	bne _0205E84C
 _0205E81E:
@@ -463,7 +463,7 @@ _0205E83C:
 	add r1, sp, #0x4
 	add r2, sp, #0x8
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x1
 	beq _0205E81E
 _0205E84C:
@@ -492,7 +492,7 @@ sub_0205E854: ; 0x0205E854
 	add r1, sp, #0x4
 	add r2, sp, #0x8
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x1
 	bne _0205E8C6
 _0205E886:
@@ -523,7 +523,7 @@ _0205E8B6:
 	add r1, sp, #0x4
 	add r2, sp, #0x8
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x1
 	beq _0205E886
 _0205E8C6:

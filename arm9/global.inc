@@ -2680,7 +2680,7 @@
 .extern sub_02039460
 .extern GetVarPointer
 .extern FieldSystem_VarGet
-.extern sub_02039504
+.extern FieldSystem_VarGetObjectEventGraphicsId
 .extern FieldSystem_FlagCheck
 .extern FieldSystem_FlagSet
 .extern FlagClear
@@ -4001,7 +4001,7 @@
 .extern MapObject_CreateFromMultipleObjectEvents
 .extern MapObjectManager_GetFirstActiveObjectByID
 .extern MapObjectManager_GetFirstActiveObjectWithMovement
-.extern MapObjectManager_GetFirstObjectAndIndexWithFlag
+.extern MapObjectManager_GetNextObjectWithFlagFromIndex
 .extern sub_0205829C
 .extern sub_020582A8
 .extern sub_020582F8

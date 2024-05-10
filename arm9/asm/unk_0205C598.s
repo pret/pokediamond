@@ -175,7 +175,7 @@ sub_0205C6BC: ; 0x0205C6BC
 	add r1, sp, #0x4
 	add r2, sp, #0xc
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x0
 	beq _0205C734
 _0205C6DE:
@@ -216,7 +216,7 @@ _0205C724:
 	add r1, sp, #0x4
 	add r2, sp, #0xc
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x0
 	bne _0205C6DE
 _0205C734:
@@ -599,7 +599,7 @@ sub_0205C9F0: ; 0x0205C9F0
 	add r1, sp, #0x0
 	add r2, sp, #0x4
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x0
 	beq _0205CA40
 	add r7, sp, #0x0
@@ -623,7 +623,7 @@ _0205CA30:
 	add r1, r7, #0x0
 	add r2, sp, #0x4
 	mov r3, #0x1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x0
 	bne _0205CA10
 _0205CA40:

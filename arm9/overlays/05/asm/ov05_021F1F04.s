@@ -1585,7 +1585,7 @@ ov05_021F2B10: ; 0x021F2B10
 	add r2, sp, #4
 	mov r3, #1
 	add r7, r0, #0
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #1
 	bne _021F2B6A
 _021F2B2E:
@@ -1615,7 +1615,7 @@ _021F2B5A:
 	add r1, sp, #0
 	add r2, sp, #4
 	mov r3, #1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #1
 	beq _021F2B2E
 _021F2B6A:
@@ -1636,7 +1636,7 @@ ov05_021F2B70: ; 0x021F2B70
 	add r2, sp, #4
 	mov r3, #1
 	add r7, r0, #0
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #1
 	bne _021F2BEE
 _021F2B8E:
@@ -1682,7 +1682,7 @@ _021F2BDE:
 	add r1, sp, #0
 	add r2, sp, #4
 	mov r3, #1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #1
 	beq _021F2B8E
 _021F2BEE:
@@ -1705,7 +1705,7 @@ ov05_021F2BF8: ; 0x021F2BF8
 	add r2, sp, #4
 	mov r3, #1
 	add r7, r0, #0
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #1
 	bne _021F2C74
 _021F2C16:
@@ -1750,7 +1750,7 @@ _021F2C64:
 	add r1, sp, #0
 	add r2, sp, #4
 	mov r3, #1
-	bl MapObjectManager_GetFirstObjectAndIndexWithFlag
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #1
 	beq _021F2C16
 _021F2C74:
