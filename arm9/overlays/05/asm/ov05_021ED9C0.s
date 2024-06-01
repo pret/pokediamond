@@ -81,7 +81,7 @@ ov05_021EDA48: ; 0x021EDA48
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetFieldSystemPtr
+	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x18

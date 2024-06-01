@@ -2374,7 +2374,7 @@ sub_02059874: ; 0x02059874
 	orr r4, r0
 _02059896:
 	add r0, r6, #0x0
-	bl MapObject_GetFieldSystemPtr
+	bl MapObject_GetFieldSystem
 	add r1, sp, #0xc
 	str r1, [sp, #0x0]
 	ldr r1, [sp, #0x4]
@@ -2606,7 +2606,7 @@ sub_02059A60: ; 0x02059A60
 	add r6, r1, #0x0
 	add r7, r2, #0x0
 	add r5, r3, #0x0
-	bl MapObject_GetFieldSystemPtr
+	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	bl sub_02058720
@@ -2906,7 +2906,7 @@ sub_02059C90: ; 0x02059C90
 	bl sub_02059C00
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetFieldSystemPtr
+	bl MapObject_GetFieldSystem
 	ldr r2, [sp, #0x0]
 	add r1, r6, r7
 	add r2, r2, r5
@@ -2992,7 +2992,7 @@ _02059D4E:
 	bl MapObject_CheckFlag29
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSystemPtr
+	bl MapObject_GetFieldSystem
 	add r1, sp, #0x0
 	add r2, r4, #0x0
 	bl sub_02059EC8
@@ -3043,7 +3043,7 @@ sub_02059DB4: ; 0x02059DB4
 	bl sub_02058B24
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSystemPtr
+	bl MapObject_GetFieldSystem
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	add r7, r0, #0x0

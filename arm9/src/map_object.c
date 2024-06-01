@@ -81,7 +81,7 @@ extern void sub_02058564(LocalMapObject *object);
 extern MapObjectManager *sub_02058580(LocalMapObject *object);
 extern void sub_02058374(MapObjectManager *manager);
 extern u32 MapObject_GetFlagID(LocalMapObject *object);
-extern FieldSystem *MapObject_GetFieldSystemPtr(LocalMapObject *object);
+extern FieldSystem *MapObject_GetFieldSystem(LocalMapObject *object);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void sub_02058ED8(LocalMapObject *object);
 extern void sub_02058EDC(LocalMapObject *object);
@@ -340,8 +340,8 @@ void MapObject_Remove(LocalMapObject *object) {
 
 void MapObject_Delete(LocalMapObject *object) {
     u32 flagId = MapObject_GetFlagID(object);
-    FieldSystem *fieldSystem = MapObject_GetFieldSystemPtr(object);
-    FieldSystem_FlagSet(fieldSystem, (u16)flagId);
+    FieldSystem *fieldSystem = MapObject_GetFieldSystem(object);
+    FieldSystem_FlagSet(fieldSystem, flagId);
     MapObject_Remove(object);
 }
 

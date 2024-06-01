@@ -4071,7 +4071,7 @@
 .extern sub_02058720
 .extern sub_02058728
 .extern sub_02058730
-.extern MapObject_GetFieldSystemPtr
+.extern MapObject_GetFieldSystem
 .extern sub_02058744
 .extern sub_02058750
 .extern sub_02058768

@@ -129,7 +129,7 @@ _021E60D2:
 	add r0, r5, #0
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
-	bl MapObject_GetFieldSystemPtr
+	bl MapObject_GetFieldSystem
 	mov r0, #1
 	mov r1, #0
 	str r0, [sp]

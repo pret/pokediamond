@@ -1010,8 +1010,8 @@ sub_02058730: ; 0x02058730
 	bx lr
 	.balign 4
 
-	thumb_func_start MapObject_GetFieldSystemPtr
-MapObject_GetFieldSystemPtr: ; 0x02058738
+	thumb_func_start MapObject_GetFieldSystem
+MapObject_GetFieldSystem: ; 0x02058738
 	push {r3, lr}
 	bl sub_02058580
 	bl MapObjectManager_GetFieldSystemPtr
