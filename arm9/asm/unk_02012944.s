@@ -184,7 +184,7 @@ _02012A4E:
 	ldr r0, _02012ABC ; =sub_02012BE4
 	ldr r2, [sp, #0x28]
 	add r1, r5, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _02012AB0 ; =0x00000604
 	mov r2, #0x3
 	str r0, [r5, r1]

@@ -328,7 +328,7 @@ _0225CB80:
 	ldr r0, _0225CBB4 ; =ov11_0225CBBC
 	add r1, r5, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	ldr r0, _0225CBB8 ; =0x00000711
 	bl PlaySE
@@ -456,7 +456,7 @@ _0225CC8C:
 	ldr r0, _0225CCA0 ; =ov11_0225CCA4
 	add r1, r5, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	pop {r3, r4, r5, pc}
 	nop
@@ -709,14 +709,14 @@ _0225CE70:
 	strh r0, [r5, #0x28]
 	ldr r0, _0225CEBC ; =ov11_0225CEC4
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	pop {r3, r4, r5, r6, r7, pc}
 _0225CE96:
 	ldr r0, _0225CEC0 ; =ov11_0225D0C4
 	strh r1, [r5, #0x28]
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1145,7 +1145,7 @@ _0225D1C2:
 	strb r1, [r0]
 	ldr r0, _0225D204 ; =ov11_0225D20C
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	pop {r3, r4, r5, r6, r7, pc}
 _0225D1EC:
@@ -1155,7 +1155,7 @@ _0225D1EC:
 	strb r1, [r0]
 	ldr r0, _0225D208 ; =ov11_0225D31C
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

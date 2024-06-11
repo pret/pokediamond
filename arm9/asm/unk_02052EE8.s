@@ -31,7 +31,7 @@ sub_02052EE8: ; 0x02052EE8
 	ldr r0, _02052F5C ; =sub_02052FC8
 	add r1, r4, #0x0
 	mov r2, #0xb
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
 	bl sub_020524BC
@@ -423,7 +423,7 @@ sub_020531E4: ; 0x020531E4
 _02053206:
 	ldr r0, [sp, #0x4]
 	add r1, r7, #0x1
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r5, r0, #0x0
 	bne _02053216
 	bl GF_AssertFail
@@ -490,10 +490,10 @@ _02053272:
 	bl sub_02058E90
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02058534
+	bl MapObject_SetXRange
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205853C
+	bl MapObject_SetYRange
 	mov r0, #0x1
 	strb r0, [r4, #0x15]
 _020532A8:
@@ -630,13 +630,13 @@ sub_0205339C: ; 0x0205339C
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
 	str r3, [sp, #0x8]
-	bl sub_02058AFC
+	bl MapObject_GetInitialX
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B04
+	bl MapObject_GetInitialHeight
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
-	bl sub_02058B0C
+	bl MapObject_GetInitialY
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x4]
 	cmp r7, r0
@@ -662,7 +662,7 @@ _020533CC:
 	bl sub_02058E28
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020584A4
+	bl MapObject_SetFacingDirectionDirect
 	add r0, r4, #0x0
 	mov r1, #0x44
 	bl sub_0205ADDC
@@ -758,7 +758,7 @@ sub_020534A0: ; 0x020534A0
 _020534AC:
 	add r0, r7, #0x0
 	add r1, r5, #0x0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0x0
 	bne _020534BC
 	bl GF_AssertFail
@@ -784,7 +784,7 @@ sub_020534DC: ; 0x020534DC
 	add r5, r1, #0x0
 	mov r1, #0x0
 	add r7, r0, #0x0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0x0
 	bne _020534F0
 	bl GF_AssertFail
@@ -808,7 +808,7 @@ _0205350E:
 	bne _02053578
 	add r0, r7, #0x0
 	add r1, r6, #0x1
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0x0
 	bne _02053524
 	bl GF_AssertFail
@@ -818,7 +818,7 @@ _02053524:
 	bl sub_02057634
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020584A4
+	bl MapObject_SetFacingDirectionDirect
 	add r0, r4, #0x0
 	mov r1, #0x44
 	bl sub_0205ADDC

@@ -87,7 +87,7 @@ sub_020653EC: ; 0x020653EC
 	ldr r0, _02065470 ; =sub_020654B0
 	add r1, r4, #0x0
 	mov r2, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x8]
 	pop {r4-r6, pc}
 	.balign 4

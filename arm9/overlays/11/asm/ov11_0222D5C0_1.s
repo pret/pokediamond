@@ -1018,12 +1018,12 @@ _0222DC42:
 	ldr r0, _0222DF34 ; =ov11_0222F100
 	ldr r2, _0222DF38 ; =0x0000EA60
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x1c]
 	ldr r0, _0222DF3C ; =ov11_0222F144
 	ldr r2, _0222DF40 ; =0x0000C350
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x20]
 	mov r2, #0x4b
 	ldr r0, _0222DF44 ; =ov11_0222F254

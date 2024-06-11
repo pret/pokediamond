@@ -572,7 +572,7 @@ ov05_021F43E4: ; 0x021F43E4
 	str r2, [r0]
 	ldr r0, _021F4440 ; =ov05_021F4200
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021F4440: .word ov05_021F4200

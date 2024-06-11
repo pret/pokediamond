@@ -250,7 +250,7 @@ _0222D7BC:
 	ldr r0, _0222D884 ; =ov12_0222DB18
 	ldr r2, _0222D888 ; =0x0000EA60
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	ldr r0, _0222D88C ; =0x00000824
 	mov r1, #1
@@ -3352,7 +3352,7 @@ ov12_0222EF04: ; 0x0222EF04
 	ldr r0, _0222F180 ; =ov12_0222F4F4
 	ldr r2, _0222F184 ; =0x0000EA60
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	ldr r0, _0222F188 ; =0x000004F8
 	mov r1, #1
@@ -5214,7 +5214,7 @@ ov12_0222FE4C: ; 0x0222FE4C
 	ldr r0, _02230108 ; =ov12_02230520
 	ldr r2, _0223010C ; =0x00013880
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	ldr r0, _02230110 ; =0x00001154
 	mov r1, #1
@@ -8157,7 +8157,7 @@ _02231804:
 	ldr r0, _02231858 ; =ov12_02231880
 	ldr r1, [sp]
 	ldr r2, [sp, #0x68]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp]
 	str r0, [r1, #0x18]
 	add sp, #0x3c
@@ -8227,7 +8227,7 @@ ov12_022318A4: ; 0x022318A4
 	ldr r0, _022318D8 ; =ov12_0223190C
 	ldr r2, [sp, #0x1c]
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -10000,7 +10000,7 @@ _02232664:
 	ldr r2, _02232680 ; =0x00000514
 	add r0, r5, #0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x10]
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -10527,7 +10527,7 @@ _02232A78:
 	ldr r2, _02232A94 ; =0x00000528
 	add r0, r5, #0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x14]
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -12066,7 +12066,7 @@ ov12_022335E4: ; 0x022335E4
 	ldr r0, _02233618 ; =ov12_02233648
 	add r1, r4, #0
 	strb r6, [r4, #0xa]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
@@ -12956,13 +12956,13 @@ _02233CEE:
 	strh r0, [r4, #0x26]
 	ldr r0, _02233D6C ; =ov12_02233E48
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02233D04:
 	ldr r0, _02233D70 ; =ov12_02233D84
 	ldr r2, _02233D68 ; =0x00009C40
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02233D10:
 	ldr r0, _02233D74 ; =0xFFFFFD00
@@ -12970,7 +12970,7 @@ _02233D10:
 	strh r0, [r4, #0x24]
 	ldr r0, _02233D6C ; =ov12_02233E48
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02233D20:
 	ldr r0, _02233D78 ; =0xFFFFFC00
@@ -12978,7 +12978,7 @@ _02233D20:
 	strh r0, [r4, #0x24]
 	ldr r0, _02233D6C ; =ov12_02233E48
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02233D30:
 	ldr r0, _02233D7C ; =0xFFFFFB80
@@ -12986,7 +12986,7 @@ _02233D30:
 	strh r0, [r4, #0x24]
 	ldr r0, _02233D6C ; =ov12_02233E48
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02233D40:
 	ldr r0, _02233D80 ; =0xFFFFFD80
@@ -12994,7 +12994,7 @@ _02233D40:
 	strh r0, [r4, #0x24]
 	ldr r0, _02233D6C ; =ov12_02233E48
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02233D50:
 	mov r0, #0xff
@@ -13003,7 +13003,7 @@ _02233D50:
 	ldr r0, _02233D6C ; =ov12_02233E48
 	ldr r2, _02233D68 ; =0x00009C40
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02233D64: .word 0xFFFFFE00
@@ -13565,7 +13565,7 @@ ov12_0223419C: ; 0x0223419C
 	ldr r0, _022341C8 ; =ov12_022341D0
 	ldr r2, _022341CC ; =0x00009C40
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _022341C8: .word ov12_022341D0
@@ -14254,7 +14254,7 @@ _02234672:
 	strb r0, [r1]
 	ldr r0, _0223477C ; =ov12_0223440C
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 _02234736:
 	add r5, r5, #1
 _02234738:
@@ -14411,7 +14411,7 @@ ov12_0223483C: ; 0x0223483C
 	add r1, r4, #0
 	lsl r2, r2, #2
 	str r7, [r4, #4]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02234870: .word ov12_02234874
@@ -15774,7 +15774,7 @@ ov12_022352F4: ; 0x022352F4
 	strb r0, [r4, #0xe]
 	ldr r0, _02235338 ; =ov12_0223533C
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _02235334: .word 0x00000BB8
@@ -16131,7 +16131,7 @@ _022355E6:
 	lsl r0, r0, #8
 	str r0, [r4, #0x18]
 	ldr r0, _02235630 ; =ov12_02235634
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldrb r0, [r5]
 	add r0, r0, #1
 	strb r0, [r5]
@@ -16355,7 +16355,7 @@ ov12_022357B0: ; 0x022357B0
 	ldr r2, _022357E0 ; =0x00009C40
 	add r1, r4, #0
 	strb r6, [r4, #8]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
@@ -16450,7 +16450,7 @@ _02235846:
 	strh r0, [r4, #0x24]
 	ldr r0, _022358A0 ; =ov12_022358A4
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldrb r0, [r5]
 	add r0, r0, #1
 	strb r0, [r5]
@@ -17270,7 +17270,7 @@ ov12_02235E3C: ; 0x02235E3C
 	ldrh r0, [r5, #6]
 	strh r0, [r4, #0xa]
 	ldr r0, _02235E78 ; =ov12_02235E7C
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	nop
 _02235E74: .word 0x00007530
@@ -17398,7 +17398,7 @@ ov12_02235F14: ; 0x02235F14
 	ldrh r0, [r6]
 	strh r0, [r4, #0x16]
 	ldr r0, _02235F70 ; =ov12_02235F74
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02235F6C: .word 0x00007530
@@ -17558,7 +17558,7 @@ ov12_02236058: ; 0x02236058
 	ldr r0, _022360A8 ; =ov12_022360B0
 	ldr r2, _022360AC ; =0x00007530
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r0, r6, #0
 	bl ov12_02234EFC
 	pop {r3, r4, r5, r6, r7, pc}
@@ -17794,7 +17794,7 @@ ov12_02236228: ; 0x02236228
 	ldr r0, _0223627C ; =ov12_02236284
 	ldr r2, _02236280 ; =0x00007530
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0223627C: .word ov12_02236284
@@ -17976,7 +17976,7 @@ ov12_02236388: ; 0x02236388
 	ldrb r0, [r5, #3]
 	strb r0, [r4, #0x10]
 	ldr r0, _022363F0 ; =ov12_022363F4
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _022363EC: .word 0x00007530
@@ -18251,7 +18251,7 @@ _022365E6:
 	str r0, [r3]
 	ldr r0, _02236600 ; =ov12_02236604
 	mov r2, #5
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02236600: .word ov12_02236604
@@ -18886,7 +18886,7 @@ ov12_02236AB8: ; 0x02236AB8
 	add r1, r4, #0
 	strb r0, [r4, #0xd]
 	ldr r0, _02236AFC ; =ov12_02236B00
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	nop
 _02236AF8: .word 0x00000123
@@ -19240,7 +19240,7 @@ _02236D8E:
 	str r0, [r3]
 	ldr r0, _02236DAC ; =ov12_02236DB0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02236DA8: .word 0x00007530
@@ -19400,7 +19400,7 @@ _02236EBE:
 	str r0, [r3]
 	ldr r0, _02236EDC ; =ov12_02236EE0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02236ED8: .word 0x00007530
@@ -19756,7 +19756,7 @@ _0223715A:
 	str r0, [r3]
 	ldr r0, _02237178 ; =ov12_0223717C
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02237174: .word 0x00007530
@@ -19947,7 +19947,7 @@ _022372C2:
 	str r0, [r3]
 	ldr r0, _022372E0 ; =ov12_022372E4
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _022372DC: .word 0x00007530
@@ -20478,7 +20478,7 @@ _022376AE:
 	str r0, [r3]
 	ldr r0, _022376CC ; =ov12_022376D0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _022376C8: .word 0x00007530
@@ -20666,7 +20666,7 @@ _0223780E:
 	str r0, [r3]
 	ldr r0, _0223782C ; =ov12_02237830
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02237828: .word 0x00007530
@@ -21061,7 +21061,7 @@ _02237AFA:
 	str r0, [r3]
 	ldr r0, _02237B18 ; =ov12_02237B1C
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02237B14: .word 0x00007530
@@ -21326,7 +21326,7 @@ _02237CEA:
 	str r0, [r3]
 	ldr r0, _02237D0C ; =ov12_02237D10
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02237D04: .word 0x00000123
@@ -21439,7 +21439,7 @@ ov12_02237DA8: ; 0x02237DA8
 	strh r0, [r4, #0xa]
 	ldr r0, _02237DE8 ; =ov12_02237DEC
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02237DE4: .word 0x00007530
@@ -21690,7 +21690,7 @@ ov12_02237F5C: ; 0x02237F5C
 	ldrb r0, [r5]
 	strb r0, [r4, #0x1b]
 	ldr r0, _02237FD0 ; =ov12_02237FD4
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _02237FCC: .word 0x00007530
@@ -25298,7 +25298,7 @@ _0223993C:
 	strb r0, [r1]
 	ldr r0, _02239978 ; =ov12_02239980
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, _0223997C ; =0x000006E1
 	bl PlaySE
 	pop {r3, r4, r5, r6, r7, pc}
@@ -25824,7 +25824,7 @@ _02239C90:
 	ldr r0, _02239D84 ; =ov12_02239D8C
 	ldr r2, _02239D88 ; =0x00007530
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -26010,7 +26010,7 @@ ov12_02239EAC: ; 0x02239EAC
 	ldrb r0, [r0]
 	strb r0, [r4, #0x11]
 	ldr r0, _02239EF4 ; =ov12_02239EF8
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02239EF0: .word 0x00007530
@@ -26147,7 +26147,7 @@ ov12_02239FBC: ; 0x02239FBC
 	mov r0, #0
 	strb r0, [r4, #0x1a]
 	ldr r0, _0223A008 ; =ov12_0223A0BC
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A004: .word 0x00007530
@@ -26185,7 +26185,7 @@ ov12_0223A00C: ; 0x0223A00C
 	mov r0, #1
 	strb r0, [r4, #0x1a]
 	ldr r0, _0223A058 ; =ov12_0223A0BC
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A054: .word 0x00007530
@@ -26231,7 +26231,7 @@ ov12_0223A05C: ; 0x0223A05C
 	mov r0, #1
 	strb r0, [r4, #0x1b]
 	ldr r0, _0223A0B8 ; =ov12_0223A0BC
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A0B4: .word 0x00007530
@@ -26506,7 +26506,7 @@ ov12_0223A27C: ; 0x0223A27C
 	ldrb r0, [r0]
 	strb r0, [r4, #0x11]
 	ldr r0, _0223A2C4 ; =ov12_0223A2C8
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A2C0: .word 0x00007530
@@ -26646,7 +26646,7 @@ ov12_0223A39C: ; 0x0223A39C
 	strh r0, [r4, #0xa]
 	ldr r0, _0223A3DC ; =ov12_0223A3E0
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A3D8: .word 0x00007530
@@ -26876,7 +26876,7 @@ ov12_0223A550: ; 0x0223A550
 	strh r0, [r4, #0xa]
 	ldr r0, _0223A590 ; =ov12_0223A594
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A58C: .word 0x00007530
@@ -27130,7 +27130,7 @@ ov12_0223A72C: ; 0x0223A72C
 	ldrb r0, [r0]
 	strb r0, [r4, #0x11]
 	ldr r0, _0223A774 ; =ov12_0223A778
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A770: .word 0x00007530
@@ -27255,7 +27255,7 @@ ov12_0223A828: ; 0x0223A828
 	ldrb r0, [r0]
 	strb r0, [r4, #0x11]
 	ldr r0, _0223A870 ; =ov12_0223A874
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A86C: .word 0x00007530
@@ -27396,7 +27396,7 @@ ov12_0223A92C: ; 0x0223A92C
 	add r1, r4, #0
 	str r0, [r4, #0x24]
 	ldr r0, _0223A98C ; =ov12_0223A990
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223A988: .word 0x00007530
@@ -27420,12 +27420,12 @@ _0223A9A8:
 	ldr r0, _0223AAA8 ; =ov12_0223AB54
 	ldr r2, _0223AAAC ; =0x0000753A
 	add r1, #0x2c
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r1, r5, #0
 	ldr r0, _0223AAB0 ; =ov12_0223ACFC
 	ldr r2, _0223AAAC ; =0x0000753A
 	add r1, #0x48
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, [r5, #0x38]
 	ldr r1, [r0, #0xc]
 	add r0, r5, #0
@@ -27489,12 +27489,12 @@ _0223AA32:
 	ldr r0, _0223AAB4 ; =ov12_0223AAF8
 	ldr r2, _0223AAAC ; =0x0000753A
 	add r1, #0x14
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r1, r5, #0
 	ldr r0, _0223AAB8 ; =ov12_0223ABD4
 	ldr r2, _0223AAAC ; =0x0000753A
 	add r1, #0x38
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldrb r0, [r5, #0x10]
 	add sp, #0x10
 	add r0, r0, #1
@@ -28062,7 +28062,7 @@ ov12_0223AE58: ; 0x0223AE58
 	ldrb r0, [r5, #8]
 	strb r0, [r4, #0x18]
 	ldr r0, _0223AEBC ; =ov12_0223AEC0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223AEB8: .word 0x00007530
@@ -28208,7 +28208,7 @@ ov12_0223AF88: ; 0x0223AF88
 	ldrsb r0, [r6, r0]
 	strb r0, [r4, #0x13]
 	ldr r0, _0223AFDC ; =ov12_0223AFE0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0223AFD8: .word 0x00007530
@@ -28373,7 +28373,7 @@ ov12_0223B0EC: ; 0x0223B0EC
 	strh r0, [r4, #0xa]
 	ldr r0, _0223B12C ; =ov12_0223B130
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223B128: .word 0x00007530
@@ -28715,7 +28715,7 @@ ov12_0223B37C: ; 0x0223B37C
 	ldr r0, _0223B3C0 ; =ov12_0223B3C8
 	ldr r2, _0223B3C4 ; =0x00007530
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0223B3C0: .word ov12_0223B3C8
@@ -30090,7 +30090,7 @@ _0223BE74:
 	ldr r2, _0223BE90 ; =0x00000514
 	add r0, r5, #0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0xc]
 	pop {r3, r4, r5, pc}
 	nop
@@ -31523,7 +31523,7 @@ _0223C940:
 	ldr r0, _0223C98C ; =ov12_0223C994
 	ldr r2, _0223C990 ; =0x00009D08
 	add r1, r6, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r6, #8]
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -31723,7 +31723,7 @@ ov12_0223CAF8: ; 0x0223CAF8
 	ldr r0, _0223CB10 ; =ov12_0223CB28
 	ldr r2, _0223CB14 ; =0x00009CAE
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #2
 	lsl r1, r1, #8
 	str r0, [r4, r1]
@@ -31874,7 +31874,7 @@ _0223CBE4:
 	ldr r0, _0223CC68 ; =ov12_0223CCBC
 	ldr r2, _0223CC6C ; =0x0000A08C
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #2
 	lsl r1, r1, #8
 	str r0, [r4, r1]
@@ -32248,7 +32248,7 @@ _0223CF06:
 	str r0, [r4, #0x14]
 	ldr r0, _0223CF40 ; =ov12_0223CF44
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	mov r0, #1
 	add sp, #8
@@ -33077,7 +33077,7 @@ ov12_0223D55C: ; 0x0223D55C
 	ldr r0, _0223D570 ; =ov12_0223D5B0
 	ldr r2, _0223D574 ; =0x00009862
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #8]
 	pop {r4, pc}
 	nop
@@ -34034,7 +34034,7 @@ _0223DC46:
 	ldr r0, _0223DCB8 ; =ov12_0223DE10
 	ldr r2, _0223DCBC ; =0x00009858
 	add r1, r1, r4
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp, #4]
 	str r0, [r7, r1]
 	add sp, #0xc
@@ -34917,7 +34917,7 @@ _0223E33E:
 	ldr r0, _0223E384 ; =ov12_0223E3BC
 	ldr r2, _0223E388 ; =0x00009C4F
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -35226,12 +35226,12 @@ ov12_0223E598: ; 0x0223E598
 	bne _0223E5E8
 	ldr r0, _0223E5FC ; =ov12_0223E604
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _0223E5E8:
 	ldr r0, _0223E600 ; =ov12_0223E6A4
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223E5F4: .word 0x00000AB4
@@ -35579,7 +35579,7 @@ _0223E87A:
 	ldr r2, _0223E894 ; =0x00009C40
 	add r1, r5, #0
 	str r4, [r5]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -36004,7 +36004,7 @@ _0223EBAC:
 	ldr r0, _0223EC20 ; =ov12_0223EC28
 	add r1, r4, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, _0223EC24 ; =0x000006E5
 	bl PlaySE
 	add sp, #0xc
@@ -36277,7 +36277,7 @@ _0223EDF4:
 	ldr r0, _0223EE0C ; =ov12_0223EE14
 	ldr r2, _0223EE10 ; =0x00009C40
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -36442,7 +36442,7 @@ ov12_0223EEFC: ; 0x0223EEFC
 	strh r0, [r4, #0xa]
 	ldr r0, _0223EF3C ; =ov12_0223EF40
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223EF38: .word 0x00007530
@@ -36672,7 +36672,7 @@ ov12_0223F0B0: ; 0x0223F0B0
 	strh r0, [r4, #0xa]
 	ldr r0, _0223F0FC ; =ov12_0223F108
 	str r7, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, _0223F100 ; =0x00001134
 	mov r1, #0
 	strb r1, [r6, r0]
@@ -36929,7 +36929,7 @@ ov12_0223F2A0: ; 0x0223F2A0
 	strh r0, [r4, #0xa]
 	ldr r0, _0223F2E0 ; =ov12_0223F2E4
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0223F2DC: .word 0x00007530
@@ -37134,7 +37134,7 @@ _0223F452:
 	ldr r0, _0223F514 ; =ov12_0223F5CC
 	add r1, r4, #0
 	str r6, [r4, #0x54]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r7, #0
 	add r5, r4, #0
 _0223F46E:
@@ -37248,7 +37248,7 @@ ov12_0223F524: ; 0x0223F524
 	ldr r2, _0223F554 ; =0x00007594
 	add r1, r4, #0
 	strb r6, [r4, #0x12]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
@@ -38427,7 +38427,7 @@ _0223FE24:
 	str r0, [r3]
 	ldr r0, _0223FE40 ; =ov12_0223FE44
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0223FE3C: .word 0x00007530
@@ -38579,7 +38579,7 @@ _0223FF4C:
 	ldr r0, _02240034 ; =ov12_02240044
 	ldr r2, _02240038 ; =0x00009CA4
 	add r1, r1, r7
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r6, r6, #1
 	cmp r6, #4
 	blt _0223FEF4
@@ -39003,7 +39003,7 @@ _022402C0:
 	str r0, [r3]
 	ldr r0, _022402DC ; =ov12_022402E0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _022402D8: .word 0x00007530
@@ -39113,7 +39113,7 @@ _0224039C:
 	str r0, [r3]
 	ldr r0, _022403B8 ; =ov12_022403BC
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _022403B4: .word 0x00007530
@@ -39281,7 +39281,7 @@ ov12_022404A0: ; 0x022404A0
 	ldrb r0, [r5]
 	strb r0, [r4, #0x1b]
 	ldr r0, _02240508 ; =ov12_0224050C
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _02240504: .word 0x00007530
@@ -39501,7 +39501,7 @@ _02240690:
 	str r0, [r3]
 	ldr r0, _022406AC ; =ov12_022406B0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _022406A8: .word 0x00007530
@@ -41270,7 +41270,7 @@ ov12_02241210: ; 0x02241210
 	ldr r0, _02241474 ; =ov12_0224182C
 	ldr r2, _02241478 ; =0x00013880
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	mov r0, #0x85
 	mov r1, #1
@@ -44211,7 +44211,7 @@ _02242B7A:
 	ldr r0, _02242BC4 ; =ov12_02242C1C
 	ldr r2, _02242BC8 ; =0x0000C738
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x4d
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -44358,7 +44358,7 @@ _02242CCA:
 	ldr r0, _02242CE4 ; =ov12_02242CF8
 	ldr r2, _02242CE8 ; =0x0000C35A
 	add r1, r6, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	nop
 _02242CE4: .word ov12_02242CF8
@@ -44476,7 +44476,7 @@ ov12_02242D3C: ; 0x02242D3C
 	ldr r0, _02242DEC ; =ov12_02242DF8
 	ldr r2, _02242DF0 ; =0x0000C35B
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, _02242DF4 ; =0x0000127E
 	ldrb r1, [r5, r0]
 	add r1, r1, #1
@@ -45063,7 +45063,7 @@ ov12_0224324C: ; 0x0224324C
 	str r0, [r4, #0xc]
 	ldr r0, _022432A0 ; =ov12_022432A8
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02243286:
 	mov r0, #3
@@ -45074,7 +45074,7 @@ _02243286:
 	str r0, [r4, #0xc]
 	ldr r0, _022432A4 ; =ov12_0224333C
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0224329C: .word 0x0000A028
@@ -45265,7 +45265,7 @@ ov12_022433CC: ; 0x022433CC
 	str r0, [r4, #0xc]
 	ldr r0, _02243430 ; =ov12_02243438
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _02243416:
 	mov r0, #2
@@ -45276,7 +45276,7 @@ _02243416:
 	str r0, [r4, #0xc]
 	ldr r0, _02243434 ; =ov12_022434A4
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0224342C: .word 0x0000C350
@@ -46240,7 +46240,7 @@ ov12_02243B1C: ; 0x02243B1C
 	strh r0, [r4, #0xa]
 	ldr r0, _02243B5C ; =ov12_02243B60
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02243B58: .word 0x00007530
@@ -46470,7 +46470,7 @@ ov12_02243CD0: ; 0x02243CD0
 	strh r0, [r4, #0xa]
 	ldr r0, _02243D10 ; =ov12_02243D14
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02243D0C: .word 0x00007530
@@ -46764,7 +46764,7 @@ ov12_02243ED8: ; 0x02243ED8
 	ldrb r0, [r5, #0xf]
 	strb r0, [r4, #0x1b]
 	ldr r0, _02243F3C ; =ov12_02243F40
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02243F38: .word 0x00007530
@@ -46914,7 +46914,7 @@ _0224401C:
 	strh r0, [r4, #0xa]
 	ldr r0, _0224405C ; =ov12_02244060
 	str r7, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0224405C: .word ov12_02244060
@@ -47139,7 +47139,7 @@ _02244210:
 	ldr r0, _0224422C ; =ov12_02244234
 	ldr r2, _02244230 ; =0x00007530
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0224422C: .word ov12_02244234
@@ -47264,7 +47264,7 @@ ov12_022442D4: ; 0x022442D4
 	ldrb r0, [r0, #2]
 	strb r0, [r4, #0x11]
 	ldr r0, _0224431C ; =ov12_02244320
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02244318: .word 0x00007530
@@ -47503,7 +47503,7 @@ _022444D8:
 	ldr r0, _022444F0 ; =ov12_022444F8
 	ldr r2, _022444F4 ; =0x00007530
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _022444E4: .word 0x0000041E
@@ -47699,7 +47699,7 @@ ov12_02244624: ; 0x02244624
 	strh r0, [r4, #0xa]
 	ldr r0, _02244664 ; =ov12_02244668
 	str r6, [r4, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02244660: .word 0x00007530
@@ -47947,7 +47947,7 @@ _02244832:
 	ldr r0, _02244864 ; =ov12_02244958
 	ldr r1, [sp]
 	ldr r2, _02244868 ; =0x00009C40
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp]
 	str r0, [r1, #0x14]
 	add r0, r1, #0

@@ -169,7 +169,7 @@ _0204CB7A:
 	ldr r0, _0204CC44 ; =sub_0204D4F0
 	mov r1, #0x0
 	mov r2, #0xc8
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _0204CC34 ; =UNK_021C5A68
 	ldr r1, [r1, #0x0]
 	str r0, [r1, #0x50]
@@ -510,7 +510,7 @@ _0204CDFA:
 	ldr r0, _0204CEF4 ; =sub_0204D4F0
 	mov r1, #0x0
 	mov r2, #0xc8
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, _0204CED4 ; =UNK_021C5A68
 	ldr r1, [r1, #0x0]
 	str r0, [r1, #0x50]
@@ -1101,10 +1101,10 @@ sub_0204D328: ; 0x0204D328
 	ldr r0, [r0, #0x54]
 	add r1, r5, r1
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	cmp r0, #0x0
 	beq _0204D37C
-	bl sub_02057654
+	bl MapObject_Remove
 _0204D37C:
 	ldr r0, _0204D430 ; =UNK_021C5A68
 	lsl r4, r5, #0x3
@@ -1140,7 +1140,7 @@ _0204D3B2:
 	mov r1, #0x1
 	lsl r1, r1, #0x8
 	add r1, r5, r1
-	bl sub_02058444
+	bl MapObject_SetID
 	ldr r0, _0204D430 ; =UNK_021C5A68
 	ldr r1, [r0, #0x0]
 	ldr r0, _0204D438 ; =0x000002BE
@@ -2412,7 +2412,7 @@ _0204DD5E:
 	beq _0204DDB4
 	add r0, r4, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	ldr r0, _0204DE28 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	add r1, r0, r5
@@ -2427,7 +2427,7 @@ _0204DD5E:
 	bl sub_02055304
 	add r0, r4, #0x0
 	mov r1, #0x80
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 _0204DDB4:
 	add r0, r4, #0x0
 	bl sub_0205AE28
@@ -3018,11 +3018,11 @@ sub_0204E214: ; 0x0204E214
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x80
 	add r6, r0, #0x0
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x1
 	add r0, r6, #0x0
 	lsl r1, r1, #0x8
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	ldr r0, _0204E24C ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	add r1, r0, r5
@@ -3057,11 +3057,11 @@ sub_0204E254: ; 0x0204E254
 	bl sub_0205AE50
 	add r0, r5, #0x0
 	mov r1, #0x80
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	ldr r0, _0204E2A0 ; =UNK_021C5A68
 	mov r2, #0x0
 	ldr r0, [r0, #0x0]
@@ -5074,7 +5074,7 @@ sub_0204F178: ; 0x0204F178
 	strb r2, [r0, #0x0]
 	ldr r0, _0204F1AC ; =sub_0204F124
 	mov r2, #0x64
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl sub_0204EAD8
@@ -5967,10 +5967,10 @@ _0204F89E:
 	ldrsb r1, [r1, r2]
 	str r1, [sp, #0x4]
 	ldr r1, [sp, #0x8]
-	bl sub_02058B30
+	bl MapObject_SetCurrentX
 	ldr r0, [sp, #0xc]
 	add r1, r7, #0x0
-	bl sub_02058B50
+	bl MapObject_SetCurrentY
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x8]
 	str r0, [sp, #0x0]

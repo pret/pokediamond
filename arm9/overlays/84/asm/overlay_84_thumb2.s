@@ -1530,7 +1530,7 @@ ov84_021D8C54: ; 0x021D8C54
 	ldr r0, _021D8CD4 ; =ov84_021D9278
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x5a
 	lsl r1, r1, #2
 	str r0, [r4, r1]

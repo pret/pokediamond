@@ -182,7 +182,7 @@ ov05_021E4C20: ; 0x021E4C20
 	thumb_func_start ov05_021E4C24
 ov05_021E4C24: ; 0x021E4C24
 	push {r3, lr}
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	ldr r0, [r0, #0x3c]
 	pop {r3, pc}
 	.balign 4, 0

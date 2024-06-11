@@ -66,7 +66,7 @@ sub_0205C390: ; 0x0205C390
 	bl sub_020585B0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	add r1, r5, #0x0
 	bl sub_0204B5FC
 	strh r0, [r4, #0x0]
@@ -104,7 +104,7 @@ sub_0205C3D0: ; 0x0205C3D0
 	bl sub_02058628
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	add r1, r5, #0x0
 	bl sub_0204B5FC
 	add r6, r0, #0x0
@@ -121,7 +121,7 @@ sub_0205C3D0: ; 0x0205C3D0
 	add r1, #0x8
 	bl ov05_021F2094
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	add r1, r5, #0x0
 	bl sub_0204B61C
 	add r1, r6, #0x0
@@ -215,7 +215,7 @@ _0205C4C0:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_0205C4D8
@@ -244,7 +244,7 @@ _0205C506:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _0205C510:
 	add r0, r5, #0x0
 	bl ov06_0224A310
@@ -261,7 +261,7 @@ _0205C516:
 	mov r1, #0x2
 	add r0, r5, #0x0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _0205C536:
 	pop {r3-r5, pc}
 	.balign 4

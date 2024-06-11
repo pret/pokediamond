@@ -236,7 +236,7 @@ sub_0206C700: ; 0x0206C700
 	ldr r0, _0206C8E8 ; =sub_0206C8EC
 	add r1, r4, #0x0
 	mov r2, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r0, #0x1
 	bl TextFlags_SetCanABSpeedUpPrint
 	bl sub_02033E74

@@ -479,7 +479,7 @@ sub_02055B8C: ; 0x02055B8C
 	add r0, r4, #0x0
 	bl sub_02059C60
 	add r0, r4, #0x0
-	bl sub_0205AE80
+	bl MapObject_ClearHeldMovement
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl sub_0205AFDC
@@ -584,7 +584,7 @@ sub_02055C78: ; 0x02055C78
 	add r5, r0, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -629,7 +629,7 @@ _02055CE4:
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r6, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC
@@ -676,7 +676,7 @@ _02055D54:
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r6, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC
@@ -700,7 +700,7 @@ _02055D8E:
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	bl sub_020560D0
@@ -718,7 +718,7 @@ sub_02055DAC: ; 0x02055DAC
 	add r7, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0x0
 	ldr r0, _02055EF4 ; =0x00000654
 	bl PlaySE
@@ -762,7 +762,7 @@ _02055E18:
 	mov r1, #0x6
 	add r0, r6, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC
@@ -824,7 +824,7 @@ _02055EAC:
 	mov r1, #0x6
 	add r0, r6, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x8
 	bl sub_0205AFDC
@@ -860,7 +860,7 @@ sub_02055EF8: ; 0x02055EF8
 	add r5, r0, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_020554BC
 	cmp r0, #0x1
@@ -895,7 +895,7 @@ sub_02055F44: ; 0x02055F44
 	add r5, r0, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_020554BC
 	cmp r0, #0x1
@@ -982,7 +982,7 @@ sub_02055FFC: ; 0x02055FFC
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x6
 	lsl r1, r1, #0x6
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	bl sub_020557E8
 	cmp r0, #0x0
@@ -1009,11 +1009,11 @@ sub_02056040: ; 0x02056040
 	add r5, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r1, sp, #0xc
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r4, sp, #0xc
 	add r3, sp, #0x0
 	ldmia r4!, {r0-r1}
@@ -1319,7 +1319,7 @@ sub_02056288: ; 0x02056288
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0x0
 	bl sub_0205AFDC
 	add r2, r0, #0x0
@@ -1358,7 +1358,7 @@ _020562CA:
 _020562DC:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	b _0205636C
 _020562E6:
 	add r0, r5, #0x0
@@ -1419,7 +1419,7 @@ _02056356:
 _02056364:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 _0205636C:
 	ldr r0, [sp, #0x0]
 	add r1, r7, #0x0
@@ -1447,7 +1447,7 @@ sub_02056384: ; 0x02056384
 	bl sub_02056B5C
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	pop {r4-r6, pc}
 
 	thumb_func_start sub_020563A8
@@ -1766,7 +1766,7 @@ sub_020565F0: ; 0x020565F0
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0x0
 	bl sub_0205AFDC
 	add r2, r0, #0x0
@@ -1813,11 +1813,11 @@ _02056656:
 	beq _02056680
 	add r0, r6, #0x0
 	mov r7, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	sub r1, r7, #0x1
@@ -1843,18 +1843,18 @@ _02056680:
 _020566A0:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _020566EA
 _020566B0:
 	add r0, r6, #0x0
 	mov r7, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	sub r1, r7, #0x1
@@ -1905,7 +1905,7 @@ sub_02056704: ; 0x02056704
 	bl sub_02056B5C
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 _0205673E:
@@ -1963,7 +1963,7 @@ _0205678C:
 _020567AA:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _020567C4
@@ -2158,7 +2158,7 @@ sub_02056914: ; 0x02056914
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0x0
 	bl sub_0205AFDC
 	add r2, r0, #0x0
@@ -2222,7 +2222,7 @@ _02056994:
 _020569AA:
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _02056A6C
@@ -2231,14 +2231,14 @@ _020569BA:
 	tst r0, r4
 	beq _020569EC
 	add r0, r6, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0x0
 	mov r1, #0x0
 	bl sub_0205AFDC
 	str r0, [sp, #0x0]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	mov r1, #0x0
@@ -2268,20 +2268,20 @@ _020569EC:
 _02056A14:
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _02056A6C
 _02056A24:
 	add r0, r6, #0x0
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0x0
 	mov r1, #0x0
 	bl sub_0205AFDC
 	str r0, [sp, #0x0]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	mov r1, #0x0
@@ -2332,7 +2332,7 @@ sub_02056A7C: ; 0x02056A7C
 	bl sub_02056B5C
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 _02056AB6:
@@ -2390,7 +2390,7 @@ _02056B04:
 _02056B22:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
-	bl sub_020584CC
+	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
 	bl sub_02055410
 	b _02056B3C
@@ -2515,23 +2515,23 @@ sub_02056C0C: ; 0x02056C0C
 	add r5, r1, #0x0
 	str r2, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	bl sub_02059BF4
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl sub_02058B3C
+	bl MapObject_GetCurrentHeight
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x4]
 	bl sub_02059C00
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
 	add r1, sp, #0x1c
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #0x14]
 	ldr r6, [sp, #0xc]
 	ldr r3, [sp, #0x10]
@@ -2547,7 +2547,7 @@ sub_02056C0C: ; 0x02056C0C
 	orr r4, r0
 _02056C60:
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	ldr r2, [sp, #0x14]
 	add r1, sp, #0x18
 	str r1, [sp, #0x0]
@@ -2610,16 +2610,16 @@ sub_02056CCC: ; 0x02056CCC
 	cmp r4, r0
 	beq _02056D54
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2679,13 +2679,13 @@ sub_02056D58: ; 0x02056D58
 	cmp r4, r0
 	beq _02056E00
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x0]
 	ldr r2, [sp, #0x0]
 	add r0, r7, #0x0
@@ -2763,16 +2763,16 @@ sub_02056E04: ; 0x02056E04
 	cmp r5, r0
 	beq _02056E68
 	add r0, r4, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -2813,16 +2813,16 @@ sub_02056E6C: ; 0x02056E6C
 	cmp r4, r0
 	beq _02056EC2
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2857,16 +2857,16 @@ sub_02056EC8: ; 0x02056EC8
 	cmp r4, r0
 	beq _02056F72
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2945,16 +2945,16 @@ sub_02056F78: ; 0x02056F78
 	cmp r0, #0x1
 	bne _0205701A
 	add r0, r5, #0x0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -3404,7 +3404,7 @@ sub_020572B8: ; 0x020572B8
 sub_020572D4: ; 0x020572D4
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	ldr r0, [r0, #0xc]
 	bl Save_GameStats_Get
 	mov r1, #0x5

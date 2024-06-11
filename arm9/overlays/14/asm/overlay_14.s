@@ -5260,7 +5260,7 @@ _021D9FFA:
 	blo _021D9FFA
 	ldr r0, _021DA014 ; =ov14_021DA018
 	add r1, r7, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -10725,7 +10725,7 @@ _021DC854:
 	str r6, [r4, r0]
 	ldr r0, _021DCA04 ; =ov14_021DCA0C
 	mov r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	ldr r0, _021DCA08 ; =ov14_021DCBFC
 	add r1, r4, #0
@@ -10904,7 +10904,7 @@ _021DCB3A:
 	ldr r0, _021DCB94 ; =ov14_021E63CC
 	mov r2, #1
 	ldr r0, [r0, r7]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	lsl r1, r4, #2
 	add r1, r5, r1
 	str r0, [r1, #8]
@@ -13995,7 +13995,7 @@ ov14_021DE2E8: ; 0x021DE2E8
 	str r2, [r0]
 	ldr r0, _021DE38C ; =ov14_021DE39C
 	add r1, r5, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, _021DE390 ; =ov14_021DE3E4
 	add r1, r5, #0
 	mov r2, #1
@@ -17716,7 +17716,7 @@ ov14_021E0050: ; 0x021E0050
 	strb r2, [r4, r0]
 	ldr r0, _021E0078 ; =ov14_021E0094
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	cmp r0, #0
 	beq _021E0070
 	ldr r0, _021E007C ; =0x0000078D
@@ -17799,7 +17799,7 @@ ov14_021E00F0: ; 0x021E00F0
 	strb r2, [r4, r0]
 	ldr r0, _021E0118 ; =ov14_021E0134
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	cmp r0, #0
 	beq _021E0112
 	ldr r0, _021E011C ; =0x0000078D
@@ -17883,7 +17883,7 @@ ov14_021E0190: ; 0x021E0190
 	strb r2, [r4, r0]
 	ldr r0, _021E01B4 ; =ov14_021E01D0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	cmp r0, #0
 	beq _021E01AC
 	ldr r0, _021E01B8 ; =0x00000788
@@ -19825,7 +19825,7 @@ _021E10D8:
 	str r5, [r4, #8]
 	add r1, r4, #0
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #0x4c]
 	pop {r3, r4, r5, pc}
 _021E10EA:
@@ -22369,7 +22369,7 @@ ov14_021E247C: ; 0x021E247C
 	strb r2, [r4, #4]
 	add r1, r4, #0
 	strb r2, [r4, #5]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r1, r5, #0
 	add r1, #0xdc
 	add r5, #0xdc
@@ -29537,7 +29537,7 @@ _021E5AC6:
 	ldr r0, _021E5B60 ; =ov14_021E5D64
 	add r1, r7, #0
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0xe
 	lsl r1, r1, #6
 	str r0, [r7, r1]

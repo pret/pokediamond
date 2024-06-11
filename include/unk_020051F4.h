@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "heap.h"
+#include "unk_0200CA44.h"
 
 u32 sub_020051F4(u16 param0);
 u32 sub_0200521C(u16 param0);
@@ -32,7 +33,7 @@ BOOL sub_02005670();
 u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId);
 void sub_02005AC8(u32 param0, int playerNo, s32 param2);
 void sub_02005AE0(u32 param0, HeapID heapId);
-void sub_02005B2C(u32 param0, s32 *param1);
+void sub_02005B2C(SysTask *param0, s32 *param1);
 void sub_02005BA0();
 u32 sub_02005BC8(u16 param0, s32 param1);
 void sub_02005BF8(u32 param0, s32 param1, s32 param2, s32 param3, HeapID heapId);

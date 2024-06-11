@@ -417,7 +417,7 @@ _02238182:
 	ldr r0, _022381E8 ; =ov81_02238248
 	add r1, r4, #0
 	mov r2, #0x14
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r1, r4, #0
 	add r1, #0xc0
 	str r0, [r1]
@@ -673,7 +673,7 @@ _0223838C:
 	mov r2, #0xa
 	str r0, [r4, #0x14]
 	ldr r0, _02238408 ; =ov81_0223843C
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r1, r5, #0
 	add r1, #0xf8
 	ldr r1, [r1]
@@ -3045,7 +3045,7 @@ ov81_02239578: ; 0x02239578
 	ldr r0, _022395C0 ; =ov81_02239608
 	add r1, r4, #0
 	str r2, [r4, #0x28]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #0x68]
 _022395B8:
 	pop {r3, r4, r5, pc}
@@ -4335,7 +4335,7 @@ _02239FD0:
 	ldr r0, _0223A018 ; =ov81_0223A01C
 	ldr r1, [sp]
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp]
 	ldr r1, [r1]
 	str r0, [r1]
@@ -4651,7 +4651,7 @@ ov81_0223A228: ; 0x0223A228
 	ldr r0, _0223A26C ; =ov81_0223A270
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 _0223A268:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -4787,7 +4787,7 @@ _0223A330:
 	ldr r0, _0223A380 ; =ov81_0223A57C
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, pc}
 	nop
 _0223A37C: .word 0xFFFF8000
@@ -6157,7 +6157,7 @@ ov81_0223AD9C: ; 0x0223AD9C
 	ldr r0, _0223AE44 ; =ov81_0223AF5C
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	pop {r4, pc}
 	nop
@@ -7682,7 +7682,7 @@ ov81_0223B9BC: ; 0x0223B9BC
 	ldr r0, _0223BA78 ; =ov81_0223BBC8
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	add sp, #4
 	pop {r3, r4, pc}
@@ -8901,7 +8901,7 @@ ov81_0223C3CC: ; 0x0223C3CC
 	ldr r0, _0223C41C ; =ov81_0223C420
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5]
 	cmp r0, #0
 	bne _0223C418
@@ -8996,7 +8996,7 @@ ov81_0223C47C: ; 0x0223C47C
 	ldr r0, _0223C4DC ; =ov81_0223C4E0
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5]
 	cmp r0, #0
 	bne _0223C4D8
@@ -10112,7 +10112,7 @@ ov81_0223CD64: ; 0x0223CD64
 	ldr r0, _0223CDDC ; =ov81_0223CE54
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r6]
 	cmp r0, #0
 	bne _0223CDD6

@@ -3610,7 +3610,7 @@ ov65_021D9100: ; 0x021D9100
 	add r0, r6, #0
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x18]
 	ldr r0, [r5, #4]
 	add r0, r0, #1

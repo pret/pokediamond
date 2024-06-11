@@ -68,7 +68,7 @@ _0205BF1E:
 sub_0205BF24: ; 0x0205BF24
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_02058488
+	bl MapObject_GetType
 	add r1, r0, #0x0
 	lsl r2, r1, #0x2
 	ldr r1, _0205BF3C ; =UNK_020F7118
@@ -83,7 +83,7 @@ _0205BF3C: .word UNK_020F7118
 sub_0205BF40: ; 0x0205BF40
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_02058488
+	bl MapObject_GetType
 	add r1, r0, #0x0
 	lsl r2, r1, #0x2
 	ldr r1, _0205BF58 ; =UNK_020F7148
@@ -98,7 +98,7 @@ _0205BF58: .word UNK_020F7148
 sub_0205BF5C: ; 0x0205BF5C
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_02058488
+	bl MapObject_GetType
 	add r1, r0, #0x0
 	lsl r2, r1, #0x2
 	ldr r1, _0205BF74 ; =UNK_020F7178
@@ -113,7 +113,7 @@ _0205BF74: .word UNK_020F7178
 sub_0205BF78: ; 0x0205BF78
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02058B14
@@ -123,7 +123,7 @@ sub_0205BF78: ; 0x0205BF78
 	pop {r3-r5, pc}
 _0205BF90:
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02058B24
@@ -140,7 +140,7 @@ _0205BFA6:
 sub_0205BFAC: ; 0x0205BFAC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02058B14
@@ -150,7 +150,7 @@ sub_0205BFAC: ; 0x0205BFAC
 	pop {r3-r5, pc}
 _0205BFC4:
 	add r0, r4, #0x0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02058B24
@@ -187,7 +187,7 @@ sub_0205BFEC: ; 0x0205BFEC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02058510
+	bl MapObject_GetParam
 	strb r0, [r4, #0x3]
 	pop {r3-r5, pc}
 
@@ -288,7 +288,7 @@ _0205C0A6:
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
 	add r0, r5, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	strb r0, [r4, #0x4]
 	lsl r1, r0, #0x2
 	add r0, sp, #0x10
@@ -391,10 +391,10 @@ sub_0205C16C: ; 0x0205C16C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02058510
+	bl MapObject_GetParam
 	strb r0, [r4, #0x3]
 	add r0, r5, #0x0
-	bl sub_02058488
+	bl MapObject_GetType
 	cmp r0, #0x5
 	beq _0205C190
 	mov r0, #0x1
@@ -508,7 +508,7 @@ _0205C248: ; jump table (using 16-bit offset)
 	.short _0205C2D2 - _0205C248 - 2; case 3
 _0205C250:
 	add r0, r7, #0x0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r5, #0x0
 	add r6, r0, #0x0
 	add r1, r5, #0x0

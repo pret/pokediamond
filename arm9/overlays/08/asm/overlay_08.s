@@ -115,7 +115,7 @@ _02211F18:
 	ldr r2, [sp, #0x10]
 	add r0, r5, #0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov08_02211F24
@@ -1003,13 +1003,13 @@ _02212544:
 
 	thumb_func_start ov08_0221255C
 ov08_0221255C: ; 0x0221255C
-	ldr r3, _02212568 ; =sub_0200CA44
+	ldr r3, _02212568 ; =SysTask_CreateOnMainQueue
 	str r0, [r1, #0x38]
 	ldr r0, _0221256C ; =ov08_02212574
 	ldr r2, _02212570 ; =0x0000044C
 	bx r3
 	nop
-_02212568: .word sub_0200CA44
+_02212568: .word SysTask_CreateOnMainQueue
 _0221256C: .word ov08_02212574
 _02212570: .word 0x0000044C
 
@@ -3227,7 +3227,7 @@ _02213500:
 	ldr r0, _02213628 ; =ov08_022133F4
 	ldr r1, [r5, r1]
 	ldr r2, _0221362C ; =0x00001001
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x5e
 	lsl r1, r1, #2
 	ldr r1, [r5, r1]
@@ -3698,7 +3698,7 @@ _0221393A:
 	strb r1, [r0, #5]
 	ldr r0, _0221399C ; =ov08_022133A8
 	ldr r1, [r6, r5]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [r6, r5]
 	str r0, [r1, #0xc]
 _02213990:
@@ -3994,7 +3994,7 @@ _02213BBC:
 	ldr r0, _02213BD0 ; =ov08_022139FC
 	add r1, r1, r4
 	lsl r2, r2, #0xc
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 _02213BCA:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -5333,7 +5333,7 @@ _022145C0:
 	ldr r0, _022145F0 ; =ov08_022144C0
 	ldr r2, _022145F4 ; =0x00001001
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
@@ -5435,7 +5435,7 @@ _022146A6:
 	ldr r0, _022146CC ; =ov08_022146E4
 	add r1, r6, #0
 	lsl r2, r2, #0xc
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r0, #0
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -5766,7 +5766,7 @@ ov08_02214910: ; 0x02214910
 	str r0, [r4, #0x18]
 	ldr r0, _0221495C ; =ov08_022148E0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02214954: .word 0x0000044C
@@ -5858,7 +5858,7 @@ ov08_022149B8: ; 0x022149B8
 	str r0, [r4, #0x18]
 	ldr r0, _02214A08 ; =ov08_022148E0
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, pc}
 	nop
 _02214A00: .word 0x0000044C
@@ -6006,7 +6006,7 @@ _02214B12:
 	ldr r0, _02214B20 ; =ov08_022148E0
 	ldr r2, _02214B24 ; =0x0000044C
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02214B20: .word ov08_022148E0
@@ -14039,7 +14039,7 @@ ov08_022186D4: ; 0x022186D4
 	ldr r0, _02218700 ; =ov08_0221868C
 	add r1, r4, #0
 	str r2, [r4, #0x24]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	nop
@@ -14674,7 +14674,7 @@ _02218B70:
 	ldr r0, _02218B88 ; =ov08_02218A84
 	ldr r2, [sp, #0x30]
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -14933,7 +14933,7 @@ ov08_02218D38: ; 0x02218D38
 	ldr r0, _02218D58 ; =ov08_02218D14
 	lsl r2, r2, #0xc
 	str r4, [r1, #4]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, pc}
 	.align 2, 0
 _02218D58: .word ov08_02218D14
@@ -45425,7 +45425,7 @@ _0222854E:
 	ldr r0, _0222856C ; =ov08_022282B4
 	add r1, r4, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r1, r4, #0
 	bl ov08_022282B4
 	pop {r4, pc}
@@ -45453,7 +45453,7 @@ ov08_02228574: ; 0x02228574
 	ldr r0, _022285A0 ; =ov08_022285BC
 	add r1, r5, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r5, #0x84
 	str r0, [r5]
 	pop {r3, r4, r5, pc}
@@ -45637,7 +45637,7 @@ _022286DE:
 	ldr r0, _02228708 ; =ov08_02228620
 	ldr r2, _0222870C ; =0x000003E9
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, [sp]
 	add r7, r7, #1
 	add r0, r0, #4
@@ -48170,7 +48170,7 @@ _022299B2:
 	ldr r0, _022299E4 ; =ov08_022298C0
 	add r1, r4, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -49267,7 +49267,7 @@ ov08_0222A1DC: ; 0x0222A1DC
 	ldr r0, _0222A200 ; =ov08_0222A208
 	add r1, r4, #0
 	lsl r2, r2, #2
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x18]
 	pop {r4, pc}
 	nop

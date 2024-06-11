@@ -212,7 +212,7 @@ _0225382E:
 	str r0, [r4, #0x10]
 	ldr r0, [r5, r6]
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x14]
 	cmp r0, #0
 	beq _02253884

@@ -51,12 +51,12 @@ ov20_02252448: ; 0x02252448
 	str r5, [r4, #0x34]
 	add r1, r4, #0
 	mov r2, #4
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x38]
 	ldr r0, _022524B8 ; =ov20_0225259C
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 _022524B2:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

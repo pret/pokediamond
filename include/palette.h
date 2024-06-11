@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "filesystem.h"
+#include "unk_0200CA44.h"
 
 struct PlttData
 {
@@ -100,7 +101,7 @@ void sub_020033A4(struct PaletteFadeControl *paletteFade,
     u8 startY,
     u8 targetY,
     u16 color);
-void sub_02003464(u32 param0, struct PaletteData *param1);
+void sub_02003464(SysTask *task, struct PaletteData *param1);
 void sub_02003500(struct PaletteData *param0);
 void sub_02003520(struct PaletteData *param0);
 void sub_02003540(struct PaletteData *paletteData, u8 index, u32 param2);

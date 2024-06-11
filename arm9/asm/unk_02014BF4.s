@@ -224,7 +224,7 @@ _02014CC2:
 	ldr r1, [r5, #0x0]
 	ldr r0, _02014D78 ; =sub_02014DD8
 	add r1, r1, r4
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [r5, #0x0]
 	add r1, r1, r4
 	str r0, [r1, #0x4]

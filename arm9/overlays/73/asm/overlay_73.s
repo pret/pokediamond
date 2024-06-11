@@ -6094,7 +6094,7 @@ _021DA446:
 	ldr r0, _021DA494 ; =ov73_021DA408
 	add r1, r5, #0
 	lsl r2, r2, #0xa
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #0x2c]
 	mov r1, #0
 	str r1, [r5, #0x30]

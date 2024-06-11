@@ -21,8 +21,8 @@ typedef struct UnkFieldStruct04 {
     u32 unk0C;
 } UnkFieldStruct04;
 
-typedef struct MapObjectManager {
-
+typedef struct MapObjectManager { //must be in this func, cause otheriwse build will fail
+    u8 padding[0x12C];
 } MapObjectManager; //todo: fill out
 
 typedef struct UnkStruct_020464D4

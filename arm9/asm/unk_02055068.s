@@ -56,15 +56,15 @@ sub_020550A4: ; 0x020550A4
 	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058454
+	bl MapObject_SetSpriteID
 	mov r1, #0x9
 	add r0, r4, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x6
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl sub_02058AC8
@@ -85,7 +85,7 @@ sub_02055108: ; 0x02055108
 	bl GF_AssertFail
 _02055118:
 	add r0, r4, #0x0
-	bl sub_02058578
+	bl MapObject_GetManager
 	add r0, r5, #0x0
 	bl ov05_021EDBC8
 	add r0, r5, #0x0
@@ -126,7 +126,7 @@ sub_02055168: ; 0x02055168
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl PlayerAvatar_GetMapObject
-	bl sub_02057654
+	bl MapObject_Remove
 	add r0, r4, #0x0
 	bl sub_02055160
 	pop {r4, pc}
@@ -205,51 +205,51 @@ sub_02055208: ; 0x02055208
 	add r0, r1, #0x0
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x1c]
-	bl sub_0205753C
+	bl MapObject_Create
 	add r5, r0, #0x0
 	bne _02055228
 	bl GF_AssertFail
 _02055228:
 	add r0, r5, #0x0
 	mov r1, #0xff
-	bl sub_02058444
+	bl MapObject_SetID
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058484
+	bl MapObject_SetType
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205848C
+	bl MapObject_SetFlagID
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02058494
+	bl MapObject_SetScript
 	mov r1, #0x0
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_020584EC
+	bl MapObject_SetParam
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x1
-	bl sub_020584EC
+	bl MapObject_SetParam
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x2
-	bl sub_020584EC
+	bl MapObject_SetParam
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
-	bl sub_02058534
+	bl MapObject_SetXRange
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
-	bl sub_0205853C
+	bl MapObject_SetYRange
 	mov r1, #0x9
 	add r0, r5, #0x0
 	lsl r1, r1, #0xa
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	mov r1, #0x6
 	add r0, r5, #0x0
 	lsl r1, r1, #0x6
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	add r0, r5, #0x0
 	mov r1, #0x1
 	bl sub_02058AC8
@@ -271,7 +271,7 @@ sub_020552A4: ; 0x020552A4
 	add r2, sp, #0x4
 	mov r3, #0x1
 	add r5, r0, #0x0
-	bl sub_020580F4
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x0
 	beq _020552DE
 	add r4, sp, #0x0
@@ -279,14 +279,14 @@ sub_020552A4: ; 0x020552A4
 	mov r7, #0x1
 _020552C4:
 	ldr r0, [sp, #0x0]
-	bl sub_02058480
+	bl MapObject_GetMovement
 	cmp r0, #0x1
 	beq _020552DE
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl sub_020580F4
+	bl MapObjectManager_GetNextObjectWithFlagFromIndex
 	cmp r0, #0x0
 	bne _020552C4
 _020552DE:
@@ -310,7 +310,7 @@ _020552F2:
 PlayerAvatar_GetFacingDirection: ; 0x020552F8
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	pop {r3, pc}
 
 	thumb_func_start sub_02055304
@@ -326,21 +326,21 @@ sub_02055304: ; 0x02055304
 sub_02055314: ; 0x02055314
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	pop {r3, pc}
 
 	thumb_func_start GetPlayerXCoord
 GetPlayerXCoord: ; 0x02055320
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	pop {r3, pc}
 
 	thumb_func_start GetPlayerYCoord
 GetPlayerYCoord: ; 0x0205532C
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	pop {r3, pc}
 
 	thumb_func_start sub_02055338
@@ -363,7 +363,7 @@ sub_02055350: ; 0x02055350
 	add r4, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	pop {r4, pc}
 
 	thumb_func_start sub_02055360
@@ -402,12 +402,12 @@ sub_0205537C: ; 0x0205537C
 	bne _02055392
 	mov r1, #0x2
 	lsl r1, r1, #0x8
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 	pop {r4, pc}
 _02055392:
 	mov r1, #0x2
 	lsl r1, r1, #0x8
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r4, pc}
 
 	thumb_func_start sub_0205539C
@@ -738,11 +738,11 @@ sub_02055540: ; 0x02055540
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	add r1, sp, #0x0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	add r0, r4, #0x0
 	add r1, sp, #0x0
 	str r5, [sp, #0x4]
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	add sp, #0xc
 	pop {r4-r5, pc}
 

@@ -27,7 +27,7 @@ ov05_021F61F4: ; 0x021F61F4
 	ldr r0, _021F622C ; =ov05_021F6270
 	ldr r2, _021F6230 ; =0x0000FFFF
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021F622C: .word ov05_021F6270

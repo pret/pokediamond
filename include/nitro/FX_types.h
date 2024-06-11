@@ -62,6 +62,7 @@ typedef s64 fx64c;
 #define FX_F32_TO_FX16(x) ((fx16)(((x) > 0) ? \
                                      ((x) * (1 << FX16_INT_SHIFT) + 0.5f ) : \
                                      ((x) * (1 << FX16_INT_SHIFT) - 0.5f )))
+#define FX_FX32_TO_F32(x) ((f32)((x) / (f32)(1 << FX32_INT_SHIFT)))
 #define FX_F32_TO_FX32(x) ((fx32)(((x) > 0) ? \
                                      ((x) * (1 << FX32_INT_SHIFT) + 0.5f ) : \
                                      ((x) * (1 << FX32_INT_SHIFT) - 0.5f )))

@@ -6,6 +6,7 @@
 #include "heap.h"
 #include "pokemon.h"
 #include "unk_02008DEC.h"
+#include "unk_0200CA44.h"
 
 typedef struct PokepicManager {
     u8 unk00;
@@ -105,7 +106,7 @@ void sub_0200DBFC(WaitingIcon *waitingIcon);
 void sub_0200DC24(WaitingIcon *waitingIcon);
 PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, HeapID heapId);
 PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, HeapID heapId);
-void sub_0200DCF8(u32 param0, void *param1);
+void sub_0200DCF8(SysTask *task, void *param1);
 struct UnkStruct_0200CABC_2 *sub_0200DD70(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, HeapID heapId);
 void sub_0200DDAC(struct UnkStruct_0200CABC_2 *param0, HeapID heapId);
 void sub_0200DDD8(struct UnkStruct_0200CABC_2 *param0);

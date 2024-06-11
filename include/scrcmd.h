@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "script.h"
+#include "unk_0200CA44.h"
 
 extern u16 FieldSystem_VarGet(FieldSystem *fieldSystem, u16);
 extern u16* GetVarPointer(FieldSystem *fieldSystem, u16);
@@ -27,7 +28,7 @@ typedef struct UnkStruct_0203A288 {
 
 typedef struct UnkStruct_0203B174
 {
-    BOOL Unk00;
+    SysTask *sysTask;
     u32 Unk04;
     void *Unk08;
     struct FieldSystem *fieldSystem;

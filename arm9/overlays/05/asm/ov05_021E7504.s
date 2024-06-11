@@ -303,13 +303,13 @@ ov05_021E7750: ; 0x021E7750
 	ldr r0, _021E7794 ; =ov05_021E7544
 	add r1, r4, #0
 	mov r2, #0x64
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 _021E7786:
 	ldr r0, _021E7798 ; =ov05_021E7618
 	add r1, r4, #0
 	mov r2, #0x64
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021E7794: .word ov05_021E7544

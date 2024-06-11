@@ -24,7 +24,7 @@ ov23_02254854: ; 0x02254854
 	str r6, [r4, #0x10]
 	add r1, r4, #0
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r4, [r5]
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}

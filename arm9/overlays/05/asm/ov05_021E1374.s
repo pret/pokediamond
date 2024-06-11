@@ -295,10 +295,10 @@ _021E15A6:
 	add r1, r6, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0
 	beq _021E161A
-	bl sub_02058488
+	bl MapObject_GetType
 	cmp r0, #8
 	bhi _021E161A
 	add r0, r0, r0
@@ -319,10 +319,10 @@ _021E15CA: ; jump table
 	.short _021E15DC - _021E15CA - 2 ; case 8
 _021E15DC:
 	add r0, r4, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r4, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	ldr r1, [sp, #0x14]
 	cmp r7, r1
 	blt _021E161A
@@ -336,7 +336,7 @@ _021E15DC:
 	cmp r0, r1
 	bgt _021E161A
 	add r0, r4, #0
-	bl sub_02058480
+	bl MapObject_GetMovement
 	bl ov05_021E1630
 	cmp r0, #0
 	bne _021E161A
@@ -447,10 +447,10 @@ ov05_021E16C8: ; 0x021E16C8
 _021E16D6:
 	ldr r0, [r6, #0x34]
 	add r1, r5, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0
 	beq _021E16F2
-	bl sub_02058480
+	bl MapObject_GetMovement
 	cmp r0, #0x31
 	bne _021E16F2
 	add r0, r4, #0
@@ -501,7 +501,7 @@ _021E173C:
 	add r1, r4, #0
 	mov r2, #0
 	str r6, [r4, #4]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4]
 	pop {r4, r5, r6, pc}
 	nop
@@ -568,7 +568,7 @@ _021E17BE:
 	bl ov05_021E1848
 	add r1, r0, #0
 	ldr r0, [r5, #4]
-	bl TrainerFlagCheck
+	bl TrainerFieldSystem_FlagCheck
 	cmp r0, #0
 	bne _021E17DE
 	ldr r1, [r4, #0x10]
@@ -628,7 +628,7 @@ _021E1844: .word ov05_021F6910
 	thumb_func_start ov05_021E1848
 ov05_021E1848: ; 0x021E1848
 	push {r3, lr}
-	bl sub_02058498
+	bl MapObject_GetScript
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl sub_020395F4
@@ -712,7 +712,7 @@ _021E18DC:
 	cmp r1, r7
 	beq _021E18F0
 	add r0, r6, #0
-	bl TrainerFlagCheck
+	bl TrainerFieldSystem_FlagCheck
 	cmp r0, #0
 	bne _021E18F0
 	lsl r0, r4, #0x10
@@ -797,7 +797,7 @@ _021E1974: .word ov05_021F691C
 	thumb_func_start ov05_021E1978
 ov05_021E1978: ; 0x021E1978
 	push {r3, lr}
-	bl sub_02058480
+	bl MapObject_GetMovement
 	cmp r0, #0x31
 	bne _021E1986
 	mov r0, #1
@@ -821,7 +821,7 @@ ov05_021E1994: ; 0x021E1994
 	add r5, r1, #0
 	beq _021E19DC
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	cmp r0, #0
 	bne _021E19AA
 	mov r4, #0xe
@@ -869,7 +869,7 @@ ov05_021E19E0: ; 0x021E19E0
 _021E19F0:
 	ldr r0, [r6, #0x34]
 	add r1, r5, #0
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0
 	beq _021E1A16
 	bl sub_02058854
@@ -909,7 +909,7 @@ ov05_021E1A30: ; 0x021E1A30
 	bl sub_02034B64
 	add r7, r0, #0
 	add r0, r4, #0
-	bl sub_02058498
+	bl MapObject_GetScript
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0xc]
@@ -929,18 +929,18 @@ _021E1A66:
 	ldr r0, [sp]
 	add r1, r4, #0
 	ldr r0, [r0, #0x34]
-	bl GetMapObjectByID
+	bl MapObjectManager_GetFirstActiveObjectByID
 	add r5, r0, #0
 	beq _021E1ACC
 	ldr r1, [sp, #4]
 	cmp r1, #0
 	bne _021E1A82
-	bl sub_02058480
+	bl MapObject_GetMovement
 	cmp r0, #0x31
 	beq _021E1ACC
 _021E1A82:
 	add r0, r5, #0
-	bl sub_02058488
+	bl MapObject_GetType
 	cmp r0, #8
 	bhi _021E1ACC
 	add r0, r0, r0
@@ -961,7 +961,7 @@ _021E1A98: ; jump table
 	.short _021E1AAA - _021E1A98 - 2 ; case 8
 _021E1AAA:
 	add r0, r5, #0
-	bl sub_02058498
+	bl MapObject_GetScript
 	add r6, r0, #0
 	lsl r0, r6, #0x10
 	lsr r0, r0, #0x10

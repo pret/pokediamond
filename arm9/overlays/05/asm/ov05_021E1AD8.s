@@ -306,7 +306,7 @@ _021E1CA8:
 	ldr r0, _021E1D34 ; =ov05_021E1E58
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	add sp, #0x14
 	pop {r3, r4, pc}
@@ -747,7 +747,7 @@ _021E2032:
 	ldr r0, _021E2090 ; =ov05_021E229C
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	add sp, #0x14
 	pop {r3, r4, pc}
@@ -1338,7 +1338,7 @@ _021E2496:
 	ldr r0, _021E253C ; =ov05_021E25A4
 	add r1, r5, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	add sp, #0x14
 	pop {r4, r5, pc}
@@ -1660,7 +1660,7 @@ _021E270A:
 	ldr r0, _021E2798 ; =ov05_021E1E58
 	add r1, r5, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r5, #4]
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}

@@ -125,7 +125,7 @@ _0225D74C:
 	ldr r0, _0225D7B0 ; =ov11_0225D828
 	ldr r2, _0225D7B4 ; =0x000003E7
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #4]
 	add r0, r4, #0
 	add sp, #0x38
