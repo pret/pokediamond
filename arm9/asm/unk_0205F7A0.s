@@ -251,7 +251,7 @@ _0205F962:
 _0205F98C:
 	ldrb r1, [r6, #0x1]
 	add r0, r7, #0x0
-	bl FlagCheck
+	bl FieldSystem_FlagCheck
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1e
@@ -298,7 +298,7 @@ _0205F9BE:
 _0205F9E8:
 	ldrb r1, [r6, #0x3]
 	add r0, r7, #0x0
-	bl FlagCheck
+	bl FieldSystem_FlagCheck
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1e

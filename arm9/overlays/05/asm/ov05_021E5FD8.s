@@ -129,7 +129,7 @@ _021E60D2:
 	add r0, r5, #0
 	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
-	bl MapObject_GetFieldSysPtr
+	bl MapObject_GetFieldSystem
 	mov r0, #1
 	mov r1, #0
 	str r0, [sp]
@@ -385,7 +385,7 @@ _021E62C4:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _021E62D4:
-	bl sub_02058458
+	bl MapObject_GetSpriteID
 	cmp r0, #0x54
 	beq _021E62E0
 	mov r0, #0
@@ -1166,7 +1166,7 @@ _021E6916:
 	mov r0, #0
 	pop {r4, pc}
 _021E692C:
-	bl sub_02058458
+	bl MapObject_GetSpriteID
 	cmp r0, #0x76
 	beq _021E6938
 	mov r0, #0
@@ -1175,7 +1175,7 @@ _021E6938:
 	add r0, r4, #0
 	bl ov05_021F1AF8
 	add r0, r4, #0
-	bl sub_02057654
+	bl MapObject_Remove
 	ldr r0, _021E6950 ; =0x0000065B
 	bl PlaySE
 	mov r0, #0
@@ -1433,7 +1433,7 @@ ov05_021E6B1C: ; 0x021E6B1C
 	pop {r3, r4, r5, pc}
 _021E6B2E:
 	ldr r0, [r5, #0x14]
-	bl sub_020584D4
+	bl MapObject_GetNextFacingDirection
 	add r4, r0, #0
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0
@@ -1647,14 +1647,14 @@ ov05_021E6CC4: ; 0x021E6CC4
 	sub sp, #0x18
 	add r5, r0, #0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0
 	mov r0, #0
 	bl sub_02059BF4
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r6, r0, #0
 	mov r0, #0
 	bl sub_02059C00
@@ -1680,7 +1680,7 @@ ov05_021E6CC4: ; 0x021E6CC4
 	str r6, [r5, #0x14]
 	ldr r0, [r5, #0x3c]
 	add r1, sp, #0xc
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #0x14]
 	ldr r0, [r5, #0x30]
 	cmp r1, r0
@@ -1737,7 +1737,7 @@ ov05_021E6D80: ; 0x021E6D80
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x20]
 	add r1, r1, r0
@@ -1749,7 +1749,7 @@ ov05_021E6D80: ; 0x021E6D80
 _021E6D9E:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -1772,7 +1772,7 @@ ov05_021E6DC0: ; 0x021E6DC0
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x20]
 	add r1, r1, r0
@@ -1793,7 +1793,7 @@ _021E6DDE:
 _021E6DEE:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -1817,13 +1817,13 @@ _021E6E12:
 _021E6E1E:
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0xc]
-	bl sub_02058B30
+	bl MapObject_SetCurrentX
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x10]
-	bl sub_02058B40
+	bl MapObject_SetCurrentHeight
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x14]
-	bl sub_02058B50
+	bl MapObject_SetCurrentY
 	ldr r0, [r4, #0x3c]
 	bl sub_02059C60
 	ldr r0, [r4, #0x50]
@@ -1878,14 +1878,14 @@ ov05_021E6E90: ; 0x021E6E90
 	sub sp, #0x18
 	add r5, r0, #0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0
 	mov r0, #1
 	bl sub_02059BF4
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	add r6, r0, #0
 	mov r0, #1
 	bl sub_02059C00
@@ -1913,7 +1913,7 @@ ov05_021E6E90: ; 0x021E6E90
 	str r6, [r5, #0x14]
 	ldr r0, [r5, #0x3c]
 	add r1, sp, #0xc
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #0x14]
 	ldr r0, [r5, #0x30]
 	cmp r1, r0
@@ -1970,7 +1970,7 @@ ov05_021E6F50: ; 0x021E6F50
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #8]
 	ldr r0, [r4, #0x24]
 	add r1, r1, r0
@@ -1988,7 +1988,7 @@ _021E6F70:
 _021E6F78:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -2012,7 +2012,7 @@ ov05_021E6F9C: ; 0x021E6F9C
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x20]
 	add r1, r1, r0
@@ -2039,7 +2039,7 @@ _021E6FCC:
 _021E6FD4:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl sub_02058B6C
+	bl MapObject_SetPositionVec
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -2063,13 +2063,13 @@ _021E6FF8:
 _021E7004:
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0xc]
-	bl sub_02058B30
+	bl MapObject_SetCurrentX
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x10]
-	bl sub_02058B40
+	bl MapObject_SetCurrentHeight
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x14]
-	bl sub_02058B50
+	bl MapObject_SetCurrentY
 	ldr r0, [r4, #0x3c]
 	bl sub_02059C60
 	ldr r0, [r4, #0x50]
@@ -2184,7 +2184,7 @@ ov05_021E70F0: ; 0x021E70F0
 	cmp r0, #0
 	bne _021E7136
 	add r0, r5, #0
-	bl sub_02058458
+	bl MapObject_GetSpriteID
 	sub r0, #0xc4
 	cmp r0, #1
 	bls _021E7136
@@ -2216,7 +2216,7 @@ ov05_021E7138: ; 0x021E7138
 	cmp r0, #0
 	bne _021E7180
 	add r0, r5, #0
-	bl sub_02058458
+	bl MapObject_GetSpriteID
 	cmp r0, #0xc4
 	beq _021E7162
 	cmp r0, #0xc5
@@ -2271,7 +2271,7 @@ _021E7198:
 	ldr r0, _021E71E0 ; =ov05_021E7218
 	ldr r2, _021E71E4 ; =0x0000FFFF
 	add r1, r4, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r4, r0, #0
 	bne _021E71DA
 	bl GF_AssertFail
@@ -2380,7 +2380,7 @@ ov05_021E727C: ; 0x021E727C
 	add r5, r0, #0
 	add r0, r4, #0
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058578
+	bl MapObject_GetManager
 	ldr r2, [sp]
 	add r1, r6, r7
 	add r2, r2, r5

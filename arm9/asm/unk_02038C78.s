@@ -1982,8 +1982,8 @@ _020394FE:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start sub_02039504
-sub_02039504: ; 0x02039504
+	thumb_func_start FieldSystem_VarGetObjectEventGraphicsId
+FieldSystem_VarGetObjectEventGraphicsId: ; 0x02039504
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -2001,8 +2001,8 @@ _02039512:
 	nop
 _02039524: .word 0x00004020
 
-	thumb_func_start FlagCheck
-FlagCheck: ; 0x02039528
+	thumb_func_start FieldSystem_FlagCheck
+FieldSystem_FlagCheck: ; 0x02039528
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -2152,8 +2152,8 @@ _0203963C:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start TrainerFlagCheck
-TrainerFlagCheck: ; 0x02039640
+	thumb_func_start TrainerFieldSystem_FlagCheck
+TrainerFieldSystem_FlagCheck: ; 0x02039640
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -2385,7 +2385,7 @@ _020397EC:
 	bl sub_02039694
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl FlagCheck
+	bl FieldSystem_FlagCheck
 	cmp r0, #0x0
 	bne _0203984C
 	ldr r1, [r4, #0x4]

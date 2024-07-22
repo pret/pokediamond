@@ -166,7 +166,7 @@ _0203714A:
 	bl sub_02039694
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FlagCheck
+	bl FieldSystem_FlagCheck
 	cmp r0, #0x1
 	beq _02037160
 	mov r0, #0x1
@@ -313,7 +313,7 @@ _02037244:
 	cmp r0, #0x1
 	bne _02037260
 	ldr r0, [r4, #0x0]
-	bl sub_02058458
+	bl MapObject_GetSpriteID
 	sub r0, #0x5b
 	cmp r0, #0x5
 	bhi _02037260

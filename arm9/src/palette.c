@@ -209,9 +209,7 @@ u32 sub_02003210(struct PaletteData *paletteData,
             paletteData->unk118_0 = 1;
             paletteData->unk11c = 0;
 
-            sub_0200CA44((void (*)(u32, void *))sub_02003464,
-                (void *)paletteData,
-                (u32)(-2));
+            SysTask_CreateOnMainQueue((SysTaskFunc)sub_02003464, (void *)paletteData, (u32)(-2));
         }
     }
 
@@ -291,7 +289,7 @@ void sub_020033A4(struct PaletteFadeControl *paletteFade,
     paletteFade->yDec = 1;
 }
 
-void sub_02003464(u32 param0, struct PaletteData *param1)
+void sub_02003464(SysTask *task, struct PaletteData *param1)
 {
     if (param1->unk11c == 1)
     {
@@ -299,7 +297,7 @@ void sub_02003464(u32 param0, struct PaletteData *param1)
         param1->unk11a_0 = 0;
         param1->activeFadePalettes = 0;
         param1->unk11a_e = 0;
-        sub_0200CAB4((s32)param0);
+        sub_0200CAB4((s32)task);
         return;
     }
 
@@ -312,7 +310,7 @@ void sub_02003464(u32 param0, struct PaletteData *param1)
         if (param1->activeFadePalettes == 0)
         {
             param1->unk11a_e = 0;
-            sub_0200CAB4((s32)param0);
+            sub_0200CAB4((s32)task);
         }
     }
 }

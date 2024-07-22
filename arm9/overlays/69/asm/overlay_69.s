@@ -2183,7 +2183,7 @@ _0222E77E:
 	ldr r0, _0222E7BC ; =ov69_0222E7C0
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp, #0xc]
 	str r0, [r7, r1]
 	add sp, #0x10
@@ -2291,7 +2291,7 @@ _0222E860:
 	str r2, [r4, #0x30]
 	ldr r0, _0222E898 ; =ov69_0222E9AC
 	str r2, [r4, #0x34]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp, #4]
 	str r0, [r6, r1]
 	add sp, #8
@@ -2844,7 +2844,7 @@ _0222ECF4:
 	ldr r0, _0222ED2C ; =ov69_0222ED30
 	add r1, r4, #0
 	mov r2, #0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r2, [sp, #0xc]
 	ldr r1, [sp, #0x10]
 	str r0, [r2, r1]
@@ -3606,7 +3606,7 @@ _0222F320:
 	str r2, [r0]
 	ldr r0, _0222F35C ; =ov69_0222F388
 	ldr r1, [sp, #0x28]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

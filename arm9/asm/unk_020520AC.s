@@ -200,7 +200,7 @@ _0205211E:
 	ldr r0, _02052174 ; =sub_02052308
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0xc]
 	str r5, [r4, #0x0]
 	str r6, [r4, #0x4]

@@ -57,7 +57,7 @@ sub_02063964: ; 0x02063964
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	beq _020639B6
-	bl sub_02058458
+	bl MapObject_GetSpriteID
 	cmp r0, #0x54
 	beq _0206399A
 	cmp r0, #0x55

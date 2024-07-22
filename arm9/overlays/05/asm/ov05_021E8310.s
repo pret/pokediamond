@@ -366,7 +366,7 @@ Field_SaveStatsPrinter_Delete: ; 0x021E85E4
 Field_SaveGame: ; 0x021E85FC
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_02034E48
+	bl FieldSystem_SyncMapObjectsToSave
 	add r0, r4, #0
 	mov r1, #4
 	mov r2, #0

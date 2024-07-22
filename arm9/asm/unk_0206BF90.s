@@ -47,11 +47,11 @@ sub_0206BF90: ; 0x0206BF90
 	ldr r0, _0206BFE8 ; =sub_0206C550
 	add r1, r4, #0x0
 	mov r2, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r0, _0206BFEC ; =sub_0206C5DC
 	add r1, r6, #0x0
 	mov r2, #0x0
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r4-r6, pc}
 	nop
 _0206BFE4: .word UNK_020F828C

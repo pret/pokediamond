@@ -173,13 +173,13 @@ _021EDCAE:
 	str r0, [r5, #0x20]
 _021EDCB8:
 	add r0, r6, #0
-	bl sub_02058B2C
+	bl MapObject_GetCurrentX
 	add r4, r0, #0
 	ldr r0, [r5, #4]
 	bl sub_02059BF4
 	add r7, r0, #0
 	add r0, r6, #0
-	bl sub_02058B4C
+	bl MapObject_GetCurrentY
 	str r0, [sp, #8]
 	ldr r0, [r5, #4]
 	bl sub_02059C00
@@ -191,7 +191,7 @@ _021EDCB8:
 	bl sub_02059E60
 	add r0, r6, #0
 	add r1, sp, #0x18
-	bl sub_02058B5C
+	bl MapObject_GetPositionVec
 	ldr r0, [sp, #0x1c]
 	add r1, sp, #0xc
 	str r0, [sp, #0x10]

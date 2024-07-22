@@ -129,7 +129,7 @@ _0225D4CE:
 	ldr r0, _0225D500 ; =ov11_0225D670
 	ldr r1, [sp]
 	ldr r2, _0225D504 ; =0x00009C40
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [sp]
 	str r0, [r1, #0x14]
 	add r0, r1, #0

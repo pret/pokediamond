@@ -3746,7 +3746,7 @@ ov05_021EFA08: ; 0x021EFA08
 	str r2, [r1, #0x1c]
 	ldr r0, _021EFA3C ; =ov05_021EF904
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021EFA3C: .word ov05_021EF904

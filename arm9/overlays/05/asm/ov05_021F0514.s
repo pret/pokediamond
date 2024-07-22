@@ -7,7 +7,7 @@
 ov05_021F0514: ; 0x021F0514
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_02058458
+	bl MapObject_GetSpriteID
 	cmp r0, #0x97
 	bgt _021F053E
 	bge _021F05B2
@@ -152,7 +152,7 @@ _021F061C:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 
@@ -186,7 +186,7 @@ _021F0658:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _021F0678:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -208,7 +208,7 @@ ov05_021F067C: ; 0x021F067C
 	cmp r7, #0
 	beq _021F06E6
 	add r0, r4, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	str r0, [sp, #4]
 	add r0, r4, #0
 	bl sub_0205854C
@@ -660,7 +660,7 @@ ov05_021F0A04: ; 0x021F0A04
 
 	thumb_func_start ov05_021F0A28
 ov05_021F0A28: ; 0x021F0A28
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	str r0, [sp, #4]
 	add r0, r4, #0
 	bl sub_0205854C
@@ -808,7 +808,7 @@ _021F0B44:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021F0B58
@@ -840,7 +840,7 @@ _021F0B7A:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _021F0B9A:
 	pop {r3, r4, r5, pc}
 
@@ -860,7 +860,7 @@ ov05_021F0B9C: ; 0x021F0B9C
 	cmp r6, #0
 	beq _021F0C26
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	add r7, r0, #0
 	add r0, r5, #0
 	bl sub_0205854C
@@ -926,7 +926,7 @@ ov05_021F0C28: ; 0x021F0C28
 	cmp r4, #0
 	beq _021F0CEA
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	add r7, r0, #0
 	add r0, r5, #0
 	bl sub_0205854C
@@ -1067,7 +1067,7 @@ _021F0D5C:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058410
+	bl MapObject_SetFlagsBits
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021F0D70
@@ -1099,7 +1099,7 @@ _021F0D92:
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0x14
-	bl sub_02058418
+	bl MapObject_ClearFlagsBits
 _021F0DB2:
 	pop {r3, r4, r5, pc}
 
@@ -1120,7 +1120,7 @@ ov05_021F0DB4: ; 0x021F0DB4
 	cmp r7, #0
 	beq _021F0E1E
 	add r0, r4, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	str r0, [sp, #4]
 	add r0, r4, #0
 	bl sub_0205854C
@@ -1686,7 +1686,7 @@ ov05_021F1234: ; 0x021F1234
 	cmp r0, #0
 	beq _021F12B6
 	add r0, r7, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	str r0, [sp, #8]
 	add r0, r7, #0
 	bl sub_0205854C
@@ -1938,7 +1938,7 @@ ov05_021F1440: ; 0x021F1440
 	cmp r0, #1
 	beq _021F14B4
 	add r0, r4, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	str r0, [sp, #4]
 	add r0, r4, #0
 	bl sub_0205854C
@@ -2274,7 +2274,7 @@ ov05_021F16D4: ; 0x021F16D4
 	cmp r4, #0
 	beq _021F1734
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	add r7, r0, #0
 	strb r7, [r6]
 	add r0, r5, #0
@@ -2317,7 +2317,7 @@ ov05_021F1738: ; 0x021F1738
 	cmp r4, #0
 	beq _021F179C
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	strb r0, [r6]
 	add r0, r5, #0
 	bl sub_0205854C
@@ -2363,7 +2363,7 @@ ov05_021F17A0: ; 0x021F17A0
 	cmp r4, #0
 	beq _021F1836
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	add r7, r0, #0
 	add r0, r5, #0
 	bl sub_0205854C
@@ -2431,7 +2431,7 @@ ov05_021F1838: ; 0x021F1838
 	cmp r4, #0
 	beq _021F18A0
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	mov r1, #0
 	ldrsb r1, [r6, r1]
 	add r7, r0, #0
@@ -2479,7 +2479,7 @@ ov05_021F18A4: ; 0x021F18A4
 	cmp r4, #0
 	beq _021F191A
 	add r0, r5, #0
-	bl sub_020584C4
+	bl MapObject_GetFacingDirection
 	str r0, [sp]
 	add r0, r5, #0
 	bl sub_0205854C
@@ -2593,7 +2593,7 @@ ov05_021F19A4: ; 0x021F19A4
 	add r6, r1, #0
 	lsl r1, r4, #9
 	add r5, r0, #0
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F19B8
 	mov r4, #0
@@ -2601,13 +2601,13 @@ _021F19B8:
 	mov r1, #1
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #1
 	bne _021F19D6
 	mov r1, #2
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl sub_0205842C
+	bl MapObject_TestFlagsBits
 	cmp r0, #0
 	bne _021F19D6
 	mov r4, #0

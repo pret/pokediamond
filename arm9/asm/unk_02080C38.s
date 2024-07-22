@@ -2428,7 +2428,7 @@ _02081E46:
 	ldr r0, _02081EB4 ; =sub_02081680
 	add r1, r6, #0x0
 	mov r2, #0xa
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x6
 	lsl r1, r1, #0x6
 	str r0, [r6, r1]
@@ -2479,7 +2479,7 @@ _02081EE6:
 	ldr r0, _02081F04 ; =sub_02081F08
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r1, #0x6
 	lsl r1, r1, #0x6
 	str r0, [r4, r1]
@@ -3334,7 +3334,7 @@ _020824DC:
 	ldr r0, _02082504 ; =sub_0208251C
 	add r1, r5, #0x0
 	mov r2, #0x64
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x0]
 	ldr r0, _020824F0 ; =0x000019BC
 	str r4, [r5, r0]

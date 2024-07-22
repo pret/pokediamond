@@ -134,14 +134,14 @@ _021DC19A:
 	mov r2, #0
 	add r1, r5, #0
 	str r2, [r5, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	b _021DC1C2
 _021DC1B6:
 	ldr r0, _021DC1CC ; =ov05_021DC2A4
 	mov r2, #0
 	add r1, r5, #0
 	str r2, [r5, #0xc]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 _021DC1C2:
 	str r0, [r5, #0x14]
 	mov r0, #1
@@ -490,7 +490,7 @@ _021DC3F6:
 	ldr r0, _021DC470 ; =ov05_021DC474
 	add r1, r6, #0
 	mov r2, #0xa
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	add r6, #0xf8
 	str r0, [r6]
 	add sp, #0x1c
@@ -1136,7 +1136,7 @@ _021DC92E:
 	ldr r0, _021DC944 ; =ov05_021DCC38
 	add r1, r4, #0
 	mov r2, #1
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	str r0, [r4, #0x1c]
 	mov r0, #1
 	str r0, [r4, #0x14]
@@ -1180,7 +1180,7 @@ _021DC974:
 _021DC97E:
 	ldr r0, [r4, #0x20]
 	mov r2, #4
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	ldr r1, [r4, #0xc]
 	ldr r3, _021DCA34 ; =0x00000F48
 	str r0, [r1, r3]

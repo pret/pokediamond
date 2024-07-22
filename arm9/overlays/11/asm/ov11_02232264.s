@@ -3088,7 +3088,7 @@ ov11_02233A78: ; 0x02233A78
 	str r2, [r0, #0x48]
 	ldr r0, _02233AB4 ; =ov11_0223A79C
 	ldr r1, [r4, r1]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
@@ -3487,7 +3487,7 @@ ov11_02233D7C: ; 0x02233D7C
 	str r3, [r0, #0x2c]
 	ldr r0, _02233DC8 ; =ov11_0223B49C
 	ldr r1, [r4, r1]
-	bl sub_0200CA44
+	bl SysTask_CreateOnMainQueue
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
