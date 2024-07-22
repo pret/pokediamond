@@ -221,8 +221,8 @@ sub_02058348: ; 0x02058348
 _0205835E:
 	pop {r4, pc}
 
-	thumb_func_start MapObjectManager_GetMapObjectManager
-MapObjectManager_GetMapObjectManager: ; 0x02058360
+	thumb_func_start MapObjectManager_Get
+MapObjectManager_Get: ; 0x02058360
 	bx lr
 	.balign 4
 
@@ -697,12 +697,12 @@ MapObject_GetManager: ; 0x02058578
 
 	thumb_func_start sub_02058580
 sub_02058580: ; 0x02058580
-	ldr r3, _02058588 ; =MapObjectManager_GetMapObjectManager
+	ldr r3, _02058588 ; =MapObjectManager_Get
 	add r0, #0xb4
 	ldr r0, [r0, #0x0]
 	bx r3
 	.balign 4
-_02058588: .word MapObjectManager_GetMapObjectManager
+_02058588: .word MapObjectManager_Get
 
 	thumb_func_start sub_0205858C
 sub_0205858C: ; 0x0205858C

@@ -52,7 +52,7 @@ extern void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
 extern void sub_0205844C(LocalMapObject *object, u32 mapNo);
 extern void sub_020581B4(LocalMapObject *object);
 extern void MapObject_SetFlagsBits(LocalMapObject *object, MapObjectFlagBits bits);
-extern MapObjectManager *MapObjectManager_GetMapObjectManager(MapObjectManager *manager);
+extern MapObjectManager *MapObjectManager_Get(MapObjectManager *manager);
 extern void sub_0205836C(MapObjectManager *manager);
 extern void ObjectEvent_SetId(ObjectEvent *objectEvent, u32 id);
 extern void ObjectEvent_SetSprite(ObjectEvent *objectEvent, u32 sprite);
@@ -275,7 +275,7 @@ static LocalMapObject *MapObject_CreateFromObjectEvent(MapObjectManager *manager
     sub_020581B4(ret);
     MapObject_SetFlagsBits(ret, MAPOBJECTFLAG_UNK2);
     sub_02057CF0(manager, ret);
-    sub_0205836C(MapObjectManager_GetMapObjectManager(manager));
+    sub_0205836C(MapObjectManager_Get(manager));
     return ret;
 }
 
@@ -529,7 +529,7 @@ static void sub_02057AEC(MapObjectManager *manager, LocalMapObject *object) {
     sub_020581B4(object);
     sub_02057CF0(manager, object);
     sub_0205866C(object);
-    sub_0205836C(MapObjectManager_GetMapObjectManager(manager));
+    sub_0205836C(MapObjectManager_Get(manager));
 }
 
 static void sub_02057B34(LocalMapObject *object) {
