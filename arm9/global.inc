@@ -8030,6 +8030,17 @@
 .extern ov21_02254B10
 .extern ov21_02254B34
 .extern ov21_02254B40
+.extern ov24_02254854
+.extern ov24_022548F4
+.extern ov24_02254998
+.extern ov24_022549AC
+.extern ov24_022549F8
+.extern ov24_02254C64
+.extern ov24_02254D00
+.extern ov24_02254DC8
+.extern ov24_02254DDC
+.extern ov24_02254EE0
+.extern ov24_02254F28
 .extern ov26_02254BD4
 .extern ov26_02254C04
 .extern ov26_02254C10
