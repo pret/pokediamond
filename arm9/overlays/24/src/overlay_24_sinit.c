@@ -24,47 +24,74 @@ struct UnkStructOverlay24
 typedef struct UnkSubStructOverlay24 UnkSubStructOverlay24;
 struct UnkSubStructOverlay24
 {
-    u32 unk0;
-    BgConfig* unk4;
+    u32* unk0;
+    BgConfig* config;
     u32 unk8;
-    u8 unkC[0x70 - 12];
+    u8 unkC[0x5C];
+    u32* unk68;
+    u32* unk6C;
     Window *window;
 };
 typedef BOOL (*FnType02254918)(UnkStructOverlay24*);
 
-extern void Poketch_InitApp(void *func1, void *func2);
-extern void ov24_02254990();
+BOOL ov24_02254854(UnkStructOverlay24**, int, int, int);
 BOOL ov24_0225489C(UnkStructOverlay24*, u32, u32, u32);
-extern void ov24_02254918(void* arg0, UnkStructOverlay24* arg1);
-BOOL ov24_02254854(UnkStructOverlay24** arg0, int arg1, int arg2, int arg3);
-extern u32 ov20_02254130(void *, u32, void *, void*, u32);
-BOOL ov24_02254CA0(u32** arg0, u32* arg1);
-void ov24_022550F8(void);
-void ov24_02254960(int arg0, int arg1, int arg2, UnkStructOverlay24* arg3);
-void ov24_02254D48(u32*);
-void ov20_02254198(u32);
-void ov20_02252C14(u32, u32);
-void ov20_022529A0(u32);
-void ov24_022548F4(UnkStructOverlay24* arg0);
-void ov24_02254D8C(u32, u32);
-void ov24_0225499(UnkStructOverlay24* arg0);
-void ov24_02254998(UnkStructOverlay24* arg0, u8 arg1);
-u32 ov24_022549AC(UnkStructOverlay24* arg0);
-BOOL ov24_02254DB0(u32, u8);
-void ov20_0225298C(u32);
-u32 ov24_022549F8(UnkStructOverlay24* arg0);
-BOOL ov24_02254AD4(UnkStructOverlay24*);
-BOOL ov20_02252C08(u32);
+void ov24_022548F4(UnkStructOverlay24*);
+void ov24_02254918(void*, UnkStructOverlay24*);
+void ov24_02254960(int, int, int, UnkStructOverlay24*);
+void ov24_02254990(UnkStructOverlay24*);
+void ov24_02254998(UnkStructOverlay24*, u8);
+u32 ov24_022549AC(UnkStructOverlay24*);
+u32 ov24_022549F8(UnkStructOverlay24*);
 BOOL ov24_02254A70(UnkStructOverlay24*);
+BOOL ov24_02254AD4(UnkStructOverlay24*);
 void ov24_02254B20(UnkStructOverlay24*, u32, u32, u32, u32);
-BOOL ov24_02254A70(UnkStructOverlay24* arg0);
-extern BOOL ov20_02252B68(u32*, u32*);
-BOOL ov24_02254AD4(UnkStructOverlay24* arg0);
-BOOL ov24_02254C64(UnkStructOverlay24* arg0);
+BOOL ov24_02254C64(UnkStructOverlay24*);
+BOOL ov24_02254CA0(u32**, u32*);
+BOOL ov24_02254D00(UnkSubStructOverlay24*);
+void ov24_02254D48(UnkSubStructOverlay24*);
+void ov24_02254D8C(u32, u32);
+BOOL ov24_02254DB0(u32, u8);
 BOOL ov24_02254DBC(u32);
-BOOL ov24_02254CA(u32** arg0, u32 arg1);
-BOOL ov24_02254D00(u32* arg0);
-void ov24_02254DC8(void* arg0);
+void ov24_02254DC8(void*);
+void ov24_02254DDC(void*, void*);
+void ov24_02254EE0(u32, void*);
+void ov24_02254F28(int, void*);
+
+extern void Poketch_InitApp(void *func1, void *func2);
+extern u32 ov20_02254130(void *, u32, void *, void*, u32);
+extern void ov24_022550F8(void);
+extern void ov20_02254198(u32);
+extern void ov20_02252C14(u32, u32);
+extern void ov20_022529A0(u32);
+extern void ov24_0225499(UnkStructOverlay24*);
+extern void ov20_0225298C(u32);
+extern BOOL ov20_02252C08(u32);
+extern BOOL ov24_02254A70(UnkStructOverlay24*);
+extern BOOL ov20_02252B68(u32*, u32*);
+extern BOOL ov24_02254AD4(UnkStructOverlay24*);
+extern BOOL ov24_02254CA(u32**, u32);
+extern _s32_div_f(void);
+extern void ov20_022536F4(u32*, u32);
+extern u32 ov20_02252D34();
+extern u32 ov20_02252D24();
+extern BOOL sub_0208946C(u32, void*, u32);
+extern void sub_02089444(u32, void*, u32);
+extern void ov24_02255078(void*);
+extern void ov20_02252D7C(u32, u32);
+extern void ov20_02253F28(u32*, u32);
+extern void ov20_02252B28(u32);
+extern UnkSubStructOverlay24* ov20_022538A0(void*);
+extern void ov20_02253888(u32*, void*);
+extern BOOL (ov20_022537B8)(u32);
+extern BOOL (ov20_02253794)(u32, u8);
+extern void ov20_022537E0(u32*, u32, u32, u32, u32, u32, u32);
+
+extern FnType02254918 ov24_02255100[3];
+extern u32 ov24_0225516C[];
+extern const WindowTemplate ov24_0225510C;
+extern BgTemplate ov24_02255114;
+extern BgTemplate ov24_02255130;
 
 static void ov24_02254840(void)
 {
@@ -75,7 +102,7 @@ static void ov24_02254840(void)
 #include "sinit.h"
 
 BOOL ov24_02254854(UnkStructOverlay24** arg0, int arg1, int arg2, int arg3) {
-    UnkStructOverlay24* data = AllocFromHeap((HeapID)8, sizeof(UnkStructOverlay24));
+    UnkStructOverlay24* data = AllocFromHeap(HEAP_ID_8, sizeof(UnkStructOverlay24));
     if (data != 0) {
         if (ov24_0225489C(data, arg1, arg2, arg3) != 0) {
             if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, data, 1) != 0) {
@@ -105,11 +132,9 @@ BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
 
 void ov24_022548F4(UnkStructOverlay24* arg0) {
     ov20_02254198(arg0->unk16FC);
-    ov24_02254D48((u32*)(arg0->unk16F4));
+    ov24_02254D48((UnkSubStructOverlay24*)(arg0->unk16F4));
     FreeToHeap(arg0);
 }
-
-extern FnType02254918 ov24_02255100[3];
 
 void ov24_02254918(void* arg0, UnkStructOverlay24* arg1) {
     if (arg1->unk0 < 3) {
@@ -221,8 +246,6 @@ BOOL ov24_02254AD4(UnkStructOverlay24* arg0) {
     }
     return FALSE;
 }
-
-extern _s32_div_f(void);
 
 void asm ov24_02254B20(UnkStructOverlay24*, u32, u32, u32, u32) {
     push {r4, r5, r6, r7, lr}
@@ -417,116 +440,78 @@ BOOL ov24_02254C64(UnkStructOverlay24* arg0) {
     return FALSE;
 }
 
-void ov20_022536F4(u32*, u32);
-u32 ov20_02252D34();
-u32 ov20_02252D24();
-
 BOOL ov24_02254CA0(u32** arg0, u32* arg1) {
-    u32* data = AllocFromHeap((HeapID)8, 0x74);
+    u32* data = AllocFromHeap(HEAP_ID_8, 0x74);
     if (data != 0) {
-        if (GF_heap_c_dummy_return_true((HeapID)7) == 0) {
-            GF_AssertFail();
-        }
+        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
         ov20_022536F4(data + 2, 0x10);
-        if (GF_heap_c_dummy_return_true((HeapID)7) == 0) {
-            GF_AssertFail();
-        }
+        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
         data[0] = (u32)arg1;
         data[1] = ov20_02252D34();
         data[0x14] = ov20_02252D24();
-        if (GF_heap_c_dummy_return_true((HeapID)7) == 0) {
-            GF_AssertFail();
-        }
+        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
         arg0[0] = data;
         return TRUE;
     }
     return FALSE;
 }
 
-extern const WindowTemplate ov24_0225510C;
-BOOL sub_0208946C(u32, u32, u32);
-void sub_02089444(u32, u32, u32);
-BOOL ov24_02254D00(u32* arg0) {
-    arg0[0x1c] = (u32)AllocWindows((HeapID)8, 1);
-    if (arg0[0x1c]) {
-        AddWindow((BgConfig*)(arg0[1]), (Window*)(arg0[0x1c]), &ov24_0225510C);
-        if (sub_0208946C(*(u32*)(arg0[0] + 0x16e8), *(u32*)(arg0[0x1c] + 0xc), 0x2f80) == 0) {
-            FillWindowPixelBuffer((Window*)(arg0[0x1c]), 4);
+BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
+    arg0->window = AllocWindows(HEAP_ID_8, 1);
+    if (arg0->window) {
+        AddWindow(arg0->config, arg0->window, &ov24_0225510C);
+        if (sub_0208946C(arg0->unk0[0x5BA], arg0->window->pixelBuffer, 0x2f80) == 0) {
+            FillWindowPixelBuffer(arg0->window, 4);
         }
         return TRUE;
     }
     return FALSE;
 }
 
-void ov24_02254D48(u32* arg0) {
+void ov24_02254D48(UnkSubStructOverlay24* arg0) {
     if (arg0) {
-        if (GF_heap_c_dummy_return_true((HeapID)7) == 0) {
-            GF_AssertFail();
-        }
-        if (arg0[0x1c]) {
-            sub_02089444(*(u32*)(arg0[0] + 0x16e8), *(u32*)(arg0[0x1c] + 0xc), 0x2f80);
-            RemoveWindow((Window*)arg0[0x1c]);
-            FreeToHeap((Window*)arg0[0x1c]);
+        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
+        if (arg0->window) {
+            sub_02089444(arg0->unk0[0x5BA], arg0->window->pixelBuffer, 0x2f80);
+            RemoveWindow(arg0->window);
+            FreeToHeap(arg0->window);
         }
         FreeToHeap(arg0);
     }
 }
 
-extern u32 ov24_0225516C[];
-void ov20_022537E0(u32*, u32, u32, u32, u32, u32, u32);
 void ov24_02254D8C(u32 arg0, u32 arg1) {
     ov20_022537E0(ov24_0225516C, arg1, arg0, *(u32*)(arg0), arg0 + 8, 2, 8);
 }
 
-extern BOOL (ov20_02253794)(u32, u8);
 BOOL ov24_02254DB0(u32 arg0, u8 arg1) {
     return (*ov20_02253794)(arg0 + 8, arg1);
 }
-extern BOOL (ov20_022537B8)(u32);
+
 BOOL ov24_02254DBC(u32 arg0) {
     return (*ov20_022537B8)(arg0 + 8);
 }
-
-UnkSubStructOverlay24* ov20_022538A0(void*);
-
-void ov20_02253888(u32*, void*);
 
 void ov24_02254DC8(void* arg0) {
     ov20_02253888(&(ov20_022538A0(arg0)->unk8), arg0);
 }
 
-void ov24_02254DDC(void* arg0, void* arg1);
-void ov24_02255078(void*);
-void ov20_02252D7C(u32, u32);
-extern BgTemplate ov24_02255114;
-extern BgTemplate ov24_02255130;
-
 void ov24_02254DDC(void* arg0, void* arg1) {
-    if (GF_heap_c_dummy_return_true((HeapID)8) == 0) {
-        GF_AssertFail();
-    }
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
     UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
-    InitBgFromTemplate(v0->unk4, 6, &ov24_02255114, 0);
-    InitBgFromTemplate(v0->unk4, 7, &ov24_02255130, 0);
-    if (GF_heap_c_dummy_return_true((HeapID)8) == 0) {
-        GF_AssertFail();
-    }   
-    GfGfxLoader_LoadCharData((NarcId)0xc,0x1e,v0->unk4,6,0,0,1,(HeapID)8);
-    GfGfxLoader_LoadScrnData((NarcId)0xc,0x1f,v0->unk4,6,0,0,1,(HeapID)8);
+    InitBgFromTemplate(v0->config, 6, &ov24_02255114, 0);
+    InitBgFromTemplate(v0->config, 7, &ov24_02255130, 0);
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));   
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH,0x1e,v0->config,6,0,0,1,HEAP_ID_8);
+    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH,0x1f,v0->config,6,0,0,1,HEAP_ID_8);
     ov20_02252D7C(0,0);
-    if (GF_heap_c_dummy_return_true((HeapID)8) == 0) {
-        GF_AssertFail();
-    }
-    ov24_02254D00((u32*)v0);
-    CopyWindowToVram(*(Window**)((u32)v0 + 0x70));
-    if (GF_heap_c_dummy_return_true((HeapID)8) == 0) {
-        GF_AssertFail();
-    }
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
+    ov24_02254D00(v0);
+    CopyWindowToVram(v0->window);
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
     ov24_02255078(v0);
-    if (GF_heap_c_dummy_return_true((HeapID)8) == 0) {
-        GF_AssertFail();
-    }
-    BgCommitTilemapBufferToVram(v0->unk4, 7);
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
+    BgCommitTilemapBufferToVram(v0->config, 7);
     u32 v1 = reg_GXS_DB_DISPCNT;
     u32 v2 = reg_GXS_DB_DISPCNT;
     vu32 tmp = v1;
@@ -543,29 +528,22 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     // u32 v1 = dispcnt.visiblePlane | ~0x1F00;
     // reg_GXS_DB_DISPCNT = (reg_GXS_DB_DISPCNT & ~0x1F00) | (v1 << 19);
     ov24_02254DC8(arg1);
-    if (GF_heap_c_dummy_return_true((HeapID)8) == 0) {
-        GF_AssertFail();
-    }
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
 }
 
-void ov24_02254EE0(u32 arg0, void* arg1);
-void ov20_02253F28(u32*, u32);
-void ov20_02252B28(u32);
-
 void ov24_02254EE0(u32 arg0, void* arg1) {
-    u32** v0 = (u32**)ov20_022538A0(arg1);
-    if (**v0 == 1) {
-        ov20_02253F28(v0[0x1a], 0);
-        ov20_02253F28(v0[0x1b], 3);
+    UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
+    if (*(v0->unk0) == 1) {
+        ov20_02253F28(v0->unk68, 0);
+        ov20_02253F28(v0->unk6C, 3);
     } else {
-        ov20_02253F28(v0[0x1a], 1);
-        ov20_02253F28(v0[0x1b], 2);
+        ov20_02253F28(v0->unk68, 1);
+        ov20_02253F28(v0->unk6C, 2);
     }
     ov20_02252B28(0x663);
     ov24_02254DC8(arg1);
 }
 
-extern void ov24_02254F28(int arg0, void* arg1);
 void ov24_02254F28(int arg0, void* arg1) {
     UnkSubStructOverlay24* a0 = ov20_022538A0(arg1);
     CopyWindowPixelsToVram_TextMode(a0->window);
