@@ -50,8 +50,8 @@ void ov24_02254918(void*, UnkStructOverlay24*);
 void ov24_02254960(int, int, int, UnkStructOverlay24*);
 void ov24_02254990(UnkStructOverlay24*);
 void ov24_02254998(UnkStructOverlay24*, u8);
-u32 ov24_022549AC(UnkStructOverlay24*);
-u32 ov24_022549F8(UnkStructOverlay24*);
+BOOL ov24_022549AC(UnkStructOverlay24*);
+BOOL ov24_022549F8(UnkStructOverlay24*);
 BOOL ov24_02254A70(UnkStructOverlay24*);
 BOOL ov24_02254AD4(UnkStructOverlay24*);
 void ov24_02254B20(UnkStructOverlay24*, u32, u32, u32, u32);
@@ -74,7 +74,6 @@ void ov24_022550D4(UnkSubStructOverlay24* arg0);
 
 extern void Poketch_InitApp(void *func1, void *func2);
 extern u32 ov20_02254130(void *, u32, void *, void*, u32);
-extern void ov24_022550F8(void);
 extern void ov20_02254198(u32);
 extern void ov20_02252C14(u32, u32);
 extern void ov20_022529A0(u32);
@@ -185,7 +184,7 @@ void ov24_02254998(UnkStructOverlay24* arg0, u8 arg1) {
     arg0->unk1 = 0;
 }
 
-u32 ov24_022549AC(UnkStructOverlay24* arg0) {
+BOOL ov24_022549AC(UnkStructOverlay24* arg0) {
     switch (arg0->unk1) {
         case 0:
             ov24_02254D8C(arg0->unk16F4, 0);
@@ -200,10 +199,10 @@ u32 ov24_022549AC(UnkStructOverlay24* arg0) {
         default:
             break;
     }
-    return 0;
+    return FALSE;
 }
 
-u32 ov24_022549F8(UnkStructOverlay24* arg0) {
+BOOL ov24_022549F8(UnkStructOverlay24* arg0) {
     if (arg0->unk2 != 0) {
         ov24_02254998(arg0, 2);
     }
@@ -228,7 +227,7 @@ u32 ov24_022549F8(UnkStructOverlay24* arg0) {
         }
         break;
     }
-    return 0;
+    return FALSE;
 }
 
 BOOL ov24_02254A70(UnkStructOverlay24* arg0) {
