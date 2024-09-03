@@ -1293,7 +1293,7 @@ ov23_022551A4: ; 0x022551A4
 	add r4, r0, #0
 	ldrh r5, [r5]
 	ldr r0, _022551F8 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	lsl r3, r5, #2
 	ldr r0, _022551FC ; =ov23_02255FB9
 	ldr r2, _02255200 ; =ov23_02255FFC

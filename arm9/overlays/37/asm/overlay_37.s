@@ -569,7 +569,7 @@ ov37_02254C44: ; 0x02254C44
 	pop {r4, r5, r6, pc}
 _02254C6C:
 	ldr r0, _02254D18 ; =0x00000675
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldr r0, [r4, #0x24]
 	mov r1, #0
 	bl ov20_02253F28
@@ -617,13 +617,13 @@ _02254C9E:
 	cmp r1, r0
 	ldr r0, _02254D24 ; =0x00000676
 	bge _02254CE0
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	mov r0, #9
 	lsl r0, r0, #0x10
 	str r0, [r4, #0x3c]
 	b _02254D02
 _02254CE0:
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldr r0, [r6]
 	cmp r0, #0
 	beq _02254CEE

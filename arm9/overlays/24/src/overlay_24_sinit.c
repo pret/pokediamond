@@ -3,6 +3,19 @@
 #include "unk_0200CA44.h"
 #include "gf_gfx_loader.h"
 
+typedef struct UnkSubStructOverlay24 UnkSubStructOverlay24;
+struct UnkSubStructOverlay24
+{
+    u32* unk0;
+    BgConfig* config;
+    u32 unk8;
+    u8 unkC[0x44];
+    u32 unk50;
+    u8 unk54[0x14];
+    u32* unk68;
+    u32* unk6C;
+    Window *window;
+};
 typedef struct UnkStructOverlay24 UnkStructOverlay24;
 struct UnkStructOverlay24
 {
@@ -12,25 +25,14 @@ struct UnkStructOverlay24
     u8 unk3;
     u32 unk4;
     u32 unk8;
-    u32 unkC;
-    u32 unk10;
-    u8 unk14[78][75];
+    u32 lastModifiedX;
+    u32 lastModifiedY;
+    u8 pixelData[78][75];
     u16 unk16ED;
     u32 unk16F0;
-    u32 unk16F4;
+    UnkSubStructOverlay24* unk16F4;
     u32 unk16F8;
     u32 unk16FC;
-};
-typedef struct UnkSubStructOverlay24 UnkSubStructOverlay24;
-struct UnkSubStructOverlay24
-{
-    u32* unk0;
-    BgConfig* config;
-    u32 unk8;
-    u8 unkC[0x5C];
-    u32* unk68;
-    u32* unk6C;
-    Window *window;
 };
 typedef BOOL (*FnType02254918)(UnkStructOverlay24*);
 
@@ -47,12 +49,12 @@ BOOL ov24_02254A70(UnkStructOverlay24*);
 BOOL ov24_02254AD4(UnkStructOverlay24*);
 void ov24_02254B20(UnkStructOverlay24*, u32, u32, u32, u32);
 BOOL ov24_02254C64(UnkStructOverlay24*);
-BOOL ov24_02254CA0(u32**, u32*);
+BOOL ov24_02254CA0(UnkSubStructOverlay24**, u32*);
 BOOL ov24_02254D00(UnkSubStructOverlay24*);
 void ov24_02254D48(UnkSubStructOverlay24*);
-void ov24_02254D8C(u32, u32);
-BOOL ov24_02254DB0(u32, u8);
-BOOL ov24_02254DBC(u32);
+void ov24_02254D8C(UnkSubStructOverlay24*, u32);
+BOOL ov24_02254DB0(UnkSubStructOverlay24*, u8);
+BOOL ov24_02254DBC(UnkSubStructOverlay24*);
 void ov24_02254DC8(void*);
 void ov24_02254DDC(void*, void*);
 void ov24_02254EE0(u32, void*);
@@ -68,7 +70,7 @@ extern void ov24_0225499(UnkStructOverlay24*);
 extern void ov20_0225298C(u32);
 extern BOOL ov20_02252C08(u32);
 extern BOOL ov24_02254A70(UnkStructOverlay24*);
-extern BOOL ov20_02252B68(u32*, u32*);
+extern BOOL TouchScreen_GetTapState(u32*, u32*);
 extern BOOL ov24_02254AD4(UnkStructOverlay24*);
 extern BOOL ov24_02254CA(u32**, u32);
 extern _s32_div_f(void);
@@ -80,12 +82,12 @@ extern void sub_02089444(u32, void*, u32);
 extern void ov24_02255078(void*);
 extern void ov20_02252D7C(u32, u32);
 extern void ov20_02253F28(u32*, u32);
-extern void ov20_02252B28(u32);
+extern void Poketch_PlaySoundEffect(u32);
 extern UnkSubStructOverlay24* ov20_022538A0(void*);
 extern void ov20_02253888(u32*, void*);
-extern BOOL (ov20_022537B8)(u32);
-extern BOOL (ov20_02253794)(u32, u8);
-extern void ov20_022537E0(u32*, u32, u32, u32, u32, u32, u32);
+extern BOOL (ov20_022537B8)(void*);
+extern BOOL (ov20_02253794)(void*, u8);
+extern void ov20_022537E0(u32*, u32, void*, void*, void*, u32, u32);
 
 extern FnType02254918 ov24_02255100[3];
 extern u32 ov24_0225516C[];
@@ -102,7 +104,7 @@ static void ov24_02254840(void)
 #include "sinit.h"
 
 BOOL ov24_02254854(UnkStructOverlay24** arg0, int arg1, int arg2, int arg3) {
-    UnkStructOverlay24* data = AllocFromHeap(HEAP_ID_8, sizeof(UnkStructOverlay24));
+    UnkStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkStructOverlay24));
     if (data != 0) {
         if (ov24_0225489C(data, arg1, arg2, arg3) != 0) {
             if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, data, 1) != 0) {
@@ -118,7 +120,7 @@ BOOL ov24_02254854(UnkStructOverlay24** arg0, int arg1, int arg2, int arg3) {
 BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
     arg0->unk16F0 = arg3;
     arg0->unk8 = 1;
-    if (ov24_02254CA0((u32**)&(arg0->unk16F4), &(arg0->unk8))) {
+    if (ov24_02254CA0(&(arg0->unk16F4), &(arg0->unk8))) {
         arg0->unk0 = 0;
         arg0->unk1 = 0;
         arg0->unk2 = 0;
@@ -132,7 +134,7 @@ BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
 
 void ov24_022548F4(UnkStructOverlay24* arg0) {
     ov20_02254198(arg0->unk16FC);
-    ov24_02254D48((UnkSubStructOverlay24*)(arg0->unk16F4));
+    ov24_02254D48(arg0->unk16F4);
     FreeToHeap(arg0);
 }
 
@@ -198,10 +200,10 @@ u32 ov24_022549F8(UnkStructOverlay24* arg0) {
             break;
         }
         if (arg0->unk3) {
-            u32 unkC = arg0->unkC;
-            u32 unk10 = arg0->unk10;
+            u32 x = arg0->lastModifiedX;
+            u32 y = arg0->lastModifiedY;
             if (ov24_02254AD4(arg0)) {
-                ov24_02254B20(arg0, unkC, unk10, arg0->unkC, arg0->unk10);
+                ov24_02254B20(arg0, x, y, arg0->lastModifiedX, arg0->lastModifiedY);
             } else {
                 arg0->unk3 = 0;
             }
@@ -218,14 +220,14 @@ u32 ov24_022549F8(UnkStructOverlay24* arg0) {
 
 BOOL ov24_02254A70(UnkStructOverlay24* arg0) {
     u32 x, y;
-    if (ov20_02252B68(&x, &y)) {
+    if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            if (arg0->unk14[x][y] != arg0->unk8) {
-                arg0->unk14[x][y] = arg0->unk8;
-                arg0->unkC = x;
-                arg0->unk10 = y;
+            if (arg0->pixelData[x][y] != arg0->unk8) {
+                arg0->pixelData[x][y] = arg0->unk8;
+                arg0->lastModifiedX = x;
+                arg0->lastModifiedY = y;
                 return TRUE;
             }
          }
@@ -235,12 +237,12 @@ BOOL ov24_02254A70(UnkStructOverlay24* arg0) {
 
 BOOL ov24_02254AD4(UnkStructOverlay24* arg0) {
     u32 x, y;
-    if (ov20_02252B68(&x, &y)) {
+    if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            arg0->unkC = x;
-            arg0->unk10 = y;
+            arg0->lastModifiedX = x;
+            arg0->lastModifiedY = y;
             return TRUE;
         }
     }
@@ -440,16 +442,16 @@ BOOL ov24_02254C64(UnkStructOverlay24* arg0) {
     return FALSE;
 }
 
-BOOL ov24_02254CA0(u32** arg0, u32* arg1) {
-    u32* data = AllocFromHeap(HEAP_ID_8, 0x74);
+BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, u32* arg1) {
+    UnkSubStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkSubStructOverlay24));
     if (data != 0) {
-        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
-        ov20_022536F4(data + 2, 0x10);
-        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
-        data[0] = (u32)arg1;
-        data[1] = ov20_02252D34();
-        data[0x14] = ov20_02252D24();
-        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
+        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
+        ov20_022536F4(&(data->unk8), 0x10);
+        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
+        data->unk0 = arg1;
+        data->config = (BgConfig*)ov20_02252D34();
+        data->unk50 = ov20_02252D24();
+        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         arg0[0] = data;
         return TRUE;
     }
@@ -457,7 +459,7 @@ BOOL ov24_02254CA0(u32** arg0, u32* arg1) {
 }
 
 BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
-    arg0->window = AllocWindows(HEAP_ID_8, 1);
+    arg0->window = AllocWindows(HEAP_ID_POKETCH_APP, 1);
     if (arg0->window) {
         AddWindow(arg0->config, arg0->window, &ov24_0225510C);
         if (sub_0208946C(arg0->unk0[0x5BA], arg0->window->pixelBuffer, 0x2f80) == 0) {
@@ -470,7 +472,7 @@ BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
 
 void ov24_02254D48(UnkSubStructOverlay24* arg0) {
     if (arg0) {
-        GF_ASSERT(GF_heap_c_dummy_return_true((HeapID)7));
+        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         if (arg0->window) {
             sub_02089444(arg0->unk0[0x5BA], arg0->window->pixelBuffer, 0x2f80);
             RemoveWindow(arg0->window);
@@ -480,16 +482,16 @@ void ov24_02254D48(UnkSubStructOverlay24* arg0) {
     }
 }
 
-void ov24_02254D8C(u32 arg0, u32 arg1) {
-    ov20_022537E0(ov24_0225516C, arg1, arg0, *(u32*)(arg0), arg0 + 8, 2, 8);
+void ov24_02254D8C(UnkSubStructOverlay24* arg0, u32 arg1) {
+    ov20_022537E0(ov24_0225516C, arg1, arg0, arg0->unk0, &(arg0->unk8), 2, 8);
 }
 
-BOOL ov24_02254DB0(u32 arg0, u8 arg1) {
-    return (*ov20_02253794)(arg0 + 8, arg1);
+BOOL ov24_02254DB0(UnkSubStructOverlay24* arg0, u8 arg1) {
+    return (*ov20_02253794)(&(arg0->unk8), arg1);
 }
 
-BOOL ov24_02254DBC(u32 arg0) {
-    return (*ov20_022537B8)(arg0 + 8);
+BOOL ov24_02254DBC(UnkSubStructOverlay24* arg0) {
+    return (*ov20_022537B8)(&(arg0->unk8));
 }
 
 void ov24_02254DC8(void* arg0) {
@@ -497,20 +499,20 @@ void ov24_02254DC8(void* arg0) {
 }
 
 void ov24_02254DDC(void* arg0, void* arg1) {
-    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
     InitBgFromTemplate(v0->config, 6, &ov24_02255114, 0);
     InitBgFromTemplate(v0->config, 7, &ov24_02255130, 0);
-    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));   
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH,0x1e,v0->config,6,0,0,1,HEAP_ID_8);
-    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH,0x1f,v0->config,6,0,0,1,HEAP_ID_8);
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));   
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH,0x1e,v0->config,6,0,0,1,HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH,0x1f,v0->config,6,0,0,1,HEAP_ID_POKETCH_APP);
     ov20_02252D7C(0,0);
-    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     ov24_02254D00(v0);
     CopyWindowToVram(v0->window);
-    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     ov24_02255078(v0);
-    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     BgCommitTilemapBufferToVram(v0->config, 7);
     u32 v1 = reg_GXS_DB_DISPCNT;
     u32 v2 = reg_GXS_DB_DISPCNT;
@@ -528,7 +530,7 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     // u32 v1 = dispcnt.visiblePlane | ~0x1F00;
     // reg_GXS_DB_DISPCNT = (reg_GXS_DB_DISPCNT & ~0x1F00) | (v1 << 19);
     ov24_02254DC8(arg1);
-    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_8));
+    GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
 }
 
 void ov24_02254EE0(u32 arg0, void* arg1) {
@@ -540,7 +542,7 @@ void ov24_02254EE0(u32 arg0, void* arg1) {
         ov20_02253F28(v0->unk68, 1);
         ov20_02253F28(v0->unk6C, 2);
     }
-    ov20_02252B28(0x663);
+    Poketch_PlaySoundEffect(1635);
     ov24_02254DC8(arg1);
 }
 

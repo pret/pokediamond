@@ -7960,9 +7960,9 @@
 .extern ov20_022529A0
 .extern ov20_022529B4
 .extern ov20_02252B1C
-.extern ov20_02252B28
+.extern Poketch_PlaySoundEffect
 .extern ov20_02252B48
-.extern ov20_02252B68
+.extern TouchScreen_GetTapState
 .extern ov20_02252BB8
 .extern ov20_02252C08
 .extern ov20_02252C14

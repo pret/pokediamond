@@ -1386,7 +1386,7 @@ ov22_02255268: ; 0x02255268
 	mov r1, #6
 	bl BgCommitTilemapBufferToVram
 	ldr r0, _022552A8 ; =0x00000669
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov22_02255084
 	pop {r3, r4, r5, pc}
@@ -1482,7 +1482,7 @@ _02255358:
 	cmp r0, #0
 	beq _0225537A
 	ldr r0, _0225537C ; =0x00000669
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldrb r1, [r5, #3]
 	ldr r0, [r4, #4]
 	bl ov22_02255544
@@ -1543,7 +1543,7 @@ _022553D8:
 	cmp r0, #0
 	beq _022553FA
 	ldr r0, _022553FC ; =0x00000669
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldrb r1, [r5, #3]
 	ldr r0, [r4, #4]
 	bl ov22_02255544
@@ -1599,7 +1599,7 @@ _0225543A:
 	mov r1, #6
 	bl BgCommitTilemapBufferToVram
 	ldr r0, _02255498 ; =0x00000666
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r6, #0
 	bl ov20_022538B0
 _02255468:

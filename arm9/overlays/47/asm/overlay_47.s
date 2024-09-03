@@ -213,7 +213,7 @@ _022549CA:
 	b _022549DA
 _022549D4:
 	ldr r0, _022549E0 ; =0x0000066E
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 _022549DA:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
@@ -993,7 +993,7 @@ ov47_02254F58: ; 0x02254F58
 	add r0, r4, #0
 	bl ov47_022550FC
 	ldr r0, _02254F98 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov47_02254E60
 	pop {r3, r4, r5, pc}
@@ -1026,7 +1026,7 @@ ov47_02254F9C: ; 0x02254F9C
 	add r0, r4, #0
 	bl ov47_02255184
 	ldr r0, _02254FE4 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov47_02254E60
 	pop {r3, r4, r5, pc}
@@ -1059,7 +1059,7 @@ ov47_02254FE8: ; 0x02254FE8
 	add r0, r4, #0
 	bl ov47_022551D8
 	ldr r0, _02255030 ; =0x0000066E
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov47_02254E60
 	pop {r3, r4, r5, pc}
@@ -1092,7 +1092,7 @@ ov47_02255034: ; 0x02255034
 	add r0, r4, #0
 	bl ov47_02255250
 	ldr r0, _0225507C ; =0x0000066E
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov47_02254E60
 	pop {r3, r4, r5, pc}
@@ -1129,7 +1129,7 @@ ov47_02255080: ; 0x02255080
 	add r1, r6, #0
 	bl ov47_022552D8
 	ldr r0, _022550D4 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov47_02254E60
 	pop {r4, r5, r6, pc}

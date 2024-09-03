@@ -296,7 +296,7 @@ _02254A64:
 	add r1, r4, #0
 	add r0, #0x54
 	add r1, #0x58
-	bl ov20_02252B68
+	bl TouchScreen_GetTapState
 	add r1, r4, #0
 	add r1, #0x50
 	strh r0, [r1]
@@ -2153,7 +2153,7 @@ _02255836:
 	add r1, r6, #0
 	bl ov28_02255318
 	ldr r0, _0225591C ; =0x00000669
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r4, #0
 	add r0, #0x34
 	ldrb r0, [r0]

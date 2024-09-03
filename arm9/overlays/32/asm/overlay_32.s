@@ -534,7 +534,7 @@ ov32_02254C08: ; 0x02254C08
 	bl ov20_022538A4
 	add r4, r0, #0
 	ldr r0, _02254C50 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldr r0, [r4]
 	cmp r0, #0
 	ldr r0, [r5, #0x24]

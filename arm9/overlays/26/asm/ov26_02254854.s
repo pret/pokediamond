@@ -392,7 +392,7 @@ _02254B04:
 	beq _02254B90
 	add r0, sp, #4
 	add r1, sp, #0
-	bl ov20_02252B68
+	bl TouchScreen_GetTapState
 	cmp r0, #0
 	beq _02254B90
 	ldr r1, [sp, #4]
