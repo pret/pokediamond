@@ -8041,6 +8041,9 @@
 .extern ov24_02254DDC
 .extern ov24_02254EE0
 .extern ov24_02254F28
+.extern ov24_02254F40
+.extern ov24_02255038
+.extern ov24_02255050
 .extern ov26_02254BD4
 .extern ov26_02254C04
 .extern ov26_02254C10

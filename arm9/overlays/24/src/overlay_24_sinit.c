@@ -23,8 +23,7 @@ struct UnkSubStructOverlay24
     u8 unkC[0x44];
     u32 unk50;
     u8 unk54[0x14];
-    u32* unk68;
-    u32* unk6C;
+    u32* unk68[2];
     Window *window;
 };
 typedef struct UnkStructOverlay24 UnkStructOverlay24;
@@ -67,6 +66,11 @@ void ov24_02254DC8(void*);
 void ov24_02254DDC(void*, void*);
 void ov24_02254EE0(u32, void*);
 void ov24_02254F28(int, void*);
+void ov24_02254F40(u32 arg0, void* arg1);
+void ov24_02255038(u32 arg0, void* arg1);
+void ov24_02255050(u32 arg0, void* arg1);
+void ov24_02255078(UnkSubStructOverlay24* arg0);
+void ov24_022550D4(UnkSubStructOverlay24* arg0);
 
 extern void Poketch_InitApp(void *func1, void *func2);
 extern u32 ov20_02254130(void *, u32, void *, void*, u32);
@@ -77,27 +81,28 @@ extern void ov20_022529A0(u32);
 extern void ov24_0225499(UnkStructOverlay24*);
 extern void ov20_0225298C(u32);
 extern BOOL ov20_02252C08(u32);
-extern BOOL ov24_02254A70(UnkStructOverlay24*);
 extern BOOL TouchScreen_GetTapState(u32*, u32*);
-extern BOOL ov24_02254AD4(UnkStructOverlay24*);
-extern BOOL ov24_02254CA(u32**, u32);
 extern _s32_div_f(void);
 extern void ov20_022536F4(void*, u32);
 extern u32 ov20_02252D34();
 extern u32 ov20_02252D24();
 extern BOOL sub_0208946C(u32, void*, u32);
 extern void sub_02089444(u32, void*, u32);
-extern void ov24_02255078(void*);
 extern void ov20_02252D7C(u32, u32);
 extern void ov20_02253F28(u32*, u32);
 extern void Poketch_PlaySoundEffect(u32);
-extern UnkSubStructOverlay24* ov20_022538A0(void*);
+extern void* ov20_022538A0(void*);
 extern void ov20_02253888(u32*, void*);
 extern BOOL (ov20_022537B8)(void*);
 extern BOOL (ov20_02253794)(void*, u8);
 extern void ov20_022537E0(u32*, u32, void*, void*, void*, u32, u32);
+extern BOOL ov20_02253FBC(void*, NarcId, u32, u32, HeapID);
+extern u32* ov20_02253E74(u32, void*, void*);
+extern void ov20_02254014(void*);
+extern void ov20_02253F14(u32, void*);
 
 extern FnType02254918 ov24_02255100[3];
+extern u32 ov24_0225514C[2][4];
 extern u32 ov24_0225516C[];
 extern const WindowTemplate ov24_0225510C;
 extern BgTemplate ov24_02255114;
@@ -503,7 +508,7 @@ BOOL ov24_02254DBC(UnkSubStructOverlay24* arg0) {
 }
 
 void ov24_02254DC8(void* arg0) {
-    ov20_02253888(&(ov20_022538A0(arg0)->unk8), arg0);
+    ov20_02253888(&(((UnkSubStructOverlay24*)ov20_022538A0(arg0))->unk8), arg0);
 }
 
 void ov24_02254DDC(void* arg0, void* arg1) {
@@ -544,11 +549,11 @@ void ov24_02254DDC(void* arg0, void* arg1) {
 void ov24_02254EE0(u32 arg0, void* arg1) {
     UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
     if (v0->unk0->unk0 == 1) {
-        ov20_02253F28(v0->unk68, 0);
-        ov20_02253F28(v0->unk6C, 3);
+        ov20_02253F28(v0->unk68[0], 0);
+        ov20_02253F28(v0->unk68[1], 3);
     } else {
-        ov20_02253F28(v0->unk68, 1);
-        ov20_02253F28(v0->unk6C, 2);
+        ov20_02253F28(v0->unk68[0], 1);
+        ov20_02253F28(v0->unk68[1], 2);
     }
     Poketch_PlaySoundEffect(1635);
     ov24_02254DC8(arg1);
@@ -558,4 +563,71 @@ void ov24_02254F28(int arg0, void* arg1) {
     UnkSubStructOverlay24* a0 = ov20_022538A0(arg1);
     CopyWindowPixelsToVram_TextMode(a0->window);
     ov24_02254DC8(arg1);
+}
+
+void ov24_02254F40(u32 arg0, void* arg1) {
+    UnkSubStructOverlay24 *v0 = ov20_022538A0(arg1);
+    UnkSubStructOverlay24_1* v1 = v0->unk0;
+    if (v1->unk0 == 0) {
+        int width, height;
+        height = 8;
+        width = 8;
+        int x = v1->lastModifiedX * 2 - 4;
+        int y = v1->lastModifiedY * 2 - 4;
+        if (x < 0) {
+            width += x;
+            x = 0;
+        }
+        if (y < 0) {
+            height += y;
+            y = 0;
+        }
+        FillWindowPixelRect(v0->window, 4, x, y, width, height);
+        int a = (x >> 3) + (y >> 3) * 0x14;
+        int e = ((x + width - 1) >> 3) - (x >> 3) + 1;
+        int b = ((y + height - 1) >> 3) - (y >> 3) + 1;
+        while (b--) {
+            GXS_LoadBG3Char((u8*)(v0->window->pixelBuffer) + (a * 0x20), (a + 0xc) * 0x20, e * 0x20);
+            a += 0x14;
+        }
+    } else {
+        int height = 2;
+        int width = 2;
+        int x = v1->lastModifiedX * 2;
+        int y = v1->lastModifiedY * 2;
+        int a = (x >> 3) + ((y >> 3) * 0x14);
+        FillWindowPixelRect(v0->window, 1, x, y, width, height);
+        GXS_LoadBG3Char((u8*)(v0->window->pixelBuffer) + a * 0x20, (a + 0xc) * 0x20, 0x20);
+    }
+    ov24_02254DC8(arg1);
+}
+
+void ov24_02255038(u32 arg0, void* arg1) {
+    UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
+    CopyWindowPixelsToVram_TextMode(v0->window);
+    ov24_02254DC8(arg1);
+}
+
+void ov24_02255050(u32 arg0, void* arg1) {
+    UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
+    ov24_022550D4(v0);
+    FreeBgTilemapBuffer(v0->config, 6);
+    FreeBgTilemapBuffer(v0->config, 7);
+    ov24_02254DC8(arg1);
+}
+
+void ov24_02255078(UnkSubStructOverlay24* arg0) {
+    GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, 1, 0, 0, 1, HEAP_ID_POKETCH_APP);
+    if (ov20_02253FBC(&(arg0->unk54), NARC_GRAPHIC_POKETCH, 0x21, 0x22, HEAP_ID_POKETCH_APP)) {
+        for (int i = 0; i < 2; i++) {
+            arg0->unk68[i] = ov20_02253E74(arg0->unk50, &(ov24_0225514C[i]), &(arg0->unk54));
+        }
+    }
+}
+
+void ov24_022550D4(UnkSubStructOverlay24* arg0) {
+    for (u32 i = 0; i < 2; i++) {
+        ov20_02253F14(arg0->unk50, arg0->unk68[i]);
+    }
+    ov20_02254014(&(arg0->unk54));
 }
