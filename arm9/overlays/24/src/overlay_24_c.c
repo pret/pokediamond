@@ -194,182 +194,66 @@ BOOL ov24_02254AD4(UnkStructOverlay24* arg0) {
     return FALSE;
 }
 
-void asm ov24_02254B20(UnkStructOverlay24*, u32, u32, u32, u32) {
-    push {r4, r5, r6, r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0
-	ldr r0, [sp, #0x28]
-	add r4, r2, #0
-	add r6, r1, #0
-	str r3, [sp]
-	str r0, [sp, #0x28]
-	cmp r4, r0
-	bne _02254B3C
-	add r0, r3, #0
-	cmp r6, r0
-	bne _02254B3C
-	b _02254C5C
-_02254B3C:
-	ldr r0, [sp]
-	cmp r0, r6
-	bls _02254B46
-	sub r1, r0, r6
-	b _02254B48
-_02254B46:
-	sub r1, r6, r0
-_02254B48:
-	ldr r0, [sp, #0x28]
-	cmp r0, r4
-	bls _02254B52
-	sub r2, r0, r4
-	b _02254B54
-_02254B52:
-	sub r2, r4, r0
-_02254B54:
-	cmp r1, r2
-	bls _02254BD6
-	ldr r0, [sp]
-	cmp r0, r6
-	bls _02254B64
-	mov r0, #1
-	str r0, [sp, #4]
-	b _02254B6A
-_02254B64:
-	mov r0, #0
-	mvn r0, r0
-	str r0, [sp, #4]
-_02254B6A:
-	cmp r1, #0
-	beq _02254B7C
-	ldr r0, [sp, #0x28]
-	sub r0, r0, r4
-	lsl r0, r0, #0xc
-	bl _s32_div_f
-	str r0, [sp, #0x10]
-	b _02254B80
-_02254B7C:
-	mov r0, #0
-	str r0, [sp, #0x10]
-_02254B80:
-	ldr r0, [sp, #0x10]
-	lsl r1, r4, #0xc
-	add r7, r1, r0
-	ldr r0, [sp, #4]
-	add r6, r6, r0
-	ldr r0, [sp]
-	cmp r6, r0
-	beq _02254C40
-	mov r1, #0x4b
-	add r0, r6, #0
-	mul r0, r1
-	add r4, r5, r0
-	ldr r0, [sp, #4]
-	mul r1, r0
-	str r1, [sp, #0xc]
-_02254B9E:
-	asr r2, r7, #0xc
-	cmp r6, #0x4e
-	bhs _02254BC2
-	cmp r2, #0x4b
-	bhs _02254BC2
-	add r1, r4, r2
-	ldrb r0, [r1, #0x14]
-	ldr r3, [r5, #8]
-	cmp r3, r0
-	beq _02254BC2
-	strb r3, [r1, #0x14]
-	str r6, [r5, #0xc]
-	ldr r0, =0x000016F4
-	str r2, [r5, #0x10]
-	ldr r0, [r5, r0]
-	mov r1, #3
-	bl ov24_02254D8C
-_02254BC2:
-	ldr r0, [sp, #0xc]
-	add r4, r4, r0
-	ldr r0, [sp, #4]
-	add r6, r6, r0
-	ldr r0, [sp, #0x10]
-	add r7, r7, r0
-	ldr r0, [sp]
-	cmp r6, r0
-	bne _02254B9E
-	b _02254C40
-_02254BD6:
-	ldr r0, [sp, #0x28]
-	cmp r0, r4
-	bls _02254BE0
-	mov r7, #1
-	b _02254BE4
-_02254BE0:
-	mov r7, #0
-	mvn r7, r7
-_02254BE4:
-	cmp r2, #0
-	beq _02254BF8
-	ldr r0, [sp]
-	add r1, r2, #0
-	sub r0, r0, r6
-	lsl r0, r0, #0xc
-	bl _s32_div_f
-	str r0, [sp, #8]
-	b _02254BFC
-_02254BF8:
-	mov r0, #0
-	str r0, [sp, #8]
-_02254BFC:
-	ldr r0, [sp, #8]
-	lsl r1, r6, #0xc
-	add r6, r1, r0
-	ldr r0, [sp, #0x28]
-	add r4, r4, r7
-	cmp r4, r0
-	beq _02254C40
-_02254C0A:
-	asr r3, r6, #0xc
-	cmp r4, #0x4b
-	bhs _02254C34
-	cmp r3, #0x4e
-	bhs _02254C34
-	mov r0, #0x4b
-	mul r0, r3
-	add r0, r5, r0
-	add r2, r0, r4
-	ldrb r0, [r2, #0x14]
-	ldr r1, [r5, #8]
-	cmp r1, r0
-	beq _02254C34
-	strb r1, [r2, #0x14]
-	str r3, [r5, #0xc]
-	ldr r0, =0x000016F4
-	str r4, [r5, #0x10]
-	ldr r0, [r5, r0]
-	mov r1, #3
-	bl ov24_02254D8C
-_02254C34:
-	ldr r0, [sp, #8]
-	add r4, r4, r7
-	add r6, r6, r0
-	ldr r0, [sp, #0x28]
-	cmp r4, r0
-	bne _02254C0A
-_02254C40:
-	ldr r0, [sp, #0x28]
-	cmp r0, #0x4b
-	bhs _02254C5C
-	ldr r0, [sp]
-	cmp r0, #0x4e
-	bhs _02254C5C
-	str r0, [r5, #0xc]
-	ldr r0, [sp, #0x28]
-	mov r1, #3
-	str r0, [r5, #0x10]
-	ldr r0, =0x000016F4
-	ldr r0, [r5, r0]
-	bl ov24_02254D8C
-_02254C5C:
-	add sp, #0x14
-	pop {r4, r5, r6, r7, pc}
+void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
+    if (y0 == y1 && x0 == x1) {
+        return;
+    }
+    u32 dx = x1 > x0 ? x1 - x0 : x0 - x1;
+    u32 dy = y1 > y0 ? y1 - y0 : y0 - y1;
+    s32 direction, offset;
+    fx32 f, g;
+    if (dx > dy) {
+        direction = (x1 > x0) ? 1 : -1;
+        if (dx != 0) {
+            f = ((y1 - y0) * 0x1000);
+            f /= (s32)dx;
+        } else {
+            f = 0;
+        }
+        g = (y0 << 12) + f;
+        x0 += direction;
+        while (x0 != x1) {
+            offset = g >> 12;
+            if ((x0 < 0x4e) && ((u32)offset < 0x4b)) {
+                if (arg0->unk8.unk0 != arg0->unk8.pixelData[x0][offset]) {
+                    arg0->unk8.pixelData[x0][offset] = arg0->unk8.unk0;
+                    arg0->unk8.lastModifiedX = x0;
+                    arg0->unk8.lastModifiedY = offset;
+                    ov24_02254D8C(arg0->unk16F4, 3);
+                }
+            }
+            x0 += direction;
+            g += f;
+        }
+    } else {
+        direction = (y1 > y0) ? 1 : -1;
+        if (dy != 0) {
+            f = ((x1 - x0) * 0x1000);
+            f /= (s32)dy;
+        } else {
+            f = 0;
+        }
+        g = (x0 << 12) + f;
+        y0 += direction;
+        while (y0 != y1) {
+            offset = g >> 12;
+            if ((y0 < 0x4b) && ((u32)offset < 0x4e)) {
+                if (arg0->unk8.unk0 != arg0->unk8.pixelData[offset][y0]) {
+                    arg0->unk8.pixelData[offset][y0] = arg0->unk8.unk0;
+                    arg0->unk8.lastModifiedX = offset;
+                    arg0->unk8.lastModifiedY = y0;
+                    ov24_02254D8C(arg0->unk16F4, 3);
+                }
+            }
+            y0 += direction;
+            g += f;
+        }
+    }
+    if ((y1 < 75) && (x1 < 78)) {
+        arg0->unk8.lastModifiedX = x1;
+        arg0->unk8.lastModifiedY = y1;
+        ov24_02254D8C(arg0->unk16F4, 3);
+    }
 }
 
 BOOL ov24_02254C64(UnkStructOverlay24* arg0) {
