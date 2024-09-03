@@ -31,14 +31,17 @@ extern u32* ov20_02253E74(u32, void*, void*);
 extern void ov20_02254014(void*);
 extern void ov20_02253F14(u32, void*);
 
-// TODO: rodata
-extern const FnType02254918 ov24_02255100[3];
-extern const u32 ov24_0225514C[2][4];
-extern const u32 ov24_0225516C[];
-extern const u8 ov24_022550F8[];
+const FnType02254918 ov24_02255100[3] = {
+    ov24_022549AC, ov24_022549F8, ov24_02254C64
+};
+const u8 ov24_022550F8[] = {
+    0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
+};
 extern const WindowTemplate ov24_0225510C;
 extern const BgTemplate ov24_02255114;
 extern const BgTemplate ov24_02255130;
+extern const u32 ov24_0225514C[2][4];
+extern const u32 ov24_0225516C[];
 
 static void ov24_02254840(void)
 {
