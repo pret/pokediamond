@@ -16,12 +16,6 @@ extern void ov20_022536F4(void*, u32);
 extern u32 ov20_02252D34();
 extern u32 ov20_02252D24();
 
-extern const WindowTemplate ov24_0225510C;
-extern const BgTemplate ov24_02255114;
-extern const BgTemplate ov24_02255130;
-extern const u32 ov24_0225514C[2][4];
-extern const u32 ov24_0225516C[];
-
 static void ov24_02254840(void)
 {
     Poketch_InitApp(ov24_02254854, ov24_02254990);

@@ -19,68 +19,19 @@ extern u32* ov20_02253E74(u32, void*, void*);
 extern void ov20_02254014(void*);
 extern void ov20_02253F14(u32, void*);
 
-const WindowTemplate ov24_0225510C = {
-    .bgId = GF_BG_LYR_SUB_3,
-    .left = 2,
-    .top = 2,
-    .width = 20,
-    .height = 19,
-    .palette = 0,
-    .baseTile = 12,
-};
-const BgTemplate ov24_02255130 = {
-    .x = 0,
-    .y = 0,
-    .bufferSize = 0x800,
-    .baseTile = 0,
-    .size = 1,
-    .colorMode = 0,
-    .screenBase = GX_BG_SCRBASE_0x7800,
-    .charBase = GX_BG_CHARBASE_0x00000,
-    .bgExtPltt = 0,
-    .priority = 3,
-    .areaOver = 0,
-    .dummy = 0,
-    .mosaic = 0,
-};
-const BgTemplate ov24_02255114 = {
-    .x = 0,
-    .y = 0,
-    .bufferSize = 0,
-    .baseTile = 0,
-    .size = 1,
-    .colorMode = 0,
-    .screenBase = GX_BG_SCRBASE_0x7000,
-    .charBase = GX_BG_CHARBASE_0x00000,
-    .bgExtPltt = 0,
-    .priority = 2,
-    .areaOver = 0,
-    .dummy = 0,
-    .mosaic = 0,
-};
-// TODO: types
-const u32 ov24_0225514C[2][4] = {
-    {
-        0xC0000, 0x38000, 0x2000000, 0x0
-    },
-    {
-        0xC0000, 0x88000, 0x2000003, 0x0
-    }
-};
-const u32 ov24_0225516C[] = {
-	0x00, (u32)ov24_02254DDC, 0x00,
-	0x01, (u32)ov24_02254EE0, 0x00,
-	0x02, (u32)ov24_02254F28, 0x00,
-	0x03, (u32)ov24_02254F40, 0x00,
-	0x04, (u32)ov24_02255038, 0x00,
-	0x05, (u32)ov24_02255050, 0x00,
-	0x00, 0x00000000, 0x00,
-};
-
 BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
+    static const WindowTemplate template = {
+        .bgId = GF_BG_LYR_SUB_3,
+        .left = 2,
+        .top = 2,
+        .width = 20,
+        .height = 19,
+        .palette = 0,
+        .baseTile = 12,
+    };
     arg0->window = AllocWindows(HEAP_ID_POKETCH_APP, 1);
     if (arg0->window) {
-        AddWindow(arg0->config, arg0->window, &ov24_0225510C);
+        AddWindow(arg0->config, arg0->window, &template);
         if (sub_0208946C(arg0->unk0->unk16E8, arg0->window->pixelBuffer, 0x2f80) == 0) {
             FillWindowPixelBuffer(arg0->window, MEMO_PAD_PIXEL_TYPE_EMPTY);
         }
@@ -102,6 +53,16 @@ void ov24_02254D48(UnkSubStructOverlay24* arg0) {
 }
 
 void ov24_02254D8C(UnkSubStructOverlay24* arg0, u32 arg1) {
+    // TODO: types
+    static const u32 ov24_0225516C[] = {
+        0x00, (u32)ov24_02254DDC, 0x00,
+        0x01, (u32)ov24_02254EE0, 0x00,
+        0x02, (u32)ov24_02254F28, 0x00,
+        0x03, (u32)ov24_02254F40, 0x00,
+        0x04, (u32)ov24_02255038, 0x00,
+        0x05, (u32)ov24_02255050, 0x00,
+        0x00, 0x00000000, 0x00,
+    };
     ov20_022537E0(ov24_0225516C, arg1, arg0, arg0->unk0, &(arg0->unk8), 2, 8);
 }
 
@@ -118,11 +79,41 @@ void ov24_02254DC8(void* arg0) {
 }
 
 void ov24_02254DDC(void* arg0, void* arg1) {
+    static const BgTemplate template_7000 = {
+        .x = 0,
+        .y = 0,
+        .bufferSize = 0,
+        .baseTile = 0,
+        .size = 1,
+        .colorMode = 0,
+        .screenBase = GX_BG_SCRBASE_0x7000,
+        .charBase = GX_BG_CHARBASE_0x00000,
+        .bgExtPltt = 0,
+        .priority = 2,
+        .areaOver = 0,
+        .dummy = 0,
+        .mosaic = 0,
+    };
+    static const BgTemplate template_7800 = {
+        .x = 0,
+        .y = 0,
+        .bufferSize = 0x800,
+        .baseTile = 0,
+        .size = 1,
+        .colorMode = 0,
+        .screenBase = GX_BG_SCRBASE_0x7800,
+        .charBase = GX_BG_CHARBASE_0x00000,
+        .bgExtPltt = 0,
+        .priority = 3,
+        .areaOver = 0,
+        .dummy = 0,
+        .mosaic = 0,
+    };
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     GXSDispCnt dispcnt;
     UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
-    InitBgFromTemplate(v0->config, 6, &ov24_02255114, 0);
-    InitBgFromTemplate(v0->config, 7, &ov24_02255130, 0);
+    InitBgFromTemplate(v0->config, 6, &template_7000, 0);
+    InitBgFromTemplate(v0->config, 7, &template_7800, 0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));   
     GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH,0x1e,v0->config,6,0,0,1,HEAP_ID_POKETCH_APP);
     GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH,0x1f,v0->config,6,0,0,1,HEAP_ID_POKETCH_APP);
@@ -211,6 +202,15 @@ void ov24_02255050(u32 arg0, void* arg1) {
 }
 
 void ov24_02255078(UnkSubStructOverlay24* arg0) {
+    // TODO: types
+    static const u32 ov24_0225514C[2][4] = {
+        {
+            0xC0000, 0x38000, 0x2000000, 0x0
+        },
+        {
+            0xC0000, 0x88000, 0x2000003, 0x0
+        }
+    };
     GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, 1, 0, 0, 1, HEAP_ID_POKETCH_APP);
     if (ov20_02253FBC(&(arg0->unk54), NARC_GRAPHIC_POKETCH, 0x21, 0x22, HEAP_ID_POKETCH_APP)) {
         for (int i = 0; i < 2; i++) {
