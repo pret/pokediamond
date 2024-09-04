@@ -12,9 +12,6 @@ extern void ov20_022529A0(u32);
 extern void ov20_0225298C(u32);
 extern BOOL ov20_02252C08(u32);
 extern BOOL TouchScreen_GetTapState(u32*, u32*);
-extern void ov20_022536F4(void*, u32);
-extern u32 ov20_02252D34();
-extern u32 ov20_02252D24();
 
 static void ov24_02254840(void)
 {

@@ -18,6 +18,9 @@ extern BOOL ov20_02253FBC(void*, NarcId, u32, u32, HeapID);
 extern u32* ov20_02253E74(u32, void*, void*);
 extern void ov20_02254014(void*);
 extern void ov20_02253F14(u32, void*);
+extern void ov20_022536F4(void*, u32);
+extern u32 ov20_02252D34();
+extern u32 ov20_02252D24();
 
 BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, UnkSubStructOverlay24_1* arg1) {
     UnkSubStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkSubStructOverlay24));
@@ -83,11 +86,11 @@ void ov24_02254D8C(UnkSubStructOverlay24* arg0, u32 arg1) {
 }
 
 BOOL ov24_02254DB0(UnkSubStructOverlay24* arg0, u8 arg1) {
-    return (*ov20_02253794)(&(arg0->unk8), arg1);
+    return ov20_02253794(&(arg0->unk8), arg1);
 }
 
 BOOL ov24_02254DBC(UnkSubStructOverlay24* arg0) {
-    return (*ov20_022537B8)(&(arg0->unk8));
+    return ov20_022537B8(&(arg0->unk8));
 }
 
 void ov24_02254DC8(void* arg0) {
