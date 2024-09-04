@@ -31,12 +31,6 @@ extern u32* ov20_02253E74(u32, void*, void*);
 extern void ov20_02254014(void*);
 extern void ov20_02253F14(u32, void*);
 
-const FnType02254918 ov24_02255100[3] = {
-    ov24_022549AC, ov24_022549F8, ov24_02254C64
-};
-const u8 ov24_022550F8[] = {
-    0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
-};
 extern const WindowTemplate ov24_0225510C;
 extern const BgTemplate ov24_02255114;
 extern const BgTemplate ov24_02255130;
@@ -66,6 +60,9 @@ BOOL ov24_02254854(UnkStructOverlay24** arg0, int arg1, int arg2, int arg3) {
 }
 
 BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
+    static const u8 ov24_022550F8[] = {
+        0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
+    };
     arg0->unk8.unk16E8 = arg3;
     arg0->unk8.unk0 = 1;
     if (ov24_02254CA0(&(arg0->unk16F4), &(arg0->unk8))) {
@@ -87,6 +84,9 @@ void ov24_022548F4(UnkStructOverlay24* arg0) {
 }
 
 void ov24_02254918(void* arg0, UnkStructOverlay24* arg1) {
+    static BOOL (*const ov24_02255100[3])(UnkStructOverlay24*) = {
+        ov24_022549AC, ov24_022549F8, ov24_02254C64
+    };
     if (arg1->unk0 < 3) {
         ov20_02252C14(arg1->unk16F8, arg1->unk16FC);
         if (ov24_02255100[arg1->unk0](arg1)) {

@@ -5,26 +5,45 @@
 #include "overlay_24.h"
 
 const WindowTemplate ov24_0225510C = {
-    0x07, 0x02, 0x02, 0x14, 0x13, 0x00, 0x0C
+    .bgId = GF_BG_LYR_SUB_3,
+    .left = 2,
+    .top = 2,
+    .width = 20,
+    .height = 19,
+    .palette = 0,
+    .baseTile = 12,
 };
 const BgTemplate ov24_02255130 = {
-    0, 0, 0x800, 0, 1, 0, 0xf, 0, 0, 3, 0, 0, 0
+    .x = 0,
+    .y = 0,
+    .bufferSize = 0x800,
+    .baseTile = 0,
+    .size = 1,
+    .colorMode = 0,
+    .screenBase = GX_BG_SCRBASE_0x7800,
+    .charBase = GX_BG_CHARBASE_0x00000,
+    .bgExtPltt = 0,
+    .priority = 3,
+    .areaOver = 0,
+    .dummy = 0,
+    .mosaic = 0,
 };
 const BgTemplate ov24_02255114 = {
-    0x0,
-    0x0,
-    0x0,
-    0x0,
-    1,
-    0,
-    0xe,
-    0,
-    0,
-    2,
-    0,
-    0,
-    0
+    .x = 0,
+    .y = 0,
+    .bufferSize = 0,
+    .baseTile = 0,
+    .size = 1,
+    .colorMode = 0,
+    .screenBase = GX_BG_SCRBASE_0x7000,
+    .charBase = GX_BG_CHARBASE_0x00000,
+    .bgExtPltt = 0,
+    .priority = 2,
+    .areaOver = 0,
+    .dummy = 0,
+    .mosaic = 0,
 };
+// TODO: types
 const u32 ov24_0225514C[2][4] = {
     {
         0xC0000, 0x38000, 0x2000000, 0x0

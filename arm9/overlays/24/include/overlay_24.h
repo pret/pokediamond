@@ -39,8 +39,6 @@ struct UnkStructOverlay24
     u32 unk16FC;
 };
 
-typedef BOOL (*FnType02254918)(UnkStructOverlay24*);
-
 BOOL ov24_02254854(UnkStructOverlay24**, int, int, int);
 BOOL ov24_0225489C(UnkStructOverlay24*, u32, u32, u32);
 void ov24_022548F4(UnkStructOverlay24*);
