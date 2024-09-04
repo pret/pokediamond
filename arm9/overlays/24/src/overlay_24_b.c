@@ -19,6 +19,22 @@ extern u32* ov20_02253E74(u32, void*, void*);
 extern void ov20_02254014(void*);
 extern void ov20_02253F14(u32, void*);
 
+BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, UnkSubStructOverlay24_1* arg1) {
+    UnkSubStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkSubStructOverlay24));
+    if (data != 0) {
+        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
+        ov20_022536F4(&(data->unk8), 0x10);
+        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
+        data->unk0 = arg1;
+        data->config = (BgConfig*)ov20_02252D34();
+        data->unk50 = ov20_02252D24();
+        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
+        arg0[0] = data;
+        return TRUE;
+    }
+    return FALSE;
+}
+
 BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
     static const WindowTemplate template = {
         .bgId = GF_BG_LYR_SUB_3,

@@ -255,19 +255,3 @@ BOOL ov24_02254C64(UnkStructOverlay24* arg0) {
     }
     return FALSE;
 }
-
-BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, UnkSubStructOverlay24_1* arg1) {
-    UnkSubStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkSubStructOverlay24));
-    if (data != 0) {
-        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
-        ov20_022536F4(&(data->unk8), 0x10);
-        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
-        data->unk0 = arg1;
-        data->config = (BgConfig*)ov20_02252D34();
-        data->unk50 = ov20_02252D24();
-        GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
-        arg0[0] = data;
-        return TRUE;
-    }
-    return FALSE;
-}
