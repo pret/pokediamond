@@ -64,7 +64,7 @@ BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
     arg0->unk8.unk16E8 = arg3;
-    arg0->unk8.unk0 = 1;
+    arg0->unk8.stylusType = STYLUS_TYPE_DRAW;
     if (ov24_02254CA0(&(arg0->unk16F4), &(arg0->unk8))) {
         arg0->unk0 = 0;
         arg0->unk1 = 0;
@@ -99,8 +99,11 @@ void ov24_02254918(void* arg0, UnkStructOverlay24* arg1) {
 
 void ov24_02254960(int arg0, int arg1, int arg2, UnkStructOverlay24* arg3) {
     if (arg2 == 1) {
-        if ((arg3->unk8.unk0 == 1 && arg0 == 0) || (arg3->unk8.unk0 == 0 && arg0 == 1)) {
-            arg3->unk8.unk0 ^= 1;
+        if (
+            (arg3->unk8.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
+            || (arg3->unk8.stylusType == STYLUS_TYPE_ERASE && arg0 == 1)
+        ) {
+            arg3->unk8.stylusType ^= 1;
             ov24_02254D8C(arg3->unk16F4, 1);
         }
     }
@@ -172,8 +175,8 @@ BOOL ov24_02254A70(UnkStructOverlay24* arg0) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            if (arg0->unk8.pixelData[x][y] != arg0->unk8.unk0) {
-                arg0->unk8.pixelData[x][y] = arg0->unk8.unk0;
+            if (arg0->unk8.pixelData[x][y] != arg0->unk8.stylusType) {
+                arg0->unk8.pixelData[x][y] = arg0->unk8.stylusType;
                 arg0->unk8.lastModifiedX = x;
                 arg0->unk8.lastModifiedY = y;
                 return TRUE;
@@ -218,8 +221,8 @@ void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         while (x0 != x1) {
             offset = g >> 12;
             if ((x0 < 0x4e) && ((u32)offset < 0x4b)) {
-                if (arg0->unk8.unk0 != arg0->unk8.pixelData[x0][offset]) {
-                    arg0->unk8.pixelData[x0][offset] = arg0->unk8.unk0;
+                if (arg0->unk8.stylusType != arg0->unk8.pixelData[x0][offset]) {
+                    arg0->unk8.pixelData[x0][offset] = arg0->unk8.stylusType;
                     arg0->unk8.lastModifiedX = x0;
                     arg0->unk8.lastModifiedY = offset;
                     ov24_02254D8C(arg0->unk16F4, 3);
@@ -241,8 +244,8 @@ void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         while (y0 != y1) {
             offset = g >> 12;
             if ((y0 < 0x4b) && ((u32)offset < 0x4e)) {
-                if (arg0->unk8.unk0 != arg0->unk8.pixelData[offset][y0]) {
-                    arg0->unk8.pixelData[offset][y0] = arg0->unk8.unk0;
+                if (arg0->unk8.stylusType != arg0->unk8.pixelData[offset][y0]) {
+                    arg0->unk8.pixelData[offset][y0] = arg0->unk8.stylusType;
                     arg0->unk8.lastModifiedX = offset;
                     arg0->unk8.lastModifiedY = y0;
                     ov24_02254D8C(arg0->unk16F4, 3);
@@ -295,7 +298,7 @@ BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
     if (arg0->window) {
         AddWindow(arg0->config, arg0->window, &ov24_0225510C);
         if (sub_0208946C(arg0->unk0->unk16E8, arg0->window->pixelBuffer, 0x2f80) == 0) {
-            FillWindowPixelBuffer(arg0->window, 4);
+            FillWindowPixelBuffer(arg0->window, MEMO_PAD_PIXEL_TYPE_EMPTY);
         }
         return TRUE;
     }
@@ -355,7 +358,7 @@ void ov24_02254DDC(void* arg0, void* arg1) {
 
 void ov24_02254EE0(u32 arg0, void* arg1) {
     UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
-    if (v0->unk0->unk0 == 1) {
+    if (v0->unk0->stylusType == STYLUS_TYPE_DRAW) {
         ov20_02253F28(v0->unk68[0], 0);
         ov20_02253F28(v0->unk68[1], 3);
     } else {
@@ -375,7 +378,7 @@ void ov24_02254F28(int arg0, void* arg1) {
 void ov24_02254F40(u32 arg0, void* arg1) {
     UnkSubStructOverlay24 *v0 = ov20_022538A0(arg1);
     UnkSubStructOverlay24_1* v1 = v0->unk0;
-    if (v1->unk0 == 0) {
+    if (v1->stylusType == STYLUS_TYPE_ERASE) {
         int width, height;
         height = 8;
         width = 8;
@@ -389,7 +392,7 @@ void ov24_02254F40(u32 arg0, void* arg1) {
             height += y;
             y = 0;
         }
-        FillWindowPixelRect(v0->window, 4, x, y, width, height);
+        FillWindowPixelRect(v0->window, MEMO_PAD_PIXEL_TYPE_EMPTY, x, y, width, height);
         int a = (x >> 3) + (y >> 3) * 0x14;
         int e = ((x + width - 1) >> 3) - (x >> 3) + 1;
         int b = ((y + height - 1) >> 3) - (y >> 3) + 1;
@@ -403,7 +406,7 @@ void ov24_02254F40(u32 arg0, void* arg1) {
         int x = v1->lastModifiedX * 2;
         int y = v1->lastModifiedY * 2;
         int a = (x >> 3) + ((y >> 3) * 0x14);
-        FillWindowPixelRect(v0->window, 1, x, y, width, height);
+        FillWindowPixelRect(v0->window, MEMO_PAD_PIXEL_TYPE_FILLED, x, y, width, height);
         GXS_LoadBG3Char((u8*)(v0->window->pixelBuffer) + a * 0x20, (a + 0xc) * 0x20, 0x20);
     }
     ov24_02254DC8(arg1);

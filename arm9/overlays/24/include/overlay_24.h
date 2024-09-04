@@ -1,10 +1,20 @@
 #ifndef POKEDIAMOND_OVERLAY_24_H
 #define POKEDIAMOND_OVERLAY_24_H
 
+typedef enum {
+    STYLUS_TYPE_ERASE = 0,
+    STYLUS_TYPE_DRAW = 1,
+} StylusType;
+
+typedef enum {
+    MEMO_PAD_PIXEL_TYPE_FILLED = 1,
+    MEMO_PAD_PIXEL_TYPE_EMPTY = 4,
+} MemoPadPixelType;
+
 typedef struct UnkSubStructOverlay24_1 UnkSubStructOverlay24_1;
 struct UnkSubStructOverlay24_1
 {
-    u32 unk0;
+    StylusType stylusType;
     u32 lastModifiedX;
     u32 lastModifiedY;
     u8 pixelData[78][75];
