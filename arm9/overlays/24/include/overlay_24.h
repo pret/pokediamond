@@ -35,8 +35,8 @@ struct UnkSubStructOverlay24
     Window *window;
 };
 
-typedef struct UnkStructOverlay24 UnkStructOverlay24;
-struct UnkStructOverlay24
+typedef struct MemoPadAppHandler MemoPadAppHandler;
+struct MemoPadAppHandler
 {
     u8 unk0;
     u8 unk1;
@@ -49,19 +49,19 @@ struct UnkStructOverlay24
     u32 unk16FC;
 };
 
-BOOL ov24_02254854(UnkStructOverlay24**, int, int, int);
-BOOL ov24_0225489C(UnkStructOverlay24*, u32, u32, u32);
-void ov24_022548F4(UnkStructOverlay24*);
-void ov24_02254918(void*, UnkStructOverlay24*);
-void ov24_02254960(int, int, int, UnkStructOverlay24*);
-void ov24_02254990(UnkStructOverlay24*);
-void ov24_02254998(UnkStructOverlay24*, u8);
-BOOL ov24_022549AC(UnkStructOverlay24*);
-BOOL ov24_022549F8(UnkStructOverlay24*);
-BOOL ov24_02254A70(UnkStructOverlay24*);
-BOOL ov24_02254AD4(UnkStructOverlay24*);
-void ov24_02254B20(UnkStructOverlay24*, u32, u32, u32, u32);
-BOOL ov24_02254C64(UnkStructOverlay24*);
+BOOL ov24_02254854(MemoPadAppHandler**, int, int, int);
+BOOL ov24_0225489C(MemoPadAppHandler*, u32, u32, u32);
+void ov24_022548F4(MemoPadAppHandler*);
+void ov24_02254918(void*, MemoPadAppHandler*);
+void ov24_02254960(int, int, int, MemoPadAppHandler*);
+void ov24_02254990(MemoPadAppHandler*);
+void ov24_02254998(MemoPadAppHandler*, u8);
+BOOL ov24_022549AC(MemoPadAppHandler*);
+BOOL ov24_022549F8(MemoPadAppHandler*);
+BOOL ov24_02254A70(MemoPadAppHandler*);
+BOOL ov24_02254AD4(MemoPadAppHandler*);
+void ov24_02254B20(MemoPadAppHandler*, u32, u32, u32, u32);
+BOOL ov24_02254C64(MemoPadAppHandler*);
 BOOL ov24_02254CA0(UnkSubStructOverlay24**, MemoPadDrawState*);
 BOOL ov24_02254D00(UnkSubStructOverlay24*);
 void ov24_02254D48(UnkSubStructOverlay24*);

@@ -21,8 +21,8 @@ static void ov24_02254840(void)
 #define NitroStaticInit ov24_02254840
 #include "sinit.h"
 
-BOOL ov24_02254854(UnkStructOverlay24** arg0, int arg1, int arg2, int arg3) {
-    UnkStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkStructOverlay24));
+BOOL ov24_02254854(MemoPadAppHandler** arg0, int arg1, int arg2, int arg3) {
+    MemoPadAppHandler* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
     if (data != 0) {
         if (ov24_0225489C(data, arg1, arg2, arg3) != 0) {
             if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, data, 1) != 0) {
@@ -35,7 +35,7 @@ BOOL ov24_02254854(UnkStructOverlay24** arg0, int arg1, int arg2, int arg3) {
     return FALSE;
 }
 
-BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
+BOOL ov24_0225489C(MemoPadAppHandler* arg0, u32 arg1, u32 arg2, u32 arg3) {
     static const u8 ov24_022550F8[] = {
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
@@ -53,14 +53,14 @@ BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
     return FALSE;
 }
 
-void ov24_022548F4(UnkStructOverlay24* arg0) {
+void ov24_022548F4(MemoPadAppHandler* arg0) {
     ov20_02254198(arg0->unk16FC);
     ov24_02254D48(arg0->unk16F4);
     FreeToHeap(arg0);
 }
 
-void ov24_02254918(void* arg0, UnkStructOverlay24* arg1) {
-    static BOOL (*const ov24_02255100[3])(UnkStructOverlay24*) = {
+void ov24_02254918(void* arg0, MemoPadAppHandler* arg1) {
+    static BOOL (*const ov24_02255100[3])(MemoPadAppHandler*) = {
         ov24_022549AC, ov24_022549F8, ov24_02254C64
     };
     if (arg1->unk0 < 3) {
@@ -73,7 +73,7 @@ void ov24_02254918(void* arg0, UnkStructOverlay24* arg1) {
     }
 }
 
-void ov24_02254960(int arg0, int arg1, int arg2, UnkStructOverlay24* arg3) {
+void ov24_02254960(int arg0, int arg1, int arg2, MemoPadAppHandler* arg3) {
     if (arg2 == 1) {
         if (
             (arg3->drawState.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
@@ -85,11 +85,11 @@ void ov24_02254960(int arg0, int arg1, int arg2, UnkStructOverlay24* arg3) {
     }
 }
 
-void ov24_02254990(UnkStructOverlay24* arg0) {
+void ov24_02254990(MemoPadAppHandler* arg0) {
     arg0->unk2 = 1;
 }
 
-void ov24_02254998(UnkStructOverlay24* arg0, u8 arg1) {
+void ov24_02254998(MemoPadAppHandler* arg0, u8 arg1) {
     if (arg0->unk2 == 0) {
         arg0->unk0 = arg1;
     }
@@ -99,7 +99,7 @@ void ov24_02254998(UnkStructOverlay24* arg0, u8 arg1) {
     arg0->unk1 = 0;
 }
 
-BOOL ov24_022549AC(UnkStructOverlay24* arg0) {
+BOOL ov24_022549AC(MemoPadAppHandler* arg0) {
     switch (arg0->unk1) {
         case 0:
             ov24_02254D8C(arg0->unk16F4, 0);
@@ -117,7 +117,7 @@ BOOL ov24_022549AC(UnkStructOverlay24* arg0) {
     return FALSE;
 }
 
-BOOL ov24_022549F8(UnkStructOverlay24* arg0) {
+BOOL ov24_022549F8(MemoPadAppHandler* arg0) {
     if (arg0->unk2 != 0) {
         ov24_02254998(arg0, 2);
     }
@@ -145,7 +145,7 @@ BOOL ov24_022549F8(UnkStructOverlay24* arg0) {
     return FALSE;
 }
 
-BOOL ov24_02254A70(UnkStructOverlay24* arg0) {
+BOOL ov24_02254A70(MemoPadAppHandler* arg0) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
@@ -162,7 +162,7 @@ BOOL ov24_02254A70(UnkStructOverlay24* arg0) {
     return FALSE;
 }
 
-BOOL ov24_02254AD4(UnkStructOverlay24* arg0) {
+BOOL ov24_02254AD4(MemoPadAppHandler* arg0) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
@@ -176,7 +176,7 @@ BOOL ov24_02254AD4(UnkStructOverlay24* arg0) {
     return FALSE;
 }
 
-void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
+void ov24_02254B20(MemoPadAppHandler* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
     if (y0 == y1 && x0 == x1) {
         return;
     }
@@ -238,7 +238,7 @@ void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
     }
 }
 
-BOOL ov24_02254C64(UnkStructOverlay24* arg0) {
+BOOL ov24_02254C64(MemoPadAppHandler* arg0) {
     switch (arg0->unk1) {
     case 0:
         ov24_02254D8C(arg0->unk16F4, 5);
