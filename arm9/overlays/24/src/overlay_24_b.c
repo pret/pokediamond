@@ -22,8 +22,8 @@ extern void ov20_022536F4(void*, u32);
 extern u32 ov20_02252D34();
 extern u32 ov20_02252D24();
 
-BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, MemoPadDrawState* drawState) {
-    UnkSubStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkSubStructOverlay24));
+BOOL ov24_02254CA0(MemoPadDisplayHandler** arg0, MemoPadDrawState* drawState) {
+    MemoPadDisplayHandler* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadDisplayHandler));
     if (data != 0) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         ov20_022536F4(&(data->unk8), 0x10);
@@ -38,7 +38,7 @@ BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, MemoPadDrawState* drawState) {
     return FALSE;
 }
 
-BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
+BOOL ov24_02254D00(MemoPadDisplayHandler* arg0) {
     static const WindowTemplate template = {
         .bgId = GF_BG_LYR_SUB_3,
         .left = 2,
@@ -59,7 +59,7 @@ BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
     return FALSE;
 }
 
-void ov24_02254D48(UnkSubStructOverlay24* arg0) {
+void ov24_02254D48(MemoPadDisplayHandler* arg0) {
     if (arg0) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         if (arg0->window) {
@@ -71,7 +71,7 @@ void ov24_02254D48(UnkSubStructOverlay24* arg0) {
     }
 }
 
-void ov24_02254D8C(UnkSubStructOverlay24* arg0, u32 arg1) {
+void ov24_02254D8C(MemoPadDisplayHandler* arg0, u32 arg1) {
     // TODO: types
     static const u32 ov24_0225516C[] = {
         0x00, (u32)ov24_02254DDC, 0x00,
@@ -85,16 +85,16 @@ void ov24_02254D8C(UnkSubStructOverlay24* arg0, u32 arg1) {
     ov20_022537E0(ov24_0225516C, arg1, arg0, arg0->drawState, &(arg0->unk8), 2, 8);
 }
 
-BOOL ov24_02254DB0(UnkSubStructOverlay24* arg0, u8 arg1) {
+BOOL ov24_02254DB0(MemoPadDisplayHandler* arg0, u8 arg1) {
     return ov20_02253794(&(arg0->unk8), arg1);
 }
 
-BOOL ov24_02254DBC(UnkSubStructOverlay24* arg0) {
+BOOL ov24_02254DBC(MemoPadDisplayHandler* arg0) {
     return ov20_022537B8(&(arg0->unk8));
 }
 
 void ov24_02254DC8(void* arg0) {
-    ov20_02253888(&(((UnkSubStructOverlay24*)ov20_022538A0(arg0))->unk8), arg0);
+    ov20_02253888(&(((MemoPadDisplayHandler*)ov20_022538A0(arg0))->unk8), arg0);
 }
 
 void ov24_02254DDC(void* arg0, void* arg1) {
@@ -130,7 +130,7 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     };
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     GXSDispCnt dispcnt;
-    UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
+    MemoPadDisplayHandler* v0 = ov20_022538A0(arg1);
     InitBgFromTemplate(v0->config, 6, &template_7000, 0);
     InitBgFromTemplate(v0->config, 7, &template_7800, 0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));   
@@ -151,7 +151,7 @@ void ov24_02254DDC(void* arg0, void* arg1) {
 }
 
 void ov24_02254EE0(u32 arg0, void* arg1) {
-    UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
+    MemoPadDisplayHandler* v0 = ov20_022538A0(arg1);
     if (v0->drawState->stylusType == STYLUS_TYPE_DRAW) {
         ov20_02253F28(v0->unk68[0], 0);
         ov20_02253F28(v0->unk68[1], 3);
@@ -164,13 +164,13 @@ void ov24_02254EE0(u32 arg0, void* arg1) {
 }
 
 void ov24_02254F28(int arg0, void* arg1) {
-    UnkSubStructOverlay24* a0 = ov20_022538A0(arg1);
+    MemoPadDisplayHandler* a0 = ov20_022538A0(arg1);
     CopyWindowPixelsToVram_TextMode(a0->window);
     ov24_02254DC8(arg1);
 }
 
 void ov24_02254F40(u32 arg0, void* arg1) {
-    UnkSubStructOverlay24 *v0 = ov20_022538A0(arg1);
+    MemoPadDisplayHandler *v0 = ov20_022538A0(arg1);
     MemoPadDrawState* drawState = v0->drawState;
     if (drawState->stylusType == STYLUS_TYPE_ERASE) {
         int width, height;
@@ -207,20 +207,20 @@ void ov24_02254F40(u32 arg0, void* arg1) {
 }
 
 void ov24_02255038(u32 arg0, void* arg1) {
-    UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
+    MemoPadDisplayHandler* v0 = ov20_022538A0(arg1);
     CopyWindowPixelsToVram_TextMode(v0->window);
     ov24_02254DC8(arg1);
 }
 
 void ov24_02255050(u32 arg0, void* arg1) {
-    UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
+    MemoPadDisplayHandler* v0 = ov20_022538A0(arg1);
     ov24_022550D4(v0);
     FreeBgTilemapBuffer(v0->config, 6);
     FreeBgTilemapBuffer(v0->config, 7);
     ov24_02254DC8(arg1);
 }
 
-void ov24_02255078(UnkSubStructOverlay24* arg0) {
+void ov24_02255078(MemoPadDisplayHandler* arg0) {
     // TODO: types
     static const u32 ov24_0225514C[2][4] = {
         {
@@ -238,7 +238,7 @@ void ov24_02255078(UnkSubStructOverlay24* arg0) {
     }
 }
 
-void ov24_022550D4(UnkSubStructOverlay24* arg0) {
+void ov24_022550D4(MemoPadDisplayHandler* arg0) {
     for (u32 i = 0; i < 2; i++) {
         ov20_02253F14(arg0->unk50, arg0->unk68[i]);
     }

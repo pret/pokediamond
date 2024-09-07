@@ -22,8 +22,8 @@ struct MemoPadDrawState
     u32 unk16E8;
 };
 
-typedef struct UnkSubStructOverlay24 UnkSubStructOverlay24;
-struct UnkSubStructOverlay24
+typedef struct MemoPadDisplayHandler MemoPadDisplayHandler;
+struct MemoPadDisplayHandler
 {
     MemoPadDrawState* drawState;
     BgConfig* config;
@@ -44,7 +44,7 @@ struct MemoPadAppHandler
     u8 unk3;
     u32 unk4;
     MemoPadDrawState drawState;
-    UnkSubStructOverlay24* unk16F4;
+    MemoPadDisplayHandler* unk16F4;
     u32 unk16F8;
     u32 unk16FC;
 };
@@ -62,12 +62,12 @@ BOOL ov24_02254A70(MemoPadAppHandler*);
 BOOL ov24_02254AD4(MemoPadAppHandler*);
 void ov24_02254B20(MemoPadAppHandler*, u32, u32, u32, u32);
 BOOL ov24_02254C64(MemoPadAppHandler*);
-BOOL ov24_02254CA0(UnkSubStructOverlay24**, MemoPadDrawState*);
-BOOL ov24_02254D00(UnkSubStructOverlay24*);
-void ov24_02254D48(UnkSubStructOverlay24*);
-void ov24_02254D8C(UnkSubStructOverlay24*, u32);
-BOOL ov24_02254DB0(UnkSubStructOverlay24*, u8);
-BOOL ov24_02254DBC(UnkSubStructOverlay24*);
+BOOL ov24_02254CA0(MemoPadDisplayHandler**, MemoPadDrawState*);
+BOOL ov24_02254D00(MemoPadDisplayHandler*);
+void ov24_02254D48(MemoPadDisplayHandler*);
+void ov24_02254D8C(MemoPadDisplayHandler*, u32);
+BOOL ov24_02254DB0(MemoPadDisplayHandler*, u8);
+BOOL ov24_02254DBC(MemoPadDisplayHandler*);
 void ov24_02254DC8(void*);
 void ov24_02254DDC(void*, void*);
 void ov24_02254EE0(u32, void*);
@@ -75,7 +75,7 @@ void ov24_02254F28(int, void*);
 void ov24_02254F40(u32 arg0, void* arg1);
 void ov24_02255038(u32 arg0, void* arg1);
 void ov24_02255050(u32 arg0, void* arg1);
-void ov24_02255078(UnkSubStructOverlay24* arg0);
-void ov24_022550D4(UnkSubStructOverlay24* arg0);
+void ov24_02255078(MemoPadDisplayHandler* arg0);
+void ov24_022550D4(MemoPadDisplayHandler* arg0);
 
 #endif //POKEDIAMOND_OVERLAY_24_H
