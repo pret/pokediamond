@@ -39,9 +39,9 @@ BOOL ov24_0225489C(UnkStructOverlay24* arg0, u32 arg1, u32 arg2, u32 arg3) {
     static const u8 ov24_022550F8[] = {
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
-    arg0->unk8.unk16E8 = arg3;
-    arg0->unk8.stylusType = STYLUS_TYPE_DRAW;
-    if (ov24_02254CA0(&(arg0->unk16F4), &(arg0->unk8))) {
+    arg0->drawState.unk16E8 = arg3;
+    arg0->drawState.stylusType = STYLUS_TYPE_DRAW;
+    if (ov24_02254CA0(&(arg0->unk16F4), &(arg0->drawState))) {
         arg0->unk0 = 0;
         arg0->unk1 = 0;
         arg0->unk2 = 0;
@@ -76,10 +76,10 @@ void ov24_02254918(void* arg0, UnkStructOverlay24* arg1) {
 void ov24_02254960(int arg0, int arg1, int arg2, UnkStructOverlay24* arg3) {
     if (arg2 == 1) {
         if (
-            (arg3->unk8.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
-            || (arg3->unk8.stylusType == STYLUS_TYPE_ERASE && arg0 == 1)
+            (arg3->drawState.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
+            || (arg3->drawState.stylusType == STYLUS_TYPE_ERASE && arg0 == 1)
         ) {
-            arg3->unk8.stylusType ^= 1;
+            arg3->drawState.stylusType ^= 1;
             ov24_02254D8C(arg3->unk16F4, 1);
         }
     }
@@ -127,10 +127,10 @@ BOOL ov24_022549F8(UnkStructOverlay24* arg0) {
             break;
         }
         if (arg0->unk3) {
-            u32 x = arg0->unk8.lastModifiedX;
-            u32 y = arg0->unk8.lastModifiedY;
+            u32 x = arg0->drawState.lastModifiedX;
+            u32 y = arg0->drawState.lastModifiedY;
             if (ov24_02254AD4(arg0)) {
-                ov24_02254B20(arg0, x, y, arg0->unk8.lastModifiedX, arg0->unk8.lastModifiedY);
+                ov24_02254B20(arg0, x, y, arg0->drawState.lastModifiedX, arg0->drawState.lastModifiedY);
             } else {
                 arg0->unk3 = 0;
             }
@@ -151,10 +151,10 @@ BOOL ov24_02254A70(UnkStructOverlay24* arg0) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            if (arg0->unk8.pixelData[x][y] != arg0->unk8.stylusType) {
-                arg0->unk8.pixelData[x][y] = arg0->unk8.stylusType;
-                arg0->unk8.lastModifiedX = x;
-                arg0->unk8.lastModifiedY = y;
+            if (arg0->drawState.pixelData[x][y] != arg0->drawState.stylusType) {
+                arg0->drawState.pixelData[x][y] = arg0->drawState.stylusType;
+                arg0->drawState.lastModifiedX = x;
+                arg0->drawState.lastModifiedY = y;
                 return TRUE;
             }
          }
@@ -168,8 +168,8 @@ BOOL ov24_02254AD4(UnkStructOverlay24* arg0) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            arg0->unk8.lastModifiedX = x;
-            arg0->unk8.lastModifiedY = y;
+            arg0->drawState.lastModifiedX = x;
+            arg0->drawState.lastModifiedY = y;
             return TRUE;
         }
     }
@@ -197,10 +197,10 @@ void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         while (x0 != x1) {
             offset = g >> 12;
             if ((x0 < 0x4e) && ((u32)offset < 0x4b)) {
-                if (arg0->unk8.stylusType != arg0->unk8.pixelData[x0][offset]) {
-                    arg0->unk8.pixelData[x0][offset] = arg0->unk8.stylusType;
-                    arg0->unk8.lastModifiedX = x0;
-                    arg0->unk8.lastModifiedY = offset;
+                if (arg0->drawState.stylusType != arg0->drawState.pixelData[x0][offset]) {
+                    arg0->drawState.pixelData[x0][offset] = arg0->drawState.stylusType;
+                    arg0->drawState.lastModifiedX = x0;
+                    arg0->drawState.lastModifiedY = offset;
                     ov24_02254D8C(arg0->unk16F4, 3);
                 }
             }
@@ -220,10 +220,10 @@ void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         while (y0 != y1) {
             offset = g >> 12;
             if ((y0 < 0x4b) && ((u32)offset < 0x4e)) {
-                if (arg0->unk8.stylusType != arg0->unk8.pixelData[offset][y0]) {
-                    arg0->unk8.pixelData[offset][y0] = arg0->unk8.stylusType;
-                    arg0->unk8.lastModifiedX = offset;
-                    arg0->unk8.lastModifiedY = y0;
+                if (arg0->drawState.stylusType != arg0->drawState.pixelData[offset][y0]) {
+                    arg0->drawState.pixelData[offset][y0] = arg0->drawState.stylusType;
+                    arg0->drawState.lastModifiedX = offset;
+                    arg0->drawState.lastModifiedY = y0;
                     ov24_02254D8C(arg0->unk16F4, 3);
                 }
             }
@@ -232,8 +232,8 @@ void ov24_02254B20(UnkStructOverlay24* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         }
     }
     if ((y1 < 75) && (x1 < 78)) {
-        arg0->unk8.lastModifiedX = x1;
-        arg0->unk8.lastModifiedY = y1;
+        arg0->drawState.lastModifiedX = x1;
+        arg0->drawState.lastModifiedY = y1;
         ov24_02254D8C(arg0->unk16F4, 3);
     }
 }

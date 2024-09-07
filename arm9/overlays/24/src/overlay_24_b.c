@@ -22,13 +22,13 @@ extern void ov20_022536F4(void*, u32);
 extern u32 ov20_02252D34();
 extern u32 ov20_02252D24();
 
-BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, UnkSubStructOverlay24_1* arg1) {
+BOOL ov24_02254CA0(UnkSubStructOverlay24** arg0, MemoPadDrawState* drawState) {
     UnkSubStructOverlay24* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(UnkSubStructOverlay24));
     if (data != 0) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         ov20_022536F4(&(data->unk8), 0x10);
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
-        data->unk0 = arg1;
+        data->drawState = drawState;
         data->config = (BgConfig*)ov20_02252D34();
         data->unk50 = ov20_02252D24();
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
@@ -51,7 +51,7 @@ BOOL ov24_02254D00(UnkSubStructOverlay24* arg0) {
     arg0->window = AllocWindows(HEAP_ID_POKETCH_APP, 1);
     if (arg0->window) {
         AddWindow(arg0->config, arg0->window, &template);
-        if (sub_0208946C(arg0->unk0->unk16E8, arg0->window->pixelBuffer, 0x2f80) == 0) {
+        if (sub_0208946C(arg0->drawState->unk16E8, arg0->window->pixelBuffer, 0x2f80) == 0) {
             FillWindowPixelBuffer(arg0->window, MEMO_PAD_PIXEL_TYPE_EMPTY);
         }
         return TRUE;
@@ -63,7 +63,7 @@ void ov24_02254D48(UnkSubStructOverlay24* arg0) {
     if (arg0) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         if (arg0->window) {
-            sub_02089444(arg0->unk0->unk16E8, arg0->window->pixelBuffer, 0x2f80);
+            sub_02089444(arg0->drawState->unk16E8, arg0->window->pixelBuffer, 0x2f80);
             RemoveWindow(arg0->window);
             FreeToHeap(arg0->window);
         }
@@ -82,7 +82,7 @@ void ov24_02254D8C(UnkSubStructOverlay24* arg0, u32 arg1) {
         0x05, (u32)ov24_02255050, 0x00,
         0x00, 0x00000000, 0x00,
     };
-    ov20_022537E0(ov24_0225516C, arg1, arg0, arg0->unk0, &(arg0->unk8), 2, 8);
+    ov20_022537E0(ov24_0225516C, arg1, arg0, arg0->drawState, &(arg0->unk8), 2, 8);
 }
 
 BOOL ov24_02254DB0(UnkSubStructOverlay24* arg0, u8 arg1) {
@@ -152,7 +152,7 @@ void ov24_02254DDC(void* arg0, void* arg1) {
 
 void ov24_02254EE0(u32 arg0, void* arg1) {
     UnkSubStructOverlay24* v0 = ov20_022538A0(arg1);
-    if (v0->unk0->stylusType == STYLUS_TYPE_DRAW) {
+    if (v0->drawState->stylusType == STYLUS_TYPE_DRAW) {
         ov20_02253F28(v0->unk68[0], 0);
         ov20_02253F28(v0->unk68[1], 3);
     } else {
@@ -171,13 +171,13 @@ void ov24_02254F28(int arg0, void* arg1) {
 
 void ov24_02254F40(u32 arg0, void* arg1) {
     UnkSubStructOverlay24 *v0 = ov20_022538A0(arg1);
-    UnkSubStructOverlay24_1* v1 = v0->unk0;
-    if (v1->stylusType == STYLUS_TYPE_ERASE) {
+    MemoPadDrawState* drawState = v0->drawState;
+    if (drawState->stylusType == STYLUS_TYPE_ERASE) {
         int width, height;
         height = 8;
         width = 8;
-        int x = v1->lastModifiedX * 2 - 4;
-        int y = v1->lastModifiedY * 2 - 4;
+        int x = drawState->lastModifiedX * 2 - 4;
+        int y = drawState->lastModifiedY * 2 - 4;
         if (x < 0) {
             width += x;
             x = 0;
@@ -197,8 +197,8 @@ void ov24_02254F40(u32 arg0, void* arg1) {
     } else {
         int height = 2;
         int width = 2;
-        int x = v1->lastModifiedX * 2;
-        int y = v1->lastModifiedY * 2;
+        int x = drawState->lastModifiedX * 2;
+        int y = drawState->lastModifiedY * 2;
         int a = (x >> 3) + ((y >> 3) * 0x14);
         FillWindowPixelRect(v0->window, MEMO_PAD_PIXEL_TYPE_FILLED, x, y, width, height);
         GXS_LoadBG3Char((u8*)(v0->window->pixelBuffer) + a * 0x20, (a + 0xc) * 0x20, 0x20);

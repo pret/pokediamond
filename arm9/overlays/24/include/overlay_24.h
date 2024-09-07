@@ -11,8 +11,8 @@ typedef enum {
     MEMO_PAD_PIXEL_TYPE_EMPTY = 4,
 } MemoPadPixelType;
 
-typedef struct UnkSubStructOverlay24_1 UnkSubStructOverlay24_1;
-struct UnkSubStructOverlay24_1
+typedef struct MemoPadDrawState MemoPadDrawState;
+struct MemoPadDrawState
 {
     StylusType stylusType;
     u32 lastModifiedX;
@@ -25,7 +25,7 @@ struct UnkSubStructOverlay24_1
 typedef struct UnkSubStructOverlay24 UnkSubStructOverlay24;
 struct UnkSubStructOverlay24
 {
-    UnkSubStructOverlay24_1* unk0;
+    MemoPadDrawState* drawState;
     BgConfig* config;
     u32 unk8;
     u8 unkC[0x44];
@@ -43,7 +43,7 @@ struct UnkStructOverlay24
     u8 unk2;
     u8 unk3;
     u32 unk4;
-    UnkSubStructOverlay24_1 unk8;
+    MemoPadDrawState drawState;
     UnkSubStructOverlay24* unk16F4;
     u32 unk16F8;
     u32 unk16FC;
@@ -62,7 +62,7 @@ BOOL ov24_02254A70(UnkStructOverlay24*);
 BOOL ov24_02254AD4(UnkStructOverlay24*);
 void ov24_02254B20(UnkStructOverlay24*, u32, u32, u32, u32);
 BOOL ov24_02254C64(UnkStructOverlay24*);
-BOOL ov24_02254CA0(UnkSubStructOverlay24**, UnkSubStructOverlay24_1*);
+BOOL ov24_02254CA0(UnkSubStructOverlay24**, MemoPadDrawState*);
 BOOL ov24_02254D00(UnkSubStructOverlay24*);
 void ov24_02254D48(UnkSubStructOverlay24*);
 void ov24_02254D8C(UnkSubStructOverlay24*, u32);
