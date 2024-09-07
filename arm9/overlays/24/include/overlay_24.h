@@ -18,7 +18,7 @@ struct MemoPadDrawState
     u32 lastModifiedX;
     u32 lastModifiedY;
     u8 pixelData[78][75];
-    u16 unk16E6;
+    u16 padding;
     u32 unk16E8;
 };
 
@@ -44,7 +44,7 @@ struct MemoPadAppHandler
     u8 unk3;
     u32 unk4;
     MemoPadDrawState drawState;
-    MemoPadDisplayHandler* unk16F4;
+    MemoPadDisplayHandler* displayHandler;
     u32 unk16F8;
     u32 unk16FC;
 };

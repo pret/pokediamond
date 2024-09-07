@@ -21,94 +21,94 @@ static void ov24_02254840(void)
 #define NitroStaticInit ov24_02254840
 #include "sinit.h"
 
-BOOL ov24_02254854(MemoPadAppHandler** arg0, int arg1, int arg2, int arg3) {
-    MemoPadAppHandler* data = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
-    if (data != 0) {
-        if (ov24_0225489C(data, arg1, arg2, arg3) != 0) {
-            if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, data, 1) != 0) {
-                *arg0 = data;
+BOOL ov24_02254854(MemoPadAppHandler** appHandlerOut, int arg1, int arg2, int arg3) {
+    MemoPadAppHandler* appHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
+    if (appHandler) {
+        if (ov24_0225489C(appHandler, arg1, arg2, arg3) != 0) {
+            if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, appHandler, 1) != 0) {
+                *appHandlerOut = appHandler;
                 return TRUE;
             }
         }
-        FreeToHeap(data);
+        FreeToHeap(appHandler);
     }
     return FALSE;
 }
 
-BOOL ov24_0225489C(MemoPadAppHandler* arg0, u32 arg1, u32 arg2, u32 arg3) {
+BOOL ov24_0225489C(MemoPadAppHandler* appHandler, u32 arg1, u32 arg2, u32 arg3) {
     static const u8 ov24_022550F8[] = {
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
-    arg0->drawState.unk16E8 = arg3;
-    arg0->drawState.stylusType = STYLUS_TYPE_DRAW;
-    if (ov24_02254CA0(&(arg0->unk16F4), &(arg0->drawState))) {
-        arg0->unk0 = 0;
-        arg0->unk1 = 0;
-        arg0->unk2 = 0;
-        arg0->unk3 = 0;
-        arg0->unk16FC = ov20_02254130(ov24_022550F8, 2, ov24_02254960, arg0, 8);
-        arg0->unk16F8 = arg1;
+    appHandler->drawState.unk16E8 = arg3;
+    appHandler->drawState.stylusType = STYLUS_TYPE_DRAW;
+    if (ov24_02254CA0(&(appHandler->displayHandler), &(appHandler->drawState))) {
+        appHandler->unk0 = 0;
+        appHandler->unk1 = 0;
+        appHandler->unk2 = 0;
+        appHandler->unk3 = 0;
+        appHandler->unk16FC = ov20_02254130(ov24_022550F8, 2, ov24_02254960, appHandler, 8);
+        appHandler->unk16F8 = arg1;
         return TRUE;
     }
     return FALSE;
 }
 
-void ov24_022548F4(MemoPadAppHandler* arg0) {
-    ov20_02254198(arg0->unk16FC);
-    ov24_02254D48(arg0->unk16F4);
-    FreeToHeap(arg0);
+void ov24_022548F4(MemoPadAppHandler* appHandler) {
+    ov20_02254198(appHandler->unk16FC);
+    ov24_02254D48(appHandler->displayHandler);
+    FreeToHeap(appHandler);
 }
 
-void ov24_02254918(void* arg0, MemoPadAppHandler* arg1) {
+void ov24_02254918(void* arg0, MemoPadAppHandler* appHandler) {
     static BOOL (*const ov24_02255100[3])(MemoPadAppHandler*) = {
         ov24_022549AC, ov24_022549F8, ov24_02254C64
     };
-    if (arg1->unk0 < 3) {
-        ov20_02252C14(arg1->unk16F8, arg1->unk16FC);
-        if (ov24_02255100[arg1->unk0](arg1)) {
-            ov24_022548F4(arg1);
+    if (appHandler->unk0 < 3) {
+        ov20_02252C14(appHandler->unk16F8, appHandler->unk16FC);
+        if (ov24_02255100[appHandler->unk0](appHandler)) {
+            ov24_022548F4(appHandler);
             sub_0200CAB4((s32)arg0);
-            ov20_022529A0(arg1->unk16F8);
+            ov20_022529A0(appHandler->unk16F8);
         }
     }
 }
 
-void ov24_02254960(int arg0, int arg1, int arg2, MemoPadAppHandler* arg3) {
+void ov24_02254960(int arg0, int arg1, int arg2, MemoPadAppHandler* appHandler) {
     if (arg2 == 1) {
         if (
-            (arg3->drawState.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
-            || (arg3->drawState.stylusType == STYLUS_TYPE_ERASE && arg0 == 1)
+            (appHandler->drawState.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
+            || (appHandler->drawState.stylusType == STYLUS_TYPE_ERASE && arg0 == 1)
         ) {
-            arg3->drawState.stylusType ^= 1;
-            ov24_02254D8C(arg3->unk16F4, 1);
+            appHandler->drawState.stylusType ^= 1;
+            ov24_02254D8C(appHandler->displayHandler, 1);
         }
     }
 }
 
-void ov24_02254990(MemoPadAppHandler* arg0) {
-    arg0->unk2 = 1;
+void ov24_02254990(MemoPadAppHandler* appHandler) {
+    appHandler->unk2 = 1;
 }
 
-void ov24_02254998(MemoPadAppHandler* arg0, u8 arg1) {
-    if (arg0->unk2 == 0) {
-        arg0->unk0 = arg1;
+void ov24_02254998(MemoPadAppHandler* appHandler, u8 arg1) {
+    if (appHandler->unk2 == 0) {
+        appHandler->unk0 = arg1;
     }
     else {
-        arg0->unk0 = 2;
+        appHandler->unk0 = 2;
     }
-    arg0->unk1 = 0;
+    appHandler->unk1 = 0;
 }
 
-BOOL ov24_022549AC(MemoPadAppHandler* arg0) {
-    switch (arg0->unk1) {
+BOOL ov24_022549AC(MemoPadAppHandler* appHandler) {
+    switch (appHandler->unk1) {
         case 0:
-            ov24_02254D8C(arg0->unk16F4, 0);
-            arg0->unk1++;
+            ov24_02254D8C(appHandler->displayHandler, 0);
+            appHandler->unk1++;
             break;
         case 1:
-            if (ov24_02254DB0(arg0->unk16F4, 0)) {
-                ov20_0225298C(arg0->unk16F8);
-                ov24_02254998(arg0, 1);
+            if (ov24_02254DB0(appHandler->displayHandler, 0)) {
+                ov20_0225298C(appHandler->unk16F8);
+                ov24_02254998(appHandler, 1);
             }
             break;
         default:
@@ -117,27 +117,27 @@ BOOL ov24_022549AC(MemoPadAppHandler* arg0) {
     return FALSE;
 }
 
-BOOL ov24_022549F8(MemoPadAppHandler* arg0) {
-    if (arg0->unk2 != 0) {
-        ov24_02254998(arg0, 2);
+BOOL ov24_022549F8(MemoPadAppHandler* appHandler) {
+    if (appHandler->unk2 != 0) {
+        ov24_02254998(appHandler, 2);
     }
-    switch (arg0->unk1) {
+    switch (appHandler->unk1) {
     case 0:
-        if (ov20_02252C08(arg0->unk16F8)) {
+        if (ov20_02252C08(appHandler->unk16F8)) {
             break;
         }
-        if (arg0->unk3) {
-            u32 x = arg0->drawState.lastModifiedX;
-            u32 y = arg0->drawState.lastModifiedY;
-            if (ov24_02254AD4(arg0)) {
-                ov24_02254B20(arg0, x, y, arg0->drawState.lastModifiedX, arg0->drawState.lastModifiedY);
+        if (appHandler->unk3) {
+            u32 x = appHandler->drawState.lastModifiedX;
+            u32 y = appHandler->drawState.lastModifiedY;
+            if (ov24_02254AD4(appHandler)) {
+                ov24_02254B20(appHandler, x, y, appHandler->drawState.lastModifiedX, appHandler->drawState.lastModifiedY);
             } else {
-                arg0->unk3 = 0;
+                appHandler->unk3 = 0;
             }
         } else {
-            if (ov24_02254A70(arg0)) {
-                ov24_02254D8C(arg0->unk16F4, 3);
-                arg0->unk3 = 1;
+            if (ov24_02254A70(appHandler)) {
+                ov24_02254D8C(appHandler->displayHandler, 3);
+                appHandler->unk3 = 1;
             }
         }
         break;
@@ -145,16 +145,16 @@ BOOL ov24_022549F8(MemoPadAppHandler* arg0) {
     return FALSE;
 }
 
-BOOL ov24_02254A70(MemoPadAppHandler* arg0) {
+BOOL ov24_02254A70(MemoPadAppHandler* appHandler) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            if (arg0->drawState.pixelData[x][y] != arg0->drawState.stylusType) {
-                arg0->drawState.pixelData[x][y] = arg0->drawState.stylusType;
-                arg0->drawState.lastModifiedX = x;
-                arg0->drawState.lastModifiedY = y;
+            if (appHandler->drawState.pixelData[x][y] != appHandler->drawState.stylusType) {
+                appHandler->drawState.pixelData[x][y] = appHandler->drawState.stylusType;
+                appHandler->drawState.lastModifiedX = x;
+                appHandler->drawState.lastModifiedY = y;
                 return TRUE;
             }
          }
@@ -162,21 +162,21 @@ BOOL ov24_02254A70(MemoPadAppHandler* arg0) {
     return FALSE;
 }
 
-BOOL ov24_02254AD4(MemoPadAppHandler* arg0) {
+BOOL ov24_02254AD4(MemoPadAppHandler* appHandler) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            arg0->drawState.lastModifiedX = x;
-            arg0->drawState.lastModifiedY = y;
+            appHandler->drawState.lastModifiedX = x;
+            appHandler->drawState.lastModifiedY = y;
             return TRUE;
         }
     }
     return FALSE;
 }
 
-void ov24_02254B20(MemoPadAppHandler* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
+void ov24_02254B20(MemoPadAppHandler* appHandler, u32 x0, u32 y0, u32 x1, u32 y1) {
     if (y0 == y1 && x0 == x1) {
         return;
     }
@@ -197,11 +197,11 @@ void ov24_02254B20(MemoPadAppHandler* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         while (x0 != x1) {
             offset = g >> 12;
             if ((x0 < 0x4e) && ((u32)offset < 0x4b)) {
-                if (arg0->drawState.stylusType != arg0->drawState.pixelData[x0][offset]) {
-                    arg0->drawState.pixelData[x0][offset] = arg0->drawState.stylusType;
-                    arg0->drawState.lastModifiedX = x0;
-                    arg0->drawState.lastModifiedY = offset;
-                    ov24_02254D8C(arg0->unk16F4, 3);
+                if (appHandler->drawState.stylusType != appHandler->drawState.pixelData[x0][offset]) {
+                    appHandler->drawState.pixelData[x0][offset] = appHandler->drawState.stylusType;
+                    appHandler->drawState.lastModifiedX = x0;
+                    appHandler->drawState.lastModifiedY = offset;
+                    ov24_02254D8C(appHandler->displayHandler, 3);
                 }
             }
             x0 += direction;
@@ -220,11 +220,11 @@ void ov24_02254B20(MemoPadAppHandler* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         while (y0 != y1) {
             offset = g >> 12;
             if ((y0 < 0x4b) && ((u32)offset < 0x4e)) {
-                if (arg0->drawState.stylusType != arg0->drawState.pixelData[offset][y0]) {
-                    arg0->drawState.pixelData[offset][y0] = arg0->drawState.stylusType;
-                    arg0->drawState.lastModifiedX = offset;
-                    arg0->drawState.lastModifiedY = y0;
-                    ov24_02254D8C(arg0->unk16F4, 3);
+                if (appHandler->drawState.stylusType != appHandler->drawState.pixelData[offset][y0]) {
+                    appHandler->drawState.pixelData[offset][y0] = appHandler->drawState.stylusType;
+                    appHandler->drawState.lastModifiedX = offset;
+                    appHandler->drawState.lastModifiedY = y0;
+                    ov24_02254D8C(appHandler->displayHandler, 3);
                 }
             }
             y0 += direction;
@@ -232,20 +232,20 @@ void ov24_02254B20(MemoPadAppHandler* arg0, u32 x0, u32 y0, u32 x1, u32 y1) {
         }
     }
     if ((y1 < 75) && (x1 < 78)) {
-        arg0->drawState.lastModifiedX = x1;
-        arg0->drawState.lastModifiedY = y1;
-        ov24_02254D8C(arg0->unk16F4, 3);
+        appHandler->drawState.lastModifiedX = x1;
+        appHandler->drawState.lastModifiedY = y1;
+        ov24_02254D8C(appHandler->displayHandler, 3);
     }
 }
 
-BOOL ov24_02254C64(MemoPadAppHandler* arg0) {
-    switch (arg0->unk1) {
+BOOL ov24_02254C64(MemoPadAppHandler* appHandler) {
+    switch (appHandler->unk1) {
     case 0:
-        ov24_02254D8C(arg0->unk16F4, 5);
-        arg0->unk1++;
+        ov24_02254D8C(appHandler->displayHandler, 5);
+        appHandler->unk1++;
         break;
     case 1:
-        if (ov24_02254DBC(arg0->unk16F4)) {
+        if (ov24_02254DBC(appHandler->displayHandler)) {
             return TRUE;
         }
         break;
