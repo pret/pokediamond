@@ -904,8 +904,8 @@ Overlay OVERLAY_24
 {
     ##Memo Pad##
     After OVERLAY_20
-    Object overlay_24_a.o
-    Object overlay_24_b.o
+    Object ov24_02254840.o
+    Object ov24_02254CA0.o
 }
 
 Overlay OVERLAY_25
