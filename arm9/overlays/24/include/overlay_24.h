@@ -46,11 +46,11 @@ typedef struct MemoPadAppHandler
     u32 unk16FC;
 } MemoPadAppHandler;
 
-BOOL ov24_02254854(MemoPadAppHandler**, int, int, int);
+BOOL ov24_02254854(MemoPadAppHandler**, s32, s32, s32);
 BOOL ov24_0225489C(MemoPadAppHandler*, u32, u32, u32);
 void ov24_022548F4(MemoPadAppHandler*);
 void ov24_02254918(void*, MemoPadAppHandler*);
-void ov24_02254960(int, int, int, MemoPadAppHandler*);
+void ov24_02254960(s32, s32, s32, MemoPadAppHandler*);
 void ov24_02254990(MemoPadAppHandler*);
 void ov24_02254998(MemoPadAppHandler*, u8);
 BOOL ov24_022549AC(MemoPadAppHandler*);
@@ -68,7 +68,7 @@ BOOL ov24_02254DBC(MemoPadDisplayHandler*);
 void ov24_02254DC8(void*);
 void ov24_02254DDC(void*, void*);
 void ov24_02254EE0(u32, void*);
-void ov24_02254F28(int, void*);
+void ov24_02254F28(s32, void*);
 void ov24_02254F40(u32 arg0, void* arg1);
 void ov24_02255038(u32 arg0, void* arg1);
 void ov24_02255050(u32 arg0, void* arg1);

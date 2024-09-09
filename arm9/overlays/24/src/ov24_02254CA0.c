@@ -164,7 +164,7 @@ void ov24_02254EE0(u32 arg0, void* arg1) {
     ov24_02254DC8(arg1);
 }
 
-void ov24_02254F28(int arg0, void* arg1) {
+void ov24_02254F28(s32 arg0, void* arg1) {
     MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
     CopyWindowPixelsToVram_TextMode(displayHandler->window);
     ov24_02254DC8(arg1);
@@ -174,10 +174,10 @@ void ov24_02254F40(u32 arg0, void* arg1) {
     MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
     MemoPadDrawState* drawState = displayHandler->drawState;
     if (drawState->stylusType == STYLUS_TYPE_ERASE) {
-        int width, height;
+        s32 width, height;
         width = height = 8;
-        int x = drawState->lastModifiedX * 2 - 4;
-        int y = drawState->lastModifiedY * 2 - 4;
+        s32 x = drawState->lastModifiedX * 2 - 4;
+        s32 y = drawState->lastModifiedY * 2 - 4;
         if (x < 0) {
             width += x;
             x = 0;
@@ -187,19 +187,19 @@ void ov24_02254F40(u32 arg0, void* arg1) {
             y = 0;
         }
         FillWindowPixelRect(displayHandler->window, MEMO_PAD_PIXEL_TYPE_EMPTY, x, y, width, height);
-        int a = (x >> 3) + (y >> 3) * 0x14;
-        int e = ((x + width - 1) >> 3) - (x >> 3) + 1;
-        int b = ((y + height - 1) >> 3) - (y >> 3) + 1;
+        s32 a = (x >> 3) + (y >> 3) * 0x14;
+        s32 e = ((x + width - 1) >> 3) - (x >> 3) + 1;
+        s32 b = ((y + height - 1) >> 3) - (y >> 3) + 1;
         while (b--) {
             GXS_LoadBG3Char((u8*)(displayHandler->window->pixelBuffer) + (a * 0x20), (a + 0xc) * 0x20, e * 0x20);
             a += 0x14;
         }
     } else {
-        int height = 2;
-        int width = 2;
-        int x = drawState->lastModifiedX * 2;
-        int y = drawState->lastModifiedY * 2;
-        int a = (x >> 3) + ((y >> 3) * 0x14);
+        s32 height = 2;
+        s32 width = 2;
+        s32 x = drawState->lastModifiedX * 2;
+        s32 y = drawState->lastModifiedY * 2;
+        s32 a = (x >> 3) + ((y >> 3) * 0x14);
         FillWindowPixelRect(displayHandler->window, MEMO_PAD_PIXEL_TYPE_FILLED, x, y, width, height);
         GXS_LoadBG3Char((u8*)(displayHandler->window->pixelBuffer) + a * 0x20, (a + 0xc) * 0x20, 0x20);
     }
@@ -232,7 +232,7 @@ void ov24_02255078(MemoPadDisplayHandler* displayHandler) {
     };
     GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, PM_LCD_BOTTOM, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
     if (ov20_02253FBC(&(displayHandler->unk54), NARC_GRAPHIC_POKETCH, 0x21, 0x22, HEAP_ID_POKETCH_APP)) {
-        for (int i = 0; i < 2; i++) {
+        for (s32 i = 0; i < 2; i++) {
             displayHandler->unk68[i] = ov20_02253E74(displayHandler->unk50, &(ov24_0225514C[i]), &(displayHandler->unk54));
         }
     }

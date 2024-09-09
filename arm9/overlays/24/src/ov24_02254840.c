@@ -21,7 +21,7 @@ static void ov24_02254840(void)
 #define NitroStaticInit ov24_02254840
 #include "sinit.h"
 
-BOOL ov24_02254854(MemoPadAppHandler** appHandlerOut, int arg1, int arg2, int arg3) {
+BOOL ov24_02254854(MemoPadAppHandler** appHandlerOut, s32 arg1, s32 arg2, s32 arg3) {
     MemoPadAppHandler* appHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
     if (appHandler != NULL) {
         if (ov24_0225489C(appHandler, arg1, arg2, arg3)) {
@@ -73,7 +73,7 @@ void ov24_02254918(void* arg0, MemoPadAppHandler* appHandler) {
     }
 }
 
-void ov24_02254960(int arg0, int arg1, int arg2, MemoPadAppHandler* appHandler) {
+void ov24_02254960(s32 arg0, s32 arg1, s32 arg2, MemoPadAppHandler* appHandler) {
     if (arg2 == 1) {
         if (
             (appHandler->drawState.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
