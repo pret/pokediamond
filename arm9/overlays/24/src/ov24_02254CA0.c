@@ -174,8 +174,7 @@ void ov24_02254F40(u32 arg0, void* arg1) {
     MemoPadDrawState* drawState = displayHandler->drawState;
     if (drawState->stylusType == STYLUS_TYPE_ERASE) {
         int width, height;
-        height = 8;
-        width = 8;
+        width = height = 8;
         int x = drawState->lastModifiedX * 2 - 4;
         int y = drawState->lastModifiedY * 2 - 4;
         if (x < 0) {
