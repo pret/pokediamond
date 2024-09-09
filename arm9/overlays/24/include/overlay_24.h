@@ -11,8 +11,7 @@ typedef enum {
     MEMO_PAD_PIXEL_TYPE_EMPTY = 4,
 } MemoPadPixelType;
 
-typedef struct MemoPadDrawState MemoPadDrawState;
-struct MemoPadDrawState
+typedef struct MemoPadDrawState
 {
     StylusType stylusType;
     u32 lastModifiedX;
@@ -20,10 +19,9 @@ struct MemoPadDrawState
     u8 pixelData[78][75];
     u16 padding;
     u32 unk16E8;
-};
+} MemoPadDrawState;
 
-typedef struct MemoPadDisplayHandler MemoPadDisplayHandler;
-struct MemoPadDisplayHandler
+typedef struct MemoPadDisplayHandler
 {
     MemoPadDrawState* drawState;
     BgConfig* config;
@@ -33,10 +31,9 @@ struct MemoPadDisplayHandler
     u8 unk54[0x14];
     u32* unk68[2];
     Window *window;
-};
+} MemoPadDisplayHandler;
 
-typedef struct MemoPadAppHandler MemoPadAppHandler;
-struct MemoPadAppHandler
+typedef struct MemoPadAppHandler
 {
     u8 unk0;
     u8 unk1;
@@ -47,7 +44,7 @@ struct MemoPadAppHandler
     MemoPadDisplayHandler* displayHandler;
     u32 unk16F8;
     u32 unk16FC;
-};
+} MemoPadAppHandler;
 
 BOOL ov24_02254854(MemoPadAppHandler**, int, int, int);
 BOOL ov24_0225489C(MemoPadAppHandler*, u32, u32, u32);

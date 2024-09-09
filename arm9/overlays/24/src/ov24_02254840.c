@@ -23,7 +23,7 @@ static void ov24_02254840(void)
 
 BOOL ov24_02254854(MemoPadAppHandler** appHandlerOut, int arg1, int arg2, int arg3) {
     MemoPadAppHandler* appHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
-    if (appHandler) {
+    if (appHandler != NULL) {
         if (ov24_0225489C(appHandler, arg1, arg2, arg3) != 0) {
             if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, appHandler, 1) != 0) {
                 *appHandlerOut = appHandler;
@@ -122,25 +122,25 @@ BOOL ov24_022549F8(MemoPadAppHandler* appHandler) {
         ov24_02254998(appHandler, 2);
     }
     switch (appHandler->unk1) {
-    case 0:
-        if (ov20_02252C08(appHandler->unk16F8)) {
-            break;
-        }
-        if (appHandler->unk3) {
-            u32 x = appHandler->drawState.lastModifiedX;
-            u32 y = appHandler->drawState.lastModifiedY;
-            if (ov24_02254AD4(appHandler)) {
-                ov24_02254B20(appHandler, x, y, appHandler->drawState.lastModifiedX, appHandler->drawState.lastModifiedY);
+        case 0:
+            if (ov20_02252C08(appHandler->unk16F8)) {
+                break;
+            }
+            if (appHandler->unk3) {
+                u32 x = appHandler->drawState.lastModifiedX;
+                u32 y = appHandler->drawState.lastModifiedY;
+                if (ov24_02254AD4(appHandler)) {
+                    ov24_02254B20(appHandler, x, y, appHandler->drawState.lastModifiedX, appHandler->drawState.lastModifiedY);
+                } else {
+                    appHandler->unk3 = 0;
+                }
             } else {
-                appHandler->unk3 = 0;
+                if (ov24_02254A70(appHandler)) {
+                    ov24_02254D8C(appHandler->displayHandler, 3);
+                    appHandler->unk3 = 1;
+                }
             }
-        } else {
-            if (ov24_02254A70(appHandler)) {
-                ov24_02254D8C(appHandler->displayHandler, 3);
-                appHandler->unk3 = 1;
-            }
-        }
-        break;
+            break;
     }
     return FALSE;
 }
@@ -240,15 +240,15 @@ void ov24_02254B20(MemoPadAppHandler* appHandler, u32 x0, u32 y0, u32 x1, u32 y1
 
 BOOL ov24_02254C64(MemoPadAppHandler* appHandler) {
     switch (appHandler->unk1) {
-    case 0:
-        ov24_02254D8C(appHandler->displayHandler, 5);
-        appHandler->unk1++;
-        break;
-    case 1:
-        if (ov24_02254DBC(appHandler->displayHandler)) {
-            return TRUE;
-        }
-        break;
+        case 0:
+            ov24_02254D8C(appHandler->displayHandler, 5);
+            appHandler->unk1++;
+            break;
+        case 1:
+            if (ov24_02254DBC(appHandler->displayHandler)) {
+                return TRUE;
+            }
+            break;
     }
     return FALSE;
 }

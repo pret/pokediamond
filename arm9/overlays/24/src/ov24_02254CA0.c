@@ -24,7 +24,7 @@ extern u32 ov20_02252D24();
 
 BOOL ov24_02254CA0(MemoPadDisplayHandler** displayHandlerOut, MemoPadDrawState* drawState) {
     MemoPadDisplayHandler* displayHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadDisplayHandler));
-    if (displayHandler) {
+    if (displayHandler != NULL) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         ov20_022536F4(&(displayHandler->unk8), 0x10);
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
@@ -49,7 +49,7 @@ BOOL ov24_02254D00(MemoPadDisplayHandler* displayHandler) {
         .baseTile = 12,
     };
     displayHandler->window = AllocWindows(HEAP_ID_POKETCH_APP, 1);
-    if (displayHandler->window) {
+    if (displayHandler->window != NULL) {
         AddWindow(displayHandler->config, displayHandler->window, &template);
         if (sub_0208946C(displayHandler->drawState->unk16E8, displayHandler->window->pixelBuffer, 0x2f80) == 0) {
             FillWindowPixelBuffer(displayHandler->window, MEMO_PAD_PIXEL_TYPE_EMPTY);
@@ -60,9 +60,9 @@ BOOL ov24_02254D00(MemoPadDisplayHandler* displayHandler) {
 }
 
 void ov24_02254D48(MemoPadDisplayHandler* displayHandler) {
-    if (displayHandler) {
+    if (displayHandler != NULL) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
-        if (displayHandler->window) {
+        if (displayHandler->window != NULL) {
             sub_02089444(displayHandler->drawState->unk16E8, displayHandler->window->pixelBuffer, 0x2f80);
             RemoveWindow(displayHandler->window);
             FreeToHeap(displayHandler->window);
@@ -131,11 +131,11 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     GXSDispCnt dispcnt;
     MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
-    InitBgFromTemplate(displayHandler->config, 6, &template_7000, 0);
-    InitBgFromTemplate(displayHandler->config, 7, &template_7800, 0);
+    InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_2, &template_7000, 0);
+    InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_3, &template_7800, 0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));   
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH,0x1e,displayHandler->config,6,0,0,1,HEAP_ID_POKETCH_APP);
-    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH,0x1f,displayHandler->config,6,0,0,1,HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, 0x1e, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, 1, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, 0x1f, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, 1, HEAP_ID_POKETCH_APP);
     ov20_02252D7C(0,0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     ov24_02254D00(displayHandler);
@@ -215,8 +215,8 @@ void ov24_02255038(u32 arg0, void* arg1) {
 void ov24_02255050(u32 arg0, void* arg1) {
     MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
     ov24_022550D4(displayHandler);
-    FreeBgTilemapBuffer(displayHandler->config, 6);
-    FreeBgTilemapBuffer(displayHandler->config, 7);
+    FreeBgTilemapBuffer(displayHandler->config, GF_BG_LYR_SUB_2);
+    FreeBgTilemapBuffer(displayHandler->config, GF_BG_LYR_SUB_3);
     ov24_02254DC8(arg1);
 }
 
@@ -230,7 +230,7 @@ void ov24_02255078(MemoPadDisplayHandler* displayHandler) {
             0xC0000, 0x88000, 0x2000003, 0x0
         }
     };
-    GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, 1, 0, 0, 1, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, 1, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
     if (ov20_02253FBC(&(displayHandler->unk54), NARC_GRAPHIC_POKETCH, 0x21, 0x22, HEAP_ID_POKETCH_APP)) {
         for (int i = 0; i < 2; i++) {
             displayHandler->unk68[i] = ov20_02253E74(displayHandler->unk50, &(ov24_0225514C[i]), &(displayHandler->unk54));
