@@ -45,7 +45,7 @@ BOOL ov24_0225489C(MemoPadAppHandler *appHandler, u32 arg1, u32 arg2, u32 arg3) 
         appHandler->unk0 = 0;
         appHandler->unk1 = 0;
         appHandler->unk2 = 0;
-        appHandler->unk3 = 0;
+        appHandler->stylusHeld = FALSE;
         appHandler->unk16FC = ov20_02254130(ov24_022550F8, 2, ov24_02254960, appHandler, 8);
         appHandler->unk16F8 = arg1;
         return TRUE;
@@ -126,18 +126,18 @@ BOOL ov24_022549F8(MemoPadAppHandler *appHandler) {
             if (ov20_02252C08(appHandler->unk16F8)) {
                 break;
             }
-            if (appHandler->unk3) {
+            if (appHandler->stylusHeld) {
                 u32 x = appHandler->drawState.lastModifiedX;
                 u32 y = appHandler->drawState.lastModifiedY;
                 if (ov24_02254AD4(appHandler)) {
                     ov24_02254B20(appHandler, x, y, appHandler->drawState.lastModifiedX, appHandler->drawState.lastModifiedY);
                 } else {
-                    appHandler->unk3 = 0;
+                    appHandler->stylusHeld = FALSE;
                 }
             } else {
                 if (ov24_02254A70(appHandler)) {
                     ov24_02254D8C(appHandler->displayHandler, 3);
-                    appHandler->unk3 = 1;
+                    appHandler->stylusHeld = TRUE;
                 }
             }
             break;
