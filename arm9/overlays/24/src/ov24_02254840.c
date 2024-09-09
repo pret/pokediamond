@@ -5,13 +5,13 @@
 #include "overlay_24.h"
 
 extern void Poketch_InitApp(void *func1, void *func2);
-extern u32 ov20_02254130(void *, u32, void *, void*, u32);
-extern void ov20_02254198(u32);
-extern void ov20_02252C14(u32, u32);
-extern void ov20_022529A0(u32);
-extern void ov20_0225298C(u32);
-extern BOOL ov20_02252C08(u32);
-extern BOOL TouchScreen_GetTapState(u32*, u32*);
+extern u32 ov20_02254130(void *arg0, u32 arg1, void *arg2, void *arg3, u32 arg4);
+extern void ov20_02254198(u32 arg0);
+extern void ov20_02252C14(u32 arg0, u32 arg1);
+extern void ov20_022529A0(u32 arg0);
+extern void ov20_0225298C(u32 arg0);
+extern BOOL ov20_02252C08(u32 arg0);
+extern BOOL TouchScreen_GetTapState(u32 *arg0, u32 *arg1);
 
 static void ov24_02254840(void)
 {
@@ -21,8 +21,8 @@ static void ov24_02254840(void)
 #define NitroStaticInit ov24_02254840
 #include "sinit.h"
 
-BOOL ov24_02254854(MemoPadAppHandler** appHandlerOut, s32 arg1, s32 arg2, s32 arg3) {
-    MemoPadAppHandler* appHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
+BOOL ov24_02254854(MemoPadAppHandler **appHandlerOut, s32 arg1, s32 arg2, s32 arg3) {
+    MemoPadAppHandler *appHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
     if (appHandler != NULL) {
         if (ov24_0225489C(appHandler, arg1, arg2, arg3)) {
             if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, appHandler, 1) != NULL) {
@@ -35,7 +35,7 @@ BOOL ov24_02254854(MemoPadAppHandler** appHandlerOut, s32 arg1, s32 arg2, s32 ar
     return FALSE;
 }
 
-BOOL ov24_0225489C(MemoPadAppHandler* appHandler, u32 arg1, u32 arg2, u32 arg3) {
+BOOL ov24_0225489C(MemoPadAppHandler *appHandler, u32 arg1, u32 arg2, u32 arg3) {
     static const u8 ov24_022550F8[] = {
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
@@ -53,13 +53,13 @@ BOOL ov24_0225489C(MemoPadAppHandler* appHandler, u32 arg1, u32 arg2, u32 arg3) 
     return FALSE;
 }
 
-void ov24_022548F4(MemoPadAppHandler* appHandler) {
+void ov24_022548F4(MemoPadAppHandler *appHandler) {
     ov20_02254198(appHandler->unk16FC);
     ov24_02254D48(appHandler->displayHandler);
     FreeToHeap(appHandler);
 }
 
-void ov24_02254918(void* arg0, MemoPadAppHandler* appHandler) {
+void ov24_02254918(void *arg0, MemoPadAppHandler *appHandler) {
     static BOOL (*const ov24_02255100[3])(MemoPadAppHandler*) = {
         ov24_022549AC, ov24_022549F8, ov24_02254C64
     };
@@ -73,7 +73,7 @@ void ov24_02254918(void* arg0, MemoPadAppHandler* appHandler) {
     }
 }
 
-void ov24_02254960(s32 arg0, s32 arg1, s32 arg2, MemoPadAppHandler* appHandler) {
+void ov24_02254960(s32 arg0, s32 arg1, s32 arg2, MemoPadAppHandler *appHandler) {
     if (arg2 == 1) {
         if (
             (appHandler->drawState.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
@@ -85,11 +85,11 @@ void ov24_02254960(s32 arg0, s32 arg1, s32 arg2, MemoPadAppHandler* appHandler) 
     }
 }
 
-void ov24_02254990(MemoPadAppHandler* appHandler) {
+void ov24_02254990(MemoPadAppHandler *appHandler) {
     appHandler->unk2 = 1;
 }
 
-void ov24_02254998(MemoPadAppHandler* appHandler, u8 arg1) {
+void ov24_02254998(MemoPadAppHandler *appHandler, u8 arg1) {
     if (appHandler->unk2 == 0) {
         appHandler->unk0 = arg1;
     }
@@ -99,7 +99,7 @@ void ov24_02254998(MemoPadAppHandler* appHandler, u8 arg1) {
     appHandler->unk1 = 0;
 }
 
-BOOL ov24_022549AC(MemoPadAppHandler* appHandler) {
+BOOL ov24_022549AC(MemoPadAppHandler *appHandler) {
     switch (appHandler->unk1) {
         case 0:
             ov24_02254D8C(appHandler->displayHandler, 0);
@@ -117,7 +117,7 @@ BOOL ov24_022549AC(MemoPadAppHandler* appHandler) {
     return FALSE;
 }
 
-BOOL ov24_022549F8(MemoPadAppHandler* appHandler) {
+BOOL ov24_022549F8(MemoPadAppHandler *appHandler) {
     if (appHandler->unk2 != 0) {
         ov24_02254998(appHandler, 2);
     }
@@ -145,7 +145,7 @@ BOOL ov24_022549F8(MemoPadAppHandler* appHandler) {
     return FALSE;
 }
 
-BOOL ov24_02254A70(MemoPadAppHandler* appHandler) {
+BOOL ov24_02254A70(MemoPadAppHandler *appHandler) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
@@ -162,7 +162,7 @@ BOOL ov24_02254A70(MemoPadAppHandler* appHandler) {
     return FALSE;
 }
 
-BOOL ov24_02254AD4(MemoPadAppHandler* appHandler) {
+BOOL ov24_02254AD4(MemoPadAppHandler *appHandler) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
@@ -176,7 +176,7 @@ BOOL ov24_02254AD4(MemoPadAppHandler* appHandler) {
     return FALSE;
 }
 
-void ov24_02254B20(MemoPadAppHandler* appHandler, u32 x0, u32 y0, u32 x1, u32 y1) {
+void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1) {
     if (y0 == y1 && x0 == x1) {
         return;
     }
@@ -238,7 +238,7 @@ void ov24_02254B20(MemoPadAppHandler* appHandler, u32 x0, u32 y0, u32 x1, u32 y1
     }
 }
 
-BOOL ov24_02254C64(MemoPadAppHandler* appHandler) {
+BOOL ov24_02254C64(MemoPadAppHandler *appHandler) {
     switch (appHandler->unk1) {
         case 0:
             ov24_02254D8C(appHandler->displayHandler, 5);

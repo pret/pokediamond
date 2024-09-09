@@ -5,32 +5,32 @@
 #include "overlay_24.h"
 #include "SPI_pm.h"
 
-extern BOOL sub_0208946C(u32, void*, u32);
-extern void sub_02089444(u32, void*, u32);
-extern void ov20_02252D7C(u32, u32);
-extern void ov20_02253F28(u32*, u32);
-extern void Poketch_PlaySoundEffect(u32);
-extern void* ov20_022538A0(void*);
-extern void ov20_02253888(u32*, void*);
-extern BOOL ov20_022537B8(void*);
-extern BOOL ov20_02253794(void*, u8);
-extern void ov20_022537E0(const u32*, u32, void*, void*, void*, u32, u32);
-extern BOOL ov20_02253FBC(void*, NarcId, u32, u32, HeapID);
-extern u32* ov20_02253E74(u32, void*, void*);
-extern void ov20_02254014(void*);
-extern void ov20_02253F14(u32, void*);
-extern void ov20_022536F4(void*, u32);
-extern u32 ov20_02252D34();
+extern BOOL sub_0208946C(u32 arg0, void *arg1, u32 arg2);
+extern void sub_02089444(u32 arg0, void *arg1, u32 arg2);
+extern void ov20_02252D7C(u32 arg0, u32 arg1);
+extern void ov20_02253F28(u32 *arg0, u32 arg1);
+extern void Poketch_PlaySoundEffect(u32 arg0);
+extern void *ov20_022538A0(void *arg0);
+extern void ov20_02253888(u32 *arg0, void *arg1);
+extern BOOL ov20_022537B8(void *arg0);
+extern BOOL ov20_02253794(void *arg0, u8 arg1);
+extern void ov20_022537E0(const u32 *arg0, u32 arg1, void *arg2, void *arg3, void *arg4, u32 arg5, u32 arg6);
+extern BOOL ov20_02253FBC(void *arg0, NarcId arg1, u32 arg2, u32 arg3, HeapID arg4);
+extern u32 *ov20_02253E74(u32 arg0, void *arg1, void *arg2);
+extern void ov20_02254014(void *arg0);
+extern void ov20_02253F14(u32 arg0, void *arg1);
+extern void ov20_022536F4(void *arg0, u32 arg1);
+extern BgConfig *ov20_02252D34();
 extern u32 ov20_02252D24();
 
-BOOL ov24_02254CA0(MemoPadDisplayHandler** displayHandlerOut, MemoPadDrawState* drawState) {
-    MemoPadDisplayHandler* displayHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadDisplayHandler));
+BOOL ov24_02254CA0(MemoPadDisplayHandler **displayHandlerOut, MemoPadDrawState *drawState) {
+    MemoPadDisplayHandler *displayHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadDisplayHandler));
     if (displayHandler != NULL) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         ov20_022536F4(&(displayHandler->unk8), 0x10);
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         displayHandler->drawState = drawState;
-        displayHandler->config = (BgConfig*)ov20_02252D34();
+        displayHandler->config = ov20_02252D34();
         displayHandler->unk50 = ov20_02252D24();
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         *displayHandlerOut = displayHandler;
@@ -39,7 +39,7 @@ BOOL ov24_02254CA0(MemoPadDisplayHandler** displayHandlerOut, MemoPadDrawState* 
     return FALSE;
 }
 
-BOOL ov24_02254D00(MemoPadDisplayHandler* displayHandler) {
+BOOL ov24_02254D00(MemoPadDisplayHandler *displayHandler) {
     static const WindowTemplate template = {
         .bgId = GF_BG_LYR_SUB_3,
         .left = 2,
@@ -60,7 +60,7 @@ BOOL ov24_02254D00(MemoPadDisplayHandler* displayHandler) {
     return FALSE;
 }
 
-void ov24_02254D48(MemoPadDisplayHandler* displayHandler) {
+void ov24_02254D48(MemoPadDisplayHandler *displayHandler) {
     if (displayHandler != NULL) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         if (displayHandler->window != NULL) {
@@ -72,7 +72,7 @@ void ov24_02254D48(MemoPadDisplayHandler* displayHandler) {
     }
 }
 
-void ov24_02254D8C(MemoPadDisplayHandler* displayHandler, u32 arg1) {
+void ov24_02254D8C(MemoPadDisplayHandler *displayHandler, u32 arg1) {
     // TODO: types
     static const u32 ov24_0225516C[] = {
         0x00, (u32)ov24_02254DDC, 0x00,
@@ -86,19 +86,19 @@ void ov24_02254D8C(MemoPadDisplayHandler* displayHandler, u32 arg1) {
     ov20_022537E0(ov24_0225516C, arg1, displayHandler, displayHandler->drawState, &(displayHandler->unk8), 2, 8);
 }
 
-BOOL ov24_02254DB0(MemoPadDisplayHandler* displayHandler, u8 arg1) {
+BOOL ov24_02254DB0(MemoPadDisplayHandler *displayHandler, u8 arg1) {
     return ov20_02253794(&(displayHandler->unk8), arg1);
 }
 
-BOOL ov24_02254DBC(MemoPadDisplayHandler* displayHandler) {
+BOOL ov24_02254DBC(MemoPadDisplayHandler *displayHandler) {
     return ov20_022537B8(&(displayHandler->unk8));
 }
 
-void ov24_02254DC8(void* arg0) {
+void ov24_02254DC8(void *arg0) {
     ov20_02253888(&(((MemoPadDisplayHandler*)ov20_022538A0(arg0))->unk8), arg0);
 }
 
-void ov24_02254DDC(void* arg0, void* arg1) {
+void ov24_02254DDC(void *arg0, void *arg1) {
     static const BgTemplate template_7000 = {
         .x = 0,
         .y = 0,
@@ -131,7 +131,7 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     };
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     GXSDispCnt dispcnt;
-    MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
+    MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
     InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_2, &template_7000, 0);
     InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_3, &template_7800, 0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));   
@@ -151,8 +151,8 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
 }
 
-void ov24_02254EE0(u32 arg0, void* arg1) {
-    MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
+void ov24_02254EE0(u32 arg0, void *arg1) {
+    MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
     if (displayHandler->drawState->stylusType == STYLUS_TYPE_DRAW) {
         ov20_02253F28(displayHandler->unk68[0], 0);
         ov20_02253F28(displayHandler->unk68[1], 3);
@@ -164,15 +164,15 @@ void ov24_02254EE0(u32 arg0, void* arg1) {
     ov24_02254DC8(arg1);
 }
 
-void ov24_02254F28(s32 arg0, void* arg1) {
-    MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
+void ov24_02254F28(s32 arg0, void *arg1) {
+    MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
     CopyWindowPixelsToVram_TextMode(displayHandler->window);
     ov24_02254DC8(arg1);
 }
 
-void ov24_02254F40(u32 arg0, void* arg1) {
+void ov24_02254F40(u32 arg0, void *arg1) {
     MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
-    MemoPadDrawState* drawState = displayHandler->drawState;
+    MemoPadDrawState *drawState = displayHandler->drawState;
     if (drawState->stylusType == STYLUS_TYPE_ERASE) {
         s32 width, height;
         width = height = 8;
@@ -206,21 +206,21 @@ void ov24_02254F40(u32 arg0, void* arg1) {
     ov24_02254DC8(arg1);
 }
 
-void ov24_02255038(u32 arg0, void* arg1) {
-    MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
+void ov24_02255038(u32 arg0, void *arg1) {
+    MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
     CopyWindowPixelsToVram_TextMode(displayHandler->window);
     ov24_02254DC8(arg1);
 }
 
-void ov24_02255050(u32 arg0, void* arg1) {
-    MemoPadDisplayHandler* displayHandler = ov20_022538A0(arg1);
+void ov24_02255050(u32 arg0, void *arg1) {
+    MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
     ov24_022550D4(displayHandler);
     FreeBgTilemapBuffer(displayHandler->config, GF_BG_LYR_SUB_2);
     FreeBgTilemapBuffer(displayHandler->config, GF_BG_LYR_SUB_3);
     ov24_02254DC8(arg1);
 }
 
-void ov24_02255078(MemoPadDisplayHandler* displayHandler) {
+void ov24_02255078(MemoPadDisplayHandler *displayHandler) {
     // TODO: types
     static const u32 ov24_0225514C[2][4] = {
         {
@@ -238,7 +238,7 @@ void ov24_02255078(MemoPadDisplayHandler* displayHandler) {
     }
 }
 
-void ov24_022550D4(MemoPadDisplayHandler* displayHandler) {
+void ov24_022550D4(MemoPadDisplayHandler *displayHandler) {
     for (u32 i = 0; i < 2; i++) {
         ov20_02253F14(displayHandler->unk50, displayHandler->unk68[i]);
     }
