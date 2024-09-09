@@ -24,8 +24,8 @@ static void ov24_02254840(void)
 BOOL ov24_02254854(MemoPadAppHandler** appHandlerOut, int arg1, int arg2, int arg3) {
     MemoPadAppHandler* appHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
     if (appHandler != NULL) {
-        if (ov24_0225489C(appHandler, arg1, arg2, arg3) != 0) {
-            if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, appHandler, 1) != 0) {
+        if (ov24_0225489C(appHandler, arg1, arg2, arg3)) {
+            if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, appHandler, 1) != NULL) {
                 *appHandlerOut = appHandler;
                 return TRUE;
             }

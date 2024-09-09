@@ -143,7 +143,7 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     ov24_02255078(displayHandler);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
-    BgCommitTilemapBufferToVram(displayHandler->config, 7);
+    BgCommitTilemapBufferToVram(displayHandler->config, GF_BG_LYR_SUB_3);
     dispcnt.raw = reg_GXS_DB_DISPCNT;
     GXS_SetVisiblePlane(dispcnt.visiblePlane | GX_PLANEMASK_BG2 | GX_PLANEMASK_OBJ);
     ov24_02254DC8(arg1);
