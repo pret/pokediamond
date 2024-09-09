@@ -134,8 +134,8 @@ void ov24_02254DDC(void* arg0, void* arg1) {
     InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_2, &template_7000, 0);
     InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_3, &template_7800, 0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));   
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, 0x1e, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, 1, HEAP_ID_POKETCH_APP);
-    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, 0x1f, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, 1, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, 0x1e, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, 0x1f, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
     ov20_02252D7C(0,0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     ov24_02254D00(displayHandler);
