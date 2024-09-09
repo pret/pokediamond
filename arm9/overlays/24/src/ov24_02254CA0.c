@@ -4,6 +4,8 @@
 #include "gf_gfx_loader.h"
 #include "overlay_24.h"
 #include "SPI_pm.h"
+#include "constants/sndseq.h"
+#include "graphic/poketch.naix"
 
 extern BOOL sub_0208946C(u32 arg0, void *arg1, u32 arg2);
 extern void sub_02089444(u32 arg0, void *arg1, u32 arg2);
@@ -135,8 +137,8 @@ void ov24_02254DDC(void *arg0, void *arg1) {
     InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_2, &template_7000, 0);
     InitBgFromTemplate(displayHandler->config, GF_BG_LYR_SUB_3, &template_7800, 0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));   
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, 0x1e, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
-    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, 0x1f, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0030_bin, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0031_NSCR, displayHandler->config, GF_BG_LYR_SUB_2, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
     ov20_02252D7C(0,0);
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     ov24_02254D00(displayHandler);
@@ -160,7 +162,7 @@ void ov24_02254EE0(u32 arg0, void *arg1) {
         ov20_02253F28(displayHandler->unk68[0], 1);
         ov20_02253F28(displayHandler->unk68[1], 2);
     }
-    Poketch_PlaySoundEffect(1635);
+    Poketch_PlaySoundEffect(SEQ_SE_DP_POKETCH_003);
     ov24_02254DC8(arg1);
 }
 
@@ -230,8 +232,8 @@ void ov24_02255078(MemoPadDisplayHandler *displayHandler) {
             0xC0000, 0x88000, 0x2000003, 0x0
         }
     };
-    GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, PM_LCD_BOTTOM, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
-    if (ov20_02253FBC(&(displayHandler->unk54), NARC_GRAPHIC_POKETCH, 0x21, 0x22, HEAP_ID_POKETCH_APP)) {
+    GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0032_bin, PM_LCD_BOTTOM, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
+    if (ov20_02253FBC(&(displayHandler->unk54), NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0033_NCER, NARC_poketch_narc_0034_NANR, HEAP_ID_POKETCH_APP)) {
         for (s32 i = 0; i < 2; i++) {
             displayHandler->unk68[i] = ov20_02253E74(displayHandler->unk50, &(ov24_0225514C[i]), &(displayHandler->unk54));
         }
