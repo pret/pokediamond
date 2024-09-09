@@ -3,6 +3,7 @@
 #include "unk_0200CA44.h"
 #include "gf_gfx_loader.h"
 #include "overlay_24.h"
+#include "SPI_pm.h"
 
 extern BOOL sub_0208946C(u32, void*, u32);
 extern void sub_02089444(u32, void*, u32);
@@ -229,7 +230,7 @@ void ov24_02255078(MemoPadDisplayHandler* displayHandler) {
             0xC0000, 0x88000, 0x2000003, 0x0
         }
     };
-    GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, 1, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadWholePalette(NARC_GRAPHIC_POKETCH, 0x20, PM_LCD_BOTTOM, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
     if (ov20_02253FBC(&(displayHandler->unk54), NARC_GRAPHIC_POKETCH, 0x21, 0x22, HEAP_ID_POKETCH_APP)) {
         for (int i = 0; i < 2; i++) {
             displayHandler->unk68[i] = ov20_02253E74(displayHandler->unk50, &(ov24_0225514C[i]), &(displayHandler->unk54));
