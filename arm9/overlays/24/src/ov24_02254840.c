@@ -40,12 +40,12 @@ BOOL ov24_0225489C(MemoPadAppHandler *appHandler, u32 arg1, u32 arg2, u32 arg3) 
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
     appHandler->drawState.unk16E8 = arg3;
-    appHandler->drawState.stylusType = STYLUS_TYPE_DRAW;
+    appHandler->drawState.touchType = TOUCH_TYPE_DRAW;
     if (ov24_02254CA0(&(appHandler->displayHandler), &(appHandler->drawState))) {
         appHandler->unk0 = 0;
         appHandler->unk1 = 0;
         appHandler->unk2 = 0;
-        appHandler->stylusHeld = FALSE;
+        appHandler->touchHeld = FALSE;
         appHandler->unk16FC = ov20_02254130(ov24_022550F8, 2, ov24_02254960, appHandler, 8);
         appHandler->unk16F8 = arg1;
         return TRUE;
@@ -76,10 +76,10 @@ void ov24_02254918(void *arg0, MemoPadAppHandler *appHandler) {
 void ov24_02254960(s32 arg0, s32 arg1, s32 arg2, MemoPadAppHandler *appHandler) {
     if (arg2 == 1) {
         if (
-            (appHandler->drawState.stylusType == STYLUS_TYPE_DRAW && arg0 == 0)
-            || (appHandler->drawState.stylusType == STYLUS_TYPE_ERASE && arg0 == 1)
+            (appHandler->drawState.touchType == TOUCH_TYPE_DRAW && arg0 == 0)
+            || (appHandler->drawState.touchType == TOUCH_TYPE_ERASE && arg0 == 1)
         ) {
-            appHandler->drawState.stylusType ^= 1;
+            appHandler->drawState.touchType ^= 1;
             ov24_02254D8C(appHandler->displayHandler, 1);
         }
     }
@@ -126,18 +126,18 @@ BOOL ov24_022549F8(MemoPadAppHandler *appHandler) {
             if (ov20_02252C08(appHandler->unk16F8)) {
                 break;
             }
-            if (appHandler->stylusHeld) {
+            if (appHandler->touchHeld) {
                 u32 x = appHandler->drawState.lastModifiedX;
                 u32 y = appHandler->drawState.lastModifiedY;
                 if (ov24_02254AD4(appHandler)) {
                     ov24_02254B20(appHandler, x, y, appHandler->drawState.lastModifiedX, appHandler->drawState.lastModifiedY);
                 } else {
-                    appHandler->stylusHeld = FALSE;
+                    appHandler->touchHeld = FALSE;
                 }
             } else {
                 if (ov24_02254A70(appHandler)) {
                     ov24_02254D8C(appHandler->displayHandler, 3);
-                    appHandler->stylusHeld = TRUE;
+                    appHandler->touchHeld = TRUE;
                 }
             }
             break;
@@ -151,8 +151,8 @@ BOOL ov24_02254A70(MemoPadAppHandler *appHandler) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
             x = (x - 16) >> 1;
             y = (y - 16) >> 1;
-            if (appHandler->drawState.pixelData[x][y] != appHandler->drawState.stylusType) {
-                appHandler->drawState.pixelData[x][y] = appHandler->drawState.stylusType;
+            if (appHandler->drawState.pixelData[x][y] != appHandler->drawState.touchType) {
+                appHandler->drawState.pixelData[x][y] = appHandler->drawState.touchType;
                 appHandler->drawState.lastModifiedX = x;
                 appHandler->drawState.lastModifiedY = y;
                 return TRUE;
@@ -197,8 +197,8 @@ void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1
         while (x0 != x1) {
             offset = g >> 12;
             if ((x0 < 0x4e) && ((u32)offset < 0x4b)) {
-                if (appHandler->drawState.stylusType != appHandler->drawState.pixelData[x0][offset]) {
-                    appHandler->drawState.pixelData[x0][offset] = appHandler->drawState.stylusType;
+                if (appHandler->drawState.touchType != appHandler->drawState.pixelData[x0][offset]) {
+                    appHandler->drawState.pixelData[x0][offset] = appHandler->drawState.touchType;
                     appHandler->drawState.lastModifiedX = x0;
                     appHandler->drawState.lastModifiedY = offset;
                     ov24_02254D8C(appHandler->displayHandler, 3);
@@ -220,8 +220,8 @@ void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1
         while (y0 != y1) {
             offset = g >> 12;
             if ((y0 < 0x4b) && ((u32)offset < 0x4e)) {
-                if (appHandler->drawState.stylusType != appHandler->drawState.pixelData[offset][y0]) {
-                    appHandler->drawState.pixelData[offset][y0] = appHandler->drawState.stylusType;
+                if (appHandler->drawState.touchType != appHandler->drawState.pixelData[offset][y0]) {
+                    appHandler->drawState.pixelData[offset][y0] = appHandler->drawState.touchType;
                     appHandler->drawState.lastModifiedX = offset;
                     appHandler->drawState.lastModifiedY = y0;
                     ov24_02254D8C(appHandler->displayHandler, 3);

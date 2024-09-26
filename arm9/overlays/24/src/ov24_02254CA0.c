@@ -155,7 +155,7 @@ void ov24_02254DDC(void *arg0, void *arg1) {
 
 void ov24_02254EE0(u32 arg0, void *arg1) {
     MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
-    if (displayHandler->drawState->stylusType == STYLUS_TYPE_DRAW) {
+    if (displayHandler->drawState->touchType == TOUCH_TYPE_DRAW) {
         ov20_02253F28(displayHandler->unk68[0], 0);
         ov20_02253F28(displayHandler->unk68[1], 3);
     } else {
@@ -175,7 +175,7 @@ void ov24_02254F28(s32 arg0, void *arg1) {
 void ov24_02254F40(u32 arg0, void *arg1) {
     MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
     MemoPadDrawState *drawState = displayHandler->drawState;
-    if (drawState->stylusType == STYLUS_TYPE_ERASE) {
+    if (drawState->touchType == TOUCH_TYPE_ERASE) {
         s32 width, height;
         width = height = 8;
         s32 x = drawState->lastModifiedX * 2 - 4;

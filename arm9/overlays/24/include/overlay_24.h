@@ -2,9 +2,9 @@
 #define POKEDIAMOND_OVERLAY_24_H
 
 typedef enum {
-    STYLUS_TYPE_ERASE = 0,
-    STYLUS_TYPE_DRAW = 1,
-} StylusType;
+    TOUCH_TYPE_ERASE = 0,
+    TOUCH_TYPE_DRAW = 1,
+} TouchType;
 
 typedef enum {
     MEMO_PAD_PIXEL_TYPE_FILLED = 1,
@@ -13,7 +13,7 @@ typedef enum {
 
 typedef struct MemoPadDrawState
 {
-    StylusType stylusType;
+    TouchType touchType;
     u32 lastModifiedX;
     u32 lastModifiedY;
     u8 pixelData[78][75];
@@ -38,7 +38,7 @@ typedef struct MemoPadAppHandler
     u8 unk0;
     u8 unk1;
     u8 unk2;
-    u8 stylusHeld;
+    u8 touchHeld;
     u32 unk4;
     MemoPadDrawState drawState;
     MemoPadDisplayHandler *displayHandler;
