@@ -628,7 +628,7 @@ _021E1844: .word ov05_021F6910
 	thumb_func_start ov05_021E1848
 ov05_021E1848: ; 0x021E1848
 	push {r3, lr}
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl sub_020395F4
@@ -909,7 +909,7 @@ ov05_021E1A30: ; 0x021E1A30
 	bl sub_02034B64
 	add r7, r0, #0
 	add r0, r4, #0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0xc]
@@ -961,7 +961,7 @@ _021E1A98: ; jump table
 	.short _021E1AAA - _021E1A98 - 2 ; case 8
 _021E1AAA:
 	add r0, r5, #0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	add r6, r0, #0
 	lsl r0, r6, #0x10
 	lsr r0, r0, #0x10

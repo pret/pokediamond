@@ -127,5 +127,7 @@ void MapObject_CreateFromMultipleObjectEvents(MapObjectManager *manager, u32 map
 LocalMapObject *MapObjectManager_GetFirstActiveObjectByID(MapObjectManager *manager, u32 id);
 LocalMapObject *MapObjectManager_GetFirstActiveObjectWithMovement(MapObjectManager *manager, u32 movement);
 BOOL MapObjectManager_GetNextObjectWithFlagFromIndex(MapObjectManager *manager, LocalMapObject **objectDest, s32 *index, MapObjectFlagBits flag);
+u32 sub_0205829C(LocalMapObject *object, u32 param1);
+BOOL sub_020582A8(LocalMapObject *object, u32 mapId, u32 flagId);
 
 #endif //POKEDIAMOND_MAP_OBJECT_H
