@@ -28,9 +28,9 @@ void ov19_02252440(struct BgConfig * bgConfig)
     GX_SetBankForSubOBJ(0x100);
     GXS_SetOBJVRamModeChar(GX_OBJVRAMMODE_CHAR_1D_32K);
     InitBgFromTemplate(bgConfig, GF_BG_LYR_SUB_0, &ov19_02252508, GF_BG_TYPE_TEXT);
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0010_NCGR_lz, bgConfig, GF_BG_LYR_SUB_0, 0, 0, TRUE, HEAP_ID_8);
-    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0011_NSCR_lz, bgConfig, GF_BG_LYR_SUB_0, 0, 0, TRUE, HEAP_ID_8);
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0012_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0x20, HEAP_ID_8);
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0010_NCGR_lz, bgConfig, GF_BG_LYR_SUB_0, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_LoadScrnData(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0011_NSCR_lz, bgConfig, GF_BG_LYR_SUB_0, 0, 0, TRUE, HEAP_ID_POKETCH_APP);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_POKETCH, NARC_poketch_narc_0012_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0x20, HEAP_ID_POKETCH_APP);
     GXS_SetVisibleWnd(GX_WNDMASK_NONE);
     GXS_SetVisiblePlane(GX_PLANEMASK_BG0);
 }
@@ -38,7 +38,7 @@ void ov19_02252440(struct BgConfig * bgConfig)
 void ov19_022524F4(struct BgConfig * bgConfig)
 {
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_0);
-    DestroyHeap(HEAP_ID_8);
+    DestroyHeap(HEAP_ID_POKETCH_APP);
 }
 
 BOOL ov19_02252504(struct BgConfig * bgConfig)

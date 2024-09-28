@@ -249,7 +249,7 @@ ov44_02254C14: ; 0x02254C14
 	bl ov20_022538A4
 	add r4, r0, #0
 	ldr r0, _02254C50 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	mov r0, #0
 	add r1, r0, #0
 	bl ov20_02252D7C

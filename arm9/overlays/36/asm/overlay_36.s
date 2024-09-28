@@ -293,13 +293,13 @@ _02254A4C:
 	ldr r0, [r4, r0]
 	bl ov36_02254F0C
 	ldr r0, _02254BD8 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	mov r0, #1
 	strb r0, [r4, #1]
 	b _02254AA6
 _02254A82:
 	ldr r0, _02254BDC ; =0x0000066E
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	b _02254AA6
 _02254A8A:
 	add r0, r1, #0
@@ -311,7 +311,7 @@ _02254A8A:
 	mov r1, #5
 	bl ov36_02254F0C
 	ldr r0, _02254BD8 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	mov r0, #3
 	strb r0, [r4, #1]
 _02254AA6:
@@ -368,7 +368,7 @@ _02254AF4:
 	bne _02254B46
 _02254B0C:
 	ldr r0, _02254BDC ; =0x0000066E
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	b _02254B46
 _02254B14:
 	add r0, r1, #0
@@ -390,7 +390,7 @@ _02254B14:
 	ldr r0, [r4, r0]
 	bl ov36_02254F0C
 	ldr r0, _02254BD8 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	mov r0, #2
 	strb r0, [r4, #1]
 _02254B46:
@@ -474,7 +474,7 @@ ov36_02254BE4: ; 0x02254BE4
 	add r4, r0, #0
 	add r0, sp, #4
 	add r1, sp, #0
-	bl ov20_02252B68
+	bl TouchScreen_GetTapState
 	cmp r0, #0
 	beq _02254C3E
 	ldr r1, [sp, #4]
@@ -530,7 +530,7 @@ ov36_02254C44: ; 0x02254C44
 	add r4, r0, #0
 	add r0, sp, #4
 	add r1, sp, #0
-	bl ov20_02252B68
+	bl TouchScreen_GetTapState
 	cmp r0, #0
 	beq _02254C8A
 	ldr r1, [sp, #4]
@@ -1537,7 +1537,7 @@ _022553CA:
 	cmp r0, #0
 	beq _022553E2
 	ldr r0, _022553E4 ; =0x0000066A
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov36_02254F48
 _022553E2:

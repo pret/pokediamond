@@ -208,7 +208,7 @@ _022549AA:
 	add r0, r4, #0
 	bl ov29_02254AA8
 	ldr r0, _02254A60 ; =0x00000668
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldr r0, [r4, #0x48]
 	mov r1, #2
 	bl ov29_02254CC0
@@ -271,7 +271,7 @@ _02254A3C:
 	cmp r0, #0
 	beq _02254A5A
 	ldr r0, _02254A60 ; =0x00000668
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldr r0, [r4, #0x48]
 	mov r1, #2
 	bl ov29_02254CC0

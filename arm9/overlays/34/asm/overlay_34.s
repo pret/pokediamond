@@ -228,14 +228,14 @@ _022549C4:
 	mov r1, #2
 	bl ov34_02254A98
 	ldr r0, _02254A20 ; =0x00000663
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldrb r0, [r4, #1]
 	add r0, r0, #1
 	strb r0, [r4, #1]
 	b _02254A1A
 _022549EE:
 	ldr r0, _02254A24 ; =0x0000066E
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	b _02254A1A
 _022549F6:
 	ldr r0, [r4, #0x30]

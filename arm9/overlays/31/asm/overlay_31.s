@@ -611,7 +611,7 @@ ov31_02254CB8: ; 0x02254CB8
 	b _02254CEA
 _02254CD2:
 	ldr r0, _02254CF4 ; =0x00000669
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	ldr r0, [r4, #0x24]
 	mov r1, #1
 	bl ov20_02253F28

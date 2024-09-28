@@ -735,7 +735,7 @@ _02254DB6:
 	add r0, r4, #0
 	bl ov35_02254E58
 	ldr r0, _02254E54 ; =0x00000678
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r5, #0
 	bl ov20_022538B0
 	pop {r4, r5, r6, pc}

@@ -1004,8 +1004,8 @@ ov20_02252B1C: ; 0x02252B1C
 	.align 2, 0
 	thumb_func_end ov20_02252B1C
 
-	thumb_func_start ov20_02252B28
-ov20_02252B28: ; 0x02252B28
+	thumb_func_start Poketch_PlaySoundEffect
+Poketch_PlaySoundEffect: ; 0x02252B28
 	push {r4, lr}
 	add r4, r0, #0
 	bl ov20_02252440
@@ -1020,7 +1020,7 @@ ov20_02252B28: ; 0x02252B28
 	bl PlaySE
 _02252B46:
 	pop {r4, pc}
-	thumb_func_end ov20_02252B28
+	thumb_func_end Poketch_PlaySoundEffect
 
 	thumb_func_start ov20_02252B48
 ov20_02252B48: ; 0x02252B48
@@ -1040,8 +1040,8 @@ _02252B66:
 	pop {r4, pc}
 	thumb_func_end ov20_02252B48
 
-	thumb_func_start ov20_02252B68
-ov20_02252B68: ; 0x02252B68
+	thumb_func_start TouchScreen_GetTapState
+TouchScreen_GetTapState: ; 0x02252B68
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
@@ -1085,7 +1085,7 @@ _02252BB0:
 _02252BB4:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
-	thumb_func_end ov20_02252B68
+	thumb_func_end TouchScreen_GetTapState
 
 	thumb_func_start ov20_02252BB8
 ov20_02252BB8: ; 0x02252BB8

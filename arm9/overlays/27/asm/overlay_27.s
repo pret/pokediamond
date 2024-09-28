@@ -196,7 +196,7 @@ _0225499C:
 	add r1, r4, #0
 	add r0, #0x6c
 	add r1, #0x70
-	bl ov20_02252B68
+	bl TouchScreen_GetTapState
 	add r1, r4, #0
 	add r1, #0x68
 	strh r0, [r1]
@@ -1427,7 +1427,7 @@ ov27_022552D0: ; 0x022552D0
 	mov r1, #6
 	bl BgCommitTilemapBufferToVram
 	ldr r0, _02255338 ; =0x00000669
-	bl ov20_02252B28
+	bl Poketch_PlaySoundEffect
 	add r0, r6, #0
 	bl ov27_02254BF4
 	add sp, #0x10
