@@ -1,9 +1,11 @@
 #ifndef POKEDIAMOND_BRIGHTNESS_H
 #define POKEDIAMOND_BRIGHTNESS_H
 
-#include "global.h"
-#include "GX_g2.h"
 #include "nitro/FX_types.h"
+
+#include "global.h"
+
+#include "GX_g2.h"
 
 #define SCREEN_MASK_MAIN 1
 #define SCREEN_MASK_SUB  2

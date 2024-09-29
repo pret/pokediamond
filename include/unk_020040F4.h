@@ -2,16 +2,15 @@
 #define POKEDIAMOND_UNK_020040F4_H
 
 #include "global.h"
+
 #include "SPI_mic.h"
 #include "heap.h"
 
-struct WaveArcInfo
-{
+struct WaveArcInfo {
     u32 unk00 : 24;
 };
 
-struct UnkStruct_020040F4_1
-{
+struct UnkStruct_020040F4_1 {
     void *unk00;
     u32 unk04;
     void *unk08;
@@ -24,8 +23,7 @@ struct UnkStruct_020040F4_1
     s32 unk24;
 };
 
-struct UnkStruct_020040F4_2
-{
+struct UnkStruct_020040F4_2 {
     u32 unk00;
     u32 unk04;
     u32 unk08;

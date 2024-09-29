@@ -1,8 +1,9 @@
 #ifndef POKEDIAMOND_UNK_0202A8F4_H
 #define POKEDIAMOND_UNK_0202A8F4_H
 
-struct Unk0202A8F4
-{
+#include "save.h"
+
+struct Unk0202A8F4 {
     u8 u_0;
     u8 u_1;
     u8 u_2;
@@ -23,4 +24,4 @@ u32 sub_0202A8F4();
 void sub_0202A8F8(struct Unk0202A8F4 *unk);
 void *sub_0202A918(struct SaveData *save);
 
-#endif //POKEDIAMOND_UNK_0202A8F4_H
+#endif // POKEDIAMOND_UNK_0202A8F4_H

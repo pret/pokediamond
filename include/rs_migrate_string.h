@@ -1,5 +1,7 @@
-#ifndef POKEDIAMOND_UNK_02015D14_H
-#define POKEDIAMOND_UNK_02015D14_H
+#ifndef POKEDIAMOND_RS_MIGRATE_STRING_H
+#define POKEDIAMOND_RS_MIGRATE_STRING_H
+
+#include "nitro/types.h"
 
 // --------------------------------------------
 // ConvertRSStringToDPStringInternational
@@ -21,6 +23,6 @@
 //             successfully. Otherwise, dp_str will
 //             be filled with up to 10 question mark
 //             characters.
-BOOL ConvertRSStringToDPStringInternational(const u8 * rs_str, u16 * dp_str, u32 length, u32 language);
+BOOL ConvertRSStringToDPStringInternational(const u8 *rs_str, u16 *dp_str, u32 length, u32 language);
 
-#endif //POKEDIAMOND_UNK_02015D14_H
+#endif // POKEDIAMOND_RS_MIGRATE_STRING_H

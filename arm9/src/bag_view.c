@@ -1,15 +1,19 @@
-#include "global.h"
 #include "bag_view.h"
-#include "coins.h"
+
+#include "global.h"
+
 #include "constants/items.h"
 #include "constants/seal_constants.h"
+
+#include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0007.h"
+#include "msgdata/msg/narc_0199.h"
+
+#include "coins.h"
 #include "fashion_case.h"
 #include "heap.h"
 #include "message_format.h"
 #include "msgdata.h"
-#include "msgdata/msg.naix"
-#include "msgdata/msg/narc_0007.h"
-#include "msgdata/msg/narc_0199.h"
 #include "player_data.h"
 #include "seal.h"
 #include "unk_0202A1E0.h"
@@ -44,12 +48,12 @@ void sub_0206E314(BagView *bagView, SaveData *save, u8 r2, BagCursor *cursor) {
     sub_0206E30C(bagView, r2);
 
     bagView->saveData = save;
-    bagView->cursor = cursor;
-    bagView->unk66 = 0;
+    bagView->cursor   = cursor;
+    bagView->unk66    = 0;
 }
 
 void BagView_SetItem(BagView *bagView, ItemSlot *slot, u8 pocket, u8 idx) {
-    bagView->pockets[idx].slot = slot;
+    bagView->pockets[idx].slot   = slot;
     bagView->pockets[idx].pocket = pocket;
 }
 
@@ -114,7 +118,7 @@ static u32 GetNumBattlePoints(SaveData *saveData) {
 }
 
 BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 itemId, HeapID heapId) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+    MsgData *msgData             = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
     MessageFormat *messageFormat = MessageFormat_New(heapId);
     String *string;
 
@@ -151,28 +155,28 @@ void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 item
     MsgData *msgData;
 
     switch (code) {
-        case ITEMUSEERROR_NODISMOUNT:
-            // You can’t dismount your Bike here.
-            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
-            ReadMsgDataIntoString(msgData, narc_0007_00056, dest);
-            DestroyMsgData(msgData);
-            break;
-        case ITEMUSEERROR_NOFOLLOWER:
-            // It can’t be used when you have someone with you.
-            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
-            ReadMsgDataIntoString(msgData, narc_0007_00111, dest);
-            DestroyMsgData(msgData);
-            break;
-        default:
-            // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
-            msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
-            MessageFormat *messageFormat = MessageFormat_New(heapId);
-            String *src = NewString_ReadMsgData(msgData, narc_0199_00036);
-            BufferPlayersName(messageFormat, 0, playerProfile);
-            StringExpandPlaceholders(messageFormat, dest, src);
-            String_Delete(src);
-            MessageFormat_Delete(messageFormat);
-            DestroyMsgData(msgData);
-            break;
+    case ITEMUSEERROR_NODISMOUNT:
+        // You can’t dismount your Bike here.
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+        ReadMsgDataIntoString(msgData, narc_0007_00056, dest);
+        DestroyMsgData(msgData);
+        break;
+    case ITEMUSEERROR_NOFOLLOWER:
+        // It can’t be used when you have someone with you.
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+        ReadMsgDataIntoString(msgData, narc_0007_00111, dest);
+        DestroyMsgData(msgData);
+        break;
+    default:
+        // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
+        msgData                      = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
+        MessageFormat *messageFormat = MessageFormat_New(heapId);
+        String *src                  = NewString_ReadMsgData(msgData, narc_0199_00036);
+        BufferPlayersName(messageFormat, 0, playerProfile);
+        StringExpandPlaceholders(messageFormat, dest, src);
+        String_Delete(src);
+        MessageFormat_Delete(messageFormat);
+        DestroyMsgData(msgData);
+        break;
     }
 }

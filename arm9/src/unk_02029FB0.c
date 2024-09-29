@@ -1,6 +1,8 @@
-#include "global.h"
-#include "pokedex.h"
 #include "unk_02029FB0.h"
+
+#include "global.h"
+
+#include "pokedex.h"
 
 const u16 UNK_020EEA7C[] = {
     0x0001, // 00
@@ -169,189 +171,141 @@ u8 UNK_02105CD8[] = {
     FALSE, // 121
 };
 
-static inline s32 GetOffsetToUnk00(s32 a0)
-{
+static inline s32 GetOffsetToUnk00(s32 a0) {
     return a0;
 }
 
-static inline s32 GetOffsetToUnkB0(s32 a0)
-{
+static inline s32 GetOffsetToUnkB0(s32 a0) {
     return a0 - 44;
 }
 
-u32 Save_GameStats_sizeof(void)
-{
+u32 Save_GameStats_sizeof(void) {
     return sizeof(struct GameStats);
 }
 
-void Save_GameStats_Init(struct GameStats * ptr)
-{
+void Save_GameStats_Init(struct GameStats *ptr) {
     MI_CpuClear32(ptr, sizeof(struct GameStats));
 }
 
-struct GameStats * Save_GameStats_Get(struct SaveData * save)
-{
+struct GameStats *Save_GameStats_Get(struct SaveData *save) {
     return SaveArray_Get(save, 20);
 }
 
-u32 GameStats_GetValue(struct GameStats * ptr, s32 a1)
-{
-    if (a1 < 44)
-    {
+u32 GameStats_GetValue(struct GameStats *ptr, s32 a1) {
+    if (a1 < 44) {
         return ptr->unk_00[GetOffsetToUnk00(a1)];
-    }
-    else if (a1 < 121)
-    {
+    } else if (a1 < 121) {
         return ptr->unk_B0[GetOffsetToUnkB0(a1)];
-    }
-    else
-    {
+    } else {
         GF_ASSERT(0);
         return 0;
     }
 }
 
-u32 GameStats_SetValue(struct GameStats * ptr, s32 a1, u32 a2)
-{
-    if (a1 < 44)
-    {
+u32 GameStats_SetValue(struct GameStats *ptr, s32 a1, u32 a2) {
+    if (a1 < 44) {
         ptr->unk_00[GetOffsetToUnk00(a1)] = a2;
-    }
-    else if (a1 < 121)
-    {
+    } else if (a1 < 121) {
         ptr->unk_B0[GetOffsetToUnkB0(a1)] = a2;
-    }
-    else
-    {
+    } else {
         GF_ASSERT(0);
     }
     return GameStats_GetValue(ptr, a1);
 }
 
-u32 GameStats_GetMaxValue(s32 a0)
-{
-    if (a0 < 44)
-    {
-        if (UNK_02105CD8[a0])
+u32 GameStats_GetMaxValue(s32 a0) {
+    if (a0 < 44) {
+        if (UNK_02105CD8[a0]) {
             return 999999999;
-        else
+        } else {
             return 999999;
-    }
-    else if (a0 < 121)
-    {
-        if (UNK_02105CD8[a0])
+        }
+    } else if (a0 < 121) {
+        if (UNK_02105CD8[a0]) {
             return 0xFFFF;
-        else
+        } else {
             return 9999;
-    }
-    else
-    {
+        }
+    } else {
         GF_ASSERT(0);
         return 0;
     }
 }
 
-u16 GameStats_GetStdInc(s32 a0)
-{
+u16 GameStats_GetStdInc(s32 a0) {
     return UNK_020EEA7C[a0];
 }
 
-u32 GameStats_SetCapped(struct GameStats * ptr, s32 a1, u32 a2)
-{
+u32 GameStats_SetCapped(struct GameStats *ptr, s32 a1, u32 a2) {
     u32 r2 = GameStats_GetMaxValue(a1);
-    if (a2 < r2)
-    {
+    if (a2 < r2) {
         return GameStats_SetValue(ptr, a1, a2);
-    }
-    else
-    {
+    } else {
         return GameStats_SetValue(ptr, a1, r2);
     }
 }
 
-u32 GameStats_UpdateBounded(struct GameStats * ptr, s32 a1, u32 a2)
-{
+u32 GameStats_UpdateBounded(struct GameStats *ptr, s32 a1, u32 a2) {
     u32 r4 = GameStats_GetMaxValue(a1);
     u32 r0 = GameStats_GetValue(ptr, a1);
-    if (a2 > r4)
-    {
+    if (a2 > r4) {
         a2 = r4;
     }
-    if (r0 < a2)
-    {
+    if (r0 < a2) {
         return GameStats_SetValue(ptr, a1, a2);
-    }
-    else if (r0 > r4)
-    {
+    } else if (r0 > r4) {
         return GameStats_SetValue(ptr, a1, r4);
-    }
-    else
-    {
+    } else {
         return r0;
     }
 }
 
-u32 GameStats_Inc(struct GameStats * ptr, s32 a1)
-{
+u32 GameStats_Inc(struct GameStats *ptr, s32 a1) {
     u32 r4 = GameStats_GetMaxValue(a1);
     u32 r2 = GameStats_GetValue(ptr, a1) + 1;
-    if (r2 < r4)
-    {
+    if (r2 < r4) {
         return GameStats_SetValue(ptr, a1, r2);
-    }
-    else
-    {
+    } else {
         return GameStats_SetValue(ptr, a1, r4);
     }
 }
 
-u32 GameStats_Add(struct GameStats * ptr, s32 a1, u32 a2)
-{
+u32 GameStats_Add(struct GameStats *ptr, s32 a1, u32 a2) {
     u32 r6 = GameStats_GetMaxValue(a1);
     u32 r2 = GameStats_GetValue(ptr, a1);
     r2 += a2;
-    if (r2 < r6)
-    {
+    if (r2 < r6) {
         return GameStats_SetValue(ptr, a1, r2);
-    }
-    else
-    {
+    } else {
         return GameStats_SetValue(ptr, a1, r6);
     }
 }
 
-u32 GameStats_GetCapped(struct GameStats * ptr, s32 a1)
-{
+u32 GameStats_GetCapped(struct GameStats *ptr, s32 a1) {
     u32 r4 = GameStats_GetMaxValue(a1);
     u32 r0 = GameStats_GetValue(ptr, a1);
-    if (r0 <= r4)
+    if (r0 <= r4) {
         r4 = r0;
+    }
     return r4;
 }
 
-u32 GameStats_AddSpecial(struct GameStats * ptr, s32 a1)
-{
+u32 GameStats_AddSpecial(struct GameStats *ptr, s32 a1) {
     GF_ASSERT(a1 < 38);
     u32 r0 = GameStats_GetCapped(ptr, 0) + GameStats_GetStdInc(a1);
-    if (r0 > 99999999)
-    {
+    if (r0 > 99999999) {
         return GameStats_SetCapped(ptr, 0, 99999999);
-    }
-    else
-    {
+    } else {
         return GameStats_Add(ptr, 0, GameStats_GetStdInc(a1));
     }
 }
 
-u32 GameStats_GetStat0(struct GameStats * ptr)
-{
+u32 GameStats_GetStat0(struct GameStats *ptr) {
     return GameStats_GetCapped(ptr, 0);
 }
 
-void GameStats_IncSpeciesCaught(struct GameStats * ptr, struct Pokedex * pokedex, u16 species)
-{
-    if (!Pokedex_CheckMonCaughtFlag(pokedex, species))
-    {
+void GameStats_IncSpeciesCaught(struct GameStats *ptr, struct Pokedex *pokedex, u16 species) {
+    if (!Pokedex_CheckMonCaughtFlag(pokedex, species)) {
         GameStats_AddSpecial(ptr, 22);
     }
 }

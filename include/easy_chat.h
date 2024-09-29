@@ -1,8 +1,9 @@
 #ifndef POKEDIAMOND_EASY_CHAT_H
 #define POKEDIAMOND_EASY_CHAT_H
 
-#include "msgdata.h"
 #include "constants/easy_chat.h"
+
+#include "msgdata.h"
 
 typedef u16 ecword_t;
 
@@ -34,4 +35,4 @@ void Save_EasyChat_SetGreetingFlag(SaveEasyChat *saveEasyChat, u32 flag);
 s32 GetDuplicateWordNum(ecword_t word);
 ecword_t RemapDuplicateWord(ecword_t word, s32 target);
 
-#endif //POKEDIAMOND_EASY_CHAT_H
+#endif // POKEDIAMOND_EASY_CHAT_H

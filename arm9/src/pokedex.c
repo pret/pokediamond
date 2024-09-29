@@ -1,323 +1,284 @@
-#include "global.h"
-#include "save.h"
-#include "heap.h"
-#include "MI_memory.h"
-#include "pokemon.h"
 #include "pokedex.h"
-#include "unk_02087A1C.h"
+
+#include "global.h"
+
 #include "constants/species.h"
 
-static inline BOOL CheckDexFlag(u8 * flagArray, u16 species)
-{
+#include "MI_memory.h"
+#include "heap.h"
+#include "pokemon.h"
+#include "save.h"
+#include "unk_02087A1C.h"
+
+static inline BOOL CheckDexFlag(u8 *flagArray, u16 species) {
     species--;
     return (flagArray[species >> 3] & (1 << (species & 7))) != 0;
 }
 
-static inline void UpdateDexFlag(u8 * flagArray, u16 species, u8 state)
-{
+static inline void UpdateDexFlag(u8 *flagArray, u16 species, u8 state) {
     GF_ASSERT(state < 2);
     species--;
     flagArray[species >> 3] &= ~(1 << (species & 7));
     flagArray[species >> 3] |= (state << (species & 7));
 }
 
-static inline void SetDexFlag(u8 * flagArray, u16 species)
-{
+static inline void SetDexFlag(u8 *flagArray, u16 species) {
     species--;
     flagArray[species >> 3] |= (1 << (species & 7));
 }
 
-static inline s32 CheckDexFlagPair(u8 * flagArray, u16 offset)
-{
+static inline s32 CheckDexFlagPair(u8 *flagArray, u16 offset) {
     return (flagArray[offset >> 2] >> (2 * (offset & 3))) & 3;
 }
 
-static inline void UpdateDexFlagPair(u8 * flagArray, u16 offset, u8 state)
-{
+static inline void UpdateDexFlagPair(u8 *flagArray, u16 offset, u8 state) {
     GF_ASSERT(state < 4);
     flagArray[offset >> 2] &= ~(3 << (2 * (offset & 3)));
     flagArray[offset >> 2] |= (state << (2 * (offset & 3)));
 }
 
-u32 Save_Pokedex_sizeof(void)
-{
+u32 Save_Pokedex_sizeof(void) {
     return sizeof(struct Pokedex);
 }
 
-struct Pokedex * Save_Pokedex_New(HeapID heapId)
-{
-    struct Pokedex * ret = (struct Pokedex *)AllocFromHeap(heapId, sizeof(struct Pokedex));
+struct Pokedex *Save_Pokedex_New(HeapID heapId) {
+    struct Pokedex *ret = (struct Pokedex *)AllocFromHeap(heapId, sizeof(struct Pokedex));
     Save_Pokedex_Init(ret);
     return ret;
 }
 
-void Save_Pokedex_Copy(const struct Pokedex * src, struct Pokedex * dest)
-{
+void Save_Pokedex_Copy(const struct Pokedex *src, struct Pokedex *dest) {
     MI_CpuCopy8(src, dest, sizeof(struct Pokedex));
 }
 
-s32 Pokedex_CountSeenShellosOrGastrodon_Internal(struct Pokedex * pokedex, u32 species)
-{
+s32 Pokedex_CountSeenShellosOrGastrodon_Internal(struct Pokedex *pokedex, u32 species) {
     GF_ASSERT(species == SPECIES_SHELLOS || species == SPECIES_GASTRODON);
-    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species))
+    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species)) {
         return 0;
+    }
     u8 *flags = species == SPECIES_SHELLOS ? &pokedex->shellosGastrodon[0] : &pokedex->shellosGastrodon[1];
-    BOOL r2 = CheckDexFlag(flags, 1);
-    BOOL r0 = CheckDexFlag(flags, 2);
+    BOOL r2   = CheckDexFlag(flags, 1);
+    BOOL r0   = CheckDexFlag(flags, 2);
     return (r2 == r0) ? 1 : 2;
 }
 
-BOOL Pokedex_HasSeenShellosOrGastrodonForm(struct Pokedex * pokedex, u32 species, u8 state)
-{
+BOOL Pokedex_HasSeenShellosOrGastrodonForm(struct Pokedex *pokedex, u32 species, u8 state) {
     GF_ASSERT(species == SPECIES_SHELLOS || species == SPECIES_GASTRODON);
-    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species))
+    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species)) {
         return FALSE;
+    }
     u8 *flags = species == SPECIES_SHELLOS ? &pokedex->shellosGastrodon[0] : &pokedex->shellosGastrodon[1];
-    u32 r0 = (u32)Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
-    for (int i = 0; i < r0; i++)
-    {
+    u32 r0    = (u32)Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
+    for (int i = 0; i < r0; i++) {
         BOOL r2 = CheckDexFlag(flags, (u16)(i + 1));
-        if (r2 == state)
+        if (r2 == state) {
             return TRUE;
+        }
     }
     return FALSE;
 }
 
-void Pokedex_SetSeenShellosOrGastrodonForm(struct Pokedex * pokedex, u32 species, u32 state)
-{
+void Pokedex_SetSeenShellosOrGastrodonForm(struct Pokedex *pokedex, u32 species, u32 state) {
     GF_ASSERT(species == SPECIES_SHELLOS || species == SPECIES_GASTRODON);
-    if (Pokedex_HasSeenShellosOrGastrodonForm(pokedex, species, (u8)state))
+    if (Pokedex_HasSeenShellosOrGastrodonForm(pokedex, species, (u8)state)) {
         return;
+    }
     u8 *flags = species == SPECIES_SHELLOS ? &pokedex->shellosGastrodon[0] : &pokedex->shellosGastrodon[1];
-    s32 r5 = Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
-    if (r5 < 2)
-    {
+    s32 r5    = Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
+    if (r5 < 2) {
         UpdateDexFlag(flags, (u16)(r5 + 1), (u8)state);
-        if (r5 == 0)
-        {
+        if (r5 == 0) {
             UpdateDexFlag(flags, (u16)(r5 + 2), (u8)state);
         }
     }
 }
 
-s32 Pokedex_CountSeenBurmyOrWormadam_Internal(struct Pokedex * pokedex, u32 species)
-{
+s32 Pokedex_CountSeenBurmyOrWormadam_Internal(struct Pokedex *pokedex, u32 species) {
     GF_ASSERT(species == SPECIES_BURMY || species == SPECIES_WORMADAM);
-    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species))
+    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species)) {
         return 0;
+    }
     u8 *flags = species == SPECIES_BURMY ? &pokedex->burmyWormadam[0] : &pokedex->burmyWormadam[1];
     s32 i;
-    for (i = 0; i < 3; i++)
-    {
+    for (i = 0; i < 3; i++) {
         s32 r2 = CheckDexFlagPair(flags, (u16)i);
-        if (r2 == 3)
+        if (r2 == 3) {
             break;
+        }
     }
     return i;
 }
 
-BOOL Pokedex_HasSeenBurmyOrWormadamForm(struct Pokedex * pokedex, u32 species, u8 state)
-{
+BOOL Pokedex_HasSeenBurmyOrWormadamForm(struct Pokedex *pokedex, u32 species, u8 state) {
     GF_ASSERT(species == SPECIES_BURMY || species == SPECIES_WORMADAM);
-    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species))
+    if (!Pokedex_CheckMonSeenFlag(pokedex, (u16)species)) {
         return FALSE;
+    }
     u8 *flags = species == SPECIES_BURMY ? &pokedex->burmyWormadam[0] : &pokedex->burmyWormadam[1];
     s32 i;
-    for (i = 0; i < 3; i++)
-    {
+    for (i = 0; i < 3; i++) {
         s32 r2 = CheckDexFlagPair(flags, (u16)i);
-        if (r2 == state)
+        if (r2 == state) {
             return TRUE;
+        }
     }
     return FALSE;
 }
 
-void Pokedex_SetSeenBurmyOrWormadamForm(struct Pokedex * pokedex, u32 species, s32 state)
-{
+void Pokedex_SetSeenBurmyOrWormadamForm(struct Pokedex *pokedex, u32 species, s32 state) {
     GF_ASSERT(species == SPECIES_BURMY || species == SPECIES_WORMADAM);
-    if (Pokedex_HasSeenBurmyOrWormadamForm(pokedex, species, (u8)state))
+    if (Pokedex_HasSeenBurmyOrWormadamForm(pokedex, species, (u8)state)) {
         return;
+    }
     u8 *flags = species == SPECIES_BURMY ? &pokedex->burmyWormadam[0] : &pokedex->burmyWormadam[1];
-    s32 r5 = Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, species);
-    if (r5 >= 3)
+    s32 r5    = Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, species);
+    if (r5 >= 3) {
         return;
+    }
     UpdateDexFlagPair(flags, (u16)r5, (u8)state);
 }
 
-static inline void SetDeoxysFormFlag(struct Pokedex * pokedex, u8 r4, u8 r6)
-{
+static inline void SetDeoxysFormFlag(struct Pokedex *pokedex, u8 r4, u8 r6) {
     GF_ASSERT(r6 < 4);
     GF_ASSERT(r4 <= 15);
-    if (r6 < 2)
-    {
+    if (r6 < 2) {
         pokedex->caughtFlagsHi_Deoxys1 &= ~(15 << (24 + 4 * r6));
         pokedex->caughtFlagsHi_Deoxys1 |= r4 << (24 + 4 * r6);
-    }
-    else
-    {
+    } else {
         r6 -= 2;
         pokedex->seenFlagsHi_Deoxys2 &= ~(15 << (24 + 4 * r6));
         pokedex->seenFlagsHi_Deoxys2 |= r4 << (24 + 4 * r6);
     }
 }
 
-void Pokedex_SetSeenDeoxysFormAt(struct Pokedex * pokedex, u8 r4, u8 r6)
-{
+void Pokedex_SetSeenDeoxysFormAt(struct Pokedex *pokedex, u8 r4, u8 r6) {
     SetDeoxysFormFlag(pokedex, r4, r6);
 }
 
-static inline u32 GetDeoxysFormFlag_Internal(struct Pokedex * pokedex, u8 r6)
-{
-    if (r6 < 2)
-    {
+static inline u32 GetDeoxysFormFlag_Internal(struct Pokedex *pokedex, u8 r6) {
+    if (r6 < 2) {
         return (pokedex->caughtFlagsHi_Deoxys1 >> (24 + 4 * r6)) & 15;
-    }
-    else
-    {
+    } else {
         r6 -= 2;
         return (pokedex->seenFlagsHi_Deoxys2 >> (24 + 4 * r6)) & 15;
     }
 }
 
-s32 Pokedex_CountSeenDeoxysForms_Internal(struct Pokedex * pokedex)
-{
+s32 Pokedex_CountSeenDeoxysForms_Internal(struct Pokedex *pokedex) {
     s32 i;
-    for (i = 0; i < 4; i++)
-    {
+    for (i = 0; i < 4; i++) {
         u32 r2 = GetDeoxysFormFlag_Internal(pokedex, (u8)i);
-        if (r2 == 15)
+        if (r2 == 15) {
             break;
+        }
     }
     return i;
 }
 
-BOOL Pokedex_HasSeenDeoxysForm(struct Pokedex * pokedex, u32 state)
-{
+BOOL Pokedex_HasSeenDeoxysForm(struct Pokedex *pokedex, u32 state) {
     s32 i;
-    for (i = 0; i < 4; i++)
-    {
+    for (i = 0; i < 4; i++) {
         u32 r4 = GetDeoxysFormFlag_Internal(pokedex, (u8)i);
-        if (state == r4)
+        if (state == r4) {
             return TRUE;
+        }
     }
     return FALSE;
 }
 
-void Pokedex_TrySetSeenDeoxysForm(struct Pokedex * pokedex, u16 species, struct Pokemon * pokemon)
-{
+void Pokedex_TrySetSeenDeoxysForm(struct Pokedex *pokedex, u16 species, struct Pokemon *pokemon) {
     u8 form = (u8)GetMonData(pokemon, MON_DATA_FORM, NULL);
-    if (species == SPECIES_DEOXYS && !Pokedex_HasSeenDeoxysForm(pokedex, form))
-    {
+    if (species == SPECIES_DEOXYS && !Pokedex_HasSeenDeoxysForm(pokedex, form)) {
         s32 r2 = Pokedex_CountSeenDeoxysForms_Internal(pokedex);
         Pokedex_SetSeenDeoxysFormAt(pokedex, form, (u8)r2);
     }
 }
 
-void Pokedex_InitSeenDeoxysFormsArray(struct Pokedex * pokedex)
-{
+void Pokedex_InitSeenDeoxysFormsArray(struct Pokedex *pokedex) {
     s32 i;
-    for (i = 0; i < 4; i++)
-    {
+    for (i = 0; i < 4; i++) {
         Pokedex_SetSeenDeoxysFormAt(pokedex, 15, (u8)i);
     }
 }
 
-static inline BOOL HasUnownLetterBeenSeen(struct Pokedex * pokedex, u8 letter)
-{
+static inline BOOL HasUnownLetterBeenSeen(struct Pokedex *pokedex, u8 letter) {
     s32 i;
-    u8 * arr;
-    for (i = 0, arr = (u8 *)pokedex; i < 28; i++, arr++)
-    {
-        if (letter == *(arr + 0x10C))
+    u8 *arr;
+    for (i = 0, arr = (u8 *)pokedex; i < 28; i++, arr++) {
+        if (letter == *(arr + 0x10C)) {
             return TRUE;
+        }
     }
     return FALSE;
 }
 
-static inline s32 FindFirstAvailableUnownLetterSlot(struct Pokedex * pokedex)
-{
+static inline s32 FindFirstAvailableUnownLetterSlot(struct Pokedex *pokedex) {
     s32 i;
-    u8 * arr;
-    for (i = 0, arr = (u8 *)pokedex; i < 28; i++, arr++)
-    {
-        if (*(arr + 0x10C) == 0xFF)
+    u8 *arr;
+    for (i = 0, arr = (u8 *)pokedex; i < 28; i++, arr++) {
+        if (*(arr + 0x10C) == 0xFF) {
             break;
+        }
     }
     return i;
 }
 
-static inline void SetSeenUnownLetter(struct Pokedex * pokedex, u32 species, s32 letter)
-{
+static inline void SetSeenUnownLetter(struct Pokedex *pokedex, u32 species, s32 letter) {
 #pragma unused(species)
     s32 idx;
-    if (HasUnownLetterBeenSeen(pokedex, (u8)letter))
+    if (HasUnownLetterBeenSeen(pokedex, (u8)letter)) {
         return;
+    }
     idx = FindFirstAvailableUnownLetterSlot(pokedex);
-    if (idx >= 28)
+    if (idx >= 28) {
         return;
+    }
     pokedex->seenUnown[idx] = (u8)letter;
 }
 
-void Pokedex_SetMonSeenForm(struct Pokedex * pokedex, u16 species, struct Pokemon * pokemon)
-{
-    if (species == SPECIES_UNOWN)
-    {
+void Pokedex_SetMonSeenForm(struct Pokedex *pokedex, u16 species, struct Pokemon *pokemon) {
+    if (species == SPECIES_UNOWN) {
         SetSeenUnownLetter(pokedex, species, GetMonUnownLetter(pokemon));
-    }
-    else if (species == SPECIES_BURMY)
-    {
+    } else if (species == SPECIES_BURMY) {
         Pokedex_SetSeenBurmyOrWormadamForm(pokedex, species, (s32)GetMonData(pokemon, MON_DATA_FORM, NULL));
-    }
-    else if (species == SPECIES_WORMADAM)
-    {
+    } else if (species == SPECIES_WORMADAM) {
         Pokedex_SetSeenBurmyOrWormadamForm(pokedex, species, (s32)GetMonData(pokemon, MON_DATA_FORM, NULL));
-    }
-    else if (species == SPECIES_SHELLOS)
-    {
+    } else if (species == SPECIES_SHELLOS) {
         Pokedex_SetSeenShellosOrGastrodonForm(pokedex, species, GetMonData(pokemon, MON_DATA_FORM, NULL));
-    }
-    else if (species == SPECIES_GASTRODON)
-    {
+    } else if (species == SPECIES_GASTRODON) {
         Pokedex_SetSeenShellosOrGastrodonForm(pokedex, species, GetMonData(pokemon, MON_DATA_FORM, NULL));
-    }
-    else if (species == SPECIES_DEOXYS)
-    {
+    } else if (species == SPECIES_DEOXYS) {
         Pokedex_TrySetSeenDeoxysForm(pokedex, species, pokemon);
     }
 }
 
-void Pokedex_SetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 species, u32 language)
-{
+void Pokedex_SetMeisterFlagBySpeciesAndLanguage(struct Pokedex *pokedex, u32 species, u32 language) {
     s32 r4 = GetMeisterSpeciesIdx(species);
     s32 r0 = GetMeisterLanguageIdx(language);
-    if (r4 != 14 && r0 != 6)
-    {
+    if (r4 != 14 && r0 != 6) {
         pokedex->meister[r4] |= (1 << r0);
     }
 }
 
-s32 sub_020242C8(struct Pokedex * pokedex, u16 species, s32 r4)
-{
+s32 sub_020242C8(struct Pokedex *pokedex, u16 species, s32 r4) {
     u8 r0;
     u8 r1;
-    if (GetMonBaseStat(species, BASE_GENDER_RATIO) == MON_RATIO_UNKNOWN)
-    {
+    if (GetMonBaseStat(species, BASE_GENDER_RATIO) == MON_RATIO_UNKNOWN) {
         return r4 == 0 ? 2 : -1;
     }
     r1 = (u8)CheckDexFlag(pokedex->field_0084, species);
-    if (r4 == 1)
-    {
+    if (r4 == 1) {
         r0 = (u8)CheckDexFlag(pokedex->field_00C4, species);
-        if (r0 == r1)
+        if (r0 == r1) {
             return -1;
-        else
+        } else {
             return r0;
+        }
     }
     return r1;
 }
 
-BOOL Pokedex_SpeciesIsNotMythical(u16 species)
-{
+BOOL Pokedex_SpeciesIsNotMythical(u16 species) {
     static const u16 sSinnohDexMythicalMons[] = {
         SPECIES_MANAPHY
     };
@@ -338,314 +299,294 @@ BOOL Pokedex_SpeciesIsNotMythical(u16 species)
 
     s32 i;
     BOOL ret = TRUE;
-    for (i = 0; i < (s32)NELEMS(sNationalDexMythicalMons); i++)
-    {
-        if (species == sNationalDexMythicalMons[i])
+    for (i = 0; i < (s32)NELEMS(sNationalDexMythicalMons); i++) {
+        if (species == sNationalDexMythicalMons[i]) {
             ret = FALSE;
+        }
     }
     return ret;
 }
 
-BOOL Pokedex_SpeciesIsNotSinnohMythical(u16 species)
-{
+BOOL Pokedex_SpeciesIsNotSinnohMythical(u16 species) {
     BOOL ret = TRUE;
-    if (species == SPECIES_MANAPHY)
+    if (species == SPECIES_MANAPHY) {
         ret = FALSE;
+    }
     return ret;
 }
 
-void Save_Pokedex_Init(struct Pokedex * pokedex)
-{
+void Save_Pokedex_Init(struct Pokedex *pokedex) {
     memset(pokedex, 0, sizeof(struct Pokedex));
-    pokedex->magic = 0xBEEFCAFE;
+    pokedex->magic               = 0xBEEFCAFE;
     pokedex->unlockedNationalDex = 0;
     memset(pokedex->seenUnown, 0xFF, 28);
     pokedex->shellosGastrodon[0] = 0xFF;
     pokedex->shellosGastrodon[1] = 0xFF;
-    pokedex->burmyWormadam[0] = 0xFF;
-    pokedex->burmyWormadam[1] = 0xFF;
+    pokedex->burmyWormadam[0]    = 0xFF;
+    pokedex->burmyWormadam[1]    = 0xFF;
     Pokedex_InitSeenDeoxysFormsArray(pokedex);
 }
 
-u16 Pokedex_CountNationalDexOwned(struct Pokedex * pokedex)
-{
+u16 Pokedex_CountNationalDexOwned(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
     s32 count = 0;
-    for (i = 1; i <= NATIONAL_DEX_COUNT; i++)
-    {
-        if (Pokedex_CheckMonCaughtFlag(pokedex, (u16)i) == TRUE)
+    for (i = 1; i <= NATIONAL_DEX_COUNT; i++) {
+        if (Pokedex_CheckMonCaughtFlag(pokedex, (u16)i) == TRUE) {
             count++;
+        }
     }
     return (u16)count;
 }
 
-u16 Pokedex_CountNationalDexSeen(struct Pokedex * pokedex)
-{
+u16 Pokedex_CountNationalDexSeen(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
     s32 count = 0;
-    for (i = 1; i <= NATIONAL_DEX_COUNT; i++)
-    {
-        if (Pokedex_CheckMonSeenFlag(pokedex, (u16)i) == TRUE)
+    for (i = 1; i <= NATIONAL_DEX_COUNT; i++) {
+        if (Pokedex_CheckMonSeenFlag(pokedex, (u16)i) == TRUE) {
             count++;
+        }
     }
     return (u16)count;
 }
 
-u16 Pokedex_CountSeenMons(struct Pokedex * pokedex)
-{
-    if (Pokedex_GetNatDexFlag(pokedex))
+u16 Pokedex_CountSeenMons(struct Pokedex *pokedex) {
+    if (Pokedex_GetNatDexFlag(pokedex)) {
         return Pokedex_CountNationalDexSeen(pokedex);
-    else
+    } else {
         return Pokedex_CountSinnohDexSeen(pokedex);
+    }
 }
 
-u16 Pokedex_CountSinnohDexOwned(struct Pokedex * pokedex)
-{
+u16 Pokedex_CountSinnohDexOwned(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
     s32 count = 0;
-    for (i = 1; i <= NATIONAL_DEX_COUNT; i++)
-    {
-        if (Pokedex_CheckMonCaughtFlag(pokedex, (u16)i) == TRUE && SpeciesToSinnohDexNo((u16)i) != 0)
+    for (i = 1; i <= NATIONAL_DEX_COUNT; i++) {
+        if (Pokedex_CheckMonCaughtFlag(pokedex, (u16)i) == TRUE && SpeciesToSinnohDexNo((u16)i) != 0) {
             count++;
+        }
     }
     return (u16)count;
 }
 
-u16 Pokedex_CountSinnohDexSeen(struct Pokedex * pokedex)
-{
+u16 Pokedex_CountSinnohDexSeen(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
     s32 count = 0;
-    for (i = 1; i <= NATIONAL_DEX_COUNT; i++)
-    {
-        if (Pokedex_CheckMonSeenFlag(pokedex, (u16)i) == TRUE && SpeciesToSinnohDexNo((u16)i) != 0)
+    for (i = 1; i <= NATIONAL_DEX_COUNT; i++) {
+        if (Pokedex_CheckMonSeenFlag(pokedex, (u16)i) == TRUE && SpeciesToSinnohDexNo((u16)i) != 0) {
             count++;
+        }
     }
     return (u16)count;
 }
 
-BOOL Pokedex_NationalDexIsComplete(struct Pokedex * pokedex)
-{
+BOOL Pokedex_NationalDexIsComplete(struct Pokedex *pokedex) {
     return Pokedex_CountNationalDexOwned_OmitMythicals(pokedex) >= 482;
 }
 
-BOOL Pokedex_SinnohDexIsComplete(struct Pokedex * pokedex)
-{
+BOOL Pokedex_SinnohDexIsComplete(struct Pokedex *pokedex) {
     return Pokedex_CountSinnohDexSeen_OmitMythicals(pokedex) >= 150;
 }
 
-u16 Pokedex_CountNationalDexOwned_OmitMythicals(struct Pokedex * pokedex)
-{
+u16 Pokedex_CountNationalDexOwned_OmitMythicals(struct Pokedex *pokedex) {
     s32 i;
     u16 count = 0;
-    for (i = 1; i <= NATIONAL_DEX_COUNT; i++)
-    {
-        if (Pokedex_CheckMonCaughtFlag(pokedex, (u16)i) == TRUE && Pokedex_SpeciesIsNotMythical((u16)i) == TRUE)
+    for (i = 1; i <= NATIONAL_DEX_COUNT; i++) {
+        if (Pokedex_CheckMonCaughtFlag(pokedex, (u16)i) == TRUE && Pokedex_SpeciesIsNotMythical((u16)i) == TRUE) {
             count++;
+        }
     }
     return count;
 }
 
-u16 Pokedex_CountSinnohDexSeen_OmitMythicals(struct Pokedex * pokedex)
-{
+u16 Pokedex_CountSinnohDexSeen_OmitMythicals(struct Pokedex *pokedex) {
     s32 i;
     u16 count = 0;
-    for (i = 1; i <= NATIONAL_DEX_COUNT; i++)
-    {
-        if (Pokedex_CheckMonSeenFlag(pokedex, (u16)i) == TRUE && SpeciesToSinnohDexNo((u16)i) != 0 && Pokedex_SpeciesIsNotSinnohMythical((u16)i) == TRUE)
+    for (i = 1; i <= NATIONAL_DEX_COUNT; i++) {
+        if (Pokedex_CheckMonSeenFlag(pokedex, (u16)i) == TRUE && SpeciesToSinnohDexNo((u16)i) != 0 && Pokedex_SpeciesIsNotSinnohMythical((u16)i) == TRUE) {
             count++;
+        }
     }
     return count;
 }
 
-static inline BOOL DexSpeciesIsInvalid(u16 species)
-{
-    if (species == SPECIES_NONE || species > NATIONAL_DEX_COUNT)
-    {
+static inline BOOL DexSpeciesIsInvalid(u16 species) {
+    if (species == SPECIES_NONE || species > NATIONAL_DEX_COUNT) {
         GF_ASSERT(0);
         return TRUE;
     }
     return FALSE;
 }
 
-BOOL Pokedex_CheckMonCaughtFlag(struct Pokedex * pokedex, u16 species)
-{
+BOOL Pokedex_CheckMonCaughtFlag(struct Pokedex *pokedex, u16 species) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (DexSpeciesIsInvalid(species))
+    if (DexSpeciesIsInvalid(species)) {
         return FALSE;
-    if (!CheckDexFlag(pokedex->caughtFlags, species) || !CheckDexFlag(pokedex->seenFlags, species))
+    }
+    if (!CheckDexFlag(pokedex->caughtFlags, species) || !CheckDexFlag(pokedex->seenFlags, species)) {
         return FALSE;
+    }
     return TRUE;
 }
 
-BOOL Pokedex_CheckMonSeenFlag(struct Pokedex * pokedex, u16 species)
-{
+BOOL Pokedex_CheckMonSeenFlag(struct Pokedex *pokedex, u16 species) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (DexSpeciesIsInvalid(species))
+    if (DexSpeciesIsInvalid(species)) {
         return FALSE;
+    }
     return CheckDexFlag(pokedex->seenFlags, species);
 }
 
-u32 Pokedex_GetSeenSpindaPersonality(struct Pokedex * pokedex, u32 a1)
-{
+u32 Pokedex_GetSeenSpindaPersonality(struct Pokedex *pokedex, u32 a1) {
     u32 r6;
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (a1 == 0)
+    if (a1 == 0) {
         r6 = (u32)pokedex->spindaPersonality;
-    else
+    } else {
         GF_ASSERT(0); // r6 is not initialized because execution should halt here
+    }
     return r6;
 }
 
-s32 sub_02024674(struct Pokedex * pokedex, u16 species, s32 r6)
-{
+s32 sub_02024674(struct Pokedex *pokedex, u16 species, s32 r6) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (DexSpeciesIsInvalid(species))
+    if (DexSpeciesIsInvalid(species)) {
         return -1;
-    if (CheckDexFlag(pokedex->seenFlags, species))
+    }
+    if (CheckDexFlag(pokedex->seenFlags, species)) {
         return sub_020242C8(pokedex, species, r6);
-    else
+    } else {
         return -1;
+    }
 }
 
-static inline s32 FindFirstAvailableUnownLetterSlot_2(struct Pokedex * pokedex)
-{
+static inline s32 FindFirstAvailableUnownLetterSlot_2(struct Pokedex *pokedex) {
     s32 i;
-    for (i = 0; i < 28; i++)
-    {
-        if (pokedex->seenUnown[i] == 0xFF)
+    for (i = 0; i < 28; i++) {
+        if (pokedex->seenUnown[i] == 0xFF) {
             break;
+        }
     }
     return i;
 }
 
-s32 Pokedex_GetSeenUnownI(struct Pokedex * pokedex, s32 a1)
-{
+s32 Pokedex_GetSeenUnownI(struct Pokedex *pokedex, s32 a1) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
     i = FindFirstAvailableUnownLetterSlot_2(pokedex);
-    if (i <= a1)
+    if (i <= a1) {
         return -1;
+    }
     return pokedex->seenUnown[a1];
 }
 
-s32 Pokedex_CountSeenUnown(struct Pokedex * pokedex)
-{
+s32 Pokedex_CountSeenUnown(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return FindFirstAvailableUnownLetterSlot_2(pokedex);
 }
 
-BOOL Pokedex_GetSeenShellosForm(struct Pokedex * pokedex, s32 a1)
-{
+BOOL Pokedex_GetSeenShellosForm(struct Pokedex *pokedex, s32 a1) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, SPECIES_SHELLOS) <= a1)
+    if (Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, SPECIES_SHELLOS) <= a1) {
         return -1;
+    }
     GF_ASSERT(a1 < 2);
     return CheckDexFlag(&pokedex->shellosGastrodon[0], (u16)(a1 + 1));
 }
 
-s32 Pokedex_CountSeenShellos(struct Pokedex * pokedex)
-{
+s32 Pokedex_CountSeenShellos(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, SPECIES_SHELLOS);
 }
 
-BOOL Pokedex_GetSeenGastrodonForm(struct Pokedex * pokedex, s32 a1)
-{
+BOOL Pokedex_GetSeenGastrodonForm(struct Pokedex *pokedex, s32 a1) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, SPECIES_GASTRODON) <= a1)
+    if (Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, SPECIES_GASTRODON) <= a1) {
         return -1;
+    }
     GF_ASSERT(a1 < 2);
     return CheckDexFlag(&pokedex->shellosGastrodon[1], (u16)(a1 + 1));
 }
 
-s32 Pokedex_CountSeenGastrodon(struct Pokedex * pokedex)
-{
+s32 Pokedex_CountSeenGastrodon(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, SPECIES_GASTRODON);
 }
 
-s32 Pokedex_GetSeenBurmyForm(struct Pokedex * pokedex, s32 a1)
-{
+s32 Pokedex_GetSeenBurmyForm(struct Pokedex *pokedex, s32 a1) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, SPECIES_BURMY) <= a1)
+    if (Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, SPECIES_BURMY) <= a1) {
         return -1;
+    }
     GF_ASSERT(a1 < 3);
     return CheckDexFlagPair(&pokedex->burmyWormadam[0], (u16)a1);
 }
 
-s32 Pokedex_CountSeenBurmy(struct Pokedex * pokedex)
-{
+s32 Pokedex_CountSeenBurmy(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, SPECIES_BURMY);
 }
 
-s32 Pokedex_GetSeenWormadamForm(struct Pokedex * pokedex, s32 a1)
-{
+s32 Pokedex_GetSeenWormadamForm(struct Pokedex *pokedex, s32 a1) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, SPECIES_WORMADAM) <= a1)
+    if (Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, SPECIES_WORMADAM) <= a1) {
         return -1;
+    }
     GF_ASSERT(a1 < 3);
     return CheckDexFlagPair(&pokedex->burmyWormadam[1], (u16)a1);
 }
 
-s32 Pokedex_CountSeenWormadam(struct Pokedex * pokedex)
-{
+s32 Pokedex_CountSeenWormadam(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, SPECIES_WORMADAM);
 }
 
-s32 Pokedex_GetSeenDeoxysForm(struct Pokedex * pokedex, s32 a1)
-{
+s32 Pokedex_GetSeenDeoxysForm(struct Pokedex *pokedex, s32 a1) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return (s32)GetDeoxysFormFlag_Internal(pokedex, (u8)a1);
 }
 
-s32 Pokedex_CountSeenDeoxys(struct Pokedex * pokedex)
-{
+s32 Pokedex_CountSeenDeoxys(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return Pokedex_CountSeenDeoxysForms_Internal(pokedex);
 }
 
-static inline void SetSeenCaughtGender(struct Pokedex * pokedex, u16 species, u8 gender)
-{
+static inline void SetSeenCaughtGender(struct Pokedex *pokedex, u16 species, u8 gender) {
     GF_ASSERT(gender <= 2);
-    if (gender == 2)
+    if (gender == 2) {
         gender = 0;
+    }
     UpdateDexFlag(pokedex->field_00C4, species, gender);
     UpdateDexFlag(pokedex->field_0084, species, gender);
 }
 
-static inline void SetSeenGender(struct Pokedex * pokedex, u16 species, u8 gender)
-{
+static inline void SetSeenGender(struct Pokedex *pokedex, u16 species, u8 gender) {
     GF_ASSERT(gender <= 2);
-    if (gender == 2)
+    if (gender == 2) {
         gender = 0;
+    }
     UpdateDexFlag(pokedex->field_00C4, species, gender);
 }
 
-void Pokedex_SetMonSeenFlag(struct Pokedex * pokedex, struct Pokemon * pokemon)
-{
-    u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+void Pokedex_SetMonSeenFlag(struct Pokedex *pokedex, struct Pokemon *pokemon) {
+    u16 species     = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     u32 personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    u32 gender = GetMonGender(pokemon);
+    u32 gender      = GetMonGender(pokemon);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (DexSpeciesIsInvalid(species))
+    if (DexSpeciesIsInvalid(species)) {
         return;
-    if (!CheckDexFlag(pokedex->seenFlags, species))
-    {
-        if (species == SPECIES_SPINDA)
-            pokedex->spindaPersonality = personality;
-        SetSeenCaughtGender(pokedex, species, (u8)gender);
     }
-    else
-    {
+    if (!CheckDexFlag(pokedex->seenFlags, species)) {
+        if (species == SPECIES_SPINDA) {
+            pokedex->spindaPersonality = personality;
+        }
+        SetSeenCaughtGender(pokedex, species, (u8)gender);
+    } else {
         u8 seen_gender = (u8)CheckDexFlag(pokedex->field_0084, species);
-        if (seen_gender != gender)
-        {
+        if (seen_gender != gender) {
             SetSeenGender(pokedex, species, (u8)gender);
         }
     }
@@ -653,31 +594,28 @@ void Pokedex_SetMonSeenFlag(struct Pokedex * pokedex, struct Pokemon * pokemon)
     SetDexFlag(pokedex->seenFlags, species);
 }
 
-void Pokedex_SetMonCaughtFlag(struct Pokedex * pokedex, struct Pokemon * pokemon)
-{
-    u32 language; // sp08
+void Pokedex_SetMonCaughtFlag(struct Pokedex *pokedex, struct Pokemon *pokemon) {
+    u32 language;    // sp08
     u32 personality; // sp04
-    u32 gender; // r7
-    u16 species; // r6
+    u32 gender;      // r7
+    u16 species;     // r6
 
-    species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    language = GetMonData(pokemon, MON_DATA_GAME_LANGUAGE, NULL);
+    species     = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    language    = GetMonData(pokemon, MON_DATA_GAME_LANGUAGE, NULL);
     personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    gender = GetMonGender(pokemon);
+    gender      = GetMonGender(pokemon);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
-    if (DexSpeciesIsInvalid(species))
+    if (DexSpeciesIsInvalid(species)) {
         return;
-    if (!CheckDexFlag(pokedex->seenFlags, species))
-    {
-        if (species == SPECIES_SPINDA)
-            pokedex->spindaPersonality = personality;
-        SetSeenCaughtGender(pokedex, species, (u8)gender);
     }
-    else
-    {
+    if (!CheckDexFlag(pokedex->seenFlags, species)) {
+        if (species == SPECIES_SPINDA) {
+            pokedex->spindaPersonality = personality;
+        }
+        SetSeenCaughtGender(pokedex, species, (u8)gender);
+    } else {
         u8 seen_gender = (u8)CheckDexFlag(pokedex->field_0084, species);
-        if (seen_gender != gender)
-        {
+        if (seen_gender != gender) {
             SetSeenGender(pokedex, species, (u8)gender);
         }
     }
@@ -687,95 +625,90 @@ void Pokedex_SetMonCaughtFlag(struct Pokedex * pokedex, struct Pokemon * pokemon
     SetDexFlag(pokedex->seenFlags, species);
 }
 
-void Pokedex_SetNatDexFlag(struct Pokedex * pokedex)
-{
+void Pokedex_SetNatDexFlag(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     pokedex->unlockedNationalDex = 1;
 }
 
-BOOL Pokedex_GetNatDexFlag(struct Pokedex * pokedex)
-{
+BOOL Pokedex_GetNatDexFlag(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return pokedex->unlockedNationalDex;
 }
 
-BOOL Pokedex_GetGenderEntriesFlag(struct Pokedex * pokedex)
-{
+BOOL Pokedex_GetGenderEntriesFlag(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return pokedex->unlockedGenderEntries;
 }
 
-void Pokedex_SetGenderEntriesFlag(struct Pokedex * pokedex)
-{
+void Pokedex_SetGenderEntriesFlag(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     pokedex->unlockedGenderEntries = 1;
 }
 
-s32 Pokedex_GetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 species, u32 language)
-{
+s32 Pokedex_GetMeisterFlagBySpeciesAndLanguage(struct Pokedex *pokedex, u32 species, u32 language) {
     GF_ASSERT(language < 8);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 r5 = GetMeisterSpeciesIdx(species);
-    if (r5 == 14)
+    if (r5 == 14) {
         return 0;
+    }
     s32 r0 = GetMeisterLanguageIdx(language);
     return pokedex->meister[r5] & (1 << r0);
 }
 
-void Pokedex_SetForeignEntriesFlag(struct Pokedex * pokedex)
-{
+void Pokedex_SetForeignEntriesFlag(struct Pokedex *pokedex) {
     pokedex->unlockedForeignEntries = 1;
 }
 
-BOOL Pokedex_GetForeignEntriesFlag(struct Pokedex * pokedex)
-{
+BOOL Pokedex_GetForeignEntriesFlag(struct Pokedex *pokedex) {
     return pokedex->unlockedForeignEntries;
 }
 
-BOOL Pokedex_GetSinnohDexFlag(struct Pokedex * pokedex)
-{
+BOOL Pokedex_GetSinnohDexFlag(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     return pokedex->unlockedSinnohDex;
 }
 
-void Pokedex_SetSinnohDexFlag(struct Pokedex * pokedex)
-{
+void Pokedex_SetSinnohDexFlag(struct Pokedex *pokedex) {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     pokedex->unlockedSinnohDex = 1;
 }
 
-struct Pokedex * Save_Pokedex_Get(struct SaveData * save)
-{
+struct Pokedex *Save_Pokedex_Get(struct SaveData *save) {
     return (struct Pokedex *)SaveArray_Get(save, 7);
 }
 
-s32 Pokedex_GetSeenMonForm(struct Pokedex * pokedex, s32 species, u32 form)
-{
-    switch (species)
-    {
+s32 Pokedex_GetSeenMonForm(struct Pokedex *pokedex, s32 species, u32 form) {
+    switch (species) {
     case SPECIES_UNOWN:
-        if (form < Pokedex_CountSeenUnown(pokedex))
+        if (form < Pokedex_CountSeenUnown(pokedex)) {
             return Pokedex_GetSeenUnownI(pokedex, (s32)form);
+        }
         break;
     case SPECIES_SHELLOS:
-        if (form < Pokedex_CountSeenShellos(pokedex))
+        if (form < Pokedex_CountSeenShellos(pokedex)) {
             return Pokedex_GetSeenShellosForm(pokedex, (s32)form);
+        }
         break;
     case SPECIES_GASTRODON:
-        if (form < Pokedex_CountSeenGastrodon(pokedex))
+        if (form < Pokedex_CountSeenGastrodon(pokedex)) {
             return Pokedex_GetSeenGastrodonForm(pokedex, (s32)form);
+        }
         break;
     case SPECIES_BURMY:
-        if (form < Pokedex_CountSeenBurmy(pokedex))
+        if (form < Pokedex_CountSeenBurmy(pokedex)) {
             return Pokedex_GetSeenBurmyForm(pokedex, (s32)form);
+        }
         break;
     case SPECIES_WORMADAM:
-        if (form < Pokedex_CountSeenWormadam(pokedex))
+        if (form < Pokedex_CountSeenWormadam(pokedex)) {
             return Pokedex_GetSeenWormadamForm(pokedex, (s32)form);
+        }
         break;
     case SPECIES_DEOXYS:
-        if (form < Pokedex_CountSeenDeoxys(pokedex))
+        if (form < Pokedex_CountSeenDeoxys(pokedex)) {
             return Pokedex_GetSeenDeoxysForm(pokedex, (s32)form);
+        }
         break;
     }
     return 0;

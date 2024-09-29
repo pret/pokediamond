@@ -3,6 +3,6 @@
 
 typedef struct LocalFieldData {
 
-} LocalFieldData; //TODO: populate
+} LocalFieldData; // TODO: populate
 
-#endif //POKEDIAMOND_SAVE_LOCAL_FIELD_DATA_H
+#endif // POKEDIAMOND_SAVE_LOCAL_FIELD_DATA_H

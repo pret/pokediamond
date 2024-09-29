@@ -2,16 +2,15 @@
 #define POKEDIAMOND_UNK_02008AA4_H
 
 #include "global.h"
+
 #include "unk_0200BB14.h"
 
-struct UnkStruct_02008AA4_1
-{
+struct UnkStruct_02008AA4_1 {
     struct UnkStruct_0200BB14_sub *unk00;
     s32 unk04;
 };
 
-struct UnkStruct_02008AA4_2
-{
+struct UnkStruct_02008AA4_2 {
     s32 unk00;
     s32 unk04;
     s32 unk08;

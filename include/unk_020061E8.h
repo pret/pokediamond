@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_020061E8_H
 
 #include "nitro/types.h"
+
 #include "text.h"
 #include "unk_0200CA44.h"
 

@@ -3,9 +3,8 @@
 
 #include "global.h"
 
-typedef struct PlayerAvatar
-{
+typedef struct PlayerAvatar {
     u8 padding0[0x40];
-} PlayerAvatar; //TODO: populate once we know more
+} PlayerAvatar; // TODO: populate once we know more
 
 #endif // POKEDIAMOND_FIELD_PLAYER_AVATAR_H

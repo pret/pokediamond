@@ -2,6 +2,7 @@
 #define POKEDIAMOND_FIELD_SYSTEM_H
 
 #include "global.h"
+
 #include "bg_window.h"
 #include "camera.h"
 #include "field_player_avatar.h"
@@ -21,32 +22,29 @@ typedef struct UnkFieldStruct04 {
     u32 unk0C;
 } UnkFieldStruct04;
 
-typedef struct MapObjectManager { //must be in this func, cause otheriwse build will fail
+typedef struct MapObjectManager { // must be in this func, cause otheriwse build will fail
     u8 padding[0x12C];
-} MapObjectManager; //todo: fill out
+} MapObjectManager; // todo: fill out
 
-typedef struct UnkStruct_020464D4
-{
+typedef struct UnkStruct_020464D4 {
     u16 unk0[4];
     u8 padding[0x108];
 } UnkStruct_020464D4;
 
-typedef struct UnkStruct_02046444
-{
+typedef struct UnkStruct_02046444 {
     u8 padding[0x24];
     u16 unk24;
     u16 unk26;
     u16 unk28;
     u8 padding2[0x66];
-    UnkStruct_020464D4 unk90[1]; //todo find size
+    UnkStruct_020464D4 unk90[1]; // todo find size
 } UnkStruct_02046444;
 
-typedef struct FieldSystem
-{
+typedef struct FieldSystem {
     u32 *unk00;
     UnkFieldStruct04 *unk04;
     BgConfig *bgConfig;
-    SaveData *saveData; //0xC
+    SaveData *saveData; // 0xC
     TaskManager *taskManager;
     u8 padding2[0x8];
     Location *location;
@@ -66,7 +64,7 @@ typedef struct FieldSystem
     u8 padding7[0x4];
     u32 *unk98;
     u8 padding8[0xC];
-    UnkStruct_02046444 * unkA8;
+    UnkStruct_02046444 *unkA8;
 } FieldSystem;
 
-#endif //POKEDIAMOND_FIELD_SYSTEM_H
+#endif // POKEDIAMOND_FIELD_SYSTEM_H

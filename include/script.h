@@ -2,24 +2,25 @@
 #define _SCRIPT_H_
 
 #include "global.h"
+
 #include "bg_window.h"
 #include "camera.h"
 #include "fashion_case.h"
 #include "field_player_avatar.h"
-#include "save_local_field_data.h"
+#include "field_system.h"
+#include "map_object.h"
 #include "msgdata.h"
 #include "render_window.h"
 #include "save.h"
+#include "save_local_field_data.h"
 #include "task.h"
-#include "field_system.h"
-#include "map_object.h"
 
 struct ScriptContext;
 
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
 
-typedef struct PartyMenuAppData PartyMenuAppData; //todo move to own file
+typedef struct PartyMenuAppData PartyMenuAppData; // todo move to own file
 
 enum PCBoxOperation {
     PC_BOX_OPERATION_DEPOSIT_MON,
@@ -33,7 +34,7 @@ typedef struct PCBoxAppData {
     struct SaveData *save;
     enum PCBoxOperation operation;
     BOOL unk08;
-} PCBoxAppData; //todo move to own file
+} PCBoxAppData; // todo move to own file
 
 typedef struct FashionAppData {
     SaveFashionData *fashionData;
@@ -41,57 +42,55 @@ typedef struct FashionAppData {
     BOOL isContest;
 } FashionAppData;
 
-typedef struct TownMapAppData { //todo fill out
+typedef struct TownMapAppData { // todo fill out
     u8 padding[0x140];
-} TownMapAppData; //todo move to own file
+} TownMapAppData; // todo move to own file
 
 typedef struct ScrCmdUnkStruct01D9 {
     struct SaveData *save;
     u16 unk04;
     u16 unk06;
-} ScrCmdUnkStruct01D9; //todo identify and move to own file
+} ScrCmdUnkStruct01D9; // todo identify and move to own file
 
 typedef struct StarterSelectionData {
     s32 state;
     struct Options *options;
-} StarterSelectionData; //todo move to own file
+} StarterSelectionData; // todo move to own file
 
 typedef struct BagScreenAppData {
 
-} BagScreenAppData; //todo fill out and move to own file
+} BagScreenAppData; // todo fill out and move to own file
 
 typedef struct ScrCmdUnkStruct00F4 {
     u8 padding[0x2C];
     void *unk2C;
-} ScrCmdUnkStruct00F4; //todo identify and move to own file
+} ScrCmdUnkStruct00F4; // todo identify and move to own file
 
 typedef struct RoamerSaveData {
 
-} RoamerSaveData; //todo: fill out and move to own file
+} RoamerSaveData; // todo: fill out and move to own file
 
 typedef struct PokedexAppData {
-    
-} PokedexAppData; //todo: fill out and move to own file
+
+} PokedexAppData; // todo: fill out and move to own file
 
 typedef struct NPCTradeAppData {
 
-} NPCTradeAppData; //todo: fill out and move to own file
+} NPCTradeAppData; // todo: fill out and move to own file
 
 typedef struct Poffin {
 
-} Poffin; //todo: fill out and move to own file
+} Poffin; // todo: fill out and move to own file
 
 typedef struct SavePoffinData {
 
-} SavePoffinData; //todo: fill out and move to own file
+} SavePoffinData; // todo: fill out and move to own file
 
 typedef struct SaveStatsPrinter {
 
-} SaveStatsPrinter; //todo: fill out and move to own file
+} SaveStatsPrinter; // todo: fill out and move to own file
 
-
-typedef struct ScriptContext
-{
+typedef struct ScriptContext {
     u8 stackDepth;
     u8 mode;
     u8 comparisonResult;
@@ -122,7 +121,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_CAMERA_TARGET,
     SCRIPTENV_UNKNOWN_12,
     SCRIPTENV_SCRIPT_CONTEXT_0,
-    SCRIPTENV_SCRIPT_CONTEXT_1, //diamond does not appear to have SCRIPT_CONTEXT_2 like HG
+    SCRIPTENV_SCRIPT_CONTEXT_1, // diamond does not appear to have SCRIPT_CONTEXT_2 like HG
     SCRIPTENV_MESSAGE_FORMAT,
     SCRIPTENV_STRING_BUFFER_0,
     SCRIPTENV_STRING_BUFFER_1,
@@ -146,7 +145,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_ENGAGED_TRAINER_1_ENCOUNTER_TYPE,
     SCRIPTENV_ENGAGED_TRAINER_1_EVENT,
     SCRIPTENV_ENGAGED_TRAINER_1_FIELD_18,
-    SCRIPTENV_COIN_BOX, //differs from heartgold due to athlete points
+    SCRIPTENV_COIN_BOX, // differs from heartgold due to athlete points
     SCRIPTENV_MONEY_BOX,
     SCRIPTENV_SAVE_STATS_PRINTER,
     SCRIPTENV_SPECIAL_VAR_8000,

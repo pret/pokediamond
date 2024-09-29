@@ -1,8 +1,9 @@
 #ifndef POKEDIAMOND_MAP_HEADER_H
 #define POKEDIAMOND_MAP_HEADER_H
 
-struct MapHeader
-{
+#include "nitro/types.h"
+
+struct MapHeader {
     u8 area_data_bank;
     u8 move_model_bank;
     u16 matrix_id;
@@ -17,11 +18,11 @@ struct MapHeader
     u8 weather_type;
     u8 camera_type;
     u8 map_type;
-    u8 battle_bg:4;
-    u8 is_bike_allowed:1;
-    u8 is_running_allowed:1; // unused
-    u8 is_escape_rope_allowed:1;
-    u8 is_fly_allowed:1;
+    u8 battle_bg              : 4;
+    u8 is_bike_allowed        : 1;
+    u8 is_running_allowed     : 1; // unused
+    u8 is_escape_rope_allowed : 1;
+    u8 is_fly_allowed         : 1;
 };
 
 u8 MapHeader_GetAreaDataBank(u32 mapno);
@@ -58,4 +59,4 @@ BOOL MapHeader_MapIsSpearPillar(u32 mapno);
 BOOL MapHeader_MapIsPokemonCenterSecondFloor(u32 mapno);
 u16 MapHeader_GetMapEvolutionMethod(u32 mapno);
 
-#endif //POKEDIAMOND_MAP_HEADER_H
+#endif // POKEDIAMOND_MAP_HEADER_H

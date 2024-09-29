@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_02024E64_H
 
 #include "global.h"
+
 #include "MI_memory.h"
 #include "save.h"
 #include "string16.h"

@@ -1,8 +1,9 @@
 #ifndef POKEDIAMOND_OVERLAY_06_H
 #define POKEDIAMOND_OVERLAY_06_H
 
-enum MartType
-{
+#include "field_system.h"
+
+enum MartType {
     MART_ITEMS = 0,
     MART_GOODS,
     MART_SEALS,
@@ -11,4 +12,4 @@ enum MartType
 
 void ov06_0223D3D0(struct TaskManager *, struct FieldSystem *, const u16 *, enum MartType, u32);
 
-#endif //POKEDIAMOND_OVERLAY_06_H
+#endif // POKEDIAMOND_OVERLAY_06_H

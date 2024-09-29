@@ -36,4 +36,4 @@ void sub_020471C0(TaskManager *taskManager, s32 target, s32 maxLevel, u32 flag);
 void sub_0204726C(FieldSystem *fieldSystem, void *param1, s32 battleType);
 void sub_020472B0(FieldSystem *fieldSystem, Party *party, s32 battleType);
 
-#endif //POKEDIAMOND_ENCOUNTER_H
+#endif // POKEDIAMOND_ENCOUNTER_H

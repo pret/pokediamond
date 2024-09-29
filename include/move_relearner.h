@@ -20,4 +20,4 @@ void MoveRelearner_Delete(MoveRelearner *moveRelearner);
 u16 *MoveRelearner_GetEligibleLevelUpMoves(Pokemon *mon, HeapID heapId);
 BOOL MoveRelearner_IsValidMove(const u16 *ptr);
 
-#endif //POKEDIAMOND_MOVE_RELEARNER_H
+#endif // POKEDIAMOND_MOVE_RELEARNER_H

@@ -2,6 +2,7 @@
 #define POKEDIAMOND_MAP_OBJECT_H
 
 #include "global.h"
+
 #include "field_system.h"
 #include "heap.h"
 
@@ -33,53 +34,52 @@ typedef struct SavedMapObject {
 } SavedMapObject;
 
 typedef struct LocalMapObject {
-    u8 padding[0x128]; //todo verify size
+    u8 padding[0x128]; // todo verify size
 } LocalMapObject;
 
-typedef struct ObjectEvent
-{
+typedef struct ObjectEvent {
     u8 padding[0x8];
     u16 flag;
     u8 padding2[0x16];
-    //todo fill out
-    //todo this should be in map_events_internal.h
+    // todo fill out
+    // todo this should be in map_events_internal.h
 } ObjectEvent;
 
-typedef void (*LocalMapObject_UnkCallback)(LocalMapObject* object);
+typedef void (*LocalMapObject_UnkCallback)(LocalMapObject *object);
 
 typedef enum MapObjectFlagBits {
-    MAPOBJECTFLAG_ACTIVE = (1 << 0),
+    MAPOBJECTFLAG_ACTIVE          = (1 << 0),
     MAPOBJECTFLAG_SINGLE_MOVEMENT = (1 << 1),
-    MAPOBJECTFLAG_UNK2 = (1 << 2),
-    MAPOBJECTFLAG_UNK3 = (1 << 3),
-    MAPOBJECTFLAG_UNK4 = (1 << 4),
-    MAPOBJECTFLAG_UNK5 = (1 << 5),
+    MAPOBJECTFLAG_UNK2            = (1 << 2),
+    MAPOBJECTFLAG_UNK3            = (1 << 3),
+    MAPOBJECTFLAG_UNK4            = (1 << 4),
+    MAPOBJECTFLAG_UNK5            = (1 << 5),
     MAPOBJECTFLAG_MOVEMENT_PAUSED = (1 << 6),
-    MAPOBJECTFLAG_UNK7 = (1 << 7),
-    MAPOBJECTFLAG_UNK8 = (1 << 8),
-    MAPOBJECTFLAG_VISIBLE = (1 << 9),
-    MAPOBJECTFLAG_UNK10 = (1 << 10),
-    MAPOBJECTFLAG_UNK11 = (1 << 11),
-    MAPOBJECTFLAG_UNK12 = (1 << 12),
-    MAPOBJECTFLAG_UNK13 = (1 << 13),
-    MAPOBJECTFLAG_UNK14 = (1 << 14),
-    MAPOBJECTFLAG_UNK15 = (1 << 15),
-    MAPOBJECTFLAG_UNK16 = (1 << 16),
-    MAPOBJECTFLAG_UNK17 = (1 << 17),
-    MAPOBJECTFLAG_UNK18 = (1 << 18),
-    MAPOBJECTFLAG_UNK19 = (1 << 19),
-    MAPOBJECTFLAG_UNK20 = (1 << 20),
-    MAPOBJECTFLAG_UNK21 = (1 << 21),
-    MAPOBJECTFLAG_UNK22 = (1 << 22),
-    MAPOBJECTFLAG_IGNORE_HEIGHTS = (1 << 23),
-    MAPOBJECTFLAG_UNK24 = (1 << 24),
-    MAPOBJECTFLAG_UNK25 = (1 << 25),
-    MAPOBJECTFLAG_UNK26 = (1 << 26),
-    MAPOBJECTFLAG_UNK27 = (1 << 27),
-    MAPOBJECTFLAG_UNK28 = (1 << 28),
-    MAPOBJECTFLAG_UNK29 = (1 << 29),
-    MAPOBJECTFLAG_UNK30 = (1 << 30),
-    MAPOBJECTFLAG_UNK31 = (1 << 31),
+    MAPOBJECTFLAG_UNK7            = (1 << 7),
+    MAPOBJECTFLAG_UNK8            = (1 << 8),
+    MAPOBJECTFLAG_VISIBLE         = (1 << 9),
+    MAPOBJECTFLAG_UNK10           = (1 << 10),
+    MAPOBJECTFLAG_UNK11           = (1 << 11),
+    MAPOBJECTFLAG_UNK12           = (1 << 12),
+    MAPOBJECTFLAG_UNK13           = (1 << 13),
+    MAPOBJECTFLAG_UNK14           = (1 << 14),
+    MAPOBJECTFLAG_UNK15           = (1 << 15),
+    MAPOBJECTFLAG_UNK16           = (1 << 16),
+    MAPOBJECTFLAG_UNK17           = (1 << 17),
+    MAPOBJECTFLAG_UNK18           = (1 << 18),
+    MAPOBJECTFLAG_UNK19           = (1 << 19),
+    MAPOBJECTFLAG_UNK20           = (1 << 20),
+    MAPOBJECTFLAG_UNK21           = (1 << 21),
+    MAPOBJECTFLAG_UNK22           = (1 << 22),
+    MAPOBJECTFLAG_IGNORE_HEIGHTS  = (1 << 23),
+    MAPOBJECTFLAG_UNK24           = (1 << 24),
+    MAPOBJECTFLAG_UNK25           = (1 << 25),
+    MAPOBJECTFLAG_UNK26           = (1 << 26),
+    MAPOBJECTFLAG_UNK27           = (1 << 27),
+    MAPOBJECTFLAG_UNK28           = (1 << 28),
+    MAPOBJECTFLAG_UNK29           = (1 << 29),
+    MAPOBJECTFLAG_UNK30           = (1 << 30),
+    MAPOBJECTFLAG_UNK31           = (1 << 31),
 } MapObjectFlagBits;
 
 #define MAP_OBJECT_GFX_ID_INVALID 0xFFFF
@@ -130,4 +130,4 @@ BOOL MapObjectManager_GetNextObjectWithFlagFromIndex(MapObjectManager *manager, 
 u32 sub_0205829C(LocalMapObject *object, u32 param1);
 BOOL sub_020582A8(LocalMapObject *object, u32 mapId, u32 flagId);
 
-#endif //POKEDIAMOND_MAP_OBJECT_H
+#endif // POKEDIAMOND_MAP_OBJECT_H

@@ -2,6 +2,7 @@
 #define POKEDIAMOND_SOUND_CHATOT_H
 
 #include "global.h"
+
 #include "sav_chatot.h"
 
 BOOL sub_02005CFC(void);

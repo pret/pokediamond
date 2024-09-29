@@ -1,9 +1,11 @@
 #include "global.h"
+
+#include "constants/decorations.h"
 #include "constants/items.h"
 #include "constants/seal_constants.h"
-#include "constants/decorations.h"
-#include "scrcmd.h"
+
 #include "overlay_06.h"
+#include "scrcmd.h"
 
 extern void sub_02038AD0(TaskManager *);
 
@@ -281,30 +283,30 @@ static const u16 UNK_020F41FE[] = {
 
 static const u16 sNormalMartBadgeThresholds[][2] = {
     // Balls
-    {ITEM_POKE_BALL,    1},
-    {ITEM_GREAT_BALL,   3},
-    {ITEM_ULTRA_BALL,   4},
+    { ITEM_POKE_BALL,    1 },
+    { ITEM_GREAT_BALL,   3 },
+    { ITEM_ULTRA_BALL,   4 },
     // Potions
-    {ITEM_POTION,       1},
-    {ITEM_SUPER_POTION, 2},
-    {ITEM_HYPER_POTION, 4},
-    {ITEM_MAX_POTION,   5},
-    {ITEM_FULL_RESTORE, 6},
+    { ITEM_POTION,       1 },
+    { ITEM_SUPER_POTION, 2 },
+    { ITEM_HYPER_POTION, 4 },
+    { ITEM_MAX_POTION,   5 },
+    { ITEM_FULL_RESTORE, 6 },
     // Revives
-    {ITEM_REVIVE,       3},
+    { ITEM_REVIVE,       3 },
     // Status heal
-    {ITEM_ANTIDOTE,     1},
-    {ITEM_PARLYZ_HEAL,  1},
-    {ITEM_AWAKENING,    2},
-    {ITEM_BURN_HEAL,    2},
-    {ITEM_ICE_HEAL,     2},
-    {ITEM_FULL_HEAL,    4},
+    { ITEM_ANTIDOTE,     1 },
+    { ITEM_PARLYZ_HEAL,  1 },
+    { ITEM_AWAKENING,    2 },
+    { ITEM_BURN_HEAL,    2 },
+    { ITEM_ICE_HEAL,     2 },
+    { ITEM_FULL_HEAL,    4 },
     // Dungeon items
-    {ITEM_ESCAPE_ROPE,  2},
+    { ITEM_ESCAPE_ROPE,  2 },
     // Repels
-    {ITEM_REPEL,        2},
-    {ITEM_SUPER_REPEL,  3},
-    {ITEM_MAX_REPEL,    4},
+    { ITEM_REPEL,        2 },
+    { ITEM_SUPER_REPEL,  3 },
+    { ITEM_MAX_REPEL,    4 },
 };
 
 const u16 *sDecorationMartPointers[] = {
@@ -344,51 +346,48 @@ const u16 *sSealsMartPointers[] = {
     UNK_020F41B2,
 };
 
-BOOL ScrCmd_NormalMart(ScriptContext *ctx) //0147 - todo: Pokemart?
+BOOL ScrCmd_NormalMart(ScriptContext *ctx) // 0147 - todo: Pokemart?
 {
     u16 whichMart = ScriptGetVar(ctx);
     s32 param;
     u16 martItems[64];
-    u8 martIdx = 0;
+    u8 martIdx    = 0;
     u8 badgeCount = 0;
     u8 i;
 
-    for (i = 0; i < 8; i++)
-    {
-        if (PlayerProfile_TestBadgeFlag(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData), i) == TRUE)
+    for (i = 0; i < 8; i++) {
+        if (PlayerProfile_TestBadgeFlag(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData), i) == TRUE) {
             badgeCount++;
+        }
     }
-    switch (badgeCount)
-    {
-        case 0:
-            param = 1;
-            break;
-        case 1:
-        case 2:
-            param = 2;
-            break;
-        case 3:
-        case 4:
-            param = 3;
-            break;
-        case 5:
-        case 6:
-            param = 4;
-            break;
-        case 7:
-            param = 5;
-            break;
-        case 8:
-            param = 6;
-            break;
-        default:
-            param = 1;
-            break;
+    switch (badgeCount) {
+    case 0:
+        param = 1;
+        break;
+    case 1:
+    case 2:
+        param = 2;
+        break;
+    case 3:
+    case 4:
+        param = 3;
+        break;
+    case 5:
+    case 6:
+        param = 4;
+        break;
+    case 7:
+        param = 5;
+        break;
+    case 8:
+        param = 6;
+        break;
+    default:
+        param = 1;
+        break;
     }
-    for (i = 0; i < NELEMS(sNormalMartBadgeThresholds); i++)
-    {
-        if (param >= sNormalMartBadgeThresholds[i][1])
-        {
+    for (i = 0; i < NELEMS(sNormalMartBadgeThresholds); i++) {
+        if (param >= sNormalMartBadgeThresholds[i][1]) {
             martItems[martIdx] = sNormalMartBadgeThresholds[i][0];
             martIdx++;
         }
@@ -398,36 +397,38 @@ BOOL ScrCmd_NormalMart(ScriptContext *ctx) //0147 - todo: Pokemart?
     return TRUE;
 }
 
-BOOL ScrCmd_SpecialMart(ScriptContext *ctx) //0148
+BOOL ScrCmd_SpecialMart(ScriptContext *ctx) // 0148
 {
     u16 whichMart = ScriptGetVar(ctx);
     u32 sp0;
 
     // Fakematch?
-    if ((u16)(whichMart + (u16)(-8u)) <= 5)
+    if ((u16)(whichMart + (u16)(-8u)) <= 5) {
         sp0 = 1;
-    else
+    } else {
         sp0 = 0;
+    }
 
     ov06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sSpecialMartPointers[whichMart], MART_ITEMS, sp0);
     return TRUE;
 }
 
-BOOL ScrCmd_GoodsMart(ScriptContext *ctx) //0149
+BOOL ScrCmd_GoodsMart(ScriptContext *ctx) // 0149
 {
     u16 whichMart = ScriptGetVar(ctx);
     u32 sp0;
 
-    if (whichMart <= 1)
+    if (whichMart <= 1) {
         sp0 = 1;
-    else
+    } else {
         sp0 = 0;
+    }
 
     ov06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sDecorationMartPointers[whichMart], MART_DECORATIONS, sp0);
     return TRUE;
 }
 
-BOOL ScrCmd_SealsMart(ScriptContext *ctx) //014A
+BOOL ScrCmd_SealsMart(ScriptContext *ctx) // 014A
 {
     u16 whichMart = ScriptGetVar(ctx);
 
@@ -435,7 +436,7 @@ BOOL ScrCmd_SealsMart(ScriptContext *ctx) //014A
     return TRUE;
 }
 
-BOOL ScrCmd_AccessoriesShop(ScriptContext *ctx) //0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
+BOOL ScrCmd_AccessoriesShop(ScriptContext *ctx) // 0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
 {
     sub_02038AD0(ctx->fieldSystem->taskManager);
     return TRUE;

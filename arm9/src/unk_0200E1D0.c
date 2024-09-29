@@ -1,7 +1,6 @@
 #include "global.h"
 
-struct UnkStruct_021C46B4
-{
+struct UnkStruct_021C46B4 {
     u8 unk_000[0x14];
     u8 unk_014[0x30];
     u8 unk_044[0x30];

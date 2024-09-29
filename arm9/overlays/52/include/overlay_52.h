@@ -2,15 +2,16 @@
 #define POKEDIAMOND_OVERLAY_52_H
 
 #include "global.h"
-#include "save_vars_flags.h"
+
 #include "main.h"
 #include "math_util.h"
 #include "options.h"
 #include "overlay_manager.h"
 #include "player_data.h"
 #include "poke_overlay.h"
-#include "save_system_info.h"
 #include "save.h"
+#include "save_system_info.h"
+#include "save_vars_flags.h"
 #include "unk_02024E64.h"
 #include "unk_020286F8.h"
 

@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_02031480_H
 
 #include "global.h"
+
 #include "MI_memory.h"
 #include "heap.h"
 #include "unk_0202F150.h"

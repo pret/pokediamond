@@ -1,83 +1,77 @@
+#include "poke_overlay.h"
+
 #include "global.h"
-#include "nitro.h"
+
 #include "FS_file.h"
 #include "FS_rom.h"
-#include "poke_overlay.h"
+#include "nitro.h"
 
 static struct LoadedOverlay gLoadedOverlays[3][8];
 
-void FreeOverlayAllocation(struct LoadedOverlay * loaded)
-{
+void FreeOverlayAllocation(struct LoadedOverlay *loaded) {
     GF_ASSERT(loaded->active == TRUE);
     GF_ASSERT(FS_UnloadOverlay(MI_PROCESSOR_ARM9, loaded->id) == TRUE);
     loaded->active = FALSE;
 }
 
-void UnloadOverlayByID(FSOverlayID id)
-{
-    struct LoadedOverlay * loaded = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(id));
+void UnloadOverlayByID(FSOverlayID id) {
+    struct LoadedOverlay *loaded = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(id));
     int i;
-    for (i = 0; i < 8; i++)
-    {
-        if (loaded[i].active == TRUE && loaded[i].id == id)
-        {
+    for (i = 0; i < 8; i++) {
+        if (loaded[i].active == TRUE && loaded[i].id == id) {
             FreeOverlayAllocation(&loaded[i]);
             break;
         }
     }
 }
 
-s32 GetOverlayLoadDestination(FSOverlayID id)
-{
+s32 GetOverlayLoadDestination(FSOverlayID id) {
     FSOverlayInfo info;
     u8 *end;
     u8 *start;
     GF_ASSERT(FS_LoadOverlayInfo(&info, MI_PROCESSOR_ARM9, id) == TRUE);
     start = (u8 *)HW_ITCM_IMAGE;
-    end = (u8 *)HW_ITCM_END;
-    if (info.header.ram_address <= end && info.header.ram_address >= start)
+    end   = (u8 *)HW_ITCM_END;
+    if (info.header.ram_address <= end && info.header.ram_address >= start) {
         return OVERLAY_LOAD_ITCM;
+    }
     start = (u8 *)HW_DTCM;
-    end = start + HW_DTCM_SIZE;
-    if (info.header.ram_address <= end && info.header.ram_address >= start)
+    end   = start + HW_DTCM_SIZE;
+    if (info.header.ram_address <= end && info.header.ram_address >= start) {
         return OVERLAY_LOAD_DTCM;
+    }
     return OVERLAY_LOAD_WRAM;
 }
 
-BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
-{
+BOOL HandleLoadOverlay(FSOverlayID id, s32 a1) {
     u32 sp0 = FS_DMA_NOT_USE;
     struct LoadedOverlay *r3;
     int r7;
     int r6;
     BOOL result;
 
-    if (!CanOverlayBeLoaded(id))
+    if (!CanOverlayBeLoaded(id)) {
         return FALSE;
+    }
     r7 = GetOverlayLoadDestination(id);
     r3 = GetLoadedOverlaysInRegion(r7);
-    for (r6 = 0; r6 < 8; r6++)
-    {
-        if (!r3[r6].active)
-        {
-            struct LoadedOverlay * ovly;
-            ovly = &r3[r6];
+    for (r6 = 0; r6 < 8; r6++) {
+        if (!r3[r6].active) {
+            struct LoadedOverlay *ovly;
+            ovly         = &r3[r6];
             ovly->active = TRUE;
-            ovly->id = id;
+            ovly->id     = id;
             break;
         }
     }
-    if (r6 >= 8)
-    {
+    if (r6 >= 8) {
         GF_ASSERT(0);
         return FALSE;
     }
-    if (r7 == OVERLAY_LOAD_ITCM || r7 == OVERLAY_LOAD_DTCM)
-    {
+    if (r7 == OVERLAY_LOAD_ITCM || r7 == OVERLAY_LOAD_DTCM) {
         sp0 = FS_SetDefaultDMA(FS_DMA_NOT_USE);
     }
-    switch (a1)
-    {
+    switch (a1) {
     case 0:
         result = LoadOverlayNormal(MI_PROCESSOR_ARM9, id);
         break;
@@ -91,32 +85,27 @@ BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
         GF_ASSERT(0);
         return FALSE;
     }
-    if (r7 == OVERLAY_LOAD_ITCM || r7 == OVERLAY_LOAD_DTCM)
-    {
+    if (r7 == OVERLAY_LOAD_ITCM || r7 == OVERLAY_LOAD_DTCM) {
         FS_SetDefaultDMA(sp0);
     }
-    if (result == 0)
-    {
+    if (result == 0) {
         GF_ASSERT(0);
         return FALSE;
     }
     return TRUE;
 }
 
-BOOL CanOverlayBeLoaded(FSOverlayID id)
-{
+BOOL CanOverlayBeLoaded(FSOverlayID id) {
     void *start, *end, *start2, *end2;
     struct LoadedOverlay *r5;
     int i;
-    if (!GetOverlayRamBounds(id, &start, &end))
+    if (!GetOverlayRamBounds(id, &start, &end)) {
         return FALSE;
+    }
     r5 = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(id));
-    for (i = 0; i < 8; i++)
-    {
-        if (r5[i].active == TRUE && GetOverlayRamBounds(r5[i].id, &start2, &end2) == TRUE)
-        {
-            if ((start >= start2 && start < end2) || (end > start2 && end <= end2) || (start <= start2 && end >= end2))
-            {
+    for (i = 0; i < 8; i++) {
+        if (r5[i].active == TRUE && GetOverlayRamBounds(r5[i].id, &start2, &end2) == TRUE) {
+            if ((start >= start2 && start < end2) || (end > start2 && end <= end2) || (start <= start2 && end >= end2)) {
                 GF_ASSERT(0);
                 return FALSE;
             }
@@ -125,10 +114,8 @@ BOOL CanOverlayBeLoaded(FSOverlayID id)
     return TRUE;
 }
 
-struct LoadedOverlay* GetLoadedOverlaysInRegion(s32 a0)
-{
-    switch (a0)
-    {
+struct LoadedOverlay *GetLoadedOverlaysInRegion(s32 a0) {
+    switch (a0) {
     case OVERLAY_LOAD_WRAM:
     default:
         return gLoadedOverlays[0];
@@ -139,40 +126,39 @@ struct LoadedOverlay* GetLoadedOverlaysInRegion(s32 a0)
     }
 }
 
-BOOL GetOverlayRamBounds(FSOverlayID id, void ** start, void ** end)
-{
+BOOL GetOverlayRamBounds(FSOverlayID id, void **start, void **end) {
     FSOverlayInfo info;
     if (!FS_LoadOverlayInfo(&info, MI_PROCESSOR_ARM9, id)) {
         GF_ASSERT(0);
         return FALSE;
     }
     *start = (void *)info.header.ram_address;
-    *end = (char *)*start + (info.header.ram_size + info.header.bss_size);
+    *end   = (char *)*start + (info.header.ram_size + info.header.bss_size);
     return TRUE;
 }
 
-BOOL LoadOverlayNormal(MIProcessor target, FSOverlayID id)
-{
+BOOL LoadOverlayNormal(MIProcessor target, FSOverlayID id) {
     return FS_LoadOverlay(target, id);
 }
 
-BOOL LoadOverlayNoInit(MIProcessor target, FSOverlayID id)
-{
+BOOL LoadOverlayNoInit(MIProcessor target, FSOverlayID id) {
     FSOverlayInfo info;
-    if (!FS_LoadOverlayInfo(&info, target, id))
+    if (!FS_LoadOverlayInfo(&info, target, id)) {
         return FALSE;
-    if (!FS_LoadOverlayImage(&info))
+    }
+    if (!FS_LoadOverlayImage(&info)) {
         return FALSE;
+    }
     FS_StartOverlay(&info);
     return TRUE;
 }
 
-BOOL LoadOverlayNoInitAsync(MIProcessor target, FSOverlayID id)
-{
+BOOL LoadOverlayNoInitAsync(MIProcessor target, FSOverlayID id) {
     FSOverlayInfo info;
     FSFile file;
-    if (!FS_LoadOverlayInfo(&info, target, id))
+    if (!FS_LoadOverlayInfo(&info, target, id)) {
         return FALSE;
+    }
     FS_InitFile(&file);
     FS_LoadOverlayImageAsync(&info, &file);
     FS_WaitAsync(&file);

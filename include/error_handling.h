@@ -3,4 +3,4 @@
 
 void GF_AssertFail(void);
 
-#endif //POKEDIAMOND_ERROR_HANDLING_H
+#endif // POKEDIAMOND_ERROR_HANDLING_H

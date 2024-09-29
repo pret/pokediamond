@@ -2,6 +2,7 @@
 #define POKEDIAMOND_BATTLE_SETUP_H
 
 #include "global.h"
+
 #include "party.h"
 #include "trainer_data.h"
 
@@ -31,4 +32,4 @@ struct BattleSetup {
     u32 unk18C;
 };
 
-#endif //POKEDIAMOND_BATTLE_SETUP_H
+#endif // POKEDIAMOND_BATTLE_SETUP_H

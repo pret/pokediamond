@@ -3,10 +3,10 @@
 
 typedef struct FashionCase {
 
-} FashionCase; //todo: complete
+} FashionCase; // todo: complete
 
 typedef struct SaveFashionData {
 
-} SaveFashionData; //todo: complete
+} SaveFashionData; // todo: complete
 
-#endif //POKEDIAMOND_FASHION_CASE_H
+#endif // POKEDIAMOND_FASHION_CASE_H

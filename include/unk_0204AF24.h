@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_0204AF24_H
 
 #include "nitro/types.h"
+
 #include "task.h"
 
 BOOL sub_0204AF24(struct TaskManager *taskManager);

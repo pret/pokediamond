@@ -1,4 +1,5 @@
 #include "global.h"
+
 #include "sinit.h"
 
 static void NitroStaticInit(void) {

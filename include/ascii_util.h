@@ -3,6 +3,8 @@
 
 #include "nitro/types.h"
 
+#include "NNS_G3D_res_struct.h"
+
 s32 Ascii_StrLen(const s8 *str);
 const s8 *Ascii_GetDelim(const s8 *src, s8 *dst, s32 c);
 s32 Ascii_StrToL(const s8 *str);

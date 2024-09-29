@@ -3,19 +3,17 @@
 
 #include "heap.h"
 
-#define MAP_MATRIX_MAX_WIDTH 30
+#define MAP_MATRIX_MAX_WIDTH  30
 #define MAP_MATRIX_MAX_HEIGHT 30
-#define MAP_MATRIX_MAX_SIZE (MAP_MATRIX_MAX_WIDTH * MAP_MATRIX_MAX_HEIGHT)
+#define MAP_MATRIX_MAX_SIZE   (MAP_MATRIX_MAX_WIDTH * MAP_MATRIX_MAX_HEIGHT)
 
 #define MAP_MATRIX_MAX_NAME_LENGTH 16
 
-struct MapData
-{
+struct MapData {
     u16 data[MAP_MATRIX_MAX_SIZE];
 };
 
-struct MapMatrixData
-{
+struct MapMatrixData {
     u8 height;
     u8 width;
     u16 headers[MAP_MATRIX_MAX_SIZE];
@@ -24,8 +22,7 @@ struct MapMatrixData
     u8 name[MAP_MATRIX_MAX_NAME_LENGTH];
 };
 
-struct MapMatrix
-{
+struct MapMatrix {
     u8 width;
     u8 height;
     u8 matrix_id;

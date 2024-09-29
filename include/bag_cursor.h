@@ -2,6 +2,7 @@
 #define POKEDIAMOND_BAG_CURSOR_H
 
 #include "global.h"
+
 #include "heap.h"
 
 typedef struct BagCursorField {

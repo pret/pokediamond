@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_0200BA78_H
 
 #include "global.h"
+
 #include "message_format.h"
 
 void sub_0200BA78(struct UnkStruct_0200B870 *param0,

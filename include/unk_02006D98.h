@@ -2,11 +2,11 @@
 #define POKEDIAMOND_UNK_02006D98_H
 
 #include "global.h"
+
 #include "NNS_g2d.h"
 #include "heap.h"
 
-struct UnkStruct_02006D98_4
-{
+struct UnkStruct_02006D98_4 {
     u16 field_00;
     u16 field_02;
     u16 field_04;
@@ -15,13 +15,11 @@ struct UnkStruct_02006D98_4
     u32 field_0C;
 };
 
-struct UnkStruct_02006D98_sub
-{
+struct UnkStruct_02006D98_sub {
     s8 unk0;
     u8 unk1;
 };
-struct UnkStruct_02006D98_sub2
-{
+struct UnkStruct_02006D98_sub2 {
     u16 unk0_0 : 2;
     u16 unk0_2 : 1;
     u16 unk0_3 : 1;
@@ -35,8 +33,7 @@ struct UnkStruct_02006D98_sub2
     s16 unka;
 };
 
-struct UnkStruct_02006D98_2
-{
+struct UnkStruct_02006D98_2 {
     u32 unk00_0 : 1;
     u32 unk00_1 : 6;
     u32 unk00_7 : 1;
@@ -66,22 +63,22 @@ struct UnkStruct_02006D98_2
     u8 unk4A;
     u8 unk4B;
     u32 unk4C;
-    u32 unk50_0 : 5;
-    u32 unk50_5 : 5;
-    u32 unk50_a : 5;
-    u32 unk50_f : 5;
+    u32 unk50_0  : 5;
+    u32 unk50_5  : 5;
+    u32 unk50_a  : 5;
+    u32 unk50_f  : 5;
     u32 unk50_14 : 5;
     u32 unk50_19 : 5;
     u32 unk50_1E : 2;
-    u32 unk54_0 : 1;
-    u32 unk54_1 : 1;
-    u32 unk54_2 : 5;
-    u32 unk54_7 : 2;
-    u32 unk54_9 : 1;
-    u32 unk54_A : 1;
-    u32 unk54_B : 1;
-    u32 unk54_C : 1;
-    u32 unk54_D : 4;
+    u32 unk54_0  : 1;
+    u32 unk54_1  : 1;
+    u32 unk54_2  : 5;
+    u32 unk54_7  : 2;
+    u32 unk54_9  : 1;
+    u32 unk54_A  : 1;
+    u32 unk54_B  : 1;
+    u32 unk54_C  : 1;
+    u32 unk54_D  : 4;
     u8 unk58;
     u8 unk59;
     u8 unk5A;
@@ -93,8 +90,7 @@ struct UnkStruct_02006D98_2
     struct UnkStruct_02006D98_sub unk84[10];
 };
 
-struct UnkStruct_02006D98
-{
+struct UnkStruct_02006D98 {
     struct UnkStruct_02006D98_2 unk000[4];
     NNSG2dImageProxy unk260;
     NNSG2dImagePaletteProxy unk284;
@@ -115,15 +111,12 @@ struct UnkStruct_02006D98
     u32 unk2E4;
 };
 
-struct UnkStruct_02006D98_3
-{
+struct UnkStruct_02006D98_3 {
     u8 unk0;
     u8 unk1;
 };
 
-
-struct UnkStruct_02006D98_5
-{
+struct UnkStruct_02006D98_5 {
     u8 unk00;
     u8 unk01;
     u8 unk02;

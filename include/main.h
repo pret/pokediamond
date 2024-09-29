@@ -6,16 +6,14 @@
 #include "overlay_manager.h"
 #include "save.h"
 
-struct Unk21C4818
-{
+struct Unk21C4818 {
     u32 unk0;
     u32 unk4;
     u32 unk8;
     u32 unkC;
 };
 
-struct Unk21C4828
-{
+struct Unk21C4828 {
     u32 unk0;
     u32 unk4;
     u32 unk8;
@@ -31,18 +29,17 @@ struct UnkStruct_021C4918 {
     u8 padding[3];
 };
 
-struct Main
-{
+struct Main {
     void (*vBlankIntr)(void *);
-    void * vBlankIntrArg;
+    void *vBlankIntrArg;
     void (*hBlankIntr)(void *);
-    void * hBlankIntrArg;
+    void *hBlankIntrArg;
     s32 unk10;
     s32 unk14;
-    void * unk18;
-    void * unk1C;
-    void * unk20;
-    void * unk24;
+    void *unk18;
+    void *unk1C;
+    void *unk20;
+    void *unk24;
     s32 unk28;
     u32 unk2C;
     s32 unk30;
@@ -69,13 +66,12 @@ struct Main
     s32 unk6C;
 };
 
-//extern struct UnkStruct_021C4918 gSystem + 0x60;
+// extern struct UnkStruct_021C4918 gSystem + 0x60;
 
 extern PMBackLightSwitch gBacklightTop;
 extern s32 UNK_02016FA4;
 
-struct UnkStruct_02016FA8
-{
+struct UnkStruct_02016FA8 {
     FSOverlayID mainOverlayId;
     struct OverlayManager *overlayManager;
     FSOverlayID queuedMainOverlayId;
@@ -83,7 +79,6 @@ struct UnkStruct_02016FA8
     s32 unk10;
     s32 unk14;
     struct SaveData *save;
-
 };
 
 extern struct UnkStruct_02016FA8 UNK_02016FA8;
@@ -103,4 +98,4 @@ void sub_02000F4C(u32 arg0, u32 arg1);
 void InitializeMainRNG(void);
 void HandleDSLidAction(void);
 
-#endif //GUARD_MAIN_H
+#endif // GUARD_MAIN_H

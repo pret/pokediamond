@@ -1,8 +1,7 @@
 #ifndef POKEDIAMOND_MOVE_DATA_H
 #define POKEDIAMOND_MOVE_DATA_H
 
-struct WazaTbl
-{
+struct WazaTbl {
     u16 effect;
     u8 class;
     u8 power;
@@ -33,9 +32,9 @@ typedef enum MoveAttr {
     MOVEATTR_CONTEST_TYPE,
 } MoveAttr;
 
-void LoadAllWazaTbl(struct WazaTbl * dest);
+void LoadAllWazaTbl(struct WazaTbl *dest);
 u8 WazaGetMaxPp(u16 move, u8 ppUp);
 u32 GetWazaAttr(u16 move, MoveAttr attr);
-u32 GetAttrFromWazaTbl(struct WazaTbl * wazaTbl, MoveAttr attr);
+u32 GetAttrFromWazaTbl(struct WazaTbl *wazaTbl, MoveAttr attr);
 
-#endif //POKEDIAMOND_MOVE_DATA_H
+#endif // POKEDIAMOND_MOVE_DATA_H

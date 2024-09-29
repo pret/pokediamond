@@ -1,15 +1,16 @@
 #ifndef POKEDIAMOND_CAMERA_H
 #define POKEDIAMOND_CAMERA_H
 
-#include "fx.h"
 #include "global.h"
+
+#include "fx.h"
 #include "heap.h"
 
 #define CAMERA_UPDATE_ENABLE_X 1
 #define CAMERA_UPDATE_ENABLE_Y 2
 #define CAMERA_UPDATE_ENABLE_Z 4
 
-#define CAMERA_PERSPECTIVE_TYPE_PERSPECTIVE 0
+#define CAMERA_PERSPECTIVE_TYPE_PERSPECTIVE  0
 #define CAMERA_PERSPECTIVE_TYPE_ORTHOGRAPHIC 1
 
 typedef struct CameraHistory {

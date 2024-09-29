@@ -1,8 +1,9 @@
 #include "global.h"
+
 #include "bg_window.h"
-#include "unk_0200CA44.h"
 #include "gf_gfx_loader.h"
 #include "overlay_24.h"
+#include "unk_0200CA44.h"
 
 extern void Poketch_InitApp(void *func1, void *func2);
 extern u32 ov20_02254130(void *arg0, u32 arg1, void *arg2, void *arg3, u32 arg4);
@@ -13,8 +14,7 @@ extern void ov20_0225298C(u32 arg0);
 extern BOOL ov20_02252C08(u32 arg0);
 extern BOOL TouchScreen_GetTapState(u32 *arg0, u32 *arg1);
 
-static void ov24_02254840(void)
-{
+static void ov24_02254840(void) {
     Poketch_InitApp(ov24_02254854, ov24_02254990);
 }
 
@@ -39,15 +39,15 @@ BOOL ov24_0225489C(MemoPadAppHandler *appHandler, u32 arg1, u32 arg2, u32 arg3) 
     static const u8 ov24_022550F8[] = {
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
-    appHandler->drawState.unk16E8 = arg3;
+    appHandler->drawState.unk16E8   = arg3;
     appHandler->drawState.touchType = TOUCH_TYPE_DRAW;
     if (ov24_02254CA0(&(appHandler->displayHandler), &(appHandler->drawState))) {
-        appHandler->unk0 = 0;
-        appHandler->unk1 = 0;
-        appHandler->unk2 = 0;
+        appHandler->unk0      = 0;
+        appHandler->unk1      = 0;
+        appHandler->unk2      = 0;
         appHandler->touchHeld = FALSE;
-        appHandler->unk16FC = ov20_02254130(ov24_022550F8, 2, ov24_02254960, appHandler, 8);
-        appHandler->unk16F8 = arg1;
+        appHandler->unk16FC   = ov20_02254130(ov24_022550F8, 2, ov24_02254960, appHandler, 8);
+        appHandler->unk16F8   = arg1;
         return TRUE;
     }
     return FALSE;
@@ -60,7 +60,7 @@ void ov24_022548F4(MemoPadAppHandler *appHandler) {
 }
 
 void ov24_02254918(void *arg0, MemoPadAppHandler *appHandler) {
-    static BOOL (*const ov24_02255100[3])(MemoPadAppHandler*) = {
+    static BOOL (*const ov24_02255100[3])(MemoPadAppHandler *) = {
         ov24_022549AC, ov24_022549F8, ov24_02254C64
     };
     if (appHandler->unk0 < 3) {
@@ -77,8 +77,7 @@ void ov24_02254960(s32 arg0, s32 arg1, s32 arg2, MemoPadAppHandler *appHandler) 
     if (arg2 == 1) {
         if (
             (appHandler->drawState.touchType == TOUCH_TYPE_DRAW && arg0 == 0)
-            || (appHandler->drawState.touchType == TOUCH_TYPE_ERASE && arg0 == 1)
-        ) {
+            || (appHandler->drawState.touchType == TOUCH_TYPE_ERASE && arg0 == 1)) {
             appHandler->drawState.touchType ^= 1;
             ov24_02254D8C(appHandler->displayHandler, 1);
         }
@@ -92,8 +91,7 @@ void ov24_02254990(MemoPadAppHandler *appHandler) {
 void ov24_02254998(MemoPadAppHandler *appHandler, u8 arg1) {
     if (appHandler->unk2 == 0) {
         appHandler->unk0 = arg1;
-    }
-    else {
+    } else {
         appHandler->unk0 = 2;
     }
     appHandler->unk1 = 0;
@@ -101,18 +99,18 @@ void ov24_02254998(MemoPadAppHandler *appHandler, u8 arg1) {
 
 BOOL ov24_022549AC(MemoPadAppHandler *appHandler) {
     switch (appHandler->unk1) {
-        case 0:
-            ov24_02254D8C(appHandler->displayHandler, 0);
-            appHandler->unk1++;
-            break;
-        case 1:
-            if (ov24_02254DB0(appHandler->displayHandler, 0)) {
-                ov20_0225298C(appHandler->unk16F8);
-                ov24_02254998(appHandler, 1);
-            }
-            break;
-        default:
-            break;
+    case 0:
+        ov24_02254D8C(appHandler->displayHandler, 0);
+        appHandler->unk1++;
+        break;
+    case 1:
+        if (ov24_02254DB0(appHandler->displayHandler, 0)) {
+            ov20_0225298C(appHandler->unk16F8);
+            ov24_02254998(appHandler, 1);
+        }
+        break;
+    default:
+        break;
     }
     return FALSE;
 }
@@ -122,25 +120,25 @@ BOOL ov24_022549F8(MemoPadAppHandler *appHandler) {
         ov24_02254998(appHandler, 2);
     }
     switch (appHandler->unk1) {
-        case 0:
-            if (ov20_02252C08(appHandler->unk16F8)) {
-                break;
-            }
-            if (appHandler->touchHeld) {
-                u32 x = appHandler->drawState.lastModifiedX;
-                u32 y = appHandler->drawState.lastModifiedY;
-                if (ov24_02254AD4(appHandler)) {
-                    ov24_02254B20(appHandler, x, y, appHandler->drawState.lastModifiedX, appHandler->drawState.lastModifiedY);
-                } else {
-                    appHandler->touchHeld = FALSE;
-                }
-            } else {
-                if (ov24_02254A70(appHandler)) {
-                    ov24_02254D8C(appHandler->displayHandler, 3);
-                    appHandler->touchHeld = TRUE;
-                }
-            }
+    case 0:
+        if (ov20_02252C08(appHandler->unk16F8)) {
             break;
+        }
+        if (appHandler->touchHeld) {
+            u32 x = appHandler->drawState.lastModifiedX;
+            u32 y = appHandler->drawState.lastModifiedY;
+            if (ov24_02254AD4(appHandler)) {
+                ov24_02254B20(appHandler, x, y, appHandler->drawState.lastModifiedX, appHandler->drawState.lastModifiedY);
+            } else {
+                appHandler->touchHeld = FALSE;
+            }
+        } else {
+            if (ov24_02254A70(appHandler)) {
+                ov24_02254D8C(appHandler->displayHandler, 3);
+                appHandler->touchHeld = TRUE;
+            }
+        }
+        break;
     }
     return FALSE;
 }
@@ -153,11 +151,11 @@ BOOL ov24_02254A70(MemoPadAppHandler *appHandler) {
             y = (y - 16) >> 1;
             if (appHandler->drawState.pixelData[x][y] != appHandler->drawState.touchType) {
                 appHandler->drawState.pixelData[x][y] = appHandler->drawState.touchType;
-                appHandler->drawState.lastModifiedX = x;
-                appHandler->drawState.lastModifiedY = y;
+                appHandler->drawState.lastModifiedX   = x;
+                appHandler->drawState.lastModifiedY   = y;
                 return TRUE;
             }
-         }
+        }
     }
     return FALSE;
 }
@@ -166,8 +164,8 @@ BOOL ov24_02254AD4(MemoPadAppHandler *appHandler) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
-            x = (x - 16) >> 1;
-            y = (y - 16) >> 1;
+            x                                   = (x - 16) >> 1;
+            y                                   = (y - 16) >> 1;
             appHandler->drawState.lastModifiedX = x;
             appHandler->drawState.lastModifiedY = y;
             return TRUE;
@@ -199,8 +197,8 @@ void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1
             if ((x0 < 0x4e) && ((u32)offset < 0x4b)) {
                 if (appHandler->drawState.touchType != appHandler->drawState.pixelData[x0][offset]) {
                     appHandler->drawState.pixelData[x0][offset] = appHandler->drawState.touchType;
-                    appHandler->drawState.lastModifiedX = x0;
-                    appHandler->drawState.lastModifiedY = offset;
+                    appHandler->drawState.lastModifiedX         = x0;
+                    appHandler->drawState.lastModifiedY         = offset;
                     ov24_02254D8C(appHandler->displayHandler, 3);
                 }
             }
@@ -222,8 +220,8 @@ void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1
             if ((y0 < 0x4b) && ((u32)offset < 0x4e)) {
                 if (appHandler->drawState.touchType != appHandler->drawState.pixelData[offset][y0]) {
                     appHandler->drawState.pixelData[offset][y0] = appHandler->drawState.touchType;
-                    appHandler->drawState.lastModifiedX = offset;
-                    appHandler->drawState.lastModifiedY = y0;
+                    appHandler->drawState.lastModifiedX         = offset;
+                    appHandler->drawState.lastModifiedY         = y0;
                     ov24_02254D8C(appHandler->displayHandler, 3);
                 }
             }
@@ -240,15 +238,15 @@ void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1
 
 BOOL ov24_02254C64(MemoPadAppHandler *appHandler) {
     switch (appHandler->unk1) {
-        case 0:
-            ov24_02254D8C(appHandler->displayHandler, 5);
-            appHandler->unk1++;
-            break;
-        case 1:
-            if (ov24_02254DBC(appHandler->displayHandler)) {
-                return TRUE;
-            }
-            break;
+    case 0:
+        ov24_02254D8C(appHandler->displayHandler, 5);
+        appHandler->unk1++;
+        break;
+    case 1:
+        if (ov24_02254DBC(appHandler->displayHandler)) {
+            return TRUE;
+        }
+        break;
     }
     return FALSE;
 }

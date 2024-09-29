@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_020051F4_H
 
 #include "global.h"
+
 #include "heap.h"
 #include "unk_0200CA44.h"
 
@@ -43,4 +44,4 @@ void sub_02005CA0(u32 param0);
 BOOL sub_02005CBC();
 void sub_02005CEC(u16 param0);
 
-#endif //POKEDIAMOND_UNK_020051F4_H
+#endif // POKEDIAMOND_UNK_020051F4_H

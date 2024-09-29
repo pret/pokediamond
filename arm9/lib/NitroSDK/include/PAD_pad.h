@@ -2,6 +2,7 @@
 #define NITRO_PAD_PAD_H_
 
 #include "registers.h"
+#include "mmap.h"
 
 //================================================================================
 //    BUTTONS

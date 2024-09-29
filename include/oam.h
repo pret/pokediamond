@@ -2,11 +2,11 @@
 #define POKEDIAMOND_UNK_02009EAC_H
 
 #include "global.h"
+
 #include "NNS_g2d.h"
 #include "heap.h"
 
-struct OamData
-{
+struct OamData {
     NNSG2dOamManager oamManagers[2];
     HeapID heapId;
 };

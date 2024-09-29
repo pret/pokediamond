@@ -27,7 +27,7 @@ u32 MTRandom(void);
 /*
  * Nitro FX specific functions
  */
-void MTX22_2DAffine(struct Mtx22 * mtx, u16 radians, fx32 x, fx32 y, u8 type);
+void MTX22_2DAffine(struct Mtx22 *mtx, u16 radians, fx32 x, fx32 y, u8 type);
 
 /*
  * Vector functions
@@ -37,4 +37,4 @@ s32 MathUtil_0201BC84(u16 arg0, s32 arg1);
 
 s32 CALC_SomeDeadstrippedFunction(s32 arg);
 
-#endif //POKEDIAMOND_MATH_UTIL_H
+#endif // POKEDIAMOND_MATH_UTIL_H
