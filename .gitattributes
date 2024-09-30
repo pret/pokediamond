@@ -1,13 +1,17 @@
 *.sha1 text eol=lf
 charmap.txt text eol=crlf
 m2ctx.sh text eol=lf
+format.sh text eol=lf
 
 *.png binary
 
-*.c text eol=crlf
-*.h text eol=crlf
-*.cpp text eol=crlf
-*.hpp text eol=crlf
-*.s text eol=crlf
-.gitattributes text eol=crlf
-.gitignore text eol=crlf
+*.c text eol=lf
+*.h text eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.s text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+Makefile text eol=lf
+.clang-format-ignore eol=lf
+.clang-format eol=lf
