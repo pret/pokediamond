@@ -3,167 +3,9 @@
 
 	.extern UNK_020F6364
 	.extern sub_02057EE0
-	.extern sub_02057F18
 	.extern sub_0205815C
-	.extern sub_0205818C
 
 	.text
-
-	thumb_func_start sub_020581B4
-sub_020581B4: ; 0x020581B4
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl MapObject_GetManager
-	bl sub_020587E0
-	cmp r0, #0x0
-	beq _020581F6
-	add r0, r4, #0x0
-	bl sub_0205818C
-	add r0, r4, #0x0
-	mov r1, #0x0
-	bl sub_02058544
-	add r0, r4, #0x0
-	mov r1, #0x0
-	bl ov05_021F2E0C
-	add r0, r4, #0x0
-	bl MapObject_CheckFlag14
-	cmp r0, #0x0
-	bne _020581F6
-	add r0, r4, #0x0
-	bl sub_02057F18
-	add r0, r4, #0x0
-	bl sub_0205868C
-	add r0, r4, #0x0
-	bl sub_02058878
-_020581F6:
-	pop {r4, pc}
-
-	thumb_func_start MapObject_ScriptIdIsFFFF
-MapObject_ScriptIdIsFFFF: ; 0x020581F8
-	push {r3, lr}
-	bl MapObject_GetScript
-	lsl r0, r0, #0x10
-	lsr r1, r0, #0x10
-	ldr r0, _02058210 ; =0x0000FFFF
-	cmp r1, r0
-	bne _0205820C
-	mov r0, #0x1
-	pop {r3, pc}
-_0205820C:
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-_02058210: .word 0x0000FFFF
-
-	thumb_func_start sub_02058214
-sub_02058214: ; 0x02058214
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	add r4, r1, #0x0
-	add r6, r2, #0x0
-	bl MapObject_CheckFlag25
-	cmp r0, #0x1
-	beq _02058228
-	bl GF_AssertFail
-_02058228:
-	add r0, r5, #0x0
-	mov r1, #0x0
-	bl MapObject_SetFlag25
-	add r0, r5, #0x0
-	add r1, r6, #0x0
-	bl sub_0205844C
-	add r0, r4, #0x0
-	bl ObjectEvent_GetScript
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetScript
-	add r0, r4, #0x0
-	bl ObjectEvent_GetFlagID
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetFlagID
-	pop {r4-r6, pc}
-	.balign 4
-
-	thumb_func_start sub_02058258
-sub_02058258: ; 0x02058258
-	push {r4-r6, lr}
-	add r6, r2, #0x0
-	add r5, r0, #0x0
-	add r0, r6, #0x0
-	add r4, r1, #0x0
-	bl ObjectEvent_ScriptIDIsUnset
-	cmp r0, #0x1
-	beq _0205826E
-	bl GF_AssertFail
-_0205826E:
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl MapObject_SetFlag25
-	add r0, r6, #0x0
-	bl ObjectEvent_GetScript
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetScript
-	add r0, r6, #0x0
-	bl ObjectEvent_GetFlagID_AssertScriptIDIsUnset
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl MapObject_SetFlagID
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl sub_0205844C
-	pop {r4-r6, pc}
-
-	thumb_func_start sub_0205829C
-sub_0205829C: ; 0x0205829C
-	push {r4, lr}
-	add r4, r1, #0x0
-	bl sub_02058744
-	add r0, r0, r4
-	pop {r4, pc}
-
-	thumb_func_start sub_020582A8
-sub_020582A8: ; 0x020582A8
-	push {r4-r6, lr}
-	add r6, r1, #0x0
-	mov r1, #0x1
-	add r5, r0, #0x0
-	add r4, r2, #0x0
-	bl MapObject_TestFlagsBits
-	cmp r0, #0x0
-	bne _020582BE
-	mov r0, #0x0
-	pop {r4-r6, pc}
-_020582BE:
-	add r0, r5, #0x0
-	bl MapObject_GetID
-	cmp r6, r0
-	beq _020582CC
-	mov r0, #0x0
-	pop {r4-r6, pc}
-_020582CC:
-	add r0, r5, #0x0
-	bl sub_02058450
-	cmp r4, r0
-	beq _020582F2
-	add r0, r5, #0x0
-	bl MapObject_CheckFlag25
-	cmp r0, #0x0
-	bne _020582E4
-	mov r0, #0x0
-	pop {r4-r6, pc}
-_020582E4:
-	add r0, r5, #0x0
-	bl sub_02058750
-	cmp r4, r0
-	beq _020582F2
-	mov r0, #0x0
-	pop {r4-r6, pc}
-_020582F2:
-	mov r0, #0x1
-	pop {r4-r6, pc}
-	.balign 4
 
 	thumb_func_start sub_020582F8
 sub_020582F8: ; 0x020582F8
@@ -503,13 +345,13 @@ MapObject_GetFlagID: ; 0x02058490
 	ldr r0, [r0, #0x1c]
 	bx lr
 
-	thumb_func_start MapObject_SetScript
-MapObject_SetScript: ; 0x02058494
+	thumb_func_start MapObject_SetScriptID
+MapObject_SetScriptID: ; 0x02058494
 	str r1, [r0, #0x20]
 	bx lr
 
-	thumb_func_start MapObject_GetScript
-MapObject_GetScript: ; 0x02058498
+	thumb_func_start MapObject_GetScriptID
+MapObject_GetScriptID: ; 0x02058498
 	ldr r0, [r0, #0x20]
 	bx lr
 
@@ -1200,8 +1042,8 @@ sub_0205886C: ; 0x0205886C
 	nop
 _02058874: .word MapObject_ClearFlagsBits
 
-	thumb_func_start sub_02058878
-sub_02058878: ; 0x02058878
+	thumb_func_start MapObject_SetFlag14
+MapObject_SetFlag14: ; 0x02058878
 	ldr r3, _02058880 ; =MapObject_SetFlagsBits
 	mov r1, #0x1
 	lsl r1, r1, #0xe
@@ -1865,8 +1707,8 @@ ObjectEvent_SetScript: ; 0x02058C20
 	strh r1, [r0, #0xa]
 	bx lr
 
-	thumb_func_start ObjectEvent_GetScript
-ObjectEvent_GetScript: ; 0x02058C24
+	thumb_func_start ObjectEvent_GetScriptID
+ObjectEvent_GetScriptID: ; 0x02058C24
 	ldrh r0, [r0, #0xa]
 	bx lr
 
@@ -2016,7 +1858,7 @@ _02058CD4:
 	thumb_func_start ObjectEvent_ScriptIDIsUnset
 ObjectEvent_ScriptIDIsUnset: ; 0x02058CE0
 	push {r3, lr}
-	bl ObjectEvent_GetScript
+	bl ObjectEvent_GetScriptID
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	ldr r0, _02058CF8 ; =0x0000FFFF

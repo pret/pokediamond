@@ -221,7 +221,7 @@ _02055228:
 	bl MapObject_SetFlagID
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl MapObject_SetScript
+	bl MapObject_SetScriptID
 	mov r1, #0x0
 	add r0, r5, #0x0
 	add r2, r1, #0x0

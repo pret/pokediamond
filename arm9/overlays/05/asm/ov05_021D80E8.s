@@ -466,7 +466,7 @@ _021D8486:
 	beq _021D84A8
 	ldr r5, [sp, #4]
 	add r0, r5, #0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r4, #0
@@ -599,7 +599,7 @@ ov05_021D859C: ; 0x021D859C
 	bne _021D85C4
 	ldr r4, [sp]
 	add r0, r4, #0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r5, #0
@@ -747,7 +747,7 @@ _021D86AE:
 _021D86E4:
 	ldr r4, [sp]
 	add r0, r4, #0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r5, #0
@@ -852,7 +852,7 @@ _021D87B6:
 	bl sub_02031C10
 	ldr r4, [sp]
 	add r0, r4, #0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r5, #0
@@ -939,7 +939,7 @@ _021D886E:
 	beq _021D8890
 	ldr r5, [sp]
 	add r0, r5, #0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r4, #0

@@ -4031,8 +4031,8 @@
 .extern MapObject_SetType
 .extern MapObject_GetType
 .extern MapObject_SetFlagID
-.extern MapObject_SetScript
-.extern MapObject_GetScript
+.extern MapObject_SetScriptID
+.extern MapObject_GetScriptID
 .extern MapObject_GetInitialFacingDirection
 .extern MapObject_SetFacingDirectionDirect
 .extern sub_020584AC

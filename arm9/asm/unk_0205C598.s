@@ -233,7 +233,7 @@ sub_0205C73C: ; 0x0205C73C
 	str r2, [r5, #0x0]
 	str r3, [r5, #0x4]
 	add r0, r4, #0x0
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	str r0, [r5, #0x8]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -573,7 +573,7 @@ _0205C9D0:
 	thumb_func_start sub_0205C9D8
 sub_0205C9D8: ; 0x0205C9D8
 	push {r3, lr}
-	bl MapObject_GetScript
+	bl MapObject_GetScriptID
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl sub_020395F4
