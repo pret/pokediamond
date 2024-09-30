@@ -1,5 +1,6 @@
-#include "global.h"
 #include "ascii_util.h"
+
+#include "global.h"
 
 s32 Ascii_StrLen(const s8 *str) {
     s32 i = 0;
@@ -28,7 +29,7 @@ s32 Ascii_StrToL(const s8 *str) {
     s32 length = Ascii_StrLen(str);
     s32 i;
     s32 pow10 = 1;
-    s32 num = 0;
+    s32 num   = 0;
 
     // Traverse from right to left
     for (i = length - 1; i >= 0; i--) {
@@ -38,7 +39,7 @@ s32 Ascii_StrToL(const s8 *str) {
         } else {
             // If first character is a minus sign, it's negative
             if (i == 0) {
-                if(str[i] == '-') {
+                if (str[i] == '-') {
                     num *= -1;
                 }
             } else {

@@ -10,11 +10,10 @@ struct Party;
 
 // This struct gets created from a bunch of places, not just 0x02037CF0. This was
 // just the first place I (tgsm) found it being created.
-struct UnkStruct_02037CF0
-{
-    struct Party* party;
-    struct Options* options;
-    u16* name_buf;
+struct UnkStruct_02037CF0 {
+    struct Party *party;
+    struct Options *options;
+    u16 *name_buf;
     u32 trainer_id;
     u8 gender;
     u8 unk11;
@@ -36,7 +35,7 @@ enum NamingScreenType {
     NAMINGSCREEN_POKEMON,
     NAMINGSCREEN_BOX,
     NAMINGSCREEN_RIVAL,
-    NAMINGSCREEN_GROUP = 5,
+    NAMINGSCREEN_GROUP        = 5,
     NAMINGSCREEN_SHAYMIN_ROCK = 6,
 };
 

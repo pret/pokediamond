@@ -8,4 +8,4 @@
 #define RGB_BLACK (RGB(0, 0, 0))
 #define RGB_WHITE (RGB(31, 31, 31))
 
-#endif //POKEDIAMOND_CONSTANTS_RGB_H
+#endif // POKEDIAMOND_CONSTANTS_RGB_H

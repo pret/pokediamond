@@ -22,4 +22,4 @@ u16 *StringFill(u16 *dest, u16 value, u32 num);
 u16 *StringFillEOS(u16 *dest, u32 num);
 u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n);
 
-#endif //POKEDIAMOND_STRING_UTIL_H
+#endif // POKEDIAMOND_STRING_UTIL_H

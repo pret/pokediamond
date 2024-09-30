@@ -2,11 +2,11 @@
 #define POKEDIAMOND_UNK_0202E29C_H
 
 #include "global.h"
+
 #include "mail_message.h"
 #include "player_data.h"
 
-struct UnkStruct_0202E29C_sub4
-{
+struct UnkStruct_0202E29C_sub4 {
     u32 unk00;
     u8 unk04;
     u8 unk05;
@@ -17,8 +17,7 @@ struct UnkStruct_0202E29C_sub4
     u8 unk30[0x40];
 };
 
-struct UnkStruct_0202E29C_sub
-{
+struct UnkStruct_0202E29C_sub {
     u32 unk00;
     u8 unk04[6];
     u8 unk0A[0x2C];
@@ -27,8 +26,7 @@ struct UnkStruct_0202E29C_sub
     struct UnkStruct_0202E29C_sub4 unk50;
 };
 
-struct UnkStruct_0202E29C_sub3
-{
+struct UnkStruct_0202E29C_sub3 {
     struct MailMessage unk00;
     PlayerProfile unk08;
     u8 unk28[0x20];
@@ -37,8 +35,7 @@ struct UnkStruct_0202E29C_sub3
     u8 unk4D[7];
 };
 
-struct UnkStruct_0202E29C_sub2
-{
+struct UnkStruct_0202E29C_sub2 {
     u32 unk00;
     u8 unk04;
     u8 unk05;
@@ -46,8 +43,7 @@ struct UnkStruct_0202E29C_sub2
     struct UnkStruct_0202E29C_sub3 unk08;
 };
 
-struct UnkStruct_0202E29C
-{
+struct UnkStruct_0202E29C {
     struct UnkStruct_0202E29C_sub3 unk000;
     struct UnkStruct_0202E29C_sub unk054[16];
     u8 unkC54[8][6];
@@ -68,12 +64,12 @@ struct UnkStruct_0202E29C
     u8 unkDAA;
     u8 unkDAB;
     u8 unkDAC;
-    u8 unkDAD_0:1;
-    u8 unkDAD_1:1;
-    u8 unkDAD_2:1;
-    u8 unkDAD_3:1;
-    u8 unkDAD_4:1;
-    u8 unkDAD_5:1;
+    u8 unkDAD_0 : 1;
+    u8 unkDAD_1 : 1;
+    u8 unkDAD_2 : 1;
+    u8 unkDAD_3 : 1;
+    u8 unkDAD_4 : 1;
+    u8 unkDAD_5 : 1;
     u8 unkDAE[0x2];
 };
 

@@ -2,11 +2,11 @@
 #define POKEDIAMOND_ov05_021E72FC_H
 
 #include "nitro/types.h"
+
 #include "field_system.h"
 #include "task.h"
 
-typedef struct UnkStruct021E7358
-{
+typedef struct UnkStruct021E7358 {
     u32 Unk00;
     u32 Unk04;
     u32 Unk08;
@@ -22,4 +22,4 @@ BOOL ov05_021E73B4(TaskManager *taskManager);
 UnkStruct021E7358 *ov05_021E74D4(u32 param0);
 void ov05_021E74F8(UnkStruct021E7358 *param0);
 
-#endif //POKEDIAMOND_ov05_021E72FC_H
+#endif // POKEDIAMOND_ov05_021E72FC_H

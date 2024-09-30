@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_UNK_020851B8_H
 #define POKEDIAMOND_UNK_020851B8_H
 
+#include "nitro/types.h"
+
 struct UnkStruct_020851B8 {
     u32 flags[2];
     u8 unk_8;

@@ -4,12 +4,11 @@
 #include "bg_window.h"
 
 // TODO: Move to its own header, and fill it out
-struct ListMenuCursor
-{
+struct ListMenuCursor {
     // ???
 };
 
-extern struct ListMenuCursor * ListMenuCursorNew(HeapID heapId);
+extern struct ListMenuCursor *ListMenuCursorNew(HeapID heapId);
 extern void ListMenuUpdateCursorObj(struct ListMenuCursor *, struct Window *, u8 x, u8 y);
 extern void ListMenuCursorSetColor(struct ListMenuCursor *, u32);
 extern void DestroyListMenuCursorObj(struct ListMenuCursor *);

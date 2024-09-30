@@ -1,15 +1,15 @@
 #ifndef POKEDIAMOND_UNK_0206439C_H
 #define POKEDIAMOND_UNK_0206439C_H
 
-struct Pokemon;
-struct SaveData;
+#include "heap.h"
+#include "pokemon.h"
+#include "save.h"
 
-struct UnkStruct_0206439C
-{
-    struct Pokemon* pokemon;
-    void* unk4;
-};
+typedef struct UnkStruct_0206439C {
+    Pokemon *pokemon;
+    void *unk4;
+} UnkStruct_0206439C;
 
-struct UnkStruct_0206439C* sub_0206439C(HeapID heapId, u8 mon_idx, struct SaveData* save);
+UnkStruct_0206439C *sub_0206439C(HeapID heapId, u8 mon_idx, SaveData *save);
 
 #endif

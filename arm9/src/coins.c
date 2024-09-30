@@ -1,5 +1,6 @@
-#include "global.h"
 #include "coins.h"
+
+#include "global.h"
 
 void InitCoins(u16 *coins) {
     *coins = 0;
@@ -14,7 +15,7 @@ u16 CheckCoins(u16 *coins) {
     return *coins;
 }
 
-BOOL GiveCoins(u16 * coins, u16 amount) {
+BOOL GiveCoins(u16 *coins, u16 amount) {
     if (*coins >= MAX_COINS) {
         return FALSE;
     }

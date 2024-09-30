@@ -5,8 +5,7 @@
 #include "main.h"
 #include "unk_0208890C.h"
 
-struct UnkStruct_02088AAC
-{
+struct UnkStruct_02088AAC {
     HeapID heapId;
     u16 unk04;
     u16 unk06;

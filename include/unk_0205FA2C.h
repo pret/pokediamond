@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_0205FA2C_H
 
 #include "global.h"
+
 #include "MI_memory.h"
 #include "bag.h"
 #include "battle_setup.h"
@@ -16,8 +17,7 @@
 #include "unk_02031480.h"
 #include "unk_0206BB28.h"
 
-struct UnkPlayerStruct1_0205FA2C
-{
+struct UnkPlayerStruct1_0205FA2C {
     /* 0x00 */ struct Party *player_party;
     /* 0x04 */ struct Bag *bag;
     u32 unk08;
@@ -29,14 +29,13 @@ struct UnkPlayerStruct1_0205FA2C
     u8 unk23;
     u32 unk24[2];
     u8 unk2c[6];
-    u8 unk32 : 4;
+    u8 unk32  : 4;
     u8 unk322 : 4;
     u8 unk33;
     u32 unk34[3];
 };
 
-struct UnkPlayerStruct2_0205FA2C
-{
+struct UnkPlayerStruct2_0205FA2C {
     /* 0x00 */ struct Party *player_party;
     /* 0x04 */ struct Options *options;
     u32 unk08;
@@ -56,8 +55,7 @@ struct UnkPlayerStruct2_0205FA2C
     u32 unk2c;
 };
 
-struct UnkCallbackStruct1_0205FA2C
-{
+struct UnkCallbackStruct1_0205FA2C {
     u32 unk00;
     u32 unk04;
     u8 unk08;
@@ -70,8 +68,7 @@ struct UnkCallbackStruct1_0205FA2C
     void **unk14;
 };
 
-struct UnkCallbackStruct2_0205FA2C
-{
+struct UnkCallbackStruct2_0205FA2C {
     u32 unk00;
     u32 unk04;
     u32 *unk08;

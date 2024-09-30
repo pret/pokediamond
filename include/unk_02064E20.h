@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_UNK_02064E20_H
 #define POKEDIAMOND_UNK_02064E20_H
 
-#include "script.h"
+#include "field_system.h"
 
 void KeepSafariTrain(struct FieldSystem *fieldSystem);
 

@@ -2,7 +2,9 @@
 #define POKEDIAMOND_DAYCARE_H
 
 #include "global.h"
+
 #include "mail.h"
+#include "pokemon.h"
 
 typedef struct DaycareMail {
     Mail mail;
@@ -43,4 +45,4 @@ void DaycareMon_Extras_Init(DaycareMail *mail);
 void DaycareMon_Init(DaycareMon *mon);
 Daycare *Save_Daycare_Get(SaveData *savedata);
 
-#endif //POKEDIAMOND_DAYCARE_H
+#endif // POKEDIAMOND_DAYCARE_H

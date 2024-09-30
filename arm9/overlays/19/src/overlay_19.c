@@ -1,27 +1,29 @@
-#include "global.h"
 #include "overlay_19.h"
-#include "heap.h"
-#include "gx.h"
-#include "gf_gfx_loader.h"
-#include "bg_window.h"
+
+#include "global.h"
+
 #include "graphic/poketch.naix"
 
+#include "bg_window.h"
+#include "gf_gfx_loader.h"
+#include "gx.h"
+#include "heap.h"
+
 const struct BgTemplate ov19_02252508 = {
-    .x = 0,
-    .y = 0,
+    .x          = 0,
+    .y          = 0,
     .bufferSize = 0x800,
-    .baseTile = 0x000,
-    .size = GF_BG_SCR_SIZE_256x256,
-    .colorMode = GF_BG_CLR_4BPP,
+    .baseTile   = 0x000,
+    .size       = GF_BG_SCR_SIZE_256x256,
+    .colorMode  = GF_BG_CLR_4BPP,
     .screenBase = 12,
-    .charBase = 0,
-    .priority = 0,
-    .areaOver = 0,
-    .mosaic = 0
+    .charBase   = 0,
+    .priority   = 0,
+    .areaOver   = 0,
+    .mosaic     = 0
 };
 
-void ov19_02252440(struct BgConfig * bgConfig)
-{
+void ov19_02252440(struct BgConfig *bgConfig) {
     CreateHeap(3, 8, 0x18000);
     GXS_SetGraphicsMode(GX_BGMODE_0);
     GX_SetBankForSubBG(0x80);
@@ -35,14 +37,12 @@ void ov19_02252440(struct BgConfig * bgConfig)
     GXS_SetVisiblePlane(GX_PLANEMASK_BG0);
 }
 
-void ov19_022524F4(struct BgConfig * bgConfig)
-{
+void ov19_022524F4(struct BgConfig *bgConfig) {
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_0);
     DestroyHeap(HEAP_ID_POKETCH_APP);
 }
 
-BOOL ov19_02252504(struct BgConfig * bgConfig)
-{
+BOOL ov19_02252504(struct BgConfig *bgConfig) {
 #pragma unused(bgConfig)
     return TRUE;
 }

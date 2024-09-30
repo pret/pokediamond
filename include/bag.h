@@ -33,8 +33,8 @@ BOOL Bag_PocketNotEmpty(Bag *bag, u32 pocket);
 u16 Bag_GetQuantity(Bag *bag, u16 itemId, HeapID heapId);
 u16 Pocket_GetQuantity(ItemSlot *slots, u32 count, u16 itemId);
 void SortPocket(ItemSlot *slots, u32 count);
-BagView * Bag_CreateView(Bag *bag, const u8 *pockets, HeapID heapId);
+BagView *Bag_CreateView(Bag *bag, const u8 *pockets, HeapID heapId);
 ItemSlot *Bag_GetPocketSlotN(Bag *bag, u8 pocket, u32 slot);
 Bag *Save_Bag_Get(SaveData *saveData);
 
-#endif //POKEDIAMOND_BAG_H
+#endif // POKEDIAMOND_BAG_H

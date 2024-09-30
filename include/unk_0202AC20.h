@@ -1,8 +1,7 @@
 #ifndef POKEDIAMOND_UNK_0202AC20_H
 #define POKEDIAMOND_UNK_0202AC20_H
 
-struct UnkStruct_0202AC20
-{
+struct UnkStruct_0202AC20 {
     u8 unk_0000[0x100];
     u32 unk_0100[8];
     u32 unk_0120[3];
@@ -10,4 +9,4 @@ struct UnkStruct_0202AC20
     u8 unk_094C[3][0x358];
 };
 
-#endif //POKEDIAMOND_UNK_0202AC20_H
+#endif // POKEDIAMOND_UNK_0202AC20_H

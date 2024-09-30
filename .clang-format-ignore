@@ -1,0 +1,6 @@
+**/*.s
+**/*.inc
+**/*.json
+arm9/lib/
+arm7/lib/
+include/nitro/

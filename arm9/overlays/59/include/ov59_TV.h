@@ -2,12 +2,12 @@
 #define POKEDIAMOND_ov59_TV_H
 
 #include "nitro/types.h"
-#include "main.h"
+
 #include "bg_window.h"
+#include "main.h"
 #include "msgdata.h"
 
-typedef struct ov59_TVOverlayData2
-{
+typedef struct ov59_TVOverlayData2 {
     HeapID heapId;
     struct BgConfig *bgConfig;
     struct MsgData *msgData;

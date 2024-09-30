@@ -2,17 +2,16 @@
 #define POKEDIAMOND_FONT_H
 
 #include "global.h"
+
 #include "text.h"
 
-struct UnkStruct_02002C14_sub
-{
+struct UnkStruct_02002C14_sub {
     const char buf[0x80];
     u8 width;
     u8 height;
 };
 
-struct UnkStruct_02002C14
-{
+struct UnkStruct_02002C14 {
     struct UnkStruct_02002C14_sub unk00;
     void *unk84[4];
     struct FontData *unk94[4];

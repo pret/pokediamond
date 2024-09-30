@@ -1,34 +1,34 @@
 #include "global.h"
-#include "scrcmd.h"
+
 #include "heap.h"
-#include "party.h"
-#include "unk_020377F0.h"
 #include "move_relearner.h"
+#include "party.h"
+#include "scrcmd.h"
+#include "unk_020377F0.h"
 
-extern void* FieldSysGetAttrAddr(struct FieldSystem*, int idx);
+extern void *FieldSysGetAttrAddr(struct FieldSystem *, int idx);
 
-extern struct UnkStruct_02037CF0* sub_02037CF0(HeapID heapId, struct FieldSystem*, u8);
-extern u8 sub_02037D5C(struct UnkStruct_02037CF0*);
-extern void sub_02038864(struct FieldSystem*, MoveRelearner *moveRelearner);
-extern BOOL sub_0203BC04(struct ScriptContext* ctx);
+extern struct UnkStruct_02037CF0 *sub_02037CF0(HeapID heapId, struct FieldSystem *, u8);
+extern u8 sub_02037D5C(struct UnkStruct_02037CF0 *);
+extern void sub_02038864(struct FieldSystem *, MoveRelearner *moveRelearner);
+extern BOOL sub_0203BC04(struct ScriptContext *ctx);
 
-BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) { //01C6 - todo: MoveInfo?
-    u16 unk = ScriptGetVar(ctx);
+BOOL ScrCmd_Unk01C6(struct ScriptContext *ctx) { // 01C6 - todo: MoveInfo?
+    u16 unk                                    = ScriptGetVar(ctx);
     struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *runningAppData = sub_02037CF0(HEAP_ID_32, ctx->fieldSystem, (u8)unk);
+    *runningAppData                            = sub_02037CF0(HEAP_ID_32, ctx->fieldSystem, (u8)unk);
 
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
 
-BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) { //01C7 - todo: StoreMove?
-    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+BOOL ScrCmd_Unk01C7(struct ScriptContext *ctx) { // 01C7 - todo: StoreMove?
+    u16 *ret_ptr                               = ScriptGetVarPointer(ctx);
     struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     GF_ASSERT(*runningAppData != NULL);
 
     *ret_ptr = sub_02037D5C(*runningAppData);
-    if (*ret_ptr == 4)
-    {
+    if (*ret_ptr == 4) {
         *ret_ptr = 0xFF;
     }
 
@@ -37,18 +37,18 @@ BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) { //01C7 - todo: StoreMove?
     return FALSE;
 }
 
-BOOL ScrCmd_Unk021E(struct ScriptContext* ctx) //021E
+BOOL ScrCmd_Unk021E(struct ScriptContext *ctx) // 021E
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
-    u16* ret_ptr = ScriptGetVarPointer(ctx);
-    u16 mon_idx = ScriptGetVar(ctx);
-    struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* pokemon = Party_GetMonByIndex(party, mon_idx);
-    u16 *eligibleMoves = MoveRelearner_GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
+BOOL ScrCmd_Unk021F(struct ScriptContext *ctx) { // 021F
+    u16 *ret_ptr            = ScriptGetVarPointer(ctx);
+    u16 mon_idx             = ScriptGetVar(ctx);
+    struct Party *party     = SaveArray_Party_Get(ctx->fieldSystem->saveData);
+    struct Pokemon *pokemon = Party_GetMonByIndex(party, mon_idx);
+    u16 *eligibleMoves      = MoveRelearner_GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
 
     *ret_ptr = (u16)MoveRelearner_IsValidMove(eligibleMoves);
     FreeToHeap(eligibleMoves);
@@ -56,77 +56,74 @@ BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     return FALSE;
 }
 
-void sub_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16 *eligibleMoves) {
+void sub_02045E74(struct ScriptContext *ctx, u8 a1, struct Pokemon *pokemon, u16 *eligibleMoves) {
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    MoveRelearner *moveRelearner = MoveRelearner_New(HEAP_ID_32);
-    *moveRelearnerPtr = moveRelearner;
+    MoveRelearner *moveRelearner     = MoveRelearner_New(HEAP_ID_32);
+    *moveRelearnerPtr                = moveRelearner;
 
     moveRelearner->mon = pokemon;
 
-    struct SaveData* save = FieldSystem_GetSaveData(ctx->fieldSystem);
+    struct SaveData *save  = FieldSystem_GetSaveData(ctx->fieldSystem);
     moveRelearner->profile = Save_PlayerData_GetProfileAddr(save);
 
-    moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
+    moveRelearner->options       = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
     moveRelearner->eligibleMoves = eligibleMoves;
-    moveRelearner->unk15 = a1;
+    moveRelearner->unk15         = a1;
     sub_02038864(ctx->fieldSystem, moveRelearner);
 
     SetupNativeScript(ctx, sub_0203BC04);
     FreeToHeap(eligibleMoves);
 }
 
-BOOL ScrCmd_Unk0220(struct ScriptContext* ctx) //0220
+BOOL ScrCmd_Unk0220(struct ScriptContext *ctx) // 0220
 {
 #pragma unused(ctx)
     return TRUE;
 }
 
-BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
+BOOL ScrCmd_Unk0221(struct ScriptContext *ctx) // 0221 - todo: RememberMove?
 {
-    u16 mon_idx = ScriptGetVar(ctx);
-    struct Party* party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    struct Pokemon* pokemon = Party_GetMonByIndex(party, mon_idx);
-    u16 *eligibleMoves  = MoveRelearner_GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
+    u16 mon_idx             = ScriptGetVar(ctx);
+    struct Party *party     = SaveArray_Party_Get(ctx->fieldSystem->saveData);
+    struct Pokemon *pokemon = Party_GetMonByIndex(party, mon_idx);
+    u16 *eligibleMoves      = MoveRelearner_GetEligibleLevelUpMoves(pokemon, HEAP_ID_32);
 
     sub_02045E74(ctx, 1, pokemon, eligibleMoves);
     return TRUE;
 }
 
-BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
+BOOL ScrCmd_Unk0224(struct ScriptContext *ctx) // 0224 - todo: TeachMove?
 {
-    u16 mon_idx = ScriptGetVar(ctx);
-    u16 move = ScriptGetVar(ctx);
-    struct Party *party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
+    u16 mon_idx             = ScriptGetVar(ctx);
+    u16 move                = ScriptGetVar(ctx);
+    struct Party *party     = SaveArray_Party_Get(ctx->fieldSystem->saveData);
     struct Pokemon *pokemon = Party_GetMonByIndex(party, mon_idx);
 
     u16 *eligibleMoves = AllocFromHeap(HEAP_ID_32, 2 * sizeof(u16));
-    eligibleMoves[0] = move;
-    eligibleMoves[1] = 0xFFFF;
+    eligibleMoves[0]   = move;
+    eligibleMoves[1]   = 0xFFFF;
 
     sub_02045E74(ctx, 0, pokemon, eligibleMoves);
     return TRUE;
 }
 
-BOOL ScrCmd_Unk0222(struct ScriptContext* ctx) //0222 - todo: DummyMoveCmd?
+BOOL ScrCmd_Unk0222(struct ScriptContext *ctx) // 0222 - todo: DummyMoveCmd?
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: RememberMoveResponse? - destroys the MoveRelearner - find better name
+BOOL ScrCmd_Unk0223(struct ScriptContext *ctx) // 0223 - todo: RememberMoveResponse? - destroys the MoveRelearner - find better name
 {
-    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr                     = ScriptGetVarPointer(ctx);
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    MoveRelearner *moveRelearner = *moveRelearnerPtr;
+    MoveRelearner *moveRelearner     = *moveRelearnerPtr;
 
     GF_ASSERT(moveRelearner != NULL);
 
-    if (moveRelearner->unk16 == 0)
-    {
+    if (moveRelearner->unk16 == 0) {
         *ret_ptr = 0;
-    }
-    else
-    {
+    } else {
         *ret_ptr = 0xFF;
     }
 
@@ -134,20 +131,17 @@ BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: RememberMoveRespon
     return FALSE;
 }
 
-BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMoveResponse? - destroys the MoveRelearner - find better name
+BOOL ScrCmd_Unk0225(struct ScriptContext *ctx) // 0225 - todo: TeachMoveResponse? - destroys the MoveRelearner - find better name
 {
-    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr                     = ScriptGetVarPointer(ctx);
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    MoveRelearner *moveRelearner = *moveRelearnerPtr;
+    MoveRelearner *moveRelearner     = *moveRelearnerPtr;
 
     GF_ASSERT(moveRelearner != NULL);
 
-    if (moveRelearner->unk16 == 0)
-    {
+    if (moveRelearner->unk16 == 0) {
         *ret_ptr = 0;
-    }
-    else
-    {
+    } else {
         *ret_ptr = 0xFF;
     }
 

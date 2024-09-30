@@ -3,16 +3,15 @@
 
 typedef enum {
     TOUCH_TYPE_ERASE = 0,
-    TOUCH_TYPE_DRAW = 1,
+    TOUCH_TYPE_DRAW  = 1,
 } TouchType;
 
 typedef enum {
     MEMO_PAD_PIXEL_TYPE_FILLED = 1,
-    MEMO_PAD_PIXEL_TYPE_EMPTY = 4,
+    MEMO_PAD_PIXEL_TYPE_EMPTY  = 4,
 } MemoPadPixelType;
 
-typedef struct MemoPadDrawState
-{
+typedef struct MemoPadDrawState {
     TouchType touchType;
     u32 lastModifiedX;
     u32 lastModifiedY;
@@ -21,8 +20,7 @@ typedef struct MemoPadDrawState
     u32 unk16E8;
 } MemoPadDrawState;
 
-typedef struct MemoPadDisplayHandler
-{
+typedef struct MemoPadDisplayHandler {
     MemoPadDrawState *drawState;
     BgConfig *config;
     u32 unk8;
@@ -33,8 +31,7 @@ typedef struct MemoPadDisplayHandler
     Window *window;
 } MemoPadDisplayHandler;
 
-typedef struct MemoPadAppHandler
-{
+typedef struct MemoPadAppHandler {
     u8 unk0;
     u8 unk1;
     u8 unk2;
@@ -75,4 +72,4 @@ void ov24_02255050(u32 arg0, void *arg1);
 void ov24_02255078(MemoPadDisplayHandler *displayHandler);
 void ov24_022550D4(MemoPadDisplayHandler *displayHandler);
 
-#endif //POKEDIAMOND_OVERLAY_24_H
+#endif // POKEDIAMOND_OVERLAY_24_H

@@ -4,8 +4,7 @@
 #include "mail_message.h"
 #include "save.h"
 
-typedef enum
-{
+typedef enum {
     DATA_GET = 0,
     DATA_SET,
     DATA_RESET,
@@ -13,11 +12,9 @@ typedef enum
     DATA_DECREMENT,
     DATA_ADD,
     DATA_SUBSTRACT
-}
-DataSetMode;
+} DataSetMode;
 
-typedef enum
-{
+typedef enum {
     FIELD_0x0_2 = 0,
     FIELD_0x2,
     FIELD_0x3,
@@ -28,16 +25,14 @@ typedef enum
     FIELD_flag0,
     FIELD_0xC,
     FIELD_0x0_5,
-    FIELD_0x28,    
-} 
-SaveStruct23_Substruct1_Field;
+    FIELD_0x28,
+} SaveStruct23_Substruct1_Field;
 
-struct SaveStruct23_Substruct1
-{
+struct SaveStruct23_Substruct1 {
     /* 0x000 */ u8 flag0 : 1;
-                u8 flag1 : 1;
-                u8 u_0_2 : 3;
-                u8 u_0_5 : 3;
+    u8 flag1             : 1;
+    u8 u_0_2             : 3;
+    u8 u_0_5             : 3;
     /* 0x001 */ u8 u_1;
     /* 0x002 */ u8 u_2;
     /* 0x003 */ u8 u_3;
@@ -49,25 +44,23 @@ struct SaveStruct23_Substruct1
     /* 0x02C */ s32 u_2C[4];
 }; // total size = 0x3C (60)
 
-struct FrontierData
-{
+struct FrontierData {
     /* 0x000 */ u16 u_0;
     /* 0x002 */ u8 u_2;
     /* 0x003 */ u8 u_3;
     /* 0x004 */ u32 u_4;
 
-    union 
-    {
-        struct 
+    union {
+        struct
         {
-    /* 0x008 */ u16 flag0:1;
-                u16 flag1:1;
-                u16 flag2:1;
-                u16 flag3:1;
-                u16 flag4:1;
-                u16 filler_1:11;
+            /* 0x008 */ u16 flag0 : 1;
+            u16 flag1             : 1;
+            u16 flag2             : 1;
+            u16 flag3             : 1;
+            u16 flag4             : 1;
+            u16 filler_1          : 11;
         };
-    /* 0x008 */ u16 flags;
+        /* 0x008 */ u16 flags;
     };
     /* 0x00A */ u8 filler_2[2];
     /* 0x00C */ u16 u_C[5];
@@ -76,19 +69,17 @@ struct FrontierData
     /* 0x0C0 */ u8 u_C0[168];
 }; // total size 0x168 (360)
 
-struct SaveStruct23_Messages
-{
+struct SaveStruct23_Messages {
     /* 0x000 */ struct MailMessage messages[4];
 }; // total size 0x020 (32)
 
-struct SaveStruct23_Substruct4_Substruct1
-{
+struct SaveStruct23_Substruct4_Substruct1 {
     /* 0x000 */ u8 u_0[168];
     /* 0x0A8 */ u8 u_A8[16];
     /* 0x0B8 */ u8 filler_1[16];
-    /* 0x0C8 */ u8 u_C8_0:1;
-                u8 u_C8_1:1;
-                u8 filler_2:6;
+    /* 0x0C8 */ u8 u_C8_0 : 1;
+    u8 u_C8_1             : 1;
+    u8 filler_2           : 6;
     /* 0x0C8 */ u8 u_C9;
     /* 0x0CA */ u16 u_CA[4];
     /* 0x0D2 */ u16 u_D2[4];
@@ -96,13 +87,11 @@ struct SaveStruct23_Substruct4_Substruct1
     /* 0x0E2 */ u8 filler_3[2];
 }; // total size 0xE4 (228)
 
-struct SaveStruct23_Substruct4_Substruct2
-{
+struct SaveStruct23_Substruct4_Substruct2 {
     /* 0x00 */ u8 u_0[1020];
 };
 
-struct SaveStruct23_Substruct4
-{
+struct SaveStruct23_Substruct4 {
     /* 0x000 */ u32 u_0;
     /* 0x004 */ u8 flags[250];
     /* 0x0FE */ u8 u_FE;
@@ -123,8 +112,7 @@ struct SaveStruct23 // Struct fetched with SaveArray_Get(save, 23)
     /* 0x1C4 */ struct SaveStruct23_Substruct4 substruct4;
 }; // total size = 0xD00 (3328)
 
-struct Unk0202A4B8
-{
+struct Unk0202A4B8 {
     /* 0x000 */ u8 filler_1[2];
     /* 0x002 */ u8 u_2;
     /* 0x003 */ u8 u_3;
@@ -132,23 +120,19 @@ struct Unk0202A4B8
     /* 0x006 */ u16 u_6;
 };
 
-typedef struct Unk0202A68C
-{
+typedef struct Unk0202A68C {
     /* 0x000 */ u32 u_0;
     /* 0x004 */ u32 u_4;
     /* 0x008 */ u32 u_8;
     /* 0x00C */ u32 u_C;
-}
-Unk0202A68C; // total size 0x10 (16)
+} Unk0202A68C; // total size 0x10 (16)
 
-struct Unk0202A784
-{
+struct Unk0202A784 {
     /* 0x000 */ u8 u_0;
     /* 0x001 */ u8 u_1;
 };
 
-struct Unk0202A798_substruct
-{
+struct Unk0202A798_substruct {
     /* 0x000 */ u32 u_0;
     /* 0x004 */ u16 u_4;
     /* 0x006 */ u8 filler_1[2];
@@ -158,8 +142,7 @@ struct Unk0202A798_substruct
     /* 0x028 */ u16 u_28[4];
 }; // total size 0x30 (48)
 
-struct Unk0202A798
-{
+struct Unk0202A798 {
     /* 0x000 */ struct Unk0202A798_substruct u_0;
     /* 0x030 */ u8 u_30[168];
 };
@@ -202,8 +185,8 @@ void sub_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784
 struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, HeapID heapId);
 s32 SaveStruct23_sizeof();
 void SaveStruct23_Init(struct SaveStruct23 *saveStruct23);
-struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveData* save);
-struct FrontierData *Save_FrontierData_Get(struct SaveData* save);
-struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveData* save);
+struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveData *save);
+struct FrontierData *Save_FrontierData_Get(struct SaveData *save);
+struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveData *save);
 
-#endif //POKEDIAMOND_UNK_0202A1E0_H
+#endif // POKEDIAMOND_UNK_0202A1E0_H

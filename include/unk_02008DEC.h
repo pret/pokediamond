@@ -2,18 +2,17 @@
 #define POKEDIAMOND_UNK_02008DEC_H
 
 #include "global.h"
+
 #include "NNS_g2d.h"
 #include "filesystem.h"
 
-struct UnkStruct_02008DEC_sub
-{
+struct UnkStruct_02008DEC_sub {
     u32 unk00;
     u32 unk04;
     void *unk08;
 };
 
-struct UnkStruct_02008DEC_1
-{
+struct UnkStruct_02008DEC_1 {
 
     u32 unk00;
     struct UnkStruct_02008DEC_sub *unk04;
@@ -22,10 +21,8 @@ struct UnkStruct_02008DEC_1
     s32 unk10;
 };
 
-struct UnkStruct_02008DEC_2
-{
-    union
-    {
+struct UnkStruct_02008DEC_2 {
+    union {
         struct UnkStruct_02008DEC_3 *unk00_3;
         struct UnkStruct_02008DEC_4 *unk00_4;
     };
@@ -34,16 +31,14 @@ struct UnkStruct_02008DEC_2
     u8 unk0C;
 };
 
-struct UnkStruct_02008DEC_3
-{
+struct UnkStruct_02008DEC_3 {
     s32 unk00;
     u8 unk04[0x40];
     u32 unk44;
     u32 unk48;
 };
 
-struct UnkStruct_02008DEC_4
-{
+struct UnkStruct_02008DEC_4 {
     NarcId unk00;
     s32 unk04;
     BOOL unk08;
@@ -52,33 +47,28 @@ struct UnkStruct_02008DEC_4
     u32 unk14;
 };
 
-struct UnkStruct_02008DEC_5
-{
+struct UnkStruct_02008DEC_5 {
     struct UnkStruct_02008DEC_sub **unk00;
     s32 unk04;
     s32 unk08;
 };
 
-struct CharacterData_02008DEC
-{
+struct CharacterData_02008DEC {
     NNSG2dCharacterData *chData;
     u32 unk04;
 };
 
-struct PaletteData_02008DEC
-{
+struct PaletteData_02008DEC {
     NNSG2dPaletteData *plttData;
     u32 unk04;
     u32 unk08;
 };
 
-struct CellDataBank_02008DEC
-{
+struct CellDataBank_02008DEC {
     NNSG2dCellDataBank *cellBank;
 };
 
-struct AnimBank_02008DEC
-{
+struct AnimBank_02008DEC {
     NNSG2dAnimBankData *bankData;
 };
 

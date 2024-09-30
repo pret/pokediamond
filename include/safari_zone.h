@@ -3,6 +3,6 @@
 
 typedef struct SafariZone {
 
-} SafariZone; //todo fill out
+} SafariZone; // todo fill out
 
-#endif //POKEDIAMOND_SAFARI_ZONE_H
+#endif // POKEDIAMOND_SAFARI_ZONE_H

@@ -1,5 +1,7 @@
-#include "global.h"
 #include "oam.h"
+
+#include "global.h"
+
 #include "GX_g2.h"
 #include "MI_memory.h"
 #include "heap.h"
@@ -25,33 +27,24 @@ void sub_02009EAC(s32 param0,
     u32 param5,
     u32 param6,
     u32 param7,
-    HeapID heapId)
-{
+    HeapID heapId) {
     s32 r0;
-    if (param0 < 4)
-    {
+    if (param0 < 4) {
         r0 = 4;
-        if (param1 > 0x7c)
-        {
+        if (param1 > 0x7c) {
             param1 = param1 - (4 - param0);
         }
-    }
-    else
-    {
+    } else {
         r0 = param0;
     }
 
     s32 r2;
-    if (param2 < 1)
-    {
+    if (param2 < 1) {
         r2 = 1;
-        if (param3 > 0x1e)
-        {
+        if (param3 > 0x1e) {
             param3 = param3 - (1 - param2);
         }
-    }
-    else
-    {
+    } else {
         r2 = param2;
     }
 
@@ -66,8 +59,7 @@ void InitOamData(s32 param0,
     u32 param5,
     u32 param6,
     u32 param7,
-    HeapID heapId)
-{
+    HeapID heapId) {
     GF_ASSERT(oamData == NULL);
     oamData = AllocFromHeap(heapId, sizeof(struct OamData));
     GF_ASSERT(oamData);
@@ -80,17 +72,14 @@ void InitOamData(s32 param0,
         &oamData->oamManagers[1], (u16)param4, (u16)param5, (u16)param6, (u16)param7, 1));
 }
 
-void ApplyAndResetOamManagerBuffer(void)
-{
-    if (oamData != NULL)
-    {
+void ApplyAndResetOamManagerBuffer(void) {
+    if (oamData != NULL) {
         NNS_G2dApplyAndResetOamManagerBuffer(&oamData->oamManagers[0]);
         NNS_G2dApplyAndResetOamManagerBuffer(&oamData->oamManagers[1]);
     }
 }
 
-void DeinitOamData(void)
-{
+void DeinitOamData(void) {
     GF_ASSERT(oamData);
 
     sub_0200A064(oamData->heapId);
@@ -100,12 +89,10 @@ void DeinitOamData(void)
     oamData = NULL;
 }
 
-void sub_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3)
-{
+void sub_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3) {
     GF_ASSERT(oamData);
 
-    if (param2 == 1)
-    {
+    if (param2 == 1) {
         sub_0202135C(param0, param1, EntryOamManagerOamWithAffineIdxMainScreen, EntryOamManagerAffineMainScreen, sub_020213A0, param2, param3);
         return;
     }
@@ -113,55 +100,45 @@ void sub_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3)
     sub_0202135C(param0, param1, EntryOamManagerOamWithAffineIdxSubScreen, EntryOamManagerAffineSubScreen, sub_020213A0, param2, param3);
 }
 
-NNSG2dOamManager *GetOamManager(u32 screen)
-{
+NNSG2dOamManager *GetOamManager(u32 screen) {
     GF_ASSERT(oamData);
-    if (screen == 0)
-    {
+    if (screen == 0) {
         return &oamData->oamManagers[0];
-    }
-    else
-    {
+    } else {
         return &oamData->oamManagers[1];
     }
 }
 
-void sub_0200A064(HeapID heapId)
-{
+void sub_0200A064(HeapID heapId) {
     sub_020203CC(heapId);
 }
 
-void sub_0200A06C(HeapID heapId)
-{
+void sub_0200A06C(HeapID heapId) {
     sub_02020404(heapId);
 }
 
-u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1)
-{
+u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1) {
     u32 res = NNS_G2dEntryOamManagerOamWithAffineIdx(&oamData->oamManagers[0], param0, param1);
     GF_ASSERT(res);
 
     return res;
 }
 
-u32 EntryOamManagerOamWithAffineIdxSubScreen(u32 param0, u32 param1)
-{
+u32 EntryOamManagerOamWithAffineIdxSubScreen(u32 param0, u32 param1) {
     u32 res = NNS_G2dEntryOamManagerOamWithAffineIdx(&oamData->oamManagers[1], param0, param1);
     GF_ASSERT(res);
 
     return res;
 }
 
-u32 EntryOamManagerAffineMainScreen(u32 param0)
-{
+u32 EntryOamManagerAffineMainScreen(u32 param0) {
     u32 res = NNS_G2dEntryOamManagerAffine(&oamData->oamManagers[0], param0);
     GF_ASSERT(res != 0xFFFE);
 
     return res;
 }
 
-u32 EntryOamManagerAffineSubScreen(u32 param0)
-{
+u32 EntryOamManagerAffineSubScreen(u32 param0) {
     u32 res = NNS_G2dEntryOamManagerAffine(&oamData->oamManagers[1], param0);
     GF_ASSERT(res != 0xFFFE);
 

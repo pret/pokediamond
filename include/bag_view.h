@@ -10,12 +10,11 @@ enum ItemUseError {
     ITEMUSEERROR_OKAY       = 0, // no error
     ITEMUSEERROR_NODISMOUNT = 1, // can't get off bike
     ITEMUSEERROR_NOFOLLOWER = 2, // have a companion
-    
-    ITEMUSEERROR_OAKSWORDS  = -1u,
+
+    ITEMUSEERROR_OAKSWORDS = -1u,
 };
 
-typedef struct BagViewPocket
-{
+typedef struct BagViewPocket {
     ItemSlot *slot;
     u8 padding[0x4];
     u8 pocket;

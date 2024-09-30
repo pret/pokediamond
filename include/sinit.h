@@ -7,4 +7,4 @@ static void NitroStaticInit(void);
 SDK_FORCE_EXPORT static void (*NitroStaticInit_[])(void) = { NitroStaticInit };
 #pragma section SINIT end
 
-#endif //GUARD_SINIT_H
+#endif // GUARD_SINIT_H

@@ -2,10 +2,10 @@
 #define POKEDIAMOND_UNK_0200BB14_H
 
 #include "global.h"
+
 #include "unk_02008DEC.h"
 
-struct UnkStruct_0200BB14_1
-{
+struct UnkStruct_0200BB14_1 {
     HeapID heapId;
     u32 unk004;
     u32 unk008;
@@ -13,8 +13,7 @@ struct UnkStruct_0200BB14_1
     u8 unk010[0x128];
 };
 
-struct UnkStruct_0200BB14_2
-{
+struct UnkStruct_0200BB14_2 {
     u32 unk00;
     struct UnkStruct_02008AA4_1 *unk04;
     struct UnkStruct_02008DEC_2 *unk08;
@@ -24,8 +23,7 @@ struct UnkStruct_0200BB14_2
     s32 unk54;
 };
 
-struct UnkStruct_0200BB14_3
-{
+struct UnkStruct_0200BB14_3 {
     u32 unk00;
     s16 unk04;
     s16 unk06;
@@ -40,8 +38,7 @@ struct UnkStruct_0200BB14_3
     u32 unk24;
 };
 
-struct UnkStruct_0200BB14_sub
-{
+struct UnkStruct_0200BB14_sub {
     u32 unk00;
     u32 unk04;
     u32 unk08;
@@ -54,8 +51,7 @@ struct UnkStruct_0200BB14_sub
     u8 unk21[0x3];
 };
 
-struct UnkStruct_0200BB14_4
-{
+struct UnkStruct_0200BB14_4 {
     u32 unk00;
     struct UnkStruct_0200BB14_sub *unk04;
     s32 unk08;
@@ -70,13 +66,11 @@ struct UnkStruct_0200BB14_4
     u32 unk2c;
 };
 
-struct UnkStruct_0200BB14_6
-{
+struct UnkStruct_0200BB14_6 {
     struct UnkStruct_0200BB14_sub *unk0;
     u32 unk4;
 };
-struct UnkStruct_0200BB14_5
-{
+struct UnkStruct_0200BB14_5 {
     u32 unk00;
     struct UnkStruct_0200BB14_sub *unk04;
     struct UnkStruct_0200BB14_6 *unk08;

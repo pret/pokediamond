@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_UNK_02022450_H
 #define POKEDIAMOND_UNK_02022450_H
 
+#include "nitro/types.h"
+
 struct CARD_Header {
     u8 title[12];
     u32 tid;
@@ -13,6 +15,6 @@ struct CARD_Header {
 };
 
 void sub_02022450();
-void Reset_To_File(const char* path);
+void Reset_To_File(const char *path);
 
-#endif //POKEDIAMOND_UNK_02022450_H
+#endif // POKEDIAMOND_UNK_02022450_H

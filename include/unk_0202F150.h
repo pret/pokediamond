@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_0202F150_H
 
 #include "global.h"
+
 #include "MI_memory.h"
 #include "RTC_api.h"
 #include "heap.h"
@@ -9,24 +10,21 @@
 #include "unk_0202D858.h"
 #include "unk_02031480.h"
 
-struct UnkStruct0202F150_sub1
-{
+struct UnkStruct0202F150_sub1 {
     u32 unk00;
     s16 unk04;
     s16 unk06;
     u32 unk08;
 };
 
-struct UnkStruct0202F150_sub2
-{
+struct UnkStruct0202F150_sub2 {
     u32 unk00;
     void *unk04;
     u16 unk08;
     u8 unk0a;
 };
 
-struct UnkStruct0202F150
-{
+struct UnkStruct0202F150 {
     u8 unk000[2][38];
     u8 unk04c[264];
     u8 unk154[2][192];

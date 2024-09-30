@@ -2,24 +2,23 @@
 #define POKEDIAMOND_ov59_INTRO_H
 
 #include "nitro/types.h"
-#include "heap.h"
-#include "options.h"
-#include "save.h"
-#include "main.h"
-#include "player_data.h"
-#include "list_menu_items.h"
-#include "list_menu.h"
 
-struct ov59_UnkPlayerStruct
-{
+#include "heap.h"
+#include "list_menu.h"
+#include "list_menu_items.h"
+#include "main.h"
+#include "options.h"
+#include "player_data.h"
+#include "save.h"
+
+struct ov59_UnkPlayerStruct {
     u8 padding[0x4];
     PlayerGender gender;
     u8 padding2[0x10];
     struct String *name;
 };
 
-typedef struct ov59_IntroOverlayData
-{
+typedef struct ov59_IntroOverlayData {
     HeapID heapId;
     struct SaveData *save;
     struct Options *options;
@@ -65,40 +64,33 @@ typedef struct ov59_IntroOverlayData
     u32 unkB0;
 } ov59_IntroOverlayData;
 
-struct ov59_ListStruct021D9E0C
-{
+struct ov59_ListStruct021D9E0C {
     u32 msgNo;
     s32 val;
 };
 
-struct ov59_WindowTemplateGroup
-{
+struct ov59_WindowTemplateGroup {
     struct WindowTemplate template1;
     struct WindowTemplate template2;
 };
 
-struct ov59_GraphicsPaletteMapSubstruct021D9F90
-{
+struct ov59_GraphicsPaletteMapSubstruct021D9F90 {
     u32 charNum;
     u32 palNum;
 };
-struct ov59_GraphicsPaletteMap021D9F90
-{
+struct ov59_GraphicsPaletteMap021D9F90 {
     struct ov59_GraphicsPaletteMapSubstruct021D9F90 map[11];
 };
 
-struct ov59_UnkStruct021D9E30
-{
+struct ov59_UnkStruct021D9E30 {
     u32 scrnIds[5];
 };
 
-struct ov59_CharStruct021D9DEC
-{
+struct ov59_CharStruct021D9DEC {
     u32 narcId[4];
 };
 
-struct ov59_CharStruct021D9E70
-{
+struct ov59_CharStruct021D9E70 {
     u32 charData[6];
 };
 

@@ -2,20 +2,18 @@
 #define POKEDIAMOND_UNK_02031734_H
 
 #include "global.h"
+
 #include "player_data.h"
 
-struct UnkStruct_02031734_const1
-{
+struct UnkStruct_02031734_const1 {
     u32 unk00[3];
 };
 
-struct UnkStruct_02031734_const2
-{
+struct UnkStruct_02031734_const2 {
     u32 unk00[2];
 };
 
-struct UnkStruct_02031734
-{
+struct UnkStruct_02031734 {
     void *unk00;
     u8 unk04[6];
     s64 unk0C[3];
@@ -48,8 +46,7 @@ struct UnkStruct_02031734
     u8 unk4F;
 };
 
-inline u32 compute(s64 *param0, u32 param1)
-{
+inline u32 compute(s64 *param0, u32 param1) {
     param0[0] = param0[1] * param0[0] + param0[2];
 
     return (u32)(((s64)((u64)(param0[0]) >> 32) * param1) >> 32);

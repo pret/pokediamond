@@ -1,6 +1,8 @@
 #ifndef NITRO_RTC_API_H_
 #define NITRO_RTC_API_H_
 
+#include "nitro/types.h"
+
 typedef enum RTCAlarmChan
 {
     RTC_ALARM_CHAN_1 = 0,

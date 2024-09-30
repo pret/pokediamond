@@ -1,18 +1,16 @@
 #ifndef POKEDIAMOND_GF_GX_PLANES_H
 #define POKEDIAMOND_GF_GX_PLANES_H
 
-
 #include "global.h"
-#include "gx.h"
 
+#include "gx.h"
 
 typedef enum {
     GX_PLANE_TOGGLE_OFF,
     GX_PLANE_TOGGLE_ON,
 } GXPlaneToggle;
 
-typedef struct GraphicsBanks
-{
+typedef struct GraphicsBanks {
     GXVRamBG bg;
     GXVRamBGExtPltt bgextpltt;
     GXVRamSubBG subbg;
@@ -42,4 +40,4 @@ void GfGfx_BothDispOn(void);
 void GfGfx_SwapDisplay(void);
 u32 GfGfx_EngineAGetPlanes(void);
 
-#endif //POKEDIAMOND_GF_GX_PLANES_H
+#endif // POKEDIAMOND_GF_GX_PLANES_H
