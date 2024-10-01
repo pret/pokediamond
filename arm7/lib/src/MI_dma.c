@@ -21,8 +21,8 @@ void MI_WaitDma(u32 channel) {
 void MI_StopDma(u32 channel) {
     OSIntrMode mode = OS_DisableInterrupts();
     vu16 *addr      = (vu16 *)(REG_DMA0SAD_ADDR + (channel * 6 + 5) * 2);
-    addr[0] &= ~(DMA_START_MASK | DMA_REPEAT);
-    addr[0] &= ~DMA_ENABLE;
+    addr[0] &= ~((MI_DMA_TIMING_MASK | MI_DMA_CONTINUOUS_ON) >> 16);
+    addr[0] &= ~(MI_DMA_ENABLE >> 16);
     {
         s32 dummy = addr[0];
     }

@@ -6,6 +6,9 @@
 
 #include "registers.h"
 
+#define MI_DMA_TIMING_MASK (3UL << 28)
+#define MI_DMA_TIMING_CARD (2UL << 28)
+
 void MI_StopDma(u32 channel);
 void MI_WaitDma(u32 channel);
 

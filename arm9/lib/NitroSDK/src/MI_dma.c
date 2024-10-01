@@ -93,7 +93,7 @@ void MI_DmaFill32(u32 dmaNo, void *dest, u32 data, u32 size) {
 
 void MI_DmaCopy32(u32 dmaNo, const void *src, void *dest, u32 size) {
     vu32 *dmaCntp;
-    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, DMA_SRC_INC);
+    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, MI_DMA_SRC_INC);
 
     if (!size) {
         return;
@@ -115,7 +115,7 @@ void MI_DmaCopy16(u32 dmaNo, const void *src, void *dest, u32 size) {
         return;
     }
 
-    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, DMA_SRC_INC);
+    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, MI_DMA_SRC_INC);
 
     MIi_WAIT_BEFOREDMA(dmaCntp, dmaNo);
 
@@ -142,7 +142,7 @@ void MI_DmaFill32Async(u32 dmaNo, void *dest, u32 data, u32 size, MIDmaCallback 
 }
 
 void MI_DmaCopy32Async(u32 dmaNo, const void *src, void *dest, u32 size, MIDmaCallback callback, void *arg) {
-    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, DMA_SRC_INC);
+    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, MI_DMA_SRC_INC);
 
     if (!size) {
         MIi_CallCallback(callback, arg);

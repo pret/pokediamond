@@ -20,7 +20,7 @@ void MI_SendGXCommand(u32 dmaNo, const void *src, u32 commandLength) {
         return;
     }
 
-    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, commandLength, DMA_SRC_INC);
+    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, commandLength, MI_DMA_SRC_INC);
 
     MIi_WAIT_BEFOREDMA(dmaCntp, dmaNo);
 
@@ -54,7 +54,7 @@ void MI_SendGXCommandAsync(u32 dmaNo, const void *src, u32 commandLength, MIDmaC
     MIi_GXDmaParams.callback = callback;
     MIi_GXDmaParams.arg      = arg;
 
-    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, commandLength, DMA_SRC_INC);
+    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, commandLength, MI_DMA_SRC_INC);
 
     MI_WaitDma(dmaNo);
     {
@@ -121,7 +121,7 @@ void MI_SendGXCommandAsyncFast(u32 dmaNo, const void *src, u32 commandLength, MI
 
     MIi_CheckAnotherAutoDMA(dmaNo, 0x38000000);
 
-    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, commandLength, DMA_SRC_INC);
+    MIi_CheckDma0SourceAddress(dmaNo, (u32)src, commandLength, MI_DMA_SRC_INC);
 
     MI_WaitDma(dmaNo);
 
