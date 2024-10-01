@@ -5,4 +5,4 @@
 
 void MIi_CardDmaCopy32(u32 dmaNo, const void *src, void *dest, u32 size);
 
-#endif //POKEDIAMOND_MI_DMA_CARD_H
+#endif // POKEDIAMOND_MI_DMA_CARD_H
