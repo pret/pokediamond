@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_ARM9_REGISTERS_H
-#define POKEDIAMOND_ARM9_REGISTERS_H
+#ifndef NITRO_REGISTERS_H
+#define NITRO_REGISTERS_H
 
 #include "nitro/registers_shared.h"
 #include "nitro/types.h"
@@ -1195,4 +1195,4 @@
 #define REG_G3_SPE_EMI_SPECULAR_RED_SIZE  5
 #define REG_G3_SPE_EMI_SPECULAR_RED_MASK  0x0000001f
 
-#endif // POKEDIAMOND_ARM9_REGISTERS_H
+#endif // NITRO_REGISTERS_H

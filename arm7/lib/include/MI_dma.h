@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_MI_DMA_H
-#define POKEDIAMOND_MI_DMA_H
+#ifndef NITRO_MI_DMA_H
+#define NITRO_MI_DMA_H
 
 #include "nitro/MI_dma_shared.h"
 #include "nitro/types.h"
@@ -18,4 +18,4 @@ void MI_WaitDma(u32 channel);
         while (*dmaCntp & REG_MI_DMA0CNT_E_MASK) {}           \
     } while (0)
 
-#endif // POKEDIAMOND_MI_DMA_H
+#endif // NITRO_MI_DMA_H

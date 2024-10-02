@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_MI_DMA_H
-#define POKEDIAMOND_MI_DMA_H
+#ifndef NITRO_MI_DMA_H
+#define NITRO_MI_DMA_H
 
 #include "nitro/MI_dma_shared.h"
 
@@ -78,4 +78,4 @@ static inline void MIi_CallCallback(MIDmaCallback callback, void *arg) {
     }
 }
 
-#endif // POKEDIAMOND_MI_DMA_H
+#endif // NITRO_MI_DMA_H
