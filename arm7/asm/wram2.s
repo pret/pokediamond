@@ -8,7 +8,7 @@ sub_03806474: ;@ 0x03806474
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r4, _0380665C	;@ =wmspW
-	ldr	r0, _03806660	;@ =_0601A960
+	ldr	r0, _03806660	;@ =wmspW + 0x1000
 	ldr	r0, [r0, #1356]	;@ 0x54c
 	cmp	r0, #0
 	beq	_038064B0
@@ -136,7 +136,7 @@ _03806624:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 _0380665C:	.word	wmspW
-_03806660:	.word	_0601A960
+_03806660:	.word	wmspW + 0x1000
 _03806664:	.word	_0380A3F0
 
 	arm_func_start sub_03806668
@@ -470,8 +470,8 @@ _03806A8C:	.word	_0380A4A4
 
 	arm_func_start sub_03806A90
 sub_03806A90: ;@ 0x03806A90
-	ldr	pc, _03806A94	;@ =WM_sp_init
-_03806A94:	.word	WM_sp_init
+	ldr	pc, _03806A94	;@ =WMSP_Init
+_03806A94:	.word	WMSP_Init
 
 	arm_func_start WVR_Shutdown
 WVR_Shutdown: ;@ 0x03806A98
@@ -1378,7 +1378,7 @@ _03807530:	.word	0x00001FFF
 WMSP_GetBuffer4Callback2Wm9: ;@ 0x03807534
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
-	ldr	r0, _03807584	;@ =_0601AE88
+	ldr	r0, _03807584	;@ =wmspW + 0x1528
 	bl	OS_LockMutex
 	mov	r5, #256	;@ 0x100
 	ldr	r4, _03807588	;@ =0x027FFF96
@@ -1392,15 +1392,15 @@ _03807558:
 	bne	_03807550
 	orr	r0, r0, #1
 	strh	r0, [r4]
-	ldr	r0, _0380758C	;@ =_0601A960
+	ldr	r0, _0380758C	;@ =wmspW + 0x1000
 	ldr	r0, [r0, #1356]	;@ 0x54c
 	ldr	r0, [r0, #8]
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
-_03807584:	.word	_0601AE88
+_03807584:	.word	wmspW + 0x1528
 _03807588:	.word	0x027FFF96
-_0380758C:	.word	_0601A960
+_0380758C:	.word	wmspW + 0x1000
 
 	arm_func_start WMSP_ReturnResult2Wm9
 WMSP_ReturnResult2Wm9: ;@ 0x03807590
@@ -1421,10 +1421,10 @@ _038075B4:
 	bl	PXI_SendWordByFifo
 	cmp	r0, #0
 	blt	_038075AC
-	ldr	r0, _038075E0	;@ =_0601AE88
+	ldr	r0, _038075E0	;@ =wmspW + 0x1528
 	bl	OS_UnlockMutex
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
-_038075E0:	.word	_0601AE88
+_038075E0:	.word	wmspW + 0x1528
 	.balign 2, 0 ; Don't pad with nop

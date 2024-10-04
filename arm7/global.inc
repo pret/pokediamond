@@ -496,10 +496,8 @@
 ; .ext
 .extern WMSP_GetIndicateThread
 .extern WMSP_GetRequestThread
-.extern WM_sp_init
+.extern WMSP_Init
 .extern WMSP_CancelAllAlarms
 .extern WMSP_CancelVAlarm
 .extern WL_Terminate
 .extern wmspW
-.extern _0601A960
-.extern _0601AE88
