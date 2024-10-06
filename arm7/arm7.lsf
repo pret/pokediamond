@@ -75,5 +75,6 @@ Autoload WRAM
 Autoload EXT
 {
 	Address 0x06000000
+	Object WM_sp.o
 	Object ext.o
 }
