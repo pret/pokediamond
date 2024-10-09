@@ -2480,7 +2480,7 @@ sub_0205995C: ; 0x0205995C
 	add r6, r3, #0x0
 	bl MapObject_GetManager
 	add r7, r0, #0x0
-	bl sub_020583BC
+	bl MapObjectManager_GetObjects2
 	str r0, [sp, #0x8]
 	add r0, r7, #0x0
 	bl MapObjectManager_GetObjectCount
@@ -2543,7 +2543,7 @@ _020599EA:
 	pop {r4-r7, pc}
 _020599F4:
 	add r0, sp, #0x8
-	bl sub_020583D4
+	bl MapObjectArray_NextObject
 	ldr r0, [sp, #0x4]
 	sub r0, r0, #0x1
 	str r0, [sp, #0x4]

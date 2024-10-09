@@ -37,27 +37,28 @@ static void sub_020581B4(LocalMapObject *object);
 static BOOL MapObject_ScriptIDIsFFFF(LocalMapObject *object);
 static void sub_02058214(LocalMapObject *object, ObjectEvent *objectEvent, u32 mapNo);
 static void sub_02058258(LocalMapObject *object, u32 mapNo, ObjectEvent *objectEvent);
+static void sub_0205832C(SysTask *task, LocalMapObject *object);
+static void sub_02058348(LocalMapObject *object);
+/*static*/ MapObjectManager *MapObjectManager_Get(MapObjectManager *manager);
+static void MapObjectManager_SetObjectCount(MapObjectManager *manager, u32 count);
+static void sub_0205836C(MapObjectManager *manager);
+static void sub_02058374(MapObjectManager *manager);
+static void MapObjectManager_SetPriority(MapObjectManager *manager, u32 priority);
+static void MapObjectManager_SetObjects(MapObjectManager *manager, LocalMapObject *objects);
+static LocalMapObject *MapObjectManager_GetObjects3(MapObjectManager *manager);
+static void MapObjectManager_SetFieldSystem(MapObjectManager *manager, FieldSystem *fieldSystem);
+/*static*/ FieldSystem *MapObjectManager_GetFieldSystem(MapObjectManager *manager);
 
-extern void MapObjectManager_SetFieldSystemPtr(MapObjectManager *manager, FieldSystem *fieldSystem);
-extern void MapObjectManager_SetObjectCount(MapObjectManager *manager, u32 objectCount);
-extern void MapObjectManager_SetPriority(MapObjectManager *manager, u32 priority);
-extern LocalMapObject *MapObjectManager_GetObjects(MapObjectManager *manager);
-extern u32 MapObjectManager_GetObjectCount(MapObjectManager *manager);
 extern BOOL MapObject_IsInUse(LocalMapObject *object);
 extern void ov05_021F2AF4(MapObjectManager *manager, void *param0);
-extern void *sub_020583A0(MapObjectManager *manager);
 extern u32 sub_02058450(LocalMapObject *object);
 extern BOOL MapObject_TestFlagsBits(LocalMapObject *object, MapObjectFlagBits flags);
-extern void MapObjectManager_SetObjects(MapObjectManager *manager, LocalMapObject *objects);
 extern u32 ObjectEvent_GetID(ObjectEvent *objectEvent);
 extern BOOL ObjectEvent_ScriptIDIsUnset(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetFlagID_AssertScriptIDIsUnset(ObjectEvent *objectEvent);
-extern FieldSystem *MapObjectManager_GetFieldSystemPtr(MapObjectManager *manager);
 extern void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
 extern void sub_0205844C(LocalMapObject *object, u32 mapNo);
 extern void MapObject_SetFlagsBits(LocalMapObject *object, MapObjectFlagBits bits);
-extern MapObjectManager *MapObjectManager_Get(MapObjectManager *manager);
-extern void sub_0205836C(MapObjectManager *manager);
 extern void ObjectEvent_SetId(ObjectEvent *objectEvent, u32 id);
 extern void ObjectEvent_SetSprite(ObjectEvent *objectEvent, u32 sprite);
 extern void ObjectEvent_SetMovement(ObjectEvent *objectEvent, u32 movement);
@@ -83,7 +84,6 @@ extern void sub_020586B4(LocalMapObject *object);
 extern void sub_02058660(LocalMapObject *object);
 extern void sub_02058564(LocalMapObject *object);
 extern MapObjectManager *sub_02058580(LocalMapObject *object);
-extern void sub_02058374(MapObjectManager *manager);
 extern u32 MapObject_GetFlagID(LocalMapObject *object);
 extern FieldSystem *MapObject_GetFieldSystem(LocalMapObject *object);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
@@ -157,8 +157,6 @@ extern void MapObject_SetPreviousY(LocalMapObject *object, u32 previousY);
 extern void MapObject_CreateFromInitArgs(MapObjectInitArgs *args);
 extern BOOL MapObject_CheckFlag25(LocalMapObject *object);
 extern u32 sub_02058750(LocalMapObject *object);
-extern void sub_0205832C(SysTask *task, LocalMapObject *object);
-extern u32 MapObjectManager_GetPriority(MapObjectManager *manager);
 extern void sub_02058554(LocalMapObject *object, SysTask *task);
 extern u16 ObjectEvent_GetSpriteID(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetMovement(ObjectEvent *objectEvent);
@@ -190,7 +188,6 @@ extern LocalMapObject_UnkCallback sub_02058D44(UnkLMOCallbackStruct2 *callbackSt
 extern void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D48(UnkLMOCallbackStruct2 *callbackStruct);
 extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
-extern const LocalMapObject *MapObjectManager_GetConstObjects(MapObjectManager *manager);
 extern u16 FieldSystem_VarGetObjectEventGraphicsId(FieldSystem *fieldSystem, u16 spriteId);
 extern u32 sub_02059D1C(LocalMapObject *object);
 extern void sub_02058EE8(LocalMapObject *object);
@@ -199,10 +196,13 @@ extern void ov05_021F2E0C(LocalMapObject *object, BOOL set);
 extern void sub_0205868C(LocalMapObject *object);
 extern void MapObject_SetFlag14(LocalMapObject *object);
 extern void *sub_02058744(LocalMapObject *object);
+extern u32 sub_0205845C(LocalMapObject *object);
+extern void sub_02058EF8(LocalMapObject *object);
+extern void ov05_021F1D8C(LocalMapObject *object);
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority) {
     MapObjectManager *ret = MapObjectManager_New(objectCount);
-    MapObjectManager_SetFieldSystemPtr(ret, fieldSystem);
+    MapObjectManager_SetFieldSystem(ret, fieldSystem);
     MapObjectManager_SetObjectCount(ret, objectCount);
     MapObjectManager_SetPriority(ret, priority);
 
@@ -276,7 +276,7 @@ static LocalMapObject *MapObject_CreateFromObjectEvent(MapObjectManager *manager
         return ret;
     }
 
-    MapObject_InitFromObjectEvent(ret, objectEvent, MapObjectManager_GetFieldSystemPtr(manager));
+    MapObject_InitFromObjectEvent(ret, objectEvent, MapObjectManager_GetFieldSystem(manager));
     sub_02057E90(ret, manager);
     sub_0205844C(ret, mapNo);
     sub_020581A4(ret);
@@ -313,7 +313,7 @@ LocalMapObject *MapObject_CreateFromObjectEventWithId(MapObjectManager *manager,
     ObjectEvent *objectEvent = ObjectEvent_GetById(id, objectEventCount, (ObjectEvent *)events);
     if (objectEvent != NULL) {
         u32 flagId               = ObjectEvent_GetFlagID(objectEvent);
-        FieldSystem *fieldSystem = MapObjectManager_GetFieldSystemPtr(manager);
+        FieldSystem *fieldSystem = MapObjectManager_GetFieldSystem(manager);
         if (FieldSystem_FlagCheck(fieldSystem, (u16)flagId) == FALSE) {
             ret = MapObject_CreateFromObjectEvent(manager, objectEvent, mapNo);
         }
@@ -582,7 +582,7 @@ void MapObject_CreateFromMultipleObjectEvents(MapObjectManager *manager, u32 map
 }
 
 static void MapObject_CreateFromInitArgs(MapObjectInitArgs *args) {
-    FieldSystem *fieldSystem  = MapObjectManager_GetFieldSystemPtr(args->manager);
+    FieldSystem *fieldSystem  = MapObjectManager_GetFieldSystem(args->manager);
     ObjectEvent *objectEvents = args->objectEvents;
 
     do {                                                                                                                                                                                                                        // must be do while due to initial check
@@ -757,7 +757,7 @@ LocalMapObject *MapObjectManager_GetFirstActiveObjectByID(MapObjectManager *mana
     GF_ASSERT(manager != NULL);
 
     s32 count               = MapObjectManager_GetObjectCount(manager);
-    LocalMapObject *objects = (LocalMapObject *)MapObjectManager_GetConstObjects(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects3(manager);
     do {
         if (MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_ACTIVE) == TRUE && MapObject_CheckFlag25(objects) == FALSE && MapObject_GetID(objects) == id) {
             return objects;
@@ -772,7 +772,7 @@ LocalMapObject *MapObjectManager_GetFirstActiveObjectByID(MapObjectManager *mana
 
 LocalMapObject *MapObjectManager_GetFirstActiveObjectWithMovement(MapObjectManager *manager, u32 movement) {
     s32 count               = MapObjectManager_GetObjectCount(manager);
-    LocalMapObject *objects = (LocalMapObject *)MapObjectManager_GetConstObjects(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects3(manager);
 
     do {
         if (MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_ACTIVE) == TRUE && MapObject_GetMovement(objects) == movement) {
@@ -792,7 +792,7 @@ BOOL MapObjectManager_GetNextObjectWithFlagFromIndex(MapObjectManager *manager, 
         return FALSE;
     }
 
-    LocalMapObject *objects = (LocalMapObject *)MapObjectManager_GetConstObjects(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects3(manager);
     LocalMapObject *object  = objects + *index;
     do {
         (*index)++;
@@ -903,4 +903,116 @@ BOOL sub_020582A8(LocalMapObject *object, u32 mapId, u32 flagId) {
     }
 
     return TRUE;
+}
+
+BOOL sub_020582F8(LocalMapObject *object, u32 spriteId, u32 mapId, u32 flagId) {
+    if (!MapObject_TestFlagsBits(object, MAPOBJECTFLAG_ACTIVE)) {
+        return FALSE;
+    }
+
+    u32 objectSpriteId = sub_0205845C(object);
+    if (objectSpriteId != spriteId) {
+        return FALSE;
+    }
+
+    return sub_020582A8(object, mapId, flagId);
+}
+
+static void sub_0205832C(SysTask *task, LocalMapObject *object) {
+    sub_02058EF8(object);
+    if (MapObject_IsInUse(object)) {
+        sub_02058348(object);
+    }
+}
+
+static void sub_02058348(LocalMapObject *object) {
+    if (sub_020587E0(MapObject_GetManager(object)) == TRUE) {
+        ov05_021F1D8C(object);
+    }
+}
+
+// Likely a scrubbed debug func, but WTF is GF smoking?
+/*static*/ MapObjectManager *MapObjectManager_Get(MapObjectManager *manager) {
+    return manager;
+}
+
+static void MapObjectManager_SetObjectCount(MapObjectManager *manager, u32 count) {
+    manager->objectCount = count;
+}
+
+u32 MapObjectManager_GetObjectCount(MapObjectManager *manager) {
+    return manager->objectCount;
+}
+
+static void sub_0205836C(MapObjectManager *manager) {
+    manager->unk8++;
+}
+
+static void sub_02058374(MapObjectManager *manager) {
+    manager->unk8--;
+}
+
+void MapObjectManager_SetFlagsBits(MapObjectManager *manager, u32 bits) {
+    manager->flags |= bits;
+}
+
+void MapObjectManager_ClearFlagsBits(MapObjectManager *manager, u32 bits) {
+    manager->flags &= ~bits;
+}
+
+u32 MapObjectManager_GetFlagsBitsMask(MapObjectManager *manager, u32 bits) {
+    return manager->flags & bits;
+}
+
+static void MapObjectManager_SetPriority(MapObjectManager *manager, u32 priority) {
+    manager->priority = priority;
+}
+
+u32 MapObjectManager_GetPriority(MapObjectManager *manager) {
+    return manager->priority;
+}
+
+// type of unk18 is unknown, it's a u32 in MapObjectManager, but unsure what it's supposed to be
+// leaving return as a void * to reflect this
+void *sub_020583A0(MapObjectManager *manager) {
+    return &manager->unk18;
+}
+
+void sub_020583A4(MapObjectManager *manager, u32 param1) {
+    manager->unk120 = param1;
+}
+
+u32 sub_020583AC(MapObjectManager *manager) {
+    return manager->unk120;
+}
+
+static void MapObjectManager_SetObjects(MapObjectManager *manager, LocalMapObject *objects) {
+    manager->objects = objects;
+}
+
+// the 2 here is bad, however this is *exactly* the same as the lower GetObjects
+LocalMapObject *MapObjectManager_GetObjects2(MapObjectManager *manager) {
+    return manager->objects;
+}
+
+// same as above
+static LocalMapObject *MapObjectManager_GetObjects3(MapObjectManager *manager) {
+    return manager->objects;
+}
+
+// this one is the original because it's used the most
+LocalMapObject *MapObjectManager_GetObjects(MapObjectManager *manager) {
+    return manager->objects;
+}
+
+void MapObjectArray_NextObject(LocalMapObject **objects) {
+    (*objects)++;
+}
+
+static void MapObjectManager_SetFieldSystem(MapObjectManager *manager, FieldSystem *fieldSystem) {
+    manager->fieldSystem = fieldSystem;
+}
+
+/*static*/ FieldSystem *MapObjectManager_GetFieldSystem(MapObjectManager *manager) {
+    return manager->fieldSystem;
 }
