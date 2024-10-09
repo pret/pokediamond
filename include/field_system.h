@@ -6,6 +6,7 @@
 #include "bg_window.h"
 #include "camera.h"
 #include "field_player_avatar.h"
+#include "field_types_def.h"
 #include "save.h"
 #include "task.h"
 
@@ -21,10 +22,6 @@ typedef struct UnkFieldStruct04 {
     u8 padding[0xC];
     u32 unk0C;
 } UnkFieldStruct04;
-
-typedef struct MapObjectManager { // must be in this func, cause otheriwse build will fail
-    u8 padding[0x12C];
-} MapObjectManager; // todo: fill out
 
 typedef struct UnkStruct_020464D4 {
     u16 unk0[4];

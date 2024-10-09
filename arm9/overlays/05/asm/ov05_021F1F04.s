@@ -474,7 +474,7 @@ ov05_021F2284: ; 0x021F2284
 	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_020583BC
+	bl MapObjectManager_GetObjects2
 	str r0, [sp]
 _021F229A:
 	ldr r0, [sp]
@@ -502,7 +502,7 @@ _021F22C0:
 	pop {r3, r4, r5, r6, r7, pc}
 _021F22CE:
 	add r0, sp, #0
-	bl sub_020583D4
+	bl MapObjectArray_NextObject
 	sub r4, r4, #1
 	bne _021F229A
 	mov r0, #0

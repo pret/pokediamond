@@ -12,7 +12,7 @@ ov05_021F1CB8: ; 0x021F1CB8
 	add r5, r0, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl sub_02058390
+	bl MapObjectManager_GetFlagsBitsMask
 	cmp r0, #0
 	beq _021F1CD2
 	bl GF_AssertFail
@@ -48,7 +48,7 @@ _021F1CD2:
 	bl ov05_021F3810
 	add r0, r5, #0
 	mov r1, #1
-	bl sub_0205837C
+	bl MapObjectManager_SetFlagsBits
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -74,7 +74,7 @@ _021F1D3C:
 	bl sub_020583A4
 	add r0, r4, #0
 	mov r1, #1
-	bl sub_02058384
+	bl MapObjectManager_ClearFlagsBits
 	add r0, r4, #0
 	bl ov05_021F1D80
 	pop {r4, pc}
@@ -105,7 +105,7 @@ ov05_021F1D8C: ; 0x021F1D8C
 	add r4, r0, #0
 	bl MapObject_GetManager
 	mov r1, #4
-	bl sub_02058390
+	bl MapObjectManager_GetFlagsBitsMask
 	cmp r0, #0
 	bne _021F1DC6
 	mov r1, #1

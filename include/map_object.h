@@ -4,6 +4,7 @@
 #include "global.h"
 
 #include "field_system.h"
+#include "field_types_def.h"
 #include "heap.h"
 
 typedef struct SavedMapObject {
@@ -33,9 +34,22 @@ typedef struct SavedMapObject {
     u8 unk40[16];
 } SavedMapObject;
 
-typedef struct LocalMapObject {
+struct MapObjectManager {
+    u32 flags;
+    u32 objectCount;
+    u32 unk8;
+    u32 priority;
+    u8 padding[0x8];
+    u32 unk18;
+    u8 padding2[0x104];
+    u32 unk120;
+    LocalMapObject *objects;
+    FieldSystem *fieldSystem;
+};
+
+struct LocalMapObject {
     u8 padding[0x128]; // todo verify size
-} LocalMapObject;
+};
 
 typedef struct ObjectEvent {
     u8 padding[0x8];
@@ -129,5 +143,17 @@ LocalMapObject *MapObjectManager_GetFirstActiveObjectWithMovement(MapObjectManag
 BOOL MapObjectManager_GetNextObjectWithFlagFromIndex(MapObjectManager *manager, LocalMapObject **objectDest, s32 *index, MapObjectFlagBits flag);
 u32 sub_0205829C(LocalMapObject *object, u32 param1);
 BOOL sub_020582A8(LocalMapObject *object, u32 mapId, u32 flagId);
+BOOL sub_020582F8(LocalMapObject *object, u32 spriteId, u32 mapId, u32 flagId);
+u32 MapObjectManager_GetObjectCount(MapObjectManager *manager);
+void MapObjectManager_SetFlagsBits(MapObjectManager *manager, u32 bits);
+void MapObjectManager_ClearFlagsBits(MapObjectManager *manager, u32 bits);
+u32 MapObjectManager_GetFlagsBitsMask(MapObjectManager *manager, u32 bits);
+u32 MapObjectManager_GetPriority(MapObjectManager *manager);
+void *sub_020583A0(MapObjectManager *manager);
+void sub_020583A4(MapObjectManager *manager, u32 param1);
+u32 sub_020583AC(MapObjectManager *manager);
+LocalMapObject *MapObjectManager_GetObjects2(MapObjectManager *manager);
+LocalMapObject *MapObjectManager_GetObjects(MapObjectManager *manager);
+void MapObjectArray_NextObject(LocalMapObject **objects);
 
 #endif // POKEDIAMOND_MAP_OBJECT_H
