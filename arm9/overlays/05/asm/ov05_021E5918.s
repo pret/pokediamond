@@ -100,7 +100,7 @@ ov05_021E59AC: ; 0x021E59AC
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x3c]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	mov r0, #6
 	lsl r0, r0, #0xc

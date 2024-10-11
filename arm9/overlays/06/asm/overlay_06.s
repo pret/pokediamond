@@ -32710,7 +32710,7 @@ ov06_0224954C: ; 0x0224954C
 	bl sub_02058750
 	b _02249592
 _0224958E:
-	bl sub_02058450
+	bl MapObject_GetMapID
 _02249592:
 	str r0, [r4, #8]
 	mov r0, #1
@@ -33077,7 +33077,7 @@ ov06_02249834: ; 0x02249834
 	bl MapObject_GetID
 	str r0, [r4]
 	ldr r0, [r4, #0x20]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x20]
 	bl MapObject_GetSpriteID
@@ -34320,7 +34320,7 @@ _0224A1AC:
 	bl sub_02058750
 	b _0224A1D2
 _0224A1CE:
-	bl sub_02058450
+	bl MapObject_GetMapID
 _0224A1D2:
 	str r0, [r4, #8]
 	mov r0, #1
@@ -34539,7 +34539,7 @@ ov06_0224A354: ; 0x0224A354
 	bl MapObject_GetID
 	str r0, [r4]
 	ldr r0, [r4, #0x18]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #4]
 	mov r0, #1
 	pop {r4, pc}
@@ -35068,7 +35068,7 @@ ov06_0224A710: ; 0x0224A710
 	bl MapObject_GetID
 	str r0, [r5, #4]
 	ldr r0, [r5, #0x18]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r5, #8]
 	ldr r5, [r5, #0x18]
 	add r1, sp, #0xc
@@ -35295,7 +35295,7 @@ ov06_0224A918: ; 0x0224A918
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x14]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	mov r0, #1
 	pop {r4, pc}
@@ -35485,7 +35485,7 @@ ov06_0224AA84: ; 0x0224AA84
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x14]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	mov r0, #1
 	pop {r4, pc}
@@ -35711,7 +35711,7 @@ ov06_0224AC38: ; 0x0224AC38
 	bl MapObject_GetID
 	str r0, [r5, #0xc]
 	add r0, r4, #0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r5, #0x10]
 	ldr r0, [r7]
 	str r0, [r5, #8]
@@ -36948,7 +36948,7 @@ ov06_0224B5D0: ; 0x0224B5D0
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	lsl r0, r0, #0x10
@@ -37519,7 +37519,7 @@ ov06_0224BA30: ; 0x0224BA30
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x20]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	add r0, r5, #0
 	add r1, sp, #0
@@ -37773,7 +37773,7 @@ ov06_0224BC50: ; 0x0224BC50
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	add r0, r5, #0
 	add r1, sp, #0
@@ -37986,7 +37986,7 @@ ov06_0224BDF8: ; 0x0224BDF8
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	lsl r0, r0, #0x10
@@ -38313,7 +38313,7 @@ ov06_0224C0A0: ; 0x0224C0A0
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	lsl r0, r0, #0x10
@@ -40174,7 +40174,7 @@ ov06_0224CF3C: ; 0x0224CF3C
 	bl MapObject_GetID
 	str r0, [r5, #8]
 	add r0, r4, #0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r5, #0xc]
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -40705,7 +40705,7 @@ ov06_0224D344: ; 0x0224D344
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	add r0, r5, #0
 	add r1, sp, #0

@@ -14,13 +14,11 @@ extern BOOL sub_02054B30(u8 param0);
 extern BOOL sub_02054B3C(u8 param0);
 extern BOOL sub_02054B48(u8 param0);
 extern BOOL sub_02054B54(u8 param0);
-extern void MapObject_SetFlagsBits(LocalMapObject *object, u32 bits);
 extern BOOL sub_02057254(u32 param0);
 extern u32 sub_0205AFDC(u32 param0, u32 param1);
 extern void sub_02057260(u32 param0, u32 param1);
 extern void sub_02055304(u32 param0, u32 param1);
 extern BOOL sub_02056B74(u32 param0, LocalMapObject *object, u32 param2);
-extern void MapObject_ClearFlagsBits(LocalMapObject *object, u32 bits);
 
 BOOL ov05_021E72FC(FieldSystem *fieldSystem, u32 param1) {
     u8 res = (u8)sub_02058720(PlayerAvatar_GetMapObject(param1));

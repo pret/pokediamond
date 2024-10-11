@@ -1984,7 +1984,7 @@ _0205AD3E:
 	ldr r4, [r1, r0]
 	add r0, r7, #0x0
 	mov r1, #0x80
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _0205AD6C
 	mov r0, #0x1

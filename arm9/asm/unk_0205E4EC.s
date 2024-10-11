@@ -410,7 +410,7 @@ sub_0205E7C4: ; 0x0205E7C4
 	bl MapObject_GetType
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0205C9E8
@@ -448,7 +448,7 @@ _0205E81E:
 	ldr r0, [sp, #0x4]
 	cmp r4, r0
 	beq _0205E83C
-	bl sub_02058450
+	bl MapObject_GetMapID
 	cmp r6, r0
 	bne _0205E83C
 	ldr r0, [sp, #0x4]
@@ -483,7 +483,7 @@ sub_0205E854: ; 0x0205E854
 	mov r0, #0x0
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0205C9E8
@@ -499,7 +499,7 @@ _0205E886:
 	ldr r0, [sp, #0x4]
 	cmp r5, r0
 	beq _0205E8B6
-	bl sub_02058450
+	bl MapObject_GetMapID
 	cmp r7, r0
 	bne _0205E8B6
 	ldr r0, [sp, #0x4]
@@ -579,7 +579,7 @@ _0205E91E:
 	mov r1, #0x61
 	add r0, r5, #0x0
 	lsl r1, r1, #0x6
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	bne _0205E93A
 _0205E936:

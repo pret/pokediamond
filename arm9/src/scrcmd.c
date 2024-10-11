@@ -54,7 +54,6 @@
 
 extern void *FieldSysGetAttrAddr(FieldSystem *fieldSystem, enum ScriptEnvField id);
 extern ScriptContext *CreateScriptContext(FieldSystem *fieldSystem, u16 id);
-extern u32 MapObject_GetID(LocalMapObject *lastInteracted);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void FlagClear(FieldSystem *fieldSystem, u16 flag);
 extern u8 FieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);

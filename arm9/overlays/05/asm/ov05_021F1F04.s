@@ -625,7 +625,7 @@ _021F23D0:
 	mov r0, #0x41
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl sub_020583F4
+	bl MapObjectManager_GetMapModelNarc
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -2044,7 +2044,7 @@ ov05_021F2E28: ; 0x021F2E28
 	push {r3, lr}
 	mov r1, #1
 	lsl r1, r1, #0x16
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0
 	beq _021F2E3A
 	mov r0, #1

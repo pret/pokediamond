@@ -88,14 +88,14 @@ ov05_021F1D68: ; 0x021F1D68
 	bl NARC_New
 	add r1, r0, #0
 	add r0, r4, #0
-	bl sub_020583F0
+	bl MapObjectManager_SetMapModelNarc
 	pop {r4, pc}
 	.balign 4, 0
 
 	thumb_func_start ov05_021F1D80
 ov05_021F1D80: ; 0x021F1D80
 	push {r3, lr}
-	bl sub_020583F4
+	bl MapObjectManager_GetMapModelNarc
 	bl NARC_Delete
 	pop {r3, pc}
 
@@ -111,7 +111,7 @@ ov05_021F1D8C: ; 0x021F1D8C
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #0xe
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0
 	beq _021F1DC6
 	add r0, r4, #0
@@ -175,7 +175,7 @@ _021F1E16:
 	mov r1, #1
 	add r0, r4, #0
 	lsl r1, r1, #8
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0
 	beq _021F1E28
 	mov r0, #1
@@ -189,7 +189,7 @@ ov05_021F1E2C: ; 0x021F1E2C
 	push {r4, r5, r6, lr}
 	add r4, r1, #0
 	add r5, r2, #0
-	bl sub_020583F4
+	bl MapObjectManager_GetMapModelNarc
 	add r1, r4, #0
 	add r6, r0, #0
 	bl NARC_GetMemberSize

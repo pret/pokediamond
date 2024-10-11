@@ -14,99 +14,6 @@
 
 	.text
 
-	thumb_func_start sub_020583F0
-sub_020583F0: ; 0x020583F0
-	str r1, [r0, #0x14]
-	bx lr
-
-	thumb_func_start sub_020583F4
-sub_020583F4: ; 0x020583F4
-	push {r4, lr}
-	add r4, r0, #0x0
-	ldr r0, [r4, #0x14]
-	cmp r0, #0x0
-	bne _02058402
-	bl GF_AssertFail
-_02058402:
-	ldr r0, [r4, #0x14]
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start MapObject_SetFlagsWord
-MapObject_SetFlagsWord: ; 0x02058408
-	str r1, [r0, #0x0]
-	bx lr
-
-	thumb_func_start MapObject_GetFlagsWord
-MapObject_GetFlagsWord: ; 0x0205840C
-	ldr r0, [r0, #0x0]
-	bx lr
-
-	thumb_func_start MapObject_SetFlagsBits
-MapObject_SetFlagsBits: ; 0x02058410
-	ldr r2, [r0, #0x0]
-	orr r1, r2
-	str r1, [r0, #0x0]
-	bx lr
-
-	thumb_func_start MapObject_ClearFlagsBits
-MapObject_ClearFlagsBits: ; 0x02058418
-	ldr r2, [r0, #0x0]
-	mvn r1, r1
-	and r1, r2
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start MapObject_GetFlagsBits
-MapObject_GetFlagsBits: ; 0x02058424
-	ldr r0, [r0, #0x0]
-	and r0, r1
-	bx lr
-	.balign 4
-
-	thumb_func_start MapObject_TestFlagsBits
-MapObject_TestFlagsBits: ; 0x0205842C
-	ldr r0, [r0, #0x0]
-	tst r0, r1
-	beq _02058436
-	mov r0, #0x1
-	bx lr
-_02058436:
-	mov r0, #0x0
-	bx lr
-	.balign 4
-
-	thumb_func_start MapObject_SetFlags2Word
-MapObject_SetFlags2Word: ; 0x0205843C
-	str r1, [r0, #0x4]
-	bx lr
-
-	thumb_func_start MapObject_GetFlags2Word
-MapObject_GetFlags2Word: ; 0x02058440
-	ldr r0, [r0, #0x4]
-	bx lr
-
-	thumb_func_start MapObject_SetID
-MapObject_SetID: ; 0x02058444
-	str r1, [r0, #0x8]
-	bx lr
-
-	thumb_func_start MapObject_GetID
-MapObject_GetID: ; 0x02058448
-	ldr r0, [r0, #0x8]
-	bx lr
-
-	thumb_func_start sub_0205844C
-sub_0205844C: ; 0x0205844C
-	str r1, [r0, #0xc]
-	bx lr
-
-	thumb_func_start sub_02058450
-sub_02058450: ; 0x02058450
-	ldr r0, [r0, #0xc]
-	bx lr
-
 	thumb_func_start MapObject_SetSpriteID
 MapObject_SetSpriteID: ; 0x02058454
 	str r1, [r0, #0x10]
@@ -197,7 +104,7 @@ sub_020584AC: ; 0x020584AC
 	add r4, r1, #0x0
 	mov r1, #0x80
 	add r5, r0, #0x0
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	bne _020584C2
 	ldr r0, [r5, #0x28]
@@ -994,7 +901,7 @@ _02058948:
 	mov r1, #0x1
 	add r0, r4, #0x0
 	lsl r1, r1, #0xe
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _0205895A
 	mov r0, #0x1
@@ -1025,7 +932,7 @@ sub_0205897C: ; 0x0205897C
 	push {r3, lr}
 	mov r1, #0x2
 	lsl r1, r1, #0x16
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _0205898E
 	mov r0, #0x1
@@ -1072,7 +979,7 @@ MapObject_CheckFlag25: ; 0x020589CC
 	push {r3, lr}
 	mov r1, #0x2
 	lsl r1, r1, #0x18
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _020589DE
 	mov r0, #0x1
@@ -1103,7 +1010,7 @@ sub_02058A00: ; 0x02058A00
 	push {r3, lr}
 	mov r1, #0x1
 	lsl r1, r1, #0x1a
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02058A12
 	mov r0, #0x1
@@ -1134,7 +1041,7 @@ sub_02058A34: ; 0x02058A34
 	push {r3, lr}
 	mov r1, #0x2
 	lsl r1, r1, #0x1a
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02058A46
 	mov r0, #0x1
@@ -1165,7 +1072,7 @@ sub_02058A68: ; 0x02058A68
 	push {r3, lr}
 	mov r1, #0x1
 	lsl r1, r1, #0x1c
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02058A7A
 	mov r0, #0x1
@@ -1196,7 +1103,7 @@ sub_02058A9C: ; 0x02058A9C
 	push {r3, lr}
 	mov r1, #0x1
 	lsl r1, r1, #0x18
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02058AAE
 	mov r0, #0x1
@@ -1210,7 +1117,7 @@ _02058AAE:
 sub_02058AB4: ; 0x02058AB4
 	push {r3, lr}
 	mov r1, #0x10
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02058AC4
 	mov r0, #0x1
@@ -1240,7 +1147,7 @@ MapObject_CheckFlag29: ; 0x02058AE4
 	push {r3, lr}
 	mov r1, #0x2
 	lsl r1, r1, #0x1c
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02058AF6
 	mov r0, #0x1
@@ -1796,7 +1703,7 @@ sub_02058D74: ; 0x02058D74
 _02058D8A:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02058DAE
 	add r0, r5, #0x0
