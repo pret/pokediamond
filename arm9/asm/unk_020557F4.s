@@ -472,7 +472,7 @@ sub_02055B8C: ; 0x02055B8C
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	add r1, r5, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl sub_02058544

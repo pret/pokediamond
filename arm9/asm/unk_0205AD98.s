@@ -474,7 +474,7 @@ sub_0205B0C8: ; 0x0205B0C8
 sub_0205B0D4: ; 0x0205B0D4
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl sub_02058544
@@ -537,7 +537,7 @@ sub_0205B124: ; 0x0205B124
 	bl sub_02059C0C
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_020584D8
+	bl MapObject_SetOrQueueFacing
 	add r1, sp, #0x8
 	ldrh r1, [r1, #0x10]
 	add r0, r5, #0x0
@@ -950,7 +950,7 @@ sub_0205B408: ; 0x0205B408
 	strh r1, [r0, #0x2]
 	add r0, r5, #0x0
 	add r1, r7, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_02058544
@@ -1221,7 +1221,7 @@ _0205B5EA:
 	bl MapObject_SetFlagsBits
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_020584D8
+	bl MapObject_SetOrQueueFacing
 	add r1, sp, #0x8
 	ldrh r1, [r1, #0x10]
 	add r0, r5, #0x0
@@ -2061,7 +2061,7 @@ sub_0205BBF4: ; 0x0205BBF4
 	bl sub_02059C0C
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_020584D8
+	bl MapObject_SetOrQueueFacing
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	bl sub_02058544
@@ -2308,7 +2308,7 @@ sub_0205BDB8: ; 0x0205BDB8
 	blt _0205BDE0
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl sub_02058544

@@ -21,7 +21,7 @@ typedef struct SavedMapObject {
     u16 mapId;
     u16 spriteId;
     u16 type;
-    u16 flagId;
+    u16 eventFlag;
     u16 script;
     s16 param[3];
     s16 initialX;
@@ -54,7 +54,20 @@ struct LocalMapObject {
     u32 flags2;
     u32 id;
     u32 mapId;
-    u8 padding[0x118]; // todo verify size
+    u32 spriteId;
+    u32 movement;
+    u32 type;
+    u32 eventFlag;
+    u32 scriptId;
+    u32 initialFacing;
+    u32 currentFacing;
+    u32 nextFacing;
+    u32 previousFacing;
+    u32 nextFacingBackup;
+    s32 param[3];
+    s32 xRange;
+    s32 yRange;
+    u8 padding[0xDC]; // todo verify size
 };
 
 typedef struct ObjectEvent {
@@ -170,5 +183,28 @@ BOOL MapObject_TestFlagsBits(LocalMapObject *object, MapObjectFlagBits bits);
 void MapObject_SetID(LocalMapObject *object, u32 id);
 u32 MapObject_GetID(LocalMapObject *object);
 u32 MapObject_GetMapID(LocalMapObject *object);
+void MapObject_SetSpriteID(LocalMapObject *object, u32 spriteId);
+u32 MapObject_GetSpriteID(LocalMapObject *object);
+u32 sub_0205845C(LocalMapObject *object);
+u32 MapObject_GetMovement(LocalMapObject *object);
+void MapObject_SetType(LocalMapObject *object, u32 type);
+u32 MapObject_GetType(LocalMapObject *object);
+void MapObject_SetEventFlag(LocalMapObject *object, u32 eventFlag);
+void MapObject_SetScriptID(LocalMapObject *object, u32 scriptId);
+u32 MapObject_GetScriptID(LocalMapObject *object);
+u32 MapObject_GetInitialFacingDirection(LocalMapObject *object);
+void MapObject_SetFacingDirectionDirect(LocalMapObject *object, u32 direction);
+void MapObject_SetFacingDirection(LocalMapObject *object, u32 direction);
+u32 MapObject_GetFacingDirection(LocalMapObject *object);
+u32 MapObject_GetPreviousFacingDirection(LocalMapObject *object);
+void MapObject_SetNextFacingDirection(LocalMapObject *object, u32 direction);
+u32 MapObject_GetNextFacingDirection(LocalMapObject *object);
+void MapObject_SetOrQueueFacing(LocalMapObject *object, u32 direction);
+void MapObject_SetParam(LocalMapObject *object, s32 value, u32 param);
+s32 MapObject_GetParam(LocalMapObject *object, u32 param);
+void MapObject_SetXRange(LocalMapObject *object, s32 xRange);
+s32 MapObject_GetXRange(LocalMapObject *object);
+void MapObject_SetYRange(LocalMapObject *object, s32 yRange);
+s32 MapObject_GetYRange(LocalMapObject *object);
 
 #endif // POKEDIAMOND_MAP_OBJECT_H

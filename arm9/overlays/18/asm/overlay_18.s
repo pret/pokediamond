@@ -40407,7 +40407,7 @@ _0224D2AE:
 	ldr r0, [r0, #0x34]
 	bl MapObjectManager_GetFirstActiveObjectByID
 	ldr r1, [sp]
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 _0224D2CE:
 	add r4, r4, #1
 	add r5, #0x20

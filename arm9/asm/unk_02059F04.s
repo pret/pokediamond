@@ -144,7 +144,7 @@ sub_02059FB8: ; 0x02059FB8
 	cmp r1, r2
 	beq _02059FE0
 	add r0, r5, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	b _0205A010
 _02059FE0:
 	ldrh r0, [r4, #0x0]
@@ -167,7 +167,7 @@ _02059FE0:
 	bl sub_0205AAD4
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 _0205A010:
 	add r0, r5, #0x0
 	bl sub_02059C60
@@ -303,7 +303,7 @@ _0205A0FE:
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584D8
+	bl MapObject_SetOrQueueFacing
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x1
 	bne _0205A12A
@@ -561,7 +561,7 @@ sub_0205A2EC: ; 0x0205A2EC
 _0205A300:
 	ldr r1, [r4, #0x0]
 	add r0, r5, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -799,7 +799,7 @@ _0205A4A6:
 	lsl r1, r4, #0x2
 	ldr r1, [r5, r1]
 	add r0, r7, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	mov r0, #0x0
 	strb r0, [r6, #0x2]
 	mov r0, #0x1
@@ -956,7 +956,7 @@ _0205A5C2:
 	lsl r1, r4, #0x2
 	ldr r1, [r5, r1]
 	add r0, r7, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	add r0, r7, #0x0
 	bl MapObject_GetFacingDirection
 	add r4, r0, #0x0
@@ -1039,7 +1039,7 @@ _0205A65A:
 	bne _0205A674
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 _0205A674:
 	mov r0, #0x1
 	strh r0, [r4, #0x0]
@@ -1083,7 +1083,7 @@ sub_0205A67C: ; 0x0205A67C
 	bne _0205A6D6
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 _0205A6D6:
 	mov r0, #0x0
 	strh r0, [r4, #0x2]
@@ -1520,7 +1520,7 @@ _0205A9C0:
 	bne _0205A9EA
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 _0205A9EA:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -1544,7 +1544,7 @@ _0205A9EA:
 	bne _0205AA20
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 _0205AA20:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -1995,7 +1995,7 @@ _0205AD6E:
 	strb r0, [r5, #0x2]
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	add r0, r7, #0x0
 	mov r1, #0x80
 	bl MapObject_SetFlagsBits

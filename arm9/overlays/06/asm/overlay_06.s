@@ -33905,7 +33905,7 @@ ov06_02249E9C: ; 0x02249E9C
 	bl MapObject_GetFacingDirection
 	str r0, [sp, #0x14]
 	add r0, r5, #0
-	bl sub_020584C8
+	bl MapObject_GetPreviousFacingDirection
 	str r0, [sp, #0x18]
 	add r0, r5, #0
 	mov r1, #2

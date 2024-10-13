@@ -218,7 +218,7 @@ _02055228:
 	bl MapObject_SetType
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl MapObject_SetFlagID
+	bl MapObject_SetEventFlag
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl MapObject_SetScriptID
@@ -319,7 +319,7 @@ sub_02055304: ; 0x02055304
 	add r4, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	pop {r4, pc}
 
 	thumb_func_start sub_02055314

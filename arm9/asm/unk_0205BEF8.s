@@ -367,7 +367,7 @@ _0205C148:
 	mov r1, #0x4
 	ldrsb r1, [r4, r1]
 	add r0, r5, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	ldrb r0, [r4, #0x1]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x1]
@@ -613,7 +613,7 @@ _0205C314:
 	mov r1, #0x4
 	ldrsb r1, [r4, r1]
 	add r0, r7, #0x0
-	bl sub_020584AC
+	bl MapObject_SetFacingDirection
 	ldrb r0, [r4, #0x1]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x1]
