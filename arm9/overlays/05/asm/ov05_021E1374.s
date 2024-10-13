@@ -530,7 +530,7 @@ _021E1770:
 	ldr r0, [r4, #4]
 	bl sub_0205AEFC
 	ldr r0, [r4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #4
 	add r1, r4, #0
 	bl FreeToHeapExplicit

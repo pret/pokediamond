@@ -6,7 +6,6 @@
 
 #include "field_system.h"
 #include "heap.h"
-#include "unk_0200CA44.h"
 
 static MapObjectManager *MapObjectManager_New(u32 objectCount);
 static LocalMapObject *MapObject_CreateFromObjectEvent(MapObjectManager *manager, ObjectEvent *objectEvent, u32 mapNo);
@@ -56,6 +55,10 @@ static void MapObject_SetMapID(LocalMapObject *object, u32 mapId);
 /*static*/ void MapObject_SetMovement(LocalMapObject *object, u32 movement);
 /*static*/ u32 MapObject_GetEventFlag(LocalMapObject *object);
 static void MapObject_SetInitialFacingDirection(LocalMapObject *object, u32 initialFacing);
+static void sub_02058554(LocalMapObject *object, SysTask *sysTask);
+static SysTask *sub_0205855C(LocalMapObject *object);
+static void sub_02058564(LocalMapObject *object);
+static void MapObject_SetManager(LocalMapObject *object, MapObjectManager *manager);
 
 extern BOOL MapObject_IsInUse(LocalMapObject *object);
 extern void ov05_021F2AF4(MapObjectManager *manager, void *param0);
@@ -80,11 +83,9 @@ extern u32 ObjectEvent_GetFlagID(ObjectEvent *objectEvent);
 extern ObjectEvent *ObjectEvent_GetById(u32 id, u32 objectEventCount, ObjectEvent *events);
 extern u8 FieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);
 extern BOOL sub_02058934(LocalMapObject *object);
-extern MapObjectManager *MapObject_GetManager(LocalMapObject *object);
 extern BOOL sub_020587E0(MapObjectManager *manager);
 extern void sub_020586B4(LocalMapObject *object);
 extern void sub_02058660(LocalMapObject *object);
-extern void sub_02058564(LocalMapObject *object);
 extern MapObjectManager *sub_02058580(LocalMapObject *object);
 extern FieldSystem *MapObject_GetFieldSystem(LocalMapObject *object);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
@@ -120,7 +121,6 @@ extern void MapObject_SetCurrentX(LocalMapObject *object, u32 currentX);
 extern void MapObject_SetCurrentHeight(LocalMapObject *object, u32 currentHeight);
 extern void MapObject_SetCurrentY(LocalMapObject *object, u32 currentY);
 extern void MapObject_SetPositionVec(LocalMapObject *object, VecFx32 *coords);
-extern void MapObject_SetManager(LocalMapObject *object, MapObjectManager *manager);
 extern void MapObject_ClearHeldMovement(LocalMapObject *object);
 extern void sub_0205866C(LocalMapObject *object);
 extern void MapObject_GetPositionVec(LocalMapObject *object, VecFx32 *position);
@@ -130,7 +130,6 @@ extern void MapObject_SetPreviousY(LocalMapObject *object, u32 previousY);
 extern void MapObject_CreateFromInitArgs(MapObjectInitArgs *args);
 extern BOOL MapObject_CheckFlag25(LocalMapObject *object);
 extern u32 sub_02058750(LocalMapObject *object);
-extern void sub_02058554(LocalMapObject *object, SysTask *task);
 extern u16 ObjectEvent_GetSpriteID(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetMovement(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetType(ObjectEvent *objectEvent);
@@ -164,7 +163,6 @@ extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback call
 extern u16 FieldSystem_VarGetObjectEventGraphicsId(FieldSystem *fieldSystem, u16 spriteId);
 extern u32 sub_02059D1C(LocalMapObject *object);
 extern void sub_02058EE8(LocalMapObject *object);
-extern void sub_02058544(LocalMapObject *object, u32 param1);
 extern void ov05_021F2E0C(LocalMapObject *object, BOOL set);
 extern void sub_0205868C(LocalMapObject *object);
 extern void MapObject_SetFlag14(LocalMapObject *object);
@@ -1184,4 +1182,32 @@ void MapObject_SetYRange(LocalMapObject *object, s32 yRange) {
 
 s32 MapObject_GetYRange(LocalMapObject *object) {
     return object->yRange;
+}
+
+void sub_02058544(LocalMapObject *object, u32 param1) {
+    object->unkA0 = param1;
+}
+
+u32 sub_0205854C(LocalMapObject *object) {
+    return object->unkA0;
+}
+
+static void sub_02058554(LocalMapObject *object, SysTask *sysTask) {
+    object->unkB0 = sysTask;
+}
+
+static SysTask *sub_0205855C(LocalMapObject *object) {
+    return object->unkB0;
+}
+
+static void sub_02058564(LocalMapObject *object) {
+    SysTask_Destroy(sub_0205855C(object));
+}
+
+static void MapObject_SetManager(LocalMapObject *object, MapObjectManager *manager) {
+    object->manager = manager;
+}
+
+MapObjectManager *MapObject_GetManager(LocalMapObject *object) {
+    return object->manager;
 }

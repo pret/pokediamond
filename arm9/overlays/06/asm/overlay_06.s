@@ -215,7 +215,7 @@ ov06_0223981C: ; 0x0223981C
 	ldr r0, [r0, #8]
 	bl ov06_02239790
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -233,7 +233,7 @@ ov06_02239840: ; 0x02239840
 	ldr r0, [r0, #8]
 	bl ov06_0223986C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov06_02239864
@@ -300,7 +300,7 @@ ov06_022398BC: ; 0x022398BC
 	add r3, r1, #0
 	bl ov05_021E8698
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.align 2, 0
 
@@ -2137,7 +2137,7 @@ ov06_0223A660: ; 0x0223A660
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	beq _0223A672
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x20]
 _0223A672:
@@ -2159,7 +2159,7 @@ ov06_0223A67C: ; 0x0223A67C
 	ldr r0, [r5, #0x20]
 	cmp r0, #0
 	beq _0223A69A
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r5, #0x20]
 _0223A69A:
@@ -2239,7 +2239,7 @@ _0223A720:
 	pop {r4, pc}
 _0223A736:
 	ldr r0, [r4, #0x20]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x20]
 	ldr r0, [r4, #0x1c]
@@ -2520,7 +2520,7 @@ _0223A936:
 	mov r2, #1
 	sub r1, r3, #4
 	str r2, [r4, r1]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0223A940:
 	add sp, #8
 	pop {r4, pc}
@@ -2583,7 +2583,7 @@ _0223A9AC:
 	mov r2, #5
 	sub r1, r1, #4
 	str r2, [r4, r1]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0223A9B6:
 	pop {r4, pc}
 
@@ -13617,7 +13617,7 @@ ov06_02240164: ; 0x02240164
 	add r0, #0x88
 	str r1, [r0]
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02240192:
 	pop {r4, pc}
 	.align 2, 0
@@ -13885,7 +13885,7 @@ _022403D0:
 	cmp r5, #0
 	beq _022403DA
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022403DA:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -14079,7 +14079,7 @@ _02240574:
 	add r0, r4, #0
 	bl ov06_02240724
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x44
 	pop {r3, r4, r5, r6, pc}
 _0224058E:
@@ -14178,7 +14178,7 @@ ov06_0224062C: ; 0x0224062C
 	tst r0, r1
 	beq _0224065E
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	bl ov06_0223F8B4
 	ldr r0, _02240660 ; =0x02252420
 	mov r1, #1
@@ -14236,7 +14236,7 @@ ov06_022406A8: ; 0x022406A8
 	add r0, r4, #0
 	bl ov06_0223F270
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022406CE:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -14275,7 +14275,7 @@ ov06_022406EC: ; 0x022406EC
 	add r0, r4, #0
 	bl ov06_0223F270
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02240718:
 	pop {r3, r4, r5, pc}
 	nop
@@ -23508,7 +23508,7 @@ _02244F78:
 	mov r3, #1
 	add r2, r2, #4
 	str r3, [r1, r2]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, pc}
 
 	thumb_func_start ov06_02244F84
@@ -26557,7 +26557,7 @@ ov06_022466AC: ; 0x022466AC
 	bl sub_0201B6C8
 	bl ov06_022466E0
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start ov06_022466C0
@@ -27502,7 +27502,7 @@ ov06_02246D8C: ; 0x02246D8C
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _02246DA6
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x85
 	mov r1, #0
 	lsl r0, r0, #2
@@ -27642,7 +27642,7 @@ _02246E94:
 	lsl r0, r0, #2
 	str r1, [r6, r0]
 	ldr r0, [sp]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02246EA2:
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -27696,7 +27696,7 @@ ov06_02246EDC: ; 0x02246EDC
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02246F0A:
 	pop {r3, r4, r5, pc}
 
@@ -28683,7 +28683,7 @@ _022476B6:
 	mov r0, #0x86
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -30413,7 +30413,7 @@ ov06_022483EC: ; 0x022483EC
 	bl sub_0201B6C8
 	bl FreeToHeap
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start ov06_02248400
@@ -32387,11 +32387,11 @@ _0224930C: .word ov06_02249388
 
 	thumb_func_start ov06_02249310
 ov06_02249310: ; 0x02249310
-	ldr r3, _02249318 ; =sub_0200CAB4
+	ldr r3, _02249318 ; =SysTask_Destroy
 	ldr r0, [r0, #0x24]
 	bx r3
 	nop
-_02249318: .word sub_0200CAB4
+_02249318: .word SysTask_Destroy
 
 	thumb_func_start ov06_0224931C
 ov06_0224931C: ; 0x0224931C
@@ -36005,7 +36005,7 @@ ov06_0224AE78: ; 0x0224AE78
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	beq _0224AE8C
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0xc]
 	str r0, [r4, #8]
@@ -36060,7 +36060,7 @@ ov06_0224AEC0: ; 0x0224AEC0
 	mov r0, #1
 	str r0, [r4, #8]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -44491,7 +44491,7 @@ _0224F102:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224F120:
 	pop {r3, r4, r5, pc}
 	nop

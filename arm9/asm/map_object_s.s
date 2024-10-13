@@ -13,57 +13,9 @@
 	.extern MapObjectManager_GetFieldSystem
 	.extern MapObject_SetMovement
 	.extern MapObject_GetEventFlag
+	.extern sub_0205855C
 
 	.text
-
-	thumb_func_start sub_02058544
-sub_02058544: ; 0x02058544
-	add r0, #0xa0
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_0205854C
-sub_0205854C: ; 0x0205854C
-	add r0, #0xa0
-	ldr r0, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_02058554
-sub_02058554: ; 0x02058554
-	add r0, #0xb0
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_0205855C
-sub_0205855C: ; 0x0205855C
-	add r0, #0xb0
-	ldr r0, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_02058564
-sub_02058564: ; 0x02058564
-	push {r3, lr}
-	bl sub_0205855C
-	bl sub_0200CAB4
-	pop {r3, pc}
-
-	thumb_func_start MapObject_SetManager
-MapObject_SetManager: ; 0x02058570
-	add r0, #0xb4
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start MapObject_GetManager
-MapObject_GetManager: ; 0x02058578
-	add r0, #0xb4
-	ldr r0, [r0, #0x0]
-	bx lr
-	.balign 4
 
 	thumb_func_start sub_02058580
 sub_02058580: ; 0x02058580

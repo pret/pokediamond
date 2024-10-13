@@ -4322,11 +4322,11 @@ _021D95E0: .word ov16_021D95F4
 ov16_021D95E4: ; 0x021D95E4
 	mov r1, #0x9d
 	lsl r1, r1, #2
-	ldr r3, _021D95F0 ; =sub_0200CAB4
+	ldr r3, _021D95F0 ; =SysTask_Destroy
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_021D95F0: .word sub_0200CAB4
+_021D95F0: .word SysTask_Destroy
 	thumb_func_end ov16_021D95E4
 
 	thumb_func_start ov16_021D95F4
@@ -4549,7 +4549,7 @@ ov16_021D9780: ; 0x021D9780
 	mov r0, #0x9e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x9e
 	mov r1, #0
 	lsl r0, r0, #2
@@ -48063,7 +48063,7 @@ _021ED8CA:
 	cmp r1, #0
 	bne _021ED8DA
 	ldr r0, [r0, #0x3c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021ED8DA:
 	ldr r0, [r4, #8]
 	bl FreeToHeap
@@ -49222,7 +49222,7 @@ _021EE234:
 	bl ov16_021EE254
 	pop {r4, pc}
 _021EE23E:
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x30]
 	mov r1, #1
 	str r1, [r0]
@@ -49474,7 +49474,7 @@ _021EE3FC:
 	cmp r4, #1
 	bne _021EE424
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r5, #0x20]
 	mov r1, #1
 	str r1, [r0]
@@ -49676,7 +49676,7 @@ _021EE586:
 	ldr r0, [r4]
 	bl sub_02020044
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x1c]
 	mov r1, #1
 	str r1, [r0]
@@ -51018,7 +51018,7 @@ ov16_021EEF68: ; 0x021EEF68
 	mov r0, #7
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}

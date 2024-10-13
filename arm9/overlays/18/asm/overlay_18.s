@@ -240,7 +240,7 @@ ov18_02239858: ; 0x02239858
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _02239896
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _022398A8 ; =0x02251380
 	mov r2, #0
 	ldr r1, [r0]
@@ -1144,7 +1144,7 @@ _02239F12:
 	add r0, #0x98
 	str r3, [r1, r0]
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	nop
 _02239F2C: .word ov18_02251380
@@ -1267,7 +1267,7 @@ _0223A010:
 	bl ov18_0223D638
 	bl ov18_0224DD94
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	bl ov18_0223E6A0
 	ldr r0, _0223A044 ; =0x02251380
 	mov r2, #0
@@ -2528,7 +2528,7 @@ _0223AA5C:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #1
 	bl ov18_02247970
 	add sp, #0xc
@@ -6381,7 +6381,7 @@ ov18_0223C848: ; 0x0223C848
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223C876
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _0223C878 ; =0x02251380
 	ldr r1, [r0]
 	ldr r0, _0223C880 ; =0x00000884
@@ -7879,7 +7879,7 @@ ov18_0223D370: ; 0x0223D370
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223D3A2
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _0223D3A4 ; =0x02251384
 	ldr r1, [r0]
 	ldr r0, _0223D3A8 ; =0x000004C4
@@ -8161,7 +8161,7 @@ _0223D5BC:
 	ldr r0, _0223D634 ; =0x02251388
 	ldr r0, [r0]
 	ldr r0, [r0, #0x14]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _0223D634 ; =0x02251388
 	ldr r1, [r0]
 	mov r0, #0x46
@@ -10806,7 +10806,7 @@ _0223E9EC:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223EA12
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _0223EA3C ; =0x022513A0
 	mov r2, #0
 	ldr r1, [r0, #4]
@@ -10916,7 +10916,7 @@ _0223EAD0:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223EAE2
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0223EAE2:
 	ldr r0, _0223EB04 ; =0x022513A0
 	ldr r1, [r0, #4]
@@ -14015,7 +14015,7 @@ _022401D2:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r2, _02240204 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r3, [r2, #4]
@@ -14131,7 +14131,7 @@ ov18_022402A0: ; 0x022402A0
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r2, _022402EC ; =0x022513A0
 	mov r0, #0xa3
 	ldr r3, [r2, #4]
@@ -14401,7 +14401,7 @@ _022404A4:
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r1, _022404EC ; =0x022513A0
@@ -15369,7 +15369,7 @@ ov18_02240C14: ; 0x02240C14
 	mov r0, #0xa5
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02240C6C ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa6
@@ -15605,7 +15605,7 @@ ov18_02240DC8: ; 0x02240DC8
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02240E24 ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa7
@@ -15702,7 +15702,7 @@ _02240EA4:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r1, _02240EE4 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -15779,7 +15779,7 @@ ov18_02240F34: ; 0x02240F34
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r1, _02240F80 ; =0x022513A0
@@ -15843,7 +15843,7 @@ _02240FB4:
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r1, _02241000 ; =0x022513A0
@@ -16086,7 +16086,7 @@ _022411B0:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r1, _02241278 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -16760,7 +16760,7 @@ _022416D6:
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02241730 ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa7
@@ -18696,7 +18696,7 @@ _02242604:
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02242658 ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa7
@@ -20259,7 +20259,7 @@ _02243268:
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r1, _022432AC ; =0x022513A0
@@ -21006,7 +21006,7 @@ _02243840:
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r1, _0224388C ; =0x022513A0
@@ -21270,7 +21270,7 @@ _02243A44:
 	mov r0, #0xa3
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r1, _02243A88 ; =0x022513A0
@@ -21709,7 +21709,7 @@ _02243DCA:
 	ldr r0, [r0, #0x44]
 	bl sub_0201FD58
 	ldr r0, [sp]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r7, #0
 	bl FreeToHeap
 	ldr r0, _02243E10 ; =0x022513A0
@@ -21796,7 +21796,7 @@ ov18_02243E8C: ; 0x02243E8C
 	ldr r1, [r1, #4]
 	cmp r1, #0
 	bne _02243EA6
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, r5, r6, pc}
@@ -21822,7 +21822,7 @@ _02243EBE:
 	add r1, r2, r1
 	str r0, [r1, #0x20]
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
@@ -21989,7 +21989,7 @@ _02243FFA:
 	ldr r0, [r0, #0x20]
 	cmp r0, #0
 	beq _0224401A
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #4]
 	ldr r0, [r0, r5]
 	bl FreeToHeap
@@ -24330,7 +24330,7 @@ ov18_022451BC: ; 0x022451BC
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _022451D8
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _022451E4 ; =0x022513EC
 	mov r1, #0
 	ldr r0, [r0]
@@ -24422,7 +24422,7 @@ ov18_02245270: ; 0x02245270
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _02245288
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _022452A0 ; =0x022513EC
 	mov r1, #0
 	ldr r0, [r0]
@@ -25131,7 +25131,7 @@ ov18_022457D4: ; 0x022457D4
 	bl sub_020021EC
 _022457E6:
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	bl ov18_0223E6A0
@@ -25161,7 +25161,7 @@ _0224580A:
 	add r1, sp, #0
 	bl sub_020311D0
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	bl ov18_0223E6A0
@@ -27433,7 +27433,7 @@ _02246A60:
 	add r1, sp, #0x10
 	bl sub_020311D0
 	ldr r0, [sp, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	bl ov18_0223E6A0
@@ -27460,7 +27460,7 @@ _02246A80:
 	mov r2, #0
 	bl ov05_021E5B30
 	ldr r0, [sp, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	bl ov18_0223E6A0
@@ -27648,7 +27648,7 @@ ov18_02246C10: ; 0x02246C10
 	bl sub_020021EC
 _02246C28:
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	bl ov18_0223E6A0
@@ -28541,7 +28541,7 @@ ov18_02247324: ; 0x02247324
 	add r0, r1, #0
 	bl FreeToHeap
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov18_02247324
@@ -28637,7 +28637,7 @@ _022473F6:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	bl ov18_0223E6A0
 _02247406:
 	add sp, #0xc
@@ -29642,7 +29642,7 @@ _02247B9A:
 	bl FreeToHeap
 	bl sub_0204F7FC
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02247BB4 ; =0x022513F0
 	mov r1, #0
 	str r1, [r0, #4]
@@ -31112,7 +31112,7 @@ _02248760:
 	bl FreeToHeap
 	bl sub_0204F7FC
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02248780 ; =0x022513F0
 	mov r1, #0
 	str r1, [r0]
@@ -35310,7 +35310,7 @@ _0224A8FE:
 	bl sub_0204F7FC
 _0224A90C:
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
 	thumb_func_end ov18_0224A8AC
 
@@ -35952,7 +35952,7 @@ _0224AE52:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	beq _0224AE5C
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224AE5C:
 	add r0, r5, #0
 	bl FreeToHeap
@@ -37391,7 +37391,7 @@ _0224B9B4:
 	bl ov18_0223D658
 	bl ov18_0224DD94
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r3, r4, r5, pc}
@@ -37931,7 +37931,7 @@ _0224BE68:
 	bl FreeToHeap
 	bl ov18_0223E6A0
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224BE78:
 	pop {r3, r4, r5, pc}
 	nop
@@ -37953,7 +37953,7 @@ _0224BE96:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov18_0224BE84
 
@@ -40302,7 +40302,7 @@ _0224D1A0:
 	bl ov18_0224CA34
 	bl ov18_0223E6A0
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	bl sub_0204F7FC
 _0224D1CE:
 	add sp, #8
@@ -40752,7 +40752,7 @@ _0224D596:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _0224D5B0 ; =0x022513FC
 	mov r2, #0
 	ldr r1, [r0]
@@ -41748,7 +41748,7 @@ _0224DD76:
 	ldr r0, [r5, #0x20]
 	cmp r0, #0
 	beq _0224DD88
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r5, #0x20]
 _0224DD88:

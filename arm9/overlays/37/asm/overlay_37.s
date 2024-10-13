@@ -113,7 +113,7 @@ ov37_02254900: ; 0x02254900
 	add r0, r4, #0
 	bl ov37_022548E0
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x10]
 	bl ov20_022529A0
 _0225492C:

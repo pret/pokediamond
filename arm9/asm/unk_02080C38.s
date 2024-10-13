@@ -2315,7 +2315,7 @@ _02081D86:
 	add r0, #0x5a
 	strb r2, [r4, r0]
 	ldr r0, [sp, #0x0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02081DBC:
 	add sp, #0x10
 	pop {r3-r7, pc}
@@ -2625,7 +2625,7 @@ _02082000:
 	str r2, [r4, r1]
 	sub r1, #0xa
 	strb r2, [r4, r1]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02082010:
 	pop {r4, pc}
 	nop
@@ -3418,7 +3418,7 @@ _02082580:
 	mov r1, #0x0
 	str r1, [r5, r0]
 	add r0, r6, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02082594:
 	add sp, #0x4
 	pop {r3-r6, pc}

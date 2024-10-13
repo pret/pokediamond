@@ -3623,7 +3623,7 @@ ov65_021D9130: ; 0x021D9130
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x18]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r1, [r4, #0x14]
 	mov r2, #0x1c
 	ldr r0, [r1, #4]

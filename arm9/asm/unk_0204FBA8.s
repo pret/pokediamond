@@ -105,7 +105,7 @@ sub_0204FC10: ; 0x0204FC10
 	cmp r0, #0x0
 	beq _0204FC56
 	ldr r0, [r0, #0x38]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r4, #0x0
 	ldr r6, _0204FC58 ; =UNK_021C5A6C
 	add r5, r4, #0x0
@@ -657,7 +657,7 @@ sub_0205006C: ; 0x0205006C
 	ldr r2, [r1, #0x0]
 	cmp r2, #0x0
 	bne _0205007C
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, pc}
 _0205007C:
 	ldr r1, [r2, #0x34]

@@ -108,7 +108,7 @@ sub_02052FA4: ; 0x02052FA4
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02052FC4 ; =0x000004DC
 	ldr r0, [r4, r0]
 	bl sub_0205362C

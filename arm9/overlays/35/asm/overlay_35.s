@@ -103,7 +103,7 @@ ov35_022548F0: ; 0x022548F0
 	add r0, r4, #0
 	bl ov35_022548DC
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x2c]
 	bl ov20_022529A0
 _0225491C:
@@ -408,7 +408,7 @@ ov35_02254B38: ; 0x02254B38
 	add r0, r4, #0
 	add r0, #0x8c
 	ldr r0, [r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 _02254B52:

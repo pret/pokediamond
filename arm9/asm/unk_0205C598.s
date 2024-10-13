@@ -725,7 +725,7 @@ sub_0205CAE0: ; 0x0205CAE0
 	mov r0, #0x4
 	bl FreeToHeapExplicit
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start sub_0205CAF8

@@ -132,7 +132,7 @@ _021E75EA:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r7, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021E7606:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -271,7 +271,7 @@ _021E771C:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021E7740:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}

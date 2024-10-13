@@ -1230,7 +1230,7 @@ _021D9286:
 	bl GF_AssertFail
 _021D9296:
 	ldr r0, [r4, #0x28]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x28]
 _021D92A0:
@@ -1258,7 +1258,7 @@ _021D92C0:
 	ldrb r1, [r4, #6]
 	cmp r1, #0x10
 	blo _021D92D2
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r0, #1
@@ -1305,7 +1305,7 @@ _021D931C:
 	ldrb r1, [r4, #6]
 	cmp r1, #0
 	bne _021D9332
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r1, #1
@@ -1354,7 +1354,7 @@ _021D937C:
 	ldrb r1, [r4, #6]
 	cmp r1, #0x10
 	blo _021D938E
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r0, #1
@@ -1393,7 +1393,7 @@ _021D93C4:
 	ldrb r1, [r4, #6]
 	cmp r1, #0x10
 	blo _021D93D6
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x10]
 	mov r0, #1

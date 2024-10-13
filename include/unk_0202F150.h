@@ -7,6 +7,7 @@
 #include "RTC_api.h"
 #include "heap.h"
 #include "main.h"
+#include "unk_0200CA44.h"
 #include "unk_0202D858.h"
 #include "unk_02031480.h"
 
@@ -38,7 +39,7 @@ struct UnkStruct0202F150 {
     struct UnkStruct0202F150_sub1 unk47C[8];
     struct UnkStruct0202F150_sub1 unk4DC;
     struct UnkStruct0202F150_sub1 unk4E8[8];
-    u32 unk548;
+    SysTask *unk548;
     u8 unk54C[32];
     u8 unk56C[32];
     struct UnkStruct0202F150_sub2 unk58C[8];
@@ -101,7 +102,7 @@ u8 sub_0202FA28();
 u32 sub_0202FA48();
 void sub_0202FA5C();
 u32 sub_0202FB18(u32 param0);
-void sub_0202FB20();
+void sub_0202FB20(SysTask *sysTask, void *param1);
 void sub_0202FB58();
 BOOL sub_0202FB80();
 void sub_0202FC60();

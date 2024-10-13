@@ -760,7 +760,7 @@ ov61_021D7AA8: ; 0x021D7AA8
 	ldr r2, [r4, #0x30]
 	cmp r2, #0
 	bne _021D7ABC
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #8
 	pop {r4, pc}
 _021D7ABC:

@@ -4347,7 +4347,7 @@ ov83_0222F89C: ; 0x0222F89C
 	ldr r2, [r1]
 	cmp r2, #0
 	bne _0222F8AC
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, pc}
 _0222F8AC:
 	ldr r1, [r2, #0x20]
@@ -9853,7 +9853,7 @@ _022324B4:
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _022324C0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022324C0:
 	mov r0, #3
 	mov r1, #0

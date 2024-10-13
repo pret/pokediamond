@@ -82,7 +82,7 @@ void ov21_02254930(SysTask *task, UnkStruct02254854 *param1) {
         return;
     }
     ov21_02254918(param1);
-    sub_0200CAB4((s32)task);
+    SysTask_Destroy(task);
     ov20_022529A0(param1->Unk28);
 }
 

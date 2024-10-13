@@ -939,7 +939,7 @@ ov05_021E5158: ; 0x021E5158
 	mov r0, #1
 	str r0, [r4]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 
@@ -957,7 +957,7 @@ ov05_021E5174: ; 0x021E5174
 	add r0, r4, #0
 	bl ov05_021E4C00
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021E5194:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -1027,7 +1027,7 @@ ov05_021E5208: ; 0x021E5208
 	ldr r1, [r4, #0xc]
 	bl sub_0201B3A8
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021E5224

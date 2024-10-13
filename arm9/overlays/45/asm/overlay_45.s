@@ -240,7 +240,7 @@ ov45_022549EC: ; 0x022549EC
 	add r0, r4, #0
 	bl ov45_022549C0
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r4, #0x94
 	ldr r0, [r4]
 	bl ov20_022529A0

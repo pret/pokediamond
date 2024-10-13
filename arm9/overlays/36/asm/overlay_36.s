@@ -139,7 +139,7 @@ ov36_02254938: ; 0x02254938
 	add r0, r4, #0
 	bl ov36_02254914
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02254978 ; =0x00005B80
 	ldr r0, [r4, r0]
 	bl ov20_022529A0

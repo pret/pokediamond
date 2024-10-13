@@ -7,6 +7,7 @@
 #include "field_types_def.h"
 #include "filesystem.h"
 #include "heap.h"
+#include "unk_0200CA44.h"
 
 typedef struct SavedMapObject {
     u32 flags;
@@ -67,7 +68,12 @@ struct LocalMapObject {
     s32 param[3];
     s32 xRange;
     s32 yRange;
-    u8 padding[0xDC]; // todo verify size
+    u8 padding[0x54];
+    u32 unkA0;
+    u8 padding2[0xC];
+    SysTask *unkB0;
+    MapObjectManager *manager;
+    u8 padding3[0x70]; // todo verify size
 };
 
 typedef struct ObjectEvent {
@@ -206,5 +212,8 @@ void MapObject_SetXRange(LocalMapObject *object, s32 xRange);
 s32 MapObject_GetXRange(LocalMapObject *object);
 void MapObject_SetYRange(LocalMapObject *object, s32 yRange);
 s32 MapObject_GetYRange(LocalMapObject *object);
+void sub_02058544(LocalMapObject *object, u32 param1);
+u32 sub_0205854C(LocalMapObject *object);
+MapObjectManager *MapObject_GetManager(LocalMapObject *object);
 
 #endif // POKEDIAMOND_MAP_OBJECT_H

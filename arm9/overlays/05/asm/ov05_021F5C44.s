@@ -154,7 +154,7 @@ ov05_021F5D68: ; 0x021F5D68
 	bl sub_0201B6C8
 	bl FreeToHeap
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start ov05_021F5D7C

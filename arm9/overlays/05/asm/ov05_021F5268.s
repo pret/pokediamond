@@ -47,7 +47,7 @@ ov05_021F52AC: ; 0x021F52AC
 	ldr r1, [r4, #0xc]
 	bl sub_0201B3A8
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021F52C8

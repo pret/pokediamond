@@ -168,7 +168,7 @@ _02254964:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x10]
 	bl ov20_022529A0
 _0225499E:

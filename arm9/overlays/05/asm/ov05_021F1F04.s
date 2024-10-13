@@ -2902,13 +2902,13 @@ ov05_021F3458: ; 0x021F3458
 	mov r0, #1
 	strh r0, [r4, #6]
 	ldr r0, [r4, #0x18]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x1c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x20]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x24]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	mov r0, #1
@@ -3212,7 +3212,7 @@ _021F370A:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
 _021F3730:
 	add r0, r4, #0
@@ -3245,7 +3245,7 @@ _021F3758:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021F377C:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

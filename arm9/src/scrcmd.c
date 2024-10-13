@@ -1634,7 +1634,7 @@ void sub_0203B1A8(SysTask *task, UnkStruct_0203B174 *param1) {
     }
 
     sub_0205AEFC(param1->Unk04);
-    sub_0200CAB4((s32)param1->sysTask);
+    SysTask_Destroy(param1->sysTask);
 
     if (param1->Unk08 != NULL) {
         FreeToHeap(param1->Unk08);

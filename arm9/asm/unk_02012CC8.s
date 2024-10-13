@@ -861,7 +861,7 @@ sub_02013268: ; 0x02013268
 	add r0, r1, #0x0
 	bl sub_02013228
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.balign 4
 

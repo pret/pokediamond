@@ -685,7 +685,7 @@
 .extern sub_0200CA60
 .extern sub_0200CA7C
 .extern sub_0200CA98
-.extern sub_0200CAB4
+.extern SysTask_Destroy
 .extern sub_0200CABC
 .extern sub_0200CAFC
 .extern LoadUserFrameGfx1

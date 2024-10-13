@@ -2300,7 +2300,7 @@ ov05_021E71E8: ; 0x021E71E8
 	add r0, r6, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021E7216:
 	pop {r4, r5, r6, pc}
 
