@@ -4,7 +4,6 @@
 	.extern UNK_020F6364
 	.extern sub_02057EE0
 	.extern sub_0205815C
-	.extern MapObjectManager_Get
 	.extern MapObjectManager_GetObjectCount
 	.extern MapObjectManager_SetFlagsBits
 	.extern MapObjectManager_ClearFlagsBits
@@ -14,163 +13,10 @@
 	.extern MapObject_SetMovement
 	.extern MapObject_GetEventFlag
 	.extern sub_0205855C
+	.extern MapObject_GetManagerFromManager
+	.extern sub_02058660
 
 	.text
-
-	thumb_func_start sub_02058580
-sub_02058580: ; 0x02058580
-	ldr r3, _02058588 ; =MapObjectManager_Get
-	add r0, #0xb4
-	ldr r0, [r0, #0x0]
-	bx r3
-	.balign 4
-_02058588: .word MapObjectManager_Get
-
-	thumb_func_start sub_0205858C
-sub_0205858C: ; 0x0205858C
-	push {r3-r5, lr}
-	add r5, r1, #0x0
-	add r4, r0, #0x0
-	cmp r5, #0x10
-	ble _0205859A
-	bl GF_AssertFail
-_0205859A:
-	add r0, r4, #0x0
-	bl sub_020585B0
-	mov r1, #0x0
-	add r2, r5, #0x0
-	add r4, r0, #0x0
-	bl memset
-	add r0, r4, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start sub_020585B0
-sub_020585B0: ; 0x020585B0
-	add r0, #0xd8
-	bx lr
-
-	thumb_func_start sub_020585B4
-sub_020585B4: ; 0x020585B4
-	push {r3-r5, lr}
-	add r5, r1, #0x0
-	add r4, r0, #0x0
-	cmp r5, #0x10
-	ble _020585C2
-	bl GF_AssertFail
-_020585C2:
-	add r0, r4, #0x0
-	bl sub_020585D8
-	mov r1, #0x0
-	add r2, r5, #0x0
-	add r4, r0, #0x0
-	bl memset
-	add r0, r4, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start sub_020585D8
-sub_020585D8: ; 0x020585D8
-	add r0, #0xe8
-	bx lr
-
-	thumb_func_start sub_020585DC
-sub_020585DC: ; 0x020585DC
-	push {r3-r5, lr}
-	add r5, r1, #0x0
-	add r4, r0, #0x0
-	cmp r5, #0x10
-	ble _020585EA
-	bl GF_AssertFail
-_020585EA:
-	add r0, r4, #0x0
-	bl sub_02058600
-	mov r1, #0x0
-	add r2, r5, #0x0
-	add r4, r0, #0x0
-	bl memset
-	add r0, r4, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start sub_02058600
-sub_02058600: ; 0x02058600
-	add r0, #0xf8
-	bx lr
-
-	thumb_func_start sub_02058604
-sub_02058604: ; 0x02058604
-	push {r3-r5, lr}
-	add r5, r1, #0x0
-	add r4, r0, #0x0
-	cmp r5, #0x20
-	ble _02058612
-	bl GF_AssertFail
-_02058612:
-	add r0, r4, #0x0
-	bl sub_02058628
-	mov r1, #0x0
-	add r2, r5, #0x0
-	add r4, r0, #0x0
-	bl memset
-	add r0, r4, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start sub_02058628
-sub_02058628: ; 0x02058628
-	mov r1, #0x42
-	lsl r1, r1, #0x2
-	add r0, r0, r1
-	bx lr
-
-	thumb_func_start sub_02058630
-sub_02058630: ; 0x02058630
-	add r0, #0xb8
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_02058638
-sub_02058638: ; 0x02058638
-	push {r3, lr}
-	add r1, r0, #0x0
-	add r1, #0xb8
-	ldr r1, [r1, #0x0]
-	blx r1
-	pop {r3, pc}
-
-	thumb_func_start sub_02058644
-sub_02058644: ; 0x02058644
-	add r0, #0xbc
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_0205864C
-sub_0205864C: ; 0x0205864C
-	push {r3, lr}
-	add r1, r0, #0x0
-	add r1, #0xbc
-	ldr r1, [r1, #0x0]
-	blx r1
-	pop {r3, pc}
-
-	thumb_func_start sub_02058658
-sub_02058658: ; 0x02058658
-	add r0, #0xc0
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_02058660
-sub_02058660: ; 0x02058660
-	push {r3, lr}
-	add r1, r0, #0x0
-	add r1, #0xc0
-	ldr r1, [r1, #0x0]
-	blx r1
-	pop {r3, pc}
 
 	thumb_func_start sub_0205866C
 sub_0205866C: ; 0x0205866C
@@ -335,7 +181,7 @@ sub_02058730: ; 0x02058730
 	thumb_func_start MapObject_GetFieldSystem
 MapObject_GetFieldSystem: ; 0x02058738
 	push {r3, lr}
-	bl sub_02058580
+	bl MapObject_GetManagerFromManager
 	bl MapObjectManager_GetFieldSystem
 	pop {r3, pc}
 

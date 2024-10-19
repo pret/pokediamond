@@ -38,7 +38,7 @@ static void sub_02058214(LocalMapObject *object, ObjectEvent *objectEvent, u32 m
 static void sub_02058258(LocalMapObject *object, u32 mapNo, ObjectEvent *objectEvent);
 static void sub_0205832C(SysTask *task, LocalMapObject *object);
 static void sub_02058348(LocalMapObject *object);
-/*static*/ MapObjectManager *MapObjectManager_Get(MapObjectManager *manager);
+static MapObjectManager *MapObjectManager_Get(MapObjectManager *manager);
 static void MapObjectManager_SetObjectCount(MapObjectManager *manager, u32 count);
 static void sub_0205836C(MapObjectManager *manager);
 static void sub_02058374(MapObjectManager *manager);
@@ -59,6 +59,11 @@ static void sub_02058554(LocalMapObject *object, SysTask *sysTask);
 static SysTask *sub_0205855C(LocalMapObject *object);
 static void sub_02058564(LocalMapObject *object);
 static void MapObject_SetManager(LocalMapObject *object, MapObjectManager *manager);
+/*static*/ MapObjectManager *MapObject_GetManagerFromManager(LocalMapObject *object);
+static void sub_02058630(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+static void sub_02058644(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+static void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+/*static*/ void sub_02058660(LocalMapObject *object);
 
 extern BOOL MapObject_IsInUse(LocalMapObject *object);
 extern void ov05_021F2AF4(MapObjectManager *manager, void *param0);
@@ -85,8 +90,7 @@ extern u8 FieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);
 extern BOOL sub_02058934(LocalMapObject *object);
 extern BOOL sub_020587E0(MapObjectManager *manager);
 extern void sub_020586B4(LocalMapObject *object);
-extern void sub_02058660(LocalMapObject *object);
-extern MapObjectManager *sub_02058580(LocalMapObject *object);
+extern MapObjectManager *MapObject_GetManagerFromManager(LocalMapObject *object);
 extern FieldSystem *MapObject_GetFieldSystem(LocalMapObject *object);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void sub_02058ED8(LocalMapObject *object);
@@ -111,8 +115,6 @@ extern u32 MapObject_GetCurrentY(LocalMapObject *object);
 extern void sub_02059E60(s32 x, s32 y, VecFx32 *vector);
 extern u32 MapObject_GetPosVecYCoord(LocalMapObject *object);
 extern u32 MapObject_CheckFlag29(LocalMapObject *object);
-extern u8 *sub_020585B0(LocalMapObject *object);
-extern u8 *sub_020585D8(LocalMapObject *object);
 extern BOOL sub_02059EC8(FieldSystem *fieldSystem, VecFx32 *vector, BOOL flag);
 extern void MapObject_SetInitialX(LocalMapObject *object, u32 initialX);
 extern void MapObject_SetInitialHeight(LocalMapObject *object, u32 initialHeight);
@@ -144,11 +146,8 @@ extern u32 ObjectEvent_GetHeight(ObjectEvent *objectEvent);
 extern void MapObject_SetFlag25(LocalMapObject *object, BOOL flag);
 extern UnkLMOCallbackStruct *sub_02058D14(u32 movement);
 extern LocalMapObject_UnkCallback sub_02058D2C(UnkLMOCallbackStruct *callbackStruct);
-extern void sub_02058630(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D30(UnkLMOCallbackStruct *callbackStruct);
-extern void sub_02058644(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D34(UnkLMOCallbackStruct *callbackStruct);
-extern void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern UnkLMOCallbackStruct2 *sub_02058D4C(u32 spriteId);
 extern LocalMapObject_UnkCallback sub_02058D38(UnkLMOCallbackStruct2 *callbackStruct);
 extern void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback);
@@ -314,7 +313,7 @@ void MapObject_Remove(LocalMapObject *object) {
     }
     sub_02058660(object);
     sub_02058564(object);
-    sub_02058374(sub_02058580(object));
+    sub_02058374(MapObject_GetManagerFromManager(object));
     MapObject_Clear(object);
 }
 
@@ -905,7 +904,7 @@ static void sub_02058348(LocalMapObject *object) {
 }
 
 // Likely a scrubbed debug func, but WTF is GF smoking?
-/*static*/ MapObjectManager *MapObjectManager_Get(MapObjectManager *manager) {
+static MapObjectManager *MapObjectManager_Get(MapObjectManager *manager) {
     return manager;
 }
 
@@ -1210,4 +1209,80 @@ static void MapObject_SetManager(LocalMapObject *object, MapObjectManager *manag
 
 MapObjectManager *MapObject_GetManager(LocalMapObject *object) {
     return object->manager;
+}
+
+/*static*/ MapObjectManager *MapObject_GetManagerFromManager(LocalMapObject *object) {
+    return MapObjectManager_Get(object->manager);
+}
+
+u8 *sub_0205858C(LocalMapObject *object, s32 size) {
+    GF_ASSERT(size <= 16);
+
+    u8 *ret = sub_020585B0(object);
+    memset(ret, 0, size);
+    return ret;
+}
+
+u8 *sub_020585B0(LocalMapObject *object) {
+    return object->unkD8;
+}
+
+u8 *sub_020585B4(LocalMapObject *object, s32 size) {
+    GF_ASSERT(size <= 16);
+
+    u8 *ret = sub_020585D8(object);
+    memset(ret, 0, size);
+    return ret;
+}
+
+u8 *sub_020585D8(LocalMapObject *object) {
+    return object->unkE8;
+}
+
+u8 *sub_020585DC(LocalMapObject *object, s32 size) {
+    GF_ASSERT(size <= 16);
+
+    u8 *ret = sub_02058600(object);
+    memset(ret, 0, size);
+    return ret;
+}
+
+u8 *sub_02058600(LocalMapObject *object) {
+    return object->unkF8;
+}
+
+u8 *sub_02058604(LocalMapObject *object, s32 size) {
+    GF_ASSERT(size <= 32);
+
+    u8 *ret = sub_02058628(object);
+    memset(ret, 0, size);
+    return ret;
+}
+
+u8 *sub_02058628(LocalMapObject *object) {
+    return object->unk108;
+}
+
+static void sub_02058630(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkB8 = callback;
+}
+
+void sub_02058638(LocalMapObject *object) {
+    object->unkB8(object);
+}
+
+static void sub_02058644(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkBC = callback;
+}
+
+void sub_0205864C(LocalMapObject *object) {
+    object->unkBC(object);
+}
+
+static void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkC0 = callback;
+}
+
+/*static*/ void sub_02058660(LocalMapObject *object) {
+    object->unkC0(object);
 }

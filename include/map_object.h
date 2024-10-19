@@ -9,6 +9,8 @@
 #include "heap.h"
 #include "unk_0200CA44.h"
 
+typedef void (*LocalMapObject_UnkCallback)(LocalMapObject *object);
+
 typedef struct SavedMapObject {
     u32 flags;
     u32 flags2;
@@ -73,7 +75,14 @@ struct LocalMapObject {
     u8 padding2[0xC];
     SysTask *unkB0;
     MapObjectManager *manager;
-    u8 padding3[0x70]; // todo verify size
+    LocalMapObject_UnkCallback unkB8;
+    LocalMapObject_UnkCallback unkBC;
+    LocalMapObject_UnkCallback unkC0;
+    u8 padding3[0x14];
+    u8 unkD8[0x10];
+    u8 unkE8[0x10];
+    u8 unkF8[0x10];
+    u8 unk108[0x20];
 };
 
 typedef struct ObjectEvent {
@@ -83,8 +92,6 @@ typedef struct ObjectEvent {
     // todo fill out
     // todo this should be in map_events_internal.h
 } ObjectEvent;
-
-typedef void (*LocalMapObject_UnkCallback)(LocalMapObject *object);
 
 typedef enum MapObjectFlagBits {
     MAPOBJECTFLAG_ACTIVE          = (1 << 0),
@@ -215,5 +222,15 @@ s32 MapObject_GetYRange(LocalMapObject *object);
 void sub_02058544(LocalMapObject *object, u32 param1);
 u32 sub_0205854C(LocalMapObject *object);
 MapObjectManager *MapObject_GetManager(LocalMapObject *object);
+u8 *sub_0205858C(LocalMapObject *object, s32 size);
+u8 *sub_020585B0(LocalMapObject *object);
+u8 *sub_020585B4(LocalMapObject *object, s32 size);
+u8 *sub_020585D8(LocalMapObject *object);
+u8 *sub_020585DC(LocalMapObject *object, s32 size);
+u8 *sub_02058600(LocalMapObject *object);
+u8 *sub_02058604(LocalMapObject *object, s32 size);
+u8 *sub_02058628(LocalMapObject *object);
+void sub_02058638(LocalMapObject *object);
+void sub_0205864C(LocalMapObject *object);
 
 #endif // POKEDIAMOND_MAP_OBJECT_H
