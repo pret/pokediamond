@@ -96,7 +96,7 @@ ov05_021EDA48: ; 0x021EDA48
 	add r0, r5, #0
 	mov r1, #2
 	str r5, [sp, #0x20]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]

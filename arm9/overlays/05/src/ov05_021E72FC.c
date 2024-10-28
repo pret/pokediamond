@@ -9,7 +9,6 @@
 #include "unk_020051F4.h"
 
 extern LocalMapObject *PlayerAvatar_GetMapObject(u32 param0);
-extern u32 sub_02058720(LocalMapObject *object);
 extern BOOL sub_02054B30(u8 param0);
 extern BOOL sub_02054B3C(u8 param0);
 extern BOOL sub_02054B48(u8 param0);

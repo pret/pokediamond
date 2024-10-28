@@ -64,6 +64,15 @@ static void sub_02058630(LocalMapObject *object, LocalMapObject_UnkCallback call
 static void sub_02058644(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 static void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 /*static*/ void sub_02058660(LocalMapObject *object);
+static void sub_0205866C(LocalMapObject *object);
+static void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+static void sub_0205868C(LocalMapObject *object);
+static void sub_02058698(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+static void sub_020586AC(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+static void sub_020586B4(LocalMapObject *object);
+static void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+static void sub_020586C8(LocalMapObject *object);
+static void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 
 extern BOOL MapObject_IsInUse(LocalMapObject *object);
 extern void ov05_021F2AF4(MapObjectManager *manager, void *param0);
@@ -89,22 +98,13 @@ extern ObjectEvent *ObjectEvent_GetById(u32 id, u32 objectEventCount, ObjectEven
 extern u8 FieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);
 extern BOOL sub_02058934(LocalMapObject *object);
 extern BOOL sub_020587E0(MapObjectManager *manager);
-extern void sub_020586B4(LocalMapObject *object);
 extern MapObjectManager *MapObject_GetManagerFromManager(LocalMapObject *object);
-extern FieldSystem *MapObject_GetFieldSystem(LocalMapObject *object);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void sub_02058ED8(LocalMapObject *object);
 extern void sub_02058EDC(LocalMapObject *object);
 extern void sub_02058EE0(LocalMapObject *object);
 extern void sub_02058EE4(LocalMapObject *object);
-extern void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback);
-extern void sub_02058698(LocalMapObject *object, LocalMapObject_UnkCallback callback);
-extern void sub_020586AC(LocalMapObject *object, LocalMapObject_UnkCallback callback);
-extern void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
-extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
-extern void sub_020586C8(LocalMapObject *object);
 extern BOOL MapObject_CheckFlag14(LocalMapObject *object);
-extern void sub_020586DC(LocalMapObject *object);
 extern void sub_02057AEC(MapObjectManager *manager, LocalMapObject *object);
 extern u32 MapObject_GetInitialX(LocalMapObject *object);
 extern u32 MapObject_GetInitialHeight(LocalMapObject *object);
@@ -124,14 +124,12 @@ extern void MapObject_SetCurrentHeight(LocalMapObject *object, u32 currentHeight
 extern void MapObject_SetCurrentY(LocalMapObject *object, u32 currentY);
 extern void MapObject_SetPositionVec(LocalMapObject *object, VecFx32 *coords);
 extern void MapObject_ClearHeldMovement(LocalMapObject *object);
-extern void sub_0205866C(LocalMapObject *object);
 extern void MapObject_GetPositionVec(LocalMapObject *object, VecFx32 *position);
 extern void MapObject_SetPreviousX(LocalMapObject *object, u32 previousX);
 extern void MapObject_SetPreviousHeight(LocalMapObject *object, u32 previousHeight);
 extern void MapObject_SetPreviousY(LocalMapObject *object, u32 previousY);
 extern void MapObject_CreateFromInitArgs(MapObjectInitArgs *args);
 extern BOOL MapObject_CheckFlag25(LocalMapObject *object);
-extern u32 sub_02058750(LocalMapObject *object);
 extern u16 ObjectEvent_GetSpriteID(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetMovement(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetType(ObjectEvent *objectEvent);
@@ -150,22 +148,15 @@ extern LocalMapObject_UnkCallback sub_02058D30(UnkLMOCallbackStruct *callbackStr
 extern LocalMapObject_UnkCallback sub_02058D34(UnkLMOCallbackStruct *callbackStruct);
 extern UnkLMOCallbackStruct2 *sub_02058D4C(u32 spriteId);
 extern LocalMapObject_UnkCallback sub_02058D38(UnkLMOCallbackStruct2 *callbackStruct);
-extern void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D3C(UnkLMOCallbackStruct2 *callbackStruct);
-extern void sub_02058698(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D40(UnkLMOCallbackStruct2 *callbackStruct);
-extern void sub_020586AC(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D44(UnkLMOCallbackStruct2 *callbackStruct);
-extern void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern LocalMapObject_UnkCallback sub_02058D48(UnkLMOCallbackStruct2 *callbackStruct);
-extern void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 extern u16 FieldSystem_VarGetObjectEventGraphicsId(FieldSystem *fieldSystem, u16 spriteId);
 extern u32 sub_02059D1C(LocalMapObject *object);
 extern void sub_02058EE8(LocalMapObject *object);
 extern void ov05_021F2E0C(LocalMapObject *object, BOOL set);
-extern void sub_0205868C(LocalMapObject *object);
 extern void MapObject_SetFlag14(LocalMapObject *object);
-extern void *sub_02058744(LocalMapObject *object);
 extern void sub_02058EF8(LocalMapObject *object);
 extern void ov05_021F1D8C(LocalMapObject *object);
 extern BOOL sub_0205C334(void);
@@ -851,8 +842,8 @@ static void sub_02058258(LocalMapObject *object, u32 mapNo, ObjectEvent *objectE
     MapObject_SetMapID(object, mapNo);
 }
 
-u32 sub_0205829C(LocalMapObject *object, u32 param1) {
-    return (u32)(sub_02058744(object) + param1);
+u32 MapObject_GetPriorityPlusValue(LocalMapObject *object, u32 value) {
+    return (u32)((void *)MapObject_GetPriority(object) + value); // MUST be cast to void * to match
 }
 
 BOOL sub_020582A8(LocalMapObject *object, u32 objectId, u32 mapId) {
@@ -1285,4 +1276,98 @@ static void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback call
 
 /*static*/ void sub_02058660(LocalMapObject *object) {
     object->unkC0(object);
+}
+
+static void sub_0205866C(LocalMapObject *object) {
+    UnkLMOCallbackStruct *unk = sub_02058D14(MapObject_GetMovement(object));
+    unk->unk10(object);
+}
+
+static void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkC4 = callback;
+}
+
+static void sub_0205868C(LocalMapObject *object) {
+    object->unkC4(object);
+}
+
+static void sub_02058698(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkC8 = callback;
+}
+
+void sub_020586A0(LocalMapObject *object) {
+    object->unkC8(object);
+}
+
+static void sub_020586AC(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkCC = callback;
+}
+
+static void sub_020586B4(LocalMapObject *object) {
+    object->unkCC(object);
+}
+
+static void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkD0 = callback;
+}
+
+static void sub_020586C8(LocalMapObject *object) {
+    object->unkD0(object);
+}
+
+static void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback) {
+    object->unkD4 = callback;
+}
+
+void sub_020586DC(LocalMapObject *object) {
+    object->unkD4(object);
+}
+
+void MapObject_SetMovementCommand(LocalMapObject *object, u32 command) {
+    object->movementCmd = command;
+}
+
+u32 MapObject_GetMovementCommand(LocalMapObject *object) {
+    return object->movementCmd;
+}
+
+void MapObject_SetMovementStep(LocalMapObject *object, u32 step) {
+    object->movementStep = step;
+}
+
+void MapObject_IncrementMovementStep(LocalMapObject *object) {
+    object->movementStep++;
+}
+
+u32 MapObject_GetMovementStep(LocalMapObject *object) {
+    return object->movementStep;
+}
+
+void sub_02058718(LocalMapObject *object, u16 param1) {
+    object->unkAC = param1;
+}
+
+u16 sub_02058720(LocalMapObject *object) {
+    return object->unkAC;
+}
+
+void sub_02058728(LocalMapObject *object, u16 param1) {
+    object->unkAE = param1;
+}
+
+u16 sub_02058730(LocalMapObject *object) {
+    return object->unkAE;
+}
+
+FieldSystem *MapObject_GetFieldSystem(LocalMapObject *object) {
+    return MapObjectManager_GetFieldSystem(MapObject_GetManagerFromManager(object));
+}
+
+u32 MapObject_GetPriority(LocalMapObject *object) {
+    return MapObjectManager_GetPriority(MapObject_GetManager(object));
+}
+
+u32 sub_02058750(LocalMapObject *object) {
+    GF_ASSERT(MapObject_CheckFlag25(object) == TRUE);
+    return MapObject_GetEventFlag(object);
 }

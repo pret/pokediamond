@@ -466,7 +466,7 @@ ov05_021E7AC0: ; 0x021E7AC0
 	str r5, [sp, #0x20]
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
-	bl sub_02058744
+	bl MapObject_GetPriority
 	add r1, r0, #1
 	add r0, sp, #0x14
 	str r0, [sp]

@@ -32666,7 +32666,7 @@ ov06_02249508: ; 0x02249508
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -32841,7 +32841,7 @@ ov06_02249668: ; 0x02249668
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -33042,7 +33042,7 @@ ov06_022497E8: ; 0x022497E8
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -33909,7 +33909,7 @@ ov06_02249E9C: ; 0x02249E9C
 	str r0, [sp, #0x18]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r7, r0, #0
 	add r0, r5, #0
 	bl ov05_021E4C24
@@ -34281,7 +34281,7 @@ _0224A160:
 	mov r1, #2
 	str r4, [sp, #0x6c]
 	str r5, [sp, #0xc4]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x68
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -34508,7 +34508,7 @@ ov06_0224A310: ; 0x0224A310
 	str r5, [sp, #0x1c]
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
-	bl sub_02058744
+	bl MapObject_GetPriority
 	add r1, r0, #1
 	add r0, sp, #0x14
 	str r0, [sp]
@@ -34994,7 +34994,7 @@ ov06_0224A6B8: ; 0x0224A6B8
 	mov r1, #2
 	str r4, [sp, #0x14]
 	str r5, [sp, #0x1c]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -35265,7 +35265,7 @@ ov06_0224A8D4: ; 0x0224A8D4
 	mov r1, #2
 	str r4, [sp, #0x14]
 	str r5, [sp, #0x1c]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -35455,7 +35455,7 @@ ov06_0224AA40: ; 0x0224AA40
 	mov r1, #2
 	str r4, [sp, #0x14]
 	str r5, [sp, #0x1c]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -35677,7 +35677,7 @@ _0224ABF6:
 _0224AC12:
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x20
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36112,7 +36112,7 @@ _0224AF3E:
 _0224AF46:
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x18
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36390,7 +36390,7 @@ ov06_0224B124: ; 0x0224B124
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36596,7 +36596,7 @@ ov06_0224B2C4: ; 0x0224B2C4
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36909,7 +36909,7 @@ ov06_0224B568: ; 0x0224B568
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -37479,7 +37479,7 @@ ov06_0224B9E0: ; 0x0224B9E0
 	add r0, r5, #0
 	mov r1, #2
 	str r5, [sp, #0x20]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -37741,7 +37741,7 @@ ov06_0224BBEC: ; 0x0224BBEC
 	bl sub_02059E60
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -37947,7 +37947,7 @@ ov06_0224BD90: ; 0x0224BD90
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -38274,7 +38274,7 @@ ov06_0224C038: ; 0x0224C038
 	bl MapObject_GetPositionVec
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -40141,7 +40141,7 @@ ov06_0224CECC: ; 0x0224CECC
 	str r0, [sp, #0x1c]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0xc
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -40673,7 +40673,7 @@ ov06_0224D2E0: ; 0x0224D2E0
 	bl sub_02059E60
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]

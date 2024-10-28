@@ -126,7 +126,7 @@ _021E5EEA:
 _021E5EF4:
 	add r0, r4, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
