@@ -1131,7 +1131,7 @@ _02239F18:
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	mov r0, #4
@@ -30715,7 +30715,7 @@ ov06_02248654: ; 0x02248654
 	ldr r0, [r0, #0x38]
 	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MapObject_SetVisible
@@ -33148,7 +33148,7 @@ _022498DE:
 	cmp r0, #0
 	beq _022498FC
 	add r0, r6, #0
-	bl sub_02058A9C
+	bl MapObject_CheckFlag24
 	cmp r0, #0
 	bne _02249906
 _022498FC:
@@ -33224,7 +33224,7 @@ _02249976:
 	cmp r0, #0
 	beq _02249994
 	add r0, r4, #0
-	bl sub_02058A9C
+	bl MapObject_CheckFlag24
 	cmp r0, #0
 	bne _0224999E
 _02249994:
@@ -33237,7 +33237,7 @@ _0224999E:
 	cmp r0, #0
 	beq _022499FA
 	add r0, r4, #0
-	bl sub_02058890
+	bl MapObject_CheckVisible
 	cmp r0, #1
 	ldr r0, [r5, #0x24]
 	bne _022499B8
@@ -33893,10 +33893,10 @@ ov06_02249E9C: ; 0x02249E9C
 	sub sp, #0x34
 	add r5, r0, #0
 	add r4, r1, #0
-	bl sub_02058B14
+	bl MapObject_GetPreviousX
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl sub_02058B24
+	bl MapObject_GetPreviousZ
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	bl MapObject_GetPosVecYCoord
@@ -36382,7 +36382,7 @@ ov06_0224B124: ; 0x0224B124
 	add r0, r2, r0
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl sub_02058B1C
+	bl MapObject_GetPreviousY
 	lsl r1, r0, #0xf
 	mov r0, #2
 	lsl r0, r0, #0xe
@@ -36588,7 +36588,7 @@ ov06_0224B2C4: ; 0x0224B2C4
 	add r0, r1, r0
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl sub_02058B1C
+	bl MapObject_GetPreviousY
 	lsl r1, r0, #0xf
 	mov r0, #2
 	lsl r0, r0, #0xe
@@ -36890,10 +36890,10 @@ ov06_0224B568: ; 0x0224B568
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -37095,7 +37095,7 @@ _0224B72A:
 	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224B744
@@ -37565,7 +37565,7 @@ _0224BAB4:
 	cmp r6, #1
 	bne _0224BAD2
 	add r0, r7, #0
-	bl sub_02058A00
+	bl MapObject_CheckFlag26
 	cmp r0, #0
 	bne _0224BAD2
 	add r0, r5, #0
@@ -37734,7 +37734,7 @@ ov06_0224BBEC: ; 0x0224BBEC
 	bl MapObject_GetCurrentX
 	add r6, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
@@ -37928,10 +37928,10 @@ ov06_0224BD90: ; 0x0224BD90
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -38124,7 +38124,7 @@ _0224BF40:
 	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224BF5A
@@ -38255,10 +38255,10 @@ ov06_0224C038: ; 0x0224C038
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -38457,7 +38457,7 @@ _0224C1F4:
 	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224C20E
@@ -40121,7 +40121,7 @@ ov06_0224CECC: ; 0x0224CECC
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r1, r0, #0
 	ldr r0, [sp, #8]
 	add r2, sp, #0x20
@@ -40666,7 +40666,7 @@ ov06_0224D2E0: ; 0x0224D2E0
 	bl MapObject_GetCurrentX
 	add r6, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
@@ -43306,7 +43306,7 @@ ov06_0224E858: ; 0x0224E858
 	bl MapObject_GetCurrentX
 	add r5, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r4, r0, #0
 	add r0, r6, #0
 	bl MapObject_GetFacingDirection

@@ -89,23 +89,14 @@ extern void ov05_021E26CC(u32 param0, u8 param1);
 extern void ov05_021E2B80(u32 param0, u8 param1);
 extern void ov05_021E2B9C(u32 param0, u8 param1);
 extern u32 sub_0205AEA4(LocalMapObject *event, const void *ptr);
-extern u32 MapObject_GetCurrentX(LocalMapObject *event);
-extern u32 MapObject_GetCurrentY(LocalMapObject *event);
 extern BOOL sub_0205AEF0(u32 param0);
 extern void sub_0205AEFC(u32 param0);
-extern void MapObjectManager_PauseAllMovement(MapObjectManager *mapObjectManager);
 extern LocalMapObject *PlayerAvatar_GetMapObject(PlayerAvatar *playerAvatar);
 extern u32 sub_0205AE28(LocalMapObject *event);
-extern void sub_02058908(LocalMapObject *event);
-extern u32 sub_02058854(LocalMapObject *event);
 extern LocalMapObject *sub_0205E7C4(LocalMapObject *event);
-extern void sub_02058914(LocalMapObject *event);
-extern void MapObjectManager_UnpauseAllMovement(MapObjectManager *mapObjectManager);
 extern u32 sub_02034B64(FieldSystem *fieldSystem);
 extern const ObjectEvent *sub_02034B6C(FieldSystem *fieldSystem);
 extern u32 sub_02059D1C(LocalMapObject *target);
-extern LocalMapObject *MapObject_SetVisible(LocalMapObject *target, BOOL visible);
-extern LocalMapObject *sub_020588B8(LocalMapObject *target, u32 param1);
 extern VecFx32 *sub_02058B7C(LocalMapObject *target);
 extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
 extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
@@ -114,7 +105,6 @@ extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
 extern u16 GetPlayerXCoord(PlayerAvatar *playerAvatar);
 extern u16 GetPlayerYCoord(PlayerAvatar *playerAvatar);
 extern void sub_02058BB4(LocalMapObject *event, VecFx32 *param1);
-extern void sub_02058994(LocalMapObject *event, u8 value);
 extern void sub_02058E90(LocalMapObject *event, u16 movement);
 extern void sub_02058EB0(LocalMapObject *event, u32 param1);
 extern u16 sub_02029E0C(SealCase *sealCase);
@@ -1556,7 +1546,7 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { // 02A1
 
     u16 *unk4 = AllocFromHeap(HEAP_ID_4, 0x100);
     u16 xVal  = (u16)MapObject_GetCurrentX(event);
-    u16 yVal  = (u16)MapObject_GetCurrentY(event);
+    u16 zVal  = (u16)MapObject_GetCurrentZ(event);
 
     u32 pos = 0;
 
@@ -1570,13 +1560,13 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { // 02A1
         unk4[1] = (u16)(xVal - unk1);
     }
 
-    if (yVal < unk2) {
+    if (zVal < unk2) {
         unk4[pos * 2]     = 12;
-        unk4[pos * 2 + 1] = (u16)(unk2 - yVal);
+        unk4[pos * 2 + 1] = (u16)(unk2 - zVal);
         pos++;
-    } else if (yVal > unk2) {
+    } else if (zVal > unk2) {
         unk4[pos * 2]     = 13;
-        unk4[pos * 2 + 1] = (u16)(yVal - unk2);
+        unk4[pos * 2 + 1] = (u16)(zVal - unk2);
         pos++;
     }
 
@@ -1667,27 +1657,27 @@ static BOOL sub_0203B218(ScriptContext *ctx) {
     LocalMapObject *playerAvatar    = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
     if (UNK_021C5A0C[0] & 1) {
         if (sub_0205AE28(playerAvatar) == 1) {
-            sub_02058908(playerAvatar);
+            MapObject_PauseMovement(playerAvatar);
             UNK_021C5A0C[0] &= 0xfe;
         }
     }
     if (UNK_021C5A0C[0] & 4) {
-        if (sub_02058854(*lastInteracted) == 0) {
-            sub_02058908(*lastInteracted);
+        if (MapObject_CheckSingleMovement(*lastInteracted) == 0) {
+            MapObject_PauseMovement(*lastInteracted);
             UNK_021C5A0C[0] &= 0xfb;
         }
     }
     if (UNK_021C5A0C[0] & 2) {
         LocalMapObject *unk1 = MapObjectManager_GetFirstActiveObjectWithMovement(fieldSystem->mapObjectManager, 48);
-        if (sub_02058854(unk1) == 0) {
-            sub_02058908(unk1);
+        if (MapObject_CheckSingleMovement(unk1) == 0) {
+            MapObject_PauseMovement(unk1);
             UNK_021C5A0C[0] &= 0xfd;
         }
     }
     if (UNK_021C5A0C[0] & 8) {
         LocalMapObject *modifiedevent = sub_0205E7C4(*lastInteracted);
-        if (sub_02058854(modifiedevent) == 0) {
-            sub_02058908(modifiedevent);
+        if (MapObject_CheckSingleMovement(modifiedevent) == 0) {
+            MapObject_PauseMovement(modifiedevent);
             UNK_021C5A0C[0] &= 0xf7;
         }
     }
@@ -1710,25 +1700,25 @@ BOOL ScrCmd_LockAllEvents2(ScriptContext *ctx) { // 02B4
     MapObjectManager_PauseAllMovement(mapObjectManager);
     if (sub_0205AE28(playerAvatar) == 0) {
         UNK_021C5A0C[0] |= 1;
-        sub_02058914(playerAvatar);
+        MapObject_UnpauseMovement(playerAvatar);
     }
-    if (sub_02058854(*lastInteracted) != 0) {
+    if (MapObject_CheckSingleMovement(*lastInteracted) != 0) {
         UNK_021C5A0C[0] |= 4;
-        sub_02058914(*lastInteracted);
+        MapObject_UnpauseMovement(*lastInteracted);
     }
     if (unk1 != NULL) {
         SaveVarsFlags *state = Save_VarsFlags_Get(fieldSystem->saveData);
         if (Save_VarsFlags_CheckHaveFollower(state) == TRUE) {
-            if (sub_02058854(unk1) != 0) {
+            if (MapObject_CheckSingleMovement(unk1) != 0) {
                 UNK_021C5A0C[0] |= 2;
-                sub_02058914(unk1);
+                MapObject_UnpauseMovement(unk1);
             }
         }
     }
     if (unk2 != NULL) {
-        if (sub_02058854(unk2) != 0) {
+        if (MapObject_CheckSingleMovement(unk2) != 0) {
             UNK_021C5A0C[0] |= 8;
-            sub_02058914(unk2);
+            MapObject_UnpauseMovement(unk2);
         }
     }
     SetupNativeScript(ctx, sub_0203B218);
@@ -1743,14 +1733,14 @@ BOOL ScrCmd_ReleaseAllEvents(ScriptContext *ctx) { // 0061
 BOOL ScrCmd_LockEvent(ScriptContext *ctx) { // 0062
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId              = ScriptReadHalfword(ctx);
-    sub_02058908(MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId));
+    MapObject_PauseMovement(MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId));
     return FALSE;
 }
 
 BOOL ScrCmd_ReleaseEvent(ScriptContext *ctx) { // 0063
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId              = ScriptReadHalfword(ctx);
-    sub_02058914(MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId));
+    MapObject_UnpauseMovement(MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId));
     return FALSE;
 }
 
@@ -1779,7 +1769,7 @@ BOOL ScrCmd_LockCamera(ScriptContext *ctx) { // 0066
     *targetPtr                 = MapObject_Create(ctx->fieldSystem->mapObjectManager, x, y, 0, 0x2000, 0, ctx->fieldSystem->location->mapId);
     sub_02059D1C(*targetPtr);
     MapObject_SetVisible(*targetPtr, TRUE);
-    sub_020588B8(*targetPtr, 0);
+    MapObject_ClearFlag18(*targetPtr, FALSE);
     VecFx32 *position = sub_02058B7C(*targetPtr);
     ov05_021EF5E0(position, ctx->fieldSystem->unk24);
     Camera_SetFixedTarget(position, ctx->fieldSystem->camera);
@@ -1826,10 +1816,10 @@ BOOL ScrCmd_GetEventPosition(ScriptContext *ctx) { // 006A
     LocalMapObject *event    = MapObjectManager_GetFirstActiveObjectByID(fieldSystem->mapObjectManager, eventId);
 
     u16 *x = ScriptGetVarPointer(ctx);
-    u16 *y = ScriptGetVarPointer(ctx);
+    u16 *z = ScriptGetVarPointer(ctx);
 
     *x = (u16)MapObject_GetCurrentX(event);
-    *y = (u16)MapObject_GetCurrentY(event);
+    *z = (u16)MapObject_GetCurrentZ(event);
     return FALSE;
 }
 
@@ -1858,7 +1848,7 @@ BOOL ScrCmd_Unk006B(ScriptContext *ctx) { // 006B - todo: CheckPersonPosition?
 BOOL ScrCmd_KeepEvent(ScriptContext *ctx) { // 006C
     u16 eventId           = ScriptGetVar(ctx);
     LocalMapObject *event = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
-    sub_02058994(event, ScriptReadByte(ctx));
+    MapObject_SetKeep(event, (BOOL)ScriptReadByte(ctx));
     return FALSE;
 }
 
@@ -4744,10 +4734,10 @@ BOOL ScrCmd_Unk02B5(ScriptContext *ctx) { // 02B5
 
 BOOL ScrCmd_Unk02B6(ScriptContext *ctx) { // 02B6
     u16 objectId           = ScriptGetVar(ctx);
-    u8 unk0                = ScriptReadByte(ctx);
+    BOOL clear             = (BOOL)ScriptReadByte(ctx);
     LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, objectId);
     GF_ASSERT(object != NULL);
-    sub_020588B8(object, unk0);
+    MapObject_ClearFlag18(object, clear);
     return FALSE;
 }
 

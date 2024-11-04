@@ -67,7 +67,7 @@ sub_020550A4: ; 0x020550A4
 	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_02058AC8
+	bl MapObject_SetFlag29
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_0205539C
@@ -252,7 +252,7 @@ _02055228:
 	bl MapObject_ClearFlagsBits
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02058AC8
+	bl MapObject_SetFlag29
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	bl sub_0205539C
@@ -340,21 +340,21 @@ GetPlayerXCoord: ; 0x02055320
 GetPlayerYCoord: ; 0x0205532C
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	pop {r3, pc}
 
 	thumb_func_start sub_02055338
 sub_02055338: ; 0x02055338
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058B14
+	bl MapObject_GetPreviousX
 	pop {r3, pc}
 
 	thumb_func_start sub_02055344
 sub_02055344: ; 0x02055344
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058B24
+	bl MapObject_GetPreviousZ
 	pop {r3, pc}
 
 	thumb_func_start sub_02055350
@@ -754,11 +754,11 @@ PlayerAvatar_ToggleAutomaticHeightUpdating: ; 0x02055560
 	cmp r4, #0x1
 	bne _02055574
 	mov r1, #0x0
-	bl sub_02058960
+	bl MapObject_SetIgnoreHeights
 	pop {r4, pc}
 _02055574:
 	mov r1, #0x1
-	bl sub_02058960
+	bl MapObject_SetIgnoreHeights
 	pop {r4, pc}
 
 	thumb_func_start sub_0205557C
@@ -770,13 +770,13 @@ sub_0205557C: ; 0x0205557C
 	cmp r5, #0x1
 	bne _02055598
 	mov r1, #0x0
-	bl sub_02058960
+	bl MapObject_SetIgnoreHeights
 	add r0, r4, #0x0
 	bl sub_02059D1C
 	pop {r3-r5, pc}
 _02055598:
 	mov r1, #0x1
-	bl sub_02058960
+	bl MapObject_SetIgnoreHeights
 	pop {r3-r5, pc}
 
 	thumb_func_start PlayerAvatar_GetSpriteByStateAndGender

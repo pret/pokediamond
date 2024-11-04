@@ -115,11 +115,11 @@ ov05_021F1D8C: ; 0x021F1D8C
 	cmp r0, #0
 	beq _021F1DC6
 	add r0, r4, #0
-	bl sub_02058920
+	bl MapObject_CheckMovementPaused
 	cmp r0, #0
 	beq _021F1DC0
 	add r0, r4, #0
-	bl sub_02058AB4
+	bl MapObject_CheckFlag4
 	cmp r0, #0
 	beq _021F1DC6
 _021F1DC0:
@@ -162,11 +162,11 @@ _021F1DF8: .word 0x0000FFFF
 ov05_021F1DFC: ; 0x021F1DFC
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_02058920
+	bl MapObject_CheckMovementPaused
 	cmp r0, #1
 	bne _021F1E16
 	add r0, r4, #0
-	bl sub_02058AB4
+	bl MapObject_CheckFlag4
 	cmp r0, #0
 	bne _021F1E16
 	mov r0, #1

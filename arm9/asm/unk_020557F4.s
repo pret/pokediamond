@@ -194,7 +194,7 @@ sub_02055928: ; 0x02055928
 	add r0, r4, #0x0
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x0
-	bl sub_02058A18
+	bl MapObject_SetFlag27
 _02055964:
 	pop {r4, pc}
 	.balign 4
@@ -2521,10 +2521,10 @@ sub_02056C0C: ; 0x02056C0C
 	bl sub_02059BF4
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x4]
 	bl sub_02059C00
@@ -2619,7 +2619,7 @@ sub_02056CCC: ; 0x02056CCC
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2685,7 +2685,7 @@ sub_02056D58: ; 0x02056D58
 	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x0]
 	ldr r2, [sp, #0x0]
 	add r0, r7, #0x0
@@ -2772,7 +2772,7 @@ sub_02056E04: ; 0x02056E04
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -2822,7 +2822,7 @@ sub_02056E6C: ; 0x02056E6C
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2866,7 +2866,7 @@ sub_02056EC8: ; 0x02056EC8
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2954,7 +2954,7 @@ sub_02056F78: ; 0x02056F78
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00

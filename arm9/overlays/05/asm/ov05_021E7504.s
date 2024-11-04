@@ -161,7 +161,7 @@ ov05_021E7618: ; 0x021E7618
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 _021E763C:
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	add r0, r4, #0
 	add r1, sp, #0x14
 	bl sub_02058BA4

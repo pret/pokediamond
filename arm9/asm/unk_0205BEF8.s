@@ -116,17 +116,17 @@ sub_0205BF78: ; 0x0205BF78
 	bl MapObject_GetCurrentX
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B14
+	bl MapObject_GetPreviousX
 	cmp r5, r0
 	beq _0205BF90
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _0205BF90:
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B24
+	bl MapObject_GetPreviousZ
 	cmp r5, r0
 	beq _0205BFA6
 	mov r0, #0x1
@@ -143,17 +143,17 @@ sub_0205BFAC: ; 0x0205BFAC
 	bl MapObject_GetCurrentX
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B14
+	bl MapObject_GetPreviousX
 	cmp r5, r0
 	beq _0205BFC4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0205BFC4:
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02058B24
+	bl MapObject_GetPreviousZ
 	cmp r5, r0
 	bne _0205BFDA
 	mov r0, #0x1
@@ -243,7 +243,7 @@ _0205C05C:
 	strb r0, [r4, #0x0]
 _0205C062:
 	add r0, r5, #0x0
-	bl sub_02058854
+	bl MapObject_CheckSingleMovement
 	cmp r0, #0x1
 	beq _0205C07C
 	ldrb r0, [r4, #0x0]
@@ -458,7 +458,7 @@ _0205C1F0:
 	strb r0, [r4, #0x0]
 _0205C1F6:
 	add r0, r5, #0x0
-	bl sub_02058854
+	bl MapObject_CheckSingleMovement
 	cmp r0, #0x1
 	beq _0205C210
 	ldrb r0, [r4, #0x0]

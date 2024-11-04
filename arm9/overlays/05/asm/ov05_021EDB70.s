@@ -179,7 +179,7 @@ _021EDCB8:
 	bl sub_02059BF4
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #8]
 	ldr r0, [r5, #4]
 	bl sub_02059C00

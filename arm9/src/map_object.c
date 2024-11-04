@@ -13,7 +13,7 @@ static void SavedMapObject_InitFromLocalMapObject(FieldSystem *fieldSystem, Loca
 static void LocalMapObject_InitFromSavedMapObject(LocalMapObject *localObject, SavedMapObject *savedObject);
 static void sub_02057AEC(MapObjectManager *manager, LocalMapObject *object);
 static void sub_02057B34(LocalMapObject *object);
-static void MapObject_ConvertXYToPositionVec(LocalMapObject *object);
+static void MapObject_ConvertXZToPositionVec(LocalMapObject *object);
 static void MapObject_CreateFromInitArgs(MapObjectInitArgs *args);
 static LocalMapObject *MapObjectManager_GetFirstInactiveObject(MapObjectManager *manager);
 static LocalMapObject *sub_02057C98(MapObjectManager *manager, u32 id, u32 mapNo);
@@ -22,7 +22,7 @@ static void MapObject_InitFromObjectEvent(LocalMapObject *object, ObjectEvent *o
 static void MapObject_SetPositionVecFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent);
 static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
 /*static*/ void sub_02057EE0(LocalMapObject *object);
-/*static*/ void sub_02057F18(LocalMapObject *object);
+static void sub_02057F18(LocalMapObject *object);
 static void MapObject_Clear(LocalMapObject *object);
 static u32 sub_02057F90(LocalMapObject *object, u32 mapId, u32 objectEventCount, ObjectEvent *objectEvents);
 static LocalMapObject *MapObjectManager_GetFirstObjectWithIDAndMap(MapObjectManager *manager, u32 mapId, u32 flagId);
@@ -73,8 +73,12 @@ static void sub_020586B4(LocalMapObject *object);
 static void sub_020586C0(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 static void sub_020586C8(LocalMapObject *object);
 static void sub_020586D4(LocalMapObject *object, LocalMapObject_UnkCallback callback);
+static void MapObject_SetFlag14(LocalMapObject *object);
+static void MapObject_SetFlag25(LocalMapObject *object, BOOL set);
+static void MapObject_SetInitialX(LocalMapObject *object, u32 initialX);
+static void MapObject_SetInitialY(LocalMapObject *object, u32 initialY);
+static void MapObject_SetInitialZ(LocalMapObject *object, u32 initialZ);
 
-extern BOOL MapObject_IsInUse(LocalMapObject *object);
 extern void ov05_021F2AF4(MapObjectManager *manager, void *param0);
 extern u32 ObjectEvent_GetID(ObjectEvent *objectEvent);
 extern BOOL ObjectEvent_ScriptIDIsUnset(ObjectEvent *objectEvent);
@@ -96,40 +100,20 @@ extern void ObjectEvent_SetHeight(ObjectEvent *objectEvent, u32 height);
 extern u32 ObjectEvent_GetFlagID(ObjectEvent *objectEvent);
 extern ObjectEvent *ObjectEvent_GetById(u32 id, u32 objectEventCount, ObjectEvent *events);
 extern u8 FieldSystem_FlagCheck(FieldSystem *fieldSystem, u16 flag);
-extern BOOL sub_02058934(LocalMapObject *object);
-extern BOOL sub_020587E0(MapObjectManager *manager);
 extern MapObjectManager *MapObject_GetManagerFromManager(LocalMapObject *object);
 extern void FieldSystem_FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void sub_02058ED8(LocalMapObject *object);
 extern void sub_02058EDC(LocalMapObject *object);
 extern void sub_02058EE0(LocalMapObject *object);
 extern void sub_02058EE4(LocalMapObject *object);
-extern BOOL MapObject_CheckFlag14(LocalMapObject *object);
 extern void sub_02057AEC(MapObjectManager *manager, LocalMapObject *object);
-extern u32 MapObject_GetInitialX(LocalMapObject *object);
-extern u32 MapObject_GetInitialHeight(LocalMapObject *object);
-extern u32 MapObject_GetInitialY(LocalMapObject *object);
-extern u32 MapObject_GetCurrentX(LocalMapObject *object);
-extern u32 MapObject_GetCurrentHeight(LocalMapObject *object);
-extern u32 MapObject_GetCurrentY(LocalMapObject *object);
 extern void sub_02059E60(s32 x, s32 y, VecFx32 *vector);
 extern u32 MapObject_GetPosVecYCoord(LocalMapObject *object);
-extern u32 MapObject_CheckFlag29(LocalMapObject *object);
 extern BOOL sub_02059EC8(FieldSystem *fieldSystem, VecFx32 *vector, BOOL flag);
-extern void MapObject_SetInitialX(LocalMapObject *object, u32 initialX);
-extern void MapObject_SetInitialHeight(LocalMapObject *object, u32 initialHeight);
-extern void MapObject_SetInitialY(LocalMapObject *object, u32 initialY);
-extern void MapObject_SetCurrentX(LocalMapObject *object, u32 currentX);
-extern void MapObject_SetCurrentHeight(LocalMapObject *object, u32 currentHeight);
-extern void MapObject_SetCurrentY(LocalMapObject *object, u32 currentY);
 extern void MapObject_SetPositionVec(LocalMapObject *object, VecFx32 *coords);
 extern void MapObject_ClearHeldMovement(LocalMapObject *object);
 extern void MapObject_GetPositionVec(LocalMapObject *object, VecFx32 *position);
-extern void MapObject_SetPreviousX(LocalMapObject *object, u32 previousX);
-extern void MapObject_SetPreviousHeight(LocalMapObject *object, u32 previousHeight);
-extern void MapObject_SetPreviousY(LocalMapObject *object, u32 previousY);
 extern void MapObject_CreateFromInitArgs(MapObjectInitArgs *args);
-extern BOOL MapObject_CheckFlag25(LocalMapObject *object);
 extern u16 ObjectEvent_GetSpriteID(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetMovement(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetType(ObjectEvent *objectEvent);
@@ -141,7 +125,6 @@ extern u32 ObjectEvent_GetYRange(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetXCoord(ObjectEvent *objectEvent);
 extern u16 ObjectEvent_GetYCoord(ObjectEvent *objectEvent);
 extern u32 ObjectEvent_GetHeight(ObjectEvent *objectEvent);
-extern void MapObject_SetFlag25(LocalMapObject *object, BOOL flag);
 extern UnkLMOCallbackStruct *sub_02058D14(u32 movement);
 extern LocalMapObject_UnkCallback sub_02058D2C(UnkLMOCallbackStruct *callbackStruct);
 extern LocalMapObject_UnkCallback sub_02058D30(UnkLMOCallbackStruct *callbackStruct);
@@ -156,7 +139,6 @@ extern u16 FieldSystem_VarGetObjectEventGraphicsId(FieldSystem *fieldSystem, u16
 extern u32 sub_02059D1C(LocalMapObject *object);
 extern void sub_02058EE8(LocalMapObject *object);
 extern void ov05_021F2E0C(LocalMapObject *object, BOOL set);
-extern void MapObject_SetFlag14(LocalMapObject *object);
 extern void sub_02058EF8(LocalMapObject *object);
 extern void ov05_021F1D8C(LocalMapObject *object);
 extern BOOL sub_0205C334(void);
@@ -181,10 +163,10 @@ void sub_020573C8(MapObjectManager *manager, u32 unused, u32 mapId, u32 objectCo
     LocalMapObject *objects = MapObjectManager_GetObjects(manager);
 
     for (; count != 0; count--) {
-        if (MapObject_IsInUse(objects) == TRUE) {
+        if (MapObject_CheckActive(objects) == TRUE) {
             switch (sub_02057F90(objects, mapId, objectCount, objectEvents)) {
             case 0:
-                if (MapObject_GetMapID(objects) != mapId && !MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_UNK10)) {
+                if (MapObject_GetMapID(objects) != mapId && !MapObject_TestFlagsBits(objects, MAPOBJECTFLAG_KEEP)) {
                     MapObject_Remove(objects);
                 }
                 break;
@@ -371,7 +353,7 @@ void sub_020577A8(MapObjectManager *manager) {
     LocalMapObject *objects = MapObjectManager_GetObjects(manager);
 
     do {
-        if (MapObject_IsInUse(objects) == TRUE) {
+        if (MapObject_CheckActive(objects) == TRUE) {
             if (MapObject_CheckFlag14(objects) == TRUE) {
                 sub_020586DC(objects);
             } else {
@@ -437,14 +419,14 @@ static void SavedMapObject_InitFromLocalMapObject(FieldSystem *fieldSystem, Loca
     savedObject->xRange        = MapObject_GetXRange(localObject);
     savedObject->yRange        = MapObject_GetYRange(localObject);
     savedObject->initialX      = MapObject_GetInitialX(localObject);
-    savedObject->initialHeight = MapObject_GetInitialHeight(localObject);
     savedObject->initialY      = MapObject_GetInitialY(localObject);
+    savedObject->initialZ      = MapObject_GetInitialZ(localObject);
     savedObject->currentX      = MapObject_GetCurrentX(localObject);
-    savedObject->currentHeight = MapObject_GetCurrentHeight(localObject);
     savedObject->currentY      = MapObject_GetCurrentY(localObject);
+    savedObject->currentZ      = MapObject_GetCurrentZ(localObject);
 
     VecFx32 coords;
-    sub_02059E60(savedObject->currentX, savedObject->currentY, &coords); // some kind of x y vec copy with convertion between int and fx32
+    sub_02059E60(savedObject->currentX, savedObject->currentZ, &coords); // some kind of x y vec copy with convertion between int and fx32
     coords.y = MapObject_GetPosVecYCoord(localObject);
 
     if (!sub_02059EC8(fieldSystem, &coords, MapObject_CheckFlag29(localObject))) {
@@ -476,11 +458,11 @@ static void LocalMapObject_InitFromSavedMapObject(LocalMapObject *localObject, S
     MapObject_SetXRange(localObject, savedObject->xRange);
     MapObject_SetYRange(localObject, savedObject->yRange);
     MapObject_SetInitialX(localObject, savedObject->initialX);
-    MapObject_SetInitialHeight(localObject, savedObject->initialHeight);
     MapObject_SetInitialY(localObject, savedObject->initialY);
+    MapObject_SetInitialZ(localObject, savedObject->initialZ);
     MapObject_SetCurrentX(localObject, savedObject->currentX);
-    MapObject_SetCurrentHeight(localObject, savedObject->currentHeight);
     MapObject_SetCurrentY(localObject, savedObject->currentY);
+    MapObject_SetCurrentZ(localObject, savedObject->currentZ);
 
     VecFx32 coords = {};
     coords.y       = savedObject->vecY;
@@ -492,7 +474,7 @@ static void LocalMapObject_InitFromSavedMapObject(LocalMapObject *localObject, S
 
 static void sub_02057AEC(MapObjectManager *manager, LocalMapObject *object) {
     sub_02057B34(object);
-    MapObject_ConvertXYToPositionVec(object);
+    MapObject_ConvertXZToPositionVec(object);
     MapObject_SetManager(object, manager);
     sub_02057EE0(object);
     MapObject_ClearHeldMovement(object);
@@ -508,7 +490,7 @@ static void sub_02057B34(LocalMapObject *object) {
     sub_0205815C(object);
 }
 
-static void MapObject_ConvertXYToPositionVec(LocalMapObject *object) {
+static void MapObject_ConvertXZToPositionVec(LocalMapObject *object) {
     VecFx32 position;
     MapObject_GetPositionVec(object, &position);
 
@@ -516,11 +498,11 @@ static void MapObject_ConvertXYToPositionVec(LocalMapObject *object) {
     position.x = x * FX32_CONST(16) + FX32_CONST(8);
     MapObject_SetPreviousX(object, x);
 
-    MapObject_SetPreviousHeight(object, MapObject_GetCurrentHeight(object));
+    MapObject_SetPreviousY(object, MapObject_GetCurrentY(object));
 
-    u32 y      = MapObject_GetCurrentY(object);
-    position.z = y * FX32_CONST(16) + FX32_CONST(8);
-    MapObject_SetPreviousY(object, y);
+    u32 z      = MapObject_GetCurrentZ(object);
+    position.z = z * FX32_CONST(16) + FX32_CONST(8);
+    MapObject_SetPreviousZ(object, z);
 
     MapObject_SetPositionVec(object, &position);
 }
@@ -627,17 +609,17 @@ static void MapObject_SetPositionVecFromObjectEvent(LocalMapObject *object, Obje
     MapObject_SetPreviousX(object, x);
     MapObject_SetCurrentX(object, x);
 
-    coords.y   = ObjectEvent_GetHeight(objectEvent);
-    u32 height = (coords.y >> 3) / FX32_ONE;
-    MapObject_SetInitialHeight(object, height);
-    MapObject_SetPreviousHeight(object, height);
-    MapObject_SetCurrentHeight(object, height);
-
-    u16 y    = ObjectEvent_GetYCoord(objectEvent);
-    coords.z = y * FX32_CONST(16) + FX32_CONST(8);
+    coords.y = ObjectEvent_GetHeight(objectEvent);
+    u32 y    = (coords.y >> 3) / FX32_ONE;
     MapObject_SetInitialY(object, y);
     MapObject_SetPreviousY(object, y);
     MapObject_SetCurrentY(object, y);
+
+    u16 z    = ObjectEvent_GetYCoord(objectEvent);
+    coords.z = z * FX32_CONST(16) + FX32_CONST(8);
+    MapObject_SetInitialZ(object, z);
+    MapObject_SetPreviousZ(object, z);
+    MapObject_SetCurrentZ(object, z);
 
     MapObject_SetPositionVec(object, &coords);
 }
@@ -662,7 +644,7 @@ static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager) { //
 
 extern const UnkLMOCallbackStruct2 ov05_021F9080;
 
-/*static*/ void sub_02057F18(LocalMapObject *object) {
+static void sub_02057F18(LocalMapObject *object) {
     u32 spriteId               = MapObject_GetSpriteID(object);
     UnkLMOCallbackStruct2 *unk = (spriteId == SPRITE_CAMERA_FOCUS) ? (UnkLMOCallbackStruct2 *)&ov05_021F9080 : sub_02058D4C(spriteId);
 
@@ -883,7 +865,7 @@ BOOL sub_020582F8(LocalMapObject *object, u32 spriteId, u32 objectId, u32 mapId)
 
 static void sub_0205832C(SysTask *task, LocalMapObject *object) {
     sub_02058EF8(object);
-    if (MapObject_IsInUse(object)) {
+    if (MapObject_CheckActive(object)) {
         sub_02058348(object);
     }
 }
@@ -915,15 +897,15 @@ static void sub_02058374(MapObjectManager *manager) {
     manager->unk8--;
 }
 
-void MapObjectManager_SetFlagsBits(MapObjectManager *manager, u32 bits) {
+void MapObjectManager_SetFlagsBits(MapObjectManager *manager, MapObjectManagerFlagBits bits) {
     manager->flags |= bits;
 }
 
-void MapObjectManager_ClearFlagsBits(MapObjectManager *manager, u32 bits) {
+void MapObjectManager_ClearFlagsBits(MapObjectManager *manager, MapObjectManagerFlagBits bits) {
     manager->flags &= ~bits;
 }
 
-u32 MapObjectManager_GetFlagsBitsMask(MapObjectManager *manager, u32 bits) {
+u32 MapObjectManager_GetFlagsBitsMask(MapObjectManager *manager, MapObjectManagerFlagBits bits) {
     return manager->flags & bits;
 }
 
@@ -1370,4 +1352,326 @@ u32 MapObject_GetPriority(LocalMapObject *object) {
 u32 sub_02058750(LocalMapObject *object) {
     GF_ASSERT(MapObject_CheckFlag25(object) == TRUE);
     return MapObject_GetEventFlag(object);
+}
+
+void sub_02058768(MapObjectManager *manager) {
+    MapObjectManager_SetFlagsBits(manager, (MapObjectManagerFlagBits)(MAPOBJECTMANAGERFLAG_UNK2 | MAPOBJECTMANAGERFLAG_UNK1));
+}
+
+void sub_02058774(MapObjectManager *manager) {
+    MapObjectManager_ClearFlagsBits(manager, (MapObjectManagerFlagBits)(MAPOBJECTMANAGERFLAG_UNK2 | MAPOBJECTMANAGERFLAG_UNK1));
+}
+
+void MapObjectManager_PauseAllMovement(MapObjectManager *manager) {
+    u32 count               = MapObjectManager_GetObjectCount(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects(manager);
+    do {
+        if (MapObject_CheckActive(objects)) {
+            MapObject_PauseMovement(objects);
+        }
+
+        objects++;
+        count--;
+    } while (count > 0);
+}
+
+void MapObjectManager_UnpauseAllMovement(MapObjectManager *manager) {
+    u32 count               = MapObjectManager_GetObjectCount(manager);
+    LocalMapObject *objects = MapObjectManager_GetObjects(manager);
+    do {
+        if (MapObject_CheckActive(objects)) {
+            MapObject_UnpauseMovement(objects);
+        }
+
+        objects++;
+        count--;
+    } while (count > 0);
+}
+
+BOOL sub_020587E0(MapObjectManager *manager) {
+    return MapObjectManager_GetFlagsBitsMask(manager, MAPOBJECTMANAGERFLAG_UNK0) != 0;
+}
+
+u32 sub_020587F4(LocalMapObject *object, MapObjectManagerFlagBits bits) {
+    return MapObjectManager_GetFlagsBitsMask(MapObject_GetManager(object), bits);
+}
+
+void sub_02058804(MapObjectManager *manager, BOOL clear) {
+    if (clear == FALSE) {
+        MapObjectManager_SetFlagsBits(manager, MAPOBJECTMANAGERFLAG_UNK3);
+    } else {
+        MapObjectManager_ClearFlagsBits(manager, MAPOBJECTMANAGERFLAG_UNK3);
+    }
+}
+
+BOOL sub_0205881C(MapObjectManager *manager) {
+    return MapObjectManager_GetFlagsBitsMask(manager, MAPOBJECTMANAGERFLAG_UNK3) == 0;
+}
+
+BOOL MapObject_CheckActive(LocalMapObject *object) {
+    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_ACTIVE);
+}
+
+void MapObject_SetSingleMovement(LocalMapObject *object) {
+    MapObject_SetFlagsBits(object, MAPOBJECTFLAG_SINGLE_MOVEMENT);
+}
+
+void MapObject_ClearSingleMovement(LocalMapObject *object) {
+    MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_SINGLE_MOVEMENT);
+}
+
+BOOL MapObject_CheckSingleMovement(LocalMapObject *object) {
+    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_SINGLE_MOVEMENT);
+}
+
+void MapObject_SetFlag2(LocalMapObject *object) {
+    MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK2);
+}
+
+void MapObject_ClearFlag3(LocalMapObject *object) {
+    MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK3);
+}
+
+static void MapObject_SetFlag14(LocalMapObject *object) {
+    MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK14);
+}
+
+BOOL MapObject_CheckFlag14(LocalMapObject *object) {
+    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK14);
+}
+
+BOOL MapObject_CheckVisible(LocalMapObject *object) {
+    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+}
+
+void MapObject_SetVisible(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_VISIBLE);
+    }
+}
+
+void MapObject_ClearFlag18(LocalMapObject *object, BOOL clear) {
+    if (clear == TRUE) {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK18);
+    } else {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK18);
+    }
+}
+
+BOOL MapObject_CheckFlag19Disabled(LocalMapObject *object) {
+    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_UNK19) != TRUE;
+}
+
+void MapObject_SetFlag19(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK19);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK19);
+    }
+}
+
+void MapObject_PauseMovement(LocalMapObject *object) {
+    MapObject_SetFlagsBits(object, MAPOBJECTFLAG_MOVEMENT_PAUSED);
+}
+
+void MapObject_UnpauseMovement(LocalMapObject *object) {
+    MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_MOVEMENT_PAUSED);
+}
+
+BOOL MapObject_CheckMovementPaused(LocalMapObject *object) {
+    return MapObject_TestFlagsBits(object, MAPOBJECTFLAG_MOVEMENT_PAUSED) == TRUE;
+}
+
+BOOL sub_02058934(LocalMapObject *object) {
+    if (!sub_020587E0(MapObject_GetManager(object))) {
+        return FALSE;
+    }
+
+    if (MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK14) != 0) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+void MapObject_SetIgnoreHeights(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_IGNORE_HEIGHTS);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_IGNORE_HEIGHTS);
+    }
+}
+
+BOOL MapObject_CheckIgnoreHeights(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_IGNORE_HEIGHTS) != 0;
+}
+
+void MapObject_SetKeep(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_KEEP);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_KEEP);
+    }
+}
+
+static void MapObject_SetFlag25(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK25);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK25);
+    }
+}
+
+BOOL MapObject_CheckFlag25(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK25) != 0;
+}
+
+void MapObject_SetFlag26(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK26);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK26);
+    }
+}
+
+BOOL MapObject_CheckFlag26(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK26) != 0;
+}
+
+void MapObject_SetFlag27(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK27);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK27);
+    }
+}
+
+BOOL MapObject_CheckFlag27(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK27) != 0;
+}
+
+void MapObject_SetFlag28(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK28);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK28);
+    }
+}
+
+BOOL MapObject_CheckFlag28(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK28) != 0;
+}
+
+void MapObject_SetFlag24(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK24);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK24);
+    }
+}
+
+BOOL MapObject_CheckFlag24(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK24) != 0;
+}
+
+BOOL MapObject_CheckFlag4(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK4) != 0;
+}
+
+void MapObject_SetFlag29(LocalMapObject *object, BOOL set) {
+    if (set == TRUE) {
+        MapObject_SetFlagsBits(object, MAPOBJECTFLAG_UNK29);
+    } else {
+        MapObject_ClearFlagsBits(object, MAPOBJECTFLAG_UNK29);
+    }
+}
+
+BOOL MapObject_CheckFlag29(LocalMapObject *object) {
+    return MapObject_GetFlagsBitsMask(object, MAPOBJECTFLAG_UNK29) != 0;
+}
+
+u32 MapObject_GetInitialX(LocalMapObject *object) {
+    return object->initialX;
+}
+
+static void MapObject_SetInitialX(LocalMapObject *object, u32 initialX) {
+    object->initialX = initialX;
+}
+
+u32 MapObject_GetInitialY(LocalMapObject *object) {
+    return object->initialY;
+}
+
+static void MapObject_SetInitialY(LocalMapObject *object, u32 initialY) {
+    object->initialY = initialY;
+}
+
+u32 MapObject_GetInitialZ(LocalMapObject *object) {
+    return object->initialZ;
+}
+
+static void MapObject_SetInitialZ(LocalMapObject *object, u32 initialY) {
+    object->initialZ = initialY;
+}
+
+u32 MapObject_GetPreviousX(LocalMapObject *object) {
+    return object->previousX;
+}
+
+void MapObject_SetPreviousX(LocalMapObject *object, u32 previousX) {
+    object->previousX = previousX;
+}
+
+u32 MapObject_GetPreviousY(LocalMapObject *object) {
+    return object->previousY;
+}
+
+void MapObject_SetPreviousY(LocalMapObject *object, u32 previousY) {
+    object->previousY = previousY;
+}
+
+u32 MapObject_GetPreviousZ(LocalMapObject *object) {
+    return object->previousZ;
+}
+
+void MapObject_SetPreviousZ(LocalMapObject *object, u32 previousZ) {
+    object->previousZ = previousZ;
+}
+
+u32 MapObject_GetCurrentX(LocalMapObject *object) {
+    return object->currentX;
+}
+
+void MapObject_SetCurrentX(LocalMapObject *object, u32 currentX) {
+    object->currentX = currentX;
+}
+
+void MapObject_AddCurrentX(LocalMapObject *object, u32 currentX) {
+    object->currentX += currentX;
+}
+
+s32 MapObject_GetCurrentY(LocalMapObject *object) {
+    return object->currentY;
+}
+
+void MapObject_SetCurrentY(LocalMapObject *object, s32 currentY) {
+    object->currentY = currentY;
+}
+
+void MapObject_AddCurrentY(LocalMapObject *object, s32 currentY) {
+    object->currentY += currentY;
+}
+
+u32 MapObject_GetCurrentZ(LocalMapObject *object) {
+    return object->currentZ;
+}
+
+void MapObject_SetCurrentZ(LocalMapObject *object, u32 currentZ) {
+    object->currentZ = currentZ;
+}
+
+void MapObject_AddCurrentZ(LocalMapObject *object, u32 currentZ) {
+    object->currentZ += currentZ;
 }

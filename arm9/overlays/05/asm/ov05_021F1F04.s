@@ -480,7 +480,7 @@ _021F229A:
 	ldr r0, [sp]
 	cmp r0, r6
 	beq _021F22CE
-	bl MapObject_IsInUse
+	bl MapObject_CheckActive
 	cmp r0, #1
 	bne _021F22CE
 	ldr r0, [sp]
@@ -3104,7 +3104,7 @@ _021F35EC:
 	ldr r0, [r5, #0x24]
 	bl sub_0201F8F0
 	add r0, r7, #0
-	bl sub_02058A9C
+	bl MapObject_CheckFlag24
 	cmp r0, #1
 	bne _021F367A
 	add r0, r7, #0
@@ -3188,7 +3188,7 @@ ov05_021F36D8: ; 0x021F36D8
 	pop {r4, r5, r6, pc}
 _021F36EC:
 	add r0, r4, #0
-	bl MapObject_IsInUse
+	bl MapObject_CheckActive
 	cmp r0, #0
 	beq _021F3700
 	add r0, r4, #0

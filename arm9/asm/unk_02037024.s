@@ -71,7 +71,7 @@ sub_02037090: ; 0x02037090
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020370B8
-	bl sub_020588D4
+	bl MapObject_CheckFlag19Disabled
 	cmp r0, #0x1
 	bne _020370B8
 	ldr r0, [r5, #0x38]

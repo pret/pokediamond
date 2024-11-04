@@ -580,7 +580,7 @@ ov05_021E643C: ; 0x021E643C
 	bne _021E647A
 _021E646C:
 	add r0, r6, #0
-	bl sub_02058A68
+	bl MapObject_CheckFlag28
 	cmp r0, #1
 	bne _021E647A
 	mov r0, #0
@@ -1104,7 +1104,7 @@ _021E68AC:
 	add r0, r7, #0
 	mov r1, #1
 	mov r6, #0x30
-	bl sub_02058A18
+	bl MapObject_SetFlag27
 _021E68B6:
 	add r0, r5, #0
 	add r1, r6, #0
@@ -1654,7 +1654,7 @@ ov05_021E6CC4: ; 0x021E6CC4
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r6, r0, #0
 	mov r0, #0
 	bl sub_02059C00
@@ -1820,10 +1820,10 @@ _021E6E1E:
 	bl MapObject_SetCurrentX
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x10]
-	bl MapObject_SetCurrentHeight
+	bl MapObject_SetCurrentY
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x14]
-	bl MapObject_SetCurrentY
+	bl MapObject_SetCurrentZ
 	ldr r0, [r4, #0x3c]
 	bl sub_02059C60
 	ldr r0, [r4, #0x50]
@@ -1885,7 +1885,7 @@ ov05_021E6E90: ; 0x021E6E90
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r6, r0, #0
 	mov r0, #1
 	bl sub_02059C00
@@ -2066,10 +2066,10 @@ _021E7004:
 	bl MapObject_SetCurrentX
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x10]
-	bl MapObject_SetCurrentHeight
+	bl MapObject_SetCurrentY
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x14]
-	bl MapObject_SetCurrentY
+	bl MapObject_SetCurrentZ
 	ldr r0, [r4, #0x3c]
 	bl sub_02059C60
 	ldr r0, [r4, #0x50]
@@ -2262,7 +2262,7 @@ _021E7198:
 	str r5, [r4, #0xc]
 	ldr r0, [sp]
 	str r7, [r4, #4]
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	add r0, r5, #0
 	mov r1, #0x80
 	bl Field_PlayerAvatar_OrrTransitionFlags

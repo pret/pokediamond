@@ -188,7 +188,7 @@ ov05_021F5DA8: ; 0x021F5DA8
 	add r5, r0, #0
 	bl ov05_021F60C4
 	add r0, r4, #0
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	mov r0, #1
 	str r0, [r5, #0xc]
 	pop {r3, r4, r5, pc}

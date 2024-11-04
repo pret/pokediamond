@@ -5970,7 +5970,7 @@ _0204F89E:
 	bl MapObject_SetCurrentX
 	ldr r0, [sp, #0xc]
 	add r1, r7, #0x0
-	bl MapObject_SetCurrentY
+	bl MapObject_SetCurrentZ
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x8]
 	str r0, [sp, #0x0]

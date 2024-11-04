@@ -8,6 +8,7 @@
 #include "blackout.h"
 #include "field_system.h"
 #include "igt.h"
+#include "map_object.h"
 #include "save_vars_flags.h"
 #include "task.h"
 #include "unk_020040F4.h"
@@ -24,8 +25,6 @@ extern void BattleSetup_Delete(BattleSetup *setup);
 extern BOOL IsBattleResultWin(u32 winFlag);
 extern void sub_02047F38(BattleSetup *setup, FieldSystem *fieldSystem);
 extern void sub_02061080(FieldSystem *fieldSystem, u32 param1, u32 winFlag);
-extern void MapObjectManager_PauseAllMovement(MapObjectManager *mapObjectManager);
-extern void MapObjectManager_UnpauseAllMovement(MapObjectManager *mapObjectManager);
 extern void sub_0202E25C(SaveData *saveData, s32 param1);
 extern void sub_02047FA4(BattleSetup *setup, FieldSystem *fieldSystem);
 extern BattleSetup *ov06_02244558(u32 param0, FieldSystem *fieldSystem);

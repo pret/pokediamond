@@ -406,7 +406,7 @@ sub_0205C888: ; 0x0205C888
 	cmp r0, r6
 	bne _0205C8AE
 	add r0, r7, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	cmp r4, r0
 	bge _0205C8AE
 	sub r1, r0, r5
@@ -430,7 +430,7 @@ sub_0205C8B4: ; 0x0205C8B4
 	cmp r0, r6
 	bne _0205C8DA
 	add r0, r7, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	cmp r4, r0
 	ble _0205C8DA
 	add r1, r0, r5
@@ -450,7 +450,7 @@ sub_0205C8E0: ; 0x0205C8E0
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	cmp r0, r6
 	bne _0205C906
 	add r0, r7, #0x0
@@ -474,7 +474,7 @@ sub_0205C90C: ; 0x0205C90C
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	cmp r0, r6
 	bne _0205C932
 	add r0, r7, #0x0
@@ -507,10 +507,10 @@ _0205C94C:
 	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x4]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0
 	bl sub_02059BF4
@@ -751,11 +751,11 @@ sub_0205CB14: ; 0x0205CB14
 	add r5, r0, #0x0
 	ldr r4, [r5, #0x24]
 	add r0, r4, #0x0
-	bl sub_02058854
+	bl MapObject_CheckSingleMovement
 	cmp r0, #0x1
 	bne _0205CB2A
 	add r0, r4, #0x0
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 _0205CB2A:
 	mov r0, #0x1
 	str r0, [r5, #0x0]
@@ -767,7 +767,7 @@ sub_0205CB30: ; 0x0205CB30
 	add r4, r0, #0x0
 	ldr r5, [r4, #0x24]
 	add r0, r5, #0x0
-	bl sub_02058854
+	bl MapObject_CheckSingleMovement
 	cmp r0, #0x1
 	bne _0205CB44
 	mov r0, #0x0
@@ -1027,13 +1027,13 @@ sub_0205CCEC: ; 0x0205CCEC
 	bl MapObject_GetCurrentX
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x24]
 	bl MapObject_GetCurrentX
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x24]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r3, r0, #0x0
 	ldr r2, [sp, #0x0]
 	add r0, r6, #0x0
