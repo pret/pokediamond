@@ -580,7 +580,7 @@ ov05_021E32F0: ; 0x021E32F0
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	beq _021E32FE
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021E32FE:
 	add r0, r4, #0
 	add r0, #0x20

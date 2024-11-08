@@ -2,6 +2,7 @@
 
 #include "global.h"
 
+#include "unk_0200CA44.h"
 #include "unk_0202E29C.h"
 #include "unk_02031480.h"
 #include "unk_02031734.h"
@@ -13,13 +14,11 @@ vu8 UNK_02105D59 = 4;
 vu8 UNK_02105D58 = 4;
 
 extern void sub_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *param2);
-extern u32 sub_0200CA60(void (*param0)(), u32 param1, u32 param2);
 extern void sub_0202D394(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2);
 extern void sub_0202D804(u8 *param0);
 extern void sub_0202D330(void (*param0)(int));
 extern void ov04_021D83C0();
 extern void sub_0202DBA4();
-extern void sub_0200CAB4(u32 param0);
 extern void sub_0202D824(u8 *param0);
 extern u32 ov04_021D78FC(void *param0, u32 param1);
 extern u32 sub_0202CBD4();
@@ -99,9 +98,9 @@ u32 sub_0202F150(u32 param0, u32 param1) {
     sub_020312BC(UNK_021C59F8->unk5F8);
 
     if (r4 == 0) {
-        u32 res2 = sub_0200CA60(sub_0202FB20, 0, 0);
+        SysTask *sysTask = sub_0200CA60((SysTaskFunc)sub_0202FB20, 0, 0);
 
-        UNK_021C59F8->unk548 = res2;
+        UNK_021C59F8->unk548 = sysTask;
     }
 
     UNK_021C59F8->unk687 = 0;
@@ -410,7 +409,7 @@ void sub_0202FA5C() {
         sub_0202DBA4();
         UNK_021C59F4 = 0;
 
-        sub_0200CAB4(UNK_021C59F8->unk548);
+        SysTask_Destroy(UNK_021C59F8->unk548);
         UNK_021C59F8->unk548 = 0;
         FreeToHeap(UNK_021C59F8->unk45C);
         FreeToHeap(UNK_021C59F8->unk460);
@@ -427,7 +426,7 @@ u32 sub_0202FB18(u32 param0) {
     return sub_0202E9E8(param0);
 }
 
-void sub_0202FB20() {
+void sub_0202FB20(SysTask *sysTask, void *param1) {
     if (UNK_021C59F4 != 0) {
         sub_0203050C();
         if ((sub_02031190() == 0 && sub_02030E7C(0) != 0) || sub_02031280() != 0) {

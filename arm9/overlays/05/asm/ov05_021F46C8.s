@@ -332,21 +332,21 @@ ov05_021F491C: ; 0x021F491C
 	str r1, [r4, r0]
 	add r0, #8
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0xc7
 	mov r1, #0
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	add r0, r0, #4
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x32
 	mov r1, #0
 	lsl r0, r0, #4
 	str r1, [r4, r0]
 	add r0, r0, #4
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0xc9
 	mov r1, #0
 	lsl r0, r0, #2

@@ -258,7 +258,7 @@ void sub_02003464(SysTask *task, struct PaletteData *param1) {
         param1->unk11a_0           = 0;
         param1->activeFadePalettes = 0;
         param1->unk11a_e           = 0;
-        sub_0200CAB4((s32)task);
+        SysTask_Destroy(task);
         return;
     }
 
@@ -269,7 +269,7 @@ void sub_02003464(SysTask *task, struct PaletteData *param1) {
 
         if (param1->activeFadePalettes == 0) {
             param1->unk11a_e = 0;
-            sub_0200CAB4((s32)task);
+            SysTask_Destroy(task);
         }
     }
 }

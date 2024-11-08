@@ -6,6 +6,7 @@
 
 #include "heap.h"
 #include "main.h"
+#include "map_object.h"
 #include "save_vars_flags.h"
 #include "unk_020051F4.h"
 #include "unk_0204AF24.h"
@@ -30,7 +31,6 @@ extern u32 ov06_022451F0(u32);
 extern void sub_02049160(struct TaskManager *taskManager, u32);
 extern void sub_0204C1B4(struct TaskManager *taskManager, u32, u32, u32, u32, u32, u32, u32);
 extern LocalMapObject *PlayerAvatar_GetMapObject(struct PlayerAvatar *playerAvatar);
-extern LocalMapObject *MapObject_SetVisible(LocalMapObject *target, BOOL visible);
 extern void sub_0205F1C4(struct SaveVarsFlags *);
 extern void sub_0205F1D4(struct SaveVarsFlags *);
 extern void sub_0206367C(struct FieldSystem *, u32);

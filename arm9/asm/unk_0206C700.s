@@ -265,7 +265,7 @@ sub_0206C8EC: ; 0x0206C8EC
 	cmp r0, #0x0
 	beq _0206C918
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0206C918:
 	pop {r3-r5, pc}
 	.balign 4

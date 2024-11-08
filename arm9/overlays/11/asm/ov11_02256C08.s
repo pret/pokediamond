@@ -400,7 +400,7 @@ ov11_02256F0C: ; 0x02256F0C
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _02256F1E
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x50]
 _02256F1E:
@@ -1162,7 +1162,7 @@ _022574D0:
 	orr r0, r1
 	strb r0, [r5]
 	add r0, r7, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022574E8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -2747,7 +2747,7 @@ _0225814A:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r7, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2794,7 +2794,7 @@ ov11_022581B0: ; 0x022581B0
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _022581C2
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x50]
 _022581C2:

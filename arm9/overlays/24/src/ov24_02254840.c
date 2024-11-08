@@ -59,7 +59,7 @@ void ov24_022548F4(MemoPadAppHandler *appHandler) {
     FreeToHeap(appHandler);
 }
 
-void ov24_02254918(void *arg0, MemoPadAppHandler *appHandler) {
+void ov24_02254918(SysTask *sysTask, MemoPadAppHandler *appHandler) {
     static BOOL (*const ov24_02255100[3])(MemoPadAppHandler *) = {
         ov24_022549AC, ov24_022549F8, ov24_02254C64
     };
@@ -67,7 +67,7 @@ void ov24_02254918(void *arg0, MemoPadAppHandler *appHandler) {
         ov20_02252C14(appHandler->unk16F8, appHandler->unk16FC);
         if (ov24_02255100[appHandler->unk0](appHandler)) {
             ov24_022548F4(appHandler);
-            sub_0200CAB4((s32)arg0);
+            SysTask_Destroy(sysTask);
             ov20_022529A0(appHandler->unk16F8);
         }
     }

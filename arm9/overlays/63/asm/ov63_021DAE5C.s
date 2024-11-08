@@ -142,7 +142,7 @@ _021DAF5A:
 	ldr r0, [r0, #8]
 	cmp r0, #0
 	beq _021DAF68
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DAF68:
 	ldr r0, [r5]
 	add r6, r6, #1
@@ -189,7 +189,7 @@ _021DAFAA:
 	ldr r0, [r0, r6]
 	cmp r0, #0
 	beq _021DAFB8
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DAFB8:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -207,7 +207,7 @@ _021DAFCA:
 	ldr r0, [r0, r6]
 	cmp r0, #0
 	beq _021DAFDA
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DAFDA:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -633,7 +633,7 @@ ov63_021DB2F8: ; 0x021DB2F8
 	cmp r1, r0
 	blo _021DB330
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #8]
 _021DB330:
@@ -671,7 +671,7 @@ ov63_021DB334: ; 0x021DB334
 	cmp r0, #0x50
 	blo _021DB388
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r1, #0
 	str r1, [r4, #8]
 	strb r1, [r4]
@@ -768,7 +768,7 @@ ov63_021DB424: ; 0x021DB424
 	ldrb r1, [r4, #1]
 	cmp r1, #8
 	blo _021DB44C
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r1, #0
 	str r1, [r4, #8]
 	strb r1, [r4]

@@ -16,7 +16,7 @@
 const struct FontInfo *gFonts = NULL;
 
 u16 sFontHalfRowLookupTable[0x100];
-BOOL UNK_021C5714[8];
+SysTask *UNK_021C5714[8];
 u16 UNK_021C570E;
 u16 UNK_021C5710;
 u16 UNK_021C5712;
@@ -30,15 +30,15 @@ void SetFontsPointer(const struct FontInfo *fonts) {
     gFonts = fonts;
 }
 
-u8 sub_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2) {
-    u32 *r4 = UNK_021C5714;
+u8 sub_0201BCC8(SysTaskFunc func, void *printer, u32 param2) {
+    SysTask **r4 = UNK_021C5714;
     s32 i;
     for (i = 0; i < 8; i++, r4++) {
-        if (r4[0] != 0) {
+        if (r4[0] != NULL) {
             continue;
         }
         UNK_021C5714[i] = sub_0200CA7C(func, printer, param2);
-        if (UNK_021C5714[i] != 0) {
+        if (UNK_021C5714[i] != NULL) {
             break;
         }
         i = 8;
@@ -49,11 +49,11 @@ u8 sub_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2) {
 
 void sub_0201BCFC(u8 textPrinterNumber) {
     GF_ASSERT(textPrinterNumber < 8);
-    GF_ASSERT(UNK_021C5714[textPrinterNumber] != 0);
+    GF_ASSERT(UNK_021C5714[textPrinterNumber] != NULL);
     if (textPrinterNumber >= 8) {
         return;
     }
-    if (UNK_021C5714[textPrinterNumber] == 0) {
+    if (UNK_021C5714[textPrinterNumber] == NULL) {
         return;
     }
     struct TextPrinter *printer = sub_0201B6C8();
@@ -61,17 +61,17 @@ void sub_0201BCFC(u8 textPrinterNumber) {
         sub_0201C238(printer);
         FreeToHeap((void *)printer);
     }
-    sub_0200CAB4(UNK_021C5714[textPrinterNumber]);
-    UNK_021C5714[textPrinterNumber] = 0;
+    SysTask_Destroy(UNK_021C5714[textPrinterNumber]);
+    UNK_021C5714[textPrinterNumber] = NULL;
 }
 
 BOOL sub_0201BD44(u8 textPrinterNumber) {
-    return UNK_021C5714[textPrinterNumber] ? TRUE : FALSE;
+    return UNK_021C5714[textPrinterNumber] != NULL ? TRUE : FALSE;
 }
 
 void ResetAllTextPrinters(void) {
     for (s32 i = 0; i < 8; i++) {
-        UNK_021C5714[i] = 0;
+        UNK_021C5714[i] = NULL;
     }
 }
 
@@ -175,7 +175,7 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
     if (speed != 0xff && speed != 0) {
         printer->textSpeedBottom--;
         printer->textSpeedTop     = 1;
-        printer->minLetterSpacing = sub_0201BCC8((void (*)(u32, void *))RunTextPrinter, printer, 1);
+        printer->minLetterSpacing = sub_0201BCC8((SysTaskFunc)RunTextPrinter, printer, 1);
         return printer->minLetterSpacing;
     } else {
         u32 j                    = 0;
@@ -196,8 +196,8 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
     }
 }
 
-void RunTextPrinter(u32 param0, struct TextPrinter *printer) {
-#pragma unused(param0)
+void RunTextPrinter(SysTask *sysTask, struct TextPrinter *printer) {
+#pragma unused(sysTask)
     if (UNK_021C570C == 0) {
         if (printer->Unk29 == 0) {
             printer->Unk2A = 0;

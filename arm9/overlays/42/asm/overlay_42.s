@@ -236,7 +236,7 @@ ov42_02254A04: ; 0x02254A04
 	add r0, r4, #0
 	bl ov42_022549CC
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x5c]
 	bl ov20_022529A0
 _02254A30:
@@ -836,7 +836,7 @@ ov42_02254E7C: ; 0x02254E7C
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x70]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r6, #0
 	add r4, r5, #0
 	add r7, r6, #0

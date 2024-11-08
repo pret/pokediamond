@@ -178,7 +178,7 @@ _021E3580:
 	mov r1, #1
 	str r1, [r2]
 _021E3590:
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	add sp, #4
@@ -430,7 +430,7 @@ ov05_021E3754: ; 0x021E3754
 	ldr r1, [r1]
 	bl ov05_021E370C
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start ov05_021E3768
@@ -571,7 +571,7 @@ ov05_021E3858: ; 0x021E3858
 	bl ov05_021F4624
 	str r0, [r4, #0x24]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	nop
 _021E3880: .word ov05_021E38B8
@@ -696,7 +696,7 @@ ov05_021E3920: ; 0x021E3920
 	mov r0, #0
 	str r0, [r4, #0x24]
 	ldr r0, [r4, #0x28]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x28]
 	pop {r4, pc}
@@ -896,7 +896,7 @@ ov05_021E3ADC: ; 0x021E3ADC
 	bl ov05_021F4624
 	str r0, [r4, #0x3c]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	nop
 _021E3B04: .word ov05_021E3B0C
@@ -1021,7 +1021,7 @@ ov05_021E3BA4: ; 0x021E3BA4
 	mov r0, #0
 	str r0, [r4, #0x3c]
 	ldr r0, [r4, #0x40]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x40]
 	pop {r4, pc}
@@ -1147,7 +1147,7 @@ ov05_021E3C14: ; 0x021E3C14
 	mov r1, #0
 	bl GfGfx_EngineATogglePlanes
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x64
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -1216,7 +1216,7 @@ ov05_021E3D70: ; 0x021E3D70
 	lsr r1, r1, #0x18
 	bl Bg_SetTextDimAndAffineParams
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0xc
 	pop {r3, r4, pc}
 	.balign 4, 0
@@ -2676,7 +2676,7 @@ ov05_021E4884: ; 0x021E4884
 	add r4, #0xe0
 	str r0, [r4]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	nop
 _021E48B8: .word ov05_021E48EC
@@ -2760,7 +2760,7 @@ ov05_021E4918: ; 0x021E4918
 	add r0, r4, #0
 	add r0, #0xe0
 	ldr r0, [r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	add r4, #0xe0
 	str r0, [r4]
@@ -2948,7 +2948,7 @@ _021E4A8C:
 	orr r2, r3
 	strh r2, [r1, #4]
 _021E4AA8:
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	nop
 _021E4AB0: .word 0x04000040
@@ -2962,7 +2962,7 @@ ov05_021E4AB8: ; 0x021E4AB8
 	ldr r1, [r1]
 	bl GXx_SetMasterBrightness_
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.balign 4, 0
 _021E4ACC: .word 0x0400006C

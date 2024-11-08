@@ -1,6 +1,11 @@
 #ifndef POKEDIAMOND_OVERLAY_24_H
 #define POKEDIAMOND_OVERLAY_24_H
 
+#include "global.h"
+
+#include "bg_window.h"
+#include "unk_0200CA44.h"
+
 typedef enum {
     TOUCH_TYPE_ERASE = 0,
     TOUCH_TYPE_DRAW  = 1,
@@ -46,7 +51,7 @@ typedef struct MemoPadAppHandler {
 BOOL ov24_02254854(MemoPadAppHandler **appHandlerOut, s32 arg1, s32 arg2, s32 arg3);
 BOOL ov24_0225489C(MemoPadAppHandler *appHandler, u32 arg1, u32 arg2, u32 arg3);
 void ov24_022548F4(MemoPadAppHandler *appHandler);
-void ov24_02254918(void *arg0, MemoPadAppHandler *appHandler);
+void ov24_02254918(SysTask *sysTask, MemoPadAppHandler *appHandler);
 void ov24_02254960(s32 arg0, s32 arg1, s32 arg2, MemoPadAppHandler *appHandler);
 void ov24_02254990(MemoPadAppHandler *appHandler);
 void ov24_02254998(MemoPadAppHandler *appHandler, u8 arg1);

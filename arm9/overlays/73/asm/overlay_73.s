@@ -3589,7 +3589,7 @@ ov73_021D91BC: ; 0x021D91BC
 	mov r0, #0x6b
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -6072,7 +6072,7 @@ ov73_021DA408: ; 0x021DA408
 	mov r1, #0
 	bl GfGfx_EngineATogglePlanes
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x2c]
 _021DA432:
@@ -6155,7 +6155,7 @@ ov73_021DA4AC: ; 0x021DA4AC
 	mov r1, #0
 	bl GfGfx_EngineATogglePlanes
 	ldr r0, [r4, #0x2c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x2c]
 _021DA4D0:

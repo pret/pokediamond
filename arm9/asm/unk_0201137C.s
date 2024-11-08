@@ -328,7 +328,7 @@ sub_020116CC: ; 0x020116CC
 	ldmia r1!, {r0-r1}
 	bl sub_02011480
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.balign 4
 
@@ -343,7 +343,7 @@ sub_020116E0: ; 0x020116E0
 	ldr r3, [r3, #0xc]
 	bl sub_020114AC
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.balign 4
 
@@ -357,7 +357,7 @@ sub_020116FC: ; 0x020116FC
 	ldr r2, [r2, #0x8]
 	bl sub_02011534
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start sub_02011714
@@ -380,7 +380,7 @@ sub_02011714: ; 0x02011714
 	ldrsh r3, [r3, r5]
 	bl sub_02011574
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x8
 	pop {r3-r5, pc}
 	.balign 4

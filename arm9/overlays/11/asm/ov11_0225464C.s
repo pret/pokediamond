@@ -44,7 +44,7 @@ ov11_0225468C: ; 0x0225468C
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _022546B2
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x66
 	mov r2, #0
 	lsl r0, r0, #2

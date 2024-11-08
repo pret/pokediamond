@@ -2586,7 +2586,7 @@ ov64_021D88C4: ; 0x021D88C4
 	cmp r4, #1
 	bne _021D8924
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r5, #0x40]
 	mov r0, #1
@@ -2881,7 +2881,7 @@ ov64_021D8B44: ; 0x021D8B44
 	ldr r0, [r4, #0x28]
 	cmp r0, #0
 	beq _021D8B56
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x28]
 _021D8B56:
@@ -3121,7 +3121,7 @@ ov64_021D8CC8: ; 0x021D8CC8
 	bge _021D8D26
 _021D8D1C:
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r5, #0x54]
 _021D8D26:
@@ -3360,7 +3360,7 @@ ov64_021D8E68: ; 0x021D8E68
 	bge _021D8EE8
 _021D8EDE:
 	add r0, r7, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r5, #0x3c]
 _021D8EE8:

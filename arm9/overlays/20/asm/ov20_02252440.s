@@ -193,7 +193,7 @@ ov20_0225257C: ; 0x0225257C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x38]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl ov20_02252A08
 	add r0, r4, #0
@@ -236,7 +236,7 @@ _022525C6:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #7
 	bl DestroyHeap
 	mov r0, #8

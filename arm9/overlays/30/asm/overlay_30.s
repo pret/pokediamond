@@ -142,7 +142,7 @@ ov30_02254930: ; 0x02254930
 	add r0, r4, #0
 	bl ov30_0225490C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x14]
 	bl ov20_022529A0
 _02254966:

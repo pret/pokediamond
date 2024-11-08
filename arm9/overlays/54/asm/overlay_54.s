@@ -279,7 +279,7 @@ ov54_021D7740: ; 0x021D7740
 	bl OverlayManager_GetData
 	add r6, r0, #0
 	ldr r0, [r6, #0x20]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x6b
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]

@@ -18298,7 +18298,7 @@ _0223B298:
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [sp, #0x14]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0223B2AE:
 	add sp, #0xd4
 	pop {r4, r5, r6, r7, pc}
@@ -19727,7 +19727,7 @@ _0223BEBE:
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [sp, #0x10]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x158
 	pop {r3, r4, r5, r6, r7, pc}
 _0223BED8:
@@ -19808,7 +19808,7 @@ _0223BF5E:
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [sp, #0x10]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x158
 	pop {r3, r4, r5, r6, r7, pc}
 _0223BF8E:
@@ -19839,7 +19839,7 @@ _0223BFB2:
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [sp, #0x10]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0223BFD0:
 	add sp, #0x158
 	pop {r3, r4, r5, r6, r7, pc}

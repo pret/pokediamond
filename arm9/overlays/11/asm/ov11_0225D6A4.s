@@ -142,7 +142,7 @@ ov11_0225D7B8: ; 0x0225D7B8
 	ldr r0, [r4]
 	bl sub_0200C3DC
 	ldr r0, [r4, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}

@@ -907,7 +907,7 @@ _0206C5CC:
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [sp, #0x0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0206C5D8:
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -964,7 +964,7 @@ _0206C63E:
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [sp, #0x0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0206C64A:
 	pop {r3-r7, pc}
 

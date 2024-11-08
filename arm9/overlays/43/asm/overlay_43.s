@@ -140,7 +140,7 @@ ov43_0225493C: ; 0x0225493C
 	add r0, r4, #0
 	bl ov43_02254928
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r4, #0xac
 	ldr r0, [r4]
 	bl ov20_022529A0
@@ -1032,7 +1032,7 @@ ov43_02255000: ; 0x02255000
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _0225501A
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x53
 	mov r1, #0
 	lsl r0, r0, #2

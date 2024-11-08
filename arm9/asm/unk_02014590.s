@@ -744,7 +744,7 @@ sub_02014AD4: ; 0x02014AD4
 	lsr r1, r1, #0x18
 	bl BG_LoadCharTilesData
 	add r0, r5, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x8]
 	bl FreeToHeap
 	add r0, r4, #0x0
@@ -780,7 +780,7 @@ _02014B34:
 	bl GXS_LoadBGPltt
 _02014B44:
 	add r0, r5, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x4]
 	bl FreeToHeap
 	add r0, r4, #0x0

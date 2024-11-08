@@ -208,9 +208,9 @@ _021D80BE:
 	bl FreeToHeap
 _021D80CC:
 	ldr r0, [r4, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #8]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	add r1, r4, #0
 	mov r2, #0x14

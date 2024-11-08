@@ -568,7 +568,7 @@ _021E1EFC:
 	bl DestroyMsgData
 _021E1F22:
 	ldr r0, [r6, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r6, #0
 	bl FreeToHeap
 	pop {r4, r5, r6, pc}
@@ -1165,7 +1165,7 @@ _021E2398:
 	bl DestroyMsgData
 _021E23BE:
 	ldr r0, [r6, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r6, #0
 	bl FreeToHeap
 	pop {r4, r5, r6, pc}
@@ -1434,7 +1434,7 @@ _021E25D0:
 	bl DestroyMsgData
 _021E25F6:
 	ldr r0, [r6, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r6, #0
 	bl FreeToHeap
 _021E2602:

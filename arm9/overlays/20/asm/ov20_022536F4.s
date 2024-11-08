@@ -249,7 +249,7 @@ ov20_02253888: ; 0x02253888
 	ldr r1, [r4]
 	bl ov20_02253754
 	ldr r0, [r4, #0x14]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}

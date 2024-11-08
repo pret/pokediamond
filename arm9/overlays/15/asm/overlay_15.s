@@ -2654,16 +2654,16 @@ _021D889A:
 	ldr r0, [r5, #8]
 	cmp r0, #0
 	beq _021D88A4
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021D88A4:
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #4
 	blt _021D889A
 	ldr r0, [r6]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r6, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	bl DeinitOamData
 	ldr r0, [r6, #0x24]
 	bl sub_0201FD58
@@ -2801,7 +2801,7 @@ ov15_021D8998: ; 0x021D8998
 	lsl r0, r0, #2
 	add r0, r1, r0
 	ldr r0, [r0, #8]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x10]
 	ldr r1, [r4]
 	lsl r0, r0, #2
@@ -8241,7 +8241,7 @@ _021DB4CC:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DB4E0:
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
@@ -8382,7 +8382,7 @@ _021DB5E0:
 	cmp r0, #0
 	bne _021DB5FA
 	ldr r0, [r4, #0x1c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldrh r0, [r4, #0x1a]
 	add r0, r0, #1
 	strh r0, [r4, #0x1a]
@@ -8469,7 +8469,7 @@ ov15_021DB678: ; 0x021DB678
 	cmp r0, #0
 	bne _021DB69C
 	ldr r0, [r4, #0x1c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x18]
 	add r0, r0, #1
 	str r0, [r4, #0x18]
@@ -8558,7 +8558,7 @@ ov15_021DB71C: ; 0x021DB71C
 	cmp r0, #0
 	bne _021DB740
 	ldr r0, [r4, #0x1c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x18]
 	add r0, r0, #1
 	str r0, [r4, #0x18]

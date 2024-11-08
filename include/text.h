@@ -4,6 +4,7 @@
 #include "global.h"
 
 #include "bg_window.h"
+#include "unk_0200CA44.h"
 
 #define MAKE_TEXT_COLOR(fg, sh, bg) ((((fg) & 0xFF) << 16) | (((sh) & 0xFF) << 8) | (((bg) & 0xFF) << 0))
 
@@ -66,7 +67,7 @@ struct FontInfo {
 };
 
 void SetFontsPointer(const struct FontInfo *fonts);
-u8 sub_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2);
+u8 sub_0201BCC8(SysTaskFunc func, void *printer, u32 param2);
 void sub_0201BCFC(u8 textPrinterNumber);
 BOOL sub_0201BD44(u8 textPrinterNumber);
 void ResetAllTextPrinters(void);
@@ -76,7 +77,7 @@ u16 AddTextPrinterParameterized(struct Window *window, u8 fontId, struct String 
 u16 AddTextPrinterParameterized2(struct Window *window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16));
 u16 AddTextPrinterParameterized3(struct Window *window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16));
 u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
-void RunTextPrinter(u32 param0, struct TextPrinter *printer);
+void RunTextPrinter(SysTask *sysTask, struct TextPrinter *printer);
 u32 RenderFont(struct TextPrinter *printer);
 void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor);
 void DecompressGlyphTile(const u16 *src, u16 *dst);

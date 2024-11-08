@@ -98,7 +98,7 @@ sub_02065474: ; 0x02065474
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x8]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
 	str r1, [r0, #0x0]

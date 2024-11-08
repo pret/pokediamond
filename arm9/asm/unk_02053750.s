@@ -96,7 +96,7 @@ _02053786:
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x38]
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
 	ldr r0, [r0, #0x38]

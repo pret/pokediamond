@@ -5,25 +5,24 @@
 #include "main.h"
 
 extern SysTask *sub_0201B60C(void *queue, SysTaskFunc func, void *data, u32 priority);
-extern void sub_0201B6A0(s32);
+extern void sub_0201B6A0(SysTask *sysTask);
 
 SysTask *SysTask_CreateOnMainQueue(SysTaskFunc func, void *data, u32 priority) {
     return sub_0201B60C(gSystem.unk18, func, data, priority);
 }
 
-BOOL sub_0200CA60(void (*r0)(u32, void *), void *r1, u32 r2) {
-    return (BOOL)sub_0201B60C(gSystem.unk1C, (SysTaskFunc)r0, r1, r2); // TODO: this is wrong
+SysTask *sub_0200CA60(SysTaskFunc func, void *data, u32 priority) {
+    return sub_0201B60C(gSystem.unk1C, func, data, priority);
 }
 
-BOOL sub_0200CA7C(void (*r0)(u32, void *), void *r1, u32 r2) {
-    return (BOOL)sub_0201B60C(gSystem.unk24, (SysTaskFunc)r0, r1, r2);
+SysTask *sub_0200CA7C(SysTaskFunc func, void *data, u32 priority) {
+    return sub_0201B60C(gSystem.unk24, func, data, priority);
 }
 
-BOOL sub_0200CA98(void (*r0)(u32, void *), void *r1, u32 r2) {
-    return (BOOL)sub_0201B60C(gSystem.unk20, (SysTaskFunc)r0, r1, r2);
+SysTask *sub_0200CA98(SysTaskFunc func, void *data, u32 priority) {
+    return sub_0201B60C(gSystem.unk20, func, data, priority);
 }
 
-void sub_0200CAB4(s32 unk1) // todo: SysTask
-{
-    sub_0201B6A0(unk1);
+void SysTask_Destroy(SysTask *sysTask) {
+    sub_0201B6A0(sysTask);
 }

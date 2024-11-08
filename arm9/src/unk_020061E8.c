@@ -21,10 +21,10 @@ SysTask *sub_020061E8(SysTaskFunc func, u32 r1, u32 r2, HeapID heapId) {
     return SysTask_CreateOnMainQueue(func, r4, r2);
 }
 
-void sub_0200621C(s32 r4) {
-    struct TextPrinter *r0 = sub_0201B6C8();
-    if (r0 != NULL) {
-        FreeToHeap(r0);
+void sub_0200621C(SysTask *sysTask) {
+    struct TextPrinter *textPrinter = sub_0201B6C8();
+    if (textPrinter != NULL) {
+        FreeToHeap(textPrinter);
     }
-    sub_0200CAB4(r4);
+    SysTask_Destroy(sysTask);
 }

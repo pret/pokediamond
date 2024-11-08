@@ -684,7 +684,7 @@ _0204B848:
 	bl Field_PlayerAvatar_ApplyTransitionFlags
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	mov r0, #0x1
 	str r0, [r4, #0x0]
 	b _0204B98E
@@ -824,7 +824,7 @@ _0204B972:
 	bl sub_02055304
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058908
+	bl MapObject_PauseMovement
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1

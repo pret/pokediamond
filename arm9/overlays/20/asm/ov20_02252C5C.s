@@ -254,7 +254,7 @@ _02252E44:
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _02252E52
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02252E52:
 	add r0, r4, #0
 	bl FreeToHeap

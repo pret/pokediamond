@@ -733,7 +733,7 @@ ov05_021E8EA8: ; 0x021E8EA8
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4]
 	bl sub_02012AC4
 	ldr r0, [r4]

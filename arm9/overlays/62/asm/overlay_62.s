@@ -1571,7 +1571,7 @@ _0222E160:
 	add r0, r7, #0
 	bl FreeToHeap
 	ldr r0, [sp]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0222E17C:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -5225,7 +5225,7 @@ _0222FDFC:
 	mov r1, #0
 	bl sub_0200C61C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r3, r4, r5, pc}

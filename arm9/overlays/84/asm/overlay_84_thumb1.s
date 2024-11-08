@@ -229,7 +229,7 @@ _021D76CA:
 	add r6, r0, #0
 	ldr r0, _021D7744 ; =0x00001230
 	ldr r0, [r5, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r6, #0
 	bl OS_RestoreInterrupts
 	mov r0, #0

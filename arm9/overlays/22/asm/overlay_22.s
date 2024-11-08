@@ -193,7 +193,7 @@ _0225499E:
 	add r0, r4, #0
 	bl ov22_0225492C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x64]
 	bl ov20_022529A0
 _022549D2:
@@ -1801,7 +1801,7 @@ _022555CC:
 	add r0, r4, #0
 	add r0, #0x84
 	ldr r0, [r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	add r4, #0x84
 	str r0, [r4]

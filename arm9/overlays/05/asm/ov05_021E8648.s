@@ -197,7 +197,7 @@ _021E87B2:
 	mov r0, #1
 	str r0, [r4, #0x30]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021E87C8

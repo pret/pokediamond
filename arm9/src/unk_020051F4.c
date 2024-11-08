@@ -17,7 +17,7 @@ extern void NNS_SndPlayerStopSeqBySeqNo(u32, u32);
 extern void NNS_SndPlayerStopSeqAll(u32);
 extern void NNS_SndPlayerStopSeq(u32 *, u32);
 extern void NNS_SndPlayerSetTrackPan(u32 *, u32, u32);
-extern void *sub_0201B6C8(u32 *);
+extern void *sub_0201B6C8(SysTask *);
 
 u32 sub_020051F4(u16 param0) {
     int playerNo = sub_02004018(sub_020048D0(param0));
@@ -537,10 +537,10 @@ void sub_02005B2C(SysTask *task, s32 *param1) {
 }
 
 void sub_02005BA0() {
-    u32 **r4 = sub_02003D38(34);
+    SysTask **r4 = sub_02003D38(34);
     if (*r4 != NULL) {
         void *r5 = sub_0201B6C8(*r4);
-        sub_0200CAB4((s32)(*r4));
+        SysTask_Destroy(*r4);
         FreeToHeap(r5);
     }
 

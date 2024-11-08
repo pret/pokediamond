@@ -552,7 +552,7 @@ WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
     waitingIcon->unk487    = 0;
     waitingIcon->unk488    = 0;
 
-    sub_0200CA60(sub_0200DB7C, waitingIcon, 0);
+    sub_0200CA60((SysTaskFunc)sub_0200DB7C, waitingIcon, 0);
     sub_0200D980(waitingIcon, 1);
 
     return waitingIcon;
@@ -584,14 +584,14 @@ void sub_0200D980(WaitingIcon *waitingIcon, u32 param1) {
     }
 }
 
-void sub_0200DB7C(u32 param0, void *param1) {
+void sub_0200DB7C(SysTask *sysTask, void *param1) {
     WaitingIcon *waitingIcon = (WaitingIcon *)param1; // todo: see if this matches using a param
 
     if (waitingIcon->unk488 != 0) {
         if (waitingIcon->unk488 == 1) {
             sub_0200D980(waitingIcon, 2);
         }
-        sub_0200CAB4((s32)param0);
+        SysTask_Destroy(sysTask);
         return;
     }
 
@@ -603,18 +603,18 @@ void sub_0200DB7C(u32 param0, void *param1) {
     }
 }
 
-void sub_0200DBE8(u32 param0, void *param1) {
+void sub_0200DBE8(SysTask *sysTask, void *param1) {
     FreeToHeap(param1);
-    sub_0200CAB4((s32)param0);
+    SysTask_Destroy(sysTask);
 }
 
 void sub_0200DBFC(WaitingIcon *waitingIcon) {
-    sub_0200CA98(sub_0200DBE8, waitingIcon, 0);
+    sub_0200CA98((SysTaskFunc)sub_0200DBE8, waitingIcon, 0);
     waitingIcon->unk488 = 1;
 }
 
 void sub_0200DC24(WaitingIcon *waitingIcon) {
-    sub_0200CA98(sub_0200DBE8, waitingIcon, 0);
+    sub_0200CA98((SysTaskFunc)sub_0200DBE8, waitingIcon, 0);
     waitingIcon->unk488 = 2;
 }
 
@@ -651,7 +651,7 @@ void sub_0200DCF8(SysTask *task, void *param1) {
         ClearFramed10x10Square(unk);
         sub_0200C3DC(unk->unk164);
         ov05_021D99F8(unk);
-        sub_0200621C((s32)task);
+        sub_0200621C(task);
         return;
     case 2:
         unk->pokepicManager.unk00 = 3;

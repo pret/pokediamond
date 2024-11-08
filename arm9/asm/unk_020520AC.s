@@ -421,7 +421,7 @@ sub_02052308: ; 0x02052308
 	str r1, [sp, #0x0]
 	cmp r1, #0x0
 	bne _02052316
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3-r7, pc}
 _02052316:
 	mov r7, #0x11
@@ -621,7 +621,7 @@ sub_020524A0: ; 0x020524A0
 	add r4, r0, #0x0
 	beq _020524B8
 	ldr r0, [r4, #0xc]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1f

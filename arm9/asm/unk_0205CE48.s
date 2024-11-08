@@ -583,7 +583,7 @@ _0205D296:
 	bne _0205D2D6
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	ldr r0, [r4, #0x38]
 	mov r1, #0x1
 	bl Field_PlayerAvatar_OrrTransitionFlags
@@ -613,7 +613,7 @@ _0205D2D6:
 	bl FieldSystem_PlayOrFadeToNewMusicId
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	ldr r0, [r4, #0x38]
 	mov r1, #0x2
 	bl Field_PlayerAvatar_OrrTransitionFlags
@@ -1358,7 +1358,7 @@ _0205D86E:
 _0205D898:
 	ldr r0, [r4, #0x14]
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058A68
+	bl MapObject_CheckFlag28
 	cmp r0, #0x1
 	bne _0205D8AC
 	mov r0, #0x0

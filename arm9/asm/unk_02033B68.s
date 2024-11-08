@@ -261,7 +261,7 @@ sub_02033CD4: ; 0x02033CD4
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x18]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x7
 	ldr r2, _02033D00 ; =0x40000200
 	lsl r0, r0, #0x18

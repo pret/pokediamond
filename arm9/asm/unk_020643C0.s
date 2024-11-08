@@ -122,7 +122,7 @@ _020644AE:
 	cmp r0, #0x0
 	bne _020644D2
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r5, #0x0
 	bl sub_02064640
 	add sp, #0xc
@@ -191,7 +191,7 @@ _0206452A:
 	bl sub_02064764
 	cmp r0, #0x0
 	beq _02064550
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02064550:
 	add r0, r4, #0x0
 	bl sub_02064640

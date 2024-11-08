@@ -2097,7 +2097,7 @@ _0200F60C:
 	blt _0200F60C
 _0200F624:
 	ldr r0, [sp, #0x0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3-r7, pc}
 
 	thumb_func_start sub_0200F62C
@@ -2295,7 +2295,7 @@ _0200F78E:
 	cmp r4, #0x2
 	blt _0200F78E
 	ldr r0, [sp, #0x0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3-r7, pc}
 	.balign 4
 
