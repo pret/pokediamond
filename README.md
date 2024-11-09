@@ -2,7 +2,7 @@
 
 [![build](https://github.com/pret/pokediamond/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/pret/pokediamond/actions/workflows/build.yml)
 
-This is a decompilation of Pokémon Diamond.
+This is a WIP decompilation of Pokémon Diamond.
 
 It builds the following ROMs:
 
