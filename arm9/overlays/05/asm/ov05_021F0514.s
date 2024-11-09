@@ -1043,7 +1043,7 @@ ov05_021F0D18: ; 0x021F0D18
 	bl ov05_021F2060
 	add r0, r4, #0
 	add r1, sp, #0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	add sp, #0xc
 	pop {r3, r4, pc}
 	.balign 4, 0
@@ -2251,7 +2251,7 @@ _021F16B8:
 _021F16BE:
 	add r0, r5, #0
 	add r1, sp, #0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	add sp, #0xc
 	pop {r4, r5, pc}
 	nop

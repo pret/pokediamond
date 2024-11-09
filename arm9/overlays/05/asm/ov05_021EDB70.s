@@ -191,7 +191,7 @@ _021EDCB8:
 	bl sub_02059E60
 	add r0, r6, #0
 	add r1, sp, #0x18
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r0, [sp, #0x1c]
 	add r1, sp, #0xc
 	str r0, [sp, #0x10]

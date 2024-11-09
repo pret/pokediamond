@@ -222,7 +222,7 @@ _0204B4B6:
 	cmp r0, #0x1
 	bne _0204B4E8
 	ldr r0, [sp, #0x0]
-	bl sub_02058B7C
+	bl MapObject_GetPositionVector
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0204B450
@@ -546,7 +546,7 @@ _0204B758:
 	ldr r0, [r7, #0x34]
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl sub_02058D74
+	bl MapObjectManager_GetFirstObjectWithXAndZ
 	cmp r0, #0x0
 	beq _0204B76A
 	mov r0, #0x1
@@ -579,7 +579,7 @@ _0204B794:
 	ldr r0, [r5, #0x34]
 	add r1, r4, #0x0
 	sub r2, r2, #0x1
-	bl sub_02058D74
+	bl MapObjectManager_GetFirstObjectWithXAndZ
 	pop {r4-r6, pc}
 
 	thumb_func_start sub_0204B7A0
@@ -609,7 +609,7 @@ _0204B7CC:
 	ldr r0, [r5, #0x34]
 	add r1, r7, #0x0
 	add r2, r4, #0x0
-	bl sub_02058D74
+	bl MapObjectManager_GetFirstObjectWithXAndZ
 	pop {r3-r7, pc}
 
 	thumb_func_start sub_0204B7D8

@@ -680,7 +680,7 @@ sub_0205E9C8: ; 0x0205E9C8
 	add r1, r2, #0x0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	add sp, #0xc
 	pop {r4-r5, pc}
 	nop
@@ -771,7 +771,7 @@ sub_0205EA74: ; 0x0205EA74
 	add r1, r2, #0x0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 _0205EAA6:
 	add sp, #0xc
 	pop {r4-r5, pc}

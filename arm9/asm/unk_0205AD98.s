@@ -1302,7 +1302,7 @@ _0205B680:
 	str r1, [sp, #0x14]
 	add r0, r5, #0x0
 	add r1, sp, #0xc
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	mov r0, #0xd
 	ldrsb r1, [r4, r0]
 	sub r1, r1, #0x1
@@ -1320,7 +1320,7 @@ _0205B6B8:
 	str r0, [r1, #0x4]
 	str r0, [r1, #0x8]
 	add r0, r5, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	ldr r1, _0205B6FC ; =0x00020028
 	add r0, r5, #0x0
 	bl MapObject_SetFlagsBits
@@ -1839,7 +1839,7 @@ sub_0205BA4C: ; 0x0205BA4C
 	ldr r0, [r4, #0x0]
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	ldr r1, [r4, #0x0]
 	asr r0, r1, #0xe
 	lsr r0, r0, #0x11
@@ -1901,7 +1901,7 @@ _0205BADA:
 	ldr r0, [r4, #0x0]
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	ble _0205BAFA
@@ -2337,7 +2337,7 @@ _0205BDFE:
 	str r0, [r1, #0x4]
 	str r0, [r1, #0x8]
 	add r0, r4, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	add r0, r4, #0x0
 	bl ov06_0224D2E0
 	ldr r1, _0205BE34 ; =0x00010004
@@ -2374,7 +2374,7 @@ sub_0205BE38: ; 0x0205BE38
 	ldr r0, [r2, r0]
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x2
 	str r0, [r4, #0x0]
@@ -2388,7 +2388,7 @@ _0205BE70:
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	add r1, sp, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	ldr r1, _0205BE9C ; =0x00020028
 	add r0, r5, #0x0
 	bl MapObject_SetFlagsBits

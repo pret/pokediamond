@@ -56,7 +56,7 @@ _0203707E:
 	ldr r0, [r5, #0x34]
 	ldr r1, [sp, #0x4]
 	ldr r2, [sp, #0x0]
-	bl sub_02058D74
+	bl MapObjectManager_GetFirstObjectWithXAndZ
 	str r0, [r6, #0x0]
 	add sp, #0x8
 	pop {r4-r6, pc}

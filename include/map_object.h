@@ -79,7 +79,10 @@ struct LocalMapObject {
     u32 currentX;
     s32 currentY;
     u32 currentZ;
-    u8 padding[0x30];
+    VecFx32 positionVector;
+    VecFx32 facingVector;
+    VecFx32 unk88;
+    VecFx32 unk94;
     u32 unkA0;
     u32 movementCmd;
     u32 movementStep;
@@ -101,13 +104,22 @@ struct LocalMapObject {
     u8 unk108[0x20];
 };
 
-typedef struct ObjectEvent {
-    u8 padding[0x8];
-    u16 flag;
-    u8 padding2[0x16];
-    // todo fill out
+struct ObjectEvent {
+    u16 id;
+    u16 spriteId;
+    u16 movement;
+    u16 type;
+    u16 eventFlag;
+    u16 scriptId;
+    s16 facingDirection;
+    u16 param[3];
+    s16 xRange;
+    s16 yRange;
+    u16 x;
+    u16 z;
+    s32 y;
     // todo this should be in map_events_internal.h
-} ObjectEvent;
+};
 
 typedef enum MapObjectFlagBits {
     MAPOBJECTFLAG_ACTIVE          = (1 << 0),
@@ -178,6 +190,11 @@ typedef struct UnkLMOCallbackStruct2 {
     LocalMapObject_UnkCallback unkC;
     LocalMapObject_UnkCallback unk10;
 } UnkLMOCallbackStruct2;
+
+typedef struct UnkLMOCallbackStruct3 {
+    u32 spriteId;
+    UnkLMOCallbackStruct2 *callbackStruct;
+} UnkLMOCallbackStruct3;
 
 MapObjectManager *MapObjectManager_Init(FieldSystem *fieldSystem, u32 objectCount, u32 priority);
 void MapObjectManager_Delete(MapObjectManager *manager);
@@ -328,5 +345,29 @@ void MapObject_AddCurrentY(LocalMapObject *object, s32 currentY);
 u32 MapObject_GetCurrentZ(LocalMapObject *object);
 void MapObject_SetCurrentZ(LocalMapObject *object, u32 currentZ);
 void MapObject_AddCurrentZ(LocalMapObject *object, u32 currentZ);
+void MapObject_CopyPositionVector(LocalMapObject *object, VecFx32 *positionVector);
+void MapObject_SetPositionVector(LocalMapObject *object, VecFx32 *positionVector);
+VecFx32 *MapObject_GetPositionVector(LocalMapObject *object);
+fx32 MapObject_GetPositionVectorYCoord(LocalMapObject *object);
+void MapObject_CopyFacingVector(LocalMapObject *object, VecFx32 *facingVector);
+void MapObject_SetFacingVector(LocalMapObject *object, VecFx32 *facingVector);
+void sub_02058BA4(LocalMapObject *object, VecFx32 *vector);
+void sub_02058BB4(LocalMapObject *object, VecFx32 *vector);
+void sub_02058BC4(LocalMapObject *object, VecFx32 *vector);
+void sub_02058BD4(LocalMapObject *object, VecFx32 *vector);
+u32 MapObject_GetPositionVectorYCoordUInt(LocalMapObject *object);
+LocalMapObject *MapObjectManager_GetFirstObjectWithXAndZ(MapObjectManager *manager, u32 x, u32 z);
+void LocalMapObject_SetPositionFromVectorAndDirection(LocalMapObject *object, VecFx32 *positionVector, u32 direction);
+void MapObject_SetPositionFromXYZAndDirection(LocalMapObject *object, u32 x, u32 y, u32 z, u32 direction);
+void sub_02058E90(LocalMapObject *object, u32 movement);
+void sub_02058EB0(LocalMapObject *object, u32 id);
+void sub_02058EC8(LocalMapObject *object);
+void sub_02058ECC(LocalMapObject *object);
+void sub_02058ED0(LocalMapObject *object);
+void sub_02058ED4(LocalMapObject *object);
+void sub_02058ED8(LocalMapObject *object);
+void sub_02058EDC(LocalMapObject *object);
+void sub_02058EE0(LocalMapObject *object);
+void sub_02058EE4(LocalMapObject *object);
 
 #endif // POKEDIAMOND_MAP_OBJECT_H

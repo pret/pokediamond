@@ -363,14 +363,14 @@ sub_02055350: ; 0x02055350
 	add r4, r1, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	pop {r4, pc}
 
 	thumb_func_start sub_02055360
 sub_02055360: ; 0x02055360
 	push {r3, lr}
 	bl sub_020553A4
-	bl sub_02058B7C
+	bl MapObject_GetPositionVector
 	pop {r3, pc}
 
 	thumb_func_start sub_0205536C
@@ -699,7 +699,7 @@ sub_020554EC: ; 0x020554EC
 	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl sub_02058DBC
+	bl LocalMapObject_SetPositionFromVectorAndDirection
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl sub_0205536C
@@ -721,7 +721,7 @@ sub_02055514: ; 0x02055514
 	mov r2, #0x0
 	add r3, r7, #0x0
 	str r4, [sp, #0x0]
-	bl sub_02058E28
+	bl MapObject_SetPositionFromXYZAndDirection
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl sub_0205536C
@@ -738,11 +738,11 @@ sub_02055540: ; 0x02055540
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	add r1, sp, #0x0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r4, #0x0
 	add r1, sp, #0x0
 	str r5, [sp, #0x4]
-	bl MapObject_SetPositionVec
+	bl MapObject_SetPositionVector
 	add sp, #0xc
 	pop {r4-r5, pc}
 

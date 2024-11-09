@@ -1013,7 +1013,7 @@ sub_02056040: ; 0x02056040
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r4, sp, #0xc
 	add r3, sp, #0x0
 	ldmia r4!, {r0-r1}
@@ -2531,7 +2531,7 @@ sub_02056C0C: ; 0x02056C0C
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
 	add r1, sp, #0x1c
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp, #0x14]
 	ldr r6, [sp, #0xc]
 	ldr r3, [sp, #0x10]

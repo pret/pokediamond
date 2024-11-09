@@ -219,10 +219,10 @@ ov05_021F1E64: ; 0x021F1E64
 	add r4, r1, #0
 	add r5, r0, #0
 	add r1, sp, #0x24
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0x18
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	add r0, r5, #0
 	add r1, sp, #0xc
 	bl sub_02058BA4

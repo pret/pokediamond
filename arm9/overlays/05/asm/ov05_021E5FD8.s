@@ -1680,7 +1680,7 @@ ov05_021E6CC4: ; 0x021E6CC4
 	str r6, [r5, #0x14]
 	ldr r0, [r5, #0x3c]
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp, #0x14]
 	ldr r0, [r5, #0x30]
 	cmp r1, r0
@@ -1737,7 +1737,7 @@ ov05_021E6D80: ; 0x021E6D80
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x20]
 	add r1, r1, r0
@@ -1749,7 +1749,7 @@ ov05_021E6D80: ; 0x021E6D80
 _021E6D9E:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_SetPositionVec
+	bl MapObject_SetPositionVector
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -1772,7 +1772,7 @@ ov05_021E6DC0: ; 0x021E6DC0
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x20]
 	add r1, r1, r0
@@ -1793,7 +1793,7 @@ _021E6DDE:
 _021E6DEE:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_SetPositionVec
+	bl MapObject_SetPositionVector
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -1913,7 +1913,7 @@ ov05_021E6E90: ; 0x021E6E90
 	str r6, [r5, #0x14]
 	ldr r0, [r5, #0x3c]
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp, #0x14]
 	ldr r0, [r5, #0x30]
 	cmp r1, r0
@@ -1970,7 +1970,7 @@ ov05_021E6F50: ; 0x021E6F50
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp, #8]
 	ldr r0, [r4, #0x24]
 	add r1, r1, r0
@@ -1988,7 +1988,7 @@ _021E6F70:
 _021E6F78:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_SetPositionVec
+	bl MapObject_SetPositionVector
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -2012,7 +2012,7 @@ ov05_021E6F9C: ; 0x021E6F9C
 	add r4, r0, #0
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x20]
 	add r1, r1, r0
@@ -2039,7 +2039,7 @@ _021E6FCC:
 _021E6FD4:
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_SetPositionVec
+	bl MapObject_SetPositionVector
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -2384,7 +2384,7 @@ ov05_021E727C: ; 0x021E727C
 	ldr r2, [sp]
 	add r1, r6, r7
 	add r2, r2, r5
-	bl sub_02058D74
+	bl MapObjectManager_GetFirstObjectWithXAndZ
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 

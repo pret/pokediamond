@@ -659,7 +659,7 @@ _020533CC:
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	add r3, r6, #0x0
-	bl sub_02058E28
+	bl MapObject_SetPositionFromXYZAndDirection
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl MapObject_SetFacingDirectionDirect

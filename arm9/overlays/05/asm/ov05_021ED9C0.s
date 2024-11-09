@@ -192,10 +192,10 @@ ov05_021EDB10: ; 0x021EDB10
 _021EDB32:
 	add r0, r4, #0
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r4, #0
 	add r1, sp, #0
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp]
 	add r0, r1, r0

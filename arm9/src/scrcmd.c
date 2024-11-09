@@ -97,16 +97,13 @@ extern LocalMapObject *sub_0205E7C4(LocalMapObject *event);
 extern u32 sub_02034B64(FieldSystem *fieldSystem);
 extern const ObjectEvent *sub_02034B6C(FieldSystem *fieldSystem);
 extern u32 sub_02059D1C(LocalMapObject *target);
-extern VecFx32 *sub_02058B7C(LocalMapObject *target);
+extern VecFx32 *MapObject_GetPositionVector(LocalMapObject *target);
 extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
 extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
 extern u16 GetPlayerXCoord(PlayerAvatar *playerAvatar);
 extern u16 GetPlayerYCoord(PlayerAvatar *playerAvatar);
-extern void sub_02058BB4(LocalMapObject *event, VecFx32 *param1);
-extern void sub_02058E90(LocalMapObject *event, u16 movement);
-extern void sub_02058EB0(LocalMapObject *event, u32 param1);
 extern u16 sub_02029E0C(SealCase *sealCase);
 extern u16 SealCase_CountSealOccurrenceAnywhere(SealCase *sealCase, u16 sealId);
 extern void sub_02029D44(SealCase *sealCase, u16 sealId, s16 amount);
@@ -243,7 +240,6 @@ extern void sub_02050048(void);
 extern void sub_0204FF5C(FieldSystem *fieldSystem);
 extern void sub_0204F6DC(u16 param0);
 extern void SetEventDefaultXYPos(FieldSystem *fieldSystem, u16 objectId, u16 x, u16 y);
-extern void sub_02058E28(LocalMapObject *object, u16 x, u16 z, u16 y, u16 direction);
 extern void SetEventDefaultDirection(FieldSystem *fieldSystem, u16 objectId, u16 direction);
 extern void SetWarpXYPos(FieldSystem *fieldSystem, u16 warpId, u16 x, u16 y);
 extern void SetBgEventXYPos(FieldSystem *fieldSystem, u16 bgEventId, u16 x, u16 y);
@@ -1770,7 +1766,7 @@ BOOL ScrCmd_LockCamera(ScriptContext *ctx) { // 0066
     sub_02059D1C(*targetPtr);
     MapObject_SetVisible(*targetPtr, TRUE);
     MapObject_ClearFlag18(*targetPtr, FALSE);
-    VecFx32 *position = sub_02058B7C(*targetPtr);
+    VecFx32 *position = MapObject_GetPositionVector(*targetPtr);
     ov05_021EF5E0(position, ctx->fieldSystem->unk24);
     Camera_SetFixedTarget(position, ctx->fieldSystem->camera);
     return FALSE;
@@ -1779,7 +1775,7 @@ BOOL ScrCmd_LockCamera(ScriptContext *ctx) { // 0066
 BOOL ScrCmd_ReleaseCamera(ScriptContext *ctx) { // 0067
     LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
     MapObject_Remove(*targetPtr);
-    VecFx32 *position = sub_02058B7C(MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, 0xff));
+    VecFx32 *position = MapObject_GetPositionVector(MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, 0xff));
     ov05_021EF5E0(position, ctx->fieldSystem->unk24);
     Camera_SetFixedTarget(position, ctx->fieldSystem->camera);
     return FALSE;
@@ -3255,7 +3251,7 @@ BOOL ScrCmd_SetEventPosition(ScriptContext *ctx) { // 0187
     u16 y                  = ScriptGetVar(ctx);
     u16 direction          = ScriptGetVar(ctx);
     LocalMapObject *object = MapObjectManager_GetFirstActiveObjectByID(ctx->fieldSystem->mapObjectManager, eventId);
-    sub_02058E28(object, x, z, y, direction);
+    MapObject_SetPositionFromXYZAndDirection(object, x, z, y, direction);
     sub_02059D1C(object);
     return FALSE;
 }

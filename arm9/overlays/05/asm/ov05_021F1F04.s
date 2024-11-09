@@ -3124,7 +3124,7 @@ _021F35EC:
 _021F3658:
 	add r0, r7, #0
 	add r1, sp, #0x1c
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r7, #0
 	bl ov05_021E4C24
 	ldr r1, [sp, #0xc]
