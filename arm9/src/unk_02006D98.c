@@ -304,12 +304,12 @@ extern void NNS_G2dDrawSpriteFast(s16 param0,
 
 struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId) {
     struct UnkStruct_02006D98 *ptr = AllocFromHeap(heapId, sizeof(struct UnkStruct_02006D98));
-    ptr->heapId                    = heapId;
-    ptr->unk2E0                    = 0;
-    ptr->unk29C                    = 0;
-    ptr->unk2A0                    = 0x8000;
-    ptr->unk2A4                    = 0;
-    ptr->unk2A8                    = 0x80;
+    ptr->heapId = heapId;
+    ptr->unk2E0 = 0;
+    ptr->unk29C = 0;
+    ptr->unk2A0 = 0x8000;
+    ptr->unk2A4 = 0;
+    ptr->unk2A8 = 0x80;
 
     ptr->unk2AC = AllocFromHeap(heapId, 0x8000);
 
@@ -332,10 +332,10 @@ struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId) {
     NNSG2dCharacterData *stc;
     NNS_G2dGetUnpackedCharacterData(st4, &stc);
 
-    ptr->unk2B8.pixelFmt     = stc->pixelFmt;
-    ptr->unk2B8.mapingType   = stc->mapingType;
+    ptr->unk2B8.pixelFmt = stc->pixelFmt;
+    ptr->unk2B8.mapingType = stc->mapingType;
     ptr->unk2B8.characterFmt = stc->characterFmt;
-    st8                      = stc->pRawData;
+    st8 = stc->pRawData;
 
     sub_02008A74(st8);
     MI_CpuFill8(ptr->unk2AC, *st8, 0x8000);
@@ -423,11 +423,11 @@ void sub_02006ED4(struct UnkStruct_02006D98 *param0) {
             0);
 
         if (param0->unk000[st18].unk54_1 != 0) {
-            int r6  = param0->unk000[st18].unk44 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][0];
+            int r6 = param0->unk000[st18].unk44 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][0];
             int r12 = param0->unk000[st18].unk46;
-            int r1  = param0->unk000[st18].unk45 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][1];
-            int r7  = param0->unk000[st18].unk47;
-            int r0  = r12 + r6;
+            int r1 = param0->unk000[st18].unk45 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][1];
+            int r7 = param0->unk000[st18].unk47;
+            int r0 = r12 + r6;
 
             NNS_G2dDrawSpriteFast((s16)(param0->unk000[st18].unk24 - 40 + param0->unk000[st18].unk44 + param0->unk000[st18].unk2C),
                 (s16)(param0->unk000[st18].unk26 - 40 + param0->unk000[st18].unk45 + param0->unk000[st18].unk2E - param0->unk000[st18].unk6C.unk2),
@@ -565,23 +565,23 @@ struct UnkStruct_02006D98_2 *sub_020073E8(struct UnkStruct_02006D98 *param0,
     param0->unk000[param6].unk00_8 = 1;
     param0->unk000[param6].unk00_1 = param5;
 
-    param0->unk000[param6].unk04        = *param1;
-    param0->unk000[param6].unk14        = *param1;
-    param0->unk000[param6].unk24        = (s16)param2;
-    param0->unk000[param6].unk26        = (s16)param3;
-    param0->unk000[param6].unk28        = param4;
-    param0->unk000[param6].unk34        = 0x100;
-    param0->unk000[param6].unk36        = 0x100;
-    param0->unk000[param6].unk54_2      = 0x1f;
-    param0->unk000[param6].unk50_0      = 0x1f;
-    param0->unk000[param6].unk50_5      = 0x1f;
-    param0->unk000[param6].unk50_a      = 0x1f;
-    param0->unk000[param6].unk50_f      = 0x10;
-    param0->unk000[param6].unk50_14     = 0x10;
-    param0->unk000[param6].unk50_19     = 0x10;
-    param0->unk000[param6].unk68        = param8;
-    param0->unk000[param6].unk6C.unk4   = (s16)param2;
-    param0->unk000[param6].unk6C.unk6   = (s16)param3;
+    param0->unk000[param6].unk04 = *param1;
+    param0->unk000[param6].unk14 = *param1;
+    param0->unk000[param6].unk24 = (s16)param2;
+    param0->unk000[param6].unk26 = (s16)param3;
+    param0->unk000[param6].unk28 = param4;
+    param0->unk000[param6].unk34 = 0x100;
+    param0->unk000[param6].unk36 = 0x100;
+    param0->unk000[param6].unk54_2 = 0x1f;
+    param0->unk000[param6].unk50_0 = 0x1f;
+    param0->unk000[param6].unk50_5 = 0x1f;
+    param0->unk000[param6].unk50_a = 0x1f;
+    param0->unk000[param6].unk50_f = 0x10;
+    param0->unk000[param6].unk50_14 = 0x10;
+    param0->unk000[param6].unk50_19 = 0x10;
+    param0->unk000[param6].unk68 = param8;
+    param0->unk000[param6].unk6C.unk4 = (s16)param2;
+    param0->unk000[param6].unk6C.unk6 = (s16)param3;
     param0->unk000[param6].unk6C.unk0_2 = 1;
     param0->unk000[param6].unk6C.unk0_3 = 1;
     param0->unk000[param6].unk6C.unk0_4 = 1;
@@ -700,15 +700,15 @@ void sub_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2) {
         param0->unk00_8 = 1;
         break;
     case 31:
-        param0->unk4C   = param2;
+        param0->unk4C = param2;
         param0->unk00_8 = 1;
         break;
     case 32:
-        param0->unk48   = (u8)param2;
+        param0->unk48 = (u8)param2;
         param0->unk00_8 = 1;
         break;
     case 33:
-        param0->unk49   = (u8)param2;
+        param0->unk49 = (u8)param2;
         param0->unk00_8 = 1;
         break;
     case 34:
@@ -737,7 +737,7 @@ void sub_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2) {
         break;
     case 42:
         param0->unk6C.unk0_0 = (u16)param2;
-        param0->unk00_8      = 1;
+        param0->unk00_8 = 1;
         break;
     case 43:
         param0->unk6C.unk0_2 = (u16)param2;
@@ -1054,20 +1054,20 @@ void sub_020079E0(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2) {
 void sub_02007E40(
     struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4) {
     param0->unk54_1 = 1;
-    param0->unk44   = (u8)param1;
-    param0->unk45   = (u8)param2;
-    param0->unk46   = (u8)param3;
-    param0->unk47   = (u8)param4;
+    param0->unk44 = (u8)param1;
+    param0->unk45 = (u8)param2;
+    param0->unk46 = (u8)param3;
+    param0->unk47 = (u8)param4;
 }
 
 void sub_02007E68(
     struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4) {
     param0->unk54_C = 1;
-    param0->unk48   = (u8)param1;
-    param0->unk49   = (u8)param2;
-    param0->unk4A   = 0;
-    param0->unk4B   = (u8)param3;
-    param0->unk4C   = param4;
+    param0->unk48 = (u8)param1;
+    param0->unk49 = (u8)param2;
+    param0->unk4A = 0;
+    param0->unk4B = (u8)param3;
+    param0->unk4C = param4;
 }
 
 void sub_02007E98(
@@ -1078,21 +1078,21 @@ void sub_02007E98(
         }
 
         param0->unk000[i].unk54_C = 1;
-        param0->unk000[i].unk48   = (u8)param1;
-        param0->unk000[i].unk49   = (u8)param2;
-        param0->unk000[i].unk4A   = 0;
-        param0->unk000[i].unk4B   = (u8)param3;
-        param0->unk000[i].unk4C   = param4;
+        param0->unk000[i].unk48 = (u8)param1;
+        param0->unk000[i].unk49 = (u8)param2;
+        param0->unk000[i].unk4A = 0;
+        param0->unk000[i].unk4B = (u8)param3;
+        param0->unk000[i].unk4C = param4;
     }
 }
 
 void sub_02007EEC(struct UnkStruct_02006D98_2 *param0) {
     param0->unk54_C = 0;
-    param0->unk48   = 0;
-    param0->unk49   = 0;
-    param0->unk4A   = 0;
-    param0->unk4B   = 0;
-    param0->unk4C   = 0;
+    param0->unk48 = 0;
+    param0->unk49 = 0;
+    param0->unk4A = 0;
+    param0->unk4B = 0;
+    param0->unk4C = 0;
     param0->unk00_8 = 1;
 }
 
@@ -1189,8 +1189,8 @@ void sub_020080E0(struct UnkStruct_02006D98_2 *param0) {
 }
 
 void sub_0200813C(struct UnkStruct_02006D98_2 *param0) {
-    param0->unk04   = param0->unk14;
-    param0->unk6C   = param0->unk78;
+    param0->unk04 = param0->unk14;
+    param0->unk6C = param0->unk78;
     param0->unk00_7 = 1;
     param0->unk00_8 = 1;
 }
@@ -1214,9 +1214,9 @@ void sub_020081C4(struct UnkStruct_02006D98 *param0) {
         param0->unk2E1 = 0;
         NNS_G2dInitImageProxy(&param0->unk260);
 
-        param0->unk2B8.H        = 0x20;
-        param0->unk2B8.W        = 0x20;
-        param0->unk2B8.szByte   = param0->unk2A0;
+        param0->unk2B8.H = 0x20;
+        param0->unk2B8.W = 0x20;
+        param0->unk2B8.szByte = param0->unk2A0;
         param0->unk2B8.pRawData = param0->unk2AC;
 
         NNS_G2dLoadImage2DMapping(
@@ -1227,7 +1227,7 @@ void sub_020081C4(struct UnkStruct_02006D98 *param0) {
         param0->unk2E2 = 0;
         NNS_G2dInitImagePaletteProxy(&param0->unk284);
 
-        param0->unk2D0.szByte   = param0->unk2A8;
+        param0->unk2D0.szByte = param0->unk2A8;
         param0->unk2D0.pRawData = param0->unk2B0;
 
         NNS_G2dLoadPalette(
@@ -1264,13 +1264,13 @@ void sub_020082A8(struct UnkStruct_02006D98 *param0) {
     for (st54 = 0; st54 < 4; st54++) {
         if (param0->unk000[st54].unk00_0 != 0 && param0->unk000[st54].unk00_7 != 0) {
             param0->unk000[st54].unk00_7 = 0;
-            st48                         = 1;
-            st4c                         = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st54].unk04.field_00,
+            st48 = 1;
+            st4c = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st54].unk04.field_00,
                 param0->unk000[st54].unk04.field_02,
                 param0->heapId);
             NNS_G2dGetUnpackedCharacterData(st4c, &st58);
-            param0->unk2B8.pixelFmt     = st58->pixelFmt;
-            param0->unk2B8.mapingType   = st58->mapingType;
+            param0->unk2B8.pixelFmt = st58->pixelFmt;
+            param0->unk2B8.mapingType = st58->mapingType;
             param0->unk2B8.characterFmt = st58->characterFmt;
 
             st50 = st58->pRawData;
@@ -1371,13 +1371,13 @@ void sub_020086F4(struct UnkStruct_02006D98 *param0) {
     for (st14 = 0; st14 < 4; st14++) {
         if (param0->unk000[st14].unk00_0 != 0 && param0->unk000[st14].unk00_8 != 0) {
             param0->unk000[st14].unk00_8 = 0;
-            stc                          = 1;
-            st10                         = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st14].unk04.field_00,
+            stc = 1;
+            st10 = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st14].unk04.field_00,
                 param0->unk000[st14].unk04.field_04,
                 param0->heapId);
             NNS_G2dGetUnpackedPaletteData(st10, &st18);
             param0->unk2D0.fmt = st18->fmt;
-            r1                 = st18->pRawData;
+            r1 = st18->pRawData;
             for (r7 = 0; r7 < 0x10; r7++) {
                 param0->unk2B0[st14 * 0x10 + r7] = r1[r7];
                 param0->unk2B4[st14 * 0x10 + r7] = r1[r7];
@@ -1400,7 +1400,7 @@ void sub_020086F4(struct UnkStruct_02006D98 *param0) {
 
         if (param0->unk000[st14].unk00_0 != 0 && param0->unk000[st14].unk54_C != 0) {
             if (param0->unk000[st14].unk4A == 0) {
-                stc                        = 1;
+                stc = 1;
                 param0->unk000[st14].unk4A = param0->unk000[st14].unk4B;
                 BlendPalette(param0->unk2B4 + st14 * 0x10,
                     param0->unk2B0 + st14 * 0x10,
@@ -1453,7 +1453,7 @@ void sub_02008904(u8 *param0, u32 param1, u32 param2) {
 
     for (i = 0; i < 4; i++) {
         st10 = UNK_02105AE8[i];
-        r1   = 0;
+        r1 = 0;
         while (st10[r1].unk0 != 0xff) {
             r0 = (u8)(st10[r1].unk0 + ((param1 & 0xf) - 8));
             r4 = (u8)(st10[r1].unk1 + (((param1 & 0xf0) >> 4) - 8));
@@ -1478,7 +1478,7 @@ void sub_02008904(u8 *param0, u32 param1, u32 param2) {
     if (param2 != 0) {
         for (i = 0; i < 4; i++) {
             st10 = UNK_02105AE8[i];
-            r1   = 0;
+            r1 = 0;
             while (st10[r1].unk0 != 0xff) {
                 r0 = (u8)(st10[r1].unk0 - 14 + ((param1 & 0xf) - 8) + 0x50);
                 r4 = (u8)(st10[r1].unk1 + (((param1 & 0xf0) >> 4) - 8));

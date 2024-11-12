@@ -57,8 +57,8 @@ s32 Pokedex_CountSeenShellosOrGastrodon_Internal(struct Pokedex *pokedex, u32 sp
         return 0;
     }
     u8 *flags = species == SPECIES_SHELLOS ? &pokedex->shellosGastrodon[0] : &pokedex->shellosGastrodon[1];
-    BOOL r2   = CheckDexFlag(flags, 1);
-    BOOL r0   = CheckDexFlag(flags, 2);
+    BOOL r2 = CheckDexFlag(flags, 1);
+    BOOL r0 = CheckDexFlag(flags, 2);
     return (r2 == r0) ? 1 : 2;
 }
 
@@ -68,7 +68,7 @@ BOOL Pokedex_HasSeenShellosOrGastrodonForm(struct Pokedex *pokedex, u32 species,
         return FALSE;
     }
     u8 *flags = species == SPECIES_SHELLOS ? &pokedex->shellosGastrodon[0] : &pokedex->shellosGastrodon[1];
-    u32 r0    = (u32)Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
+    u32 r0 = (u32)Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
     for (int i = 0; i < r0; i++) {
         BOOL r2 = CheckDexFlag(flags, (u16)(i + 1));
         if (r2 == state) {
@@ -84,7 +84,7 @@ void Pokedex_SetSeenShellosOrGastrodonForm(struct Pokedex *pokedex, u32 species,
         return;
     }
     u8 *flags = species == SPECIES_SHELLOS ? &pokedex->shellosGastrodon[0] : &pokedex->shellosGastrodon[1];
-    s32 r5    = Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
+    s32 r5 = Pokedex_CountSeenShellosOrGastrodon_Internal(pokedex, species);
     if (r5 < 2) {
         UpdateDexFlag(flags, (u16)(r5 + 1), (u8)state);
         if (r5 == 0) {
@@ -131,7 +131,7 @@ void Pokedex_SetSeenBurmyOrWormadamForm(struct Pokedex *pokedex, u32 species, s3
         return;
     }
     u8 *flags = species == SPECIES_BURMY ? &pokedex->burmyWormadam[0] : &pokedex->burmyWormadam[1];
-    s32 r5    = Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, species);
+    s32 r5 = Pokedex_CountSeenBurmyOrWormadam_Internal(pokedex, species);
     if (r5 >= 3) {
         return;
     }
@@ -317,13 +317,13 @@ BOOL Pokedex_SpeciesIsNotSinnohMythical(u16 species) {
 
 void Save_Pokedex_Init(struct Pokedex *pokedex) {
     memset(pokedex, 0, sizeof(struct Pokedex));
-    pokedex->magic               = 0xBEEFCAFE;
+    pokedex->magic = 0xBEEFCAFE;
     pokedex->unlockedNationalDex = 0;
     memset(pokedex->seenUnown, 0xFF, 28);
     pokedex->shellosGastrodon[0] = 0xFF;
     pokedex->shellosGastrodon[1] = 0xFF;
-    pokedex->burmyWormadam[0]    = 0xFF;
-    pokedex->burmyWormadam[1]    = 0xFF;
+    pokedex->burmyWormadam[0] = 0xFF;
+    pokedex->burmyWormadam[1] = 0xFF;
     Pokedex_InitSeenDeoxysFormsArray(pokedex);
 }
 
@@ -572,9 +572,9 @@ static inline void SetSeenGender(struct Pokedex *pokedex, u16 species, u8 gender
 }
 
 void Pokedex_SetMonSeenFlag(struct Pokedex *pokedex, struct Pokemon *pokemon) {
-    u16 species     = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     u32 personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    u32 gender      = GetMonGender(pokemon);
+    u32 gender = GetMonGender(pokemon);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     if (DexSpeciesIsInvalid(species)) {
         return;
@@ -600,10 +600,10 @@ void Pokedex_SetMonCaughtFlag(struct Pokedex *pokedex, struct Pokemon *pokemon) 
     u32 gender;      // r7
     u16 species;     // r6
 
-    species     = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    language    = GetMonData(pokemon, MON_DATA_GAME_LANGUAGE, NULL);
+    species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    language = GetMonData(pokemon, MON_DATA_GAME_LANGUAGE, NULL);
     personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    gender      = GetMonGender(pokemon);
+    gender = GetMonGender(pokemon);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     if (DexSpeciesIsInvalid(species)) {
         return;

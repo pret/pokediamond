@@ -161,11 +161,11 @@ static char *sNarcFileList[] = {
 void ReadFromNarcMemberByPathAndId(void *dest, const char *path, s32 file_idx, u32 offset, u32 size) {
     FSFile file;
     register u32 chunk_starts[3];
-    u32 btnf_size  = 0;
+    u32 btnf_size = 0;
     u32 chunk_size = 0;
     u32 file_start = 0;
-    u32 file_end   = 0;
-    u16 num_files  = 0;
+    u32 file_end = 0;
+    u16 num_files = 0;
 
     FS_InitFile(&file);
     FS_OpenFile(&file, path);
@@ -199,12 +199,12 @@ void ReadFromNarcMemberByPathAndId(void *dest, const char *path, s32 file_idx, u
 void *AllocAndReadFromNarcMemberByPathAndId(const char *path, s32 file_idx, HeapID heapId, u32 offset, u32 size, BOOL r4) {
     FSFile file;
     register u32 chunk_starts[3];
-    u32 btnf_size  = 0;
+    u32 btnf_size = 0;
     u32 chunk_size = 0;
     u32 file_start = 0;
-    u32 file_end   = 0;
-    u16 num_files  = 0;
-    void *dest     = NULL;
+    u32 file_end = 0;
+    u16 num_files = 0;
+    void *dest = NULL;
 
     FS_InitFile(&file);
     FS_OpenFile(&file, path);
@@ -271,11 +271,11 @@ void *AllocAtEndAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, HeapI
 u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx) {
     FSFile file;
     register u32 chunk_starts[3];
-    u32 btnf_size  = 0;
+    u32 btnf_size = 0;
     u32 chunk_size = 0;
     u32 file_start = 0;
-    u32 file_end   = 0;
-    u16 num_files  = 0;
+    u32 file_end = 0;
+    u16 num_files = 0;
 
     FS_InitFile(&file);
     FS_OpenFile(&file, sNarcFileList[narc_id]);

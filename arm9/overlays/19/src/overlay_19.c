@@ -10,17 +10,17 @@
 #include "heap.h"
 
 const struct BgTemplate ov19_02252508 = {
-    .x          = 0,
-    .y          = 0,
+    .x = 0,
+    .y = 0,
     .bufferSize = 0x800,
-    .baseTile   = 0x000,
-    .size       = GF_BG_SCR_SIZE_256x256,
-    .colorMode  = GF_BG_CLR_4BPP,
+    .baseTile = 0x000,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GF_BG_CLR_4BPP,
     .screenBase = 12,
-    .charBase   = 0,
-    .priority   = 0,
-    .areaOver   = 0,
-    .mosaic     = 0
+    .charBase = 0,
+    .priority = 0,
+    .areaOver = 0,
+    .mosaic = 0
 };
 
 void ov19_02252440(struct BgConfig *bgConfig) {

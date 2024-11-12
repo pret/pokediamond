@@ -17,12 +17,12 @@ typedef enum HeapID {
     HEAP_ID_POKETCH_MAIN = 7,
     HEAP_ID_POKETCH_APP,
     HEAP_ID_FIELD = 11,
-    HEAP_ID_15    = 15,
-    HEAP_ID_32    = 32,
-    HEAP_ID_49    = 49,
-    HEAP_ID_76    = 76,
+    HEAP_ID_15 = 15,
+    HEAP_ID_32 = 32,
+    HEAP_ID_49 = 49,
+    HEAP_ID_76 = 76,
     HEAP_ID_77,
-    HEAP_ID_INTRO    = 82,
+    HEAP_ID_INTRO = 82,
     HEAP_ID_INTRO_TV = 83,
 } HeapID;
 

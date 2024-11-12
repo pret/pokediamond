@@ -39,7 +39,7 @@ void sub_0204B0F8(struct FieldSystem *fieldSystem) {
 }
 
 void sub_0204B130(struct FieldSystem *fieldSystem, SysInfo_RTC *rtc_info, struct RTCDate *date) {
-    u32 days                   = (u32)RTC_ConvertDateToDay(date);
+    u32 days = (u32)RTC_ConvertDateToDay(date);
     u32 days_since_nitro_epoch = (u32)rtc_info->daysSinceNitroEpoch;
 
     if (days < days_since_nitro_epoch) {
@@ -80,15 +80,15 @@ void sub_0204B1DC(struct FieldSystem *fieldSystem, s32 a1) {
     sub_02028754(unk_sav_ptr1, (u32)a1);
 
     void *unk_sav_ptr2 = Save_Roamers_Get(fieldSystem->saveData);
-    unk_sav_ptr1       = sub_0202881C(fieldSystem->saveData);
-    u32 unk1           = sub_020287A4(unk_sav_ptr1);
+    unk_sav_ptr1 = sub_0202881C(fieldSystem->saveData);
+    u32 unk1 = sub_020287A4(unk_sav_ptr1);
     sub_0202A988(unk_sav_ptr2, unk1);
 
     struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);
     Party_UpdatePokerus(party, a1);
 
     struct SaveVarsFlags *state = Save_VarsFlags_Get(fieldSystem->saveData);
-    s32 unk2                    = sub_0205F594(state);
+    s32 unk2 = sub_0205F594(state);
 
     u16 unk3;
     if (unk2 > a1) {

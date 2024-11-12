@@ -46,10 +46,10 @@ BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext *ctx) // 0071 - todo: C
 {
     struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
     PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
-    u16 *ret_ptr          = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u32 amount = ScriptReadWord(ctx);
-    u32 money  = PlayerProfile_GetMoney(player);
+    u32 money = PlayerProfile_GetMoney(player);
 
     if (money < amount) {
         *ret_ptr = 0;
@@ -64,10 +64,10 @@ BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext *ctx) // 01AB - todo: Can
 {
     struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
     PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
-    u16 *ret_ptr          = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 amount = ScriptGetVar(ctx);
-    u32 money  = PlayerProfile_GetMoney(player);
+    u32 money = PlayerProfile_GetMoney(player);
 
     if (money < amount) {
         *ret_ptr = 0;
@@ -81,9 +81,9 @@ BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext *ctx) // 01AB - todo: Can
 BOOL ScrCmd_ShowMoneyBox(struct ScriptContext *ctx) // 0072
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 xVal                        = ScriptGetVar(ctx);
-    u16 yVal                        = ScriptGetVar(ctx);
-    Window **moneyBox               = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MONEY_BOX);
+    u16 xVal = ScriptGetVar(ctx);
+    u16 yVal = ScriptGetVar(ctx);
+    Window **moneyBox = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MONEY_BOX);
 
     *moneyBox = ov05_021E27E8(ctx->fieldSystem, (u8)xVal, (u8)yVal);
 

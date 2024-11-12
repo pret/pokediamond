@@ -15,9 +15,9 @@ void PlayTimerInit() {
 
 void PlayTimerStart(struct IGT *igt) {
     sTimerActive = TRUE;
-    sUnused      = 0;
-    sDuration    = 0;
-    sIGT_p       = igt;
+    sUnused = 0;
+    sDuration = 0;
+    sIGT_p = igt;
 
     sTimer3Start = GetTimer3Count();
 }

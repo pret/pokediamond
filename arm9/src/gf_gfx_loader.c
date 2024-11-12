@@ -243,10 +243,10 @@ void *GfGfxLoader_LoadFromNarc(NarcId narcId, s32 memberNo, BOOL isCompressed, H
     void *dest2;
     if (isCompressed || allocAtEnd == TRUE) {
         u32 size = GetNarcMemberSizeByIdPair(narcId, memberNo);
-        dest     = AllocFromHeapAtEnd(heapId, size);
+        dest = AllocFromHeapAtEnd(heapId, size);
     } else {
         u32 size = GetNarcMemberSizeByIdPair(narcId, memberNo);
-        dest     = AllocFromHeap(heapId, size);
+        dest = AllocFromHeap(heapId, size);
     }
     if (dest != NULL) {
         ReadWholeNarcMemberByIdPair(dest, narcId, memberNo);

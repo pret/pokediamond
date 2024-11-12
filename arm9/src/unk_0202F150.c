@@ -46,7 +46,7 @@ extern void sub_0202D830(u8 *param0, u32 param1);
 extern u32 ov04_021D8624();
 
 u32 sub_0202F150(u32 param0, u32 param1) {
-    u32 r4       = 0;
+    u32 r4 = 0;
     UNK_021C59F4 = 0;
     if (param0 != 0) {
         int res = sub_0202D858((u16)sub_02033534()) + 1;
@@ -57,7 +57,7 @@ u32 sub_0202F150(u32 param0, u32 param1) {
 
         sub_02031480(HEAP_ID_15);
         struct UnkStruct0202F150 *ptr = (struct UnkStruct0202F150 *)AllocFromHeap(HEAP_ID_15, sizeof(struct UnkStruct0202F150));
-        UNK_021C59F8                  = ptr;
+        UNK_021C59F8 = ptr;
         MI_CpuFill8(ptr, 0, 0x68C);
 
         UNK_021C59F8->unk658 = param1 + 0x40;
@@ -341,12 +341,12 @@ void sub_0202F984() {
 
     if (UNK_021C59F8->unk67D == 2) {
         UNK_021C59F8->unk67D = 0;
-        r4                   = 1;
+        r4 = 1;
     }
 
     if (UNK_021C59F8->unk67D == 3) {
         UNK_021C59F8->unk67D = 1;
-        r4                   = 1;
+        r4 = 1;
     }
 
     if (r4 != 0) {
@@ -750,7 +750,7 @@ void sub_0202FEEC() {
     }
 
     int st0 = sub_02031228((u16)sub_02033534());
-    int r6  = sub_0202D858((u16)sub_02033534()) + 1;
+    int r6 = sub_0202D858((u16)sub_02033534()) + 1;
 
     if (UNK_02105D59 == 2 || UNK_02105D59 == 0) {
 
@@ -912,7 +912,7 @@ void sub_0203026C(u32 param0, u8 *param1, u32 param2) {
 
     UNK_021C59F8->unk682 = 0;
     if (sub_0202FA28() == 1) {
-        int r6  = sub_02031228((u16)sub_02033534());
+        int r6 = sub_02031228((u16)sub_02033534());
         int st4 = sub_0202D858((u16)sub_02033534()) + 1;
 
         int r4 = 0;
@@ -1121,8 +1121,8 @@ void sub_02030674() {
             }
 
             UNK_021C59F8->unk5F8[0] = UNK_021C59F8->unk5F8[2] + UNK_021C59F8->unk5F8[1] * UNK_021C59F8->unk5F8[0];
-            UNK_021C59F8->unk62D    = UNK_021C59F8->unk5F8[0] >> 0x3c | (0 << 4);
-            UNK_021C59F8->unk62E    = r4;
+            UNK_021C59F8->unk62D = UNK_021C59F8->unk5F8[0] >> 0x3c | (0 << 4);
+            UNK_021C59F8->unk62E = r4;
         }
     }
 
@@ -1418,7 +1418,7 @@ void sub_02030A00(u8 *param0) {
         param0[1] = 1;
     }
 
-    u16 res   = sub_0202CB8C();
+    u16 res = sub_0202CB8C();
     param0[2] = (u8)(res >> 8);
     param0[3] = (u8)res;
 
@@ -1427,13 +1427,13 @@ void sub_02030A00(u8 *param0) {
     st0[0] = (int)param0 + 5;
     if (sub_0202D760(UNK_021C59F8->unk56C, st0, 0) != 0) {
         UNK_021C59F8->unk685 = 0;
-        param0[4]            = (u8)(0xbb - st0[1]);
+        param0[4] = (u8)(0xbb - st0[1]);
 
         return;
     }
 
     UNK_021C59F8->unk685 = 1;
-    param0[4]            = 0xbb;
+    param0[4] = 0xbb;
 }
 
 u32 sub_02030A78(u32 param0, u8 *param1, u32 param2) {
@@ -1551,9 +1551,9 @@ void sub_02030C8C(struct UnkStruct0202F150_sub1 *param0,
             }
         }
 
-        int st10      = param0->unk04;
+        int st10 = param0->unk04;
         param4->unk0a = (u8)r7;
-        int r4        = param4->unk08;
+        int r4 = param4->unk08;
         if (r4 == 0xffff) {
             r4 = sub_0202D9A0(r7);
 
@@ -1717,7 +1717,7 @@ u32 sub_02030F88(u32 param0) {
         return 0;
     }
 
-    u32 ret                      = UNK_021C59F8->unk610[param0];
+    u32 ret = UNK_021C59F8->unk610[param0];
     UNK_021C59F8->unk610[param0] = 0;
 
     return ret;
@@ -2032,7 +2032,7 @@ void sub_02031400(u32 param0) {
     if (sub_02033534() >= 0x13) {
         UNK_021C59F8->unk630 = param0;
         if (param0 != 0) {
-            UNK_021C59F8->unk634    = 0;
+            UNK_021C59F8->unk634 = 0;
             UNK_021C59F8->unk638[0] = 0;
             UNK_021C59F8->unk638[1] = 0;
         }

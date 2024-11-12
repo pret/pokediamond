@@ -37,7 +37,7 @@ u32 RenderText(struct TextPrinter *printer) {
             if (gTextFlags.canABSpeedUpPrint != 0) {
                 if ((gSystem.newKeys & 3) || (gSystem.touchNew != 0 && gTextFlags.unk0_4)) {
                     subStruct->hasPrintBeenSpedUp = 1;
-                    printer->delayCounter         = 0;
+                    printer->delayCounter = 0;
                 }
             }
 
@@ -45,7 +45,7 @@ u32 RenderText(struct TextPrinter *printer) {
         }
 
         printer->delayCounter = printer->textSpeedBottom;
-        currentChar           = *printer->printerTemplate.currentChar.raw;
+        currentChar = *printer->printerTemplate.currentChar.raw;
         printer->printerTemplate.currentChar.raw++;
 
         GF_ASSERT(currentChar != 0xF100);
@@ -55,7 +55,7 @@ u32 RenderText(struct TextPrinter *printer) {
             return 1;
         case CHAR_LF:
             printer->printerTemplate.currentX = printer->printerTemplate.x;
-            s32 fontAttribute                 = GetFontAttribute(printer->printerTemplate.fontId, 1);
+            s32 fontAttribute = GetFontAttribute(printer->printerTemplate.fontId, 1);
 
             printer->printerTemplate.currentY += printer->printerTemplate.lineSpacing + fontAttribute;
 
@@ -71,7 +71,7 @@ u32 RenderText(struct TextPrinter *printer) {
                 u16 field = (u16)MsgArray_ControlCodeGetField(
                     printer->printerTemplate.currentChar.raw, 0);
                 if (field == 0xff) {
-                    u8 r2                         = printer->printerTemplate.unk4;
+                    u8 r2 = printer->printerTemplate.unk4;
                     printer->printerTemplate.unk4 = (u8)((printer->printerTemplate.fgColor - 1) / 2 + 100);
 
                     if (!(r2 >= 100 && r2 < 107)) {
@@ -86,7 +86,7 @@ u32 RenderText(struct TextPrinter *printer) {
                     }
                 }
 
-                printer->printerTemplate.fgColor     = (u8)(field * 2 + 1);
+                printer->printerTemplate.fgColor = (u8)(field * 2 + 1);
                 printer->printerTemplate.shadowColor = (u8)(field * 2 + 2);
 
                 GenerateFontHalfRowLookupTable(printer->printerTemplate.fgColor,
@@ -112,7 +112,7 @@ u32 RenderText(struct TextPrinter *printer) {
                 printer->delayCounter = (u8)MsgArray_ControlCodeGetField(
                     printer->printerTemplate.currentChar.raw, 0);
                 printer->printerTemplate.currentChar.raw = MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
-                printer->state                           = 6;
+                printer->state = 6;
 
                 return 3;
             case 0x202:
@@ -211,16 +211,16 @@ u32 RenderText(struct TextPrinter *printer) {
                 printer->printerTemplate.window, printer->printerTemplate.bgColor);
             printer->printerTemplate.currentX = printer->printerTemplate.x;
             printer->printerTemplate.currentY = printer->printerTemplate.y;
-            printer->state                    = 0;
+            printer->state = 0;
         }
 
         return 3;
     case 3:
         if (TextPrinterWaitWithDownArrow(printer) != 0) {
             TextPrinterClearDownArrow(printer);
-            printer->scrollDistance           = (u8)(GetFontAttribute(printer->printerTemplate.fontId, 1) + printer->printerTemplate.lineSpacing);
+            printer->scrollDistance = (u8)(GetFontAttribute(printer->printerTemplate.fontId, 1) + printer->printerTemplate.lineSpacing);
             printer->printerTemplate.currentX = printer->printerTemplate.x;
-            printer->state                    = 4;
+            printer->state = 4;
         }
 
         return 3;
@@ -276,7 +276,7 @@ void TextPrinterInitDownArrowCounters(struct TextPrinter *printer) {
     }
 
     subStruct->downArrowYPosIdx = 0;
-    subStruct->downArrowDelay   = 0;
+    subStruct->downArrowDelay = 0;
 }
 
 void TextPrinterDrawDownArrow(struct TextPrinter *printer) {
@@ -292,10 +292,10 @@ void TextPrinterDrawDownArrow(struct TextPrinter *printer) {
     }
 
     u8 bg_id = GetWindowBgId(printer->printerTemplate.window);
-    u8 x     = GetWindowX(printer->printerTemplate.window);
-    u8 y     = GetWindowY(printer->printerTemplate.window);
+    u8 x = GetWindowX(printer->printerTemplate.window);
+    u8 y = GetWindowY(printer->printerTemplate.window);
     u8 width = GetWindowWidth(printer->printerTemplate.window);
-    u16 r6   = unk00;
+    u16 r6 = unk00;
 
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
@@ -338,10 +338,10 @@ void TextPrinterDrawDownArrow(struct TextPrinter *printer) {
 
 void TextPrinterClearDownArrow(struct TextPrinter *printer) {
     u8 bg_id = GetWindowBgId(printer->printerTemplate.window);
-    u8 x     = GetWindowX(printer->printerTemplate.window);
-    u8 y     = GetWindowY(printer->printerTemplate.window);
+    u8 x = GetWindowX(printer->printerTemplate.window);
+    u8 y = GetWindowY(printer->printerTemplate.window);
     u8 width = GetWindowWidth(printer->printerTemplate.window);
-    u16 r6   = unk00;
+    u16 r6 = unk00;
 
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
@@ -413,7 +413,7 @@ void TextFlags_SetCanABSpeedUpPrint(BOOL param0) {
 
 void sub_02002B7C(s32 param0) {
     gTextFlags.autoScroll = param0 & 1;
-    gTextFlags.unk0_5     = (param0 >> 1) & 1;
+    gTextFlags.unk0_5 = (param0 >> 1) & 1;
 }
 
 void sub_02002BB8(u32 param0) {

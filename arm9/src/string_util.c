@@ -39,7 +39,7 @@ void CopyU16StringArray(u16 *dest, const u16 *src) {
     while (c != EOS) {
         src++;
         *dest = c;
-        c     = *src;
+        c = *src;
         dest++;
     }
     *dest = EOS;
@@ -115,12 +115,12 @@ u16 *StringFillEOS(u16 *dest, u32 num) {
 u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n) {
     for (u32 x = (u32)gPowersOfTen[n - 1]; x != 0; x = x / 10) {
         u16 res = (u16)(value / x);
-        value   = value - x * res;
+        value = value - x * res;
         if (mode == PRINTING_MODE_LEADING_ZEROS) {
             *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
             dest++;
         } else if (res != 0 || x == 1) {
-            mode  = PRINTING_MODE_LEADING_ZEROS;
+            mode = PRINTING_MODE_LEADING_ZEROS;
             *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
             dest++;
         } else if (mode == PRINTING_MODE_RIGHT_ALIGN) {

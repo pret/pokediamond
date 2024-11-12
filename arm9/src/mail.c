@@ -14,11 +14,11 @@ extern u16 sub_0206B7BC(u16 species, u32 form, BOOL is_egg);
 
 void Mail_Init(struct Mail *mail) {
     s32 i;
-    mail->author_otId     = 0;
-    mail->author_gender   = 0;
+    mail->author_otId = 0;
+    mail->author_gender = 0;
     mail->author_language = (u8)gGameLanguage;
-    mail->author_version  = (u8)gGameVersion;
-    mail->mail_type       = 0xFF;
+    mail->author_version = (u8)gGameVersion;
+    mail->mail_type = 0xFF;
     StringFillEOS(mail->author_name, 8);
     for (i = 0; i < 3; i++) {
         mail->unk_18[i].raw = 0xFFFF;
@@ -55,21 +55,21 @@ void Mail_SetNewMessageDetails(struct Mail *mail, u8 type, u8 monIdx, struct Sav
 
     Mail_Init(mail);
     mail->mail_type = type;
-    party           = SaveArray_Party_Get(save);
-    profile         = Save_PlayerData_GetProfileAddr(save);
+    party = SaveArray_Party_Get(save);
+    profile = Save_PlayerData_GetProfileAddr(save);
 
     CopyU16StringArray(mail->author_name, PlayerProfile_GetNamePtr(profile));
     mail->author_gender = (u8)PlayerProfile_GetTrainerGender(profile);
-    mail->author_otId   = PlayerProfile_GetTrainerID(profile);
+    mail->author_otId = PlayerProfile_GetTrainerID(profile);
     for (i = 0; monIdx < Party_GetCount(party); monIdx++) {
         union MailPatternData *ptr;
-        pokemon         = Party_GetMonByIndex(party, monIdx);
-        species         = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-        is_egg          = (BOOL)GetMonData(pokemon, MON_DATA_IS_EGG, NULL);
-        form            = GetMonData(pokemon, MON_DATA_FORM, NULL);
-        sp10            = sub_0206B6C8(pokemon);
-        r7              = sub_0206B7BC(species, form, is_egg);
-        ptr             = &mail->unk_18[i];
+        pokemon = Party_GetMonByIndex(party, monIdx);
+        species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+        is_egg = (BOOL)GetMonData(pokemon, MON_DATA_IS_EGG, NULL);
+        form = GetMonData(pokemon, MON_DATA_FORM, NULL);
+        sp10 = sub_0206B6C8(pokemon);
+        r7 = sub_0206B7BC(species, form, is_egg);
+        ptr = &mail->unk_18[i];
         ptr->bits.unk_0 = sp10;
         i++;
         ptr->bits.unk_C = r7;
@@ -188,7 +188,7 @@ s32 Mailbox_CountMessages(struct Mail *mail, BOOL r1) {
 struct Mail *Mailbox_AllocAndFetchMailI(struct Mail *mail, BOOL r1, s32 idx, HeapID heapId) {
     struct Mail *ret;
     mail = Mailbox_GetPtrToSlotI(mail, r1, idx);
-    ret  = Mail_New(heapId);
+    ret = Mail_New(heapId);
     if (mail != NULL) {
         Mail_Copy(mail, ret);
     }

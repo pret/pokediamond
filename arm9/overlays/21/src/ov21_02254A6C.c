@@ -45,7 +45,7 @@ BOOL ov21_02254A6C(UnkStruct02254A6C *param0, void *param1) {
         ov20_022536F4(strct->Unk08, 8);
         strct->Unk00 = param1;
         strct->Unk04 = ov20_02252D34();
-        void *res    = GfGfxLoader_GetScrnData(12, 0x19, 1, &sp4, 8);
+        void *res = GfGfxLoader_GetScrnData(12, 0x19, 1, &sp4, 8);
         if (res == 0) {
             FreeToHeap(strct);
             return FALSE;
@@ -100,13 +100,13 @@ BOOL ov21_02254B60(u32 param0, void *param1) {
     ov20_02252D7C(0, 0);
     ov21_02254C5C(strct);
     BgCommitTilemapBufferToVram(strct->Unk04, 6);
-    u32 r3   = reg_GXS_DB_DISPCNT;
-    u32 r2   = reg_GXS_DB_DISPCNT;
+    u32 r3 = reg_GXS_DB_DISPCNT;
+    u32 r2 = reg_GXS_DB_DISPCNT;
     vu32 tmp = r3; // unused? wtf
-    u32 r0   = ~0x1F00 & r2;
-    r2       = r3 << 19; // cast with shift? can't replicate both though
-    r3       = r2 >> 27;
-    r2       = 4 | r3;
+    u32 r0 = ~0x1F00 & r2;
+    r2 = r3 << 19; // cast with shift? can't replicate both though
+    r3 = r2 >> 27;
+    r2 = 4 | r3;
     r2 <<= 8;
     r0 |= r2;
     reg_GXS_DB_DISPCNT = r0;
@@ -140,13 +140,13 @@ BOOL ov21_02254C40(u32 param0, void *param1) {
 }
 
 void ov21_02254C5C(UnkStruct02254A6C *param0) {
-    u32 tmp                       = (u32)param0->Unk00->Unk00;
-    reg_CP_DIVCNT                 = 0;
+    u32 tmp = (u32)param0->Unk00->Unk00;
+    reg_CP_DIVCNT = 0;
     (*(vu32 *)REG_DIV_NUMER_ADDR) = tmp;
-    reg_CP_DIV_DENOM              = 10;
+    reg_CP_DIV_DENOM = 10;
     while (reg_CP_DIVCNT & ((u32)&reg_CP_DIVCNT >> 0xb)) {}
 
-    u32 regaddr   = (u32)&reg_CP_DIV_RESULT_L;
+    u32 regaddr = (u32)&reg_CP_DIV_RESULT_L;
     u32 divResult = *(u32 *)regaddr;
     while (reg_CP_DIVCNT & (regaddr >> 0xb)) {}
 
@@ -154,10 +154,10 @@ void ov21_02254C5C(UnkStruct02254A6C *param0) {
     CopyToBgTilemapRect(param0->Unk04, 6, 3, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
     CopyToBgTilemapRect(param0->Unk04, 6, 8, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
 
-    tmp                           = param0->Unk00->Unk04;
-    reg_CP_DIVCNT                 = 0;
+    tmp = param0->Unk00->Unk04;
+    reg_CP_DIVCNT = 0;
     (*(vu32 *)REG_DIV_NUMER_ADDR) = tmp;
-    reg_CP_DIV_DENOM              = 10;
+    reg_CP_DIV_DENOM = 10;
 
     while (reg_CP_DIVCNT & ((u32)&reg_CP_DIVCNT >> 0xb)) {}
 

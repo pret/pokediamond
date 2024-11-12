@@ -40,7 +40,7 @@ const u8 UNK_020F457F[8] = {
 BOOL ScrCmd_HasSinnohDex(struct ScriptContext *ctx) // 0157
 {
     struct Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
-    u16 *ret_ptr            = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = (u16)Pokedex_GetSinnohDexFlag(pokedex);
 
@@ -58,9 +58,9 @@ BOOL ScrCmd_GiveSinnohDex(struct ScriptContext *ctx) // 0158
 
 BOOL ScrCmd_HasRunningShoes(struct ScriptContext *ctx) // 0159
 {
-    u16 *ret_ptr      = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     void *unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    void *unk         = sub_02034E20(unk_sav_ptr);
+    void *unk = sub_02034E20(unk_sav_ptr);
 
     *ret_ptr = (u16)sub_02055474(unk);
 
@@ -70,7 +70,7 @@ BOOL ScrCmd_HasRunningShoes(struct ScriptContext *ctx) // 0159
 BOOL ScrCmd_GiveRunningShoes(struct ScriptContext *ctx) // 015A
 {
     void *unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    void *unk         = sub_02034E20(unk_sav_ptr);
+    void *unk = sub_02034E20(unk_sav_ptr);
 
     sub_02055488(unk, 1);
 
@@ -102,7 +102,7 @@ BOOL ScrCmd_GiveBadge(struct ScriptContext *ctx) // 015C
 
 BOOL ScrCmd_HasBag(struct ScriptContext *ctx) // 015E
 {
-    u16 *ret_ptr                = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)sub_0205ECE0(state);
@@ -118,7 +118,7 @@ BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext *ctx) // 015D - todo: Coun
     u16 badges;
     for (i = 0, badges = 0; i < 8; i++) {
         PlayerProfile *player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
-        BOOL has_badge        = PlayerProfile_TestBadgeFlag(player, UNK_020F457F[i]);
+        BOOL has_badge = PlayerProfile_TestBadgeFlag(player, UNK_020F457F[i]);
         if (has_badge == TRUE) {
             badges++;
         }
@@ -139,7 +139,7 @@ BOOL ScrCmd_GiveBag(struct ScriptContext *ctx) // 015F
 
 BOOL ScrCmd_Unk0160(struct ScriptContext *ctx) // 0160 - todo: HasPartner? CheckPartner?
 {
-    u16 *ret_ptr                = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)Save_VarsFlags_CheckHaveFollower(state);
@@ -167,7 +167,7 @@ BOOL ScrCmd_Unk0162(struct ScriptContext *ctx) // 0162 - todo: RemovePartner? Cl
 
 BOOL ScrCmd_Unk0163(struct ScriptContext *ctx) // 0163 - todo: GetSteps? CheckSteps? GetStepFlag? CheckStepFlag?
 {
-    u16 *ret_ptr                = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)sub_0205ED6C(state);
@@ -195,7 +195,7 @@ BOOL ScrCmd_Unk0165(struct ScriptContext *ctx) // 0165 - todo: ClearStepFlag?
 
 BOOL ScrCmd_CheckGameCompleted(struct ScriptContext *ctx) // 0166
 {
-    u16 *ret_ptr                = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)sub_0205ED0C(state);
@@ -215,7 +215,7 @@ BOOL ScrCmd_SetGameCompleted(struct ScriptContext *ctx) // 0167
 BOOL ScrCmd_GetSetStrength(struct ScriptContext *ctx) // 01CF - todo: Strength?
 {
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
-    u8 option                   = ScriptReadByte(ctx);
+    u8 option = ScriptReadByte(ctx);
     u16 *ret_ptr;
 
     switch (option) {
@@ -226,7 +226,7 @@ BOOL ScrCmd_GetSetStrength(struct ScriptContext *ctx) // 01CF - todo: Strength?
         sub_0205F264(state, 0);
         break;
     case 2: // get whether strength is on or off
-        ret_ptr  = ScriptGetVarPointer(ctx);
+        ret_ptr = ScriptGetVarPointer(ctx);
         *ret_ptr = (u16)sub_0205F264(state, 2);
         break;
     default:
@@ -240,7 +240,7 @@ BOOL ScrCmd_GetSetStrength(struct ScriptContext *ctx) // 01CF - todo: Strength?
 BOOL ScrCmd_GetSetFlash(struct ScriptContext *ctx) // 01D0 - todo Flash?
 {
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
-    u8 option                   = ScriptReadByte(ctx);
+    u8 option = ScriptReadByte(ctx);
     u16 *ret_ptr;
 
     switch (option) {
@@ -251,7 +251,7 @@ BOOL ScrCmd_GetSetFlash(struct ScriptContext *ctx) // 01D0 - todo Flash?
         sub_0205F284(state);
         break;
     case 2: // get whether flash is on or off
-        ret_ptr  = ScriptGetVarPointer(ctx);
+        ret_ptr = ScriptGetVarPointer(ctx);
         *ret_ptr = (u16)sub_0205F294(state);
         break;
     default:
@@ -265,7 +265,7 @@ BOOL ScrCmd_GetSetFlash(struct ScriptContext *ctx) // 01D0 - todo Flash?
 BOOL ScrCmd_GetSetDefog(struct ScriptContext *ctx) // 01D1 - todo: Defog
 {
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
-    u8 option                   = ScriptReadByte(ctx);
+    u8 option = ScriptReadByte(ctx);
     u16 *ret_ptr;
 
     switch (option) {
@@ -276,7 +276,7 @@ BOOL ScrCmd_GetSetDefog(struct ScriptContext *ctx) // 01D1 - todo: Defog
         sub_0205F2B4(state);
         break;
     case 2: // get whether defog is on or off
-        ret_ptr  = ScriptGetVarPointer(ctx);
+        ret_ptr = ScriptGetVarPointer(ctx);
         *ret_ptr = (u16)sub_0205F2C4(state);
         break;
     default:

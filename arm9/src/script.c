@@ -5,12 +5,12 @@
 void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount) {
     int i;
 
-    ctx->mode       = 0;
-    ctx->scriptPtr  = NULL;
+    ctx->mode = 0;
+    ctx->scriptPtr = NULL;
     ctx->stackDepth = 0;
-    ctx->nativePtr  = NULL;
-    ctx->cmdTable   = cmdTable;
-    ctx->cmdCount   = cmdCount;
+    ctx->nativePtr = NULL;
+    ctx->cmdTable = cmdTable;
+    ctx->cmdCount = cmdCount;
 
     for (i = 0; i < NELEMS(ctx->data); i++) {
         ctx->data[i] = 0;
@@ -25,17 +25,17 @@ void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount) 
 
 u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr) {
     ctx->scriptPtr = ptr;
-    ctx->mode      = 1;
+    ctx->mode = 1;
     return 1;
 }
 
 void SetupNativeScript(struct ScriptContext *ctx, BOOL (*ptr)(struct ScriptContext *)) {
-    ctx->mode      = 2;
+    ctx->mode = 2;
     ctx->nativePtr = ptr;
 }
 
 void StopScript(struct ScriptContext *ctx) {
-    ctx->mode      = 0;
+    ctx->mode = 0;
     ctx->scriptPtr = 0;
 }
 
@@ -111,7 +111,7 @@ void ScriptJump(struct ScriptContext *ctx, const u8 *ptr) {
 }
 
 u8 ScriptCall(struct ScriptContext *ctx, const u8 *ptr) {
-    u8 ret         = ScriptPush(ctx, ctx->scriptPtr);
+    u8 ret = ScriptPush(ctx, ctx->scriptPtr);
     ctx->scriptPtr = ptr;
     return ret;
 }

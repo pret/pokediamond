@@ -81,8 +81,8 @@ void sub_02003C40(void) {
 
 void sub_02003CE8(int a0) {
     struct SoundData *sdat = GetSoundDataPointer();
-    sdat->unk_BCCFC        = 0;
-    UNK_02107070           = (u32)a0;
+    sdat->unk_BCCFC = 0;
+    UNK_02107070 = (u32)a0;
 }
 
 BOOL sub_02003D04(void) {
@@ -188,7 +188,7 @@ void *sub_02003D38(u32 a0) {
 
 int GF_Snd_SaveState(int *level_p) {
     struct SoundData *sdat = GetSoundDataPointer();
-    int level              = NNS_SndHeapSaveState(sdat->heap);
+    int level = NNS_SndHeapSaveState(sdat->heap);
     GF_ASSERT(level != -1);
     if (level_p != NULL) {
         *level_p = level;

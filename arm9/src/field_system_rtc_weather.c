@@ -1845,7 +1845,7 @@ u32 FieldSystem_GetWeather(FieldSystem *fieldSystem, u32 mapId) {
         return weatherType;
     }
     SysInfo_RTC *sysInfoRTC = Save_SysInfo_RTC_Get(fieldSystem->saveData);
-    s32 dayOfYear           = GF_RTC_GetDayOfYear(&sysInfoRTC->date) - 1;
+    s32 dayOfYear = GF_RTC_GetDayOfYear(&sysInfoRTC->date) - 1;
     GF_ASSERT(dayOfYear >= 0 && dayOfYear < 366);
     if (sysInfoRTC->date.month > 2) {
         u32 year = sysInfoRTC->date.year;
@@ -1863,7 +1863,7 @@ u32 FieldSystem_GetWeather(FieldSystem *fieldSystem, u32 mapId) {
         dayOfYear = 1;
     }
     weatherType -= WEATHER_UNKNOWN_24;
-    u32 index   = 5 * dayOfYear + weatherType;
+    u32 index = 5 * dayOfYear + weatherType;
     weatherType = sWeatherTable[index];
     return weatherType;
 }

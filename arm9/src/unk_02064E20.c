@@ -13,5 +13,5 @@ void KeepSafariTrain(struct FieldSystem *fieldSystem) {
     }
     sub_02025490(r4, 6);
     u16 *ptr0 = (u16 *)sub_020254A0(r4, 6);
-    ptr0[0]   = 2;
+    ptr0[0] = 2;
 }

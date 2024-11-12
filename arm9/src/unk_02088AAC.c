@@ -48,7 +48,7 @@ u32 sub_02088AFC(struct UnkStruct_02088AAC *r0) {
         .initFunc = ov73_021D74F0,
         .mainFunc = ov73_021D758C,
         .exitFunc = ov73_021D7640,
-        .ovly     = FS_OVERLAY_ID(OVERLAY_73)
+        .ovly = FS_OVERLAY_ID(OVERLAY_73)
     };
     r0->ovly_data = OverlayManager_New(&OVERLAY_73_MANAGER, (s32 *)r0, r0->heapId);
 
@@ -74,18 +74,18 @@ u32 sub_02088B48() {
 u32 sub_02088B4C(struct UnkStruct_02088AAC *r0) {
     FS_EXTERN_OVERLAY(OVERLAY_75);
 
-    static const u8 UNK_020FD6F4[]                         = { 0x04, 0xFF };
+    static const u8 UNK_020FD6F4[] = { 0x04, 0xFF };
     const struct OverlayManagerTemplate OVERLAY_75_MANAGER = {
         .initFunc = ov75_021E6BA0,
         .mainFunc = ov75_021E6D6C,
         .exitFunc = ov75_021E6F00,
-        .ovly     = FS_OVERLAY_ID(OVERLAY_75)
+        .ovly = FS_OVERLAY_ID(OVERLAY_75)
     };
     struct BagView *bag_view = Bag_CreateView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heapId);
 
     sub_0206E314(bag_view, r0->poffinCaseAppData->save, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
 
-    r0->ovly_data  = OverlayManager_New(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heapId);
+    r0->ovly_data = OverlayManager_New(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heapId);
     r0->ovly_param = bag_view;
 
     return 1;
@@ -102,7 +102,7 @@ u32 sub_02088BA8(struct UnkStruct_02088AAC *r0) {
     FreeToHeap(r0->ovly_param);
 
     r0->ovly_param = NULL;
-    r0->item       = sub_0206E37C(bag_view);
+    r0->item = sub_0206E37C(bag_view);
 
     FreeToHeap(bag_view);
 
@@ -126,12 +126,12 @@ u32 sub_02088BA8(struct UnkStruct_02088AAC *r0) {
 u32 sub_02088C3C(struct UnkStruct_02088AAC *r0) {
     FS_EXTERN_OVERLAY(OVERLAY_68);
 
-    struct Bag *bag                                        = r0->poffinCaseAppData->bag;
+    struct Bag *bag = r0->poffinCaseAppData->bag;
     const struct OverlayManagerTemplate OVERLAY_68_MANAGER = {
         .initFunc = ov68_021D74E0,
         .mainFunc = ov68_021D75D8,
         .exitFunc = ov68_021D762C,
-        .ovly     = FS_OVERLAY_ID(OVERLAY_68)
+        .ovly = FS_OVERLAY_ID(OVERLAY_68)
     };
 
     r0->ovly_param = sub_020851B8((u8)r0->heapId);

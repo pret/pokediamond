@@ -7,7 +7,7 @@
 #define DOT_ARTIST_SIZE (480 / 4) // 2bpp
 
 typedef enum PoketchApp {
-    FIRST_POKETCH_APP_ID  = 0,
+    FIRST_POKETCH_APP_ID = 0,
     POKETCH_DIGITAL_WATCH = FIRST_POKETCH_APP_ID,
     POKETCH_CALCULATOR,
     POKETCH_MEMO_PAD,
@@ -37,10 +37,10 @@ typedef enum PoketchApp {
 } PoketchApp;
 
 typedef struct Poketch {
-    u8 isGiven          : 1; // set by completing the coupon sidequest in Jubilife
-    u8 pedometerActive  : 1; // set when you receive the Pedometer
+    u8 isGiven : 1;          // set by completing the coupon sidequest in Jubilife
+    u8 pedometerActive : 1;  // set when you receive the Pedometer
     u8 dotArtistEnabled : 1; // set when you access dotArtist for the first time
-    u8 color            : 3; // set by Color Changer
+    u8 color : 3;            // set by Color Changer
     // Green, Yellow, Orange, Red, Purple, Blue, Turquoise, White
     u8 padding_00_6 : 2; // silence warnings
     s8 numApps;
@@ -48,9 +48,9 @@ typedef struct Poketch {
     u8 unlockedApps[32]; // should be 25, one for each app
     u8 filler_23[1];     // silence warnings
     u32 stepCounter;     // increments while pedometerActive is 1
-    u16 alarmActive  : 1;
-    u16 alarmHour    : 5;
-    u16 alarmMinute  : 6;
+    u16 alarmActive : 1;
+    u16 alarmHour : 5;
+    u16 alarmMinute : 6;
     u16 padding_28_C : 4; // silence warnings
     u8 dotArtistGrid[DOT_ARTIST_SIZE];
     u8 filler_A2[1];   // silence warnings

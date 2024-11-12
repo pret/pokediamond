@@ -74,7 +74,7 @@ void ReplacePartySlotWithMon(struct Party *party, int pos, struct Pokemon *pokem
     GF_ASSERT(pos >= 0);
     GF_ASSERT(pos < party->curCount);
     GF_ASSERT(pos < party->maxCount);
-    r2               = (int)(GetMonData(&party->mons[pos], MON_DATA_SPECIES_EXISTS, NULL) - GetMonData(pokemon, MON_DATA_SPECIES_EXISTS, NULL));
+    r2 = (int)(GetMonData(&party->mons[pos], MON_DATA_SPECIES_EXISTS, NULL) - GetMonData(pokemon, MON_DATA_SPECIES_EXISTS, NULL));
     party->mons[pos] = *pokemon;
     party->curCount += r2;
 }
@@ -87,8 +87,8 @@ BOOL SwapSlotsInParty(struct Party *party, int pos1, int pos2) {
     GF_ASSERT(pos2 >= 0);
     GF_ASSERT(pos2 < party->curCount);
     GF_ASSERT(pos2 < party->maxCount);
-    buffer            = AllocFromHeap(HEAP_ID_DEFAULT, sizeof(struct Pokemon));
-    *buffer           = party->mons[pos1];
+    buffer = AllocFromHeap(HEAP_ID_DEFAULT, sizeof(struct Pokemon));
+    *buffer = party->mons[pos1];
     party->mons[pos1] = party->mons[pos2];
     party->mons[pos2] = *buffer;
     FreeToHeap(buffer);

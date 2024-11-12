@@ -9,9 +9,9 @@
 struct String *String_New(u32 length, HeapID heapId) {
     struct String *ret = AllocFromHeap(heapId, length * 2 + 10);
     if (ret != NULL) {
-        ret->magic   = STR16_MAGIC;
+        ret->magic = STR16_MAGIC;
         ret->maxsize = (u16)length;
-        ret->size    = 0;
+        ret->size = 0;
         ret->data[0] = EOS;
     }
     return ret;
@@ -25,7 +25,7 @@ void String_Delete(struct String *str) {
 
 void String_SetEmpty(struct String *str) {
     ASSERT_STR16(str);
-    str->size    = 0;
+    str->size = 0;
     str->data[0] = EOS;
 }
 
@@ -81,7 +81,7 @@ void String16_FormatInteger(struct String *str, int num, u32 ndigits, enum Print
         String_SetEmpty(str);
         if (isNegative) {
             num *= -1;
-            u16 hyphen             = (u16)((whichCharset == 0) ? 0x00F1 : 0x01BE);
+            u16 hyphen = (u16)((whichCharset == 0) ? 0x00F1 : 0x01BE);
             str->data[str->size++] = hyphen;
         }
         u32 dividend = sPowersOfTen[ndigits - 1];
@@ -89,14 +89,14 @@ void String16_FormatInteger(struct String *str, int num, u32 ndigits, enum Print
             u16 digit = (u16)(num / dividend);
             num -= dividend * digit;
             if (printingMode == PRINTING_MODE_LEADING_ZEROS) {
-                u16 value              = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
+                u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
                 str->data[str->size++] = value;
             } else if (digit != 0 || dividend == 1) {
-                printingMode           = PRINTING_MODE_LEADING_ZEROS;
-                u16 value              = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
+                printingMode = PRINTING_MODE_LEADING_ZEROS;
+                u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
                 str->data[str->size++] = value;
             } else if (printingMode == PRINTING_MODE_RIGHT_ALIGN) {
-                u16 value              = (u16)((whichCharset == 0) ? 0x0001 : 0x01E2);
+                u16 value = (u16)((whichCharset == 0) ? 0x0001 : 0x01E2);
                 str->data[str->size++] = value;
             }
             dividend /= 10;
@@ -108,7 +108,7 @@ void String16_FormatInteger(struct String *str, int num, u32 ndigits, enum Print
 }
 
 s64 String_atoi(struct String *str, BOOL *flag) {
-    s64 ret   = 0;
+    s64 ret = 0;
     s64 pow10 = 1;
     if (str->size > 18) {
         return 0;
@@ -252,7 +252,7 @@ void StrAddChar(struct String *str, u16 val) {
 
     if (str->size + 1 < str->maxsize) {
         str->data[str->size++] = val;
-        str->data[str->size]   = EOS;
+        str->data[str->size] = EOS;
         return;
     }
     GF_ASSERT(0);
@@ -276,10 +276,10 @@ BOOL String_IsTrainerName(struct String *string) {
 
 void StringCat_HandleTrainerName(struct String *dest, struct String *src) {
     if (String_IsTrainerName(src)) {
-        u16 *dest_p  = &dest->data[dest->size];
-        u16 *src_p   = &src->data[1];
-        s32 bit      = 0;
-        u32 outsize  = 0;
+        u16 *dest_p = &dest->data[dest->size];
+        u16 *src_p = &src->data[1];
+        s32 bit = 0;
+        u32 outsize = 0;
         u16 cur_char = 0;
 
         while (1) {

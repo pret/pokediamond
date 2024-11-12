@@ -95,7 +95,7 @@ void sub_0204B090(struct TaskManager *taskManager) {
 }
 
 BOOL sub_0204B0A0(struct TaskManager *taskManager) {
-    u32 *r4                         = TaskManager_GetStatePtr(taskManager);
+    u32 *r4 = TaskManager_GetStatePtr(taskManager);
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     switch (r4[0]) {
     case 0:

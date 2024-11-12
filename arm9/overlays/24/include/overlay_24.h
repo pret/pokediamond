@@ -8,12 +8,12 @@
 
 typedef enum {
     TOUCH_TYPE_ERASE = 0,
-    TOUCH_TYPE_DRAW  = 1,
+    TOUCH_TYPE_DRAW = 1,
 } TouchType;
 
 typedef enum {
     MEMO_PAD_PIXEL_TYPE_FILLED = 1,
-    MEMO_PAD_PIXEL_TYPE_EMPTY  = 4,
+    MEMO_PAD_PIXEL_TYPE_EMPTY = 4,
 } MemoPadPixelType;
 
 typedef struct MemoPadDrawState {

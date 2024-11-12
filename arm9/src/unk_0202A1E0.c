@@ -157,14 +157,14 @@ u16 FrontierData_BattlePointAction(struct FrontierData *frontierData, u16 value,
 u8 FrontierData_SetField_0x2(struct FrontierData *frontierData, DataSetMode mode) {
     switch (mode) {
     case DATA_RESET:
-        frontierData->u_2   = 0;
+        frontierData->u_2 = 0;
         frontierData->flag4 = 0;
         break;
     case DATA_INCREMENT:
         if (frontierData->flag4) {
             frontierData->u_2++;
         } else {
-            frontierData->u_2   = 1;
+            frontierData->u_2 = 1;
             frontierData->flag4 = 1;
         }
         break;
@@ -226,7 +226,7 @@ u16 FrontierData_SetField_0x16(struct FrontierData *frontierData, struct Unk0202
         var5 = (u16)((1000 - arg1->u_6) / 30);
     }
 
-    total              = (u16)(var1 + var4 + var5);
+    total = (u16)(var1 + var4 + var5);
     frontierData->u_16 = total;
     return total;
 }
@@ -310,8 +310,8 @@ void SaveStruct23_Substruct4_SetArrayFlag(struct SaveStruct23_Substruct4 *substr
         return;
     }
 
-    u16 var1     = (u16)((arg1 - 1) * 200 + (arg2 - 1));
-    u8 index     = (u8)(var1 / 8);
+    u16 var1 = (u16)((arg1 - 1) * 200 + (arg2 - 1));
+    u8 index = (u8)(var1 / 8);
     u8 remainder = (u8)(var1 % 8);
     flag <<= remainder;
 
@@ -356,8 +356,8 @@ BOOL SaveStruct23_Substruct4_GetArrayFlag(struct SaveStruct23_Substruct4 *substr
         return FALSE;
     }
 
-    u16 var2     = (u16)((arg1 - 1) * 200 + (arg2 - 1));
-    u8 index     = (u8)(var2 / 8);
+    u16 var2 = (u16)((arg1 - 1) * 200 + (arg2 - 1));
+    u8 index = (u8)(var2 / 8);
     u8 remainder = (u8)(var2 % 8);
     flag <<= remainder;
 
@@ -379,7 +379,7 @@ void SaveStruct23_Substruct4_SetSubstruct1(struct SaveStruct23_Substruct4 *subst
     MI_CpuCopy8(substruct1, &substruct4->substruct1, sizeof(struct SaveStruct23_Substruct4_Substruct1) * 7);
     substruct4->u_101 = arg2;
     substruct4->u_100 = arg3;
-    substruct4->u_FE  = 1;
+    substruct4->u_FE = 1;
 }
 
 void sub_0202A784(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dst) {
@@ -388,8 +388,8 @@ void sub_0202A784(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784
 }
 
 void sub_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798 *arg1, u32 arg2) {
-    struct Unk0202A798_substruct *unk_substruct                      = &arg1->u_0;
-    u8 *var1                                                         = arg1->u_30;
+    struct Unk0202A798_substruct *unk_substruct = &arg1->u_0;
+    u8 *var1 = arg1->u_30;
     struct SaveStruct23_Substruct4_Substruct1 *substruct4_substruct1 = &substruct4->substruct1[arg2];
     struct MsgData *message;
 
@@ -414,7 +414,7 @@ void sub_0202A838(struct SaveStruct23_Substruct4 *substruct4, struct SaveStruct2
     MI_CpuCopy8(substruct4_substruct2, &substruct4->substruct2, sizeof(struct SaveStruct23_Substruct4_Substruct2));
     substruct4->u_103 = arg2;
     substruct4->u_102 = arg3;
-    substruct4->u_FF  = 1;
+    substruct4->u_FF = 1;
 }
 
 void sub_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dst) {

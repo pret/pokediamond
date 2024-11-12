@@ -46,7 +46,7 @@ struct TextPrinter {
     u8 active;              // 23
     u8 state;               // 0x24
     u8 textSpeedBottom : 7; // 25
-    u8 textSpeedTop    : 1;
+    u8 textSpeedTop : 1;
     u8 delayCounter;     // 26
     u8 scrollDistance;   // 27
     u8 minLetterSpacing; // 0x28

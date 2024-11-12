@@ -128,7 +128,7 @@ BOOL HasEnoughAlivePokemonForDoubleBattle(struct Party *party) {
 }
 
 void GiveAllMonsTheSinnohChampRibbon(struct Party *party) {
-    u8 var         = 1;
+    u8 var = 1;
     int partyCount = Party_GetCount(party);
 
     for (int i = 0; i < partyCount; i++) {
@@ -145,8 +145,8 @@ void GiveAllMonsTheSinnohChampRibbon(struct Party *party) {
 int ApplyPoisonStep(struct Party *party, int location) {
     u32 hp;
     int numPoisoned = 0;
-    int numHealed   = 0;
-    int partyCount  = Party_GetCount(party);
+    int numHealed = 0;
+    int partyCount = Party_GetCount(party);
 
     for (int i = 0; i < partyCount; i++) {
         struct Pokemon *mon = Party_GetMonByIndex(party, i);

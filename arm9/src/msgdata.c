@@ -142,7 +142,7 @@ static void ReadMsgData_ExistingNarc_ExistingString(NARC *narc, u32 group, u32 n
         NARC_ReadFromMember(narc, group, 8 * num + 4, 8, &alloc);
         Decrypt1(&alloc, num, sp10[1]);
         size = alloc.length * 2;
-        buf  = AllocFromHeapAtEnd(heapId, size);
+        buf = AllocFromHeapAtEnd(heapId, size);
         if (buf != NULL) {
             NARC_ReadFromMember(narc, group, alloc.offset, size, buf);
             Decrypt2(buf, alloc.length, num);
@@ -182,7 +182,7 @@ static struct String *ReadMsgData_ExistingNarc_NewString(NARC *narc, u32 group, 
         dest = String_New(alloc.length, heapId);
         if (dest != NULL) {
             size = alloc.length * 2;
-            buf  = AllocFromHeapAtEnd(heapId, size);
+            buf = AllocFromHeapAtEnd(heapId, size);
             if (buf != NULL) {
                 NARC_ReadFromMember(narc, group, alloc.offset, size, buf);
                 Decrypt2(buf, alloc.length, num);
@@ -219,10 +219,10 @@ struct MsgData *NewMsgDataFromNarc(MsgDataLoadType type, NarcId narc_id, s32 fil
         } else {
             msgData->data.narc = NARC_New(narc_id, heapId);
         }
-        msgData->type    = (u16)type;
+        msgData->type = (u16)type;
         msgData->narc_id = (u16)narc_id;
         msgData->file_id = (u16)file_id;
-        msgData->heapId  = (u16)heapId;
+        msgData->heapId = (u16)heapId;
     }
     return msgData;
 }
@@ -293,7 +293,7 @@ void GetSpeciesNameIntoArray(u16 species, HeapID heapId, u16 *dest) {
 
 struct String *ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, struct MsgData *msgData, u32 msgno, HeapID heapId) {
     struct String *ret = NULL;
-    struct String *r4  = String_New(1024, HEAP_ID_DEFAULT);
+    struct String *r4 = String_New(1024, HEAP_ID_DEFAULT);
     struct String *r5;
     if (r4 != NULL) {
         r5 = NewString_ReadMsgData(msgData, msgno);

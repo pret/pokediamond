@@ -9,15 +9,15 @@ extern BOOL sub_0205ED0C(struct SaveVarsFlags *state);
 
 struct UnkStruct_02085338 *sub_02085338(u8 r5, u8 r7, struct SaveData *save, HeapID heapId) {
     struct UnkStruct_02085338 *ret = (struct UnkStruct_02085338 *)AllocFromHeap(heapId, sizeof(struct UnkStruct_02085338));
-    ret->unk_00                    = r5;
-    ret->unk_01                    = r7;
-    ret->unk_0c                    = Save_Pokedex_Get(save);
-    ret->unk_10                    = Save_EasyChat_Get(save);
-    ret->unk_04                    = (u8)sub_0205ED0C(Save_VarsFlags_Get(save));
-    ret->unk_05                    = 0;
-    ret->unk_02                    = 1;
-    ret->unk_03                    = 0;
-    ret->unk_08                    = Options_GetFrame(Save_PlayerData_GetOptionsAddr(save));
+    ret->unk_00 = r5;
+    ret->unk_01 = r7;
+    ret->unk_0c = Save_Pokedex_Get(save);
+    ret->unk_10 = Save_EasyChat_Get(save);
+    ret->unk_04 = (u8)sub_0205ED0C(Save_VarsFlags_Get(save));
+    ret->unk_05 = 0;
+    ret->unk_02 = 1;
+    ret->unk_03 = 0;
+    ret->unk_08 = Options_GetFrame(Save_PlayerData_GetOptionsAddr(save));
     if (r5 == 2) {
         MailMsg_Init_WithBank(&ret->unk_14, 3);
     } else {

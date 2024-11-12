@@ -26,8 +26,8 @@ void GF_InitRTCWork(void) {
     RTC_Init();
     memset(&sGFRTCWork, 0, sizeof(sGFRTCWork)); // todo: figure out how to use memset
     sGFRTCWork.getDateTimeSuccess = FALSE;
-    sGFRTCWork.getDateTimeLock    = FALSE;
-    sGFRTCWork.getDateTimeSleep   = 0;
+    sGFRTCWork.getDateTimeLock = FALSE;
+    sGFRTCWork.getDateTimeSleep = 0;
     GF_RTC_GetDateTime(&sGFRTCWork);
 }
 
@@ -41,18 +41,18 @@ void GF_RTC_UpdateOnFrame(void) {
 }
 
 void GF_RTC_GetDateTime_Callback(RTCResult result, void *data) {
-    GF_RTC_Work *work          = (GF_RTC_Work *)data;
+    GF_RTC_Work *work = (GF_RTC_Work *)data;
     work->getDateTimeErrorCode = result;
     GF_ASSERT(result == RTC_RESULT_SUCCESS);
     work->getDateTimeSuccess = TRUE;
-    work->date               = work->date_async;
-    work->time               = work->time_async;
-    work->getDateTimeLock    = FALSE;
+    work->date = work->date_async;
+    work->time = work->time_async;
+    work->getDateTimeLock = FALSE;
 }
 
 void GF_RTC_GetDateTime(GF_RTC_Work *work) {
-    work->getDateTimeLock      = TRUE;
-    RTCResult result           = RTC_GetDateTimeAsync(&work->date_async, &work->time_async, GF_RTC_GetDateTime_Callback, work);
+    work->getDateTimeLock = TRUE;
+    RTCResult result = RTC_GetDateTimeAsync(&work->date_async, &work->time_async, GF_RTC_GetDateTime_Callback, work);
     work->getDateTimeErrorCode = result;
     GF_ASSERT(result == RTC_RESULT_SUCCESS);
 }
@@ -109,9 +109,9 @@ s32 GF_RTC_GetDayOfYear(const RTCDate *date) {
     if (date->month >= RTC_MONTH_MARCH && IsLeapYear(date->year)) {
         days++;
     }
-    date_stack       = *date;
+    date_stack = *date;
     date_stack.month = RTC_MONTH_JANUARY;
-    date_stack.day   = 1;
+    date_stack.day = 1;
     RTC_ConvertDateToDay(&date_stack);
     RTC_ConvertDateToDay(date);
     return days;

@@ -3,7 +3,7 @@
 #include "global.h"
 
 void InitIGT(struct IGT *igt) {
-    igt->hours   = 0;
+    igt->hours = 0;
     igt->minutes = 0;
     igt->seconds = 0;
 }
@@ -15,7 +15,7 @@ void AddIGTSeconds(struct IGT *igt, u32 to_add) {
     }
     seconds = (u32)(igt->seconds + to_add);
     minutes = (u32)igt->minutes;
-    hours   = (u32)igt->hours;
+    hours = (u32)igt->hours;
     if (seconds > 59) {
         minutes += seconds / 60;
         seconds %= 60;
@@ -23,13 +23,13 @@ void AddIGTSeconds(struct IGT *igt, u32 to_add) {
             hours += minutes / 60;
             minutes %= 60;
             if (hours >= 999) {
-                hours   = 999;
+                hours = 999;
                 minutes = 59;
                 seconds = 59;
             }
         }
     }
-    igt->hours   = (u16)hours;
+    igt->hours = (u16)hours;
     igt->minutes = (u8)minutes;
     igt->seconds = (u8)seconds;
 }

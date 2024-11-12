@@ -30,9 +30,9 @@ typedef enum {
 
 struct SaveStruct23_Substruct1 {
     /* 0x000 */ u8 flag0 : 1;
-    u8 flag1             : 1;
-    u8 u_0_2             : 3;
-    u8 u_0_5             : 3;
+    u8 flag1 : 1;
+    u8 u_0_2 : 3;
+    u8 u_0_5 : 3;
     /* 0x001 */ u8 u_1;
     /* 0x002 */ u8 u_2;
     /* 0x003 */ u8 u_3;
@@ -54,11 +54,11 @@ struct FrontierData {
         struct
         {
             /* 0x008 */ u16 flag0 : 1;
-            u16 flag1             : 1;
-            u16 flag2             : 1;
-            u16 flag3             : 1;
-            u16 flag4             : 1;
-            u16 filler_1          : 11;
+            u16 flag1 : 1;
+            u16 flag2 : 1;
+            u16 flag3 : 1;
+            u16 flag4 : 1;
+            u16 filler_1 : 11;
         };
         /* 0x008 */ u16 flags;
     };
@@ -78,8 +78,8 @@ struct SaveStruct23_Substruct4_Substruct1 {
     /* 0x0A8 */ u8 u_A8[16];
     /* 0x0B8 */ u8 filler_1[16];
     /* 0x0C8 */ u8 u_C8_0 : 1;
-    u8 u_C8_1             : 1;
-    u8 filler_2           : 6;
+    u8 u_C8_1 : 1;
+    u8 filler_2 : 6;
     /* 0x0C8 */ u8 u_C9;
     /* 0x0CA */ u16 u_CA[4];
     /* 0x0D2 */ u16 u_D2[4];

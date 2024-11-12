@@ -26,17 +26,17 @@ void Save_Poketch_Init(struct Poketch *poketch) {
     for (i = 0; i < 32; i++) {
         poketch->unlockedApps[i] = 0;
     }
-    poketch->numApps         = 0;
-    poketch->selectedApp     = 0;
-    poketch->isGiven         = 0;
-    poketch->color           = 0;
+    poketch->numApps = 0;
+    poketch->selectedApp = 0;
+    poketch->isGiven = 0;
+    poketch->color = 0;
     poketch->pedometerActive = 0;
-    poketch->stepCounter     = 0;
-    poketch->alarmActive     = 0;
-    poketch->alarmHour       = 0;
-    poketch->alarmMinute     = 0;
-    poketch->calendarMonth   = 1; // January
-    poketch->calendarFlags   = 0;
+    poketch->stepCounter = 0;
+    poketch->alarmActive = 0;
+    poketch->alarmHour = 0;
+    poketch->alarmMinute = 0;
+    poketch->calendarMonth = 1; // January
+    poketch->calendarFlags = 0;
     for (i = 0; i < 6; i++) {
         poketch->markingMapPos[i][0] = sMarkingMapInitialPos[i][0];
         poketch->markingMapPos[i][1] = sMarkingMapInitialPos[i][1];
@@ -80,7 +80,7 @@ PoketchApp Save_Poketch_GetSelectedApp(struct Poketch *poketch) {
 }
 
 PoketchApp Save_Poketch_CycleNextApp(struct Poketch *poketch) {
-    PoketchApp app  = (PoketchApp)poketch->selectedApp;
+    PoketchApp app = (PoketchApp)poketch->selectedApp;
     PoketchApp prev = app;
 
     while (1) {
@@ -125,12 +125,12 @@ BOOL Save_Poketch_GetAlarmState(struct Poketch *poketch) {
 
 void Save_Poketch_GetAlarmSetTime(struct Poketch *poketch, u32 *hour_p, u32 *min_p) {
     *hour_p = poketch->alarmHour;
-    *min_p  = poketch->alarmMinute;
+    *min_p = poketch->alarmMinute;
 }
 
 void Save_Poketch_SetAlarm(struct Poketch *poketch, BOOL enabled, u32 hour, u32 minute) {
     poketch->alarmActive = enabled;
-    poketch->alarmHour   = hour;
+    poketch->alarmHour = hour;
     poketch->alarmMinute = minute;
 }
 
@@ -214,7 +214,7 @@ void Save_Poketch_PokemonHistoryGetSlotN(struct Poketch *poketch, s32 i, u32 *sp
     GF_ASSERT(i < 12);
     GF_ASSERT(poketch->pokemonHistory[i][0] != SPECIES_NONE);
     *species_p = poketch->pokemonHistory[i][0];
-    *form_p    = poketch->pokemonHistory[i][1];
+    *form_p = poketch->pokemonHistory[i][1];
 }
 
 struct Poketch *Save_Poketch_Get(struct SaveData *save) {

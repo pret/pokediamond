@@ -28,11 +28,11 @@ const u16 gGameCornerPrizes[19][2] = {
 
 BOOL ScrCmd_GetPrizeItemIdAndCost(struct ScriptContext *ctx) // 02A6
 {
-    u16 idx                  = ScriptGetVar(ctx);
-    u16 *prize_item_id       = ScriptGetVarPointer(ctx);
+    u16 idx = ScriptGetVar(ctx);
+    u16 *prize_item_id = ScriptGetVarPointer(ctx);
     u16 *prize_cost_in_coins = ScriptGetVarPointer(ctx);
 
-    *prize_item_id       = gGameCornerPrizes[idx][0];
+    *prize_item_id = gGameCornerPrizes[idx][0];
     *prize_cost_in_coins = gGameCornerPrizes[idx][1];
 
     return FALSE;

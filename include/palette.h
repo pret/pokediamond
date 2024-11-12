@@ -7,25 +7,25 @@
 #include "unk_0200CA44.h"
 
 struct PlttData {
-    u16 r         : 5; // red
-    u16 g         : 5; // green
-    u16 b         : 5; // blue
+    u16 r : 5; // red
+    u16 g : 5; // green
+    u16 b : 5; // blue
     u16 unused_15 : 1;
 };
 
 struct PaletteFadeControl {
     u16 selectedPalettes;
 
-    u16 delay   : 6;
-    u16 y       : 5;
+    u16 delay : 6;
+    u16 y : 5;
     u16 targetY : 5;
 
     u16 blendColor : 15;
-    u16 yDec       : 1;
+    u16 yDec : 1;
 
-    u16 deltaY       : 4;
+    u16 deltaY : 4;
     u16 delayCounter : 6;
-    u16 unk06_a      : 6;
+    u16 unk06_a : 6;
 };
 
 struct Palette {
@@ -38,11 +38,11 @@ struct Palette {
 struct PaletteData {
     struct Palette pltt[14];
 
-    u16 unk118_0           : 2;
+    u16 unk118_0 : 2;
     u16 activeFadePalettes : 14;
-    u16 unk11a_0           : 14;
-    u16 unk11a_e           : 1;
-    u16 unk11a_f           : 1;
+    u16 unk11a_0 : 14;
+    u16 unk11a_e : 1;
+    u16 unk11a_f : 1;
     u8 unk11c;
     u8 unk11d;
     u16 unk11e;

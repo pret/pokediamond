@@ -8,13 +8,13 @@
 
 struct OverlayManager *OverlayManager_New(const struct OverlayManagerTemplate *template, s32 *a1, HeapID heapId) {
     struct OverlayManager *ret = (struct OverlayManager *)AllocFromHeap(heapId, sizeof(struct OverlayManager));
-    ret->template              = *template;
-    ret->managerStatus         = 0;
-    ret->overlayStatus         = 0;
-    ret->unk18                 = a1;
-    ret->data                  = NULL;
-    ret->save                  = NULL;
-    ret->unk24                 = 0;
+    ret->template = *template;
+    ret->managerStatus = 0;
+    ret->overlayStatus = 0;
+    ret->unk18 = a1;
+    ret->data = NULL;
+    ret->save = NULL;
+    ret->unk24 = 0;
     return ret;
 }
 

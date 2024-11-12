@@ -12,10 +12,10 @@ struct ListMenuItem *ListMenuItems_New(u32 count, HeapID heapId) {
     struct ListMenuItem *ret = AllocFromHeap(heapId, (count + 1) * sizeof(struct ListMenuItem));
     if (ret != NULL) {
         for (i = 0; i < count; i++) {
-            ret[i].text  = NULL;
+            ret[i].text = NULL;
             ret[i].value = 0;
         }
-        ret[i].text  = (struct String *)-1u;
+        ret[i].text = (struct String *)-1u;
         ret[i].value = (s32)heapId;
     }
     return ret;
@@ -30,7 +30,7 @@ void ListMenuItems_AppendFromMsgData(struct ListMenuItem *items, struct MsgData 
     HeapID heapId;
     struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapId);
     if (newItem != NULL) {
-        newItem->text  = NewString_ReadMsgData(msgData, msgNo);
+        newItem->text = NewString_ReadMsgData(msgData, msgNo);
         newItem->value = value;
     }
 }
@@ -39,7 +39,7 @@ void ListMenuItems_AddItem(struct ListMenuItem *items, struct String *str, s32 v
     HeapID heapId;
     struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapId);
     if (newItem != NULL) {
-        newItem->text  = StringDup(str, heapId);
+        newItem->text = StringDup(str, heapId);
         newItem->value = value;
     }
 }
@@ -48,7 +48,7 @@ void ListMenuItems_CopyItem(struct ListMenuItem *items, struct ListMenuItem *src
     HeapID heapId;
     struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapId);
     if (newItem != NULL) {
-        newItem->text  = src->text;
+        newItem->text = src->text;
         newItem->value = src->value;
     }
 }

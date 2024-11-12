@@ -37,16 +37,16 @@ extern void sub_0206367C(struct FieldSystem *, u32);
 
 void CallTask_UseGreatMarshBinoculars(struct FieldSystem *fieldSystem) {
     struct UnkStruct_0206015C *unkStruct = AllocFromHeapAtEnd(HEAP_ID_FIELD, 0x10);
-    unkStruct->unk0                      = ov06_02244DB0(HEAP_ID_FIELD);
-    unkStruct->unk4                      = ov06_02245114(HEAP_ID_FIELD, fieldSystem);
-    unkStruct->unkC                      = 0;
-    unkStruct->unkD                      = 0;
+    unkStruct->unk0 = ov06_02244DB0(HEAP_ID_FIELD);
+    unkStruct->unk4 = ov06_02245114(HEAP_ID_FIELD, fieldSystem);
+    unkStruct->unkC = 0;
+    unkStruct->unkD = 0;
 
     TaskManager_Call(fieldSystem->taskManager, Task_UseGreatMarshBinoculars, (u32 *)unkStruct);
 }
 
 BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager) {
-    struct FieldSystem *fieldSystem       = TaskManager_GetFieldSystem(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)TaskManager_GetEnvironment(taskManager);
 
     switch (unkStruct1->action) {
@@ -65,7 +65,7 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager) {
 
     case 2:
         struct SaveVarsFlags *scrState = Save_VarsFlags_Get(fieldSystem->saveData);
-        u8 unkD                        = unkStruct1->unkD;
+        u8 unkD = unkStruct1->unkD;
         if (unkD == 0) {
             sub_0205F1C4(scrState);
         } else if (unkD == 5) {

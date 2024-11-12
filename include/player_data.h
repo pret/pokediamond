@@ -10,7 +10,7 @@ struct SaveData;
 #define MAX_MONEY 999999
 
 typedef enum PlayerGender {
-    PLAYER_GENDER_MALE   = 0,
+    PLAYER_GENDER_MALE = 0,
     PLAYER_GENDER_FEMALE = 1
 } PlayerGender;
 
@@ -24,8 +24,8 @@ typedef struct PlayerProfile {
     /* 0x1B */ u8 avatar;
     /* 0x1C */ u8 version;
     /* 0x1D */ u8 gameCleared : 1;
-    u8 nationalDex            : 1;
-    u8 field_1D_pad           : 6;
+    u8 nationalDex : 1;
+    u8 field_1D_pad : 6;
     /* 0x1E */ u8 padding_1E[2];
 } PlayerProfile;
 

@@ -285,12 +285,12 @@ void BlitRect4Bit(u8 *srcPixels,
     u16 height) {
     struct Bitmap src;
     src.pixels = srcPixels;
-    src.width  = srcWidth;
+    src.width = srcWidth;
     src.height = srcHeight;
 
     struct Bitmap dst;
     dst.pixels = dstPixels;
-    dst.width  = dstWidth;
+    dst.width = dstWidth;
     dst.height = dstHeight;
 
     BlitBitmapRect4Bit(&src, &dst, srcX, srcY, dstX, dstY, width, height, 0);
@@ -298,9 +298,9 @@ void BlitRect4Bit(u8 *srcPixels,
 
 void sub_0200D18C(struct Window *window, u16 fill_value) {
     HeapID heapId = BgConfig_GetHeapId(window->bgConfig);
-    u8 bg_id      = GetWindowBgId(window);
+    u8 bg_id = GetWindowBgId(window);
 
-    void *ptr     = AllocFromHeap(heapId, 0x180);
+    void *ptr = AllocFromHeap(heapId, 0x180);
     void *charptr = BgGetCharPtr((u8)bg_id);
 
     NNSG2dCharacterData *pCharData;
@@ -449,8 +449,8 @@ void DrawWindowCorner(struct Window *window, u16 fillValue, u8 paletteNum) {
     u8 bg_id;
 
     bg_id = GetWindowBgId(window);
-    x     = (u16)(GetWindowX(window) - 7);
-    y     = GetWindowY(window);
+    x = (u16)(GetWindowX(window) - 7);
+    y = GetWindowY(window);
 
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 6; j++) {
@@ -546,11 +546,11 @@ WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
     BlitRect4Bit(pCharData->pRawData, 0, 0, 0x10, 0x80, waitingIcon->unk004[0], 0x10, 0x80, 0, 0, 0x10, 0x80);
     FreeToHeap(r5);
 
-    waitingIcon->window    = window;
+    waitingIcon->window = window;
     waitingIcon->fillValue = (u16)param1;
-    waitingIcon->unk486    = 0;
-    waitingIcon->unk487    = 0;
-    waitingIcon->unk488    = 0;
+    waitingIcon->unk486 = 0;
+    waitingIcon->unk487 = 0;
+    waitingIcon->unk488 = 0;
 
     sub_0200CA60((SysTaskFunc)sub_0200DB7C, waitingIcon, 0);
     sub_0200D980(waitingIcon, 1);
@@ -560,8 +560,8 @@ WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
 
 void sub_0200D980(WaitingIcon *waitingIcon, u32 param1) {
     u8 bg_id = GetWindowBgId(waitingIcon->window);
-    u8 x     = GetWindowX(waitingIcon->window);
-    u8 y     = GetWindowY(waitingIcon->window);
+    u8 x = GetWindowX(waitingIcon->window);
+    u8 y = GetWindowY(waitingIcon->window);
     u8 width = GetWindowWidth(waitingIcon->window);
 
     if (param1 == 2) {
@@ -619,7 +619,7 @@ void sub_0200DC24(WaitingIcon *waitingIcon) {
 }
 
 PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, HeapID heapId) {
-    s32 heap                        = heapId; // weirdness needed for matching
+    s32 heap = heapId; // weirdness needed for matching
     struct UnkStruct_0200CABC_2 *r4 = sub_0200DD70(bg_config, bg_id, param2, param3, (HeapID)heap);
     sub_0200DDAC(r4, (HeapID)heap);
     sub_0200DDD8(r4);
@@ -632,7 +632,7 @@ PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, 
 }
 
 PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, HeapID heapId) {
-    s32 heap                        = heapId; // weirdness needed for matching
+    s32 heap = heapId; // weirdness needed for matching
     struct UnkStruct_0200CABC_2 *r4 = sub_0200DD70(bg_config, bg_id, param2, param3, (HeapID)heap);
     sub_0200DDAC(r4, (HeapID)heap);
     sub_0200DDD8(r4);
@@ -672,10 +672,10 @@ struct UnkStruct_0200CABC_2 *sub_0200DD70(
     struct UnkStruct_0200CABC_2 *res = sub_0201B6C8(sub_020061E8((SysTaskFunc)sub_0200DCF8, 0x170, 0, heapId));
 
     res->pokepicManager.unk00 = 0;
-    res->bgConfig             = bg_config;
-    res->bgId                 = bg_id;
-    res->x                    = param2;
-    res->y                    = param3;
+    res->bgConfig = bg_config;
+    res->bgId = bg_id;
+    res->x = param2;
+    res->y = param3;
 
     return res;
 }
@@ -718,7 +718,7 @@ void sub_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2) {
     };
     ((u16 *)UNK_020ECEC0)[0] = (u16)((param1 + 5) * 8);
     ((u16 *)UNK_020ECEC0)[1] = (u16)((param2 + 5) * 8);
-    param0->unk164           = ov05_021D9820(param0, UNK_020ECEC0);
+    param0->unk164 = ov05_021D9820(param0, UNK_020ECEC0);
     sub_0201FDEC(param0->unk000);
     GfGfx_EngineBTogglePlanes(0x10, GX_PLANE_TOGGLE_ON);
 }

@@ -48,7 +48,7 @@ extern struct OverlayManagerTemplate ov63_021DBE18;
 extern u8 SDK_STATIC_BSS_START[];
 
 const int gGameLanguage = GAME_LANGUAGE;
-const int gGameVersion  = GAME_VERSION;
+const int gGameVersion = GAME_VERSION;
 
 __declspec(noreturn) void NitroMain(void) {
     InitSystemForTheGame();
@@ -66,7 +66,7 @@ __declspec(noreturn) void NitroMain(void) {
     sub_02002C50(1, HEAP_ID_MAIN);
     sub_02002C50(3, HEAP_ID_MAIN);
     UNK_02016FA8.unk10 = -1;
-    UNK_02016FA8.save  = SaveData_New();
+    UNK_02016FA8.save = SaveData_New();
     InitSoundData(Save_Chatot_Get(UNK_02016FA8.save), Save_PlayerData_GetOptionsAddr(UNK_02016FA8.save));
     Init_Timer3();
     if (sub_020337E8(3) == 3) {
@@ -132,10 +132,10 @@ __declspec(noreturn) void NitroMain(void) {
 }
 
 void sub_02000DF4(void) {
-    UNK_02016FA8.mainOverlayId       = SDK_OVERLAY_INVALID_ID;
-    UNK_02016FA8.overlayManager      = NULL;
+    UNK_02016FA8.mainOverlayId = SDK_OVERLAY_INVALID_ID;
+    UNK_02016FA8.overlayManager = NULL;
     UNK_02016FA8.queuedMainOverlayId = SDK_OVERLAY_INVALID_ID; // overlay invalid
-    UNK_02016FA8.template            = NULL;
+    UNK_02016FA8.template = NULL;
 }
 
 void Main_RunOverlayManager(void) {
@@ -146,10 +146,10 @@ void Main_RunOverlayManager(void) {
         if (UNK_02016FA8.queuedMainOverlayId != SDK_OVERLAY_INVALID_ID) {
             HandleLoadOverlay(UNK_02016FA8.queuedMainOverlayId, 0);
         }
-        UNK_02016FA8.mainOverlayId       = UNK_02016FA8.queuedMainOverlayId;
-        UNK_02016FA8.overlayManager      = OverlayManager_New(UNK_02016FA8.template, &UNK_02016FA8.unk10, HEAP_ID_DEFAULT);
+        UNK_02016FA8.mainOverlayId = UNK_02016FA8.queuedMainOverlayId;
+        UNK_02016FA8.overlayManager = OverlayManager_New(UNK_02016FA8.template, &UNK_02016FA8.unk10, HEAP_ID_DEFAULT);
         UNK_02016FA8.queuedMainOverlayId = SDK_OVERLAY_INVALID_ID;
-        UNK_02016FA8.template            = NULL;
+        UNK_02016FA8.template = NULL;
     }
     if (OverlayManager_Run(UNK_02016FA8.overlayManager)) {
         OverlayManager_Delete(UNK_02016FA8.overlayManager);
@@ -163,7 +163,7 @@ void Main_RunOverlayManager(void) {
 void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *template) {
     GF_ASSERT(UNK_02016FA8.template == NULL);
     UNK_02016FA8.queuedMainOverlayId = id;
-    UNK_02016FA8.template            = template;
+    UNK_02016FA8.template = template;
 }
 
 void sub_02000E9C(void) {

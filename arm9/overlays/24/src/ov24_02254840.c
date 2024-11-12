@@ -39,15 +39,15 @@ BOOL ov24_0225489C(MemoPadAppHandler *appHandler, u32 arg1, u32 arg2, u32 arg3) 
     static const u8 ov24_022550F8[] = {
         0x18, 0x58, 0xB4, 0xCC, 0x68, 0xA8, 0xB4, 0xCC
     };
-    appHandler->drawState.unk16E8   = arg3;
+    appHandler->drawState.unk16E8 = arg3;
     appHandler->drawState.touchType = TOUCH_TYPE_DRAW;
     if (ov24_02254CA0(&(appHandler->displayHandler), &(appHandler->drawState))) {
-        appHandler->unk0      = 0;
-        appHandler->unk1      = 0;
-        appHandler->unk2      = 0;
+        appHandler->unk0 = 0;
+        appHandler->unk1 = 0;
+        appHandler->unk2 = 0;
         appHandler->touchHeld = FALSE;
-        appHandler->unk16FC   = ov20_02254130(ov24_022550F8, 2, ov24_02254960, appHandler, 8);
-        appHandler->unk16F8   = arg1;
+        appHandler->unk16FC = ov20_02254130(ov24_022550F8, 2, ov24_02254960, appHandler, 8);
+        appHandler->unk16F8 = arg1;
         return TRUE;
     }
     return FALSE;
@@ -151,8 +151,8 @@ BOOL ov24_02254A70(MemoPadAppHandler *appHandler) {
             y = (y - 16) >> 1;
             if (appHandler->drawState.pixelData[x][y] != appHandler->drawState.touchType) {
                 appHandler->drawState.pixelData[x][y] = appHandler->drawState.touchType;
-                appHandler->drawState.lastModifiedX   = x;
-                appHandler->drawState.lastModifiedY   = y;
+                appHandler->drawState.lastModifiedX = x;
+                appHandler->drawState.lastModifiedY = y;
                 return TRUE;
             }
         }
@@ -164,8 +164,8 @@ BOOL ov24_02254AD4(MemoPadAppHandler *appHandler) {
     u32 x, y;
     if (TouchScreen_GetTapState(&x, &y)) {
         if (((x - 16) < 156) & ((y - 16) < 150)) {
-            x                                   = (x - 16) >> 1;
-            y                                   = (y - 16) >> 1;
+            x = (x - 16) >> 1;
+            y = (y - 16) >> 1;
             appHandler->drawState.lastModifiedX = x;
             appHandler->drawState.lastModifiedY = y;
             return TRUE;
@@ -197,8 +197,8 @@ void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1
             if ((x0 < 0x4e) && ((u32)offset < 0x4b)) {
                 if (appHandler->drawState.touchType != appHandler->drawState.pixelData[x0][offset]) {
                     appHandler->drawState.pixelData[x0][offset] = appHandler->drawState.touchType;
-                    appHandler->drawState.lastModifiedX         = x0;
-                    appHandler->drawState.lastModifiedY         = offset;
+                    appHandler->drawState.lastModifiedX = x0;
+                    appHandler->drawState.lastModifiedY = offset;
                     ov24_02254D8C(appHandler->displayHandler, 3);
                 }
             }
@@ -220,8 +220,8 @@ void ov24_02254B20(MemoPadAppHandler *appHandler, u32 x0, u32 y0, u32 x1, u32 y1
             if ((y0 < 0x4b) && ((u32)offset < 0x4e)) {
                 if (appHandler->drawState.touchType != appHandler->drawState.pixelData[offset][y0]) {
                     appHandler->drawState.pixelData[offset][y0] = appHandler->drawState.touchType;
-                    appHandler->drawState.lastModifiedX         = offset;
-                    appHandler->drawState.lastModifiedY         = y0;
+                    appHandler->drawState.lastModifiedX = offset;
+                    appHandler->drawState.lastModifiedY = y0;
                     ov24_02254D8C(appHandler->displayHandler, 3);
                 }
             }

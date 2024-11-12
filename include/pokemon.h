@@ -34,13 +34,13 @@ struct BaseStats {
     /* 0x06 */ u8 types[2];
     /* 0x08 */ u8 catchRate;
     /* 0x09 */ u8 expYield;
-    /* 0x0A */ u16 hp_yield    : 2;
-    u16 atk_yield              : 2;
-    u16 def_yield              : 2;
-    u16 speed_yield            : 2;
+    /* 0x0A */ u16 hp_yield : 2;
+    u16 atk_yield : 2;
+    u16 def_yield : 2;
+    u16 speed_yield : 2;
     /* 0x0B */ u16 spatk_yield : 2;
-    u16 spdef_yield            : 2;
-    u16 padding_B_4            : 4;
+    u16 spdef_yield : 2;
+    u16 padding_B_4 : 4;
     /* 0x0C */ u16 item1;
     /* 0x0E */ u16 item2;
     /* 0x10 */ u8 genderRatio;
@@ -51,7 +51,7 @@ struct BaseStats {
     /* 0x16 */ u8 abilities[2];
     /* 0x18 */ u8 greatMarshRate;
     /* 0x19 */ u8 color : 7;
-    u8 flip             : 1;
+    u8 flip : 1;
     u8 padding_1A[2];
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
@@ -121,7 +121,7 @@ typedef struct {
     /* 0x1A */ u8 pokerus;
     /* 0x1B */ u8 pokeball;
     /* 0x1C */ u8 metLevel : 7;
-    u8 metGender           : 1;
+    u8 metGender : 1;
     /* 0x1D */ u8 encounterType;
     /* 0x1E */ u16 HGSS_Pokeball;
 } PokemonDataBlockD;
@@ -136,10 +136,10 @@ typedef union {
 typedef struct BoxPokemon {
     /* 0x000 */ u32 pid;
     /* 0x004 */ u16 party_lock : 1;
-    u16 box_lock               : 1;
-    u16 checksum_fail          : 1;
-    u16 Unused                 : 13; // Might be used for validity checks
-    /* 0x006 */ u16 checksum;        // Stored checksum of pokemon
+    u16 box_lock : 1;
+    u16 checksum_fail : 1;
+    u16 Unused : 13;          // Might be used for validity checks
+    /* 0x006 */ u16 checksum; // Stored checksum of pokemon
     /* 0x008 */ PokemonDataBlock substructs[4];
 } BoxPokemon;
 

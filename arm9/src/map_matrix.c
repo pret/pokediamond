@@ -9,12 +9,12 @@
 
 static void MapMatrix_MapMatrixData_Load(
     struct MapMatrixData *map_matrix, u16 file_id, u32 map_id) {
-    map_matrix->width  = 0;
+    map_matrix->width = 0;
     map_matrix->height = 0;
 
     s32 i;
     for (i = 0; i < MAP_MATRIX_MAX_SIZE; i++) {
-        map_matrix->headers[i]   = 0;
+        map_matrix->headers[i] = 0;
         map_matrix->altitudes[i] = 0;
         map_matrix->maps.data[i] = 0;
     }
@@ -24,13 +24,13 @@ static void MapMatrix_MapMatrixData_Load(
     }
 
     void *buffer = AllocAtEndAndReadWholeNarcMemberByIdPair(NARC_FIELDDATA_MAPMATRIX_MAP_MATRIX, file_id, HEAP_ID_FIELD);
-    u8 *cursor   = (u8 *)buffer;
+    u8 *cursor = (u8 *)buffer;
 
-    map_matrix->width        = *(cursor++);
-    map_matrix->height       = *(cursor++);
-    u8 has_headers_section   = *(cursor++);
+    map_matrix->width = *(cursor++);
+    map_matrix->height = *(cursor++);
+    u8 has_headers_section = *(cursor++);
     u8 has_altitudes_section = *(cursor++);
-    u8 name_length           = *(cursor++);
+    u8 name_length = *(cursor++);
 
     GF_ASSERT(name_length <= MAP_MATRIX_MAX_NAME_LENGTH);
 
@@ -61,8 +61,8 @@ static void MapMatrix_MapMatrixData_Load(
 struct MapMatrix *MapMatrix_New(void) {
     struct MapMatrix *map_matrix = AllocFromHeap(HEAP_ID_FIELD, sizeof(struct MapMatrix));
 
-    map_matrix->width     = 0;
-    map_matrix->height    = 0;
+    map_matrix->width = 0;
+    map_matrix->height = 0;
     map_matrix->matrix_id = 0;
 
     return map_matrix;
@@ -74,8 +74,8 @@ void MapMatrix_Load(u16 map_id, struct MapMatrix *map_matrix) {
     MapMatrix_MapMatrixData_Load(&map_matrix->data, matrix_id, map_id);
 
     map_matrix->matrix_id = (u8)matrix_id;
-    map_matrix->height    = map_matrix->data.height;
-    map_matrix->width     = map_matrix->data.width;
+    map_matrix->height = map_matrix->data.height;
+    map_matrix->width = map_matrix->data.width;
 }
 
 void MapMatrix_Free(struct MapMatrix *map_matrix) {
@@ -101,7 +101,7 @@ u8 MapMatrix_GetHeight(struct MapMatrix *map_matrix) {
 }
 
 u16 MapMatrix_GetMapHeader(struct MapMatrix *map_matrix, s32 x, s32 y) {
-    s32 width  = map_matrix->width;
+    s32 width = map_matrix->width;
     s32 height = map_matrix->height;
 
     GF_ASSERT(x >= 0 && x < width);
@@ -133,8 +133,8 @@ u32 MapMatrix_GetMapAltitude(
 
 struct MapData *MapMatrix_MapData_New(HeapID heapId) {
     struct MapData *map_data = AllocFromHeap(heapId, sizeof(struct MapData));
-    void *buffer             = AllocAtEndAndReadWholeNarcMemberByIdPair(NARC_FIELDDATA_MAPMATRIX_MAP_MATRIX, 0, heapId);
-    u8 *cursor               = (u8 *)buffer;
+    void *buffer = AllocAtEndAndReadWholeNarcMemberByIdPair(NARC_FIELDDATA_MAPMATRIX_MAP_MATRIX, 0, heapId);
+    u8 *cursor = (u8 *)buffer;
 
     cursor += 4;
     u8 name_length = *cursor;
@@ -172,18 +172,18 @@ u16 GetMapData(s32 map_id, struct MapMatrix *map_matrix) {
 }
 
 void sub_02034678(struct MapMatrix *map_matrix) {
-    u16 *maps     = map_matrix->data.maps.data;
+    u16 *maps = map_matrix->data.maps.data;
     u8 *altitudes = map_matrix->data.altitudes;
-    u8 width      = map_matrix->width;
+    u8 width = map_matrix->width;
 
     if (map_matrix->matrix_id != 0) {
         return;
     }
 
-    maps[width * 0x15 + 0x17]      = 0xB0;
-    maps[width * 0x15 + 0x18]      = 0xB0;
-    maps[width * 0x16 + 0x17]      = 0xB0;
-    maps[width * 0x16 + 0x18]      = 0xB0;
+    maps[width * 0x15 + 0x17] = 0xB0;
+    maps[width * 0x15 + 0x18] = 0xB0;
+    maps[width * 0x16 + 0x17] = 0xB0;
+    maps[width * 0x16 + 0x18] = 0xB0;
     altitudes[width * 0x15 + 0x17] = 2;
     altitudes[width * 0x15 + 0x18] = 2;
     altitudes[width * 0x16 + 0x17] = 2;
@@ -192,7 +192,7 @@ void sub_02034678(struct MapMatrix *map_matrix) {
 
 void sub_020346CC(struct MapMatrix *map_matrix) {
     u16 *maps = map_matrix->data.maps.data;
-    u8 width  = map_matrix->width;
+    u8 width = map_matrix->width;
 
     if (map_matrix->matrix_id != 0) {
         return;

@@ -26,101 +26,101 @@ extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16
 extern BOOL IsPaletteFadeFinished(void);
 
 const struct WindowTemplate ov59_021DA04C = {
-    .bgId     = GF_BG_LYR_MAIN_2,
-    .left     = 0,
-    .top      = 0,
-    .width    = 32,
-    .height   = 24,
-    .palette  = 1,
+    .bgId = GF_BG_LYR_MAIN_2,
+    .left = 0,
+    .top = 0,
+    .width = 32,
+    .height = 24,
+    .palette = 1,
     .baseTile = 1,
 };
 
 const struct GraphicsModes ov59_021DA054 = {
-    .dispMode  = GX_DISPMODE_GRAPHICS,
-    .bgMode    = GX_BGMODE_0,
-    .subMode   = GX_BGMODE_0,
+    .dispMode = GX_DISPMODE_GRAPHICS,
+    .bgMode = GX_BGMODE_0,
+    .subMode = GX_BGMODE_0,
     ._2d3dMode = GX_BG0_AS_2D,
 };
 
 const struct BgTemplate ov59_021DA080 = {
-    .x          = 0,
-    .y          = 0,
+    .x = 0,
+    .y = 0,
     .bufferSize = 2048,
-    .baseTile   = 0,
+    .baseTile = 0,
 
-    .size       = GF_BG_SCR_SIZE_256x256,
-    .colorMode  = GX_BG_COLORMODE_16,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GX_BG_COLORMODE_16,
     .screenBase = GX_BG_SCRBASE_0x0000,
-    .charBase   = GX_BG_CHARBASE_0x18000,
-    .bgExtPltt  = GX_BG_EXTPLTT_01,
-    .priority   = 1,
-    .areaOver   = GX_BG_AREAOVER_XLU,
-    .dummy      = 0,
-    .mosaic     = FALSE
+    .charBase = GX_BG_CHARBASE_0x18000,
+    .bgExtPltt = GX_BG_EXTPLTT_01,
+    .priority = 1,
+    .areaOver = GX_BG_AREAOVER_XLU,
+    .dummy = 0,
+    .mosaic = FALSE
 };
 
 const struct BgTemplate ov59_021DA09C = {
-    .x          = 0,
-    .y          = 0,
+    .x = 0,
+    .y = 0,
     .bufferSize = 2048,
-    .baseTile   = 0,
+    .baseTile = 0,
 
-    .size       = GF_BG_SCR_SIZE_256x256,
-    .colorMode  = GX_BG_COLORMODE_16,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GX_BG_COLORMODE_16,
     .screenBase = GX_BG_SCRBASE_0x0800,
-    .charBase   = GX_BG_CHARBASE_0x14000,
-    .bgExtPltt  = GX_BG_EXTPLTT_01,
-    .priority   = 1,
-    .areaOver   = GX_BG_AREAOVER_XLU,
-    .dummy      = 0,
-    .mosaic     = FALSE
+    .charBase = GX_BG_CHARBASE_0x14000,
+    .bgExtPltt = GX_BG_EXTPLTT_01,
+    .priority = 1,
+    .areaOver = GX_BG_AREAOVER_XLU,
+    .dummy = 0,
+    .mosaic = FALSE
 };
 
 const struct BgTemplate ov59_021DA064 = {
-    .x          = 0,
-    .y          = 0,
+    .x = 0,
+    .y = 0,
     .bufferSize = 2048,
-    .baseTile   = 0,
+    .baseTile = 0,
 
-    .size       = GF_BG_SCR_SIZE_256x256,
-    .colorMode  = GX_BG_COLORMODE_16,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GX_BG_COLORMODE_16,
     .screenBase = GX_BG_SCRBASE_0x1000,
-    .charBase   = GX_BG_CHARBASE_0x10000,
-    .bgExtPltt  = GX_BG_EXTPLTT_01,
-    .priority   = 1,
-    .areaOver   = GX_BG_AREAOVER_XLU,
-    .dummy      = 0,
-    .mosaic     = FALSE
+    .charBase = GX_BG_CHARBASE_0x10000,
+    .bgExtPltt = GX_BG_EXTPLTT_01,
+    .priority = 1,
+    .areaOver = GX_BG_AREAOVER_XLU,
+    .dummy = 0,
+    .mosaic = FALSE
 };
 
 const struct BgTemplate ov59_021DA0B8 = {
-    .x          = 0,
-    .y          = 0,
+    .x = 0,
+    .y = 0,
     .bufferSize = 2048,
-    .baseTile   = 0,
+    .baseTile = 0,
 
-    .size       = GF_BG_SCR_SIZE_256x256,
-    .colorMode  = GX_BG_COLORMODE_256,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GX_BG_COLORMODE_256,
     .screenBase = GX_BG_SCRBASE_0x1800,
-    .charBase   = GX_BG_CHARBASE_0x20000,
-    .bgExtPltt  = GX_BG_EXTPLTT_01,
-    .priority   = 1,
-    .areaOver   = GX_BG_AREAOVER_XLU,
-    .dummy      = 0,
-    .mosaic     = FALSE
+    .charBase = GX_BG_CHARBASE_0x20000,
+    .bgExtPltt = GX_BG_EXTPLTT_01,
+    .priority = 1,
+    .areaOver = GX_BG_AREAOVER_XLU,
+    .dummy = 0,
+    .mosaic = FALSE
 };
 
 const struct GraphicsBanks ov59_021DA0D4 = {
-    .bg            = GX_VRAM_BG_256_AB,
-    .bgextpltt     = GX_VRAM_BGEXTPLTT_NONE,
-    .subbg         = GX_VRAM_SUB_BG_NONE,
-    .subbgextpltt  = GX_VRAM_SUB_BGEXTPLTT_NONE,
-    .obj           = GX_VRAM_OBJ_NONE,
-    .objextpltt    = GX_VRAM_OBJEXTPLTT_NONE,
-    .subobj        = GX_VRAM_SUB_OBJ_NONE,
+    .bg = GX_VRAM_BG_256_AB,
+    .bgextpltt = GX_VRAM_BGEXTPLTT_NONE,
+    .subbg = GX_VRAM_SUB_BG_NONE,
+    .subbgextpltt = GX_VRAM_SUB_BGEXTPLTT_NONE,
+    .obj = GX_VRAM_OBJ_NONE,
+    .objextpltt = GX_VRAM_OBJEXTPLTT_NONE,
+    .subobj = GX_VRAM_SUB_OBJ_NONE,
     .subobjextpltt = GX_VRAM_SUB_OBJEXTPLTT_NONE,
-    .tex           = GX_VRAM_TEX_NONE,
-    .texpltt       = GX_VRAM_TEXPLTT_NONE
+    .tex = GX_VRAM_TEX_NONE,
+    .texpltt = GX_VRAM_TEXPLTT_NONE
 };
 
 BOOL ov59_TVInit(struct OverlayManager *overlayManager, u32 *status) {
@@ -129,13 +129,13 @@ BOOL ov59_TVInit(struct OverlayManager *overlayManager, u32 *status) {
     ov59_TVOverlayData *data = (ov59_TVOverlayData *)OverlayManager_CreateAndGetData(overlayManager, sizeof(ov59_TVOverlayData), HEAP_ID_INTRO_TV);
     memset((void *)data, 0, sizeof(ov59_TVOverlayData));
     data->heapId = HEAP_ID_INTRO_TV;
-    data->unk24  = 0;
+    data->unk24 = 0;
     return TRUE;
 }
 
 BOOL ov59_TVMain(struct OverlayManager *overlayManager, u32 *status) {
     ov59_TVOverlayData *data = (ov59_TVOverlayData *)OverlayManager_GetData(overlayManager);
-    BOOL ret                 = FALSE;
+    BOOL ret = FALSE;
 
     switch (*status) {
     case 0:
@@ -357,7 +357,7 @@ BOOL ov59_021D9C74(ov59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3) 
         RemoveWindow(&data->window);
         BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2);
         data->unk0C = 0;
-        ret         = TRUE;
+        ret = TRUE;
         break;
     }
     return ret;

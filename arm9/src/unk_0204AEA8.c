@@ -10,7 +10,7 @@ extern void ov05_021E3444(u32, struct FieldSystem *, u32);
 
 BOOL sub_0204AEA8(struct TaskManager *taskManager) {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    u32 *v1                         = TaskManager_GetEnvironment(taskManager);
+    u32 *v1 = TaskManager_GetEnvironment(taskManager);
 
     switch (v1[0]) {
     case 0:

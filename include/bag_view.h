@@ -7,7 +7,7 @@
 #include "save.h"
 
 enum ItemUseError {
-    ITEMUSEERROR_OKAY       = 0, // no error
+    ITEMUSEERROR_OKAY = 0,       // no error
     ITEMUSEERROR_NODISMOUNT = 1, // can't get off bike
     ITEMUSEERROR_NOFOLLOWER = 2, // have a companion
 
