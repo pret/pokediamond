@@ -3239,7 +3239,7 @@ ov66_021D8E34: ; 0x021D8E34
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021D8E46
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021D8E46:
 	add r0, r6, #0
 	add r0, #0xa4
@@ -3464,7 +3464,7 @@ _021D8FF2:
 	sub r0, r0, #2
 	strb r0, [r4, #0x14]
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x43
 	mov r1, #0
 	lsl r0, r0, #2
@@ -3567,7 +3567,7 @@ _021D90C4:
 	sub r0, r0, #2
 	strb r0, [r4, #0x14]
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x43
 	mov r1, #0
 	lsl r0, r0, #2

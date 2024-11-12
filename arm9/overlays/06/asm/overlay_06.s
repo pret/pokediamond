@@ -215,7 +215,7 @@ ov06_0223981C: ; 0x0223981C
 	ldr r0, [r0, #8]
 	bl ov06_02239790
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -233,7 +233,7 @@ ov06_02239840: ; 0x02239840
 	ldr r0, [r0, #8]
 	bl ov06_0223986C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov06_02239864
@@ -300,7 +300,7 @@ ov06_022398BC: ; 0x022398BC
 	add r3, r1, #0
 	bl ov05_021E8698
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.align 2, 0
 
@@ -1131,7 +1131,7 @@ _02239F18:
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	mov r0, #4
@@ -2137,7 +2137,7 @@ ov06_0223A660: ; 0x0223A660
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	beq _0223A672
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x20]
 _0223A672:
@@ -2159,7 +2159,7 @@ ov06_0223A67C: ; 0x0223A67C
 	ldr r0, [r5, #0x20]
 	cmp r0, #0
 	beq _0223A69A
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r5, #0x20]
 _0223A69A:
@@ -2239,7 +2239,7 @@ _0223A720:
 	pop {r4, pc}
 _0223A736:
 	ldr r0, [r4, #0x20]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x20]
 	ldr r0, [r4, #0x1c]
@@ -2520,7 +2520,7 @@ _0223A936:
 	mov r2, #1
 	sub r1, r3, #4
 	str r2, [r4, r1]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0223A940:
 	add sp, #8
 	pop {r4, pc}
@@ -2583,7 +2583,7 @@ _0223A9AC:
 	mov r2, #5
 	sub r1, r1, #4
 	str r2, [r4, r1]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0223A9B6:
 	pop {r4, pc}
 
@@ -3000,7 +3000,7 @@ ov06_0223ACD8: ; 0x0223ACD8
 	bl ov06_0223ADB4
 	ldr r0, [r4, #8]
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	mov r0, #1
 	ldr r1, [sp, #8]
 	lsl r0, r0, #0x10
@@ -4674,7 +4674,7 @@ ov06_0223B8EC: ; 0x0223B8EC
 	ldr r0, [r0, #0x34]
 	bl MapObjectManager_GetFirstActiveObjectByID
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
@@ -13617,7 +13617,7 @@ ov06_02240164: ; 0x02240164
 	add r0, #0x88
 	str r1, [r0]
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02240192:
 	pop {r4, pc}
 	.align 2, 0
@@ -13885,7 +13885,7 @@ _022403D0:
 	cmp r5, #0
 	beq _022403DA
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022403DA:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -14079,7 +14079,7 @@ _02240574:
 	add r0, r4, #0
 	bl ov06_02240724
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x44
 	pop {r3, r4, r5, r6, pc}
 _0224058E:
@@ -14178,7 +14178,7 @@ ov06_0224062C: ; 0x0224062C
 	tst r0, r1
 	beq _0224065E
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	bl ov06_0223F8B4
 	ldr r0, _02240660 ; =0x02252420
 	mov r1, #1
@@ -14236,7 +14236,7 @@ ov06_022406A8: ; 0x022406A8
 	add r0, r4, #0
 	bl ov06_0223F270
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022406CE:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -14275,7 +14275,7 @@ ov06_022406EC: ; 0x022406EC
 	add r0, r4, #0
 	bl ov06_0223F270
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02240718:
 	pop {r3, r4, r5, pc}
 	nop
@@ -23508,7 +23508,7 @@ _02244F78:
 	mov r3, #1
 	add r2, r2, #4
 	str r3, [r1, r2]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, pc}
 
 	thumb_func_start ov06_02244F84
@@ -26557,7 +26557,7 @@ ov06_022466AC: ; 0x022466AC
 	bl sub_0201B6C8
 	bl ov06_022466E0
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start ov06_022466C0
@@ -27502,7 +27502,7 @@ ov06_02246D8C: ; 0x02246D8C
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _02246DA6
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x85
 	mov r1, #0
 	lsl r0, r0, #2
@@ -27642,7 +27642,7 @@ _02246E94:
 	lsl r0, r0, #2
 	str r1, [r6, r0]
 	ldr r0, [sp]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02246EA2:
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -27696,7 +27696,7 @@ ov06_02246EDC: ; 0x02246EDC
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02246F0A:
 	pop {r3, r4, r5, pc}
 
@@ -28683,7 +28683,7 @@ _022476B6:
 	mov r0, #0x86
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -30413,7 +30413,7 @@ ov06_022483EC: ; 0x022483EC
 	bl sub_0201B6C8
 	bl FreeToHeap
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start ov06_02248400
@@ -30715,7 +30715,7 @@ ov06_02248654: ; 0x02248654
 	ldr r0, [r0, #0x38]
 	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MapObject_SetVisible
@@ -32387,11 +32387,11 @@ _0224930C: .word ov06_02249388
 
 	thumb_func_start ov06_02249310
 ov06_02249310: ; 0x02249310
-	ldr r3, _02249318 ; =sub_0200CAB4
+	ldr r3, _02249318 ; =SysTask_Destroy
 	ldr r0, [r0, #0x24]
 	bx r3
 	nop
-_02249318: .word sub_0200CAB4
+_02249318: .word SysTask_Destroy
 
 	thumb_func_start ov06_0224931C
 ov06_0224931C: ; 0x0224931C
@@ -32663,10 +32663,10 @@ ov06_02249508: ; 0x02249508
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x1c]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -32710,7 +32710,7 @@ ov06_0224954C: ; 0x0224954C
 	bl sub_02058750
 	b _02249592
 _0224958E:
-	bl sub_02058450
+	bl MapObject_GetMapID
 _02249592:
 	str r0, [r4, #8]
 	mov r0, #1
@@ -32764,7 +32764,7 @@ _022495D6:
 _022495EE:
 	add r0, r6, #0
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
 	bl sub_0206476C
@@ -32838,10 +32838,10 @@ ov06_02249668: ; 0x02249668
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x1c]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -32888,7 +32888,7 @@ _022496D0:
 _022496E8:
 	add r0, r6, #0
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
 	bl sub_0206476C
@@ -33039,10 +33039,10 @@ ov06_022497E8: ; 0x022497E8
 	add r0, r5, #0
 	add r1, sp, #0x18
 	str r5, [sp, #0x14]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -33077,7 +33077,7 @@ ov06_02249834: ; 0x02249834
 	bl MapObject_GetID
 	str r0, [r4]
 	ldr r0, [r4, #0x20]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x20]
 	bl MapObject_GetSpriteID
@@ -33148,7 +33148,7 @@ _022498DE:
 	cmp r0, #0
 	beq _022498FC
 	add r0, r6, #0
-	bl sub_02058A9C
+	bl MapObject_CheckFlag24
 	cmp r0, #0
 	bne _02249906
 _022498FC:
@@ -33224,7 +33224,7 @@ _02249976:
 	cmp r0, #0
 	beq _02249994
 	add r0, r4, #0
-	bl sub_02058A9C
+	bl MapObject_CheckFlag24
 	cmp r0, #0
 	bne _0224999E
 _02249994:
@@ -33237,7 +33237,7 @@ _0224999E:
 	cmp r0, #0
 	beq _022499FA
 	add r0, r4, #0
-	bl sub_02058890
+	bl MapObject_CheckVisible
 	cmp r0, #1
 	ldr r0, [r5, #0x24]
 	bne _022499B8
@@ -33289,13 +33289,13 @@ ov06_02249A00: ; 0x02249A00
 	str r1, [sp, #4]
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	ldr r0, [r4, #8]
 	add r1, r4, #0
 	neg r6, r0
 	ldr r0, [sp]
 	ldr r7, [r4]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0
 	bl sub_02059E9C
@@ -33893,23 +33893,23 @@ ov06_02249E9C: ; 0x02249E9C
 	sub sp, #0x34
 	add r5, r0, #0
 	add r4, r1, #0
-	bl sub_02058B14
+	bl MapObject_GetPreviousX
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl sub_02058B24
+	bl MapObject_GetPreviousZ
 	str r0, [sp, #0x10]
 	add r0, r5, #0
-	bl MapObject_GetPosVecYCoord
+	bl MapObject_GetPositionVectorYCoord
 	add r6, r0, #0
 	add r0, r5, #0
 	bl MapObject_GetFacingDirection
 	str r0, [sp, #0x14]
 	add r0, r5, #0
-	bl sub_020584C8
+	bl MapObject_GetPreviousFacingDirection
 	str r0, [sp, #0x18]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r7, r0, #0
 	add r0, r5, #0
 	bl ov05_021E4C24
@@ -34281,7 +34281,7 @@ _0224A160:
 	mov r1, #2
 	str r4, [sp, #0x6c]
 	str r5, [sp, #0xc4]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x68
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -34320,7 +34320,7 @@ _0224A1AC:
 	bl sub_02058750
 	b _0224A1D2
 _0224A1CE:
-	bl sub_02058450
+	bl MapObject_GetMapID
 _0224A1D2:
 	str r0, [r4, #8]
 	mov r0, #1
@@ -34351,10 +34351,10 @@ ov06_0224A1DC: ; 0x0224A1DC
 _0224A1FE:
 	add r0, r5, #0
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp]
 	ldr r2, [sp, #0x14]
@@ -34506,9 +34506,9 @@ ov06_0224A310: ; 0x0224A310
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x1c]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
-	bl sub_02058744
+	bl MapObject_GetPriority
 	add r1, r0, #1
 	add r0, sp, #0x14
 	str r0, [sp]
@@ -34539,7 +34539,7 @@ ov06_0224A354: ; 0x0224A354
 	bl MapObject_GetID
 	str r0, [r4]
 	ldr r0, [r4, #0x18]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #4]
 	mov r0, #1
 	pop {r4, pc}
@@ -34595,7 +34595,7 @@ _0224A3D0:
 	str r0, [r5, #0xc]
 	add r0, r4, #0
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r6, #0
 	add r1, sp, #0
 	bl sub_0206476C
@@ -34994,7 +34994,7 @@ ov06_0224A6B8: ; 0x0224A6B8
 	mov r1, #2
 	str r4, [sp, #0x14]
 	str r5, [sp, #0x1c]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -35068,15 +35068,15 @@ ov06_0224A710: ; 0x0224A710
 	bl MapObject_GetID
 	str r0, [r5, #4]
 	ldr r0, [r5, #0x18]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r5, #8]
 	ldr r5, [r5, #0x18]
 	add r1, sp, #0xc
 	add r0, r5, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp]
 	add r0, r1, r0
@@ -35158,10 +35158,10 @@ _0224A828:
 	bne _0224A86C
 	add r0, r6, #0
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r6, #0
 	add r1, sp, #0
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp]
 	add r0, r1, r0
@@ -35265,7 +35265,7 @@ ov06_0224A8D4: ; 0x0224A8D4
 	mov r1, #2
 	str r4, [sp, #0x14]
 	str r5, [sp, #0x1c]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -35295,7 +35295,7 @@ ov06_0224A918: ; 0x0224A918
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x14]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	mov r0, #1
 	pop {r4, pc}
@@ -35326,10 +35326,10 @@ ov06_0224A948: ; 0x0224A948
 _0224A96A:
 	add r0, r5, #0
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp]
 	add r0, r1, r0
@@ -35455,7 +35455,7 @@ ov06_0224AA40: ; 0x0224AA40
 	mov r1, #2
 	str r4, [sp, #0x14]
 	str r5, [sp, #0x1c]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -35485,7 +35485,7 @@ ov06_0224AA84: ; 0x0224AA84
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x14]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	mov r0, #1
 	pop {r4, pc}
@@ -35516,10 +35516,10 @@ ov06_0224AAB4: ; 0x0224AAB4
 _0224AAD6:
 	add r0, r5, #0
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
-	bl sub_02058B84
+	bl MapObject_CopyFacingVector
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp]
 	add r0, r1, r0
@@ -35670,14 +35670,14 @@ _0224ABF6:
 	add r1, sp, #0x14
 	str r0, [r2]
 	add r0, r5, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #8
 	bl sub_02058BB4
 _0224AC12:
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x20
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -35711,7 +35711,7 @@ ov06_0224AC38: ; 0x0224AC38
 	bl MapObject_GetID
 	str r0, [r5, #0xc]
 	add r0, r4, #0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r5, #0x10]
 	ldr r0, [r7]
 	str r0, [r5, #8]
@@ -35814,7 +35814,7 @@ _0224AD06:
 	bl sub_02058BB4
 	add r0, r4, #0
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	mov r0, #1
 	ldr r1, [r5, #0x1c]
 	lsl r0, r0, #0xc
@@ -36005,7 +36005,7 @@ ov06_0224AE78: ; 0x0224AE78
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	beq _0224AE8C
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0xc]
 	str r0, [r4, #8]
@@ -36060,7 +36060,7 @@ ov06_0224AEC0: ; 0x0224AEC0
 	mov r0, #1
 	str r0, [r4, #8]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -36108,11 +36108,11 @@ ov06_0224AEE8: ; 0x0224AEE8
 _0224AF3E:
 	add r0, r5, #0
 	add r1, sp, #0xc
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 _0224AF46:
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x18
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36192,7 +36192,7 @@ ov06_0224AFC4: ; 0x0224AFC4
 	bl sub_02058BB4
 	add r0, r4, #0
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
 	bl sub_0206476C
@@ -36382,7 +36382,7 @@ ov06_0224B124: ; 0x0224B124
 	add r0, r2, r0
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl sub_02058B1C
+	bl MapObject_GetPreviousY
 	lsl r1, r0, #0xf
 	mov r0, #2
 	lsl r0, r0, #0xe
@@ -36390,7 +36390,7 @@ ov06_0224B124: ; 0x0224B124
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36588,7 +36588,7 @@ ov06_0224B2C4: ; 0x0224B2C4
 	add r0, r1, r0
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl sub_02058B1C
+	bl MapObject_GetPreviousY
 	lsl r1, r0, #0xf
 	mov r0, #2
 	lsl r0, r0, #0xe
@@ -36596,7 +36596,7 @@ ov06_0224B2C4: ; 0x0224B2C4
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36890,10 +36890,10 @@ ov06_0224B568: ; 0x0224B568
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -36906,10 +36906,10 @@ ov06_0224B568: ; 0x0224B568
 	add r0, r5, #0
 	add r1, sp, #0x24
 	str r5, [sp, #0x20]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -36948,7 +36948,7 @@ ov06_0224B5D0: ; 0x0224B5D0
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	lsl r0, r0, #0x10
@@ -36957,7 +36957,7 @@ ov06_0224B5D0: ; 0x0224B5D0
 	lsl r0, r0, #0x10
 	str r0, [sp, #8]
 	ldr r0, [r4, #0x30]
-	bl MapObject_GetPosVecYCoord
+	bl MapObject_GetPositionVectorYCoord
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x24]
 	add r1, sp, #0
@@ -37095,7 +37095,7 @@ _0224B72A:
 	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224B744
@@ -37479,7 +37479,7 @@ ov06_0224B9E0: ; 0x0224B9E0
 	add r0, r5, #0
 	mov r1, #2
 	str r5, [sp, #0x20]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -37519,7 +37519,7 @@ ov06_0224BA30: ; 0x0224BA30
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x20]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	add r0, r5, #0
 	add r1, sp, #0
@@ -37565,7 +37565,7 @@ _0224BAB4:
 	cmp r6, #1
 	bne _0224BAD2
 	add r0, r7, #0
-	bl sub_02058A00
+	bl MapObject_CheckFlag26
 	cmp r0, #0
 	bne _0224BAD2
 	add r0, r5, #0
@@ -37621,7 +37621,7 @@ ov06_0224BB0C: ; 0x0224BB0C
 _0224BB30:
 	add r0, r6, #0
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	mov r0, #2
 	ldr r1, [sp, #8]
 	lsl r0, r0, #0xe
@@ -37729,19 +37729,19 @@ ov06_0224BBEC: ; 0x0224BBEC
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x20]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	bl MapObject_GetCurrentX
 	add r6, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
 	bl sub_02059E60
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -37773,7 +37773,7 @@ ov06_0224BC50: ; 0x0224BC50
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	add r0, r5, #0
 	add r1, sp, #0
@@ -37928,10 +37928,10 @@ ov06_0224BD90: ; 0x0224BD90
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -37944,10 +37944,10 @@ ov06_0224BD90: ; 0x0224BD90
 	add r0, r5, #0
 	add r1, sp, #0x24
 	str r5, [sp, #0x20]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -37986,7 +37986,7 @@ ov06_0224BDF8: ; 0x0224BDF8
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	lsl r0, r0, #0x10
@@ -37995,7 +37995,7 @@ ov06_0224BDF8: ; 0x0224BDF8
 	lsl r0, r0, #0x10
 	str r0, [sp, #8]
 	ldr r0, [r4, #0x30]
-	bl MapObject_GetPosVecYCoord
+	bl MapObject_GetPositionVectorYCoord
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x24]
 	add r1, sp, #0
@@ -38124,7 +38124,7 @@ _0224BF40:
 	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224BF5A
@@ -38255,10 +38255,10 @@ ov06_0224C038: ; 0x0224C038
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentHeight
+	bl MapObject_GetCurrentY
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -38271,10 +38271,10 @@ ov06_0224C038: ; 0x0224C038
 	add r0, r5, #0
 	add r1, sp, #0x24
 	str r5, [sp, #0x20]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -38313,7 +38313,7 @@ ov06_0224C0A0: ; 0x0224C0A0
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x30]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	lsl r0, r0, #0x10
@@ -38322,7 +38322,7 @@ ov06_0224C0A0: ; 0x0224C0A0
 	lsl r0, r0, #0x10
 	str r0, [sp, #8]
 	ldr r0, [r4, #0x30]
-	bl MapObject_GetPosVecYCoord
+	bl MapObject_GetPositionVectorYCoord
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x24]
 	add r1, sp, #0
@@ -38457,7 +38457,7 @@ _0224C1F4:
 	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224C20E
@@ -40121,7 +40121,7 @@ ov06_0224CECC: ; 0x0224CECC
 	bl MapObject_GetCurrentX
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r1, r0, #0
 	ldr r0, [sp, #8]
 	add r2, sp, #0x20
@@ -40141,7 +40141,7 @@ ov06_0224CECC: ; 0x0224CECC
 	str r0, [sp, #0x1c]
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0xc
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -40174,7 +40174,7 @@ ov06_0224CF3C: ; 0x0224CF3C
 	bl MapObject_GetID
 	str r0, [r5, #8]
 	add r0, r4, #0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r5, #0xc]
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -40661,19 +40661,19 @@ ov06_0224D2E0: ; 0x0224D2E0
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x20]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	bl MapObject_GetCurrentX
 	add r6, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
 	bl sub_02059E60
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -40705,7 +40705,7 @@ ov06_0224D344: ; 0x0224D344
 	bl MapObject_GetID
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x1c]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #8]
 	add r0, r5, #0
 	add r1, sp, #0
@@ -43301,12 +43301,12 @@ ov06_0224E858: ; 0x0224E858
 	bl MapObjectManager_GetFirstActiveObjectByID
 	add r6, r0, #0
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r6, #0
 	bl MapObject_GetCurrentX
 	add r5, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r4, r0, #0
 	add r0, r6, #0
 	bl MapObject_GetFacingDirection
@@ -44491,7 +44491,7 @@ _0224F102:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224F120:
 	pop {r3, r4, r5, pc}
 	nop

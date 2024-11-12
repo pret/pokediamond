@@ -764,7 +764,7 @@ sub_0200E71C: ; 0x0200E71C
 	ldr r3, [r4, #0xc]
 	bl sub_0200E628
 	add r0, r5, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r3-r5, pc}
@@ -778,7 +778,7 @@ sub_0200E73C: ; 0x0200E73C
 	ldr r1, [r4, #0x4]
 	bl sub_0200E6A0
 	add r0, r5, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r3-r5, pc}
@@ -834,7 +834,7 @@ sub_0200E794: ; 0x0200E794
 	mov r1, #0x0
 	bl sub_0200E440
 	add r0, r4, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 
 	thumb_func_start sub_0200E7A8

@@ -108,7 +108,7 @@ sub_02052FA4: ; 0x02052FA4
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02052FC4 ; =0x000004DC
 	ldr r0, [r4, r0]
 	bl sub_0205362C
@@ -478,7 +478,7 @@ _02053272:
 	bl sub_0205AE50
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020588EC
+	bl MapObject_SetFlag19
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0x1
 	bne _020532A8
@@ -537,7 +537,7 @@ _020532DA:
 	bl MapObject_SetVisible
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020588B8
+	bl MapObject_ClearFlag18
 	b _0205330A
 _02053306:
 	mov r0, #0x0
@@ -633,10 +633,10 @@ sub_0205339C: ; 0x0205339C
 	bl MapObject_GetInitialX
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetInitialHeight
+	bl MapObject_GetInitialY
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
-	bl MapObject_GetInitialY
+	bl MapObject_GetInitialZ
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x4]
 	cmp r7, r0
@@ -659,7 +659,7 @@ _020533CC:
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	add r3, r6, #0x0
-	bl sub_02058E28
+	bl MapObject_SetPositionFromXYZAndDirection
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl MapObject_SetFacingDirectionDirect
@@ -671,7 +671,7 @@ _020533CC:
 	bl MapObject_SetVisible
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020588B8
+	bl MapObject_ClearFlag18
 	mov r1, #0x1
 	strb r1, [r5, #0x1]
 	ldrb r0, [r5, #0x2]
@@ -709,7 +709,7 @@ sub_02053444: ; 0x02053444
 	bl sub_0205ADDC
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020588EC
+	bl MapObject_SetFlag19
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl sub_02058E90
@@ -768,10 +768,10 @@ _020534BC:
 	bl MapObject_SetVisible
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_020588B8
+	bl MapObject_ClearFlag18
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020588EC
+	bl MapObject_SetFlag19
 	add r5, r5, #0x1
 	cmp r5, r6
 	blt _020534AC
@@ -827,7 +827,7 @@ _02053524:
 	bl MapObject_SetVisible
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl sub_020588B8
+	bl MapObject_ClearFlag18
 	mov r0, #0x1
 	strb r0, [r5, #0x1]
 	ldrb r0, [r5, #0x2]

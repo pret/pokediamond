@@ -43,7 +43,7 @@ ov05_021DC0F8: ; 0x021DC0F8
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	beq _021DC106
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DC106:
 	add r0, r4, #0
 	bl ov05_021DC594
@@ -251,7 +251,7 @@ _021DC286:
 	str r1, [r4, #0xc]
 	mov r1, #0
 	str r1, [r4, #0x14]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r1, [r4, #0x10]
 	cmp r1, #0x17
 	beq _021DC2A2
@@ -351,7 +351,7 @@ _021DC344:
 	mov r1, #6
 	str r1, [r4, #0xc]
 	str r2, [r4, #0x14]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r1, [r4, #0x10]
 	cmp r1, #0x17
 	beq _021DC366
@@ -561,7 +561,7 @@ _021DC4B4:
 	add r0, r6, #0
 	add r0, #0xf8
 	ldr r0, [r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	add r6, #0xf8
 	str r0, [r6]
@@ -1368,7 +1368,7 @@ _021DCAD2:
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	beq _021DCAFA
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x1c]
 _021DCAFA:
@@ -1402,7 +1402,7 @@ _021DCB2C:
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	beq _021DCB4C
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	b _021DCB4C
 _021DCB3E:
 	cmp r0, #3
@@ -1410,7 +1410,7 @@ _021DCB3E:
 	ldr r1, [r4, #0xc]
 	ldr r0, _021DCB68 ; =0x00000F48
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DCB4C:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
@@ -1472,7 +1472,7 @@ _021DCBBC:
 	ldr r1, [r4, #0xc]
 	ldr r0, _021DCBDC ; =0x00000F48
 	ldr r0, [r1, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #2
 	str r0, [r4, #0x14]
 _021DCBD0:
@@ -1629,7 +1629,7 @@ _021DCCE6:
 	str r0, [r4, #0x18]
 	str r0, [r4, #0x1c]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DCD00:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -10401,7 +10401,7 @@ ov05_021E117C: ; 0x021E117C
 	ldr r0, [r4, #0x18]
 	bl ov05_021F4648
 	ldr r0, [r4, #0x24]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x1c]
 	bl sub_02012974
 	ldr r0, [r4, #0x20]
@@ -10541,7 +10541,7 @@ ov05_021E12A4: ; 0x021E12A4
 	add r0, r1, #0
 	bl ov05_021E117C
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -10630,7 +10630,7 @@ _021E132A:
 	bl ov05_021F4624
 	str r0, [r4, #0x18]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021E1364: .word 0x0400004A

@@ -304,7 +304,7 @@ sub_02014D9C: ; 0x02014D9C
 	ldr r0, [r0, #0x4]
 	cmp r0, #0x0
 	beq _02014DD6
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r1, [r5, #0x0]
 	mov r0, #0x0
 	add r1, r1, r4
@@ -346,7 +346,7 @@ _02014DF0:
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	ldr r0, [r4, #0x8]

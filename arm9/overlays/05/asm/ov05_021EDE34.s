@@ -3712,7 +3712,7 @@ _021EF9EC:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021EF9FE:
 	pop {r4, r5, r6, pc}
 

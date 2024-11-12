@@ -93,7 +93,7 @@ ov50_022548D4: ; 0x022548D4
 	add r0, r4, #0
 	bl ov50_022548C0
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0xc]
 	bl ov20_022529A0
 _02254900:

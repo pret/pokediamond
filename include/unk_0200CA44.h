@@ -3,7 +3,7 @@
 
 // TODO: sys_task_api.h
 
-#include "text.h"
+#include "global.h"
 
 typedef struct SysTask SysTask;
 
@@ -14,9 +14,9 @@ struct SysTask {      // todo move to sys_task.h
 };
 
 SysTask *SysTask_CreateOnMainQueue(SysTaskFunc func, void *data, u32 priority);
-BOOL sub_0200CA60(void (*r0)(u32, void *), void *r1, u32 r2);
-BOOL sub_0200CA7C(void (*r0)(u32, void *), void *r1, u32 r2);
-BOOL sub_0200CA98(void (*r0)(u32, void *), void *r1, u32 r2);
-void sub_0200CAB4(s32 unk1);
+SysTask *sub_0200CA60(SysTaskFunc func, void *data, u32 priority);
+SysTask *sub_0200CA7C(SysTaskFunc func, void *data, u32 priority);
+SysTask *sub_0200CA98(SysTaskFunc func, void *data, u32 priority);
+void SysTask_Destroy(SysTask *sysTask);
 
 #endif // POKEDIAMOND_UNK_0200CA44_H

@@ -218,7 +218,7 @@ _02012ACE:
 	ldr r0, [r4, r0]
 	cmp r0, #0x0
 	beq _02012AF4
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _02012AF8 ; =0x00000604
 	mov r1, #0x0
 	str r1, [r4, r0]

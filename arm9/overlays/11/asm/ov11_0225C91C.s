@@ -420,7 +420,7 @@ _0225CC3A:
 	add sp, #4
 	pop {r3, r4, pc}
 _0225CC52:
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #4]
 	add sp, #4
@@ -585,7 +585,7 @@ _0225CD78:
 _0225CD8E:
 	bl ov11_02231678
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #4]
 	add sp, #8
@@ -986,7 +986,7 @@ _0225D0A6:
 	ldr r0, [r0]
 	bl sub_02020208
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #4]
 _0225D0BA:
@@ -1103,7 +1103,7 @@ _0225D17A:
 	add sp, #4
 	pop {r3, r4, pc}
 _0225D192:
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #4]
 	add sp, #4
@@ -1295,7 +1295,7 @@ _0225D2FA:
 	ldr r0, [r0]
 	bl sub_0200C63C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #4]
 	pop {r3, r4, r5, pc}
@@ -1345,7 +1345,7 @@ _0225D35C:
 	ldr r0, [r0]
 	bl sub_0200C63C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #4]
 _0225D370:

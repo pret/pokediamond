@@ -67,7 +67,7 @@ ov05_021E5970: ; 0x021E5970
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x1c]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, sp, #0x14
 	str r0, [sp]
 	mov r0, #0xff
@@ -100,14 +100,14 @@ ov05_021E59AC: ; 0x021E59AC
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x3c]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	mov r0, #6
 	lsl r0, r0, #0xc
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #0x3c]
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
 	add r1, sp, #0
 	bl sub_0206476C
@@ -141,7 +141,7 @@ _021E5A0E:
 _021E5A16:
 	ldr r0, [r1, #0x3c]
 	add r1, sp, #0
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	mov r0, #0xa
 	ldr r1, [sp, #8]
 	lsl r0, r0, #0xc

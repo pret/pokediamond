@@ -322,7 +322,7 @@ _021E15DC:
 	bl MapObject_GetCurrentX
 	add r7, r0, #0
 	add r0, r4, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	ldr r1, [sp, #0x14]
 	cmp r7, r1
 	blt _021E161A
@@ -530,7 +530,7 @@ _021E1770:
 	ldr r0, [r4, #4]
 	bl sub_0205AEFC
 	ldr r0, [r4]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #4
 	add r1, r4, #0
 	bl FreeToHeapExplicit
@@ -872,17 +872,17 @@ _021E19F0:
 	bl MapObjectManager_GetFirstActiveObjectByID
 	add r4, r0, #0
 	beq _021E1A16
-	bl sub_02058854
+	bl MapObject_CheckSingleMovement
 	cmp r0, #1
 	bne _021E1A10
 	add r0, r4, #0
-	bl sub_02058914
+	bl MapObject_UnpauseMovement
 	mov r0, #1
 	str r0, [sp]
 	b _021E1A16
 _021E1A10:
 	add r0, r4, #0
-	bl sub_02058908
+	bl MapObject_PauseMovement
 _021E1A16:
 	add r5, r5, #1
 	cmp r5, r7

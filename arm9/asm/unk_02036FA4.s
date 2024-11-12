@@ -60,10 +60,10 @@ sub_02037000: ; 0x02037000
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	bl PlayerAvatar_GetMapObject
-	bl sub_02058BE4
+	bl MapObject_GetPositionVectorYCoordUInt
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058BE4
+	bl MapObject_GetPositionVectorYCoordUInt
 	cmp r4, r0
 	bne _0203701C
 	mov r0, #0x1

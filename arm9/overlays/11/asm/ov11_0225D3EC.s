@@ -154,7 +154,7 @@ _0225D510:
 	cmp r4, #5
 	blt _0225D510
 	ldr r0, [r6, #0x14]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r6, #0
 	bl FreeToHeap
 	pop {r4, r5, r6, pc}

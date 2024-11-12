@@ -316,7 +316,7 @@ _0204CD2C:
 	ldr r0, _0204CD70 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x50]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, _0204CD70 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
@@ -541,7 +541,7 @@ sub_0204CEF8: ; 0x0204CEF8
 	ldr r0, _0204CF20 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x50]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0204CF16:
 	ldr r0, _0204CF20 ; =UNK_021C5A68
 	mov r1, #0x0
@@ -5029,7 +5029,7 @@ sub_0204F124: ; 0x0204F124
 	add r0, r5, #0x0
 	bl FreeToHeap
 	add r0, r6, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3-r7, pc}
 _0204F14A:
 	ldr r0, [r5, #0x0]
@@ -5050,7 +5050,7 @@ _0204F156:
 	add r0, r5, #0x0
 	bl FreeToHeap
 	add r0, r6, #0x0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0204F172:
 	pop {r3-r7, pc}
 	.balign 4
@@ -5970,14 +5970,14 @@ _0204F89E:
 	bl MapObject_SetCurrentX
 	ldr r0, [sp, #0xc]
 	add r1, r7, #0x0
-	bl MapObject_SetCurrentY
+	bl MapObject_SetCurrentZ
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x8]
 	str r0, [sp, #0x0]
 	ldr r0, [sp, #0xc]
 	mov r2, #0x0
 	add r3, r7, #0x0
-	bl sub_02058E28
+	bl MapObject_SetPositionFromXYZAndDirection
 _0204F8F8:
 	add r6, r6, #0x1
 	add r4, r4, #0x4

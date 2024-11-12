@@ -80,7 +80,7 @@ ov05_021E5E8C: ; 0x021E5E8C
 	str r0, [sp, #0xc]
 	add r0, r4, #0
 	add r1, sp, #0x10
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r4, #0
 	bl MapObject_GetFacingDirection
 	cmp r0, #3
@@ -126,7 +126,7 @@ _021E5EEA:
 _021E5EF4:
 	add r0, r4, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #8
 	str r1, [sp]
 	str r0, [sp, #4]

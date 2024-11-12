@@ -38,10 +38,10 @@ sub_0205E4EC: ; 0x0205E4EC
 	mov r1, #0x0
 	bl sub_02058544
 	add r0, r4, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_020588B8
+	bl MapObject_ClearFlag18
 	pop {r4, pc}
 	.balign 4
 
@@ -58,7 +58,7 @@ sub_0205E518: ; 0x0205E518
 	beq _0205E548
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020588B8
+	bl MapObject_ClearFlag18
 	ldr r6, _0205E54C ; =UNK_020F7388
 _0205E538:
 	ldrb r2, [r4, #0x0]
@@ -84,9 +84,9 @@ sub_0205E554: ; 0x0205E554
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	add r0, r5, #0x0
-	bl sub_0205886C
+	bl MapObject_ClearFlag3
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_0205E608
@@ -100,7 +100,7 @@ sub_0205E554: ; 0x0205E554
 	cmp r0, #0x1
 	bne _0205E592
 	add r0, r5, #0x0
-	bl sub_0205883C
+	bl MapObject_SetSingleMovement
 	ldrb r0, [r4, #0x0]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x0]
@@ -120,7 +120,7 @@ sub_0205E598: ; 0x0205E598
 	cmp r0, #0x1
 	bne _0205E5B0
 	add r0, r5, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	mov r0, #0x0
 	strb r0, [r4, #0x0]
 _0205E5B0:
@@ -260,7 +260,7 @@ sub_0205E698: ; 0x0205E698
 	bl MapObject_GetCurrentX
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02055338
@@ -309,7 +309,7 @@ sub_0205E700: ; 0x0205E700
 	mov r1, #0x0
 	bl sub_02058544
 	add r0, r5, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	mov r0, #0x0
 	strb r0, [r4, #0x1]
 	pop {r3-r5, pc}
@@ -358,9 +358,9 @@ sub_0205E768: ; 0x0205E768
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	add r0, r5, #0x0
-	bl sub_0205886C
+	bl MapObject_ClearFlag3
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_0205E8F4
@@ -372,7 +372,7 @@ sub_0205E768: ; 0x0205E768
 	cmp r0, #0x1
 	bne _0205E7A0
 	add r0, r5, #0x0
-	bl sub_0205883C
+	bl MapObject_SetSingleMovement
 	ldrb r0, [r4, #0x0]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x0]
@@ -394,7 +394,7 @@ sub_0205E7A4: ; 0x0205E7A4
 	pop {r3-r5, pc}
 _0205E7B6:
 	add r0, r5, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	mov r0, #0x0
 	strb r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -410,7 +410,7 @@ sub_0205E7C4: ; 0x0205E7C4
 	bl MapObject_GetType
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0205C9E8
@@ -448,7 +448,7 @@ _0205E81E:
 	ldr r0, [sp, #0x4]
 	cmp r4, r0
 	beq _0205E83C
-	bl sub_02058450
+	bl MapObject_GetMapID
 	cmp r6, r0
 	bne _0205E83C
 	ldr r0, [sp, #0x4]
@@ -483,7 +483,7 @@ sub_0205E854: ; 0x0205E854
 	mov r0, #0x0
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_0205C9E8
@@ -499,7 +499,7 @@ _0205E886:
 	ldr r0, [sp, #0x4]
 	cmp r5, r0
 	beq _0205E8B6
-	bl sub_02058450
+	bl MapObject_GetMapID
 	cmp r7, r0
 	bne _0205E8B6
 	ldr r0, [sp, #0x4]
@@ -544,7 +544,7 @@ sub_0205E8D0: ; 0x0205E8D0
 	bl MapObject_GetCurrentX
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	strh r0, [r5, #0x4]
 	mov r0, #0xff
 	strh r0, [r5, #0x6]
@@ -560,26 +560,26 @@ sub_0205E8F4: ; 0x0205E8F4
 	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B14
+	bl MapObject_GetPreviousX
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02058B24
+	bl MapObject_GetPreviousZ
 	cmp r4, r7
 	bne _0205E91E
 	cmp r6, r0
 	beq _0205E93A
 _0205E91E:
 	add r0, r5, #0x0
-	bl sub_02058854
+	bl MapObject_CheckSingleMovement
 	cmp r0, #0x1
 	beq _0205E936
 	mov r1, #0x61
 	add r0, r5, #0x0
 	lsl r1, r1, #0x6
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0x0
 	bne _0205E93A
 _0205E936:
@@ -599,19 +599,19 @@ sub_0205E940: ; 0x0205E940
 	bl MapObject_GetCurrentX
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x8]
 	bl MapObject_GetCurrentX
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x8]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl sub_02058B14
+	bl MapObject_GetPreviousX
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x8]
-	bl sub_02058B24
+	bl MapObject_GetPreviousZ
 	add r3, r0, #0x0
 	ldr r0, [sp, #0x8]
 	cmp r4, r0
@@ -666,7 +666,7 @@ sub_0205E9C8: ; 0x0205E9C8
 	mov r1, #0x0
 	bl sub_02058544
 	add r0, r4, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	mov r1, #0x1
 	add r0, r4, #0x0
 	lsl r1, r1, #0x14
@@ -680,7 +680,7 @@ sub_0205E9C8: ; 0x0205E9C8
 	add r1, r2, #0x0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 	add sp, #0xc
 	pop {r4-r5, pc}
 	nop
@@ -771,7 +771,7 @@ sub_0205EA74: ; 0x0205EA74
 	add r1, r2, #0x0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
-	bl sub_02058B94
+	bl MapObject_SetFacingVector
 _0205EAA6:
 	add sp, #0xc
 	pop {r4-r5, pc}
@@ -793,9 +793,9 @@ sub_0205EAB0: ; 0x0205EAB0
 	bl sub_0205EB14
 _0205EACA:
 	add r0, r5, #0x0
-	bl sub_02058848
+	bl MapObject_ClearSingleMovement
 	add r0, r5, #0x0
-	bl sub_0205886C
+	bl MapObject_ClearFlag3
 	ldrb r0, [r4, #0x0]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x0]

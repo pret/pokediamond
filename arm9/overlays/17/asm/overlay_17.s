@@ -10280,7 +10280,7 @@ ov17_021DC11C: ; 0x021DC11C
 	lsr r1, r1, #0x18
 	bl BG_LoadCharTilesData
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #8]
 	bl FreeToHeap
 	add r0, r4, #0
@@ -10317,7 +10317,7 @@ _021DC17C:
 	bl GXS_LoadBGPltt
 _021DC18C:
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	add r0, r4, #0
@@ -12439,12 +12439,12 @@ ov17_021DD178: ; 0x021DD178
 	add r4, r1, #0
 	cmp r0, #0
 	beq _021DD188
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DD188:
 	ldr r0, [r5, #0x28]
 	cmp r0, #0
 	beq _021DD192
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DD192:
 	add r0, r5, #0
 	add r1, r4, #0

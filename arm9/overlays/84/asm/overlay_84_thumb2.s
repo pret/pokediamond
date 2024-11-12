@@ -62,7 +62,7 @@ _021D81AA:
 	mov	r0, #0
 	str	r0, [r5, #4]
 	add	r0, r6, #0
-	bl	sub_0200CAB4
+	bl	SysTask_Destroy
 _021D81C2:
 	pop	{r4, r5, r6, pc}
 
@@ -621,7 +621,7 @@ ov84_021D85B8: ; 0x021D85B8
 	ldr r0, [r4, #0x34]
 	cmp r0, #0
 	beq _021D85C6
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021D85C6:
 	ldr r0, [r4, #0x30]
 	bl String_Delete
@@ -2027,7 +2027,7 @@ _021D906A:
 	mov r0, #0x15
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021D9082:
 	add r4, r4, #1
 	add r5, r5, #4
@@ -2038,7 +2038,7 @@ _021D9082:
 	ldr r0, [r6, r0]
 	cmp r0, #0
 	beq _021D9098
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021D9098:
 	ldr r0, [r6, #8]
 	cmp r0, #0
@@ -4465,7 +4465,7 @@ ov84_021DA390: ; 0x021DA390
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DA39E
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DA39E:
 	pop {r3, pc}
 	thumb_func_end ov84_021DA390
@@ -4698,7 +4698,7 @@ _021DA552:
 	str r0, [r4]
 	pop {r3, r4, r5, r6, pc}
 _021DA564:
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0
 	str r0, [r4, #0x7c]
 _021DA56C:
@@ -4762,7 +4762,7 @@ ov84_021DA5D8: ; 0x021DA5D8
 	bl sub_0201B6C8
 	bl FreeToHeap
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021DA5EC:
 	pop {r4, pc}
 	.align 2, 0

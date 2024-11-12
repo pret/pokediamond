@@ -102,7 +102,7 @@ ov44_022548EC: ; 0x022548EC
 	add r0, r4, #0
 	bl ov44_022548D8
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0xc]
 	bl ov20_022529A0
 _02254918:

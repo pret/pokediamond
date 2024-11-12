@@ -3697,7 +3697,7 @@ _0224F2C2:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224F2D8:
 	add sp, #0x6c
 	pop {r3, r4, r5, r6, pc}
@@ -4288,7 +4288,7 @@ _0224F7A2:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224F7C0:
 	add sp, #0x9c
 	pop {r4, r5, pc}
@@ -4984,7 +4984,7 @@ _0224FD68:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224FD86:
 	add sp, #0x1c4
 	pop {r3, r4, r5, r6, pc}
@@ -5277,7 +5277,7 @@ _0224FFC0:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0224FFDE:
 	add sp, #0x138
 	pop {r4, r5, r6, pc}
@@ -5337,7 +5337,7 @@ _02250048:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225005E:
 	pop {r3, r4, r5, pc}
 
@@ -5661,7 +5661,7 @@ _022502CA:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 _022502E4:
@@ -6340,7 +6340,7 @@ _02250874:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225088A:
 	add sp, #0xd0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -6414,7 +6414,7 @@ _02250906:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225092A:
 	pop {r3, r4, r5, pc}
 
@@ -6479,7 +6479,7 @@ _0225099A:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022509B0:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -6542,7 +6542,7 @@ _02250A0A:
 	mov r0, #0
 	str r0, [r4, #0x10]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02250A26:
 	pop {r3, r4, r5, pc}
 
@@ -6576,7 +6576,7 @@ _02250A48:
 	mov r0, #0
 	str r0, [r4, #0x10]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	mov r1, #0
 	bl ov11_022572AC
@@ -7162,7 +7162,7 @@ _02250F14:
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [sp]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02250F3E:
 	add sp, #0x4c
 	pop {r4, r5, r6, r7, pc}
@@ -7187,7 +7187,7 @@ ov11_02250F44: ; 0x02250F44
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov11_02250F74
@@ -7202,7 +7202,7 @@ ov11_02250F74: ; 0x02250F74
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -7255,7 +7255,7 @@ _02250FF2:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
 	nop
 _0225100C: .word ov11_0225E830
@@ -7277,7 +7277,7 @@ ov11_02251014: ; 0x02251014
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov11_0225103C
@@ -7459,7 +7459,7 @@ _0225118E:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022511B6:
 	add sp, #0x3c
 	pop {r4, r5, r6, r7, pc}
@@ -7558,7 +7558,7 @@ _0225126C:
 	add r0, r6, #0
 	bl FreeToHeap
 	ldr r0, [sp, #8]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225128C:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
@@ -7577,7 +7577,7 @@ ov11_02251294: ; 0x02251294
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -7752,7 +7752,7 @@ _022513F8:
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [sp]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02251418:
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}
@@ -7787,7 +7787,7 @@ _02251442:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start ov11_02251464
@@ -7802,7 +7802,7 @@ ov11_02251464: ; 0x02251464
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -8541,7 +8541,7 @@ _02251A08:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r7, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x1fc
 	add sp, #0x14
 	pop {r3, r4, r5, r6, r7, pc}
@@ -9287,7 +9287,7 @@ ov11_02252018: ; 0x02252018
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -9313,7 +9313,7 @@ ov11_02252070: ; 0x02252070
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -9766,7 +9766,7 @@ _02252444:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02252468:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -9854,7 +9854,7 @@ _022524FE:
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [sp]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -9871,7 +9871,7 @@ ov11_02252524: ; 0x02252524
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -10094,7 +10094,7 @@ _022526E0:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r7, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225270A:
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}
@@ -10113,7 +10113,7 @@ ov11_02252714: ; 0x02252714
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -10129,7 +10129,7 @@ ov11_02252734: ; 0x02252734
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -10408,7 +10408,7 @@ _02252974:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x1fc
 	add sp, #0x14
 	pop {r3, r4, r5, pc}
@@ -10475,7 +10475,7 @@ _022529FA:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov11_02252A1C
@@ -10518,7 +10518,7 @@ _02252A52:
 	mov r0, #0
 	str r0, [r4, #0x10]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02252A6C:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -10615,7 +10615,7 @@ _02252B0E:
 	mov r0, #0
 	str r0, [r4, #0x10]
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02252B28:
 	pop {r3, r4, r5, pc}
 	nop
@@ -10933,7 +10933,7 @@ _02252D8C:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02252DAA:
 	add sp, #0x110
 	pop {r4, r5, r6, pc}
@@ -11006,7 +11006,7 @@ _02252E30:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02252E46:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -11189,7 +11189,7 @@ _02252F98:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02252FB6:
 	add sp, #0x110
 	pop {r4, r5, r6, pc}
@@ -11227,7 +11227,7 @@ _02252FE4:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02253000:
 	pop {r3, r4, r5, pc}
 	nop
@@ -11260,7 +11260,7 @@ _0225302A:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225304A:
 	pop {r3, r4, r5, pc}
 
@@ -11303,7 +11303,7 @@ _02253074:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225309E:
 	pop {r3, r4, r5, pc}
 
@@ -11572,7 +11572,7 @@ _022532C8:
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [sp, #0xc]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 _022532E4:
@@ -11835,7 +11835,7 @@ _02253508:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02253524:
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
@@ -11897,7 +11897,7 @@ _02253582:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02253598:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -11991,7 +11991,7 @@ _02253636:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0225364C:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -12059,7 +12059,7 @@ _022536BA:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r7, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _022536D0:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -12098,7 +12098,7 @@ _02253706:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -12143,7 +12143,7 @@ _0225374E:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 

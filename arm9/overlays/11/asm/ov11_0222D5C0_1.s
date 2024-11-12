@@ -1373,9 +1373,9 @@ _0222E1AC:
 	mov r0, #2
 	bl sub_02002CF8
 	ldr r0, [r4, #0x1c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x20]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	bl sub_0201CD04
 	ldr r0, [r4]
 	bl ov11_0222EFD4
@@ -3372,7 +3372,7 @@ ov11_0222F254: ; 0x0222F254
 	cmp r0, #0
 	bne _0222F27C
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _0222F27C:
 	pop {r3, r4, r5, pc}
 	nop

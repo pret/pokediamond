@@ -293,7 +293,7 @@ ov26_02254A4C: ; 0x02254A4C
 	add r0, r4, #0
 	bl ov26_02254A04
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	mov r0, #0x1f
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]

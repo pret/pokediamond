@@ -56,7 +56,7 @@ _0203707E:
 	ldr r0, [r5, #0x34]
 	ldr r1, [sp, #0x4]
 	ldr r2, [sp, #0x0]
-	bl sub_02058D74
+	bl MapObjectManager_GetFirstObjectWithXAndZ
 	str r0, [r6, #0x0]
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -71,7 +71,7 @@ sub_02037090: ; 0x02037090
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020370B8
-	bl sub_020588D4
+	bl MapObject_CheckFlag19Disabled
 	cmp r0, #0x1
 	bne _020370B8
 	ldr r0, [r5, #0x38]

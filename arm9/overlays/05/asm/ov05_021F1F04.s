@@ -474,13 +474,13 @@ ov05_021F2284: ; 0x021F2284
 	bl MapObjectManager_GetObjectCount
 	add r4, r0, #0
 	add r0, r5, #0
-	bl sub_020583BC
+	bl MapObjectManager_GetObjects2
 	str r0, [sp]
 _021F229A:
 	ldr r0, [sp]
 	cmp r0, r6
 	beq _021F22CE
-	bl MapObject_IsInUse
+	bl MapObject_CheckActive
 	cmp r0, #1
 	bne _021F22CE
 	ldr r0, [sp]
@@ -502,7 +502,7 @@ _021F22C0:
 	pop {r3, r4, r5, r6, r7, pc}
 _021F22CE:
 	add r0, sp, #0
-	bl sub_020583D4
+	bl MapObjectArray_NextObject
 	sub r4, r4, #1
 	bne _021F229A
 	mov r0, #0
@@ -625,7 +625,7 @@ _021F23D0:
 	mov r0, #0x41
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl sub_020583F4
+	bl MapObjectManager_GetMapModelNarc
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -2044,7 +2044,7 @@ ov05_021F2E28: ; 0x021F2E28
 	push {r3, lr}
 	mov r1, #1
 	lsl r1, r1, #0x16
-	bl MapObject_GetFlagsBits
+	bl MapObject_GetFlagsBitsMask
 	cmp r0, #0
 	beq _021F2E3A
 	mov r0, #1
@@ -2902,13 +2902,13 @@ ov05_021F3458: ; 0x021F3458
 	mov r0, #1
 	strh r0, [r4, #6]
 	ldr r0, [r4, #0x18]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x1c]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x20]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x24]
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	add r0, r4, #0
 	bl FreeToHeap
 	mov r0, #1
@@ -3104,12 +3104,12 @@ _021F35EC:
 	ldr r0, [r5, #0x24]
 	bl sub_0201F8F0
 	add r0, r7, #0
-	bl sub_02058A9C
+	bl MapObject_CheckFlag24
 	cmp r0, #1
 	bne _021F367A
 	add r0, r7, #0
 	mov r1, #2
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	str r0, [sp, #0xc]
 	add r0, r7, #0
 	mov r1, #1
@@ -3124,7 +3124,7 @@ _021F35EC:
 _021F3658:
 	add r0, r7, #0
 	add r1, sp, #0x1c
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r7, #0
 	bl ov05_021E4C24
 	ldr r1, [sp, #0xc]
@@ -3188,7 +3188,7 @@ ov05_021F36D8: ; 0x021F36D8
 	pop {r4, r5, r6, pc}
 _021F36EC:
 	add r0, r4, #0
-	bl MapObject_IsInUse
+	bl MapObject_CheckActive
 	cmp r0, #0
 	beq _021F3700
 	add r0, r4, #0
@@ -3212,7 +3212,7 @@ _021F370A:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
 _021F3730:
 	add r0, r4, #0
@@ -3245,7 +3245,7 @@ _021F3758:
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r6, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _021F377C:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

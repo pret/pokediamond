@@ -98,7 +98,7 @@ ov29_022548E0: ; 0x022548E0
 	add r0, r4, #0
 	bl ov29_022548C4
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x4c]
 	bl ov20_022529A0
 _0225490C:

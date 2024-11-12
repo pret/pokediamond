@@ -464,9 +464,9 @@ ov05_021E7AC0: ; 0x021E7AC0
 	add r0, r5, #0
 	add r1, sp, #8
 	str r5, [sp, #0x20]
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	add r0, r5, #0
-	bl sub_02058744
+	bl MapObject_GetPriority
 	add r1, r0, #1
 	add r0, sp, #0x14
 	str r0, [sp]
@@ -499,7 +499,7 @@ ov05_021E7B08: ; 0x021E7B08
 	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x3c]
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r4, #0xc]
 	mov r0, #6
 	lsl r0, r0, #0xc

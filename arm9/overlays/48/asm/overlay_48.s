@@ -152,7 +152,7 @@ ov48_02254950: ; 0x02254950
 	add r0, r4, #0
 	bl ov48_02254938
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x30]
 	bl ov20_022529A0
 _02254986:

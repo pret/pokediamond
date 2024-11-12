@@ -335,7 +335,7 @@ _02254AAE:
 	add r0, r4, #0
 	bl ov41_02254A38
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0xc]
 	bl ov20_022529A0
 _02254AD0:

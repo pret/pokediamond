@@ -213,7 +213,7 @@ ov28_022549C0: ; 0x022549C0
 	add r0, r4, #0
 	bl ov28_022549AC
 	add r0, r5, #0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 	ldr r0, [r4, #0x60]
 	bl ov20_022529A0
 _022549EC:
@@ -477,7 +477,7 @@ _02254B9A:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02254BC0
-	bl sub_0200CAB4
+	bl SysTask_Destroy
 _02254BC0:
 	add r0, r5, #0
 	bl FreeToHeap

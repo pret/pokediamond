@@ -74,7 +74,7 @@ ov05_021EDBC8: ; 0x021EDBC8
 	add r0, r4, #0
 	mov r1, #2
 	str r5, [sp, #0x1c]
-	bl sub_0205829C
+	bl MapObject_GetPriorityPlusValue
 	add r1, sp, #0x14
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -110,7 +110,7 @@ ov05_021EDC14: ; 0x021EDC14
 	bl MapObject_GetID
 	str r0, [r5, #0x14]
 	add r0, r4, #0
-	bl sub_02058450
+	bl MapObject_GetMapID
 	str r0, [r5, #0x18]
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -179,7 +179,7 @@ _021EDCB8:
 	bl sub_02059BF4
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetCurrentZ
 	str r0, [sp, #8]
 	ldr r0, [r5, #4]
 	bl sub_02059C00
@@ -191,7 +191,7 @@ _021EDCB8:
 	bl sub_02059E60
 	add r0, r6, #0
 	add r1, sp, #0x18
-	bl MapObject_GetPositionVec
+	bl MapObject_CopyPositionVector
 	ldr r0, [sp, #0x1c]
 	add r1, sp, #0xc
 	str r0, [sp, #0x10]
