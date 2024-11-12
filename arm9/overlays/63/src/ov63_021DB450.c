@@ -164,7 +164,7 @@ BOOL ov63_021DB5CC(UnkStruct63_021DB450 *param0, u32 param1, s32 param2) {
         param0->field_1D++;
         if (param0->field_1D >= 20) {
             param0->field_1D = 0;
-            *state           = 0;
+            *state = 0;
             return TRUE;
         }
         break;
@@ -263,11 +263,11 @@ void ov63_021DB934(void) {
 
 void ov63_021DB940(struct UnkStruct63_021DB450 *a0) {
     struct UnkStruct_02006D98_2 *r4 = sub_0201341C(a0);
-    int sp0[3]                      = { 0, 0, 0 };
-    sp0[0]                          = (sub_0200782C(r4, 0) - 0x80) * 0xAC;
-    sp0[1]                          = (sub_0200782C(r4, 1) - 0x60) * 0xAC;
-    sp0[2]                          = 0x40;
-    a0->field_28                    = sp0[0] + (*a0->field_20)[1];
-    a0->field_2C                    = sp0[1] + (*a0->field_20)[2];
-    a0->field_30                    = sp0[2] + (*a0->field_20)[3];
+    int sp0[3] = { 0, 0, 0 };
+    sp0[0] = (sub_0200782C(r4, 0) - 0x80) * 0xAC;
+    sp0[1] = (sub_0200782C(r4, 1) - 0x60) * 0xAC;
+    sp0[2] = 0x40;
+    a0->field_28 = sp0[0] + (*a0->field_20)[1];
+    a0->field_2C = sp0[1] + (*a0->field_20)[2];
+    a0->field_30 = sp0[2] + (*a0->field_20)[3];
 }

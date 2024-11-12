@@ -378,7 +378,7 @@ void ov52_021D7604(HeapID heapId, struct SaveData *save, BOOL set_trainerid) {
     sub_0206007C(save);
 
     PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
-    u32 trainerid                = MTRandom();
+    u32 trainerid = MTRandom();
 
     if (set_trainerid) {
         PlayerProfile_SetTrainerID(playerProfile, trainerid);

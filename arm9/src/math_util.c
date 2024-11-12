@@ -585,15 +585,15 @@ u32 MTRandom(void) {
         }
 
         for (i = 0; i < 227; i++) {
-            val             = (sMTRNG_State[i] & 0x80000000) | (sMTRNG_State[i + 1] & 0x7fffffff);
+            val = (sMTRNG_State[i] & 0x80000000) | (sMTRNG_State[i + 1] & 0x7fffffff);
             sMTRNG_State[i] = sMTRNG_State[i + 397] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
         }
         for (; i < 623; i++) {
-            val             = (sMTRNG_State[i] & 0x80000000) | (sMTRNG_State[i + 1] & 0x7fffffff);
+            val = (sMTRNG_State[i] & 0x80000000) | (sMTRNG_State[i + 1] & 0x7fffffff);
             sMTRNG_State[i] = sMTRNG_State[i + -227] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
         }
 
-        val               = (sMTRNG_State[623] & 0x80000000) | (sMTRNG_State[0] & 0x7fffffff);
+        val = (sMTRNG_State[623] & 0x80000000) | (sMTRNG_State[0] & 0x7fffffff);
         sMTRNG_State[623] = sMTRNG_State[396] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
 
         sMTRNG_Cycles = 0;
@@ -665,7 +665,7 @@ s32 CircularDistance(s32 x1, s32 y1, s32 x2, s32 y2) {
     v2.z = 0;
 
     VEC_Subtract(&v2, &v1, &v4);
-    f2  = VEC_DotProduct(&v3, &v4);
+    f2 = VEC_DotProduct(&v3, &v4);
     ret = f2 >> FX32_INT_SHIFT;
     ret = (ret < 0) ? -ret : ret;
 

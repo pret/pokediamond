@@ -101,8 +101,8 @@ BOOL sub_0202E358(u8 *param0, u8 *param1, s32 param2) {
 
 void sub_0202E380(struct UnkStruct_0202E29C_sub *param0, u32 param1) {
 #pragma unused(param1)
-    s32 r5                             = sub_02033534();
-    u8 r6                              = sub_0203354C();
+    s32 r5 = sub_02033534();
+    u8 r6 = sub_0203354C();
     struct UnkStruct_0202E29C_sub4 *r4 = &param0->unk50;
 
     if (r5 != 0xe) {
@@ -466,7 +466,7 @@ u32 sub_0202E9E8(u32 param0) {
     }
 
     if (sub_0202CBD4() == 1) {
-        s32 ret              = sub_02033534();
+        s32 ret = sub_02033534();
         UNK_021C59F0->unkDA8 = (u8)UNK_021C59F0->unk054[param0].unk36;
         if (sub_0202D8B0(ret) != 0) {
             sub_0202C4D8(1, UNK_021C59F0->unk054[param0].unk04, 0);
@@ -498,7 +498,7 @@ void sub_0202EA54() {
 }
 
 void sub_0202EA9C() {
-    s32 res                    = sub_02033534();
+    s32 res = sub_02033534();
     PlayerProfile *player_data = sub_0202EF70();
 
     if (res != 0xf) {
@@ -518,9 +518,9 @@ void sub_0202EA9C() {
         res->unk08.unk4C = (u8)sub_0202D358();
     } else {
         struct UnkStruct_0202E29C_sub2 *res = &UNK_021C59F0->unkCC4;
-        res->unk00                          = PlayerProfile_GetTrainerID(player_data);
-        res->unk04                          = (u8)sub_02033534();
-        res->unk05                          = sub_0203354C();
+        res->unk00 = PlayerProfile_GetTrainerID(player_data);
+        res->unk04 = (u8)sub_02033534();
+        res->unk05 = sub_0203354C();
 
         MI_CpuCopy8(&UNK_021C59F0->unk000, &res->unk08, sizeof(struct UnkStruct_0202E29C_sub3));
     }

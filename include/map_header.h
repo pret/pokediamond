@@ -18,11 +18,11 @@ struct MapHeader {
     u8 weather_type;
     u8 camera_type;
     u8 map_type;
-    u8 battle_bg              : 4;
-    u8 is_bike_allowed        : 1;
-    u8 is_running_allowed     : 1; // unused
+    u8 battle_bg : 4;
+    u8 is_bike_allowed : 1;
+    u8 is_running_allowed : 1; // unused
     u8 is_escape_rope_allowed : 1;
-    u8 is_fly_allowed         : 1;
+    u8 is_fly_allowed : 1;
 };
 
 u8 MapHeader_GetAreaDataBank(u32 mapno);

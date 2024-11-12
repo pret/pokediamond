@@ -36,71 +36,71 @@ extern void *sub_02077A84(HeapID heapId, u32 param1, u32 param2, u32 param3, str
 extern void sub_0200E3A0(PMLCDTarget, int);
 
 const struct WindowTemplate ov59_021D9DB8 = {
-    .bgId     = GF_BG_LYR_MAIN_0,
-    .left     = 2,
-    .top      = 19,
-    .width    = 27,
-    .height   = 4,
-    .palette  = 6,
+    .bgId = GF_BG_LYR_MAIN_0,
+    .left = 2,
+    .top = 19,
+    .width = 27,
+    .height = 4,
+    .palette = 6,
     .baseTile = 877,
 };
 
 const struct WindowTemplate ov59_021D9DA8 = {
-    .bgId     = GF_BG_LYR_MAIN_0,
-    .left     = 2,
-    .top      = 3,
-    .width    = 6,
-    .height   = 4,
-    .palette  = 5,
+    .bgId = GF_BG_LYR_MAIN_0,
+    .left = 2,
+    .top = 3,
+    .width = 6,
+    .height = 4,
+    .palette = 5,
     .baseTile = 853,
 };
 
 const struct WindowTemplate ov59_021D9DB0 = {
-    .bgId     = GF_BG_LYR_MAIN_0,
-    .left     = 1,
-    .top      = 3,
-    .width    = 16,
-    .height   = 6,
-    .palette  = 5,
+    .bgId = GF_BG_LYR_MAIN_0,
+    .left = 1,
+    .top = 3,
+    .width = 16,
+    .height = 6,
+    .palette = 5,
     .baseTile = 781,
 };
 
 const struct WindowTemplate ov59_021D9D90 = {
-    .bgId     = GF_BG_LYR_MAIN_0,
-    .left     = 8,
-    .top      = 0,
-    .width    = 24,
-    .height   = 24,
-    .palette  = 5,
+    .bgId = GF_BG_LYR_MAIN_0,
+    .left = 8,
+    .top = 0,
+    .width = 24,
+    .height = 24,
+    .palette = 5,
     .baseTile = 301,
 };
 
 const struct WindowTemplate ov59_021D9D98 = {
-    .bgId     = GF_BG_LYR_MAIN_0,
-    .left     = 4,
-    .top      = 0,
-    .width    = 24,
-    .height   = 24,
-    .palette  = 5,
+    .bgId = GF_BG_LYR_MAIN_0,
+    .left = 4,
+    .top = 0,
+    .width = 24,
+    .height = 24,
+    .palette = 5,
     .baseTile = 301,
 };
 
 const struct WindowTemplate ov59_021D9DA0 = {
-    .bgId     = GF_BG_LYR_MAIN_0,
-    .left     = 2,
-    .top      = 3,
-    .width    = 14,
-    .height   = 10,
-    .palette  = 5,
+    .bgId = GF_BG_LYR_MAIN_0,
+    .left = 2,
+    .top = 3,
+    .width = 14,
+    .height = 10,
+    .palette = 5,
     .baseTile = 737,
 };
 
 const u32 ov59_021D9DC0[3] = { NARC_intro_pokeball_button_2_NCGR, NARC_intro_pokeball_button_3_NCGR, 0xFFFF };
 
 const struct GraphicsModes ov59_021D9DCC = {
-    .dispMode  = GX_DISPMODE_GRAPHICS,
-    .bgMode    = GX_BGMODE_0,
-    .subMode   = GX_BGMODE_0,
+    .dispMode = GX_DISPMODE_GRAPHICS,
+    .bgMode = GX_BGMODE_0,
+    .subMode = GX_BGMODE_0,
     ._2d3dMode = GX_BG0_AS_2D
 };
 
@@ -108,7 +108,7 @@ const struct OverlayManagerTemplate ov59_021D9DDC = {
     .initFunc = ov59_TVInit,
     .mainFunc = ov59_TVMain,
     .exitFunc = ov59_TVExit,
-    .ovly     = SDK_OVERLAY_INVALID_ID
+    .ovly = SDK_OVERLAY_INVALID_ID
 };
 
 const struct ov59_CharStruct021D9DEC ov59_021D9DEC = {
@@ -154,61 +154,61 @@ const struct ov59_CharStruct021D9E70 ov59_021D9E88 = {
 };
 
 const struct BgTemplate ov59_021D9EA0 = {
-    .x          = 0,
-    .y          = 0,
+    .x = 0,
+    .y = 0,
     .bufferSize = 2048,
-    .baseTile   = 0,
+    .baseTile = 0,
 
-    .size       = GF_BG_SCR_SIZE_256x256,
-    .colorMode  = GX_BG_COLORMODE_16,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GX_BG_COLORMODE_16,
     .screenBase = GX_BG_SCRBASE_0x0000,
-    .charBase   = GX_BG_CHARBASE_0x00000,
-    .bgExtPltt  = GX_BG_EXTPLTT_01,
-    .priority   = 1,
-    .areaOver   = GX_BG_AREAOVER_XLU,
-    .dummy      = 0,
-    .mosaic     = FALSE
+    .charBase = GX_BG_CHARBASE_0x00000,
+    .bgExtPltt = GX_BG_EXTPLTT_01,
+    .priority = 1,
+    .areaOver = GX_BG_AREAOVER_XLU,
+    .dummy = 0,
+    .mosaic = FALSE
 };
 
 const struct BgTemplate ov59_021D9EBC = {
-    .x          = 0,
-    .y          = 0,
+    .x = 0,
+    .y = 0,
     .bufferSize = 2048,
-    .baseTile   = 0,
+    .baseTile = 0,
 
-    .size       = GF_BG_SCR_SIZE_256x256,
-    .colorMode  = GX_BG_COLORMODE_16,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GX_BG_COLORMODE_16,
     .screenBase = GX_BG_SCRBASE_0x0000,
-    .charBase   = GX_BG_CHARBASE_0x00000,
-    .bgExtPltt  = GX_BG_EXTPLTT_01,
-    .priority   = 0,
-    .areaOver   = GX_BG_AREAOVER_XLU,
-    .dummy      = 0,
-    .mosaic     = FALSE
+    .charBase = GX_BG_CHARBASE_0x00000,
+    .bgExtPltt = GX_BG_EXTPLTT_01,
+    .priority = 0,
+    .areaOver = GX_BG_AREAOVER_XLU,
+    .dummy = 0,
+    .mosaic = FALSE
 };
 
 const u16 ov59_021D9ED8[0x10] = { 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C };
 
 const struct ListMenuTemplate ov59_021D9EF8 = {
-    .items               = NULL,
-    .moveCursorFunc      = NULL,
-    .itemPrintFunc       = NULL,
-    .window              = NULL,
-    .totalItems          = 0,
-    .maxShowed           = 0,
-    .header_X            = 0,
-    .item_X              = 12,
-    .cursor_X            = 0,
-    .upText_Y            = 0,
-    .cursorPal           = 1,
-    .fillValue           = 15,
-    .cursorShadowPal     = 2,
-    .lettersSpacing      = 0,
+    .items = NULL,
+    .moveCursorFunc = NULL,
+    .itemPrintFunc = NULL,
+    .window = NULL,
+    .totalItems = 0,
+    .maxShowed = 0,
+    .header_X = 0,
+    .item_X = 12,
+    .cursor_X = 0,
+    .upText_Y = 0,
+    .cursorPal = 1,
+    .fillValue = 15,
+    .cursorShadowPal = 2,
+    .lettersSpacing = 0,
     .itemVerticalPadding = 0,
-    .scrollMultiple      = 0,
-    .fontId              = 0,
-    .cursorKind          = 0,
-    .unk_1C              = 0
+    .scrollMultiple = 0,
+    .fontId = 0,
+    .cursorKind = 0,
+    .unk_1C = 0
 };
 
 const struct ov59_ListStruct021D9E0C ov59_021D9F40[5] = {
@@ -238,50 +238,50 @@ const struct ov59_ListStruct021D9E0C ov59_021D9F68[5] = {
 };
 
 const struct GraphicsBanks ov59_021D9F18 = {
-    .bg            = GX_VRAM_BG_128_B,
-    .bgextpltt     = GX_VRAM_BGEXTPLTT_NONE,
-    .subbg         = GX_VRAM_SUB_BG_128_C,
-    .subbgextpltt  = GX_VRAM_SUB_BGEXTPLTT_NONE,
-    .obj           = GX_VRAM_OBJ_NONE,
-    .objextpltt    = GX_VRAM_OBJEXTPLTT_NONE,
-    .subobj        = GX_VRAM_SUB_OBJ_NONE,
+    .bg = GX_VRAM_BG_128_B,
+    .bgextpltt = GX_VRAM_BGEXTPLTT_NONE,
+    .subbg = GX_VRAM_SUB_BG_128_C,
+    .subbgextpltt = GX_VRAM_SUB_BGEXTPLTT_NONE,
+    .obj = GX_VRAM_OBJ_NONE,
+    .objextpltt = GX_VRAM_OBJEXTPLTT_NONE,
+    .subobj = GX_VRAM_SUB_OBJ_NONE,
     .subobjextpltt = GX_VRAM_SUB_OBJEXTPLTT_NONE,
-    .tex           = GX_VRAM_TEX_NONE,
-    .texpltt       = GX_VRAM_TEXPLTT_NONE
+    .tex = GX_VRAM_TEX_NONE,
+    .texpltt = GX_VRAM_TEXPLTT_NONE
 };
 
 const struct ov59_GraphicsPaletteMap021D9F90 ov59_021D9F90 = {
     .map = {
-            { .charNum  = 0,
+            { .charNum = 0,
             .palNum = 0 },
             // rowan sprite
         {
             .charNum = NARC_intro_rowan_front_NCGR,
-            .palNum  = NARC_intro_rowan_front_NCLR },
+            .palNum = NARC_intro_rowan_front_NCLR },
             // boy sprites
         {
             .charNum = NARC_intro_lucas_walk_1_NCGR,
-            .palNum  = NARC_intro_lucas_walk_NCLR },
-            { .charNum  = NARC_intro_lucas_walk_2_NCGR,
             .palNum = NARC_intro_lucas_walk_NCLR },
-            { .charNum  = NARC_intro_lucas_walk_3_NCGR,
+            { .charNum = NARC_intro_lucas_walk_2_NCGR,
             .palNum = NARC_intro_lucas_walk_NCLR },
-            { .charNum  = NARC_intro_lucas_walk_4_NCGR,
+            { .charNum = NARC_intro_lucas_walk_3_NCGR,
+            .palNum = NARC_intro_lucas_walk_NCLR },
+            { .charNum = NARC_intro_lucas_walk_4_NCGR,
             .palNum = NARC_intro_lucas_walk_NCLR },
             // girl sprites
         {
             .charNum = NARC_intro_dawn_walk_1_NCGR,
-            .palNum  = NARC_intro_dawn_walk_NCLR },
-            { .charNum  = NARC_intro_dawn_walk_2_NCGR,
             .palNum = NARC_intro_dawn_walk_NCLR },
-            { .charNum  = NARC_intro_dawn_walk_3_NCGR,
+            { .charNum = NARC_intro_dawn_walk_2_NCGR,
             .palNum = NARC_intro_dawn_walk_NCLR },
-            { .charNum  = NARC_intro_dawn_walk_4_NCGR,
+            { .charNum = NARC_intro_dawn_walk_3_NCGR,
+            .palNum = NARC_intro_dawn_walk_NCLR },
+            { .charNum = NARC_intro_dawn_walk_4_NCGR,
             .palNum = NARC_intro_dawn_walk_NCLR },
             // barry sprite
         {
             .charNum = NARC_intro_barry_front_NCGR,
-            .palNum  = NARC_intro_barry_front_NCLR } }
+            .palNum = NARC_intro_barry_front_NCLR } }
 };
 
 const u8 ov59_021D9FE8[0x64] = {
@@ -316,25 +316,25 @@ BOOL ov59_IntroInit(struct OverlayManager *overlayManager, u32 *status) {
     ov59_IntroOverlayData *data = (ov59_IntroOverlayData *)OverlayManager_CreateAndGetData(overlayManager, sizeof(ov59_IntroOverlayData), HEAP_ID_INTRO);
     memset((void *)data, 0, sizeof(ov59_IntroOverlayData));
 
-    data->heapId                = HEAP_ID_INTRO;
-    s32 *field18                = OverlayManager_GetField18(overlayManager);
-    data->save                  = (struct SaveData *)field18[2]; //?
-    data->options               = Save_PlayerData_GetOptionsAddr(data->save);
+    data->heapId = HEAP_ID_INTRO;
+    s32 *field18 = OverlayManager_GetField18(overlayManager);
+    data->save = (struct SaveData *)field18[2]; //?
+    data->options = Save_PlayerData_GetOptionsAddr(data->save);
     data->nextControllerCounter = data->controllerCounter = 0;
-    data->loadedOverlay                                   = NULL;
-    data->playerStruct                                    = (struct ov59_UnkPlayerStruct *)sub_02077A84(HEAP_ID_INTRO, 0, 0, 7, data->options);
-    data->rivalStruct                                     = (struct ov59_UnkPlayerStruct *)sub_02077A84(HEAP_ID_INTRO, 3, 0, 7, data->options);
-    data->scrnDataIndexMain                               = 0;
-    data->spriteDataIndex0                                = 0;
-    data->spriteDataIndex1                                = 0;
-    data->scrnDataIndexSub                                = 0;
-    data->tickTimer                                       = 0;
+    data->loadedOverlay = NULL;
+    data->playerStruct = (struct ov59_UnkPlayerStruct *)sub_02077A84(HEAP_ID_INTRO, 0, 0, 7, data->options);
+    data->rivalStruct = (struct ov59_UnkPlayerStruct *)sub_02077A84(HEAP_ID_INTRO, 3, 0, 7, data->options);
+    data->scrnDataIndexMain = 0;
+    data->spriteDataIndex0 = 0;
+    data->spriteDataIndex1 = 0;
+    data->scrnDataIndexSub = 0;
+    data->tickTimer = 0;
     return TRUE;
 }
 
 BOOL ov59_IntroMain(struct OverlayManager *overlayManager, u32 *status) {
     ov59_IntroOverlayData *data = (ov59_IntroOverlayData *)OverlayManager_GetData(overlayManager);
-    BOOL ret                    = FALSE;
+    BOOL ret = FALSE;
 
     switch (*status) {
     case 0:
@@ -481,23 +481,23 @@ void ov59_IntroSetupBg(ov59_IntroOverlayData *data) {
     SetBothScreensModesAndDisable(&graphicsModes);
 
     struct BgTemplate bgTemplateMain = ov59_021D9EA0;
-    bgTemplateMain.screenBase        = GX_BG_SCRBASE_0x7800;
-    bgTemplateMain.charBase          = GX_BG_CHARBASE_0x18000;
+    bgTemplateMain.screenBase = GX_BG_SCRBASE_0x7800;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x18000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_0, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
 
     bgTemplateMain.screenBase = GX_BG_SCRBASE_0x7000;
-    bgTemplateMain.charBase   = GX_BG_CHARBASE_0x14000;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x14000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_1, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1);
 
     bgTemplateMain.screenBase = GX_BG_SCRBASE_0x6800;
-    bgTemplateMain.charBase   = GX_BG_CHARBASE_0x10000;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x10000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_2, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2);
 
     bgTemplateMain.screenBase = GX_BG_SCRBASE_0x6000;
-    bgTemplateMain.charBase   = GX_BG_CHARBASE_0x0c000;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x0c000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_3);
 
@@ -507,23 +507,23 @@ void ov59_IntroSetupBg(ov59_IntroOverlayData *data) {
     LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_6_OFFSET, data->heapId);
 
     struct BgTemplate bgTemplateSub = ov59_021D9EBC;
-    bgTemplateSub.screenBase        = GX_BG_SCRBASE_0x7800;
-    bgTemplateSub.charBase          = GX_BG_CHARBASE_0x18000;
+    bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7800;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x18000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_0, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_0);
 
     bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7000;
-    bgTemplateSub.charBase   = GX_BG_CHARBASE_0x14000;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x14000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_1, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_1);
 
     bgTemplateSub.screenBase = GX_BG_SCRBASE_0x6800;
-    bgTemplateSub.charBase   = GX_BG_CHARBASE_0x10000;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x10000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_2, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_2);
 
     bgTemplateSub.screenBase = GX_BG_SCRBASE_0x6000;
-    bgTemplateSub.charBase   = GX_BG_CHARBASE_0x0c000;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x0c000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_3, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_3);
 
@@ -574,9 +574,9 @@ void ov59_IntroSetupMsg(ov59_IntroOverlayData *data) {
 
     data->messageFormat = MessageFormat_New(data->heapId);
 
-    data->displayMessageCounter        = 0;
+    data->displayMessageCounter = 0;
     data->displayControlMessageCounter = 0;
-    data->createListCounter            = 0;
+    data->createListCounter = 0;
 }
 
 void ov59_IntroDestroyMsg(ov59_IntroOverlayData *data) {
@@ -673,10 +673,10 @@ BOOL ov59_FadeController(ov59_IntroOverlayData *data, u32 bgId, u32 param2) {
         }
         break;
     case 3:
-        reg_G2_BLDCNT     = 0;
+        reg_G2_BLDCNT = 0;
         reg_G2S_DB_BLDCNT = 0;
         data->fadeCounter = 0;
-        ret               = TRUE;
+        ret = TRUE;
         break;
     }
     return ret;
@@ -710,15 +710,15 @@ BOOL ov59_DisplayMessage(ov59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvanc
         sub_02002B7C(0);
 
         struct String *string = String_New(1024, data->heapId);
-        data->string          = String_New(1024, data->heapId);
+        data->string = String_New(1024, data->heapId);
         ReadMsgDataIntoString(data->msgData, msgNo, string);
         BufferString(data->messageFormat, 0, data->playerStruct->name, data->selectedGender, 1, 2);
         BufferString(data->messageFormat, 1, data->rivalStruct->name, 0, 1, 2);
         StringExpandPlaceholders(data->messageFormat, data->string, string);
         String_Delete(string);
 
-        u32 delay                   = Options_GetTextFrameDelay(data->options);
-        data->minTextSpacing        = AddTextPrinterParameterized(&data->window, 1, data->string, 0, 0, delay, NULL);
+        u32 delay = Options_GetTextFrameDelay(data->options);
+        data->minTextSpacing = AddTextPrinterParameterized(&data->window, 1, data->string, 0, 0, delay, NULL);
         data->displayMessageCounter = 1;
         break;
     case 1:
@@ -732,7 +732,7 @@ BOOL ov59_DisplayMessage(ov59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvanc
         if (autoAdvance != FALSE || (gSystem.newKeys & PAD_BUTTON_A) == 1) {
             RemoveWindow(&data->window);
             data->displayMessageCounter = 0;
-            ret                         = TRUE;
+            ret = TRUE;
             break;
         }
     }
@@ -759,21 +759,21 @@ BOOL ov59_CreateListWithText(ov59_IntroOverlayData *data, u32 param1, u32 param2
         default:
         case 0:
             windowTemplate = &ov59_021D9DA8;
-            listStruct     = ov59_021D9E0C;
+            listStruct = ov59_021D9E0C;
             menuItemsCount = 2;
             break;
         case 1:
             windowTemplate = &ov59_021D9DB0;
-            listStruct     = ov59_021D9E58;
+            listStruct = ov59_021D9E58;
             menuItemsCount = 3;
             break;
         case 2:
             windowTemplate = &ov59_021D9DA0;
             if ((u8)gGameVersion == VERSION_DIAMOND) {
-                listStruct     = ov59_021D9F40;
+                listStruct = ov59_021D9F40;
                 menuItemsCount = 5;
             } else {
-                listStruct     = ov59_021D9F68;
+                listStruct = ov59_021D9F68;
                 menuItemsCount = 5;
             }
             break;
@@ -784,12 +784,12 @@ BOOL ov59_CreateListWithText(ov59_IntroOverlayData *data, u32 param1, u32 param2
             ListMenuItems_AppendFromMsgData(data->listMenuItem, data->msgData, listStruct[i].msgNo, listStruct[i].val);
         }
         struct ListMenuTemplate template = ov59_021D9EF8;
-        template.items                   = data->listMenuItem;
-        template.totalItems              = (u16)menuItemsCount;
-        template.maxShowed               = (u16)menuItemsCount;
-        template.moveCursorFunc          = ov59_PlaySelectSound;
-        template.window                  = &data->listWindow;
-        data->listMenu                   = ListMenuInit(&template, 0, 0, data->heapId);
+        template.items = data->listMenuItem;
+        template.totalItems = (u16)menuItemsCount;
+        template.maxShowed = (u16)menuItemsCount;
+        template.moveCursorFunc = ov59_PlaySelectSound;
+        template.window = &data->listWindow;
+        data->listMenu = ListMenuInit(&template, 0, 0, data->heapId);
         DrawFrameAndWindow1(template.window, TRUE, 985, 3);
         CopyWindowToVram(&data->listWindow);
         data->createListCounter = 1;
@@ -805,7 +805,7 @@ BOOL ov59_CreateListWithText(ov59_IntroOverlayData *data, u32 param1, u32 param2
         ListMenuItems_Delete(data->listMenuItem);
         PlaySE(SEQ_SE_DP_SELECT);
         data->createListCounter = 0;
-        ret                     = TRUE;
+        ret = TRUE;
     }
     return ret;
 }
@@ -819,16 +819,16 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
         ReadMsgDataIntoString(data->msgData, msgNo, data->string);
         struct WindowTemplate template;
         if (param2 == 1) {
-            template        = ov59_021D9D98;
-            u32 count       = sub_02002F90(data->string);
-            template.top    = (u8)(12 - count);
+            template = ov59_021D9D98;
+            u32 count = sub_02002F90(data->string);
+            template.top = (u8)(12 - count);
             template.height = (u8)(count * 2);
             AddWindow(data->bgConfig, &data->window, &template);
             FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
             AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(1, 2, 0), NULL);
         } else {
-            template        = ov59_021D9D90;
-            template.top    = (u8)tilemapTop;
+            template = ov59_021D9D90;
+            template.top = (u8)tilemapTop;
             template.height = (u8)height;
             AddWindow(data->bgConfig, &data->window, &template);
             FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
@@ -862,7 +862,7 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
         RemoveWindow(&data->window);
         BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
         data->displayControlMessageCounter = 0;
-        ret                                = TRUE;
+        ret = TRUE;
     }
     return ret;
 }
@@ -876,10 +876,10 @@ void ov59_LoadInitialTilemap(ov59_IntroOverlayData *data) {
     u32 subPal;
     if ((u8)gGameVersion == VERSION_DIAMOND) {
         mainPal = NARC_intro_main_background_diamond_NCLR;
-        subPal  = NARC_intro_sub_background_diamond_NCLR;
+        subPal = NARC_intro_sub_background_diamond_NCLR;
     } else {
         mainPal = NARC_intro_main_background_pearl_NCLR;
-        subPal  = NARC_intro_sub_background_pearl_NCLR;
+        subPal = NARC_intro_sub_background_pearl_NCLR;
     }
     GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 0x60, data->heapId);
     GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0xa0, data->heapId);
@@ -1150,10 +1150,10 @@ BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, enum GFBgLayer layer, u32 para
 }
 
 void ov59_ResetPlayerAnimation(ov59_IntroOverlayData *data) {
-    data->maleAnimCounter   = 0;
-    data->maleAnimTimer     = 0;
+    data->maleAnimCounter = 0;
+    data->maleAnimTimer = 0;
     data->femaleAnimCounter = 0;
-    data->femaleAnimTimer   = 0;
+    data->femaleAnimTimer = 0;
 }
 
 void ov59_AnimatePlayerSprite(ov59_IntroOverlayData *data) {
@@ -1210,10 +1210,10 @@ BOOL ov59_PlayerShrinkAnimation(ov59_IntroOverlayData *data) {
     const struct ov59_CharStruct021D9E70 *addr;
     if (data->selectedGender == PLAYER_GENDER_MALE) {
         charStruct = ov59_021D9E88;
-        addr       = &charStruct;
+        addr = &charStruct;
     } else {
         charStruct2 = ov59_021D9E70;
-        addr        = &charStruct2;
+        addr = &charStruct2;
     }
     if (addr->charData[data->spriteDataIndex2] == 0xFF) {
         ret = TRUE;
@@ -1237,15 +1237,15 @@ BOOL ov59_MunchlaxJumpAnimation(ov59_IntroOverlayData *data, u32 *param1) {
         data->unkA8 = 0;
         data->unkAC = 8;
         data->unkB0 = 0;
-        *param1     = 1;
+        *param1 = 1;
         break;
     case 1:
         Bg_GetXpos(data->bgConfig, GF_BG_LYR_MAIN_2); // result discarded?
         fx32 pos = Bg_GetYpos(data->bgConfig, GF_BG_LYR_SUB_1);
 
-        b0       = data->unkB0;
-        ac       = data->unkAC;
-        u32 unk  = b0 * (ac + ac * 8);
+        b0 = data->unkB0;
+        ac = data->unkAC;
+        u32 unk = b0 * (ac + ac * 8);
         s32 unk2 = b0 * (b0 + b0 * 8);
 
         s32 unk3 = unk - unk2 / 2; // some kind of Y coordinate
@@ -1258,7 +1258,7 @@ BOOL ov59_MunchlaxJumpAnimation(ov59_IntroOverlayData *data, u32 *param1) {
         } else {
             ToggleBgLayer(GF_BG_LYR_SUB_1, GX_PLANE_TOGGLE_OFF);
             data->unkB0 = 30;
-            *param1     = 2;
+            *param1 = 2;
         }
         break;
     case 2:
@@ -1269,15 +1269,15 @@ BOOL ov59_MunchlaxJumpAnimation(ov59_IntroOverlayData *data, u32 *param1) {
             data->unkA8 = 0;
             data->unkAC = 9;
             data->unkB0 = 0;
-            *param1     = 3;
+            *param1 = 3;
         }
         break;
     case 3:
         Bg_GetXpos(data->bgConfig, GF_BG_LYR_MAIN_2); // result discarded?
         fx32 pos2 = Bg_GetYpos(data->bgConfig, GF_BG_LYR_MAIN_2);
 
-        b0       = data->unkB0;
-        ac       = data->unkAC;
+        b0 = data->unkB0;
+        ac = data->unkAC;
         u32 unk4 = b0 * (ac + ac * 8);
         s32 unk5 = b0 * (b0 + b0 * 8);
 
@@ -1288,7 +1288,7 @@ BOOL ov59_MunchlaxJumpAnimation(ov59_IntroOverlayData *data, u32 *param1) {
             data->unkA8 = 0;
             data->unkAC = 1;
             data->unkB0 = 0;
-            *param1     = 4;
+            *param1 = 4;
         } else {
             data->unkB0++;
             data->unkA8 = unk6;
@@ -1304,8 +1304,8 @@ BOOL ov59_MunchlaxJumpAnimation(ov59_IntroOverlayData *data, u32 *param1) {
         Bg_GetXpos(data->bgConfig, GF_BG_LYR_MAIN_2); // result discarded?
         fx32 pos3 = Bg_GetYpos(data->bgConfig, GF_BG_LYR_MAIN_2);
 
-        b0       = data->unkB0;
-        ac       = data->unkAC;
+        b0 = data->unkB0;
+        ac = data->unkAC;
         u32 unk8 = b0 * (ac + ac * 8);
         s32 unk9 = b0 * (b0 + b0 * 8);
 
@@ -1705,12 +1705,12 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         switch (data->listMenuInput) {
         case 1: // Control Info
             data->nextControllerCounter = 10;
-            data->controllerCounter     = 8;
+            data->controllerCounter = 8;
             break;
 
         case 2: // Adventure Info
             data->nextControllerCounter = 31;
-            data->controllerCounter     = 8;
+            data->controllerCounter = 8;
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             break;
 
@@ -2206,7 +2206,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         if (ov59_DisplayMessage(data, narc_0341_00021, TRUE) != TRUE) {
             break;
         }
-        data->selectedGender    = PLAYER_GENDER_MALE;
+        data->selectedGender = PLAYER_GENDER_MALE;
         data->controllerCounter = 67;
         break;
 
@@ -2301,8 +2301,8 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
 
     case 76: // load keyboard overlay (except this is not an overlay at all)
         data->playerStruct->gender = data->selectedGender;
-        data->loadedOverlay        = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heapId);
-        data->controllerCounter    = 77;
+        data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heapId);
+        data->controllerCounter = 77;
         break;
 
     case 77: // toggle bg layers and position, fade from black
@@ -2344,14 +2344,14 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         switch (data->listMenuInput) {
         case 1:
             data->nextControllerCounter = 82;
-            data->controllerCounter     = 81;
+            data->controllerCounter = 81;
             break;
 
         case -2:
         case 2:
             String_SetEmpty(data->playerStruct->name);
             data->nextControllerCounter = 63;
-            data->controllerCounter     = 81;
+            data->controllerCounter = 81;
             break;
         }
         break;
@@ -2440,13 +2440,13 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
             u32 index;
             u32 msgNo;
             if ((u8)gGameVersion == VERSION_DIAMOND) {
-                index    = data->listMenuInput - 1;
+                index = data->listMenuInput - 1;
                 nameList = ov59_021D9F40;
-                msgNo    = nameList[index].msgNo;
+                msgNo = nameList[index].msgNo;
             } else {
-                index    = data->listMenuInput - 1;
+                index = data->listMenuInput - 1;
                 nameList = ov59_021D9F68;
-                msgNo    = nameList[index].msgNo;
+                msgNo = nameList[index].msgNo;
             }
             struct String *name = NewString_ReadMsgData(data->msgData, msgNo);
             StringCopy(data->rivalStruct->name, name);
@@ -2464,7 +2464,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         break;
 
     case 92: // load keyboard
-        data->loadedOverlay     = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heapId);
+        data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heapId);
         data->controllerCounter = 93;
         break;
 
@@ -2597,7 +2597,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         break;
 
     case 108: // load overaly 59 TV
-        data->loadedOverlay     = OverlayManager_New(&ov59_021D9DDC, 0, data->heapId);
+        data->loadedOverlay = OverlayManager_New(&ov59_021D9DDC, 0, data->heapId);
         data->controllerCounter = 109;
         break;
 

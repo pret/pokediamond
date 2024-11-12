@@ -46,7 +46,7 @@ BOOL ov21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2, u32 param3
         param0->bytearray[2] = 0;
         param0->bytearray[3] = 1;
         param0->bytearray[6] = 0;
-        param0->Unk20        = 0;
+        param0->Unk20 = 0;
         GF_RTC_CopyTime(&param0->time);
         if (param0->time.hour >= 0x18) {
             param0->time.hour = param0->time.hour % 0x18;
@@ -55,7 +55,7 @@ BOOL ov21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2, u32 param3
             param0->time.hour = param0->time.hour % 0x3c;
         }
         param0->bytearray[5] = (u8)param0->time.minute;
-        param0->Unk10        = ov20_02254130((void *)ov21_02254D80, TRUE, ov21_02254974, param0, 8);
+        param0->Unk10 = ov20_02254130((void *)ov21_02254D80, TRUE, ov21_02254974, param0, 8);
         if (param0->Unk10 == FALSE) {
             return FALSE;
         }
@@ -94,11 +94,11 @@ void ov21_02254974(u32 param0, u32 param1, u32 param2, UnkStruct02254854 *param3
 #pragma unused(param0, param1)
     switch (param2) {
     case 1:
-        param3->Unk20        = 1;
+        param3->Unk20 = 1;
         param3->bytearray[6] = 1;
         return;
     case 0:
-        param3->Unk20        = 0;
+        param3->Unk20 = 0;
         param3->bytearray[6] = 1;
         return;
     default:

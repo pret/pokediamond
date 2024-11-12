@@ -48,12 +48,12 @@ void sub_0206E314(BagView *bagView, SaveData *save, u8 r2, BagCursor *cursor) {
     sub_0206E30C(bagView, r2);
 
     bagView->saveData = save;
-    bagView->cursor   = cursor;
-    bagView->unk66    = 0;
+    bagView->cursor = cursor;
+    bagView->unk66 = 0;
 }
 
 void BagView_SetItem(BagView *bagView, ItemSlot *slot, u8 pocket, u8 idx) {
-    bagView->pockets[idx].slot   = slot;
+    bagView->pockets[idx].slot = slot;
     bagView->pockets[idx].pocket = pocket;
 }
 
@@ -118,7 +118,7 @@ static u32 GetNumBattlePoints(SaveData *saveData) {
 }
 
 BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 itemId, HeapID heapId) {
-    MsgData *msgData             = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
     MessageFormat *messageFormat = MessageFormat_New(heapId);
     String *string;
 
@@ -169,9 +169,9 @@ void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 item
         break;
     default:
         // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
-        msgData                      = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
         MessageFormat *messageFormat = MessageFormat_New(heapId);
-        String *src                  = NewString_ReadMsgData(msgData, narc_0199_00036);
+        String *src = NewString_ReadMsgData(msgData, narc_0199_00036);
         BufferPlayersName(messageFormat, 0, playerProfile);
         StringExpandPlaceholders(messageFormat, dest, src);
         String_Delete(src);

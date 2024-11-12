@@ -47,7 +47,7 @@ void MailMsg_Init(struct MailMessage *mailMsg) {
 void MailMsg_Init_WithBank(struct MailMessage *mailMsg, u16 bank) {
     s32 i;
     mailMsg->msg_bank = bank;
-    mailMsg->msg_no   = 0;
+    mailMsg->msg_no = 0;
     for (i = 0; i < MAILMSG_FIELDS_MAX; i++) {
         mailMsg->fields[i] = EC_WORD_NULL;
     }
@@ -84,7 +84,7 @@ struct String *MailMsg_GetExpandedString(struct MailMessage *mailMsg, HeapID hea
         BufferECWord(messageFormat, (u32)i, mailMsg->fields[i]);
     }
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], heapId);
-    ret     = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heapId);
+    ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heapId);
     DestroyMsgData(msgData);
     MessageFormat_Delete(messageFormat);
     return ret;
@@ -115,8 +115,8 @@ u32 MailMsg_NumFields(u16 bank, u16 num) {
     u32 count;
     GF_ASSERT(bank < NELEMS(sMessageBanks));
     GF_ASSERT(num < MailMsg_NumMsgsInBank(bank));
-    str   = ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[bank], num, HEAP_ID_DEFAULT);
-    cstr  = String_c_str(str);
+    str = ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[bank], num, HEAP_ID_DEFAULT);
+    cstr = String_c_str(str);
     count = 0;
     while (*cstr != EOS) {
         if (*cstr == EXT_CTRL_CODE_BEGIN) {
@@ -168,7 +168,7 @@ u32 MailMsg_NumMsgsInBank(u16 bank) {
 void MailMsg_SetMsgBankAndNum(struct MailMessage *mailMsg, u16 bank, u16 num) {
     GF_ASSERT(bank < NELEMS(sMessageBanks));
     mailMsg->msg_bank = bank;
-    mailMsg->msg_no   = num;
+    mailMsg->msg_no = num;
 }
 
 void MailMsg_SetFieldI(struct MailMessage *mailMsg, u32 idx, u16 word) {

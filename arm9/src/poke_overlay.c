@@ -31,12 +31,12 @@ s32 GetOverlayLoadDestination(FSOverlayID id) {
     u8 *start;
     GF_ASSERT(FS_LoadOverlayInfo(&info, MI_PROCESSOR_ARM9, id) == TRUE);
     start = (u8 *)HW_ITCM_IMAGE;
-    end   = (u8 *)HW_ITCM_END;
+    end = (u8 *)HW_ITCM_END;
     if (info.header.ram_address <= end && info.header.ram_address >= start) {
         return OVERLAY_LOAD_ITCM;
     }
     start = (u8 *)HW_DTCM;
-    end   = start + HW_DTCM_SIZE;
+    end = start + HW_DTCM_SIZE;
     if (info.header.ram_address <= end && info.header.ram_address >= start) {
         return OVERLAY_LOAD_DTCM;
     }
@@ -58,9 +58,9 @@ BOOL HandleLoadOverlay(FSOverlayID id, s32 a1) {
     for (r6 = 0; r6 < 8; r6++) {
         if (!r3[r6].active) {
             struct LoadedOverlay *ovly;
-            ovly         = &r3[r6];
+            ovly = &r3[r6];
             ovly->active = TRUE;
-            ovly->id     = id;
+            ovly->id = id;
             break;
         }
     }
@@ -133,7 +133,7 @@ BOOL GetOverlayRamBounds(FSOverlayID id, void **start, void **end) {
         return FALSE;
     }
     *start = (void *)info.header.ram_address;
-    *end   = (char *)*start + (info.header.ram_size + info.header.bss_size);
+    *end = (char *)*start + (info.header.ram_size + info.header.bss_size);
     return TRUE;
 }
 

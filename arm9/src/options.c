@@ -20,12 +20,12 @@ void Options_Copy(struct Options *src, struct Options *dest) {
 void Options_Init(struct Options *options) {
     MI_CpuFill8(options, 0, sizeof(struct Options));
 
-    options->textSpeed   = 1; // mid speed
+    options->textSpeed = 1;   // mid speed
     options->soundMethod = 0; // stereo
     options->battleStyle = 0; // shift
     options->battleScene = 0; // on
-    options->buttonMode  = 0; // normal
-    options->frame       = 0; // frame 1
+    options->buttonMode = 0;  // normal
+    options->frame = 0;       // frame 1
 }
 
 void Options_SetButtonModeOnMain(struct SaveData *save, u32 buttonMode) {

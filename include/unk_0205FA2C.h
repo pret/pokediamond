@@ -29,7 +29,7 @@ struct UnkPlayerStruct1_0205FA2C {
     u8 unk23;
     u32 unk24[2];
     u8 unk2c[6];
-    u8 unk32  : 4;
+    u8 unk32 : 4;
     u8 unk322 : 4;
     u8 unk33;
     u32 unk34[3];

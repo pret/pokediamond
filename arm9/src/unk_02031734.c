@@ -62,7 +62,7 @@ void sub_02031734(struct SaveData *save, u8 param1) {
     if (UNK_021C5A00 == NULL) {
         sub_0202E49C();
         struct UnkStruct_02031734 *ptr = AllocFromHeap(HEAP_ID_15, sizeof(struct UnkStruct_02031734));
-        UNK_021C5A00                   = ptr;
+        UNK_021C5A00 = ptr;
         MI_CpuFill8(ptr, 0, sizeof(struct UnkStruct_02031734));
 
         UNK_021C5A00->unk3A = 0x32;
@@ -430,7 +430,7 @@ void sub_02031E08() {
             u32 r1 = compute(UNK_021C5A00->unk0C, 0x40);
 
             if (UNK_021C5A00->unk38 != 0) {
-                r1                  = (u32)(UNK_021C5A00->unk38 << 6);
+                r1 = (u32)(UNK_021C5A00->unk38 << 6);
                 UNK_021C5A00->unk38 = 0;
             }
             sub_02031D20(sub_02031EE0, r1);

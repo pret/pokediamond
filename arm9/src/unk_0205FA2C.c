@@ -46,12 +46,12 @@ u32 sub_0205FA2C(
 
     ptr->bag = Save_Bag_Get(save);
 
-    ptr->unk21  = 0;
-    ptr->unk20  = param0->unk08;
-    ptr->unk32  = param0->unk0a;
+    ptr->unk21 = 0;
+    ptr->unk20 = param0->unk08;
+    ptr->unk32 = param0->unk0a;
     ptr->unk322 = param0->unk0b;
-    ptr->unk33  = param0->unk0c;
-    ptr->unk22  = param0->unk0d;
+    ptr->unk33 = param0->unk0c;
+    ptr->unk22 = param0->unk0d;
 
     for (u8 i = 0; i < 6; i++) {
         ptr->unk2c[i] = param0->unk0e[i];
@@ -101,10 +101,10 @@ u32 sub_0205FB34(
         heapId, sizeof(struct UnkPlayerStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct2_0205FA2C));
 
-    ptr->options      = Save_PlayerData_GetOptionsAddr(save);
+    ptr->options = Save_PlayerData_GetOptionsAddr(save);
     ptr->player_party = SaveArray_Party_Get(save);
-    ptr->IsNatDex     = SaveArray_IsNatDexEnabled(save);
-    ptr->unk2c        = sub_02079C70(save);
+    ptr->IsNatDex = SaveArray_IsNatDexEnabled(save);
+    ptr->unk2c = sub_02079C70(save);
 
     ptr->unk11 = 1;
     ptr->unk14 = param0->unk0d;
@@ -134,7 +134,7 @@ u32 sub_0205FBC0(
     }
 
     struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)*param0->unk14;
-    param0->unk0d                         = ptr->unk14;
+    param0->unk0d = ptr->unk14;
     FreeToHeap(ptr);
 
     *param0->unk14 = NULL;
@@ -143,7 +143,7 @@ u32 sub_0205FBC0(
 }
 
 BOOL sub_0205FBE8(struct TaskManager *taskManager) {
-    struct FieldSystem *fieldSystem          = TaskManager_GetFieldSystem(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct1_0205FA2C *res2 = (struct UnkCallbackStruct1_0205FA2C *)TaskManager_GetEnvironment(taskManager);
     switch (res2->unk04) {
     case 0:
@@ -216,7 +216,7 @@ u32 sub_0205FCC4(
 }
 
 BOOL sub_0205FCE8(struct TaskManager *taskManager) {
-    struct FieldSystem *fieldSystem          = TaskManager_GetFieldSystem(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct2_0205FA2C *res2 = (struct UnkCallbackStruct2_0205FA2C *)TaskManager_GetEnvironment(taskManager);
 
     switch (res2->unk04) {
@@ -228,7 +228,7 @@ BOOL sub_0205FCE8(struct TaskManager *taskManager) {
         break;
     case 2:
         u16 *var = GetVarPointer(fieldSystem, res2->unk10);
-        *var     = (u16)res2->unk00;
+        *var = (u16)res2->unk00;
         FreeToHeap(res2);
 
         return TRUE;
@@ -238,7 +238,7 @@ BOOL sub_0205FCE8(struct TaskManager *taskManager) {
 }
 
 void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3) {
-    struct FieldSystem *fieldSystem         = TaskManager_GetFieldSystem(taskManager);
+    struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
         HEAP_ID_FIELD, sizeof(struct UnkCallbackStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct2_0205FA2C));
@@ -252,8 +252,8 @@ void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 p
 
 BOOL sub_0205FD70(struct TaskManager *taskManager) {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    u16 *res2                       = (u16 *)TaskManager_GetEnvironment(taskManager);
-    u8 *res3                        = sub_020316E0(1 - sub_02031190());
+    u16 *res2 = (u16 *)TaskManager_GetEnvironment(taskManager);
+    u8 *res3 = sub_020316E0(1 - sub_02031190());
     if (res3 == NULL) {
         return FALSE;
     }
@@ -454,7 +454,7 @@ u32 sub_020600DC(struct SaveData *save) {
 
     u32 res3 = sub_02060064(FrontierData_GetField_0x4(frontierData));
 
-    int i    = 0;
+    int i = 0;
     int res4 = FrontierData_SetField_0xC(frontierData, (u16)SaveStruct23_Substruct1_GetField(saveStruct23_substruct1, FIELD_0x0_2, 0), DATA_GET) * 0x18;
 
     for (i = 0; i < res4; i++) {

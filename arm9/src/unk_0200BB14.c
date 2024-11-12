@@ -209,7 +209,7 @@ void sub_0200BD04(u32 *param0) {
 
 BOOL sub_0200BD20(
     struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1, const char **param2) {
-    s32 st14          = 6;
+    s32 st14 = 6;
     const char **st10 = param2;
 
     if (param0 == NULL || param1 == NULL) {
@@ -221,12 +221,12 @@ BOOL sub_0200BD20(
     }
 
     param1->unk54 = st14;
-    u32 r2        = sub_0200965C();
+    u32 r2 = sub_0200965C();
     param1->unk08 = AllocFromHeap(param0->heapId, r2 * st14);
 
     for (s32 i = 0; i < st14; i++) {
         struct UnkStruct_02008DEC_2 *st18 = sub_02009660(param1->unk08, i);
-        void *st1c                        = AllocAndReadFile(param0->heapId, st10[i]);
+        void *st1c = AllocAndReadFile(param0->heapId, st10[i]);
 
         sub_02009668(st1c, st18, param0->heapId);
         FreeToHeap(st1c);
@@ -238,14 +238,14 @@ BOOL sub_0200BD20(
 
     for (s32 i = 0; i < st14; i++) {
         struct UnkStruct_02008DEC_2 *st20 = sub_02009660(param1->unk08, i);
-        param1->unk24[i]                  = sub_02009424(sub_020096CC(st20), param0->heapId);
-        param1->unk3c[i]                  = sub_020093A8(param1->unk0c[i], st20, param1->unk24[i], param0->heapId);
+        param1->unk24[i] = sub_02009424(sub_020096CC(st20), param0->heapId);
+        param1->unk3c[i] = sub_020093A8(param1->unk0c[i], st20, param1->unk24[i], param0->heapId);
     }
 
     sub_02009A90(param1->unk24[0]);
     sub_02009D34(param1->unk24[1]);
     struct UnkStruct_02008AA4_2 *r6 = AllocAndReadFile(param0->heapId, st10[6]);
-    param1->unk04                   = sub_02008BE0(r6,
+    param1->unk04 = sub_02008BE0(r6,
         param0->heapId,
         param1->unk0c[0],
         param1->unk0c[1],
@@ -473,7 +473,7 @@ struct UnkStruct_0200BB14_5 *sub_0200C154(
     }
 
     ptr->unk08->unk0 = AllocFromHeap(param0->heapId, sizeof(struct UnkStruct_0200BB14_sub));
-    ptr->unk04       = ptr->unk08->unk0;
+    ptr->unk04 = ptr->unk08->unk0;
     if (ptr->unk08->unk0 == NULL) {
         if (ptr->unk08 != NULL) {
             FreeToHeap(ptr->unk08);

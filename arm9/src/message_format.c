@@ -52,7 +52,7 @@ MessageFormat *MessageFormat_New_Custom(u32 nstr, u32 strlen, HeapID heapId) {
     GF_ASSERT(strlen != 0);
     MessageFormat *messageFormat = AllocFromHeapAtEnd(heapId, sizeof(MessageFormat));
     if (messageFormat != NULL) {
-        messageFormat->count  = nstr;
+        messageFormat->count = nstr;
         messageFormat->heapId = heapId;
         messageFormat->buffer = String_New(strlen, heapId);
         if (messageFormat->buffer != NULL) {
@@ -125,7 +125,7 @@ void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveData *sa
 }
 
 void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData *save) {
-    PlayerProfile *profile  = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *profile = Save_PlayerData_GetProfileAddr(save);
     struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heapId);
     if (PlayerProfile_GetTrainerGender(profile) == PLAYER_GENDER_MALE) {
         ReadMsgDataIntoString(msgData, narc_0497_00001, messageFormat->buffer); // Dawn
@@ -518,8 +518,8 @@ void BufferSealNamePlural(MessageFormat *messageFormat, u32 idx, u32 seal) {
 }
 
 void BufferLocationName(MessageFormat *messageFormat, u32 idx, u16 location) {
-    u32 r6                  = (u32)sub_02015CC0(location);
-    u32 r4                  = (u32)sub_02015CE0(location);
+    u32 r6 = (u32)sub_02015CC0(location);
+    u32 r4 = (u32)sub_02015CE0(location);
     struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, UNK_020ECE64[r6], messageFormat->heapId);
     if (msgData != NULL) {
         if (r4 < MsgDataGetCount(msgData)) {
@@ -577,9 +577,9 @@ void BufferContestBackgroundName(MessageFormat *messageFormat, u32 idx, u32 bg) 
 }
 
 void BufferGroupName(MessageFormat *messageFormat, struct SaveData *save, u32 r5, u32 idx, u32 sp28) {
-    void *r6          = sub_0202881C(save);
-    u8 sp10           = sub_020287F8(r6, r5);
-    u8 r7             = sub_02028804(r6, r5);
+    void *r6 = sub_0202881C(save);
+    u8 sp10 = sub_020287F8(r6, r5);
+    u8 r7 = sub_02028804(r6, r5);
     struct String *r4 = String_New(64, HEAP_ID_4);
     CopyU16ArrayToString(r4, sub_020287A8(r6, r5, sp28));
     BufferString(messageFormat, idx, r4, sp10, 1, r7);
@@ -614,7 +614,7 @@ void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest,
                 cstr = MsgArray_SkipControlCode(cstr);
             } else {
                 const u16 *before = cstr;
-                cstr              = MsgArray_SkipControlCode(cstr);
+                cstr = MsgArray_SkipControlCode(cstr);
                 while (before < cstr) {
                     StrAddChar(dest, *before++);
                 }

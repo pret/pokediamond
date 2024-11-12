@@ -43,9 +43,9 @@ label:
 
 void ov05_021E7358(FieldSystem *fieldSystem, u32 param1, u32 param2) {
     UnkStruct021E7358 *res = ov05_021E74D4(24);
-    res->fieldSystem       = fieldSystem;
-    res->Unk10             = param1;
-    res->Unk00             = param2;
+    res->fieldSystem = fieldSystem;
+    res->Unk10 = param1;
+    res->Unk00 = param2;
     PlaySE(SEQ_SE_DP_F209);
     FieldSystem_CreateTask(fieldSystem, ov05_021E73B4, res);
 }
@@ -65,9 +65,9 @@ u32 ov05_021E7388(u32 param0) {
 }
 
 BOOL ov05_021E73B4(TaskManager *taskManager) {
-    UnkStruct021E7358 *strct     = TaskManager_GetEnvironment(taskManager);
+    UnkStruct021E7358 *strct = TaskManager_GetEnvironment(taskManager);
     LocalMapObject *playerObject = PlayerAvatar_GetMapObject(strct->Unk10);
-    u8 res2                      = (u8)sub_02058720(playerObject);
+    u8 res2 = (u8)sub_02058720(playerObject);
     switch (strct->Unk08) {
     case 0:
         MapObject_SetFlagsBits(playerObject, MAPOBJECTFLAG_UNK8);

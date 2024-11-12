@@ -663,7 +663,7 @@ u8 MapHeader_GetMoveModelBank(u32 mapno) {
 u16 MapHeader_GetMatrixId(u32 mapno) {
     u16 ret;
     mapno = MapNumberBoundsCheck(mapno);
-    ret   = sMapHeaders[mapno].matrix_id;
+    ret = sMapHeaders[mapno].matrix_id;
     // Spear Pillar
     if (ret == NARC_map_matrix_narc_0022_bin && gGameVersion == VERSION_PEARL) {
         ret = NARC_map_matrix_narc_0023_bin;

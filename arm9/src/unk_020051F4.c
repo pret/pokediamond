@@ -30,7 +30,7 @@ u32 sub_020051F4(u16 param0) {
 }
 
 u32 sub_0200521C(u16 param0) {
-    u8 r4        = sub_020048D0(param0);
+    u8 r4 = sub_020048D0(param0);
     int playerNo = sub_02004018(r4);
 
     u32 ret;
@@ -238,7 +238,7 @@ void sub_0200554C(u32 param0) {
 }
 
 u32 sub_02005578(u16 species) {
-    u8 *r4                          = sub_02003D38(17);
+    u8 *r4 = sub_02003D38(17);
     struct SaveChatotSoundClip **r0 = sub_02003D38(35);
 
     if (species != SPECIES_CHATOT) {
@@ -311,8 +311,8 @@ u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) 
     s32 st1c, st18;
     u8 *st14 = sub_02003D38(15);
     u8 *st10 = sub_02003D38(16);
-    u8 *r4   = sub_02003D38(17);
-    u8 *stc  = sub_02003D38(29);
+    u8 *r4 = sub_02003D38(17);
+    u8 *stc = sub_02003D38(29);
     sub_02003D38(35);
 
     st1c = 64 + (param2 / 2);
@@ -502,7 +502,7 @@ void sub_02005AE0(u32 param0, HeapID heapId) {
     ptr[0] = param0;
     u32 r0 = (u32)SysTask_CreateOnMainQueue((SysTaskFunc)sub_02005B2C, (void *)ptr, 0); // TODO: fix this func
     ptr[1] = r0;
-    *r6    = r0;
+    *r6 = r0;
 }
 
 void sub_02005B2C(SysTask *task, s32 *param1) {

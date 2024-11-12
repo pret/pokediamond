@@ -94,7 +94,7 @@ u32 FontFunc(u32 fontId, struct TextPrinter *printer) {
     struct TextPrinterSubStruct *subStruct = (struct TextPrinterSubStruct *)(&printer->subStructFields);
 
     if (subStruct->hasGlyphIdBeenSet == 0) {
-        subStruct->glyphId           = fontId;
+        subStruct->glyphId = fontId;
         subStruct->hasGlyphIdBeenSet = 1;
     }
 

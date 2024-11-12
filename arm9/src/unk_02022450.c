@@ -40,10 +40,10 @@ void sub_02022450() {
             SetBakRomCode(ROM_CODE_ADAJ_BE);
         }
         FSArchive *const r0 = FS_FindArchive(arc_name, 3);
-        r0->fat             = card_header_buffer->fat.offset;
-        r0->fat_size        = card_header_buffer->fat.length;
-        r0->fnt             = card_header_buffer->fnt.offset;
-        r0->fnt_size        = card_header_buffer->fnt.length;
+        r0->fat = card_header_buffer->fat.offset;
+        r0->fat_size = card_header_buffer->fat.length;
+        r0->fnt = card_header_buffer->fnt.offset;
+        r0->fnt_size = card_header_buffer->fnt.length;
         if (GetBakRomCode() != ROM_CODE_ADAJ_BE || GetBakRomMaker() != MAKER_CODE_01_BE) {
             OS_Terminate();
         }

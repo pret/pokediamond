@@ -21,7 +21,7 @@ void sub_02028700(struct UnkSaveStruct_020286F8 *ptr, int a, int b) {
 void sub_02028724(struct UnkSaveStruct_020286F8 *ptr) {
     MI_CpuClearFast(ptr, 6 * sizeof(struct UnkSaveStruct_020286F8));
     for (int i = 0; i < 6; i++) {
-        ptr[i].unk_0[0]  = EOS;
+        ptr[i].unk_0[0] = EOS;
         ptr[i].unk_10[0] = EOS;
     }
     UNK_021C59D0 = ptr;

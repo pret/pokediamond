@@ -7,14 +7,14 @@
 
 struct TaskManager *Task_New(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env) {
     struct TaskManager *taskManager = AllocFromHeapAtEnd(HEAP_ID_32, sizeof(struct TaskManager));
-    taskManager->prev               = NULL;
-    taskManager->func               = taskFunc;
-    taskManager->state              = 0;
-    taskManager->env                = env;
-    taskManager->unk10              = NULL;
-    taskManager->unk14              = NULL;
-    taskManager->fieldSystem        = fieldSystem;
-    taskManager->unk1C              = AllocFromHeapAtEnd(HEAP_ID_32, 4);
+    taskManager->prev = NULL;
+    taskManager->func = taskFunc;
+    taskManager->state = 0;
+    taskManager->env = env;
+    taskManager->unk10 = NULL;
+    taskManager->unk14 = NULL;
+    taskManager->fieldSystem = fieldSystem;
+    taskManager->unk1C = AllocFromHeapAtEnd(HEAP_ID_32, 4);
     return taskManager;
 }
 
@@ -24,9 +24,9 @@ void FieldSystem_CreateTask(struct FieldSystem *fieldSystem, TaskFunc taskFunc, 
 }
 
 void TaskManager_Jump(struct TaskManager *taskManager, TaskFunc taskFunc, void *env) {
-    taskManager->func  = taskFunc;
+    taskManager->func = taskFunc;
     taskManager->state = 0;
-    taskManager->env   = env;
+    taskManager->env = env;
     if (taskManager->unk14 != NULL || taskManager->unk14 != NULL) {
         FreeToHeap(taskManager->unk14);
         taskManager->unk10 = NULL;
@@ -35,8 +35,8 @@ void TaskManager_Jump(struct TaskManager *taskManager, TaskFunc taskFunc, void *
 }
 
 void TaskManager_Call(struct TaskManager *taskManager, TaskFunc taskFunc, void *env) {
-    struct TaskManager *taskManager2      = Task_New(taskManager->fieldSystem, taskFunc, env);
-    taskManager2->prev                    = taskManager;
+    struct TaskManager *taskManager2 = Task_New(taskManager->fieldSystem, taskFunc, env);
+    taskManager2->prev = taskManager;
     taskManager->fieldSystem->taskManager = taskManager2;
 }
 
@@ -77,7 +77,7 @@ BOOL sub_020464A4(void *r0) {
 
 BOOL sub_020464B8(struct TaskManager *taskManager) {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    u32 *r4_2                       = TaskManager_GetEnvironment(taskManager);
+    u32 *r4_2 = TaskManager_GetEnvironment(taskManager);
     switch (r4_2[0]) {
     case 0:
         sub_020373D4(fieldSystem, (struct OverlayManagerTemplate *)r4_2[1], (void *)r4_2[2]); // FIXME: typing is wrong
@@ -95,9 +95,9 @@ BOOL sub_020464B8(struct TaskManager *taskManager) {
 
 void sub_02046500(struct TaskManager *taskManager, u32 r5, u32 r4) {
     u32 *r2 = AllocFromHeapAtEnd(HEAP_ID_32, 3 * sizeof(u32));
-    r2[0]   = 0;
-    r2[1]   = r5;
-    r2[2]   = r4;
+    r2[0] = 0;
+    r2[1] = r5;
+    r2[2] = r4;
     TaskManager_Call(taskManager, sub_020464B8, r2);
 }
 

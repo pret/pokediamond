@@ -50,18 +50,18 @@ void FontData_Init(struct FontData *ptr, NarcId narcId, s32 fileId, BOOL unk, He
         NARC_ReadFromMember(ptr->narc, (u32)fileId, 0, 16, &ptr->gfxHeader);
         ptr->isFixedWidthFont = unk;
         if (unk) {
-            ptr->glyphWidths    = NULL;
+            ptr->glyphWidths = NULL;
             ptr->glyphWidthFunc = GetGlyphWidth_FixedWidth;
         } else {
             GF_ASSERT(ptr->gfxHeader.widthDataStart != 0);
-            ptr->glyphWidths    = AllocFromHeap(heapId, ptr->gfxHeader.numGlyphs);
+            ptr->glyphWidths = AllocFromHeap(heapId, ptr->gfxHeader.numGlyphs);
             ptr->glyphWidthFunc = GetGlyphWidth_VariableWidth;
             NARC_ReadFromMember(ptr->narc, (u32)fileId, ptr->gfxHeader.widthDataStart, ptr->gfxHeader.numGlyphs, ptr->glyphWidths);
         }
         GF_ASSERT(ptr->gfxHeader.glyphWidth <= 2 && ptr->gfxHeader.glyphHeight <= 2);
         ptr->glyphShape = sGlyphShapes[ptr->gfxHeader.glyphWidth - 1][ptr->gfxHeader.glyphHeight - 1];
-        ptr->glyphSize  = (u32)(16 * ptr->gfxHeader.glyphWidth * ptr->gfxHeader.glyphHeight);
-        ptr->fileId     = (u32)fileId;
+        ptr->glyphSize = (u32)(16 * ptr->gfxHeader.glyphWidth * ptr->gfxHeader.glyphHeight);
+        ptr->fileId = (u32)fileId;
     }
 }
 
@@ -80,8 +80,8 @@ void InitFontResources(struct FontData *ptr, u32 a1, HeapID heapId) {
 }
 
 void InitFontResources_FromPreloaded(struct FontData *ptr, HeapID heapId) {
-    u32 r4               = ptr->glyphSize * ptr->gfxHeader.numGlyphs;
-    ptr->narcReadBuf     = AllocFromHeap(heapId, r4);
+    u32 r4 = ptr->glyphSize * ptr->gfxHeader.numGlyphs;
+    ptr->narcReadBuf = AllocFromHeap(heapId, r4);
     ptr->uncompGlyphFunc = DecompressGlyphTiles_FromPreloaded;
     NARC_ReadFromMember(ptr->narc, ptr->fileId, ptr->gfxHeader.headerSize, r4, ptr->narcReadBuf);
 }
@@ -108,7 +108,7 @@ void TryLoadGlyph(struct FontData *ptr, u32 param1, struct UnkStruct_02002C14_su
     if (param1 <= ptr->gfxHeader.numGlyphs) {
         ptr->uncompGlyphFunc(ptr, (u16)(param1 - 1), ptr2);
     } else {
-        ptr2->width  = 0;
+        ptr2->width = 0;
         ptr2->height = 0;
     }
 }
@@ -134,7 +134,7 @@ void DecompressGlyphTiles_FromPreloaded(struct FontData *ptr, u16 param1, struct
         DecompressGlyphTile((void *)(r4 + 0x30), (void *)(param2->buf + 0x60));
         break;
     }
-    param2->width  = (u8)ptr->glyphWidthFunc(ptr, param1);
+    param2->width = (u8)ptr->glyphWidthFunc(ptr, param1);
     param2->height = ptr->gfxHeader.fixedHeight;
 }
 
@@ -159,7 +159,7 @@ void DecompressGlyphTiles_LazyFromNarc(struct FontData *ptr, u16 param1, struct 
         DecompressGlyphTile((void *)(ptr->glyphReadBuf + 0x30), (void *)(param2->buf + 0x60));
         break;
     }
-    param2->width  = (u8)ptr->glyphWidthFunc(ptr, param1);
+    param2->width = (u8)ptr->glyphWidthFunc(ptr, param1);
     param2->height = ptr->gfxHeader.fixedHeight;
 }
 
@@ -190,7 +190,7 @@ int GetGlyphWidth_FixedWidth(struct FontData *ptr, int a1) {
 
 s32 GetStringWidthMultiline(struct FontData *r7, const u16 *arr, u32 r6) {
     s32 ret = 0;
-    u32 r4  = 0;
+    u32 r4 = 0;
     while (*arr != EOS) {
         if (*arr == EXT_CTRL_CODE_BEGIN) {
             arr = MsgArray_SkipControlCode(arr);

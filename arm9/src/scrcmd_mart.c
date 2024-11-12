@@ -351,7 +351,7 @@ BOOL ScrCmd_NormalMart(ScriptContext *ctx) // 0147 - todo: Pokemart?
     u16 whichMart = ScriptGetVar(ctx);
     s32 param;
     u16 martItems[64];
-    u8 martIdx    = 0;
+    u8 martIdx = 0;
     u8 badgeCount = 0;
     u8 i;
 

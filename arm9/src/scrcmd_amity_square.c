@@ -106,7 +106,7 @@ BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext *ctx) // 0215
 
 BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext *ctx) // 0216
 {
-    u16 *ret_ptr                = ScriptGetVarPointer(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct SaveVarsFlags *state = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = sub_0205F55C(state);
@@ -116,8 +116,8 @@ BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext *ctx) // 0216
 BOOL ScrCmd_GetAmitySquareAccessory(struct ScriptContext *ctx) // 0217
 {
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
-    u16 species  = ScriptGetVar(ctx);
-    u16 rand     = (u16)(LCRandom() % 100);
+    u16 species = ScriptGetVar(ctx);
+    u16 rand = (u16)(LCRandom() % 100);
 
     u32 j;
     if (rand < 15) {

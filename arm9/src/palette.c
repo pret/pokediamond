@@ -22,13 +22,13 @@ void sub_02002FEC(struct PaletteData *ptr) {
 void PaletteData_SetBuffers(
     struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size) {
     paletteData->pltt[index].unfadedBuf = unfadedBuf;
-    paletteData->pltt[index].fadedBuf   = fadedBuf;
-    paletteData->pltt[index].bufSize    = size;
+    paletteData->pltt[index].fadedBuf = fadedBuf;
+    paletteData->pltt[index].bufSize = size;
 }
 
 void PaletteData_AllocBuffers(
     struct PaletteData *paletteData, u32 index, u32 size, HeapID heapId) {
-    void *ptr  = AllocFromHeap(heapId, size);
+    void *ptr = AllocFromHeap(heapId, size);
     void *ptr2 = AllocFromHeap(heapId, size);
 
     PaletteData_SetBuffers(paletteData, index, ptr, ptr2, size);
@@ -151,7 +151,7 @@ u32 sub_02003210(struct PaletteData *paletteData,
     u16 color) {
 
     u16 stc = param2;
-    u32 r6  = 0;
+    u32 r6 = 0;
 
     for (u8 i = 0; i < 14; i++) {
         if (IsPaletteSelected(param1, i) != 1) {
@@ -175,7 +175,7 @@ u32 sub_02003210(struct PaletteData *paletteData,
         }
 
         param2 = stc;
-        r6     = 1;
+        r6 = 1;
     }
 
     if (r6 == 1) {
@@ -184,7 +184,7 @@ u32 sub_02003210(struct PaletteData *paletteData,
             paletteData->unk11a_e = 1;
 
             paletteData->unk118_0 = 1;
-            paletteData->unk11c   = 0;
+            paletteData->unk11c = 0;
 
             SysTask_CreateOnMainQueue((SysTaskFunc)sub_02003464, (void *)paletteData, (u32)(-2));
         }
@@ -232,16 +232,16 @@ void sub_020033A4(struct PaletteFadeControl *paletteFade,
     u16 color) {
     if (delay < 0) {
         paletteFade->deltaY = abs(delay) + 2;
-        paletteFade->delay  = 0;
+        paletteFade->delay = 0;
     } else {
         paletteFade->deltaY = 2;
-        paletteFade->delay  = delay;
+        paletteFade->delay = delay;
     }
 
     paletteFade->selectedPalettes = selectedPalettes;
-    paletteFade->y                = startY;
-    paletteFade->targetY          = targetY;
-    paletteFade->blendColor       = color;
+    paletteFade->y = startY;
+    paletteFade->targetY = targetY;
+    paletteFade->blendColor = color;
 
     paletteFade->delayCounter = paletteFade->delay;
 
@@ -254,10 +254,10 @@ void sub_020033A4(struct PaletteFadeControl *paletteFade,
 
 void sub_02003464(SysTask *task, struct PaletteData *param1) {
     if (param1->unk11c == 1) {
-        param1->unk11c             = 0;
-        param1->unk11a_0           = 0;
+        param1->unk11c = 0;
+        param1->unk11a_0 = 0;
         param1->activeFadePalettes = 0;
-        param1->unk11a_e           = 0;
+        param1->unk11a_e = 0;
         SysTask_Destroy(task);
         return;
     }
@@ -317,7 +317,7 @@ void sub_020035F8(
     for (u32 i = 0; i < numEntries; i++) {
         u8 lo = (u8)((src[i] & 0x1f) + ((((fadeCtrl->blendColor & 0x1f) - (src[i] & 0x1f)) * fadeCtrl->y) >> 4));
 
-        u8 hi  = (u8)(((src[i] >> 10) & 0x1f) + (((((fadeCtrl->blendColor >> 10) & 0x1f) - ((src[i] >> 10) & 0x1f)) * fadeCtrl->y) >> 4));
+        u8 hi = (u8)(((src[i] >> 10) & 0x1f) + (((((fadeCtrl->blendColor >> 10) & 0x1f) - ((src[i] >> 10) & 0x1f)) * fadeCtrl->y) >> 4));
         u8 mid = (u8)(((src[i] >> 5) & 0x1f) + (((((fadeCtrl->blendColor >> 5) & 0x1f) - ((src[i] >> 5) & 0x1f)) * fadeCtrl->y) >> 4));
 
         dest[i] = (u16)((hi << 10) | (mid << 5) | lo);
@@ -524,7 +524,7 @@ void BlendPalettes(u16 *src, u16 *dest, u16 selectedPalettes, u8 coeff, u16 blen
 
 void BlendPalettesUnfaded(
     struct PaletteData *paletteData, u32 index, u16 selectedPalettes, u8 coeff, u16 blendColor) {
-    u32 r4  = 0;
+    u32 r4 = 0;
     BOOL r0 = FALSE;
     if (paletteData->pltt[index].unfadedBuf != 0 && paletteData->pltt[index].fadedBuf != 0) {
         r0 = TRUE;

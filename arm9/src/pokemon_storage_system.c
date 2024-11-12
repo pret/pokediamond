@@ -32,7 +32,7 @@ void PCStorage_InitializeBoxes(struct PCStorage *pc) {
             j = 0;
         }
     }
-    pc->unlockedWallpapers  = 0;
+    pc->unlockedWallpapers = 0;
     struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0014_bin, HEAP_ID_DEFAULT);
     if (msgData != NULL) {
         for (i = 0; i < NUM_BOXES; i++) {
@@ -129,7 +129,7 @@ BOOL PCStorage_FindFirstEmptySlot(struct PCStorage *pc, int *boxno, int *slotno)
     do {
         while (j < (int)MONS_PER_BOX) {
             if (!GetBoxMonData(&pc->boxes[i][j], MON_DATA_SPECIES_EXISTS, NULL)) {
-                *boxno  = i;
+                *boxno = i;
                 *slotno = j;
                 return TRUE;
             }

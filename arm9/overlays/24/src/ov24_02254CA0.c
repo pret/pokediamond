@@ -35,8 +35,8 @@ BOOL ov24_02254CA0(MemoPadDisplayHandler **displayHandlerOut, MemoPadDrawState *
         ov20_022536F4(&(displayHandler->unk8), 0x10);
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         displayHandler->drawState = drawState;
-        displayHandler->config    = ov20_02252D34();
-        displayHandler->unk50     = ov20_02252D24();
+        displayHandler->config = ov20_02252D34();
+        displayHandler->unk50 = ov20_02252D24();
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         *displayHandlerOut = displayHandler;
         return TRUE;
@@ -46,12 +46,12 @@ BOOL ov24_02254CA0(MemoPadDisplayHandler **displayHandlerOut, MemoPadDrawState *
 
 BOOL ov24_02254D00(MemoPadDisplayHandler *displayHandler) {
     static const WindowTemplate template = {
-        .bgId     = GF_BG_LYR_SUB_3,
-        .left     = 2,
-        .top      = 2,
-        .width    = 20,
-        .height   = 19,
-        .palette  = 0,
+        .bgId = GF_BG_LYR_SUB_3,
+        .left = 2,
+        .top = 2,
+        .width = 20,
+        .height = 19,
+        .palette = 0,
         .baseTile = 12,
     };
     displayHandler->window = AllocWindows(HEAP_ID_POKETCH_APP, 1);
@@ -119,34 +119,34 @@ void ov24_02254DC8(void *arg0) {
 
 void ov24_02254DDC(void *arg0, void *arg1) {
     static const BgTemplate template_7000 = {
-        .x          = 0,
-        .y          = 0,
+        .x = 0,
+        .y = 0,
         .bufferSize = 0,
-        .baseTile   = 0,
-        .size       = 1,
-        .colorMode  = 0,
+        .baseTile = 0,
+        .size = 1,
+        .colorMode = 0,
         .screenBase = GX_BG_SCRBASE_0x7000,
-        .charBase   = GX_BG_CHARBASE_0x00000,
-        .bgExtPltt  = 0,
-        .priority   = 2,
-        .areaOver   = 0,
-        .dummy      = 0,
-        .mosaic     = 0,
+        .charBase = GX_BG_CHARBASE_0x00000,
+        .bgExtPltt = 0,
+        .priority = 2,
+        .areaOver = 0,
+        .dummy = 0,
+        .mosaic = 0,
     };
     static const BgTemplate template_7800 = {
-        .x          = 0,
-        .y          = 0,
+        .x = 0,
+        .y = 0,
         .bufferSize = 0x800,
-        .baseTile   = 0,
-        .size       = 1,
-        .colorMode  = 0,
+        .baseTile = 0,
+        .size = 1,
+        .colorMode = 0,
         .screenBase = GX_BG_SCRBASE_0x7800,
-        .charBase   = GX_BG_CHARBASE_0x00000,
-        .bgExtPltt  = 0,
-        .priority   = 3,
-        .areaOver   = 0,
-        .dummy      = 0,
-        .mosaic     = 0,
+        .charBase = GX_BG_CHARBASE_0x00000,
+        .bgExtPltt = 0,
+        .priority = 3,
+        .areaOver = 0,
+        .dummy = 0,
+        .mosaic = 0,
     };
     GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_APP));
     GXSDispCnt dispcnt;
@@ -191,12 +191,12 @@ void ov24_02254F28(s32 arg0, void *arg1) {
 
 void ov24_02254F40(u32 arg0, void *arg1) {
     MemoPadDisplayHandler *displayHandler = ov20_022538A0(arg1);
-    MemoPadDrawState *drawState           = displayHandler->drawState;
+    MemoPadDrawState *drawState = displayHandler->drawState;
     if (drawState->touchType == TOUCH_TYPE_ERASE) {
         s32 width, height;
         width = height = 8;
-        s32 x          = drawState->lastModifiedX * 2 - 4;
-        s32 y          = drawState->lastModifiedY * 2 - 4;
+        s32 x = drawState->lastModifiedX * 2 - 4;
+        s32 y = drawState->lastModifiedY * 2 - 4;
         if (x < 0) {
             width += x;
             x = 0;
@@ -215,10 +215,10 @@ void ov24_02254F40(u32 arg0, void *arg1) {
         }
     } else {
         s32 height = 2;
-        s32 width  = 2;
-        s32 x      = drawState->lastModifiedX * 2;
-        s32 y      = drawState->lastModifiedY * 2;
-        s32 a      = (x >> 3) + ((y >> 3) * 0x14);
+        s32 width = 2;
+        s32 x = drawState->lastModifiedX * 2;
+        s32 y = drawState->lastModifiedY * 2;
+        s32 a = (x >> 3) + ((y >> 3) * 0x14);
         FillWindowPixelRect(displayHandler->window, MEMO_PAD_PIXEL_TYPE_FILLED, x, y, width, height);
         GXS_LoadBG3Char((u8 *)(displayHandler->window->pixelBuffer) + a * 0x20, (a + 0xc) * 0x20, 0x20);
     }

@@ -52,7 +52,7 @@ extern void NNS_SndPlayerSetPlayerVolume(u32, u8);
 
 void sub_020040F4(u8 param0) {
     u8 *ptr = sub_02003D38(5);
-    *ptr    = param0;
+    *ptr = param0;
 }
 
 u8 sub_02004104(void) {
@@ -63,7 +63,7 @@ u8 sub_02004104(void) {
 
 void sub_02004110(u16 param0) {
     u16 *ptr = sub_02003D38(9);
-    *ptr     = param0;
+    *ptr = param0;
 
     sub_02004130(0);
 }
@@ -76,7 +76,7 @@ u16 sub_02004124(void) {
 
 void sub_02004130(u16 param0) {
     u16 *ptr = sub_02003D38(10);
-    *ptr     = param0;
+    *ptr = param0;
 }
 
 u16 sub_02004140(void) {
@@ -87,15 +87,15 @@ u16 sub_02004140(void) {
 
 void sub_0200414C(u16 param0) {
     u16 *ptr = sub_02003D38(31);
-    *ptr     = param0;
+    *ptr = param0;
 }
 
 void sub_0200415C(u8 param0) {
-    u8 *ptr  = sub_02003D38(20);
+    u8 *ptr = sub_02003D38(20);
     u8 *ptr2 = sub_02003D38(21);
 
     if (param0 < 51) {
-        *ptr  = param0;
+        *ptr = param0;
         *ptr2 = 0;
     } else {
         *ptr2 = param0;
@@ -342,7 +342,7 @@ void sub_02004568(int seqNo, u16 param1) {
 }
 
 void sub_020045C4(int seqNo, u32 param1) {
-    u8 *ptr   = sub_02003D38(18);
+    u8 *ptr = sub_02003D38(18);
     u16 *ptr2 = sub_02003D38(31);
 
     if (*ptr != 1 && param1 != 0) {
@@ -471,14 +471,14 @@ void sub_020047C8(u8 param0, u8 param1) {
     int r4;
     if (param0 == 1) {
         ptr = sub_02003D38(11);
-        r4  = 0;
+        r4 = 0;
     } else {
         if (param0 != 7) {
             return;
         }
 
         ptr = sub_02003D38(12);
-        r4  = 7;
+        r4 = 7;
     }
 
     if (param1 == 0) {
@@ -490,10 +490,10 @@ void sub_020047C8(u8 param0, u8 param1) {
 }
 
 void sub_02004810(void) {
-    u8 *ptr  = sub_02003D38(11);
+    u8 *ptr = sub_02003D38(11);
     u8 *ptr2 = sub_02003D38(12);
-    *ptr     = 0;
-    *ptr2    = 0;
+    *ptr = 0;
+    *ptr2 = 0;
 }
 
 void GF_SndPlayerMoveVolume(int playerNo, s32 param1, s32 param2) {
@@ -589,7 +589,7 @@ u32 GF_MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3) {
 
 void *sub_02004930(u32 param0) {
     GetSoundDataPointer();
-    u8 *ptr  = sub_02003D38(15);
+    u8 *ptr = sub_02003D38(15);
     u8 *ptr2 = sub_02003D38(16);
     GF_ASSERT(param0 == 14 || param0 == 15);
     GF_ASSERT(param0 != 14 || *ptr != 0);
@@ -604,14 +604,14 @@ void *sub_02004930(u32 param0) {
 
 BOOL sub_02004984(u32 param0) {
     GetSoundDataPointer();
-    u8 *ptr  = sub_02003D38(15);
+    u8 *ptr = sub_02003D38(15);
     u8 *ptr2 = sub_02003D38(16);
     GF_ASSERT(param0 == 14 || param0 == 15);
 
     if (param0 == 14) {
         if (*ptr == 0) {
             u32 *r4 = sub_02003D38(0);
-            *r4     = NNS_SndWaveOutAllocChannel(param0);
+            *r4 = NNS_SndWaveOutAllocChannel(param0);
             if (*r4 == 0) {
                 return FALSE;
             }
@@ -622,7 +622,7 @@ BOOL sub_02004984(u32 param0) {
     } else {
         if (*ptr2 == 0) {
             u32 *r6 = sub_02003D38(1);
-            *r6     = NNS_SndWaveOutAllocChannel(param0);
+            *r6 = NNS_SndWaveOutAllocChannel(param0);
             if (*r6 == 0) {
                 return FALSE;
             }
@@ -638,7 +638,7 @@ BOOL sub_02004984(u32 param0) {
 
 void sub_02004A04(u32 param0) {
     GetSoundDataPointer();
-    u8 *ptr  = sub_02003D38(15);
+    u8 *ptr = sub_02003D38(15);
     u8 *ptr2 = sub_02003D38(16);
     if (param0 != 14 && param0 != 15) {
         GF_AssertFail();
@@ -732,7 +732,7 @@ u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, HeapID heapId) 
 
     if (param3 == 14) {
         void *ptr = AllocFromHeap(heapId, r6);
-        *r4       = ptr;
+        *r4 = ptr;
         if (ptr == NULL) {
             GF_AssertFail();
             return 0;
@@ -764,22 +764,22 @@ u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, HeapID heapId) 
     u32 ret = sub_02004A6C(&st8, param3);
     sub_02004AF8(param3, param1);
     u8 *r0 = sub_02003D38(14);
-    *r0    = 1;
+    *r0 = 1;
 
     return ret;
 }
 
 void sub_02004C1C(u8 *param0, u32 param1) {
     for (u32 r5 = 0; r5 < param1 / 2; r5++) {
-        u8 r4                   = param0[r5];
-        param0[r5]              = param0[param1 - 1 - r5];
+        u8 r4 = param0[r5];
+        param0[r5] = param0[param1 - 1 - r5];
         param0[param1 - 1 - r5] = r4;
     }
 }
 
 void sub_02004C3C(u32 param0) {
     GetSoundDataPointer();
-    u8 *ptr     = sub_02003D38(14);
+    u8 *ptr = sub_02003D38(14);
     void **ptr2 = sub_02003D38(33);
 
     GF_ASSERT(param0 == 14 || param0 == 15);
@@ -815,7 +815,7 @@ void sub_02004CB4(void) {
 
     MI_CpuFill8(sub_02003D38(4), 0, 0x1c);
 
-    void *r4  = sub_02003D38(3);
+    void *r4 = sub_02003D38(3);
     void *st8 = sub_02003D38(4);
 
     NNS_SndCaptureStartEffect(r4, 0x1000, 0, 0x55F0, 2, sub_02005068, st8);
@@ -1003,7 +1003,7 @@ void sub_02004F70(
     s32 r1;
     int i, j;
     u32 r12 = sub_02004F28(1, param0, param3);
-    r1      = (s32)r12 - 100;
+    r1 = (s32)r12 - 100;
     if (r1 < 0) {
         r1 = 0;
     }
@@ -1078,7 +1078,7 @@ void sub_02004F70(
 void sub_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, void *param4) {
     s16 st10[8][2];
     s16(*st0)[2] = param4;
-    u8 *r7       = sub_02003D38(19);
+    u8 *r7 = sub_02003D38(19);
 
     int r0;
     int i, j;

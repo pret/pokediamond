@@ -33,7 +33,7 @@ void Save_SysInfo_InitFromSystem(struct SaveSysInfo *unk) {
     OS_GetMacAddress(unk->macAddr);
     OS_GetOwnerInfo(&info);
     unk->birthMonth = info.birthday.month;
-    unk->birthDay   = info.birthday.day;
+    unk->birthDay = info.birthday.day;
 }
 
 BOOL Save_SysInfo_MacAddressIsMine(struct SaveSysInfo *unk) {
@@ -80,10 +80,10 @@ void sub_02023834(struct SaveSysInfo *unk, u32 val) {
 void Save_SysInfo_RTC_Init(SysInfo_RTC *sub) {
     sub->field_00 = 1;
     GF_RTC_CopyDateTime(&sub->date, &sub->time);
-    sub->daysSinceNitroEpoch    = RTC_ConvertDateToDay(&sub->date);
+    sub->daysSinceNitroEpoch = RTC_ConvertDateToDay(&sub->date);
     sub->secondsSinceNitroEpoch = RTC_ConvertDateTimeToSecond(&sub->date, &sub->time);
-    sub->field_2C               = 0;
-    sub->field_34               = 0;
+    sub->field_2C = 0;
+    sub->field_34 = 0;
 }
 
 BOOL sub_02023874(SysInfo_RTC *sub) {

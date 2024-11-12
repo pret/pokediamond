@@ -44,25 +44,25 @@ void sub_02015EF4(void) {
 }
 
 void Main_SetVBlankIntrCB(void (*a0)(void *), void *a1) {
-    gSystem.vBlankIntr    = a0;
+    gSystem.vBlankIntr = a0;
     gSystem.vBlankIntrArg = a1;
 }
 
 void sub_02015F1C(void) {
     Main_ToggleHBlankInterrupt(FALSE);
-    gSystem.hBlankIntr    = NULL;
+    gSystem.hBlankIntr = NULL;
     gSystem.hBlankIntrArg = NULL;
 }
 
 BOOL Main_SetHBlankIntrCB(void (*a0)(void *), void *a1) {
     if (a0 == 0) {
         Main_ToggleHBlankInterrupt(FALSE);
-        gSystem.hBlankIntr    = NULL;
+        gSystem.hBlankIntr = NULL;
         gSystem.hBlankIntrArg = NULL;
         return TRUE;
     } else if (gSystem.hBlankIntr == NULL) {
         gSystem.hBlankIntrArg = a1;
-        gSystem.hBlankIntr    = a0;
+        gSystem.hBlankIntr = a0;
         Main_ToggleHBlankInterrupt(TRUE);
         return TRUE;
     } else {
@@ -135,15 +135,15 @@ void InitSystemForTheGame(void) {
     GX_VBlankIntr(TRUE);
     FS_Init(1);
     sub_02022450();
-    u32 size    = FS_TryLoadTable(NULL, 0);
+    u32 size = FS_TryLoadTable(NULL, 0);
     void *table = OS_AllocFromArenaLo(OS_ARENA_MAIN, size, 4);
     GF_ASSERT(table != NULL);
     FS_TryLoadTable(table, size);
-    gSystem.vBlankIntr     = NULL;
-    gSystem.hBlankIntr     = NULL;
-    gSystem.unk10          = 0;
-    gSystem.unk14          = 0;
-    gSystem.unk2C          = 0;
+    gSystem.vBlankIntr = NULL;
+    gSystem.hBlankIntr = NULL;
+    gSystem.unk10 = 0;
+    gSystem.unk14 = 0;
+    gSystem.unk2C = 0;
     gSystem.screensFlipped = 0;
 }
 
@@ -164,7 +164,7 @@ void *AllocAndReadFile(HeapID heapId, const char *path) {
     FS_InitFile(&file);
     if (FS_OpenFile(&file, path)) {
         u32 size = file.prop.file.bottom - file.prop.file.top;
-        ret      = AllocFromHeap(heapId, size);
+        ret = AllocFromHeap(heapId, size);
         if (ret != NULL) {
             if (size != FS_ReadFile(&file, ret, (s32)size)) {
                 FreeToHeapExplicit(heapId, ret);
@@ -226,7 +226,7 @@ int GetFileCacheId(u32 hash) {
 int AddFileToCache(void *contents, u32 hash) {
     for (int i = 0; i < 128; i++) {
         if (sFileCache[i].contents == NULL) {
-            sFileCache[i].contents  = contents;
+            sFileCache[i].contents = contents;
             sFileCache[i].name_hash = hash;
             return i;
         }
@@ -238,7 +238,7 @@ void ClearFileCache(void) {
     for (int i = 127; i > -1; i--) {
         if (sFileCache[i].contents != NULL) {
             FreeToHeap(sFileCache[i].contents);
-            sFileCache[i].contents  = NULL;
+            sFileCache[i].contents = NULL;
             sFileCache[i].name_hash = 0;
         }
     }
@@ -256,7 +256,7 @@ void *OpenFileCached(const s8 *str, HeapID heapId) {
     } else {
         strcpy(filenameBuf, str);
     }
-    u32 hash    = GetFilenameHash(filenameBuf);
+    u32 hash = GetFilenameHash(filenameBuf);
     s32 cacheId = GetFileCacheId(hash);
     if (cacheId >= 0 && skipCache == 0) {
         ret = sFileCache[cacheId].contents;
@@ -264,7 +264,7 @@ void *OpenFileCached(const s8 *str, HeapID heapId) {
         FS_InitFile(&file);
         if (FS_OpenFile(&file, (const char *)filenameBuf)) {
             u32 size = file.prop.file.bottom - file.prop.file.top;
-            ret      = AllocFromHeap(heapId, size);
+            ret = AllocFromHeap(heapId, size);
             if (ret != NULL) {
                 if (size != FS_ReadFile(&file, ret, (s32)size)) {
                     FreeToHeap(ret);
@@ -284,27 +284,27 @@ void *OpenFileCached(const s8 *str, HeapID heapId) {
 
 void InitKeypadAndTouchpad(void) {
     TPCalibrateParam tp;
-    gSystem.buttonMode             = 0;
-    gSystem.heldKeysRaw            = 0;
-    gSystem.newKeysRaw             = 0;
-    gSystem.newAndRepeatedKeysRaw  = 0;
-    gSystem.heldKeys               = 0;
-    gSystem.newKeys                = 0;
-    gSystem.newAndRepeatedKeys     = 0;
-    gSystem.keyRepeatCounter       = 0;
+    gSystem.buttonMode = 0;
+    gSystem.heldKeysRaw = 0;
+    gSystem.newKeysRaw = 0;
+    gSystem.newAndRepeatedKeysRaw = 0;
+    gSystem.heldKeys = 0;
+    gSystem.newKeys = 0;
+    gSystem.newAndRepeatedKeys = 0;
+    gSystem.keyRepeatCounter = 0;
     gSystem.keyRepeatContinueDelay = 8;
-    gSystem.keyRepeatStartDelay    = 15;
-    gSystem.touchX                 = 0;
-    gSystem.touchY                 = 0;
-    gSystem.touchNew               = 0;
-    gSystem.touchHeld              = 0;
-    gSystem.touchpadReadAuto       = 0;
+    gSystem.keyRepeatStartDelay = 15;
+    gSystem.touchX = 0;
+    gSystem.touchY = 0;
+    gSystem.touchNew = 0;
+    gSystem.touchHeld = 0;
+    gSystem.touchpadReadAuto = 0;
     TP_Init();
     if (TP_GetUserInfo(&tp) == TRUE) {
         TP_SetCalibrateParam(&tp);
     } else {
-        tp.x0       = 686;
-        tp.y0       = 1420;
+        tp.x0 = 686;
+        tp.y0 = 1420;
         tp.xDotSize = 3621;
         tp.yDotSize = 4616;
         TP_SetCalibrateParam(&tp);
@@ -327,11 +327,11 @@ void ReadKeypadAndTocuhpad(void) {
     TPData raw, calib;
     if (PAD_DetectFold()) {
         // Can't press any buttons while the lid is closed.
-        gSystem.newKeys            = 0;
-        gSystem.heldKeys           = 0;
+        gSystem.newKeys = 0;
+        gSystem.heldKeys = 0;
         gSystem.newAndRepeatedKeys = 0;
-        gSystem.touchNew           = 0;
-        gSystem.touchHeld          = 0;
+        gSystem.touchNew = 0;
+        gSystem.touchHeld = 0;
         return;
     }
 
@@ -349,7 +349,7 @@ void ReadKeypadAndTocuhpad(void) {
     if (padRead != 0 && gSystem.heldKeysRaw == padRead) {
         if (--gSystem.keyRepeatCounter == 0) {
             gSystem.newAndRepeatedKeysRaw = padRead;
-            gSystem.keyRepeatCounter      = gSystem.keyRepeatContinueDelay;
+            gSystem.keyRepeatCounter = gSystem.keyRepeatContinueDelay;
         }
     } else {
         gSystem.keyRepeatCounter = gSystem.keyRepeatStartDelay;
@@ -357,8 +357,8 @@ void ReadKeypadAndTocuhpad(void) {
     gSystem.heldKeysRaw = padRead;
 
     // Apply the button mode option to the read key input
-    gSystem.newKeys            = gSystem.newKeysRaw;
-    gSystem.heldKeys           = padRead;
+    gSystem.newKeys = gSystem.newKeysRaw;
+    gSystem.heldKeys = padRead;
     gSystem.newAndRepeatedKeys = gSystem.newAndRepeatedKeysRaw;
     ApplyButtonModeToInput();
 
@@ -395,7 +395,7 @@ void ReadKeypadAndTocuhpad(void) {
     else {
         calib.touch = 0;
     }
-    gSystem.touchNew  = (u16)((gSystem.touchHeld ^ calib.touch) & calib.touch);
+    gSystem.touchNew = (u16)((gSystem.touchHeld ^ calib.touch) & calib.touch);
     gSystem.touchHeld = calib.touch;
 }
 
@@ -468,7 +468,7 @@ void ApplyButtonModeToInput(void) {
 
 void SetKeyRepeatTimers(int continueDelay, int startDelay) {
     gSystem.keyRepeatContinueDelay = continueDelay;
-    gSystem.keyRepeatStartDelay    = startDelay;
+    gSystem.keyRepeatStartDelay = startDelay;
 }
 
 void SetSoftResetDisableMask(u8 a0) {

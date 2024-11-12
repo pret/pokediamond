@@ -35,8 +35,8 @@ extern s32 NNS_G2dGetImagePaletteLocation(u32, u32);
 
 struct UnkStruct_02008DEC_1 *sub_02008DEC(u32 param0, s32 param1, HeapID heapId) {
     struct UnkStruct_02008DEC_1 *ptr = AllocFromHeap(heapId, sizeof(struct UnkStruct_02008DEC_1));
-    ptr->unk00                       = sub_02020C44(param0, heapId);
-    ptr->unk04                       = AllocFromHeap(heapId, param0 * sizeof(struct UnkStruct_02008DEC_sub));
+    ptr->unk00 = sub_02020C44(param0, heapId);
+    ptr->unk04 = AllocFromHeap(heapId, param0 * sizeof(struct UnkStruct_02008DEC_sub));
     memset(ptr->unk04, 0, param0 * sizeof(struct UnkStruct_02008DEC_sub));
     ptr->unk08 = (s32)param0;
     ptr->unk0C = 0;
@@ -226,8 +226,8 @@ void sub_02009168(struct UnkStruct_02008DEC_1 *param0,
     GF_ASSERT(param1);
     GF_ASSERT(param1->unk04 == 1);
 
-    s32 r6   = sub_02009530(param1);
-    u32 r7   = sub_020095E4(param1);
+    s32 r6 = sub_02009530(param1);
+    u32 r7 = sub_020095E4(param1);
     u32 st24 = sub_02009610(param1);
     sub_02009490(param0, param1);
 
@@ -360,9 +360,9 @@ void sub_020093DC(struct UnkStruct_02008DEC_1 *param0,
 
 struct UnkStruct_02008DEC_5 *sub_02009424(s32 param0, HeapID heapId) {
     struct UnkStruct_02008DEC_5 *r4 = AllocFromHeap(heapId, sizeof(struct UnkStruct_02008DEC_5));
-    r4->unk00                       = AllocFromHeap(heapId, param0 * sizeof(struct UnkStruct_02008DEC_sub *));
-    r4->unk04                       = param0;
-    r4->unk08                       = 0;
+    r4->unk00 = AllocFromHeap(heapId, param0 * sizeof(struct UnkStruct_02008DEC_sub *));
+    r4->unk04 = param0;
+    r4->unk08 = 0;
 
     return r4;
 }
@@ -524,7 +524,7 @@ void sub_020096B4(struct UnkStruct_02008DEC_2 *param0) {
         FreeToHeap(param0->unk00_4);
     }
     param0->unk00_4 = NULL;
-    param0->unk04   = 0;
+    param0->unk04 = 0;
 }
 
 s32 sub_020096CC(struct UnkStruct_02008DEC_2 *param0) {
@@ -719,7 +719,7 @@ void sub_02009978(struct UnkStruct_02008DEC_1 *param0,
     u32 param8,
     HeapID heapId,
     BOOL param10) {
-    void *r1      = GfGfxLoader_LoadFromNarc(param2, param3, param4, heapId, param10);
+    void *r1 = GfGfxLoader_LoadFromNarc(param2, param3, param4, heapId, param10);
     param1->unk00 = sub_02020CD4(param0->unk00, r1, param5);
     param1->unk04 = param8;
 

@@ -22,7 +22,7 @@ void EnemyTrainerSet_Init(BattleSetup *setup, struct SaveData *save, HeapID heap
     s32 i;
     struct String *str;
 
-    msgData   = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0559_bin, heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0559_bin, heapId);
     rivalName = GetRivalNamePtr(sub_02024EC0(save));
     for (i = 0; i < 4; i++) {
         if (setup->trainerId[i] != 0) {
@@ -266,7 +266,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId) {
     // state
     seed_bak = GetLCRNGSeed();
     Party_InitWithMaxSize(setup->party[party_id], PARTY_SIZE);
-    data    = (union TrainerMon *)AllocFromHeap(heapId, sizeof(union TrainerMon) * PARTY_SIZE);
+    data = (union TrainerMon *)AllocFromHeap(heapId, sizeof(union TrainerMon) * PARTY_SIZE);
     pokemon = AllocMonZeroed(heapId);
     TrainerData_ReadTrPoke(setup->trainerId[party_id], data);
 

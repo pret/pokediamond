@@ -17,7 +17,7 @@ extern BOOL sub_02005670(void);
 
 BOOL ScrCmd_Unk02AE(struct ScriptContext *ctx) // 02AE
 {
-    u16 unk0  = ScriptReadHalfword(ctx);
+    u16 unk0 = ScriptReadHalfword(ctx);
     u16 *unk1 = ScriptGetVarPointer(ctx);
 
     *unk1 = sub_02005410(unk0);
@@ -141,7 +141,7 @@ BOOL sub_02041540(struct ScriptContext *ctx) {
 
 BOOL ScrCmd_PlayCry(struct ScriptContext *ctx) // 004C
 {
-    u16 unk0   = ScriptGetVar(ctx);
+    u16 unk0 = ScriptGetVar(ctx);
     u16 unused = ScriptGetVar(ctx);
     sub_02005578(unk0);
     return FALSE;

@@ -34,7 +34,7 @@ void sub_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     struct UnkStruct_02008DEC_sub *st10;
 
     struct UnkStruct_02008DEC_sub *stc = NULL;
-    struct UnkStruct_02008DEC_sub *r4  = NULL;
+    struct UnkStruct_02008DEC_sub *r4 = NULL;
     struct UnkStruct_02008DEC_sub *st8 = NULL;
 
     GF_ASSERT(param9);
@@ -117,8 +117,8 @@ struct UnkStruct_02008AA4_1 *sub_02008BE0(struct UnkStruct_02008AA4_2 *param0,
     }
 
     struct UnkStruct_02008AA4_1 *r6 = AllocFromHeap(heapId, sizeof(struct UnkStruct_02008AA4_1));
-    r6->unk00                       = AllocFromHeap(heapId, r4 * sizeof(struct UnkStruct_0200BB14_sub));
-    r6->unk04                       = r4;
+    r6->unk00 = AllocFromHeap(heapId, r4 * sizeof(struct UnkStruct_0200BB14_sub));
+    r6->unk04 = r4;
 
     for (int r7 = 0; r7 < r6->unk04; r7++) {
         sub_02008AA4(&r6->unk00[r7],

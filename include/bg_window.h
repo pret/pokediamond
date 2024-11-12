@@ -79,14 +79,14 @@ typedef struct Window {
     u8 width;
     u8 height;
     u8 paletteNum;
-    u16 baseTile  : 15;
+    u16 baseTile : 15;
     u16 colorMode : 1;
     void *pixelBuffer;
 } Window;
 
 enum GFScreen {
     SCREEN_MAIN = 0,
-    SCREEN_SUB  = 1,
+    SCREEN_SUB = 1,
 };
 
 enum GFBppMode {
@@ -103,20 +103,20 @@ enum GFBgLayer {
     GF_BG_LYR_SUB_1,
     GF_BG_LYR_SUB_2,
     GF_BG_LYR_SUB_3,
-    GF_BG_LYR_MAIN_CNT   = 4,
-    GF_BG_LYR_SUB_CNT    = 4,
+    GF_BG_LYR_MAIN_CNT = 4,
+    GF_BG_LYR_SUB_CNT = 4,
     GF_BG_LYR_MAIN_FIRST = GF_BG_LYR_MAIN_0,
-    GF_BG_LYR_SUB_FIRST  = GF_BG_LYR_SUB_0,
-    GF_BG_LYR_MAX        = 8,
+    GF_BG_LYR_SUB_FIRST = GF_BG_LYR_SUB_0,
+    GF_BG_LYR_MAX = 8,
 
     GF_BG_LYR_MAIN_0_F = 1 << (GF_BG_LYR_MAIN_0 - GF_BG_LYR_MAIN_FIRST),
     GF_BG_LYR_MAIN_1_F = 1 << (GF_BG_LYR_MAIN_1 - GF_BG_LYR_MAIN_FIRST),
     GF_BG_LYR_MAIN_2_F = 1 << (GF_BG_LYR_MAIN_2 - GF_BG_LYR_MAIN_FIRST),
     GF_BG_LYR_MAIN_3_F = 1 << (GF_BG_LYR_MAIN_3 - GF_BG_LYR_MAIN_FIRST),
-    GF_BG_LYR_SUB_0_F  = 1 << (GF_BG_LYR_SUB_0 - GF_BG_LYR_SUB_FIRST),
-    GF_BG_LYR_SUB_1_F  = 1 << (GF_BG_LYR_SUB_1 - GF_BG_LYR_SUB_FIRST),
-    GF_BG_LYR_SUB_2_F  = 1 << (GF_BG_LYR_SUB_2 - GF_BG_LYR_SUB_FIRST),
-    GF_BG_LYR_SUB_3_F  = 1 << (GF_BG_LYR_SUB_3 - GF_BG_LYR_SUB_FIRST),
+    GF_BG_LYR_SUB_0_F = 1 << (GF_BG_LYR_SUB_0 - GF_BG_LYR_SUB_FIRST),
+    GF_BG_LYR_SUB_1_F = 1 << (GF_BG_LYR_SUB_1 - GF_BG_LYR_SUB_FIRST),
+    GF_BG_LYR_SUB_2_F = 1 << (GF_BG_LYR_SUB_2 - GF_BG_LYR_SUB_FIRST),
+    GF_BG_LYR_SUB_3_F = 1 << (GF_BG_LYR_SUB_3 - GF_BG_LYR_SUB_FIRST),
 
     GF_BG_LYR_UNALLOC = 0xFF,
 };
@@ -133,16 +133,16 @@ enum GFPalLoadLocation {
 };
 
 enum GFPalSlotOffset {
-    GF_PAL_SLOT_0_OFFSET  = 0x00,
-    GF_PAL_SLOT_1_OFFSET  = 0x20,
-    GF_PAL_SLOT_2_OFFSET  = 0x40,
-    GF_PAL_SLOT_3_OFFSET  = 0x60,
-    GF_PAL_SLOT_4_OFFSET  = 0x80,
-    GF_PAL_SLOT_5_OFFSET  = 0xA0,
-    GF_PAL_SLOT_6_OFFSET  = 0xC0,
-    GF_PAL_SLOT_7_OFFSET  = 0xE0,
-    GF_PAL_SLOT_8_OFFSET  = 0x100,
-    GF_PAL_SLOT_9_OFFSET  = 0x120,
+    GF_PAL_SLOT_0_OFFSET = 0x00,
+    GF_PAL_SLOT_1_OFFSET = 0x20,
+    GF_PAL_SLOT_2_OFFSET = 0x40,
+    GF_PAL_SLOT_3_OFFSET = 0x60,
+    GF_PAL_SLOT_4_OFFSET = 0x80,
+    GF_PAL_SLOT_5_OFFSET = 0xA0,
+    GF_PAL_SLOT_6_OFFSET = 0xC0,
+    GF_PAL_SLOT_7_OFFSET = 0xE0,
+    GF_PAL_SLOT_8_OFFSET = 0x100,
+    GF_PAL_SLOT_9_OFFSET = 0x120,
     GF_PAL_SLOT_10_OFFSET = 0x140,
     GF_PAL_SLOT_11_OFFSET = 0x160,
     GF_PAL_SLOT_12_OFFSET = 0x180,

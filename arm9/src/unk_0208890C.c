@@ -27,13 +27,13 @@ struct PoffinCaseAppData *sub_0208890C(u32 a0, struct SaveData *save, HeapID hea
     struct PoffinCaseAppData *ret = AllocFromHeap(heapId, sizeof(struct PoffinCaseAppData));
     MI_CpuFill8(ret, 0, sizeof(struct PoffinCaseAppData));
 
-    ret->save           = save;
+    ret->save = save;
     ret->savePoffinData = Save_PoffinData_Get(save);
-    ret->player         = Save_PlayerData_GetProfileAddr(save);
-    ret->bag            = Save_Bag_Get(save);
-    ret->options        = Save_PlayerData_GetOptionsAddr(save);
-    ret->unk1C          = a3;
-    ret->unk4           = a0;
+    ret->player = Save_PlayerData_GetProfileAddr(save);
+    ret->bag = Save_Bag_Get(save);
+    ret->options = Save_PlayerData_GetOptionsAddr(save);
+    ret->unk1C = a3;
+    ret->unk4 = a0;
 
     return ret;
 }
@@ -43,7 +43,7 @@ void sub_02088950(struct FieldSystem *fieldSystem, struct PoffinCaseAppData *par
 }
 
 struct PoffinCaseAppData *sub_02088960(struct FieldSystem *fieldSystem, u32 a1, HeapID heapId) {
-    struct SaveData *save         = FieldSystem_GetSaveData(fieldSystem);
+    struct SaveData *save = FieldSystem_GetSaveData(fieldSystem);
     struct PoffinCaseAppData *ret = sub_0208890C(a1, save, heapId, fieldSystem->unk98);
 
     sub_02088950(fieldSystem, ret);

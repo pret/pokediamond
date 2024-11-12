@@ -12,7 +12,7 @@ static BOOL timer3_needReset;
 static vu64 timer3_counter;
 
 void Init_Timer3() {
-    timer3_counter   = 0;
+    timer3_counter = 0;
     timer3_needReset = FALSE;
 
     OS_SetTimerControl(OS_TIMER_3, 0);
@@ -40,7 +40,7 @@ void CountUpTimer3() {
 u64 internal_GetTimer3Count() {
     OSIntrMode intr_mode = OS_DisableInterrupts();
 
-    vu16 timer3  = reg_OS_TM3CNT_L;
+    vu16 timer3 = reg_OS_TM3CNT_L;
     vu64 counter = timer3_counter & 0x0000ffffffffffff;
 
     if (reg_OS_IF & OS_IE_TIMER3 && !(timer3 & 0x8000)) {

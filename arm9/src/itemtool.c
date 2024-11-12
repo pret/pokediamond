@@ -773,7 +773,7 @@ void GetItemDescIntoString(struct String *dest, u16 item_id, HeapID heapId) {
 u32 GetItemAttr(u16 item, u32 attr, HeapID heapId) {
     u32 ret;
     struct ItemData *itemData = (struct ItemData *)LoadItemDataOrGfx(item, 0, heapId);
-    ret                       = GetItemAttr_PreloadedItemData(itemData, attr);
+    ret = GetItemAttr_PreloadedItemData(itemData, attr);
     FreeToHeapExplicit(heapId, itemData);
     return ret;
 }

@@ -21,9 +21,9 @@ extern u32 ov05_021ED644(struct Daycare *daycare);
 
 BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext *ctx) // 016D
 {
-    struct SaveData *save         = ctx->fieldSystem->saveData;
+    struct SaveData *save = ctx->fieldSystem->saveData;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    struct Daycare *daycare       = Save_Daycare_Get(save);
+    struct Daycare *daycare = Save_Daycare_Get(save);
 
     ov05_021ED4E0(daycare, *messageFormat);
 
@@ -33,9 +33,9 @@ BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext *ctx) // 016D
 BOOL ScrCmd_GetDaycareStatus(struct ScriptContext *ctx) // 016E
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct SaveData *save           = fieldSystem->saveData;
-    u16 *ret_ptr                    = ScriptGetVarPointer(ctx);
-    struct Daycare *daycare         = SaveArray_Get(save, 8);
+    struct SaveData *save = fieldSystem->saveData;
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    struct Daycare *daycare = SaveArray_Get(save, 8);
 
     *ret_ptr = ov05_021ED5EC(daycare);
 
@@ -53,10 +53,10 @@ BOOL ScrCmd_DeleteDaycareEgg(struct ScriptContext *ctx) // 01A8
 BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext *ctx) // 01A9
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct Daycare *daycare         = SaveArray_Get(fieldSystem->saveData, 8);
-    struct Party *party             = SaveArray_Party_Get(fieldSystem->saveData);
-    struct SaveData *save           = FieldSystem_GetSaveData(ctx->fieldSystem);
-    PlayerProfile *player           = Save_PlayerData_GetProfileAddr(save);
+    struct Daycare *daycare = SaveArray_Get(fieldSystem->saveData, 8);
+    struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);
+    struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
+    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
 
     ov05_Daycare_GiveEggToPlayer(daycare, party, player);
 
@@ -66,12 +66,12 @@ BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext *ctx) // 01A9
 BOOL ScrCmd_Unk01A4(struct ScriptContext *ctx) // 01A4
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    MessageFormat **messageFormat   = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    struct SaveData *save           = fieldSystem->saveData;
-    u16 *ret_ptr                    = ScriptGetVarPointer(ctx);
-    u16 idx                         = ScriptGetVar(ctx);
-    struct Daycare *daycare         = SaveArray_Get(save, 8);
-    struct Party *party             = SaveArray_Party_Get(fieldSystem->saveData);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    struct SaveData *save = fieldSystem->saveData;
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    u16 idx = ScriptGetVar(ctx);
+    struct Daycare *daycare = SaveArray_Get(save, 8);
+    struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);
 
     *ret_ptr = ov05_021EC71C(party, *messageFormat, daycare, (u8)idx);
 
@@ -81,11 +81,11 @@ BOOL ScrCmd_Unk01A4(struct ScriptContext *ctx) // 01A4
 BOOL ScrCmd_Unk01AA(struct ScriptContext *ctx) // 01AA
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    MessageFormat **messageFormat   = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    struct SaveData *save           = fieldSystem->saveData;
-    u16 *ret_ptr                    = ScriptGetVarPointer(ctx);
-    u16 idx                         = ScriptGetVar(ctx);
-    struct Daycare *daycare         = SaveArray_Get(save, 8);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    struct SaveData *save = fieldSystem->saveData;
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    u16 idx = ScriptGetVar(ctx);
+    struct Daycare *daycare = SaveArray_Get(save, 8);
 
     *ret_ptr = ov05_021EC854(daycare, (u8)idx, *messageFormat);
 
@@ -94,11 +94,11 @@ BOOL ScrCmd_Unk01AA(struct ScriptContext *ctx) // 01AA
 
 BOOL ScrCmd_GetDaycareLevel(struct ScriptContext *ctx) // 01AE
 {
-    struct SaveData *save         = ctx->fieldSystem->saveData;
+    struct SaveData *save = ctx->fieldSystem->saveData;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    u16 *ret_ptr                  = ScriptGetVarPointer(ctx);
-    u16 idx                       = ScriptGetVar(ctx);
-    struct Daycare *daycare       = SaveArray_Get(save, 8);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    u16 idx = ScriptGetVar(ctx);
+    struct Daycare *daycare = SaveArray_Get(save, 8);
 
     *ret_ptr = ov05_021EC864(daycare, idx, *messageFormat);
 
@@ -108,11 +108,11 @@ BOOL ScrCmd_GetDaycareLevel(struct ScriptContext *ctx) // 01AE
 BOOL ScrCmd_Unk01AF(struct ScriptContext *ctx) // 01AF
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    MessageFormat **messageFormat   = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    u16 unused                      = ScriptReadHalfword(ctx);
-    u16 idx                         = ScriptGetVar(ctx);
-    u16 *ret_ptr                    = ScriptGetVarPointer(ctx);
-    struct Party *party             = SaveArray_Party_Get(fieldSystem->saveData);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    u16 unused = ScriptReadHalfword(ctx);
+    u16 idx = ScriptGetVar(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);
 
     *ret_ptr = ov05_021ED5C4(party, idx, *messageFormat);
 
@@ -122,10 +122,10 @@ BOOL ScrCmd_Unk01AF(struct ScriptContext *ctx) // 01AF
 BOOL ScrCmd_Unk01B0(struct ScriptContext *ctx) // 01B0
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct SaveData *save           = fieldSystem->saveData;
-    u16 idx                         = ScriptGetVar(ctx);
-    struct Party *party             = SaveArray_Party_Get(fieldSystem->saveData);
-    struct Daycare *daycare         = SaveArray_Get(save, 8);
+    struct SaveData *save = fieldSystem->saveData;
+    u16 idx = ScriptGetVar(ctx);
+    struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);
+    struct Daycare *daycare = SaveArray_Get(save, 8);
 
     ov05_021EC57C(party, (u8)idx, daycare, save);
 
@@ -134,13 +134,13 @@ BOOL ScrCmd_Unk01B0(struct ScriptContext *ctx) // 01B0
 
 BOOL ScrCmd_Unk01BC(struct ScriptContext *ctx) // 01BC
 {
-    struct SaveData *save         = ctx->fieldSystem->saveData;
+    struct SaveData *save = ctx->fieldSystem->saveData;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    u16 idx1                      = ScriptGetVar(ctx);
-    u16 idx2                      = ScriptGetVar(ctx);
-    u16 idx3                      = ScriptGetVar(ctx);
-    u16 idx4                      = ScriptGetVar(ctx);
-    struct Daycare *daycare       = Save_Daycare_Get(save);
+    u16 idx1 = ScriptGetVar(ctx);
+    u16 idx2 = ScriptGetVar(ctx);
+    u16 idx3 = ScriptGetVar(ctx);
+    u16 idx4 = ScriptGetVar(ctx);
+    struct Daycare *daycare = Save_Daycare_Get(save);
 
     ov05_021ED52C(daycare, (u8)idx1, (u8)idx2, (u8)idx3, (u8)idx4, *messageFormat);
 
@@ -149,8 +149,8 @@ BOOL ScrCmd_Unk01BC(struct ScriptContext *ctx) // 01BC
 
 BOOL ScrCmd_Unk01BE(struct ScriptContext *ctx) // 01BE
 {
-    struct SaveData *save   = ctx->fieldSystem->saveData;
-    u16 *ret_ptr            = ScriptGetVarPointer(ctx);
+    struct SaveData *save = ctx->fieldSystem->saveData;
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct Daycare *daycare = SaveArray_Get(save, 8);
 
     *ret_ptr = (u16)ov05_021ED644(daycare);
@@ -160,8 +160,8 @@ BOOL ScrCmd_Unk01BE(struct ScriptContext *ctx) // 01BE
 
 BOOL ScrCmd_Unk01BF(struct ScriptContext *ctx) // 01BF - todo: SaveEggPID?
 {
-    struct SaveData *save   = ctx->fieldSystem->saveData;
-    u16 *ret_ptr            = ScriptGetVarPointer(ctx);
+    struct SaveData *save = ctx->fieldSystem->saveData;
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct Daycare *daycare = SaveArray_Get(save, 8);
 
     *ret_ptr = (u16)Save_Daycare_GetEggPID(daycare);
