@@ -9,6 +9,26 @@
 #include "gfx.h"
 #include "util.h"
 
+static unsigned int FindNitroDataBlock(const unsigned char *data, const char *ident, unsigned int fileSize, unsigned int *blockSize_out)
+{
+    unsigned int offset = 0x10;
+    while (offset < fileSize)
+    {
+        unsigned int blockSize = data[offset + 4] | (data[offset + 5] << 8) | (data[offset + 6] << 16) | (data[offset + 7] << 24);
+        if (offset + blockSize > fileSize)
+        {
+            FATAL_ERROR("corrupted NTR file");
+        }
+        if (memcmp(data + offset, ident, 4) == 0)
+        {
+            *blockSize_out = blockSize;
+            return offset;
+        }
+        offset += blockSize;
+    }
+    return -1u;
+}
+
 #define GET_GBA_PAL_RED(x)   (((x) >>  0) & 0x1F)
 #define GET_GBA_PAL_GREEN(x) (((x) >>  5) & 0x1F)
 #define GET_GBA_PAL_BLUE(x)  (((x) >> 10) & 0x1F)
@@ -694,7 +714,7 @@ void ReadGbaPalette(char *path, struct Palette *palette)
     free(data);
 }
 
-void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIndex)
+void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIndex, bool inverted)
 {
     int fileSize;
     unsigned char *data = ReadWholeFile(path, &fileSize);
@@ -719,6 +739,7 @@ void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIn
     bitdepth = bitdepth ? bitdepth : palette->bitDepth;
 
     size_t paletteSize = (paletteHeader[0x10]) | (paletteHeader[0x11] << 8) | (paletteHeader[0x12] << 16) | (paletteHeader[0x13] << 24);
+    if (inverted) paletteSize = 0x200 - paletteSize;
     if (palIndex == 0) {
         palette->numColors = paletteSize / 2;
     } else {
@@ -769,7 +790,7 @@ void WriteGbaPalette(char *path, struct Palette *palette)
     fclose(fp);
 }
 
-void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth, bool pad, int compNum, bool pcmp)
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth, bool pad, int compNum, bool pcmp, bool inverted)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -823,10 +844,11 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
     }
 
     //size
-    palHeader[16] = size & 0xFF;
-    palHeader[17] = (size >> 8) & 0xFF;
-    palHeader[18] = (size >> 16) & 0xFF;
-    palHeader[19] = (size >> 24) & 0xFF;
+    int colorSize = inverted ? 0x200 - size : size;
+    palHeader[16] = colorSize & 0xFF;
+    palHeader[17] = (colorSize >> 8) & 0xFF;
+    palHeader[18] = (colorSize >> 16) & 0xFF;
+    palHeader[19] = (colorSize >> 24) & 0xFF;
 
     fwrite(palHeader, 1, 0x18, fp);
 
@@ -888,38 +910,30 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
     fclose(fp);
 }
 
-void ReadNtrCell(char *path, struct JsonToCellOptions *options)
+void ReadNtrCell_CEBK(unsigned char * restrict data, unsigned int blockOffset, unsigned int blockSize, struct JsonToCellOptions *options)
 {
-    int fileSize;
-    unsigned char *data = ReadWholeFile(path, &fileSize);
+    options->cellCount = data[blockOffset + 0x8] | (data[blockOffset + 0x9] << 8);
+    options->extended = data[blockOffset + 0xA] == 1;
 
-    if (memcmp(data, "RECN", 4) != 0) //NCER
-    {
-        FATAL_ERROR("Not a valid NCER cell file.\n");
-    }
-
-    options->labelEnabled = data[0xE] != 1;
-
-    if (memcmp(data + 0x10, "KBEC", 4) != 0 ) //KBEC
-    {
-        FATAL_ERROR("Not a valid KBEC cell file.\n");
-    }
-
-    options->cellCount = data[0x18] | (data[0x19] << 8);
-    options->extended = data[0x1A] == 1;
+    int vramTransferOffset = (data[blockOffset + 0x14] | data[blockOffset + 0x15] << 8);
+    options->vramTransferEnabled = vramTransferOffset > 0;
     /*if (!options->extended)
     {
         //in theory not extended should be implemented, however not 100% sure
         FATAL_ERROR("Don't know how to deal with not extended yet, bug red031000.\n");
     }*/
 
-    options->mappingType = data[0x20];
+    options->mappingType = data[blockOffset + 0x10];
 
     options->cells = malloc(sizeof(struct Cell *) * options->cellCount);
+    int celSize = options->extended ? 0x10 : 0x8;
 
     for (int i = 0; i < options->cellCount; i++)
     {
-        int offset = 0x30 + (i * (options->extended ? 0x10 : 0x8));
+        int offset = blockOffset + 0x20 + (i * celSize);
+        if (offset + celSize > blockOffset + blockSize) {
+            FATAL_ERROR("corrupted CEBK block\n");
+        }
         options->cells[i] = malloc(sizeof(struct Cell));
         options->cells[i]->oamCount = data[offset] | (data[offset + 1] << 8);
         short cellAttrs = data[offset + 2] | (data[offset + 3] << 8);
@@ -938,7 +952,7 @@ void ReadNtrCell(char *path, struct JsonToCellOptions *options)
         }
     }
 
-    int offset = 0x30 + (options->cellCount * (options->extended ? 0x10 : 0x8));
+    int offset = blockOffset + 0x20 + (options->cellCount * celSize);
     for (int i = 0; i < options->cellCount; i++)
     {
         options->cells[i]->oam = malloc(sizeof(struct OAM) * options->cells[i]->oamCount);
@@ -993,35 +1007,84 @@ void ReadNtrCell(char *path, struct JsonToCellOptions *options)
         }
     }
 
-    if (options->labelEnabled)
+    if (options->vramTransferEnabled)
     {
-        int count = 0;
-        int offset = 0x30 + (options->cellCount * 0x16) + 0x8;
-        bool flag = false;
-        //this entire thing is a huge assumption, it will not work with labels that are less than 2 characters long
-        while (!flag)
+        offset = blockOffset + 0x08 + vramTransferOffset;
+        
+        // first 2 dwords are max size and offset, offset *should* always be 0x08 since the transfer data list immediately follows this
+        options->vramTransferMaxSize = data[offset] | (data[offset + 1] << 8) | (data[offset + 2] << 16) | (data[offset + 3] << 24);
+        offset += 0x08;
+
+        // read 1 VRAM transfer data block for each cell (this is an assumption based on the NCERs I looked at)
+        options->transferData = malloc(sizeof(struct CellVramTransferData *) * options->cellCount);
+        for (int idx = 0; idx < options->cellCount; idx++)
         {
-            if (strlen((char *) data + offset) < 2)
-            {
-                //probably a pointer, maybe?
-                count++;
-                offset += 4;
-            }
-            else
-            {
-                //huzzah a string
-                flag = true;
-            }
+            options->transferData[idx] = malloc(sizeof(struct CellVramTransferData));
+            options->transferData[idx]->sourceDataOffset = data[offset] | (data[offset + 1] << 8) | (data[offset + 2] << 16) | (data[offset + 3] << 24);
+            options->transferData[idx]->size = data[offset + 4] | (data[offset + 5] << 8) | (data[offset + 6] << 16) | (data[offset + 7] << 24);
+            offset += 8;
         }
-        options->labelCount = count;
-        options->labels = malloc(sizeof(char *) * count);
-        for (int i = 0; i < count; i++)
+    }
+}
+
+void ReadNtrCell_LABL(unsigned char * restrict data, unsigned int blockOffset, unsigned int blockSize, struct JsonToCellOptions *options)
+{
+    int count = 0;
+    unsigned int textStart = blockOffset + 8;
+    while (textStart < blockOffset + blockSize)
+    {
+        unsigned int labelOffset = data[textStart] | (data[textStart + 1] << 8) | (data[textStart + 2] << 16) | (data[textStart + 3] << 24);
+        if (labelOffset > blockSize)
         {
-            options->labels[i] = malloc(strlen((char *) data + offset) + 1);
-            strcpy(options->labels[i], (char *) data + offset);
-            offset += strlen(options->labels[i]) + 1;
+            break;
         }
-        //after this should be txeu, if everything was done right
+        else {
+            ++count;
+            textStart += 4;
+        }
+    }
+    options->labelCount = count;
+    options->labels = malloc(sizeof(char *) * count);
+    for (int i = 0; i < count; ++i)
+    {
+        int offset = textStart + (data[blockOffset + 4 * i + 8] | (data[blockOffset + 4 * i + 9] << 8) | (data[blockOffset + 4 * i + 10] << 16) | (data[blockOffset + 4 * i + 11] << 24));
+        if (offset > blockOffset + blockSize)
+        {
+            FATAL_ERROR("corrupted LABL block\n");
+        }
+        unsigned long slen = strnlen((char *)data + offset, blockSize - offset);
+        options->labels[i] = malloc(slen + 1);
+        strncpy(options->labels[i], (char *)data + offset, slen + 1);
+    }
+}
+
+void ReadNtrCell(char *path, struct JsonToCellOptions *options)
+{
+    int fileSize;
+    unsigned char *data = ReadWholeFile(path, &fileSize);
+    unsigned int offset = 0x10;
+
+    if (memcmp(data, "RECN", 4) != 0) //NCER
+    {
+        FATAL_ERROR("Not a valid NCER cell file.\n");
+    }
+
+    options->labelEnabled = false;
+
+    unsigned int blockSize;
+    offset = FindNitroDataBlock(data, "KBEC", fileSize, &blockSize);
+    if (offset != -1u)
+    {
+        ReadNtrCell_CEBK(data, offset, blockSize, options);
+    }
+    else {
+        FATAL_ERROR("missing CEBK block");
+    }
+    offset = FindNitroDataBlock(data, "LBAL", fileSize, &blockSize);
+    if (offset != -1u)
+    {
+        options->labelEnabled = true;
+        ReadNtrCell_LABL(data, offset, blockSize, options);
     }
 
     free(data);
@@ -1034,7 +1097,25 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
-    unsigned int totalSize = (options->labelEnabled > 0 ? 0x34 : 0x20) + options->cellCount * (options->extended ? 0x16 : 0xe);
+    int iterNum = (options->extended ? 0x10 : 0x8);
+
+    // KBEC base size: 0x08 per bank, or 0x10 per extended bank
+    unsigned int kbecSize = options->cellCount * (options->extended ? 0x10 : 0x08);
+    // if VRAM transfer is enabled, add 0x08 for the header and 0x08 for each cell
+    if (options->vramTransferEnabled)
+    {
+        kbecSize += 0x08 + (0x08 * options->cellCount);
+    }
+    // add 0x06 for number of OAMs - can be more than 1
+    for (int idx = 0; idx < options->cellCount * iterNum; idx += iterNum)
+    {
+        kbecSize += options->cells[idx / iterNum]->oamCount * 0x06;
+    }
+
+    // KBEC size is padded to be 4-byte aligned
+    kbecSize += kbecSize % 4;
+
+    unsigned int totalSize = (options->labelEnabled > 0 ? 0x34 : 0x20) + kbecSize;
 
     if (options->labelEnabled)
     {
@@ -1059,18 +1140,27 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
         KBECHeader[10] = 1; //extended
     }
 
-    unsigned int size = options->cellCount * (options->extended ? 0x16 : 0xe);
-
-    KBECHeader[4] = (size + 0x20) & 0xFF; //size
-    KBECHeader[5] = (size + 0x20) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
+    KBECHeader[4] = (kbecSize + 0x20) & 0xFF; //size
+    KBECHeader[5] = (kbecSize + 0x20) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
 
     KBECHeader[16] = (options->mappingType & 0xFF); //not possible to be more than 8 bits, though 32 are allocated
 
+    // offset to VRAM transfer data within KBEC section (offset from KBEC start + 0x08)
+    if (options->vramTransferEnabled) 
+    {
+        unsigned int vramTransferLength = 0x08 + (0x08 * options->cellCount);
+        unsigned int vramTransferOffset = (kbecSize + 0x20) - vramTransferLength - 0x08;
+        KBECHeader[20] = vramTransferOffset & 0xFF;
+        KBECHeader[21] = (vramTransferOffset >> 8) & 0xFF;
+        KBECHeader[22] = (vramTransferOffset >> 16) & 0xFF;
+        KBECHeader[23] = (vramTransferOffset >> 24) & 0xFF;
+    }
+
     fwrite(KBECHeader, 1, 0x20, fp);
 
-    unsigned char *KBECContents = malloc(size);
+    unsigned char *KBECContents = malloc(kbecSize);
 
-    memset(KBECContents, 0, size);
+    memset(KBECContents, 0, kbecSize);
 
     /*if (!options->extended)
     {
@@ -1079,7 +1169,6 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
     }*/
 
     int i;
-    int iterNum = (options->extended ? 0x10 : 0x8);
     int totalOam = 0;
     for (i = 0; i < options->cellCount * iterNum; i += iterNum)
     {
@@ -1163,7 +1252,38 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
         }
     }
 
-    fwrite(KBECContents, 1, size, fp);
+    // VRAM transfer data
+    if (options->vramTransferEnabled)
+    {
+        // max transfer size + fixed offset 0x08
+        KBECContents[offset] = options->vramTransferMaxSize & 0xFF;
+        KBECContents[offset + 1] = (options->vramTransferMaxSize >> 8) & 0xFF;
+        KBECContents[offset + 2] = (options->vramTransferMaxSize >> 16) & 0xFF;
+        KBECContents[offset + 3] = (options->vramTransferMaxSize >> 24) & 0xFF;
+
+        KBECContents[offset + 4] = 0x08;
+
+        offset += 8;
+
+        // write a VRAM transfer block for each cell
+        for (int idx = 0; idx < options->cellCount; idx++)
+        {
+            // offset
+            KBECContents[offset] = options->transferData[idx]->sourceDataOffset & 0xFF;
+            KBECContents[offset + 1] = (options->transferData[idx]->sourceDataOffset >> 8) & 0xFF;
+            KBECContents[offset + 2] = (options->transferData[idx]->sourceDataOffset >> 16) & 0xFF;
+            KBECContents[offset + 3] = (options->transferData[idx]->sourceDataOffset >> 24) & 0xFF;
+
+            // size
+            KBECContents[offset + 4] = options->transferData[idx]->size & 0xFF;
+            KBECContents[offset + 5] = (options->transferData[idx]->size >> 8) & 0xFF;
+            KBECContents[offset + 6] = (options->transferData[idx]->size >> 16) & 0xFF;
+            KBECContents[offset + 7] = (options->transferData[idx]->size >> 24) & 0xFF;
+            offset += 8;
+        }
+    }
+
+    fwrite(KBECContents, 1, kbecSize, fp);
 
     free(KBECContents);
 
@@ -1318,6 +1438,7 @@ void ReadNtrAnimation(char *path, struct JsonToAnimationOptions *options)
             {
                 if (resultOffsets[k] == options->sequenceData[i]->frameData[j]->resultOffset)
                 {
+                    options->sequenceData[i]->frameData[j]->resultId = k;
                     present = true;
                     break;
                 }
@@ -1330,6 +1451,7 @@ void ReadNtrAnimation(char *path, struct JsonToAnimationOptions *options)
                 {
                     if (resultOffsets[k] == -1)
                     {
+                        options->sequenceData[i]->frameData[j]->resultId = k;
                         resultOffsets[k] = options->sequenceData[i]->frameData[j]->resultOffset;
                         break;
                     }
@@ -1360,37 +1482,49 @@ void ReadNtrAnimation(char *path, struct JsonToAnimationOptions *options)
         options->animationResults[i] = malloc(sizeof(struct AnimationResults));
     }
 
+    // store the animationElement of the corresponding sequence as this result's resultType
+    for (int i = 0; i < options->sequenceCount; i++)
+    {
+        for (int j = 0; j < options->sequenceData[i]->frameCount; j++)
+        {
+            options->animationResults[options->sequenceData[i]->frameData[j]->resultId]->resultType = options->sequenceData[i]->animationElement;
+        }
+    }
+
     int resultOffset = 0;
+    int lastSequence = 0;
     for (int i = 0; i < options->resultCount; i++)
     {
-        if (data[offset + 2] == 0xCC && data[offset + 3] == 0xCC)
-        {
-            options->animationResults[i]->resultType = 0;
-        }
-        else if (data[offset + 2] == 0xEF && data[offset + 3] == 0xBE)
-        {
-            options->animationResults[i]->resultType = 2;
-        }
-        else
-        {
-            options->animationResults[i]->resultType = 1;
-        }
+        // find the earliest sequence matching this animation result,
+        // and add padding if the sequence changes + the total offset is not 4-byte aligned.
+        bool found = false;
         for (int j = 0; j < options->sequenceCount; j++)
         {
             for (int k = 0; k < options->sequenceData[j]->frameCount; k++)
             {
-                if (options->sequenceData[j]->frameData[k]->resultOffset == resultOffset)
+                if (options->sequenceData[j]->frameData[k]->resultId == i)
                 {
-                    options->sequenceData[j]->frameData[k]->resultId = i;
+                    if (lastSequence != j)
+                    {
+                        lastSequence = j;
+                        if (resultOffset % 4 != 0)
+                        {
+                            resultOffset += 0x2;
+                            offset += 0x2;
+                        }
+                    }
+                    found = true;
+                    break;
                 }
             }
+            if (found) break;
         }
         switch (options->animationResults[i]->resultType)
         {
             case 0: //index
                 options->animationResults[i]->index = data[offset] | (data[offset + 1] << 8);
-                resultOffset += 0x4;
-                offset += 0x4;
+                resultOffset += 0x2;
+                offset += 0x2;
                 break;
 
             case 1: //SRT
@@ -1413,6 +1547,9 @@ void ReadNtrAnimation(char *path, struct JsonToAnimationOptions *options)
                 break;
         }
     }
+
+    // add any missed padding from the final frame before processing labels
+    if (offset % 4 != 0) offset += 2;
 
     if (options->labelEnabled)
     {
@@ -1439,16 +1576,68 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
 
     unsigned int totalSize = 0x20 + options->sequenceCount * 0x10 + options->frameCount * 0x8;
 
-    //todo: check these
     for (int i = 0; i < options->resultCount; i++)
     {
         if (options->animationResults[i]->resultType == 0)
-            totalSize += 0x4;
+            totalSize += 0x2;
         else if (options->animationResults[i]->resultType == 1)
             totalSize += 0x10;
         else if (options->animationResults[i]->resultType == 2)
             totalSize += 0x8;
     }
+
+    // foreach sequence, need to check whether padding is applied for its results
+    // then add 0x02 to totalSize if padding exists.
+    // padding exists if the animation results for that sequence are not 4-byte aligned.
+    // also flag the last result for the sequence with `padded` to save having to redo this same step later.
+    int *usedResults = malloc(sizeof(int) * options->frameCount);
+    memset(usedResults, -1, sizeof(int) * options->frameCount);
+    for (int i = 0; i < options->sequenceCount; i++)
+    {
+        int sequenceLen = 0;
+        int resultIndex = 0;
+        int lastNewResultIndex = -1;
+        for (int j = 0; j < options->sequenceData[i]->frameCount; j++)
+        {
+            // check if the result has already been used
+            bool isUsed = false;
+            for (resultIndex = 0; resultIndex < options->resultCount; resultIndex++)
+            {
+                if (usedResults[resultIndex] == options->sequenceData[i]->frameData[j]->resultId)
+                {
+                    isUsed = true;
+                    break;
+                }
+
+                // if not already used, add it to the list
+                if (usedResults[resultIndex] == -1)
+                {
+                    usedResults[resultIndex] = options->sequenceData[i]->frameData[j]->resultId;
+                    lastNewResultIndex = options->sequenceData[i]->frameData[j]->resultId;
+                    break;
+                }
+            }
+
+            // if not already used, add it to the result size for the sequence
+            if (!isUsed)
+            {
+                if (options->animationResults[resultIndex]->resultType == 0)
+                    sequenceLen += 0x2;
+                else if (options->animationResults[resultIndex]->resultType == 1)
+                    sequenceLen += 0x10;
+                else if (options->animationResults[resultIndex]->resultType == 2)
+                    sequenceLen += 0x8;
+            }
+        }
+        if (sequenceLen % 4 != 0 && lastNewResultIndex != -1)
+        {
+            totalSize += 0x02;
+            // mark the last new animationResult index for the sequence as padded, this saves needing to check this again later
+            options->animationResults[lastNewResultIndex]->padded = true;
+        }
+    }
+
+    free(usedResults);
 
     unsigned int KNBASize = totalSize;
 
@@ -1508,9 +1697,9 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
         KBNAContents[i + 2] = options->sequenceData[i / 0x10]->loopStartFrame & 0xff;
         KBNAContents[i + 3] = options->sequenceData[i / 0x10]->loopStartFrame >> 8;
         KBNAContents[i + 4] = options->sequenceData[i / 0x10]->animationElement & 0xff;
-        KBNAContents[i + 5] = options->sequenceData[i / 0x10]->animationElement >> 8;
+        KBNAContents[i + 5] = (options->sequenceData[i / 0x10]->animationElement >> 8) & 0xff;
         KBNAContents[i + 6] = options->sequenceData[i / 0x10]->animationType & 0xff;
-        KBNAContents[i + 7] = options->sequenceData[i / 0x10]->animationType >> 8;
+        KBNAContents[i + 7] = (options->sequenceData[i / 0x10]->animationType >> 8) & 0xff;
         KBNAContents[i + 8] = options->sequenceData[i / 0x10]->playbackMode & 0xff;
         KBNAContents[i + 9] = (options->sequenceData[i / 0x10]->playbackMode >> 8) & 0xff;
         KBNAContents[i + 10] = (options->sequenceData[i / 0x10]->playbackMode >> 16) & 0xff;
@@ -1530,11 +1719,13 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
             int resPtr = 0;
             for (int l = 0; l < options->sequenceData[m]->frameData[k]->resultId; l++) {
                 if (options->animationResults[l]->resultType == 0)
-                    resPtr += 0x4;
+                    resPtr += 0x2;
                 else if (options->animationResults[l]->resultType == 1)
                     resPtr += 0x10;
                 else if (options->animationResults[l]->resultType == 2)
                     resPtr += 0x8;
+                
+                if (options->animationResults[l]->padded) resPtr += 0x02;
             }
             KBNAContents[j + (k * 8)] = resPtr & 0xff;
             KBNAContents[j + (k * 8) + 1] = (resPtr >> 8) & 0xff;
@@ -1548,7 +1739,6 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
         j += options->sequenceData[m]->frameCount * 8;
     }
 
-    //todo: these are extrapolated, need confirming
     int resPtrCounter = j;
     for (int k = 0; k < options->resultCount; k++)
     {
@@ -1557,9 +1747,7 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
             case 0:
                 KBNAContents[resPtrCounter] = options->animationResults[k]->index & 0xff;
                 KBNAContents[resPtrCounter + 1] = options->animationResults[k]->index >> 8;
-                KBNAContents[resPtrCounter + 2] = 0xCC;
-                KBNAContents[resPtrCounter + 3] = 0xCC;
-                resPtrCounter += 0x4;
+                resPtrCounter += 0x2;
                 break;
 
             case 1:
@@ -1593,6 +1781,14 @@ void WriteNtrAnimation(char *path, struct JsonToAnimationOptions *options)
                 KBNAContents[resPtrCounter + 7] = options->animationResults[k]->dataT.positionY >> 8;
                 resPtrCounter += 0x8;
                 break;
+        }
+
+        // use the `padded` flag which was stored earlier to inject padding
+        if (options->animationResults[k]->padded) 
+        {
+            KBNAContents[resPtrCounter] = 0xCC;
+            KBNAContents[resPtrCounter + 1] = 0xCC;
+            resPtrCounter += 0x2;
         }
     }
 
