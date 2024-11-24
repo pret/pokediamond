@@ -2,5 +2,6 @@
 #define POKEDIAMOND_CONSTANTS_STD_SCRIPT_H
 
 #define std_menu_cut 10008
+#define std_menu_surf 10012
 
 #endif // POKEDIAMOND_CONSTANTS_STD_SCRIPT_H

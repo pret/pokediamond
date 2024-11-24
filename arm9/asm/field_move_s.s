@@ -6,60 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_02063C70
-sub_02063C70: ; 0x02063C70
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	ldr r0, [r5, #0x0]
-	add r6, r1, #0x0
-	bl TaskManager_GetEnvironment
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r1, r6, #0x0
-	bl FieldMove_CreateUseEnvironment
-	add r5, r0, #0x0
-	ldr r0, [r6, #0x4]
-	bl FieldSystem_LoadFieldOverlay
-	mov r0, #0x72
-	ldr r1, _02063CA0 ; =sub_02063CA4
-	lsl r0, r0, #0x2
-	str r1, [r4, r0]
-	add r0, #0x30
-	str r5, [r4, r0]
-	mov r0, #0xa
-	strh r0, [r4, #0x2a]
-	pop {r4-r6, pc}
-	.balign 4
-_02063CA0: .word sub_02063CA4
-
-	thumb_func_start sub_02063CA4
-sub_02063CA4: ; 0x02063CA4
-	push {r3-r6, lr}
-	sub sp, #0x4
-	add r5, r0, #0x0
-	bl TaskManager_GetEnvironment
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl TaskManager_GetFieldSystem
-	add r6, r0, #0x0
-	ldr r1, _02063CDC ; =0x0000271C
-	add r0, r5, #0x0
-	mov r2, #0x0
-	bl StartScriptFromMenu
-	mov r2, #0x0
-	str r2, [sp, #0x0]
-	ldrh r1, [r4, #0xc]
-	add r0, r6, #0x0
-	add r3, r2, #0x0
-	bl FieldMove_SetArgs
-	add r0, r4, #0x0
-	bl FieldMove_DeleteUseEnvironment
-	mov r0, #0x0
-	add sp, #0x4
-	pop {r3-r6, pc}
-	.balign 4
-_02063CDC: .word 0x0000271C
-
 	thumb_func_start sub_02063CE0
 sub_02063CE0: ; 0x02063CE0
 	push {r4, lr}
