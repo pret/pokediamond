@@ -25,8 +25,9 @@ static BOOL Task_UseCutInField(TaskManager *taskManager);
 static u32 FieldMove_CheckFly(const FieldMoveCheckData *checkData);
 static void FieldMove_UseFly(FieldMoveUseData *useData, const FieldMoveCheckData *checkData);
 static u32 FieldMove_CheckSurf(const FieldMoveCheckData *checkData);
+static void FieldMove_UseSurf(FieldMoveUseData *useData, const FieldMoveCheckData *checkData);
+static BOOL Task_UseSurfInField(TaskManager *taskManager);
 
-extern void sub_02063C70(FieldMoveUseData *useData, const FieldMoveCheckData *checkData);
 extern void sub_02063D18(FieldMoveUseData *useData, const FieldMoveCheckData *checkData);
 extern u32 sub_02063CE0(const FieldMoveCheckData *checkData);
 extern void sub_02063DC0(FieldMoveUseData *useData, const FieldMoveCheckData *checkData);
@@ -67,19 +68,19 @@ extern void StartMenu_SetExitTaskFunc(StartMenuTaskData *startMenu, TaskFunc tas
 extern u32 PlayerAvatar_GetState(PlayerAvatar *avatar);
 
 static const FieldMoveFuncData sFieldMoveFuncTable[] = {
-    { FieldMove_UseCut, FieldMove_CheckCut  },
-    { FieldMove_UseFly, FieldMove_CheckFly  },
-    { sub_02063C70,     FieldMove_CheckSurf },
-    { sub_02063D18,     sub_02063CE0        },
-    { sub_02063DC0,     sub_02063D88        },
-    { sub_02063E68,     sub_02063E30        },
-    { sub_02063F10,     sub_02063ED8        },
-    { sub_02063FCC,     sub_02063F80        },
-    { sub_0206405C,     sub_0206403C        },
-    { sub_02064134,     sub_020640CC        },
-    { sub_020641F0,     sub_020641AC        },
-    { sub_020642B4,     sub_02064284        },
-    { sub_02064324,     sub_02064310        }
+    { FieldMove_UseCut,  FieldMove_CheckCut  },
+    { FieldMove_UseFly,  FieldMove_CheckFly  },
+    { FieldMove_UseSurf, FieldMove_CheckSurf },
+    { sub_02063D18,      sub_02063CE0        },
+    { sub_02063DC0,      sub_02063D88        },
+    { sub_02063E68,      sub_02063E30        },
+    { sub_02063F10,      sub_02063ED8        },
+    { sub_02063FCC,      sub_02063F80        },
+    { sub_0206405C,      sub_0206403C        },
+    { sub_02064134,      sub_020640CC        },
+    { sub_020641F0,      sub_020641AC        },
+    { sub_020642B4,      sub_02064284        },
+    { sub_02064324,      sub_02064310        }
 };
 
 static inline BOOL FieldMove_CheckSafariOrPalPark(const FieldMoveCheckData *checkData) {
@@ -244,4 +245,22 @@ static u32 FieldMove_CheckSurf(const FieldMoveCheckData *checkData) {
     }
 
     return FIELD_MOVE_RESPONSE_OK;
+}
+
+static void FieldMove_UseSurf(FieldMoveUseData *useData, const FieldMoveCheckData *checkData) {
+    StartMenuTaskData *startMenu = TaskManager_GetEnvironment(useData->taskManager);
+    FieldUseMoveEnvironment *useMoveEnvironment = FieldMove_CreateUseEnvironment(useData, checkData);
+    FieldSystem_LoadFieldOverlay(checkData->fieldSystem);
+    startMenu->exitTaskFunc = Task_UseSurfInField;
+    startMenu->exitTaskEnvironment = useMoveEnvironment;
+    startMenu->state = START_MENU_STATE_10;
+}
+
+static BOOL Task_UseSurfInField(TaskManager *taskManager) {
+    FieldUseMoveEnvironment *useMoveEnvironment = TaskManager_GetEnvironment(taskManager);
+    FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
+    StartScriptFromMenu(taskManager, std_menu_surf, NULL);
+    FieldMove_SetArgs(fieldSystem, useMoveEnvironment->useData.partySlot, 0, 0, 0);
+    FieldMove_DeleteUseEnvironment(useMoveEnvironment);
+    return FALSE;
 }
