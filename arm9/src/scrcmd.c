@@ -103,7 +103,7 @@ extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
 extern u16 GetPlayerXCoord(PlayerAvatar *playerAvatar);
-extern u16 GetPlayerYCoord(PlayerAvatar *playerAvatar);
+extern u16 GetPlayerZCoord(PlayerAvatar *playerAvatar);
 extern u16 sub_02029E0C(SealCase *sealCase);
 extern u16 SealCase_CountSealOccurrenceAnywhere(SealCase *sealCase, u16 sealId);
 extern void sub_02029D44(SealCase *sealCase, u16 sealId, s16 amount);
@@ -133,8 +133,8 @@ extern u32 sub_02027008(SaveFashionData *fashionData, u32 param1);
 extern void sub_02027478(u32 param0, u16 param1);
 extern void ShowGeonetScreen(FieldSystem *fieldSystem);
 extern void ShowSealCapsuleEditor(TaskManager *taskManager, SaveData *save);
-extern void sub_0205F7A0(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2); // TownMap_Init?
-extern void sub_02037E90(FieldSystem *fieldSystem, TownMapAppData *townMap);             // ShowTownMap?
+extern void TownMap_Init(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2);
+extern void TownMap_Show(FieldSystem *fieldSystem, TownMapAppData *townMap);
 extern SavePoffinData *Save_PoffinData_Get(SaveData *save);
 extern u32 sub_020281B8(SavePoffinData *savePoffinData);
 extern void sub_02037FE4(FieldSystem *fieldSystem, ScrCmdUnkStruct01D9 *param1);
@@ -1801,7 +1801,7 @@ BOOL ScrCmd_GetPlayerPosition(ScriptContext *ctx) { // 0069
     u16 *y = ScriptGetVarPointer(ctx);
 
     *x = GetPlayerXCoord(fieldSystem->playerAvatar);
-    *y = GetPlayerYCoord(fieldSystem->playerAvatar);
+    *y = GetPlayerZCoord(fieldSystem->playerAvatar);
 
     return FALSE;
 }
@@ -2265,8 +2265,8 @@ BOOL ScrCmd_ShowSealCapsuleEditor(ScriptContext *ctx) { // 00A9
 BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx) { // 00AA
     TownMapAppData **townMap = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     *townMap = AllocFromHeap(HEAP_ID_FIELD, sizeof(TownMapAppData));
-    sub_0205F7A0(ctx->fieldSystem, *townMap, 2); // TownMap_Init?
-    sub_02037E90(ctx->fieldSystem, *townMap);    // ShowTownMap?
+    TownMap_Init(ctx->fieldSystem, *townMap, 2);
+    TownMap_Show(ctx->fieldSystem, *townMap);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
@@ -2815,7 +2815,7 @@ BOOL ScrCmd_DummyDexCheck(ScriptContext *ctx) { // 0122
 
 BOOL ScrCmd_GetDexEvaluationMessage(ScriptContext *ctx) { // 0123
     Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(ctx->fieldSystem->saveData);
     u8 mode = ScriptReadByte(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
     if (mode == 0) {
@@ -2987,7 +2987,7 @@ BOOL ScrCmd_Unk013C(ScriptContext *ctx) { // 013C
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u16 unk0 = ScriptReadHalfword(ctx);
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(ctx->fieldSystem));
     SaveEasyChat *easyChat = Save_EasyChat_Get(FieldSystem_GetSaveData(ctx->fieldSystem));
 
     u16 objId;
@@ -3139,14 +3139,14 @@ BOOL ScrCmd_Unk0153(ScriptContext *ctx) { // 0153
 }
 
 BOOL ScrCmd_Unk0154(ScriptContext *ctx) { // 0154
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(ctx->fieldSystem));
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     sub_0205363C(PlayerProfile_GetTrainerID(playerProfile), PlayerProfile_GetTrainerGender(playerProfile), *messageFormat);
     return FALSE;
 }
 
 BOOL ScrCmd_Unk0155(ScriptContext *ctx) { // 0155
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 unk0 = ScriptGetVar(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
     *var = sub_02053678(PlayerProfile_GetTrainerID(playerProfile), PlayerProfile_GetTrainerGender(playerProfile), unk0);
@@ -3155,7 +3155,7 @@ BOOL ScrCmd_Unk0155(ScriptContext *ctx) { // 0155
 }
 
 BOOL ScrCmd_Unk029C(ScriptContext *ctx) { // 029C
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 unk0 = ScriptGetVar(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
     *var = sub_02053678(PlayerProfile_GetTrainerID(playerProfile), PlayerProfile_GetTrainerGender(playerProfile), unk0);
@@ -3163,7 +3163,7 @@ BOOL ScrCmd_Unk029C(ScriptContext *ctx) { // 029C
 }
 
 BOOL ScrCmd_SetPlayerAvatar(ScriptContext *ctx) { // 0156
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 avatar = ScriptGetVar(ctx);
     PlayerProfile_SetAvatar(playerProfile, avatar);
     return FALSE;
@@ -3182,7 +3182,7 @@ BOOL ScrCmd_SetSpawn(ScriptContext *ctx) { // 014C
 }
 
 BOOL ScrCmd_GetPlayerGender(ScriptContext *ctx) { // 014D
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(ctx->fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(ctx->fieldSystem));
     u16 *var = ScriptGetVarPointer(ctx);
     *var = PlayerProfile_GetTrainerGender(playerProfile);
     return FALSE;
@@ -3884,7 +3884,7 @@ BOOL ScrCmd_NationalDex(ScriptContext *ctx) { // 022D
     *var = 0;
     if (action == 1) {
         Pokedex_SetNatDexFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData));
-        PlayerProfile_SetNatDexFlag(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData));
+        PlayerProfile_SetNatDexFlag(Save_PlayerData_GetProfile(ctx->fieldSystem->saveData));
     } else if (action == 2) {
         *var = Pokedex_GetNatDexFlag(Save_Pokedex_Get(ctx->fieldSystem->saveData));
     } else {
@@ -3966,7 +3966,7 @@ BOOL ScrCmd_GetGameVersion(ScriptContext *ctx) { // 0246
 
 BOOL ScrCmd_GiveWallpaper(ScriptContext *ctx) { // 0249 - used for easy chat unlock, todo: find better name
     FieldSystem *fieldSystem = ctx->fieldSystem;
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(FieldSystem_GetSaveData(fieldSystem));
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(FieldSystem_GetSaveData(fieldSystem));
     u16 *var = ScriptGetVarPointer(ctx);
     PCStorage *pcStorage = SaveArray_PCStorage_Get(fieldSystem->saveData);
     u16 unk0 = ScriptGetVar(ctx);

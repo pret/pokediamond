@@ -481,7 +481,7 @@ ov75_021E6FA4: ; 0x021E6FA4
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]

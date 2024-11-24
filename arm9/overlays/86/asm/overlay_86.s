@@ -29,7 +29,7 @@ ov86_021D74E0: ; 0x021D74E0
 	ldr r0, [r0, #4]
 	str r0, [r4, #4]
 	ldr r0, [r4, #8]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r4, #0xc]
 	mov r0, #0
 	add r1, r0, #0

@@ -556,8 +556,8 @@ CallFieldTask_Surf: ; 0x021E6410
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start ov05_021E643C
-ov05_021E643C: ; 0x021E643C
+	thumb_func_start Field_PlayerCanSurfOnTile
+Field_PlayerCanSurfOnTile: ; 0x021E643C
 	push {r4, r5, r6, lr}
 	add r4, r2, #0
 	add r5, r1, #0
@@ -678,7 +678,7 @@ _021E6514:
 	bl sub_02059BF4
 	add r6, r0, #0
 	ldr r0, [r4, #0x20]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0
 	ldr r0, [r4, #4]
 	bl sub_02059C00
@@ -926,7 +926,7 @@ _021E6732:
 	bl sub_02057278
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl sub_02054A48
+	bl MetatileBehavior_IsWaterfall
 	cmp r0, #0
 	bne _021E674A
 	mov r0, #0
@@ -1233,8 +1233,8 @@ CallFieldTask_RockClimb: ; 0x021E6990
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start ov05_021E69BC
-ov05_021E69BC: ; 0x021E69BC
+	thumb_func_start MetatileBehavior_IsRockClimbInDirection
+MetatileBehavior_IsRockClimbInDirection: ; 0x021E69BC
 	push {r3, lr}
 	cmp r1, #3
 	bhi _021E69F6
@@ -1335,7 +1335,7 @@ ov05_021E6A58: ; 0x021E6A58
 	bl sub_02059BF4
 	add r6, r0, #0
 	ldr r0, [r5, #0x10]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0
 	ldr r0, [r5, #4]
 	bl sub_02059C00
@@ -1441,7 +1441,7 @@ _021E6B2E:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r4, #0
-	bl ov05_021E69BC
+	bl MetatileBehavior_IsRockClimbInDirection
 	cmp r0, #1
 	bne _021E6B54
 	mov r0, #5
@@ -2373,7 +2373,7 @@ ov05_021E727C: ; 0x021E727C
 	bl sub_02059BF4
 	add r7, r0, #0
 	add r0, r4, #0
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	str r0, [sp]
 	add r0, r5, #0
 	bl sub_02059C00

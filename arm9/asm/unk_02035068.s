@@ -97,7 +97,7 @@ sub_02035080: ; 0x02035080
 _020350A6:
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x1
 	bne _020350C2
 	add r0, r5, #0x0
@@ -236,7 +236,7 @@ sub_020351A0: ; 0x020351A0
 _020351D4:
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x1
 	bne _020351F0
 	add r0, r5, #0x0
@@ -430,7 +430,7 @@ _02035328:
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02063964
+	bl FieldMove_InitCheckData
 	add r0, r6, #0x0
 	bl sub_0203549C
 	add r0, r6, #0x0
@@ -670,7 +670,7 @@ _02035526:
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
@@ -776,7 +776,7 @@ _02035614:
 	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	add r3, r0, #0x0
 	add r0, r4, #0x0
@@ -927,7 +927,7 @@ sub_02035734: ; 0x02035734
 _0203575A:
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x1
 	beq _0203576A
 	b _0203588E
@@ -1083,7 +1083,7 @@ sub_020358A0: ; 0x020358A0
 	bne _020358CE
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x0
 	beq _020358E0
 _020358CE:
@@ -1622,8 +1622,8 @@ sub_02035CDC: ; 0x02035CDC
 _02035D02:
 	pop {r4-r6, pc}
 
-	thumb_func_start sub_02035D04
-sub_02035D04: ; 0x02035D04
+	thumb_func_start StartMenu_SetExitTaskFunc
+StartMenu_SetExitTaskFunc: ; 0x02035D04
 	mov r2, #0x72
 	lsl r2, r2, #0x2
 	str r1, [r0, r2]
@@ -1667,7 +1667,7 @@ sub_02035D34: ; 0x02035D34
 	bl Save_Pokedex_Get
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
@@ -1724,7 +1724,7 @@ sub_02035DC8: ; 0x02035DC8
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r1, [r4, r0]
@@ -1881,7 +1881,7 @@ _02035ECC:
 	add r0, r7, #0x0
 	bl sub_0207B000
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0207C2A4
@@ -1893,7 +1893,7 @@ _02035ECC:
 	str r7, [r4, r0]
 	ldr r1, _02036270 ; =sub_0203684C
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _02035F4A:
 	mov r0, #0xb
@@ -1929,7 +1929,7 @@ _02035F4A:
 	add r0, r7, #0x0
 	bl sub_0207B000
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0207C2A4
@@ -1950,7 +1950,7 @@ _02035F4A:
 	str r7, [r4, r0]
 	ldr r1, _02036270 ; =sub_0203684C
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _02035FD0:
 	mov r0, #0xb
@@ -1986,7 +1986,7 @@ _02035FD0:
 	add r0, r7, #0x0
 	bl sub_0207B000
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl sub_0207C2A4
@@ -2007,7 +2007,7 @@ _02035FD0:
 	str r7, [r4, r0]
 	ldr r1, _02036270 ; =sub_0203684C
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _02036056:
 	ldrh r0, [r6, #0x24]
@@ -2048,7 +2048,7 @@ _0203609C:
 	str r0, [r4, r1]
 	ldr r1, _02036278 ; =sub_02036BDC
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _020360AC:
 	ldr r0, [r5, #0xc]
@@ -2075,7 +2075,7 @@ _020360AC:
 	str r0, [r4, r1]
 	ldr r1, _02036278 ; =sub_02036BDC
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _020360EA:
 	mov r0, #0xb
@@ -2092,7 +2092,7 @@ _020360EA:
 	bl Save_Bag_Get
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	ldr r1, _0203627C ; =UNK_020F2A90
 	add r0, r7, #0x0
 	mov r2, #0xb
@@ -2114,7 +2114,7 @@ _020360EA:
 	bl sub_0203781C
 	ldr r1, _02036280 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _02036144:
 	mov r0, #0xb
@@ -2174,7 +2174,7 @@ _020361A4:
 	str r7, [sp, #0x4]
 	ldrh r1, [r1, #0x6]
 	mov r0, #0x0
-	bl sub_02063948
+	bl FieldMove_GetMoveFunc
 	mov r1, #0x7a
 	lsl r1, r1, #0x2
 	add r2, r0, #0x0
@@ -2193,7 +2193,7 @@ _020361CA:
 	str r0, [r4, r1]
 	ldr r1, _02036280 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _020361E6:
 	add r0, r6, #0x0
@@ -2232,7 +2232,7 @@ _02036226:
 _0203622A:
 	ldr r1, _02036280 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _02036234:
 	cmp r0, #0x9
@@ -2247,11 +2247,11 @@ _02036234:
 	str r0, [r4, r1]
 	ldr r1, _02036280 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203625E
 _02036254:
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0xc
 	strh r0, [r4, #0x2a]
 _0203625E:
@@ -2435,7 +2435,7 @@ _0203638A:
 	str r5, [r4, r0]
 	ldr r1, _02036508 ; =sub_02035E50
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _020364F8
 _020363F6:
 	ldr r0, [r6, #0xc]
@@ -2489,7 +2489,7 @@ _020363F6:
 	str r0, [r4, r1]
 	ldr r1, _0203650C ; =sub_02036BDC
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _020364F8
 _02036474:
 	mov r0, #0xb
@@ -2545,11 +2545,11 @@ _020364CE:
 	str r5, [r4, r0]
 	ldr r1, _02036508 ; =sub_02035E50
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _020364F8
 _020364EE:
 	add r0, r6, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0xc
 	strh r0, [r4, #0x2a]
 _020364F8:
@@ -2638,7 +2638,7 @@ sub_02036584: ; 0x02036584
 	ldr r0, [r4, r0]
 	bl sub_02065070
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0xc
 	strh r0, [r4, #0x2a]
 	mov r0, #0x0
@@ -2796,7 +2796,7 @@ sub_020366D4: ; 0x020366D4
 	ldr r0, [r4, r0]
 	bl FreeToHeap
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0xc
 	strh r0, [r4, #0x2a]
 	mov r0, #0x0
@@ -2904,7 +2904,7 @@ _020367CA:
 	ldr r0, [r5, r0]
 	bl sub_020853A8
 	add r0, r4, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	ldr r0, [r4, #0x7c]
 	bl sub_02052F74
 	mov r0, #0x0
@@ -3056,7 +3056,7 @@ _020368EE:
 	str r5, [r4, r0]
 	ldr r1, _02036958 ; =sub_02035E50
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _0203694A
 _0203692E:
 	mov r1, #0x7a
@@ -3070,7 +3070,7 @@ _0203692E:
 	str r0, [r4, r1]
 	ldr r1, _02036958 ; =sub_02035E50
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 _0203694A:
 	add r0, r7, #0x0
 	bl FreeToHeap
@@ -3159,7 +3159,7 @@ _020369C6:
 	bl sub_0203791C
 	ldr r1, _02036A10 ; =sub_02036A14
 	add r0, r6, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -3204,7 +3204,7 @@ sub_02036A14: ; 0x02036A14
 	str r0, [r4, r1]
 	ldr r1, _02036A74 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	nop
@@ -3234,14 +3234,14 @@ sub_02036A78: ; 0x02036A78
 	str r0, [r4, r1]
 	ldr r1, _02036AB4 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
 _02036AB4: .word sub_020362E4
 
-	thumb_func_start sub_02036AB8
-sub_02036AB8: ; 0x02036AB8
+	thumb_func_start Task_UseFlyInField
+Task_UseFlyInField: ; 0x02036AB8
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -3277,7 +3277,7 @@ sub_02036AB8: ; 0x02036AB8
 	str r0, [r4, r1]
 	ldr r1, _02036B88 ; =sub_02035E50
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _02036B82
 _02036B0E:
 	ldr r0, [r6, #0xc]
@@ -3322,7 +3322,7 @@ _02036B0E:
 	mov r0, #0xb
 	bl FreeToHeapExplicit
 	add r0, r6, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _02036B8C ; =sub_020638BC
 	lsl r0, r0, #0x2
@@ -3358,7 +3358,7 @@ sub_02036B90: ; 0x02036B90
 	str r0, [r4, r1]
 	ldr r1, _02036BC0 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -3418,7 +3418,7 @@ _02036C0E:
 	str r0, [r4, r1]
 	ldr r1, _02036CE4 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _02036CD4
 _02036C32:
 	sub r0, r0, #0x4
@@ -3435,7 +3435,7 @@ _02036C32:
 	str r0, [r4, r1]
 	ldr r1, _02036CE8 ; =sub_02035E50
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _02036CD4
 _02036C58:
 	sub r0, r0, #0x4
@@ -3464,7 +3464,7 @@ _02036C70:
 	str r0, [r4, r1]
 	ldr r1, _02036CE8 ; =sub_02035E50
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	b _02036CD4
 _02036C98:
 	sub r0, r0, #0x4
@@ -3492,7 +3492,7 @@ _02036CB0:
 	str r0, [r4, r1]
 	ldr r1, _02036CE4 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 _02036CD4:
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
@@ -3572,7 +3572,7 @@ sub_02036CEC: ; 0x02036CEC
 	str r4, [r6, r0]
 	ldr r1, _02036D90 ; =sub_02035E50
 	add r0, r6, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r7, pc}
 	nop
 _02036D8C: .word UNK_020F96DC
@@ -3601,7 +3601,7 @@ sub_02036D94: ; 0x02036D94
 	str r0, [r4, r1]
 	ldr r1, _02036DD0 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	nop
@@ -3626,7 +3626,7 @@ sub_02036DD4: ; 0x02036DD4
 	str r0, [r4, r1]
 	ldr r1, _02036E04 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -3804,7 +3804,7 @@ sub_02036F1C: ; 0x02036F1C
 	bl FreeToHeap
 	ldr r1, _02036FA0 ; =sub_020362E4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 _02036F98:
 	pop {r3-r5, pc}
 	nop

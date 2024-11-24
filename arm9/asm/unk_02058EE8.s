@@ -2615,7 +2615,7 @@ sub_02059A60: ; 0x02059A60
 	ldr r0, [sp, #0x0]
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r6, r0, #0x0
 	mov r0, #0x0
 	mvn r0, r0
@@ -2910,7 +2910,7 @@ sub_02059C90: ; 0x02059C90
 	ldr r2, [sp, #0x0]
 	add r1, r6, r7
 	add r2, r2, r5
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -3047,7 +3047,7 @@ sub_02059DB4: ; 0x02059DB4
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	add r7, r0, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02058728
@@ -3059,7 +3059,7 @@ sub_02059DB4: ; 0x02059DB4
 	add r2, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0

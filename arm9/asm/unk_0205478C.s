@@ -596,8 +596,8 @@ _02054A44:
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start sub_02054A48
-sub_02054A48: ; 0x02054A48
+	thumb_func_start MetatileBehavior_IsWaterfall
+MetatileBehavior_IsWaterfall: ; 0x02054A48
 	cmp r0, #0x13
 	bne _02054A50
 	mov r0, #0x1

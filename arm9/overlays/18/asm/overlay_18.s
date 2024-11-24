@@ -2440,7 +2440,7 @@ _0223A9DC:
 	add r0, r4, #0
 	bl ov18_0223A560
 	add r0, r5, #0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -13451,7 +13451,7 @@ ov18_0223FDEC: ; 0x0223FDEC
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0
 	add r0, r4, #0
 	bl sub_0204F610
@@ -13872,7 +13872,7 @@ ov18_022400A0: ; 0x022400A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r3, r0, #0
 	ldr r0, _022400F8 ; =0x022513A0
 	add r1, r4, #0
@@ -16018,7 +16018,7 @@ _0224110C:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -19209,7 +19209,7 @@ _02242A20:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0
 	mov r0, #0x20
 	str r0, [sp]
@@ -22806,7 +22806,7 @@ _02244640:
 	bl GetPlayerXCoord
 	str r0, [r5]
 	ldr r0, [sp]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	str r0, [r5, #4]
 	b _022446AA
 _0224467E:
@@ -26580,7 +26580,7 @@ ov18_02246338: ; 0x02246338
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov18_0223E2F4
@@ -26780,7 +26780,7 @@ ov18_022464D0: ; 0x022464D0
 	b _0224650E
 _022464EE:
 	add r0, r5, #0
-	bl LoadOverlay_OVERLAY_05
+	bl FieldSystem_LoadFieldOverlayInternal
 	ldr r0, [r4, #0x10]
 	add r0, r0, #1
 	str r0, [r4, #0x10]
@@ -32978,7 +32978,7 @@ _022495BA:
 	bne _022495E2
 	ldr r0, [r5, #0xc]
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #4
 	bl PlayerProfile_GetPlayerName_NewString
 	add r7, r0, #0
@@ -35025,7 +35025,7 @@ ov18_0224A6B4: ; 0x0224A6B4
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov18_0223E2F4
@@ -35135,7 +35135,7 @@ ov18_0224A78C: ; 0x0224A78C
 	bl ov18_0224D704
 	ldr r0, [r4, #0xc]
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -37195,7 +37195,7 @@ ov18_0224B804: ; 0x0224B804
 	sub r0, r0, r1
 	str r0, [sp]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	lsl r1, r0, #0x10
 	mov r0, #0x11
 	lsl r0, r0, #0x10
@@ -37483,7 +37483,7 @@ _0224BA70:
 	bl ov18_0224DD94
 	ldr r0, [r4, #0xc]
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FieldSystem_GetSaveData

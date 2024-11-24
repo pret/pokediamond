@@ -32,7 +32,7 @@ BOOL ScrCmd_GetPlayerName(ScriptContext *ctx) // 00CD - todo: BufferPlayerName? 
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     SaveData *save = FieldSystem_GetSaveData(fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
 
     BufferPlayersName(*messageFormat, idx, player);
 
@@ -208,7 +208,7 @@ BOOL ScrCmd_Unk00D9(ScriptContext *ctx) // 00D9 - todo: BufferPlayerTrainerClass
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
     SaveData *save = FieldSystem_GetSaveData(fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u32 gender = PlayerProfile_GetTrainerGender(player);

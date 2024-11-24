@@ -56,7 +56,7 @@ void Mail_SetNewMessageDetails(struct Mail *mail, u8 type, u8 monIdx, struct Sav
     Mail_Init(mail);
     mail->mail_type = type;
     party = SaveArray_Party_Get(save);
-    profile = Save_PlayerData_GetProfileAddr(save);
+    profile = Save_PlayerData_GetProfile(save);
 
     CopyU16StringArray(mail->author_name, PlayerProfile_GetNamePtr(profile));
     mail->author_gender = (u8)PlayerProfile_GetTrainerGender(profile);

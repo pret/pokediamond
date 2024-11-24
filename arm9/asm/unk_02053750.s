@@ -826,7 +826,7 @@ sub_02053D0C: ; 0x02053D0C
 	bl sub_0201B6C8
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	add r0, r4, #0x4

@@ -62,7 +62,7 @@ BOOL ScrCmd_Unk0255(struct ScriptContext *ctx) // 0255
     void *unk = sub_02022528(ctx->fieldSystem->saveData);
     struct PCStorage *pc = SaveArray_PCStorage_Get(ctx->fieldSystem->saveData);
     struct Pokemon *pokemon = AllocMonZeroed(HEAP_ID_32);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+    PlayerProfile *player = Save_PlayerData_GetProfile(ctx->fieldSystem->saveData);
     struct Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData); // unused
 
     for (s32 i = 0; i < PARTY_SIZE; i++) {

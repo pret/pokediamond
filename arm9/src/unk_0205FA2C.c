@@ -118,7 +118,7 @@ u32 sub_0205FB34(
 
     sub_0207B000(ptr, UNK_020F7454);
 
-    sub_0207C2A4(ptr, Save_PlayerData_GetProfileAddr(save));
+    sub_0207C2A4(ptr, Save_PlayerData_GetProfile(save));
 
     sub_020373D4(fieldSystem, &UNK_020FA6E8, ptr);
 

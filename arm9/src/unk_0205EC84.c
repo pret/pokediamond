@@ -338,7 +338,7 @@ void sub_0205F234(struct SaveVarsFlags *state) {
     _flag_clear(state, 0x979);
 }
 
-BOOL sub_0205F244(struct SaveVarsFlags *state) {
+BOOL Save_VarsFlags_CheckPalParkSysFlag(struct SaveVarsFlags *state) {
     return _flag_check(state, 0x979);
 }
 

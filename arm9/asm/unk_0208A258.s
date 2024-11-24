@@ -54,7 +54,7 @@ _0208A2A6:
 	ldr r0, [r4, #0x4]
 	bl FreeToHeap
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x11
 	pop {r3-r5, pc}
 	.balign 4

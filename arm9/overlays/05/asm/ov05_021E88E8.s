@@ -6356,7 +6356,7 @@ _021EBCC4: .word ov05_021F7970
 ov05_021EBCC8: ; 0x021EBCC8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	pop {r3, pc}
 	.balign 4, 0

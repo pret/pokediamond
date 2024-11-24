@@ -2285,7 +2285,7 @@ _020665D4:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	ldrh r0, [r4, #0x12]
 	add r0, r0, #0x1
 	strh r0, [r4, #0x12]

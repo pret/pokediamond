@@ -589,7 +589,7 @@ sub_0205E12C: ; 0x0205E12C
 	add r2, r6, #0x0
 	add r7, r0, #0x0
 	str r6, [r5, #0x4]
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_0205478C
 	cmp r0, #0x0
 	beq _0205E1AE
@@ -885,7 +885,7 @@ _0205E374:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r3, r4, #0x0
 	add r3, #0x90
 	add r2, r0, #0x0
