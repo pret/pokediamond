@@ -96,7 +96,7 @@ _02055118:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl PlayerAvatar_GetFacingDirection
@@ -336,8 +336,8 @@ GetPlayerXCoord: ; 0x02055320
 	bl MapObject_GetCurrentX
 	pop {r3, pc}
 
-	thumb_func_start GetPlayerYCoord
-GetPlayerYCoord: ; 0x0205532C
+	thumb_func_start GetPlayerZCoord
+GetPlayerZCoord: ; 0x0205532C
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
 	bl MapObject_GetCurrentZ

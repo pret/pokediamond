@@ -37,7 +37,7 @@ typedef struct UnkStruct_02046444 {
     UnkStruct_020464D4 unk90[1]; // todo find size
 } UnkStruct_02046444;
 
-typedef struct FieldSystem {
+struct FieldSystem {
     u32 *unk00;
     UnkFieldStruct04 *unk04;
     BgConfig *bgConfig;
@@ -52,16 +52,18 @@ typedef struct FieldSystem {
     PlayerAvatar *playerAvatar;
     u8 padding4[0x24];
     u32 unk60;
-    u8 padding5[0x12];
+    u8 padding5[0x8];
+    u32 unk6C;
+    u8 padding6[0x6];
     u16 unk76;
     u32 unk78;
     u32 unk7C;
-    u8 padding6[0x10];
+    u8 padding7[0x10];
     u32 unk90;
-    u8 padding7[0x4];
+    u8 padding8[0x4];
     u32 *unk98;
-    u8 padding8[0xC];
+    u8 padding9[0xC];
     UnkStruct_02046444 *unkA8;
-} FieldSystem;
+};
 
 #endif // POKEDIAMOND_FIELD_SYSTEM_H

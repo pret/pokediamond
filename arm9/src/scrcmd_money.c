@@ -12,7 +12,7 @@ extern void ov05_021E28A0(struct FieldSystem *fieldSystem, Window *moneyBox);
 BOOL ScrCmd_GiveMoney(struct ScriptContext *ctx) // 006F
 {
     struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
 
     u32 amount = ScriptReadWord(ctx);
     PlayerProfile_AddMoney(player, amount);
@@ -23,7 +23,7 @@ BOOL ScrCmd_GiveMoney(struct ScriptContext *ctx) // 006F
 BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext *ctx) // 0070 - todo: TakeMoney?
 {
     struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
 
     u32 amount = ScriptReadWord(ctx);
     PlayerProfile_SubMoney(player, amount);
@@ -34,7 +34,7 @@ BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext *ctx) // 0070 - todo: TakeMo
 BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext *ctx) // 01A3 - todo: TakeMoneyVar?
 {
     struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
 
     u16 amount = ScriptGetVar(ctx);
     PlayerProfile_SubMoney(player, (u32)amount);
@@ -45,7 +45,7 @@ BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext *ctx) // 01A3 - todo: TakeMone
 BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext *ctx) // 0071 - todo: CanAffordMoney?
 {
     struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u32 amount = ScriptReadWord(ctx);
@@ -63,7 +63,7 @@ BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext *ctx) // 0071 - todo: C
 BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext *ctx) // 01AB - todo: CanAffordMoneyVar?
 {
     struct SaveData *save = FieldSystem_GetSaveData(ctx->fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 amount = ScriptGetVar(ctx);

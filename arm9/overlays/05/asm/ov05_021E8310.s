@@ -30,7 +30,7 @@ _021E8344:
 _021E8346:
 	str r0, [r5]
 	add r0, r4, #0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r5, #8]
 	add r0, r4, #0
 	bl Save_PlayerData_GetIGTAddr
@@ -376,7 +376,7 @@ Field_SaveGame: ; 0x021E85FC
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #8]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #0xc]
 	mov r1, #0

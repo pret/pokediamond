@@ -30,7 +30,7 @@ sub_02050E48: ; 0x02050E48
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0207C2A4
@@ -653,7 +653,7 @@ _02051334:
 	b _020517B8
 _02051346:
 	ldr r0, [r4, #0x24]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	add r0, r4, #0x0
 	add r0, #0x88
 	ldrb r0, [r0, #0x0]
@@ -687,7 +687,7 @@ _0205136A:
 	b _020517B8
 _0205138A:
 	ldr r0, [r4, #0x24]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	add r0, r4, #0x0
 	add r0, #0x88
 	ldrb r0, [r0, #0x0]
@@ -1072,7 +1072,7 @@ _020516B6:
 	cmp r0, #0x0
 	beq _020517B8
 	ldr r0, [r4, #0x24]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x23
 	str r0, [r4, #0x34]
 	b _020517B8
@@ -2239,7 +2239,7 @@ _02051FEC:
 	b _0205203A
 _02051FFE:
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
 	str r0, [r4, #0x28]

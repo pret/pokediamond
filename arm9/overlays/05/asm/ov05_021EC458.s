@@ -101,7 +101,7 @@ ov05_021EC4F0: ; 0x021EC4F0
 	bl DaycareMon_GetBoxMon
 	str r0, [sp, #4]
 	add r0, r7, #0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetNamePtr
 	add r0, r4, #0
 	mov r1, #0x74

@@ -377,7 +377,7 @@ void ov52_021D7604(HeapID heapId, struct SaveData *save, BOOL set_trainerid) {
     sub_02028788(unk_save, 1, MTRandom());
     sub_0206007C(save);
 
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(save);
     u32 trainerid = MTRandom();
 
     if (set_trainerid) {
@@ -407,7 +407,7 @@ void ov52_021D769C(u32 unused, struct SaveData *save) {
 
     Save_InitDynamicRegion(save);
     sub_020377E0(save);
-    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfile(save);
     PlayerProfile_SetMoney(playerProfile, 3000);
     sub_0205ECD4(Save_VarsFlags_Get(save));
 }

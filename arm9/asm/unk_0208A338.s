@@ -300,7 +300,7 @@ _0208A5B0:
 	b _0208A6C8
 _0208A5B2:
 	ldr r0, [r4, #0x0]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x7
 	str r0, [r4, #0x54]
 	b _0208A6C8

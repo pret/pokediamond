@@ -1,438 +1,10 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.section .rodata
-
-	.global UNK_020F7CE4
-UNK_020F7CE4: ; 0x020F7CE4
-	.word sub_02063AD0, sub_02063A9C
-	.word sub_02063BBC, sub_02063B40
-	.word sub_02063C70, sub_02063C14
-	.word sub_02063D18, sub_02063CE0
-	.word sub_02063DC0, sub_02063D88
-	.word sub_02063E68, sub_02063E30
-	.word sub_02063F10, sub_02063ED8
-	.word sub_02063FCC, sub_02063F80
-	.word sub_0206405C, sub_0206403C
-	.word sub_02064134, sub_020640CC
-	.word sub_020641F0, sub_020641AC
-	.word sub_020642B4, sub_02064284
-	.word sub_02064324, sub_02064310
+	.extern FieldMove_CreateUseEnvironment
+	.extern FieldMove_DeleteUseEnvironment
 
 	.text
-
-	thumb_func_start sub_02063948
-sub_02063948: ; 0x02063948
-	cmp r0, #0x0
-	bne _02063954
-	ldr r0, _0206395C ; =UNK_020F7CE4
-	lsl r1, r1, #0x3
-	ldr r0, [r0, r1]
-	bx lr
-_02063954:
-	ldr r0, _02063960 ; =UNK_020F7CE4 + 4
-	lsl r1, r1, #0x3
-	ldr r0, [r0, r1]
-	bx lr
-	.balign 4
-_0206395C: .word UNK_020F7CE4
-_02063960: .word UNK_020F7CE4 + 4
-
-	thumb_func_start sub_02063964
-sub_02063964: ; 0x02063964
-	push {r4-r7, lr}
-	sub sp, #0xc
-	add r5, r0, #0x0
-	add r4, r1, #0x0
-	str r5, [r4, #0x4]
-	ldr r1, [r5, #0x1c]
-	ldr r1, [r1, #0x0]
-	str r1, [r4, #0x0]
-	mov r1, #0x0
-	strh r1, [r4, #0xc]
-	add r1, sp, #0x8
-	bl sub_02037024
-	ldr r0, [sp, #0x8]
-	str r0, [r4, #0x8]
-	ldr r0, [sp, #0x8]
-	cmp r0, #0x0
-	beq _020639B6
-	bl MapObject_GetSpriteID
-	cmp r0, #0x54
-	beq _0206399A
-	cmp r0, #0x55
-	beq _020639A4
-	cmp r0, #0x56
-	beq _020639AE
-	b _020639B6
-_0206399A:
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x8
-	orr r0, r1
-	strh r0, [r4, #0xc]
-	b _020639B6
-_020639A4:
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x20
-	orr r0, r1
-	strh r0, [r4, #0xc]
-	b _020639B6
-_020639AE:
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x1
-	orr r0, r1
-	strh r0, [r4, #0xc]
-_020639B6:
-	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
-	str r0, [sp, #0x4]
-	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
-	add r2, r0, #0x0
-	ldr r1, [sp, #0x4]
-	str r2, [sp, #0x0]
-	add r0, r5, #0x0
-	bl sub_0204A6E0
-	add r7, r0, #0x0
-	ldr r0, [r5, #0x38]
-	add r1, sp, #0x4
-	add r2, sp, #0x0
-	bl sub_020572B8
-	ldr r1, [sp, #0x4]
-	ldr r2, [sp, #0x0]
-	add r0, r5, #0x0
-	bl sub_0204A6E0
-	add r6, r0, #0x0
-	ldr r0, [r5, #0x38]
-	add r1, r7, #0x0
-	add r2, r6, #0x0
-	bl ov05_021E643C
-	cmp r0, #0x0
-	beq _020639FE
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x4
-	orr r0, r1
-	strh r0, [r4, #0xc]
-_020639FE:
-	ldr r0, [r5, #0x38]
-	bl PlayerAvatar_GetFacingDirection
-	add r1, r0, #0x0
-	add r0, r6, #0x0
-	bl ov05_021E69BC
-	cmp r0, #0x0
-	beq _02063A18
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x80
-	orr r0, r1
-	strh r0, [r4, #0xc]
-_02063A18:
-	lsl r0, r6, #0x18
-	lsr r0, r0, #0x18
-	bl sub_02054A48
-	cmp r0, #0x0
-	beq _02063A2C
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x40
-	orr r0, r1
-	strh r0, [r4, #0xc]
-_02063A2C:
-	ldr r0, [r5, #0xc]
-	bl Save_LocalFieldData_Get
-	bl LocalFieldData_GetWeatherType
-	cmp r0, #0xe
-	beq _02063A42
-	cmp r0, #0x10
-	beq _02063A4E
-	add sp, #0xc
-	pop {r4-r7, pc}
-_02063A42:
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x10
-	add sp, #0xc
-	orr r0, r1
-	strh r0, [r4, #0xc]
-	pop {r4-r7, pc}
-_02063A4E:
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x1
-	lsl r0, r0, #0x8
-	orr r0, r1
-	strh r0, [r4, #0xc]
-	add sp, #0xc
-	pop {r4-r7, pc}
-
-	thumb_func_start sub_02063A5C
-sub_02063A5C: ; 0x02063A5C
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r4, r1, #0x0
-	mov r0, #0x20
-	mov r1, #0x10
-	bl AllocFromHeap
-	ldr r1, _02063A7C ; =0x19740205
-	str r1, [r0, #0x0]
-	ldr r1, [r4, #0x8]
-	str r1, [r0, #0x4]
-	ldr r2, [r5, #0x0]
-	ldr r1, [r5, #0x4]
-	str r2, [r0, #0x8]
-	str r1, [r0, #0xc]
-	pop {r3-r5, pc}
-	.balign 4
-_02063A7C: .word 0x19740205
-
-	thumb_func_start sub_02063A80
-sub_02063A80: ; 0x02063A80
-	push {r4, lr}
-	add r4, r0, #0x0
-	ldr r1, [r4, #0x0]
-	ldr r0, _02063A98 ; =0x19740205
-	cmp r1, r0
-	beq _02063A90
-	bl GF_AssertFail
-_02063A90:
-	add r0, r4, #0x0
-	bl FreeToHeap
-	pop {r4, pc}
-	.balign 4
-_02063A98: .word 0x19740205
-
-	thumb_func_start sub_02063A9C
-sub_02063A9C: ; 0x02063A9C
-	push {r4, lr}
-	add r4, r0, #0x0
-	ldr r1, [r4, #0x4]
-	ldr r0, [r1, #0x6c]
-	sub r0, r0, #0x2
-	cmp r0, #0x1
-	bhi _02063AAE
-	mov r0, #0x1
-	pop {r4, pc}
-_02063AAE:
-	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
-	mov r1, #0x1
-	bl PlayerProfile_TestBadgeFlag
-	cmp r0, #0x0
-	bne _02063AC2
-	mov r0, #0x2
-	pop {r4, pc}
-_02063AC2:
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x1
-	tst r1, r0
-	beq _02063ACC
-	mov r0, #0x0
-_02063ACC:
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start sub_02063AD0
-sub_02063AD0: ; 0x02063AD0
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	ldr r0, [r5, #0x0]
-	add r6, r1, #0x0
-	bl TaskManager_GetEnvironment
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r1, r6, #0x0
-	bl sub_02063A5C
-	add r5, r0, #0x0
-	ldr r0, [r6, #0x4]
-	bl sub_0204649C
-	mov r0, #0x72
-	ldr r1, _02063B00 ; =sub_02063B04
-	lsl r0, r0, #0x2
-	str r1, [r4, r0]
-	add r0, #0x30
-	str r5, [r4, r0]
-	mov r0, #0xa
-	strh r0, [r4, #0x2a]
-	pop {r4-r6, pc}
-	.balign 4
-_02063B00: .word sub_02063B04
-
-	thumb_func_start sub_02063B04
-sub_02063B04: ; 0x02063B04
-	push {r3-r6, lr}
-	sub sp, #0x4
-	add r5, r0, #0x0
-	bl TaskManager_GetEnvironment
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl TaskManager_GetFieldSystem
-	add r6, r0, #0x0
-	ldr r1, _02063B3C ; =0x00002718
-	ldr r2, [r4, #0x4]
-	add r0, r5, #0x0
-	bl StartScriptFromMenu
-	mov r2, #0x0
-	str r2, [sp, #0x0]
-	ldrh r1, [r4, #0xc]
-	add r0, r6, #0x0
-	add r3, r2, #0x0
-	bl sub_020395BC
-	add r0, r4, #0x0
-	bl sub_02063A80
-	mov r0, #0x0
-	add sp, #0x4
-	pop {r3-r6, pc}
-	.balign 4
-_02063B3C: .word 0x00002718
-
-	thumb_func_start sub_02063B40
-sub_02063B40: ; 0x02063B40
-	push {r4, lr}
-	add r4, r0, #0x0
-	ldr r1, [r4, #0x4]
-	ldr r0, [r1, #0x6c]
-	sub r0, r0, #0x2
-	cmp r0, #0x1
-	bhi _02063B52
-	mov r0, #0x1
-	pop {r4, pc}
-_02063B52:
-	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
-	mov r1, #0x2
-	bl PlayerProfile_TestBadgeFlag
-	cmp r0, #0x0
-	bne _02063B66
-	mov r0, #0x2
-	pop {r4, pc}
-_02063B66:
-	ldr r0, [r4, #0x0]
-	bl MapHeader_IsFlyAllowed
-	cmp r0, #0x0
-	bne _02063B74
-	mov r0, #0x1
-	pop {r4, pc}
-_02063B74:
-	ldr r0, [r4, #0x4]
-	ldr r0, [r0, #0xc]
-	bl Save_VarsFlags_Get
-	bl Save_VarsFlags_CheckHaveFollower
-	cmp r0, #0x1
-	bne _02063B88
-	mov r0, #0x3
-	pop {r4, pc}
-_02063B88:
-	ldr r0, [r4, #0x4]
-	ldr r0, [r0, #0xc]
-	bl Save_VarsFlags_Get
-	bl Save_VarsFlags_CheckSafariSysFlag
-	cmp r0, #0x1
-	beq _02063BA8
-	ldr r0, [r4, #0x4]
-	ldr r0, [r0, #0xc]
-	bl Save_VarsFlags_Get
-	bl sub_0205F244
-	cmp r0, #0x1
-	bne _02063BAC
-_02063BA8:
-	mov r0, #0x1
-	b _02063BAE
-_02063BAC:
-	mov r0, #0x0
-_02063BAE:
-	cmp r0, #0x1
-	bne _02063BB6
-	mov r0, #0x1
-	pop {r4, pc}
-_02063BB6:
-	mov r0, #0x0
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start sub_02063BBC
-sub_02063BBC: ; 0x02063BBC
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl TaskManager_GetFieldSystem
-	add r6, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl TaskManager_GetEnvironment
-	add r4, r0, #0x0
-	mov r0, #0xb
-	mov r1, #0x4
-	bl AllocFromHeap
-	ldrh r1, [r5, #0x4]
-	str r1, [r0, #0x0]
-	mov r1, #0x7f
-	lsl r1, r1, #0x2
-	str r0, [r4, r1]
-	mov r0, #0xb
-	sub r1, #0xbc
-	bl AllocFromHeap
-	mov r1, #0x7e
-	lsl r1, r1, #0x2
-	str r0, [r4, r1]
-	ldr r1, [r4, r1]
-	add r0, r6, #0x0
-	mov r2, #0x1
-	bl sub_0205F7A0
-	mov r1, #0x7e
-	lsl r1, r1, #0x2
-	ldr r1, [r4, r1]
-	add r0, r6, #0x0
-	bl sub_02037E90
-	ldr r1, _02063C10 ; =sub_02036AB8
-	add r0, r4, #0x0
-	bl sub_02035D04
-	pop {r4-r6, pc}
-	.balign 4
-_02063C10: .word sub_02036AB8
-
-	thumb_func_start sub_02063C14
-sub_02063C14: ; 0x02063C14
-	push {r4, lr}
-	add r4, r0, #0x0
-	ldr r1, [r4, #0x4]
-	ldr r0, [r1, #0x6c]
-	sub r0, r0, #0x2
-	cmp r0, #0x1
-	bhi _02063C26
-	mov r0, #0x1
-	pop {r4, pc}
-_02063C26:
-	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
-	mov r1, #0x4
-	bl PlayerProfile_TestBadgeFlag
-	cmp r0, #0x0
-	bne _02063C3A
-	mov r0, #0x2
-	pop {r4, pc}
-_02063C3A:
-	ldr r0, [r4, #0x4]
-	ldr r0, [r0, #0x38]
-	bl PlayerAvatar_GetState
-	cmp r0, #0x2
-	bne _02063C4A
-	mov r0, #0x4
-	pop {r4, pc}
-_02063C4A:
-	ldrh r1, [r4, #0xc]
-	mov r0, #0x4
-	tst r0, r1
-	bne _02063C56
-	mov r0, #0x1
-	pop {r4, pc}
-_02063C56:
-	ldr r0, [r4, #0x4]
-	ldr r0, [r0, #0xc]
-	bl Save_VarsFlags_Get
-	bl Save_VarsFlags_CheckHaveFollower
-	cmp r0, #0x1
-	bne _02063C6A
-	mov r0, #0x3
-	pop {r4, pc}
-_02063C6A:
-	mov r0, #0x0
-	pop {r4, pc}
-	.balign 4
 
 	thumb_func_start sub_02063C70
 sub_02063C70: ; 0x02063C70
@@ -444,10 +16,10 @@ sub_02063C70: ; 0x02063C70
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _02063CA0 ; =sub_02063CA4
 	lsl r0, r0, #0x2
@@ -479,9 +51,9 @@ sub_02063CA4: ; 0x02063CA4
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -501,7 +73,7 @@ sub_02063CE0: ; 0x02063CE0
 	pop {r4, pc}
 _02063CF2:
 	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x5
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -530,10 +102,10 @@ sub_02063D18: ; 0x02063D18
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _02063D48 ; =sub_02063D4C
 	lsl r0, r0, #0x2
@@ -565,9 +137,9 @@ sub_02063D4C: ; 0x02063D4C
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -587,7 +159,7 @@ sub_02063D88: ; 0x02063D88
 	pop {r4, pc}
 _02063D9A:
 	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x3
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -616,10 +188,10 @@ sub_02063DC0: ; 0x02063DC0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _02063DF0 ; =sub_02063DF4
 	lsl r0, r0, #0x2
@@ -651,9 +223,9 @@ sub_02063DF4: ; 0x02063DF4
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -673,7 +245,7 @@ sub_02063E30: ; 0x02063E30
 	pop {r4, pc}
 _02063E42:
 	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x0
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -702,10 +274,10 @@ sub_02063E68: ; 0x02063E68
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _02063E98 ; =sub_02063E9C
 	lsl r0, r0, #0x2
@@ -737,9 +309,9 @@ sub_02063E9C: ; 0x02063E9C
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -759,7 +331,7 @@ sub_02063ED8: ; 0x02063ED8
 	pop {r4, pc}
 _02063EEA:
 	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x7
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -788,10 +360,10 @@ sub_02063F10: ; 0x02063F10
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _02063F40 ; =sub_02063F44
 	lsl r0, r0, #0x2
@@ -823,9 +395,9 @@ sub_02063F44: ; 0x02063F44
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -845,7 +417,7 @@ sub_02063F80: ; 0x02063F80
 	pop {r4, pc}
 _02063F92:
 	ldr r0, [r1, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x6
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -883,10 +455,10 @@ sub_02063FCC: ; 0x02063FCC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _02063FFC ; =sub_02064000
 	lsl r0, r0, #0x2
@@ -918,9 +490,9 @@ sub_02064000: ; 0x02064000
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -958,10 +530,10 @@ sub_0206405C: ; 0x0206405C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0206408C ; =sub_02064090
 	lsl r0, r0, #0x2
@@ -993,9 +565,9 @@ sub_02064090: ; 0x02064090
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -1039,7 +611,7 @@ _02064100:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x1
 	bne _02064124
 _02064120:
@@ -1068,7 +640,7 @@ sub_02064134: ; 0x02064134
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	ldrh r1, [r5, #0x4]
 	ldr r2, [r6, #0xc]
 	mov r0, #0xb
@@ -1160,7 +732,7 @@ sub_020641F0: ; 0x020641F0
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	ldrh r1, [r5, #0x4]
 	ldr r2, [r6, #0xc]
 	mov r0, #0xb
@@ -1229,7 +801,7 @@ sub_02064284: ; 0x02064284
 _02064294:
 	ldr r0, [r1, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x1
 	bne _020642A6
 	mov r0, #0x1
@@ -1263,7 +835,7 @@ sub_020642B4: ; 0x020642B4
 	bl sub_0206439C
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0206430C ; =ov05_021F6360
 	lsl r0, r0, #0x2
@@ -1315,10 +887,10 @@ sub_02064324: ; 0x02064324
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02063A5C
+	bl FieldMove_CreateUseEnvironment
 	add r5, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0206435C ; =sub_02064360
 	lsl r0, r0, #0x2
@@ -1350,9 +922,9 @@ sub_02064360: ; 0x02064360
 	ldrh r1, [r4, #0xc]
 	add r0, r6, #0x0
 	add r3, r2, #0x0
-	bl sub_020395BC
+	bl FieldMove_SetArgs
 	add r0, r4, #0x0
-	bl sub_02063A80
+	bl FieldMove_DeleteUseEnvironment
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}

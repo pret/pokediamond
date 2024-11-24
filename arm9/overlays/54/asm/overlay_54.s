@@ -3718,7 +3718,7 @@ ov54_021D91C4: ; 0x021D91C4
 	str r3, [sp, #4]
 	add r5, r1, #0
 	str r2, [sp]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	mov r7, #0

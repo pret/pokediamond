@@ -268,7 +268,7 @@ CallTask_GameClear: ; 0x02048694
 	bl Save_VarsFlags_Get
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
@@ -282,7 +282,7 @@ CallTask_GameClear: ; 0x02048694
 	bl sub_0205ED0C
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Party_Get
@@ -291,7 +291,7 @@ CallTask_GameClear: ; 0x02048694
 	bl Save_PlayerData_GetIGTAddr
 	str r0, [r5, #0xc]
 	ldr r0, [r4, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0x10]
 	add r0, r6, #0x0
@@ -469,7 +469,7 @@ sub_02048864: ; 0x02048864
 	bl MessageFormat_New
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0

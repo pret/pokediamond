@@ -356,7 +356,7 @@ BOOL ScrCmd_NormalMart(ScriptContext *ctx) // 0147 - todo: Pokemart?
     u8 i;
 
     for (i = 0; i < 8; i++) {
-        if (PlayerProfile_TestBadgeFlag(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData), i) == TRUE) {
+        if (PlayerProfile_TestBadgeFlag(Save_PlayerData_GetProfile(ctx->fieldSystem->saveData), i) == TRUE) {
             badgeCount++;
         }
     }

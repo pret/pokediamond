@@ -243,7 +243,7 @@ sub_0202B9EC: ; 0x0202B9EC
 	sub sp, #0xc
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x4e
 	add r6, r0, #0x0
 	add r0, r4, #0x0
@@ -718,7 +718,7 @@ sub_0202BD6C: ; 0x0202BD6C
 	str r2, [sp, #0x0]
 	add r4, r0, #0x0
 	add r5, r1, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4c

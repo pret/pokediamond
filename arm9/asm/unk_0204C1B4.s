@@ -421,7 +421,7 @@ _0204C4D0:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -481,7 +481,7 @@ _0204C54A:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -699,11 +699,11 @@ _0204C700:
 	bl GetPlayerXCoord
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r4, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_020547B0
 	cmp r0, #0x0
 	beq _0204C736
@@ -729,7 +729,7 @@ _0204C74A:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r1, r0, #0x0
 	ldr r2, [r5, #0x1c]
 	add r0, r6, #0x0
@@ -785,11 +785,11 @@ _0204C7BE:
 	bl GetPlayerXCoord
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_020547B0
 	cmp r0, #0x0
 	beq _0204C7FE
@@ -847,7 +847,7 @@ _0204C846:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -1061,11 +1061,11 @@ sub_0204C9EC: ; 0x0204C9EC
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r6, r0, #0x0
 	bl sub_020548D8
 	cmp r0, #0x0

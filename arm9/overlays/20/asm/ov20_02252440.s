@@ -1194,7 +1194,7 @@ ov20_02252C40: ; 0x02252C40
 ov20_02252C44: ; 0x02252C44
 	push {r3, lr}
 	ldr r0, [r0, #0x54]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	beq _02252C58

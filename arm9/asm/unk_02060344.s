@@ -14,7 +14,7 @@ sub_02060344: ; 0x02060344
 	bl sub_02029ACC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r1, #0xa

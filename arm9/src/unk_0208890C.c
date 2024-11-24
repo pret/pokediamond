@@ -29,7 +29,7 @@ struct PoffinCaseAppData *sub_0208890C(u32 a0, struct SaveData *save, HeapID hea
 
     ret->save = save;
     ret->savePoffinData = Save_PoffinData_Get(save);
-    ret->player = Save_PlayerData_GetProfileAddr(save);
+    ret->player = Save_PlayerData_GetProfile(save);
     ret->bag = Save_Bag_Get(save);
     ret->options = Save_PlayerData_GetOptionsAddr(save);
     ret->unk1C = a3;

@@ -434,8 +434,8 @@ BOOL ov59_IntroExit(struct OverlayManager *overlayManager, u32 *status) {
     ov59_IntroOverlayData *data = (ov59_IntroOverlayData *)OverlayManager_GetData(overlayManager);
 
     HeapID heapId = data->heapId;
-    PlayerName_StringToFlat(Save_PlayerData_GetProfileAddr(data->save), data->playerStruct->name);
-    PlayerProfile_SetTrainerGender(Save_PlayerData_GetProfileAddr(data->save), data->playerStruct->gender);
+    PlayerName_StringToFlat(Save_PlayerData_GetProfile(data->save), data->playerStruct->name);
+    PlayerProfile_SetTrainerGender(Save_PlayerData_GetProfile(data->save), data->playerStruct->gender);
 
     RivalsNameToU16Array(sub_02024EB4(data->save), data->rivalStruct->name);
 

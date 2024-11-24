@@ -16,8 +16,8 @@ UNK_02105FA8: ; 0x02105FA8
 
 	.text
 
-	thumb_func_start sub_0205F7A0
-sub_0205F7A0: ; 0x0205F7A0
+	thumb_func_start TownMap_Init
+TownMap_Init: ; 0x0205F7A0
 	push {r3-r7, lr}
 	sub sp, #0x10
 	str r0, [sp, #0x0]
@@ -42,7 +42,7 @@ sub_0205F7A0: ; 0x0205F7A0
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	asr r1, r4, #0x4
@@ -71,7 +71,7 @@ _0205F806:
 _0205F812:
 	ldr r0, [sp, #0x0]
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0xc]
 	ldr r0, [sp, #0x0]
