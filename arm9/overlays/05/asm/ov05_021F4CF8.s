@@ -45,7 +45,7 @@ ov05_021F4D2C: ; 0x021F4D2C
 	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -135,7 +135,7 @@ _021F4DDE:
 	lsl r0, r0, #4
 	str r0, [r4]
 	ldr r0, [r6, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerID
 	add r1, r5, #0
 	bl ov05_021F5138

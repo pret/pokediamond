@@ -75,8 +75,8 @@ sub_02037334: ; 0x02037334
 _02037348: .word SDK_OVERLAY_OVERLAY_63_ID
 _0203734C: .word ov63_021DBAB8
 
-	thumb_func_start LoadOverlay_OVERLAY_05
-LoadOverlay_OVERLAY_05: ; 0x02037350
+	thumb_func_start FieldSystem_LoadFieldOverlayInternal
+FieldSystem_LoadFieldOverlayInternal: ; 0x02037350
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]

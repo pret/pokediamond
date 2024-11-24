@@ -23,7 +23,7 @@ void Save_PlayerData_Init(PlayerData *pds) {
     InitIGT(&pds->igt);
 }
 
-PlayerProfile *Save_PlayerData_GetProfileAddr(struct SaveData *save) {
+PlayerProfile *Save_PlayerData_GetProfile(struct SaveData *save) {
     return &((PlayerData *)SaveArray_Get(save, 1))->profile;
 }
 

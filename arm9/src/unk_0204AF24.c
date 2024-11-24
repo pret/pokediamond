@@ -41,7 +41,7 @@ void CallTask_RestoreOverworld(struct TaskManager *taskManager) {
         GF_ASSERT(FALSE);
         return;
     }
-    sub_0204649C(fieldSystem);
+    FieldSystem_LoadFieldOverlay(fieldSystem);
     TaskManager_Call(taskManager, &sub_0204AF6C, NULL);
 }
 

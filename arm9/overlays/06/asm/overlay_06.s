@@ -4822,12 +4822,12 @@ ov06_0223BA04: ; 0x0223BA04
 	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	str r0, [sp, #0x14]
 	ldr r2, [sp, #0x14]
 	add r0, r5, #0
 	add r1, r6, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	str r0, [sp, #0x1c]
 	add r2, sp, #0x24
 	ldr r1, [sp, #0x1c]
@@ -5354,11 +5354,11 @@ ov06_0223BE70: ; 0x0223BE70
 	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, sp, #0x1c
@@ -5605,11 +5605,11 @@ ov06_0223C08C: ; 0x0223C08C
 	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r7, r0, #0
 	add r2, sp, #0x20
 	add r0, r5, #0
@@ -5931,7 +5931,7 @@ _0223C350:
 	bne _0223C38C
 	add r0, r5, #0
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerID
 	str r0, [sp]
 	ldr r0, [sp, #0x34]
@@ -5966,7 +5966,7 @@ _0223C3A6:
 	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r5, #0x90
@@ -8031,7 +8031,7 @@ _0223D342:
 	strb r0, [r4, #0x11]
 _0223D344:
 	ldr r0, [r6, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerID
 	str r0, [r4]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8124,7 +8124,7 @@ ov06_0223D3D0: ; 0x0223D3D0
 	lsl r1, r1, #4
 	str r0, [r4, r1]
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x83
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -11443,7 +11443,7 @@ _0223EF28:
 	ldr r0, [r1]
 	ldr r0, [r0, #0x68]
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r1, [r1]
 	str r0, [r1, #0x78]
@@ -15676,7 +15676,7 @@ CheckPastoriaGymButton: ; 0x02241230
 	bl GetPlayerXCoord
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -15756,7 +15756,7 @@ ov06_022412F4: ; 0x022412F4
 	push {r4, r5, r6, lr}
 	add r5, r3, #0
 	ldr r4, [sp, #0x10]
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r6, r0, #0
 	bl sub_02054890
 	cmp r0, #0
@@ -19914,7 +19914,7 @@ ov06_022433B8: ; 0x022433B8
 	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl GetPlayerXCoord
@@ -20211,7 +20211,7 @@ _0224356C:
 	bl ov06_02244A80
 _0224362A:
 	add r0, r6, #0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	strb r0, [r4, #0x11]
 	ldrb r0, [r4, #0xf]
@@ -22396,7 +22396,7 @@ ov06_022446FC: ; 0x022446FC
 	add r4, r1, #0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	ldr r1, _02244750 ; =0x0000083E
 	strh r0, [r6, r1]
@@ -23738,7 +23738,7 @@ _02245148:
 	strh r0, [r5, #0x14]
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	strh r0, [r5, #0x16]
 	ldr r0, [sp]
 	ldr r0, [r0, #0x1c]
@@ -24286,7 +24286,7 @@ _02245578:
 	cmp r0, #6
 	bhs _022455BC
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	ble _022455BC
@@ -24302,7 +24302,7 @@ _022455B4:
 	b _02245640
 _022455BC:
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	bgt _02245640
@@ -24333,7 +24333,7 @@ _022455E0:
 	cmp r0, #6
 	bhs _0224561E
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	bge _0224561E
@@ -24349,7 +24349,7 @@ _02245616:
 	b _02245640
 _0224561E:
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	blt _02245640
@@ -31411,7 +31411,7 @@ ov06_02248BC0: ; 0x02248BC0
 	push {r4, r5, r6, lr}
 	ldr r0, [r0, #0xc]
 	add r6, r1, #0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x18
@@ -31447,7 +31447,7 @@ ov06_02248C18: ; 0x02248C18
 	push {r4, r5, r6, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r6, r0, #0
 	mov r0, #4
 	mov r1, #0x18
@@ -32164,7 +32164,7 @@ ov06_02249158: ; 0x02249158
 ov06_0224916C: ; 0x0224916C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_CountBadges
 	cmp r0, #5
 	blt _02249180
@@ -39795,7 +39795,7 @@ _0224CC80:
 	ldr r0, [r5, #0x38]
 	add r1, sp, #0x18
 	add r2, sp, #0x14
-	bl sub_020572B8
+	bl PlayerAvatar_GetCoordsInFront
 	ldr r0, [r5, #0x28]
 	bl MapMatrix_GetWidth
 	str r0, [sp]
@@ -40902,7 +40902,7 @@ ov06_0224D46C: ; 0x0224D46C
 	bl NewString_ReadMsgData
 	add r5, r0, #0
 	ldr r0, [sp, #0x1c]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #0
@@ -43362,7 +43362,7 @@ ov06_0224E8C4: ; 0x0224E8C4
 	bl GetPlayerXCoord
 	add r5, r0, #0
 	add r0, r6, #0
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r4, r0, #0
 	add r0, r6, #0
 	bl PlayerAvatar_GetFacingDirection

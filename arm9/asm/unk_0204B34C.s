@@ -510,7 +510,7 @@ sub_0204B70C: ; 0x0204B70C
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r7, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r4, r0, #0x0
 	cmp r5, #0x2
 	bne _0204B72A
@@ -565,7 +565,7 @@ sub_0204B770: ; 0x0204B770
 	bl GetPlayerXCoord
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0x0
 	cmp r6, #0x2
 	bne _0204B78E
@@ -591,7 +591,7 @@ sub_0204B7A0: ; 0x0204B7A0
 	bl GetPlayerXCoord
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x4]
 	cmp r0, #0x0

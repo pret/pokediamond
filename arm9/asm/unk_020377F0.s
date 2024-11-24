@@ -784,7 +784,7 @@ sub_02037C00: ; 0x02037C00
 	add r0, r4, #0x0
 	bl sub_0207B000
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0207C2A4
@@ -839,7 +839,7 @@ sub_02037C7C: ; 0x02037C7C
 	add r0, r4, #0x0
 	bl sub_0207B000
 	add r0, r5, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0207C2A4
@@ -883,7 +883,7 @@ sub_02037CF0: ; 0x02037CF0
 	add r0, r4, #0x0
 	bl sub_0207B000
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_0207C2A4
@@ -1053,8 +1053,8 @@ sub_02037E80: ; 0x02037E80
 _02037E88: .word sub_020373D4
 _02037E8C: .word UNK_020F2CE4
 
-	thumb_func_start sub_02037E90
-sub_02037E90: ; 0x02037E90
+	thumb_func_start TownMap_Show
+TownMap_Show: ; 0x02037E90
 	push {r4-r6, lr}
 	sub sp, #0x10
 	ldr r5, _02037EB4 ; =UNK_020F2CD4
@@ -1089,10 +1089,10 @@ sub_02037EB8: ; 0x02037EB8
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x0
-	bl sub_0205F7A0
+	bl TownMap_Init
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_02037E90
+	bl TownMap_Show
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
@@ -1282,7 +1282,7 @@ sub_0203800C: ; 0x0203800C
 	bl Save_GameStats_Get
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r4, #0x14]
 	ldr r0, [sp, #0x18]
 	str r6, [r4, #0x18]
@@ -1407,7 +1407,7 @@ sub_02038144: ; 0x02038144
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Party_Get
@@ -1929,7 +1929,7 @@ _02038572: ; jump table (using 16-bit offset)
 	.short _020385BC - _02038572 - 2; case 6
 _02038580:
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	ldr r1, [r4, #0xc]
 	add r1, #0x1c
 	bl CopyPlayerName
@@ -2139,7 +2139,7 @@ sub_020386E0: ; 0x020386E0
 	bl sub_02029AFC
 	str r0, [r4, #0x18]
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -2343,7 +2343,7 @@ _020388CC:
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x8]
 	ldr r1, [r4, #0x1c]
 	add r0, r4, #0x0

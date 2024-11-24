@@ -83,7 +83,7 @@ BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext *ctx) // 0274 - todo: C
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct SaveData *save = FieldSystem_GetSaveData(fieldSystem);
     // Created, but discarded.
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
     u16 *coins_ptr = Save_PlayerData_GetCoinsAddr(fieldSystem->saveData);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -104,7 +104,7 @@ BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext *ctx) // 02A9 - todo: Can
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct SaveData *save = FieldSystem_GetSaveData(fieldSystem);
     // Created, but discarded
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
     u16 *coins_ptr = Save_PlayerData_GetCoinsAddr(fieldSystem->saveData);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 

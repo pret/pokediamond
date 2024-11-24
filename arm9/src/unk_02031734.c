@@ -69,7 +69,7 @@ void sub_02031734(struct SaveData *save, u8 param1) {
         UNK_021C5A00->unk43 = 1;
         UNK_021C5A00->unk28 = save;
 
-        UNK_021C5A00->unk2C = Save_PlayerData_GetProfileAddr(save);
+        UNK_021C5A00->unk2C = Save_PlayerData_GetProfile(save);
 
         UNK_021C5A00->unk3C = 2;
         UNK_021C5A00->unk3D = 0;
@@ -1610,7 +1610,7 @@ void sub_0203341C() {
 }
 
 void *sub_0203346C(struct SaveData *save, u32 param1) {
-    Save_PlayerData_GetProfileAddr(save);
+    Save_PlayerData_GetProfile(save);
     if (sub_02030F40() != 0) {
         return 0;
     }

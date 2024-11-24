@@ -40,7 +40,7 @@ typedef struct PlayerData {
 
 u32 Save_PlayerData_sizeof(void);
 void Save_PlayerData_Init(PlayerData *data);
-PlayerProfile *Save_PlayerData_GetProfileAddr(struct SaveData *save);
+PlayerProfile *Save_PlayerData_GetProfile(struct SaveData *save);
 struct Options *Save_PlayerData_GetOptionsAddr(struct SaveData *save);
 u16 *Save_PlayerData_GetCoinsAddr(struct SaveData *save);
 struct IGT *Save_PlayerData_GetIGTAddr(struct SaveData *save);

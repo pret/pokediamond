@@ -42,7 +42,7 @@ void Save_VarsFlags_ClearSafariSysFlag(struct SaveVarsFlags *state);
 BOOL Save_VarsFlags_CheckSafariSysFlag(struct SaveVarsFlags *state);
 void sub_0205F224(struct SaveVarsFlags *state);
 void sub_0205F234(struct SaveVarsFlags *state);
-BOOL sub_0205F244(struct SaveVarsFlags *state);
+BOOL Save_VarsFlags_CheckPalParkSysFlag(struct SaveVarsFlags *state);
 void sub_0205F254(struct SaveVarsFlags *state);
 BOOL sub_0205F264(struct SaveVarsFlags *state, u32 op);
 void sub_0205F274(struct SaveVarsFlags *state);

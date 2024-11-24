@@ -55,7 +55,7 @@ BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext *ctx) // 0199 - todo: CheckPa
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct SaveData *save = FieldSystem_GetSaveData(fieldSystem);
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *player = Save_PlayerData_GetProfile(save);
 
     u16 *mon_slot = ScriptGetVarPointer(ctx);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
@@ -77,7 +77,7 @@ BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext *ctx) // 0199 - todo: CheckPa
 BOOL ScrCmd_GiveEgg(struct ScriptContext *ctx) // 0097
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    PlayerProfile *player = Save_PlayerData_GetProfileAddr(fieldSystem->saveData);
+    PlayerProfile *player = Save_PlayerData_GetProfile(fieldSystem->saveData);
     u16 species = ScriptGetVar(ctx);
     u16 unk = ScriptGetVar(ctx);
     struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);

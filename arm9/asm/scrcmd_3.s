@@ -79,7 +79,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword

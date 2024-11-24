@@ -74,7 +74,7 @@ _020460AE:
 	bl GetPlayerXCoord
 	strh r0, [r4, #0x4]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	strh r0, [r4, #0x6]
 	add r0, r5, #0x0
 	mov r1, #0x1

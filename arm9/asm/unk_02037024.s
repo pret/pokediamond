@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start sub_02037024
-sub_02037024: ; 0x02037024
+	thumb_func_start FieldSystem_GetFacingObject
+FieldSystem_GetFacingObject: ; 0x02037024
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r6, r1, #0x0
@@ -16,7 +16,7 @@ sub_02037024: ; 0x02037024
 	ldr r1, [sp, #0x4]
 	ldr r2, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_020547A4
 	cmp r0, #0x1
 	bne _0203707E
@@ -67,7 +67,7 @@ sub_02037090: ; 0x02037090
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
-	bl sub_02037024
+	bl FieldSystem_GetFacingObject
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020370B8
@@ -335,7 +335,7 @@ sub_02037264: ; 0x02037264
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x8]
 	mov r7, #0x0

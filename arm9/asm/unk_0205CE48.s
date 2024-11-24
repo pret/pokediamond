@@ -85,12 +85,12 @@ sub_0205CE80: ; 0x0205CE80
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	strh r0, [r5, #0xe]
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -122,11 +122,11 @@ _0205CEEA:
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	strh r0, [r5, #0xc]
 	add r0, r4, #0x0
 	add r1, sp, #0x0
-	bl sub_02037024
+	bl FieldSystem_GetFacingObject
 	ldr r1, [sp, #0x0]
 	add r0, r4, #0x0
 	bl sub_0204B6C4
@@ -168,7 +168,7 @@ sub_0205CF34: ; 0x0205CF34
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	mov r2, #0x0
 	ldr r1, _0205CF74 ; =sub_0205CFA0
@@ -229,7 +229,7 @@ sub_0205CFA0: ; 0x0205CFA0
 _0205CFC6:
 	add r0, r5, #0x0
 	add r1, sp, #0x0
-	bl sub_02037024
+	bl FieldSystem_GetFacingObject
 	ldr r1, [r4, #0x0]
 	ldr r2, [sp, #0x0]
 	lsl r1, r1, #0x10
@@ -330,7 +330,7 @@ sub_0205D024: ; 0x0205D024
 	str r4, [r7, r0]
 	ldr r1, _0205D0B8 ; =sub_02035E50
 	add r0, r7, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r7, pc}
 	nop
 _0205D0B4: .word UNK_020F96DC
@@ -353,7 +353,7 @@ sub_0205D0BC: ; 0x0205D0BC
 	str r0, [r4, r1]
 	ldr r1, _0205D0E8 ; =sub_02036A78
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r5, pc}
 	nop
 _0205D0E8: .word sub_02036A78
@@ -386,7 +386,7 @@ sub_0205D104: ; 0x0205D104
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0205D140 ; =sub_02049844
 	lsl r0, r0, #0x2
@@ -464,7 +464,7 @@ _0205D1A4:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x1
 	bne _0205D1CA
 _0205D1C4:
@@ -497,7 +497,7 @@ _0205D1EE:
 	lsr r4, r0, #0x10
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	lsl r0, r0, #0x10
 	lsr r2, r0, #0x10
 	ldr r0, [r5, #0x18]
@@ -523,7 +523,7 @@ sub_0205D21C: ; 0x0205D21C
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0205D24C ; =sub_0205D264
 	lsl r0, r0, #0x2
@@ -730,7 +730,7 @@ sub_0205D3B8: ; 0x0205D3B8
 	bl sub_02037944
 	ldr r1, _0205D3E0 ; =sub_02036B90
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r5, pc}
 	nop
 _0205D3E0: .word sub_02036B90
@@ -813,7 +813,7 @@ sub_0205D400: ; 0x0205D400
 	str r4, [r7, r0]
 	ldr r1, _0205D494 ; =sub_02035E50
 	add r0, r7, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r7, pc}
 	nop
 _0205D490: .word UNK_020F96DC
@@ -848,7 +848,7 @@ sub_0205D498: ; 0x0205D498
 	str r6, [r4, r0]
 	ldr r1, _0205D4E0 ; =sub_02036BDC
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r4-r6, pc}
 	nop
 _0205D4E0: .word sub_02036BDC
@@ -912,7 +912,7 @@ sub_0205D528: ; 0x0205D528
 	str r0, [r4, r1]
 	ldr r1, _0205D554 ; =sub_02036D94
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r5, pc}
 	.balign 4
 _0205D554: .word sub_02036D94
@@ -954,7 +954,7 @@ sub_0205D574: ; 0x0205D574
 	str r1, [r4, r0]
 	ldr r1, _0205D5A4 ; =sub_02036DD4
 	add r0, r4, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r5, pc}
 	nop
 _0205D5A4: .word sub_02036DD4
@@ -994,7 +994,7 @@ sub_0205D5C4: ; 0x0205D5C4
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	add r0, r6, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0205D600 ; =sub_0205E30C
 	lsl r0, r0, #0x2
@@ -1127,7 +1127,7 @@ sub_0205D6BC: ; 0x0205D6BC
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	bl ov05_021F57EC
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
@@ -1200,7 +1200,7 @@ sub_0205D74C: ; 0x0205D74C
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0205D784 ; =ov05_021F5C70
 	lsl r0, r0, #0x2
@@ -1246,7 +1246,7 @@ sub_0205D7A8: ; 0x0205D7A8
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0205D7E0 ; =ov05_021F5C70
 	lsl r0, r0, #0x2
@@ -1292,7 +1292,7 @@ sub_0205D804: ; 0x0205D804
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0205D83C ; =ov05_021F5C70
 	lsl r0, r0, #0x2
@@ -1543,7 +1543,7 @@ sub_0205D9A8: ; 0x0205D9A8
 	str r4, [r7, r0]
 	ldr r1, _0205DA38 ; =sub_02035E50
 	add r0, r7, #0x0
-	bl sub_02035D04
+	bl StartMenu_SetExitTaskFunc
 	pop {r3-r7, pc}
 	.balign 4
 _0205DA34: .word UNK_020F96DC
@@ -1560,7 +1560,7 @@ sub_0205DA3C: ; 0x0205DA3C
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
 	ldr r1, _0205DA7C ; =sub_0205DAAC
 	lsl r0, r0, #0x2
@@ -1697,7 +1697,7 @@ sub_0205DB44: ; 0x0205DB44
 _0205DB54:
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #0x1
 	bne _0205DB66
 	mov r0, #0x0
@@ -1786,7 +1786,7 @@ sub_0205DBF0: ; 0x0205DBF0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0xb
 	str r1, [sp, #0x0]
 	ldrh r2, [r5, #0x28]
@@ -1866,7 +1866,7 @@ _0205DCB2:
 	bl FreeToHeap
 _0205DCB6:
 	add r0, r5, #0x0
-	bl sub_0204649C
+	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x3
 	add r4, #0x2a
 	strb r0, [r4, #0x0]
