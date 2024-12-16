@@ -1,564 +1,564 @@
 #ifndef POKEDIAMOND_CONSTANTS_MAPS_H
 #define POKEDIAMOND_CONSTANTS_MAPS_H
 
-#define MAP_EVERYWHERE                                   0
-#define MAP_NOTHING                                      1
-#define MAP_UNDERGROUND                                  2
-#define MAP_JUBLIFE                                      3
-#define MAP_JUBLIFE_POKEMART                             4
-#define MAP_JUBLIFE_UNUSED_GYM                           5
-#define MAP_JUBLIFE_POKECENTER_1F                        6
-#define MAP_JUBLIFE_POKECENTER_2F                        7
-#define MAP_JUBLIFE_POKETCH_COMPANY_1F                   8
-#define MAP_JUBLIFE_POKETCH_COMPANY_2F                   9
-#define MAP_JUBLIFE_POKETCH_COMPANY_3F                   10
-#define MAP_JUBLIFE_TV_1F                                11
-#define MAP_JUBLIFE_TV_2F                                12
-#define MAP_JUBLIFE_TV_3F                                13
-#define MAP_JUBLIFE_TV_4F                                14
-#define MAP_JUBLIFE_TV_2F_GALLERY                        15
-#define MAP_JUBLIFE_TV_3F_GLOBAL_RANKINGS                16
-#define MAP_JUBLIFE_TV_3F_GROUP_RANKINGS                 17
-#define MAP_JUBLIFE_TV_ELEVATOR                          18
-#define MAP_JUBLIFE_SOUTHEAST_HOUSE_1F                   19
-#define MAP_JUBLIFE_SOUTHEAST_HOUSE_2F                   20
-#define MAP_JUBLIFE_SOUTHEAST_HOUSE_3F                   21
-#define MAP_JUBLIFE_SOUTHEAST_HOUSE_4F                   22
-#define MAP_JUBLIFE_UNUSED_HOUSE                         23
-#define MAP_JUBLIFE_CONDOMINIUMS_1F                      24
-#define MAP_JUBLIFE_CONDOMINIUMS_2F                      25
-#define MAP_JUBLIFE_CONDOMINIUMS_3F                      26
-#define MAP_JUBLIFE_CONDOMINIUMS_4F                      27
-#define MAP_JUBLIFE_GLOBAL_TRADE_STATION                 28
-#define MAP_JUBLIFE_TRAINER_SCHOOL                       29
-#define MAP_JUBLIFE_SOUTHWEST_HOUSE_1F                   30
-#define MAP_JUBLIFE_UNUSED_HOUSE_2                       31
-#define MAP_JUBLIFE_UNUSED_HOUSE_3                       32
-#define MAP_CANALAVE                                     33
-#define MAP_CANALAVE_POKEMART                            34
-#define MAP_CANALAVE_GYM                                 35
-#define MAP_CANALAVE_POKECENTER_1F                       36
-#define MAP_CANALAVE_POKECENTER_2F                       37
-#define MAP_CANALAVE_LIBRARY_1F                          38
-#define MAP_CANALAVE_LIBRARY_2F                          39
-#define MAP_CANALAVE_LIBRARY_3F                          40
-#define MAP_CANALAVE_SOUTHEAST_HOUSE                     41
-#define MAP_CANALAVE_MOVE_DELETER_HOUSE                  42
-#define MAP_CANALAVE_HARBOR_INN                          43
-#define MAP_CANALAVE_SAILOR_ELDRITCH_HOUSE               44
-#define MAP_OREBURGH                                     45
-#define MAP_OREBURGH_POKEMART                            46
-#define MAP_OREBURGH_GYM                                 47
-#define MAP_OREBURGH_POKECENTER_1F                       48
-#define MAP_OREBURGH_POKECENTER_2F                       49
-#define MAP_OREBURGH_NORTHWEST_HOUSE_1F                  50
-#define MAP_OREBURGH_NORTHWEST_HOUSE_2F                  51
-#define MAP_OREBURGH_NORTHWEST_HOUSE_3F                  52
-#define MAP_OREBURGH_NORTHWEST_HOUSE_4F                  53
-#define MAP_OREBURGH_NORTH_HOUSE_1F                      54
-#define MAP_OREBURGH_NORTH_HOUSE_2F                      55
-#define MAP_OREBURGH_NORTH_HOUSE_3F                      56
-#define MAP_OREBURGH_NORTH_HOUSE_4F                      57
-#define MAP_OREBURGH_MIDDLE_HOUSE                        58
-#define MAP_OREBURGH_MINING_MUSEUM                       59
-#define MAP_OREBURGH_WEST_HOUSE                          60
-#define MAP_OREBURGH_EAST_HOUSE_1F                       61
-#define MAP_OREBURGH_EAST_HOUSE_2F                       62
-#define MAP_OREBURGH_EAST_HOUSE_3F                       63
-#define MAP_OREBURGH_SOUTH_HOUSE                         64
-#define MAP_ETERNA                                       65
-#define MAP_ETERNA_POKEMART                              66
-#define MAP_ETERNA_GYM_ENTRANCE                          67
-#define MAP_ETERNA_GYM                                   68
-#define MAP_ETERNA_POKECENTER_1F                         69
-#define MAP_ETERNA_POKECENTER_2F                         70
-#define MAP_ETERNA_BIKE_SHOP                             71
-#define MAP_ETERNA_GALACTIC_BUILDING_1F                  72
-#define MAP_ETERNA_GALACTIC_BUILDING_2F                  73
-#define MAP_ETERNA_GALACTIC_BUILDING_3F                  74
-#define MAP_ETERNA_GALACTIC_BUILDING_4F                  75
-#define MAP_ETERNA_CONDOMINIUMS_1F                       76
-#define MAP_ETERNA_CONDOMINIUMS_2F                       77
-#define MAP_ETERNA_CONDOMINIUMS_3F                       78
-#define MAP_ETERNA_CONDOMINIUMS_4F                       79
-#define MAP_ETERNA_ROUTE_206_GATEHOUSE                   80
-#define MAP_ETERNA_HERB_SHOP                             81
-#define MAP_ETERNA_OAK_HOUSE                             82
-#define MAP_ETERNA_EAST_HOUSE                            83
-#define MAP_ETERNA_UNDERGROUND_MAN_HOUSE                 84
-#define MAP_ETERNA_UNUSED_HOUSE                          85
-#define MAP_HEARTHOME                                    86
-#define MAP_HEARTHOME_POKEMART                           87
-#define MAP_HEARTHOME_GYM_FIRST_QUESTION_ROOM            88
-#define MAP_HEARTHOME_GYM_FIRST_QUESTION_TRAINER_ROOM_1  89
-#define MAP_HEARTHOME_GYM_FIRST_QUESTION_TRAINER_ROOM_2  90
-#define MAP_HEARTHOME_GYM_SECOND_QUESTION_ROOM           91
-#define MAP_HEARTHOME_GYM_SECOND_QUESTION_TRAINER_ROOM_1 92
-#define MAP_HEARTHOME_GYM_THIRD_QUESTION_ROOM            93
-#define MAP_HEARTHOME_GYM_SECOND_QUESTION_TRAINER_ROOM_2 94
-#define MAP_HEARTHOME_GYM_FOURTH_QUESTION_ROOM           95
-#define MAP_HEARTHOME_GYM_THIRD_QUESTION_TRAINER_ROOM_1  96
-#define MAP_HEARTHOME_GYM_THIRD_QUESTION_TRAINER_ROOM_2  97
-#define MAP_HEARTHOME_GYM_FOURTH_QUESTION_TRAINER_ROOM_1 98
-#define MAP_HEARTHOME_GYM_FOURTH_QUESTION_TRAINER_ROOM_2 99
-#define MAP_HEARTHOME_GYM_LEADER_ROOM                    100
-#define MAP_HEARTHOME_POKECENTER_1F                      101
-#define MAP_HEARTHOME_POKECENTER_2F                      102
-#define MAP_HEARTHOME_SOUTHEAST_HOUSE_1F                 103
-#define MAP_HEARTHOME_SOUTHEAST_HOUSE_2F                 104
-#define MAP_HEARTHOME_SOUTHEAST_HOUSE_ELEVATOR           105
-#define MAP_HEARTHOME_POKEMON_FAN_CLUB                   106
-#define MAP_HEARTHOME_AMITY_SQUARE_WEST_GATEHOUSE        107
-#define MAP_HEARTHOME_AMITY_SQUARE_EAST_GATEHOUSE        108
-#define MAP_HEARTHOME_ROUTE_208_GATEHOUSE                109
-#define MAP_HEARTHOME_ROUTE_209_GATEHOUSE                110
-#define MAP_HEARTHOME_ROUTE_212_GATEHOUSE                111
-#define MAP_HEARTHOME_NORTHEAST_HOUSE_1F                 112
-#define MAP_HEARTHOME_NORTHEAST_HOUSE_2F                 113
-#define MAP_HEARTHOME_NORTHEAST_HOUSE_ELEVATOR           114
-#define MAP_HEARTHOME_BEBE_HOUSE                         115
-#define MAP_HEARTHOME_POFFIN_HOUSE                       116
-#define MAP_HEARTHOME_SUPER_CONTEST_HALL_LOBBY           117
-#define MAP_HEARTHOME_SUPER_CONTEST_HALL_STAGE           118
-#define MAP_HEARTHOME_FOREIGN_BUILDING                   119
-#define MAP_PASTORIA                                     120
-#define MAP_PASTORIA_POKEMART                            121
-#define MAP_PASTORIA_GYM                                 122
-#define MAP_PASTORIA_POKECENTER_1F                       123
-#define MAP_PASTORIA_POKECENTER_2F                       124
-#define MAP_PASTORIA_GREAT_MARSH_ENTRANCE_1F             125
-#define MAP_PASTORIA_GREAT_MARSH_ENTRANCE_2F             126
-#define MAP_PASTORIA_SOUTHWEST_HOUSE                     127
-#define MAP_PASTORIA_WEST_HOUSE                          128
-#define MAP_PASTORIA_MOVE_TUTOR_HOUSE                    129
-#define MAP_PASTORIA_NORTHWEST_HOUSE                     130
-#define MAP_PASTORIA_SCARF_GUY_HOUSE                     131
-#define MAP_VEILSTONE                                    132
-#define MAP_VEILSTONE_GYM                                133
-#define MAP_VEILSTONE_POKECENTER_1F                      134
-#define MAP_VEILSTONE_POKECENTER_2F                      135
-#define MAP_VEILSTONE_GAME_CORNER                        136
-#define MAP_VEILSTONE_DEPARTMENT_STORE_1F                137
-#define MAP_VEILSTONE_DEPARTMENT_STORE_2F                138
-#define MAP_VEILSTONE_DEPARTMENT_STORE_3F                139
-#define MAP_VEILSTONE_DEPARTMENT_STORE_4F                140
-#define MAP_VEILSTONE_DEPARTMENT_STORE_5F                141
-#define MAP_VEILSTONE_DEPARTMENT_STORE_ELEVATOR          142
-#define MAP_VEILSTONE_GALACTIC_WAREHOUSE_ENTRANCE        143
-#define MAP_VEILSTONE_PRIZE_EXCHANGE                     144
-#define MAP_VEILSTONE_SOUTH_HOUSE                        145
-#define MAP_VEILSTONE_NORTH_HOUSE                        146
-#define MAP_VEILSTONE_NORTHEAST_HOUSE                    147
-#define MAP_VEILSTONE_MASSAGE_GIRL_HOUSE                 148
-#define MAP_VEILSTONE_ROUTE_215_GATEHOUSE                149
-#define MAP_SUNYSHORE                                    150
-#define MAP_SUNYSHORE_POKECENTER_1F                      151
-#define MAP_SUNYSHORE_POKECENTER_2F                      152
-#define MAP_SUNYSHORE_POKEMART                           153
-#define MAP_SUNYSHORE_GYM_ROOM_1                         154
-#define MAP_SUNYSHORE_GYM_ROOM_2                         155
-#define MAP_SUNYSHORE_GYM_ROOM_3                         156
-#define MAP_SUNYSHORE_MARKET                             157
-#define MAP_SUNYSHORE_JULIA_HOUSE                        158
-#define MAP_SUNYSHORE_WEST_HOUSE                         159
-#define MAP_SUNYSHORE_NORTH_HOUSE                        160
-#define MAP_SUNYSHORE_UNUSED_HOUSE_1                     161
-#define MAP_SUNYSHORE_UNUSED_HOUSE_2                     162
-#define MAP_SUNYSHORE_POKETCH_DEVELOPER_HOUSE            163
-#define MAP_SUNYSHORE_VISTA_LIGHTHOUSE_OBSERVATION_DECK  164
-#define MAP_SNOWPOINT                                    165
-#define MAP_SNOWPOINT_POKEMART                           166
-#define MAP_SNOWPOINT_GYM                                167
-#define MAP_SNOWPOINT_POKECENTER_1F                      168
-#define MAP_SNOWPOINT_POKECENTER_2F                      169
-#define MAP_SNOWPOINT_NORTHWEST_HOUSE                    170
-#define MAP_SNOWPOINT_NORTHEAST_HOUSE                    171
-#define MAP_POKEMON_LEAGUE                               172
-#define MAP_POKEMON_LEAGUE_POKECENTER_1F                 173
-#define MAP_POKEMON_LEAGUE_POKECENTER_2F                 174
-#define MAP_POKEMON_LEAGUE_LOBBY_1F                      175
-#define MAP_POKEMON_LEAGUE_ENTRANCE                      176
-#define MAP_POKEMON_LEAGUE_AARON_ROOM                    177
-#define MAP_POKEMON_LEAGUE_AARON_BERTHA_LINK             178
-#define MAP_POKEMON_LEAGUE_BERTHA_ROOM                   179
-#define MAP_POKEMON_LEAGUE_BERTHA_FLINT_LINK             180
-#define MAP_POKEMON_LEAGUE_FLINT_ROOM                    181
-#define MAP_POKEMON_LEAGUE_FLINT_LUCIAN_LINK             182
-#define MAP_POKEMON_LEAGUE_LUCIAN_ROOM                   183
-#define MAP_POKEMON_LEAGUE_LUCIAN_CYNTHIA_LINK           184
-#define MAP_POKEMON_LEAGUE_CYNTHIA_ROOM                  185
-#define MAP_POKEMON_LEAGUE_HALL_OF_FAME_CORRIDOR         186
-#define MAP_POKEMON_LEAGUE_HALL_OF_FAME                  187
-#define MAP_FIGHT_AREA                                   188
-#define MAP_FIGHT_AREA_POKECENTER_1F                     189
-#define MAP_FIGHT_AREA_POKECENTER_2F                     190
-#define MAP_FIGHT_AREA_POKEMART                          191
-#define MAP_FIGHT_AREA_BATTLE_PARK_GATEHOUSE             192
-#define MAP_FIGHT_AREA_ROUTE_225_GATEHOUSE               193
-#define MAP_FIGHT_AREA_SOUTHEAST_HOUSE                   194
-#define MAP_FIGHT_AREA_SOUTHWEST_HOUSE                   195
-#define MAP_FIGHT_AREA_UNUSED_1                          196
-#define MAP_OREBURGH_MINE_UNUSED                         197
-#define MAP_OREBURGH_MINE_B1F                            198
-#define MAP_OREBURGH_MINE_B2F                            199
-#define MAP_VALLEY_WINDWORKS_EXTERIOR                    200
-#define MAP_VALLEY_WINDWORKS_INTERIOR                    201
-#define MAP_ETERNA_FOREST_EXTERIOR                       202
-#define MAP_ETERNA_FOREST_INTERIOR                       203
-#define MAP_FUEGO_IRONWORKS_EXTERIOR                     204
-#define MAP_FUEGO_IRONWORKS_INTERIOR                     205
-#define MAP_MOUNT_CORONET_UNUSED_1                       206
-#define MAP_MOUNT_CORONET_SOUTH_1F                       207
-#define MAP_MOUNT_CORONET_SOUTH_2F                       208
-#define MAP_MOUNT_CORONET_SOUTH_3F                       209
-#define MAP_MOUNT_CORONET_NORTH_MOUNTAINSIDE             210
-#define MAP_MOUNT_CORONET_SOUTH_MOUNTAINSIDE             211
-#define MAP_MOUNT_CORONET_4F_ROOM_1                      212
-#define MAP_MOUNT_CORONET_4F_ROOM_3                      213
-#define MAP_MOUNT_CORONET_5F                             214
-#define MAP_MOUNT_CORONET_6F                             215
-#define MAP_MOUNT_CORONET_TUNNEL_ROOM                    216
-#define MAP_MOUNT_CORONET_NORTH_1F_ROOM_2                217
-#define MAP_MOUNT_CORONET_NORTH_1F_ROOM_1                218
-#define MAP_MOUNT_CORONET_B1F                            219
-#define MAP_MOUNT_CORONET_SPEAR_PILLAR                   220
-#define MAP_MOUNT_CORONET_UNUSED_2                       221
-#define MAP_GREAT_MARSH_UNUSED                           222
-#define MAP_GREAT_MARSH                                  223
-#define MAP_SOLACEON_RUINS_UNUSED                        224
-#define MAP_SOLACEON_RUINS_2F                            225
-#define MAP_SOLACEON_RUINS_1F_MAIN_ROOM                  226
-#define MAP_SOLACEON_RUINS_B1F_ROOM_1                    227
-#define MAP_SOLACEON_RUINS_1F_ROOM_1                     228
-#define MAP_SOLACEON_RUINS_B1F_MAIN_ROOM                 229
-#define MAP_SOLACEON_RUINS_1F_ROOM_2                     230
-#define MAP_SOLACEON_RUINS_B2F_MAIN_ROOM                 231
-#define MAP_SOLACEON_RUINS_B1F_ROOM_2                    232
-#define MAP_SOLACEON_RUINS_B3F_ROOM_1                    233
-#define MAP_SOLACEON_RUINS_B4F_ROOM_1                    234
-#define MAP_SOLACEON_RUINS_B2F_ROOM_1                    235
-#define MAP_SOLACEON_RUINS_B2F_ROOM_2                    236
-#define MAP_SOLACEON_RUINS_B3F_MAIN_ROOM_1               237
-#define MAP_SOLACEON_RUINS_B3F_MAIN_ROOM_2               238
-#define MAP_SOLACEON_RUINS_B4F_MAIN_ROOM                 239
-#define MAP_SOLACEON_RUINS_B4F_ROOM_2                    240
-#define MAP_SOLACEON_RUINS_B3F_ROOM_2                    241
-#define MAP_SOLACEON_RUINS_B3F_ROOM_3                    242
-#define MAP_VICTORY_ROAD_UNUSED                          243
-#define MAP_VICTORY_ROAD_1F                              244
-#define MAP_VICTORY_ROAD_2F                              245
-#define MAP_VICTORY_ROAD_B1F                             246
-#define MAP_VICTORY_ROAD_1F_BACK_2                       247
-#define MAP_VICTORY_ROAD_1F_BACK_1                       248
-#define MAP_VICTORY_ROAD_1F_BACK_3                       249
-#define MAP_PAL_PARK_UNUSED                              250
-#define MAP_PAL_PARK                                     251
-#define MAP_AMITY_SQUARE_UNUSED                          252
-#define MAP_AMITY_SQUARE                                 253
-#define MAP_RAVAGED_PATH                                 254
-#define MAP_FLOAROMA_MEADOW_UNUSED                       255
-#define MAP_FLOAROMA_MEADOW                              256
-#define MAP_FLOAROMA_MEADOW_HOUSE                        257
-#define MAP_OREBURGH_GATE_1F                             258
-#define MAP_OREBURGH_GATE_B1F                            259
-#define MAP_FULLMOON_ISLAND_EXTERIOR                     260
-#define MAP_FULLMOON_ISLAND_INTERIOR                     261
-#define MAP_STARK_MOUNTAIN_EXTERIOR                      262
-#define MAP_STARK_MOUNTAIN_INTERIOR_1                    263
-#define MAP_STARK_MOUNTAIN_INTERIOR_2                    264
-#define MAP_STARK_MOUNTAIN_INTERIOR_3                    265
-#define MAP_SENDOFF_SPRING_UNUSED                        266
-#define MAP_SENDOFF_SPRING                               267
-#define MAP_TURNBACK_CAVE_ENTRANCE                       268
-#define MAP_TURNBACK_CAVE_PILLAR_ROOM                    269
-#define MAP_TURNBACK_CAVE_GIRATINA_ROOM                  270
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_3                  271
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_6                  272
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_5                  273
-#define MAP_FLOWER_PARADISE                              274
-#define MAP_FLOWER_PARADISE_UNUSED                       275
-#define MAP_UNUSED_1                                     276
-#define MAP_UNUSED_2                                     277
-#define MAP_SNOWPOINT_TEMPLE_1F                          278
-#define MAP_SNOWPOINT_TEMPLE_B1F                         279
-#define MAP_SNOWPOINT_TEMPLE_B2F                         280
-#define MAP_SNOWPOINT_TEMPLE_B3F                         281
-#define MAP_SNOWPOINT_TEMPLE_B4F                         282
-#define MAP_SNOWPOINT_TEMPLE_B5F                         283
-#define MAP_WAYWARD_CAVE_1F                              284
-#define MAP_WAYWARD_CAVE_B1F                             285
-#define MAP_RUIN_MANIAC_CAVE_STAGE_1                     286
-#define MAP_TROPHY_GARDEN                                287
-#define MAP_IRON_ISLAND_EXTERIOR                         288
-#define MAP_IRON_ISLAND_1F                               289
-#define MAP_IRON_ISLAND_B1F_ROOM_1                       290
-#define MAP_IRON_ISLAND_B1F_ROOM_2                       291
-#define MAP_IRON_ISLAND_B2F_ROOM_1                       292
-#define MAP_IRON_ISLAND_B2F_ROOM_2                       293
-#define MAP_IRON_ISLAND_B3F                              294
-#define MAP_OLD_CHATEAU_ENTRANCE                         295
-#define MAP_OLD_CHATEAU_1F                               296
-#define MAP_OLD_CHATEAU_2F_SIDE_ROOMS                    297
-#define MAP_OLD_CHATEAU_2F_CORRIDOR                      298
-#define MAP_OLD_CHATEAU_2F_ROOM_1                        299
-#define MAP_OLD_CHATEAU_2F_ROOM_2                        300
-#define MAP_OLD_CHATEAU_2F_ROOM_3                        301
-#define MAP_OLD_CHATEAU_2F_ROOM_4                        302
-#define MAP_OLD_CHATEAU_2F_ROOM_5                        303
-#define MAP_OLD_CHATEAU_UNUSED                           304
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_1F           305
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_2F           306
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_3F           307
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_1         308
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_B1F          309
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_B2F          310
-#define MAP_LAKE_VERITY                                  311
-#define MAP_LAKE_VERITY_GALACTIC                         312
-#define MAP_VERITY_CAVERN                                313
-#define MAP_LAKE_VALOR_GALACTIC                          314
-#define MAP_LAKE_VALOR                                   315
-#define MAP_VALOR_CAVERN                                 316
-#define MAP_LAKE_ACUITY                                  317
-#define MAP_LAKE_ACUITY_GALACTIC                         318
-#define MAP_ACUITY_CAVERN                                319
-#define MAP_NEWMOON_ISLAND_EXTERIOR                      320
-#define MAP_NEWMOON_ISLAND_INTERIOR                      321
-#define MAP_BATTLE_PARK                                  322
-#define MAP_BATTLE_PARK_EXCHANGE_SERVICE_CORNER          323
-#define MAP_BATTLE_PARK_UNUSED_1                         324
-#define MAP_BATTLE_PARK_UNUSED_2                         325
-#define MAP_BATTLE_TOWER_LOBBY                           326
-#define MAP_BATTLE_TOWER_ELEVATOR                        327
-#define MAP_BATTLE_TOWER_CORRIDOR_MULTI                  328
-#define MAP_BATTLE_TOWER_CORRIDOR_WIFI                   329
-#define MAP_BATTLE_TOWER_ARENA_MULTI                     330
-#define MAP_BATTLE_TOWER_ARENA_WIFI                      331
-#define MAP_UNKNOWN_ARENA_1                              332
-#define MAP_UNKNOWN_ARENA_2                              333
-#define MAP_VERITY_LAKEFRONT                             334
-#define MAP_VERITY_LAKEFRONT_UNUSED_HOUSE                335
-#define MAP_VALOR_LAKEFRONT                              336
-#define MAP_VALOR_LAKEFRONT_SEVEN_STARS_RESTAURANT       337
-#define MAP_VALOR_LAKEFRONT_GRAND_LAKE_EAST_ROOM         338
-#define MAP_VALOR_LAKEFRONT_GRAND_LAKE_WEST_ROOM         339
-#define MAP_ACUITY_LAKEFRONT                             340
-#define MAP_SPRING_PATH                                  341
-#define MAP_ROUTE_201                                    342
-#define MAP_ROUTE_202                                    343
-#define MAP_ROUTE_203                                    344
-#define MAP_ROUTE_204_SOUTH                              345
-#define MAP_ROUTE_204_NORTH                              346
-#define MAP_ROUTE_205_SOUTH                              347
-#define MAP_ROUTE_205_HOUSE                              348
-#define MAP_ROUTE_205_NORTH                              349
-#define MAP_ROUTE_206                                    350
-#define MAP_ROUTE_206_CYCLING_ROAD_GATEHOUSE             351
-#define MAP_ROUTE_206_ETERNA_GATEHOUSE                   352
-#define MAP_ROUTE_207                                    353
-#define MAP_ROUTE_208                                    354
-#define MAP_ROUTE_208_BERRY_MASTER_HOUSE                 355
-#define MAP_ROUTE_209                                    356
-#define MAP_ROUTE_209_LOST_TOWER_1F                      357
-#define MAP_ROUTE_209_LOST_TOWER_2F                      358
-#define MAP_ROUTE_209_LOST_TOWER_3F                      359
-#define MAP_ROUTE_209_LOST_TOWER_4F                      360
-#define MAP_ROUTE_209_LOST_TOWER_5F                      361
-#define MAP_ROUTE_210_SOUTH                              362
-#define MAP_ROUTE_210_NORTH                              363
-#define MAP_ROUTE_210_GRANDMA_WILMA_HOUSE                364
-#define MAP_ROUTE_211_WEST                               365
-#define MAP_ROUTE_211_EAST                               366
-#define MAP_ROUTE_212_NORTH                              367
-#define MAP_ROUTE_212_POKEMON_MANSION_LOBBY              368
-#define MAP_ROUTE_212_POKEMON_MANSION_WEST_ROOMS         369
-#define MAP_ROUTE_212_POKEMON_MANSION_EAST_ROOM          370
-#define MAP_ROUTE_212_SOUTH                              371
-#define MAP_ROUTE_212_SHARD_WEATHER_TM_HOUSE             372
-#define MAP_ROUTE_213                                    373
-#define MAP_ROUTE_213_PASTORIA_GATEHOUSE                 374
-#define MAP_ROUTE_213_FOOTSTEP_HOUSE                     375
-#define MAP_ROUTE_213_GRAND_LAKE_RECEPTION               376
-#define MAP_ROUTE_213_GRAND_LAKE_EAST_ROOM               377
-#define MAP_ROUTE_213_GRAND_LAKE_WEST_ROOM               378
-#define MAP_ROUTE_213_GRAND_LAKE_NORTHEAST_ROOM          379
-#define MAP_ROUTE_214                                    380
-#define MAP_ROUTE_214_VEILSTONE_GATEHOUSE                381
-#define MAP_ROUTE_215                                    382
-#define MAP_ROUTE_216                                    383
-#define MAP_ROUTE_216_SNOWBOUND_LODGE                    384
-#define MAP_ROUTE_217                                    385
-#define MAP_ROUTE_217_SOUTH_HOUSE                        386
-#define MAP_ROUTE_217_NORTH_HOUSE                        387
-#define MAP_ROUTE_218                                    388
-#define MAP_ROUTE_218_JUBLIFE_GATEHOUSE                  389
-#define MAP_ROUTE_218_CANALAVE_GATEHOUSE                 390
-#define MAP_ROUTE_219                                    391
-#define MAP_ROUTE_221                                    392
-#define MAP_ROUTE_221_PAL_PARK_ENTRANCE                  393
-#define MAP_ROUTE_221_LEVEL_ITEM_HOUSE                   394
-#define MAP_ROUTE_222                                    395
-#define MAP_ROUTE_222_PIKACHU_FAN_CLUB                   396
-#define MAP_ROUTE_222_POKEMON_SIZE_CONTEST_HOUSE         397
-#define MAP_ROUTE_222_SUNYSHORE_GATEOUSE                 398
-#define MAP_ROUTE_224                                    399
-#define MAP_ROUTE_225                                    400
-#define MAP_ROUTE_226_UNUSED_1                           401
-#define MAP_ROUTE_226_UNUSED_2                           402
-#define MAP_ROUTE_227                                    403
-#define MAP_ROUTE_227_UNUSED_1                           404
-#define MAP_ROUTE_227_UNUSED_2                           405
-#define MAP_ROUTE_228                                    406
-#define MAP_ROUTE_229                                    407
-#define MAP_ROUTE_230_UNUSED                             408
-#define MAP_ROUTE_232_UNUSED                             409
-#define MAP_RECORD                                       410
-#define MAP_TWINLEAF                                     411
-#define MAP_TWINLEAF_PLAYER_HOUSE_1F                     412
-#define MAP_TWINLEAF_PLAYER_HOUSE_2F                     413
-#define MAP_TWINLEAF_RIVAL_HOUSE_1F                      414
-#define MAP_TWINLEAF_RIVAL_HOUSE_2F                      415
-#define MAP_TWINLEAF_NORTHEAST_HOUSE                     416
-#define MAP_TWINLEAF_SOUTHWEST_HOUSE                     417
-#define MAP_SANDGEM                                      418
-#define MAP_SANDGEM_POKEMART                             419
-#define MAP_SANDGEM_POKECENTER_1F                        420
-#define MAP_SANDGEM_POKECENTER_2F                        421
-#define MAP_SANDGEM_ROWANS_LAB                           422
-#define MAP_SANDGEM_PROFESSOR_ASSISTANT_HOUSE_1F         423
-#define MAP_SANDGEM_PROFESSOR_ASSISTANT_HOUSE_2F         424
-#define MAP_SANDGEM_SOUTHWEST_HOUSE                      425
-#define MAP_FLOAROMA                                     426
-#define MAP_FLOAROMA_POKEMART                            427
-#define MAP_FLOAROMA_POKECENTER_1F                       428
-#define MAP_FLOAROMA_POKECENTER_2F                       429
-#define MAP_FLOAROMA_FLOWER_SHOP                         430
-#define MAP_FLOAROMA_SOUTHEAST_HOUSE                     431
-#define MAP_FLOAROMA_MIDDLE_HOUSE                        432
-#define MAP_SOLACEON                                     433
-#define MAP_SOLACEON_POKEMART                            434
-#define MAP_SOLACEON_POKECENTER_1F                       435
-#define MAP_SOLACEON_POKECENTER_2F                       436
-#define MAP_SOLACEON_DAYCARE                             437
-#define MAP_SOLACEON_NORTHEAST_HOUSE                     438
-#define MAP_SOLACEON_NEWS_PRESS                          439
-#define MAP_SOLACEON_NORTH_HOUSE                         440
-#define MAP_SOLACEON_SEAL_HOUSE                          441
-#define MAP_CELESTIC                                     442
-#define MAP_CELESTIC_POKECENTER_1F                       443
-#define MAP_CELESTIC_POKECENTER_2F                       444
-#define MAP_CELESTIC_CYNTHIA_GRANDPARENTS_HOUSE          445
-#define MAP_CELESTIC_SHOP                                446
-#define MAP_CELESTIC_NORTHEAST_HOUSE                     447
-#define MAP_CELESTIC_SOUTHWEST_HOUSE                     448
-#define MAP_CELESTIC_RUINS                               449
-#define MAP_SURVIVAL_AREA                                450
-#define MAP_SURVIVAL_AREA_POKEMART                       451
-#define MAP_SURVIVAL_AREA_POKECENTER_1F                  452
-#define MAP_SURVIVAL_AREA_POKECENTER_2F                  453
-#define MAP_SURVIVAL_AREA_WEST_HOUSE                     454
-#define MAP_SURVIVAL_AREA_SOUTH_HOUSE                    455
-#define MAP_SURVIVAL_AREA_NORTH_HOUSE                    456
-#define MAP_RESORT_AREA                                  457
-#define MAP_RESORT_AREA_UNUSED_POKEMART                  458
-#define MAP_RESORT_AREA_POKECENTER_1F                    459
-#define MAP_RESORT_AREA_POKECENTER_2F                    460
-#define MAP_RESORT_AREA_RIBBON_SYNDICATE_1F              461
-#define MAP_RESORT_AREA_RIBBON_SYNDICATE_2F              462
-#define MAP_RESORT_AREA_RIBBON_SYNDICATE_ELEVATOR        463
-#define MAP_RESORT_AREA_SOUTHWEST_HOUSE                  464
-#define MAP_RESORT_AREA_SOUTHEAST_HOUSE                  465
-#define MAP_UNION_ROOM                                   466
-#define MAP_ROUTE_220                                    467
-#define MAP_ROUTE_223                                    468
-#define MAP_ROUTE_226                                    469
-#define MAP_ROUTE_229_UNUSED                             470
-#define MAP_ROUTE_230                                    471
-#define MAP_ROUTE_231_UNUSED                             472
-#define MAP_ROUTE_233_UNUSED                             473
-#define MAP_JUBLIFE_POKECENTER_B1F                       474
-#define MAP_CANALAVE_POKECENTER_B1F                      475
-#define MAP_OREBURGH_POKECENTER_B1F                      476
-#define MAP_ETERNA_POKECENTER_B1F                        477
-#define MAP_HEARTHOME_POKECENTER_B1F                     478
-#define MAP_PASTORIA_POKECENTER_B1F                      479
-#define MAP_VEILSTONE_POKECENTER_B1F                     480
-#define MAP_SUNYSHORE_POKECENTER_B1F                     481
-#define MAP_SNOWPOINT_POKECENTER_B1F                     482
-#define MAP_POKEMON_LEAGUE_POKECENTER_B1F                483
-#define MAP_FIGHT_AREA_POKECENTER_B1F                    484
-#define MAP_SANDGEM_POKECENTER_B1F                       485
-#define MAP_FLOAROMA_POKECENTER_B1F                      486
-#define MAP_SOLACEON_POKECENTER_B1F                      487
-#define MAP_CELESTIC_POKECENTER_B1F                      488
-#define MAP_SURVIVAL_AREA_POKECENTER_B1F                 489
-#define MAP_RESORT_AREA_POKECENTER_B1F                   490
-#define MAP_CANALAVE_WEST_HOUSE                          491
-#define MAP_ROUTE_210_CAFE                               492
-#define MAP_BATTLE_TOWER_PARTNER_ROOM                    493
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_BACK      494
-#define MAP_POKEMON_LEAGUE_LOBBY_2F                      495
-#define MAP_POKEMON_LEAGUE_LOBBY_B1F                     496
-#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_2         497
-#define MAP_ROUTE_225_HOUSE                              498
-#define MAP_ROUTE_226_HOUSE                              499
-#define MAP_ROUTE_227_HOUSE                              500
-#define MAP_ROUTE_228_ROUTE_226_GATEHOUSE                501
-#define MAP_ROUTE_228_NORTH_HOUSE                        502
-#define MAP_ROUTE_228_SOUTH_HOUSE                        503
-#define MAP_GREAT_MARSH_AREA_1                           504
-#define MAP_GREAT_MARSH_AREA_2                           505
-#define MAP_GREAT_MARSH_AREA_3                           506
-#define MAP_GREAT_MARSH_AREA_4                           507
-#define MAP_GREAT_MARSH_AREA_5                           508
-#define MAP_GREAT_MARSH_AREA_6                           509
-#define MAP_HALL_OF_ORIGIN                               510
-#define MAP_HALL_OF_ORIGIN_UNUSED                        511
-#define MAP_RUIN_MANIAC_CAVE_STAGE_2                     512
-#define MAP_RUIN_MANIAC_CAVE_STAGE_3                     513
-#define MAP_IRON_ISLAND_HOUSE                            514
-#define MAP_SOLACEON_RUINS_B4F_ROOM_3                    515
-#define MAP_SUNYSHORE_VISTA_LIGHTHOUSE_ELEVATOR          516
-#define MAP_JUBLIFE_SOUTHWEST_HOUSE_2F                   517
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_4                  518
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_2                  519
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_1                  520
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_12                 521
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_9                  522
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_10                 523
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_11                 524
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_7                  525
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_8                  526
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_18                 527
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_15                 528
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_16                 529
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_13                 530
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_17                 531
-#define MAP_TURNBACK_CAVE_RANDOM_ROOM_14                 532
-#define MAP_TURNBACK_CAVE_UNUSED_1                       533
-#define MAP_TURNBACK_CAVE_UNUSED_2                       534
-#define MAP_TURNBACK_CAVE_EMPTY_ROOM_1                   535
-#define MAP_TURNBACK_CAVE_UNUSED_3                       536
-#define MAP_TURNBACK_CAVE_UNUSED_4                       537
-#define MAP_TURNBACK_CAVE_UNUSED_5                       538
-#define MAP_TURNBACK_CAVE_UNUSED_6                       539
-#define MAP_TURNBACK_CAVE_EMPTY_ROOM_2                   540
-#define MAP_TURNBACK_CAVE_UNUSED_7                       541
-#define MAP_TURNBACK_CAVE_UNUSED_8                       542
-#define MAP_TURNBACK_CAVE_UNUSED_9                       543
-#define MAP_TURNBACK_CAVE_UNUSED_10                      544
-#define MAP_TURNBACK_CAVE_UNUSED_11                      545
-#define MAP_TURNBACK_CAVE_EMPTY_ROOM_3                   546
-#define MAP_TURNBACK_CAVE_UNUSED_12                      547
-#define MAP_TURNBACK_CAVE_UNUSED_13                      548
-#define MAP_TURNBACK_CAVE_UNUSED_14                      549
-#define MAP_TURNBACK_CAVE_UNUSED_15                      550
-#define MAP_TURNBACK_CAVE_UNUSED_16                      551
-#define MAP_TURNBACK_CAVE_UNUSED_17                      552
-#define MAP_TURNBACK_CAVE_UNUSED_18                      553
-#define MAP_TURNBACK_CAVE_UNUSED_19                      554
-#define MAP_TURNBACK_CAVE_UNUSED_20                      555
-#define MAP_TURNBACK_CAVE_UNUSED_21                      556
-#define MAP_TURNBACK_CAVE_UNUSED_22                      557
-#define MAP_HEARTHOME_SUPER_CONTEST_HALL_SEATS           558
+#define MAP_EVERYWHERE                                   0   // MAP_EVERYWHERE
+#define MAP_NOTHING                                      1   // MAP_NOTHING
+#define MAP_UNDERGROUND                                  2   // MAP_UG
+#define MAP_JUBLIFE                                      3   // MAP_C01
+#define MAP_JUBLIFE_POKEMART                             4   // MAP_C01FS0101
+#define MAP_JUBLIFE_UNUSED_GYM                           5   // MAP_C01GYM0101
+#define MAP_JUBLIFE_POKECENTER_1F                        6   // MAP_C01PC0101
+#define MAP_JUBLIFE_POKECENTER_2F                        7   // MAP_C01PC0102
+#define MAP_JUBLIFE_POKETCH_COMPANY_1F                   8   // MAP_C01R0101
+#define MAP_JUBLIFE_POKETCH_COMPANY_2F                   9   // MAP_C01R0102
+#define MAP_JUBLIFE_POKETCH_COMPANY_3F                   10  // MAP_C01R0103
+#define MAP_JUBLIFE_TV_1F                                11  // MAP_C01R0201
+#define MAP_JUBLIFE_TV_2F                                12  // MAP_C01R0202
+#define MAP_JUBLIFE_TV_3F                                13  // MAP_C01R0203
+#define MAP_JUBLIFE_TV_4F                                14  // MAP_C01R0204
+#define MAP_JUBLIFE_TV_2F_GALLERY                        15  // MAP_C01R0205
+#define MAP_JUBLIFE_TV_3F_GLOBAL_RANKINGS                16  // MAP_C01R0206
+#define MAP_JUBLIFE_TV_3F_GROUP_RANKINGS                 17  // MAP_C01R0207
+#define MAP_JUBLIFE_TV_ELEVATOR                          18  // MAP_C01R0208
+#define MAP_JUBLIFE_SOUTHEAST_HOUSE_1F                   19  // MAP_C01R0301
+#define MAP_JUBLIFE_SOUTHEAST_HOUSE_2F                   20  // MAP_C01R0302
+#define MAP_JUBLIFE_SOUTHEAST_HOUSE_3F                   21  // MAP_C01R0303
+#define MAP_JUBLIFE_SOUTHEAST_HOUSE_4F                   22  // MAP_C01R0304
+#define MAP_JUBLIFE_UNUSED_HOUSE                         23  // MAP_C01R0401
+#define MAP_JUBLIFE_CONDOMINIUMS_1F                      24  // MAP_C01R0501
+#define MAP_JUBLIFE_CONDOMINIUMS_2F                      25  // MAP_C01R0502
+#define MAP_JUBLIFE_CONDOMINIUMS_3F                      26  // MAP_C01R0503
+#define MAP_JUBLIFE_CONDOMINIUMS_4F                      27  // MAP_C01R0504
+#define MAP_JUBLIFE_GLOBAL_TRADE_STATION                 28  // MAP_C01R0601
+#define MAP_JUBLIFE_TRAINER_SCHOOL                       29  // MAP_C01R0701
+#define MAP_JUBLIFE_SOUTHWEST_HOUSE_1F                   30  // MAP_C01R0801
+#define MAP_JUBLIFE_UNUSED_HOUSE_2                       31  // MAP_C01R0901
+#define MAP_JUBLIFE_UNUSED_HOUSE_3                       32  // MAP_C01R1001
+#define MAP_CANALAVE                                     33  // MAP_C02
+#define MAP_CANALAVE_POKEMART                            34  // MAP_C02FS0101
+#define MAP_CANALAVE_GYM                                 35  // MAP_C02GYM0101
+#define MAP_CANALAVE_POKECENTER_1F                       36  // MAP_C02PC0101
+#define MAP_CANALAVE_POKECENTER_2F                       37  // MAP_C02PC0102
+#define MAP_CANALAVE_LIBRARY_1F                          38  // MAP_C02R0101
+#define MAP_CANALAVE_LIBRARY_2F                          39  // MAP_C02R0102
+#define MAP_CANALAVE_LIBRARY_3F                          40  // MAP_C02R0103
+#define MAP_CANALAVE_SOUTHEAST_HOUSE                     41  // MAP_C02R0201
+#define MAP_CANALAVE_MOVE_DELETER_HOUSE                  42  // MAP_C02R0301
+#define MAP_CANALAVE_HARBOR_INN                          43  // MAP_C02R0401
+#define MAP_CANALAVE_SAILOR_ELDRITCH_HOUSE               44  // MAP_C02R0501
+#define MAP_OREBURGH                                     45  // MAP_C03
+#define MAP_OREBURGH_POKEMART                            46  // MAP_C03FS0101
+#define MAP_OREBURGH_GYM                                 47  // MAP_C03GYM0101
+#define MAP_OREBURGH_POKECENTER_1F                       48  // MAP_C03PC0101
+#define MAP_OREBURGH_POKECENTER_2F                       49  // MAP_C03PC0102
+#define MAP_OREBURGH_NORTHWEST_HOUSE_1F                  50  // MAP_C03R0101
+#define MAP_OREBURGH_NORTHWEST_HOUSE_2F                  51  // MAP_C03R0102
+#define MAP_OREBURGH_NORTHWEST_HOUSE_3F                  52  // MAP_C03R0103
+#define MAP_OREBURGH_NORTHWEST_HOUSE_4F                  53  // MAP_C03R0104
+#define MAP_OREBURGH_NORTH_HOUSE_1F                      54  // MAP_C03R0201
+#define MAP_OREBURGH_NORTH_HOUSE_2F                      55  // MAP_C03R0202
+#define MAP_OREBURGH_NORTH_HOUSE_3F                      56  // MAP_C03R0203
+#define MAP_OREBURGH_NORTH_HOUSE_4F                      57  // MAP_C03R0204
+#define MAP_OREBURGH_MIDDLE_HOUSE                        58  // MAP_C03R0301
+#define MAP_OREBURGH_MINING_MUSEUM                       59  // MAP_C03R0401
+#define MAP_OREBURGH_WEST_HOUSE                          60  // MAP_C03R0501
+#define MAP_OREBURGH_EAST_HOUSE_1F                       61  // MAP_C03R0601
+#define MAP_OREBURGH_EAST_HOUSE_2F                       62  // MAP_C03R0602
+#define MAP_OREBURGH_EAST_HOUSE_3F                       63  // MAP_C03R0603
+#define MAP_OREBURGH_SOUTH_HOUSE                         64  // MAP_C03R0701
+#define MAP_ETERNA                                       65  // MAP_C04
+#define MAP_ETERNA_POKEMART                              66  // MAP_C04FS0101
+#define MAP_ETERNA_GYM_ENTRANCE                          67  // MAP_C04GYM0101
+#define MAP_ETERNA_GYM                                   68  // MAP_C04GYM0102
+#define MAP_ETERNA_POKECENTER_1F                         69  // MAP_C04PC0101
+#define MAP_ETERNA_POKECENTER_2F                         70  // MAP_C04PC0102
+#define MAP_ETERNA_BIKE_SHOP                             71  // MAP_C04R0101
+#define MAP_ETERNA_GALACTIC_BUILDING_1F                  72  // MAP_C04R0201
+#define MAP_ETERNA_GALACTIC_BUILDING_2F                  73  // MAP_C04R0202
+#define MAP_ETERNA_GALACTIC_BUILDING_3F                  74  // MAP_C04R0203
+#define MAP_ETERNA_GALACTIC_BUILDING_4F                  75  // MAP_C04R0204
+#define MAP_ETERNA_CONDOMINIUMS_1F                       76  // MAP_C04R0301
+#define MAP_ETERNA_CONDOMINIUMS_2F                       77  // MAP_C04R0302
+#define MAP_ETERNA_CONDOMINIUMS_3F                       78  // MAP_C04R0303
+#define MAP_ETERNA_CONDOMINIUMS_4F                       79  // MAP_C04R0304
+#define MAP_ETERNA_ROUTE_206_GATEHOUSE                   80  // MAP_C04R0401
+#define MAP_ETERNA_HERB_SHOP                             81  // MAP_C04R0501
+#define MAP_ETERNA_OAK_HOUSE                             82  // MAP_C04R0601
+#define MAP_ETERNA_EAST_HOUSE                            83  // MAP_C04R0701
+#define MAP_ETERNA_UNDERGROUND_MAN_HOUSE                 84  // MAP_C04R0801
+#define MAP_ETERNA_UNUSED_HOUSE                          85  // MAP_C04R0901
+#define MAP_HEARTHOME                                    86  // MAP_C05
+#define MAP_HEARTHOME_POKEMART                           87  // MAP_C05FS0101
+#define MAP_HEARTHOME_GYM_FIRST_QUESTION_ROOM            88  // MAP_C05GYM0101
+#define MAP_HEARTHOME_GYM_FIRST_QUESTION_TRAINER_ROOM_1  89  // MAP_C05GYM0102
+#define MAP_HEARTHOME_GYM_FIRST_QUESTION_TRAINER_ROOM_2  90  // MAP_C05GYM0103
+#define MAP_HEARTHOME_GYM_SECOND_QUESTION_ROOM           91  // MAP_C05GYM0104
+#define MAP_HEARTHOME_GYM_SECOND_QUESTION_TRAINER_ROOM_1 92  // MAP_C05GYM0105
+#define MAP_HEARTHOME_GYM_THIRD_QUESTION_ROOM            93  // MAP_C05GYM0106
+#define MAP_HEARTHOME_GYM_SECOND_QUESTION_TRAINER_ROOM_2 94  // MAP_C05GYM0107
+#define MAP_HEARTHOME_GYM_FOURTH_QUESTION_ROOM           95  // MAP_C05GYM0108
+#define MAP_HEARTHOME_GYM_THIRD_QUESTION_TRAINER_ROOM_1  96  // MAP_C05GYM0109
+#define MAP_HEARTHOME_GYM_THIRD_QUESTION_TRAINER_ROOM_2  97  // MAP_C05GYM0110
+#define MAP_HEARTHOME_GYM_FOURTH_QUESTION_TRAINER_ROOM_1 98  // MAP_C05GYM0111
+#define MAP_HEARTHOME_GYM_FOURTH_QUESTION_TRAINER_ROOM_2 99  // MAP_C05GYM0112
+#define MAP_HEARTHOME_GYM_LEADER_ROOM                    100 // MAP_C05GYM0113
+#define MAP_HEARTHOME_POKECENTER_1F                      101 // MAP_C05PC0101
+#define MAP_HEARTHOME_POKECENTER_2F                      102 // MAP_C05PC0102
+#define MAP_HEARTHOME_SOUTHEAST_HOUSE_1F                 103 // MAP_C05R0101
+#define MAP_HEARTHOME_SOUTHEAST_HOUSE_2F                 104 // MAP_C05R0102
+#define MAP_HEARTHOME_SOUTHEAST_HOUSE_ELEVATOR           105 // MAP_C05R0103
+#define MAP_HEARTHOME_POKEMON_FAN_CLUB                   106 // MAP_C05R0201
+#define MAP_HEARTHOME_AMITY_SQUARE_WEST_GATEHOUSE        107 // MAP_C05R0301
+#define MAP_HEARTHOME_AMITY_SQUARE_EAST_GATEHOUSE        108 // MAP_C05R0401
+#define MAP_HEARTHOME_ROUTE_208_GATEHOUSE                109 // MAP_C05R0501
+#define MAP_HEARTHOME_ROUTE_209_GATEHOUSE                110 // MAP_C05R0601
+#define MAP_HEARTHOME_ROUTE_212_GATEHOUSE                111 // MAP_C05R0701
+#define MAP_HEARTHOME_NORTHEAST_HOUSE_1F                 112 // MAP_C05R0801
+#define MAP_HEARTHOME_NORTHEAST_HOUSE_2F                 113 // MAP_C05R0802
+#define MAP_HEARTHOME_NORTHEAST_HOUSE_ELEVATOR           114 // MAP_C05R0803
+#define MAP_HEARTHOME_BEBE_HOUSE                         115 // MAP_C05R0901
+#define MAP_HEARTHOME_POFFIN_HOUSE                       116 // MAP_C05R1001
+#define MAP_HEARTHOME_SUPER_CONTEST_HALL_LOBBY           117 // MAP_C05R1101
+#define MAP_HEARTHOME_SUPER_CONTEST_HALL_STAGE           118 // MAP_C05R1102
+#define MAP_HEARTHOME_FOREIGN_BUILDING                   119 // MAP_C05R1201
+#define MAP_PASTORIA                                     120 // MAP_C06
+#define MAP_PASTORIA_POKEMART                            121 // MAP_C06FS0101
+#define MAP_PASTORIA_GYM                                 122 // MAP_C06GYM0101
+#define MAP_PASTORIA_POKECENTER_1F                       123 // MAP_C06PC0101
+#define MAP_PASTORIA_POKECENTER_2F                       124 // MAP_C06PC0102
+#define MAP_PASTORIA_GREAT_MARSH_ENTRANCE_1F             125 // MAP_C06R0101
+#define MAP_PASTORIA_GREAT_MARSH_ENTRANCE_2F             126 // MAP_C06R0102
+#define MAP_PASTORIA_SOUTHWEST_HOUSE                     127 // MAP_C06R0201
+#define MAP_PASTORIA_WEST_HOUSE                          128 // MAP_C06R0301
+#define MAP_PASTORIA_MOVE_TUTOR_HOUSE                    129 // MAP_C06R0401
+#define MAP_PASTORIA_NORTHWEST_HOUSE                     130 // MAP_C06R0501
+#define MAP_PASTORIA_SCARF_GUY_HOUSE                     131 // MAP_C06R0601
+#define MAP_VEILSTONE                                    132 // MAP_C07
+#define MAP_VEILSTONE_GYM                                133 // MAP_C07GYM0101
+#define MAP_VEILSTONE_POKECENTER_1F                      134 // MAP_C07PC0101
+#define MAP_VEILSTONE_POKECENTER_2F                      135 // MAP_C07PC0102
+#define MAP_VEILSTONE_GAME_CORNER                        136 // MAP_C07R0101
+#define MAP_VEILSTONE_DEPARTMENT_STORE_1F                137 // MAP_C07R0201
+#define MAP_VEILSTONE_DEPARTMENT_STORE_2F                138 // MAP_C07R0202
+#define MAP_VEILSTONE_DEPARTMENT_STORE_3F                139 // MAP_C07R0203
+#define MAP_VEILSTONE_DEPARTMENT_STORE_4F                140 // MAP_C07R0204
+#define MAP_VEILSTONE_DEPARTMENT_STORE_5F                141 // MAP_C07R0205
+#define MAP_VEILSTONE_DEPARTMENT_STORE_ELEVATOR          142 // MAP_C07R0206
+#define MAP_VEILSTONE_GALACTIC_WAREHOUSE_ENTRANCE        143 // MAP_C07R0301
+#define MAP_VEILSTONE_PRIZE_EXCHANGE                     144 // MAP_C07R0401
+#define MAP_VEILSTONE_SOUTH_HOUSE                        145 // MAP_C07R0501
+#define MAP_VEILSTONE_NORTH_HOUSE                        146 // MAP_C07R0601
+#define MAP_VEILSTONE_NORTHEAST_HOUSE                    147 // MAP_C07R0701
+#define MAP_VEILSTONE_MASSAGE_GIRL_HOUSE                 148 // MAP_C07R0801
+#define MAP_VEILSTONE_ROUTE_215_GATEHOUSE                149 // MAP_C07R0901
+#define MAP_SUNYSHORE                                    150 // MAP_C08
+#define MAP_SUNYSHORE_POKECENTER_1F                      151 // MAP_C08PC0101
+#define MAP_SUNYSHORE_POKECENTER_2F                      152 // MAP_C08PC0102
+#define MAP_SUNYSHORE_POKEMART                           153 // MAP_C08FS0101
+#define MAP_SUNYSHORE_GYM_ROOM_1                         154 // MAP_C08GYM0101
+#define MAP_SUNYSHORE_GYM_ROOM_2                         155 // MAP_C08GYM0102
+#define MAP_SUNYSHORE_GYM_ROOM_3                         156 // MAP_C08GYM0103
+#define MAP_SUNYSHORE_MARKET                             157 // MAP_C08R0101
+#define MAP_SUNYSHORE_JULIA_HOUSE                        158 // MAP_C08R0201
+#define MAP_SUNYSHORE_WEST_HOUSE                         159 // MAP_C08R0301
+#define MAP_SUNYSHORE_NORTH_HOUSE                        160 // MAP_C08R0401
+#define MAP_SUNYSHORE_UNUSED_HOUSE_1                     161 // MAP_C08R0501
+#define MAP_SUNYSHORE_UNUSED_HOUSE_2                     162 // MAP_C08R0601
+#define MAP_SUNYSHORE_POKETCH_DEVELOPER_HOUSE            163 // MAP_C08R0701
+#define MAP_SUNYSHORE_VISTA_LIGHTHOUSE_OBSERVATION_DECK  164 // MAP_C08R0801
+#define MAP_SNOWPOINT                                    165 // MAP_C09
+#define MAP_SNOWPOINT_POKEMART                           166 // MAP_C09FS0101
+#define MAP_SNOWPOINT_GYM                                167 // MAP_C09GYM0101
+#define MAP_SNOWPOINT_POKECENTER_1F                      168 // MAP_C09PC0101
+#define MAP_SNOWPOINT_POKECENTER_2F                      169 // MAP_C09PC0102
+#define MAP_SNOWPOINT_NORTHWEST_HOUSE                    170 // MAP_C09R0101
+#define MAP_SNOWPOINT_NORTHEAST_HOUSE                    171 // MAP_C09R0201
+#define MAP_POKEMON_LEAGUE                               172 // MAP_C10
+#define MAP_POKEMON_LEAGUE_POKECENTER_1F                 173 // MAP_C10PC0101
+#define MAP_POKEMON_LEAGUE_POKECENTER_2F                 174 // MAP_C10PC0102
+#define MAP_POKEMON_LEAGUE_LOBBY_1F                      175 // MAP_C10R0101
+#define MAP_POKEMON_LEAGUE_ENTRANCE                      176 // MAP_C10R0102
+#define MAP_POKEMON_LEAGUE_AARON_ROOM                    177 // MAP_C10R0103
+#define MAP_POKEMON_LEAGUE_AARON_BERTHA_LINK             178 // MAP_C10R0104
+#define MAP_POKEMON_LEAGUE_BERTHA_ROOM                   179 // MAP_C10R0105
+#define MAP_POKEMON_LEAGUE_BERTHA_FLINT_LINK             180 // MAP_C10R0106
+#define MAP_POKEMON_LEAGUE_FLINT_ROOM                    181 // MAP_C10R0107
+#define MAP_POKEMON_LEAGUE_FLINT_LUCIAN_LINK             182 // MAP_C10R0108
+#define MAP_POKEMON_LEAGUE_LUCIAN_ROOM                   183 // MAP_C10R0109
+#define MAP_POKEMON_LEAGUE_LUCIAN_CYNTHIA_LINK           184 // MAP_C10R0110
+#define MAP_POKEMON_LEAGUE_CYNTHIA_ROOM                  185 // MAP_C10R0111
+#define MAP_POKEMON_LEAGUE_HALL_OF_FAME_CORRIDOR         186 // MAP_C10R0112
+#define MAP_POKEMON_LEAGUE_HALL_OF_FAME                  187 // MAP_C10R0113
+#define MAP_FIGHT_AREA                                   188 // MAP_C11
+#define MAP_FIGHT_AREA_POKECENTER_1F                     189 // MAP_C11PC0101
+#define MAP_FIGHT_AREA_POKECENTER_2F                     190 // MAP_C11PC0102
+#define MAP_FIGHT_AREA_POKEMART                          191 // MAP_C11FS0101
+#define MAP_FIGHT_AREA_BATTLE_PARK_GATEHOUSE             192 // MAP_C11R0101
+#define MAP_FIGHT_AREA_ROUTE_225_GATEHOUSE               193 // MAP_C11R0201
+#define MAP_FIGHT_AREA_SOUTHEAST_HOUSE                   194 // MAP_C11R0301
+#define MAP_FIGHT_AREA_SOUTHWEST_HOUSE                   195 // MAP_C11R0401
+#define MAP_FIGHT_AREA_UNUSED_1                          196 // MAP_C11R0501
+#define MAP_OREBURGH_MINE_UNUSED                         197 // MAP_D01
+#define MAP_OREBURGH_MINE_B1F                            198 // MAP_D01R0101
+#define MAP_OREBURGH_MINE_B2F                            199 // MAP_D01R0102
+#define MAP_VALLEY_WINDWORKS_EXTERIOR                    200 // MAP_D02
+#define MAP_VALLEY_WINDWORKS_INTERIOR                    201 // MAP_D02R0101
+#define MAP_ETERNA_FOREST_EXTERIOR                       202 // MAP_D03
+#define MAP_ETERNA_FOREST_INTERIOR                       203 // MAP_D03R0101
+#define MAP_FUEGO_IRONWORKS_EXTERIOR                     204 // MAP_D04
+#define MAP_FUEGO_IRONWORKS_INTERIOR                     205 // MAP_D04R0101
+#define MAP_MOUNT_CORONET_UNUSED_1                       206 // MAP_D05
+#define MAP_MOUNT_CORONET_SOUTH_1F                       207 // MAP_D05R0101
+#define MAP_MOUNT_CORONET_SOUTH_2F                       208 // MAP_D05R0102
+#define MAP_MOUNT_CORONET_SOUTH_3F                       209 // MAP_D05R0103
+#define MAP_MOUNT_CORONET_NORTH_MOUNTAINSIDE             210 // MAP_D05R0104
+#define MAP_MOUNT_CORONET_SOUTH_MOUNTAINSIDE             211 // MAP_D05R0105
+#define MAP_MOUNT_CORONET_4F_ROOM_1                      212 // MAP_D05R0106
+#define MAP_MOUNT_CORONET_4F_ROOM_3                      213 // MAP_D05R0107
+#define MAP_MOUNT_CORONET_5F                             214 // MAP_D05R0108
+#define MAP_MOUNT_CORONET_6F                             215 // MAP_D05R0109
+#define MAP_MOUNT_CORONET_TUNNEL_ROOM                    216 // MAP_D05R0110
+#define MAP_MOUNT_CORONET_NORTH_1F_ROOM_2                217 // MAP_D05R0111
+#define MAP_MOUNT_CORONET_NORTH_1F_ROOM_1                218 // MAP_D05R0112
+#define MAP_MOUNT_CORONET_B1F                            219 // MAP_D05R0113
+#define MAP_MOUNT_CORONET_SPEAR_PILLAR                   220 // MAP_D05R0114
+#define MAP_MOUNT_CORONET_UNUSED_2                       221 // MAP_D05R0115
+#define MAP_GREAT_MARSH_UNUSED                           222 // MAP_D06
+#define MAP_GREAT_MARSH                                  223 // MAP_D06R0101
+#define MAP_SOLACEON_RUINS_UNUSED                        224 // MAP_D07
+#define MAP_SOLACEON_RUINS_2F                            225 // MAP_D07R0101
+#define MAP_SOLACEON_RUINS_1F_MAIN_ROOM                  226 // MAP_D07R0102
+#define MAP_SOLACEON_RUINS_B1F_ROOM_1                    227 // MAP_D07R0103
+#define MAP_SOLACEON_RUINS_1F_ROOM_1                     228 // MAP_D07R0104
+#define MAP_SOLACEON_RUINS_B1F_MAIN_ROOM                 229 // MAP_D07R0105
+#define MAP_SOLACEON_RUINS_1F_ROOM_2                     230 // MAP_D07R0106
+#define MAP_SOLACEON_RUINS_B2F_MAIN_ROOM                 231 // MAP_D07R0107
+#define MAP_SOLACEON_RUINS_B1F_ROOM_2                    232 // MAP_D07R0108
+#define MAP_SOLACEON_RUINS_B3F_ROOM_1                    233 // MAP_D07R0109
+#define MAP_SOLACEON_RUINS_B4F_ROOM_1                    234 // MAP_D07R0110
+#define MAP_SOLACEON_RUINS_B2F_ROOM_1                    235 // MAP_D07R0111
+#define MAP_SOLACEON_RUINS_B2F_ROOM_2                    236 // MAP_D07R0112
+#define MAP_SOLACEON_RUINS_B3F_MAIN_ROOM_1               237 // MAP_D07R0113
+#define MAP_SOLACEON_RUINS_B3F_MAIN_ROOM_2               238 // MAP_D07R0114
+#define MAP_SOLACEON_RUINS_B4F_MAIN_ROOM                 239 // MAP_D07R0115
+#define MAP_SOLACEON_RUINS_B4F_ROOM_2                    240 // MAP_D07R0116
+#define MAP_SOLACEON_RUINS_B3F_ROOM_2                    241 // MAP_D07R0117
+#define MAP_SOLACEON_RUINS_B3F_ROOM_3                    242 // MAP_D07R0118
+#define MAP_VICTORY_ROAD_UNUSED                          243 // MAP_D09
+#define MAP_VICTORY_ROAD_1F                              244 // MAP_D09R0101
+#define MAP_VICTORY_ROAD_2F                              245 // MAP_D09R0102
+#define MAP_VICTORY_ROAD_B1F                             246 // MAP_D09R0103
+#define MAP_VICTORY_ROAD_1F_BACK_2                       247 // MAP_D09R0104
+#define MAP_VICTORY_ROAD_1F_BACK_1                       248 // MAP_D09R0105
+#define MAP_VICTORY_ROAD_1F_BACK_3                       249 // MAP_D09R0106
+#define MAP_PAL_PARK_UNUSED                              250 // MAP_D10
+#define MAP_PAL_PARK                                     251 // MAP_D10R0101
+#define MAP_AMITY_SQUARE_UNUSED                          252 // MAP_D11
+#define MAP_AMITY_SQUARE                                 253 // MAP_D11R0101
+#define MAP_RAVAGED_PATH                                 254 // MAP_D12R0101
+#define MAP_FLOAROMA_MEADOW_UNUSED                       255 // MAP_D13
+#define MAP_FLOAROMA_MEADOW                              256 // MAP_D13R0101
+#define MAP_FLOAROMA_MEADOW_HOUSE                        257 // MAP_D13R0102
+#define MAP_OREBURGH_GATE_1F                             258 // MAP_D14R0101
+#define MAP_OREBURGH_GATE_B1F                            259 // MAP_D14R0102
+#define MAP_FULLMOON_ISLAND_EXTERIOR                     260 // MAP_D15
+#define MAP_FULLMOON_ISLAND_INTERIOR                     261 // MAP_D15R0101
+#define MAP_STARK_MOUNTAIN_EXTERIOR                      262 // MAP_D16
+#define MAP_STARK_MOUNTAIN_INTERIOR_1                    263 // MAP_D16R0101
+#define MAP_STARK_MOUNTAIN_INTERIOR_2                    264 // MAP_D16R0102
+#define MAP_STARK_MOUNTAIN_INTERIOR_3                    265 // MAP_D16R0103
+#define MAP_SENDOFF_SPRING_UNUSED                        266 // MAP_D17
+#define MAP_SENDOFF_SPRING                               267 // MAP_D17R0101
+#define MAP_TURNBACK_CAVE_ENTRANCE                       268 // MAP_D17R0102
+#define MAP_TURNBACK_CAVE_PILLAR_ROOM                    269 // MAP_D17R0103
+#define MAP_TURNBACK_CAVE_GIRATINA_ROOM                  270 // MAP_D17R0104
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_3                  271 // MAP_D17R0105
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_6                  272 // MAP_D17R0106
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_5                  273 // MAP_D17R0107
+#define MAP_FLOWER_PARADISE                              274 // MAP_D18
+#define MAP_FLOWER_PARADISE_UNUSED                       275 // MAP_D18R0101
+#define MAP_UNUSED_1                                     276 // MAP_D19A
+#define MAP_UNUSED_2                                     277 // MAP_D19B
+#define MAP_SNOWPOINT_TEMPLE_1F                          278 // MAP_D20R0101
+#define MAP_SNOWPOINT_TEMPLE_B1F                         279 // MAP_D20R0102
+#define MAP_SNOWPOINT_TEMPLE_B2F                         280 // MAP_D20R0103
+#define MAP_SNOWPOINT_TEMPLE_B3F                         281 // MAP_D20R0104
+#define MAP_SNOWPOINT_TEMPLE_B4F                         282 // MAP_D20R0105
+#define MAP_SNOWPOINT_TEMPLE_B5F                         283 // MAP_D20R0106
+#define MAP_WAYWARD_CAVE_1F                              284 // MAP_D21R0101
+#define MAP_WAYWARD_CAVE_B1F                             285 // MAP_D21R0102
+#define MAP_RUIN_MANIAC_CAVE_STAGE_1                     286 // MAP_D22R0101
+#define MAP_TROPHY_GARDEN                                287 // MAP_D23R0101
+#define MAP_IRON_ISLAND_EXTERIOR                         288 // MAP_D24
+#define MAP_IRON_ISLAND_1F                               289 // MAP_D24R0101
+#define MAP_IRON_ISLAND_B1F_ROOM_1                       290 // MAP_D24R0102
+#define MAP_IRON_ISLAND_B1F_ROOM_2                       291 // MAP_D24R0103
+#define MAP_IRON_ISLAND_B2F_ROOM_1                       292 // MAP_D24R0104
+#define MAP_IRON_ISLAND_B2F_ROOM_2                       293 // MAP_D24R0105
+#define MAP_IRON_ISLAND_B3F                              294 // MAP_D24R0106
+#define MAP_OLD_CHATEAU_ENTRANCE                         295 // MAP_D25R0101
+#define MAP_OLD_CHATEAU_1F                               296 // MAP_D25R0102
+#define MAP_OLD_CHATEAU_2F_SIDE_ROOMS                    297 // MAP_D25R0103
+#define MAP_OLD_CHATEAU_2F_CORRIDOR                      298 // MAP_D25R0104
+#define MAP_OLD_CHATEAU_2F_ROOM_1                        299 // MAP_D25R0105
+#define MAP_OLD_CHATEAU_2F_ROOM_2                        300 // MAP_D25R0106
+#define MAP_OLD_CHATEAU_2F_ROOM_3                        301 // MAP_D25R0107
+#define MAP_OLD_CHATEAU_2F_ROOM_4                        302 // MAP_D25R0108
+#define MAP_OLD_CHATEAU_2F_ROOM_5                        303 // MAP_D25R0109
+#define MAP_OLD_CHATEAU_UNUSED                           304 // MAP_D25R1001
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_1F           305 // MAP_D26R0101
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_2F           306 // MAP_D26R0102
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_3F           307 // MAP_D26R0103
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_1         308 // MAP_D26R0104
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_B1F          309 // MAP_D26R0105
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_B2F          310 // MAP_D26R0106
+#define MAP_LAKE_VERITY                                  311 // MAP_D27R0101
+#define MAP_LAKE_VERITY_GALACTIC                         312 // MAP_D27R0102
+#define MAP_VERITY_CAVERN                                313 // MAP_D27R0103
+#define MAP_LAKE_VALOR_GALACTIC                          314 // MAP_D28R0101
+#define MAP_LAKE_VALOR                                   315 // MAP_D28R0102
+#define MAP_VALOR_CAVERN                                 316 // MAP_D28R0103
+#define MAP_LAKE_ACUITY                                  317 // MAP_D29R0101
+#define MAP_LAKE_ACUITY_GALACTIC                         318 // MAP_D29R0102
+#define MAP_ACUITY_CAVERN                                319 // MAP_D29R0103
+#define MAP_NEWMOON_ISLAND_EXTERIOR                      320 // MAP_D30
+#define MAP_NEWMOON_ISLAND_INTERIOR                      321 // MAP_D30R0101
+#define MAP_BATTLE_PARK                                  322 // MAP_D31
+#define MAP_BATTLE_PARK_EXCHANGE_SERVICE_CORNER          323 // MAP_D31R0101
+#define MAP_BATTLE_PARK_UNUSED_1                         324 // MAP_D31R0102
+#define MAP_BATTLE_PARK_UNUSED_2                         325 // MAP_D31R0103
+#define MAP_BATTLE_TOWER_LOBBY                           326 // MAP_D31R0201
+#define MAP_BATTLE_TOWER_ELEVATOR                        327 // MAP_D31R0202
+#define MAP_BATTLE_TOWER_CORRIDOR_MULTI                  328 // MAP_D31R0203
+#define MAP_BATTLE_TOWER_CORRIDOR_WIFI                   329 // MAP_D31R0204
+#define MAP_BATTLE_TOWER_ARENA_MULTI                     330 // MAP_D31R0205
+#define MAP_BATTLE_TOWER_ARENA_WIFI                      331 // MAP_D31R0206
+#define MAP_WIFI_SINGLE_BATTLE_AREA                      332 // MAP_DIRECT2
+#define MAP_WIFI_MULTI_BATTLE_AREA                       333 // MAP_DIRECT4
+#define MAP_VERITY_LAKEFRONT                             334 // MAP_L01
+#define MAP_VERITY_LAKEFRONT_UNUSED_HOUSE                335 // MAP_L01R0101
+#define MAP_VALOR_LAKEFRONT                              336 // MAP_L02
+#define MAP_VALOR_LAKEFRONT_SEVEN_STARS_RESTAURANT       337 // MAP_L02R0101
+#define MAP_VALOR_LAKEFRONT_GRAND_LAKE_EAST_ROOM         338 // MAP_L02R0201
+#define MAP_VALOR_LAKEFRONT_GRAND_LAKE_WEST_ROOM         339 // MAP_L02R0301
+#define MAP_ACUITY_LAKEFRONT                             340 // MAP_L03
+#define MAP_SPRING_PATH                                  341 // MAP_L04
+#define MAP_ROUTE_201                                    342 // MAP_R201
+#define MAP_ROUTE_202                                    343 // MAP_R202
+#define MAP_ROUTE_203                                    344 // MAP_R203
+#define MAP_ROUTE_204_SOUTH                              345 // MAP_R204A
+#define MAP_ROUTE_204_NORTH                              346 // MAP_R204B
+#define MAP_ROUTE_205_SOUTH                              347 // MAP_R205A
+#define MAP_ROUTE_205_HOUSE                              348 // MAP_R205AR0101
+#define MAP_ROUTE_205_NORTH                              349 // MAP_R205B
+#define MAP_ROUTE_206                                    350 // MAP_R206
+#define MAP_ROUTE_206_CYCLING_ROAD_GATEHOUSE             351 // MAP_R206R0101
+#define MAP_ROUTE_206_ETERNA_GATEHOUSE                   352 // MAP_R206R0201
+#define MAP_ROUTE_207                                    353 // MAP_R207
+#define MAP_ROUTE_208                                    354 // MAP_R208
+#define MAP_ROUTE_208_BERRY_MASTER_HOUSE                 355 // MAP_R208R0101
+#define MAP_ROUTE_209                                    356 // MAP_R209
+#define MAP_ROUTE_209_LOST_TOWER_1F                      357 // MAP_R209R0101
+#define MAP_ROUTE_209_LOST_TOWER_2F                      358 // MAP_R209R0102
+#define MAP_ROUTE_209_LOST_TOWER_3F                      359 // MAP_R209R0103
+#define MAP_ROUTE_209_LOST_TOWER_4F                      360 // MAP_R209R0104
+#define MAP_ROUTE_209_LOST_TOWER_5F                      361 // MAP_R209R0105
+#define MAP_ROUTE_210_SOUTH                              362 // MAP_R210A
+#define MAP_ROUTE_210_NORTH                              363 // MAP_R210B
+#define MAP_ROUTE_210_GRANDMA_WILMA_HOUSE                364 // MAP_R210BR0101
+#define MAP_ROUTE_211_WEST                               365 // MAP_R211A
+#define MAP_ROUTE_211_EAST                               366 // MAP_R211B
+#define MAP_ROUTE_212_NORTH                              367 // MAP_R212A
+#define MAP_ROUTE_212_POKEMON_MANSION_LOBBY              368 // MAP_R212AR0101
+#define MAP_ROUTE_212_POKEMON_MANSION_WEST_ROOMS         369 // MAP_R212AR0102
+#define MAP_ROUTE_212_POKEMON_MANSION_EAST_ROOM          370 // MAP_R212AR0103
+#define MAP_ROUTE_212_SOUTH                              371 // MAP_R212B
+#define MAP_ROUTE_212_SHARD_WEATHER_TM_HOUSE             372 // MAP_R212BR0101
+#define MAP_ROUTE_213                                    373 // MAP_R213
+#define MAP_ROUTE_213_PASTORIA_GATEHOUSE                 374 // MAP_R213R0101
+#define MAP_ROUTE_213_FOOTSTEP_HOUSE                     375 // MAP_R213R0201
+#define MAP_ROUTE_213_GRAND_LAKE_RECEPTION               376 // MAP_R213R0301
+#define MAP_ROUTE_213_GRAND_LAKE_EAST_ROOM               377 // MAP_R213R0401
+#define MAP_ROUTE_213_GRAND_LAKE_WEST_ROOM               378 // MAP_R213R0501
+#define MAP_ROUTE_213_GRAND_LAKE_NORTHEAST_ROOM          379 // MAP_R213R0601
+#define MAP_ROUTE_214                                    380 // MAP_R214
+#define MAP_ROUTE_214_VEILSTONE_GATEHOUSE                381 // MAP_R214R0101
+#define MAP_ROUTE_215                                    382 // MAP_R215
+#define MAP_ROUTE_216                                    383 // MAP_R216
+#define MAP_ROUTE_216_SNOWBOUND_LODGE                    384 // MAP_R216R0101
+#define MAP_ROUTE_217                                    385 // MAP_R217
+#define MAP_ROUTE_217_SOUTH_HOUSE                        386 // MAP_R217R0101
+#define MAP_ROUTE_217_NORTH_HOUSE                        387 // MAP_R217R0201
+#define MAP_ROUTE_218                                    388 // MAP_R218
+#define MAP_ROUTE_218_JUBLIFE_GATEHOUSE                  389 // MAP_R218R0101
+#define MAP_ROUTE_218_CANALAVE_GATEHOUSE                 390 // MAP_R218R0201
+#define MAP_ROUTE_219                                    391 // MAP_R219
+#define MAP_ROUTE_221                                    392 // MAP_R221
+#define MAP_ROUTE_221_PAL_PARK_ENTRANCE                  393 // MAP_R221R0101
+#define MAP_ROUTE_221_LEVEL_ITEM_HOUSE                   394 // MAP_R221R0201
+#define MAP_ROUTE_222                                    395 // MAP_R222
+#define MAP_ROUTE_222_PIKACHU_FAN_CLUB                   396 // MAP_R222R0101
+#define MAP_ROUTE_222_POKEMON_SIZE_CONTEST_HOUSE         397 // MAP_R222R0201
+#define MAP_ROUTE_222_SUNYSHORE_GATEOUSE                 398 // MAP_R222R0301
+#define MAP_ROUTE_224                                    399 // MAP_R224
+#define MAP_ROUTE_225                                    400 // MAP_R225
+#define MAP_ROUTE_226_UNUSED_1                           401 // MAP_R226A
+#define MAP_ROUTE_226_UNUSED_2                           402 // MAP_R226B
+#define MAP_ROUTE_227                                    403 // MAP_R227
+#define MAP_ROUTE_227_UNUSED_1                           404 // MAP_R227A
+#define MAP_ROUTE_227_UNUSED_2                           405 // MAP_R227B
+#define MAP_ROUTE_228                                    406 // MAP_R228
+#define MAP_ROUTE_229                                    407 // MAP_R229
+#define MAP_ROUTE_230_UNUSED                             408 // MAP_R230
+#define MAP_ROUTE_232_UNUSED                             409 // MAP_R232
+#define MAP_RECORD                                       410 // MAP_RECORD
+#define MAP_TWINLEAF                                     411 // MAP_T01
+#define MAP_TWINLEAF_PLAYER_HOUSE_1F                     412 // MAP_T01R0101
+#define MAP_TWINLEAF_PLAYER_HOUSE_2F                     413 // MAP_T01R0102
+#define MAP_TWINLEAF_RIVAL_HOUSE_1F                      414 // MAP_T01R0201
+#define MAP_TWINLEAF_RIVAL_HOUSE_2F                      415 // MAP_T01R0202
+#define MAP_TWINLEAF_NORTHEAST_HOUSE                     416 // MAP_T01R0301
+#define MAP_TWINLEAF_SOUTHWEST_HOUSE                     417 // MAP_T01R0401
+#define MAP_SANDGEM                                      418 // MAP_T02
+#define MAP_SANDGEM_POKEMART                             419 // MAP_T02FS0101
+#define MAP_SANDGEM_POKECENTER_1F                        420 // MAP_T02PC0101
+#define MAP_SANDGEM_POKECENTER_2F                        421 // MAP_T02PC0102
+#define MAP_SANDGEM_ROWANS_LAB                           422 // MAP_T02R0101
+#define MAP_SANDGEM_PROFESSOR_ASSISTANT_HOUSE_1F         423 // MAP_T02R0201
+#define MAP_SANDGEM_PROFESSOR_ASSISTANT_HOUSE_2F         424 // MAP_T02R0202
+#define MAP_SANDGEM_SOUTHWEST_HOUSE                      425 // MAP_T02R0301
+#define MAP_FLOAROMA                                     426 // MAP_T03
+#define MAP_FLOAROMA_POKEMART                            427 // MAP_T03FS0101
+#define MAP_FLOAROMA_POKECENTER_1F                       428 // MAP_T03PC0101
+#define MAP_FLOAROMA_POKECENTER_2F                       429 // MAP_T03PC0102
+#define MAP_FLOAROMA_FLOWER_SHOP                         430 // MAP_T03R0101
+#define MAP_FLOAROMA_SOUTHEAST_HOUSE                     431 // MAP_T03R0201
+#define MAP_FLOAROMA_MIDDLE_HOUSE                        432 // MAP_T03R0301
+#define MAP_SOLACEON                                     433 // MAP_T04
+#define MAP_SOLACEON_POKEMART                            434 // MAP_T04FS0101
+#define MAP_SOLACEON_POKECENTER_1F                       435 // MAP_T04PC0101
+#define MAP_SOLACEON_POKECENTER_2F                       436 // MAP_T04PC0102
+#define MAP_SOLACEON_DAYCARE                             437 // MAP_T04R0101
+#define MAP_SOLACEON_NORTHEAST_HOUSE                     438 // MAP_T04R0201
+#define MAP_SOLACEON_NEWS_PRESS                          439 // MAP_T04R0301
+#define MAP_SOLACEON_NORTH_HOUSE                         440 // MAP_T04R0401
+#define MAP_SOLACEON_SEAL_HOUSE                          441 // MAP_T04R0501
+#define MAP_CELESTIC                                     442 // MAP_T05
+#define MAP_CELESTIC_POKECENTER_1F                       443 // MAP_T05PC0101
+#define MAP_CELESTIC_POKECENTER_2F                       444 // MAP_T05PC0102
+#define MAP_CELESTIC_CYNTHIA_GRANDPARENTS_HOUSE          445 // MAP_T05R0101
+#define MAP_CELESTIC_SHOP                                446 // MAP_T05R0201
+#define MAP_CELESTIC_NORTHEAST_HOUSE                     447 // MAP_T05R0301
+#define MAP_CELESTIC_SOUTHWEST_HOUSE                     448 // MAP_T05R0401
+#define MAP_CELESTIC_RUINS                               449 // MAP_T05R0501
+#define MAP_SURVIVAL_AREA                                450 // MAP_T06
+#define MAP_SURVIVAL_AREA_POKEMART                       451 // MAP_T06FS0101
+#define MAP_SURVIVAL_AREA_POKECENTER_1F                  452 // MAP_T06PC0101
+#define MAP_SURVIVAL_AREA_POKECENTER_2F                  453 // MAP_T06PC0102
+#define MAP_SURVIVAL_AREA_WEST_HOUSE                     454 // MAP_T06R0101
+#define MAP_SURVIVAL_AREA_SOUTH_HOUSE                    455 // MAP_T06R0201
+#define MAP_SURVIVAL_AREA_NORTH_HOUSE                    456 // MAP_T06R0301
+#define MAP_RESORT_AREA                                  457 // MAP_T07
+#define MAP_RESORT_AREA_UNUSED_POKEMART                  458 // MAP_T07FS0101
+#define MAP_RESORT_AREA_POKECENTER_1F                    459 // MAP_T07PC0101
+#define MAP_RESORT_AREA_POKECENTER_2F                    460 // MAP_T07PC0102
+#define MAP_RESORT_AREA_RIBBON_SYNDICATE_1F              461 // MAP_T07R0101
+#define MAP_RESORT_AREA_RIBBON_SYNDICATE_2F              462 // MAP_T07R0102
+#define MAP_RESORT_AREA_RIBBON_SYNDICATE_ELEVATOR        463 // MAP_T07R0103
+#define MAP_RESORT_AREA_SOUTHWEST_HOUSE                  464 // MAP_T07R0201
+#define MAP_RESORT_AREA_SOUTHEAST_HOUSE                  465 // MAP_T07R0301
+#define MAP_UNION_ROOM                                   466 // MAP_UNION
+#define MAP_ROUTE_220                                    467 // MAP_W220
+#define MAP_ROUTE_223                                    468 // MAP_W223
+#define MAP_ROUTE_226                                    469 // MAP_W226
+#define MAP_ROUTE_229_UNUSED                             470 // MAP_W229
+#define MAP_ROUTE_230                                    471 // MAP_W230
+#define MAP_ROUTE_231_UNUSED                             472 // MAP_W231
+#define MAP_ROUTE_233_UNUSED                             473 // MAP_W233
+#define MAP_JUBLIFE_POKECENTER_B1F                       474 // MAP_C01PC0103
+#define MAP_CANALAVE_POKECENTER_B1F                      475 // MAP_C02PC0103
+#define MAP_OREBURGH_POKECENTER_B1F                      476 // MAP_C03PC0103
+#define MAP_ETERNA_POKECENTER_B1F                        477 // MAP_C04PC0103
+#define MAP_HEARTHOME_POKECENTER_B1F                     478 // MAP_C05PC0103
+#define MAP_PASTORIA_POKECENTER_B1F                      479 // MAP_C06PC0103
+#define MAP_VEILSTONE_POKECENTER_B1F                     480 // MAP_C07PC0103
+#define MAP_SUNYSHORE_POKECENTER_B1F                     481 // MAP_C08PC0103
+#define MAP_SNOWPOINT_POKECENTER_B1F                     482 // MAP_C09PC0103
+#define MAP_POKEMON_LEAGUE_POKECENTER_B1F                483 // MAP_C10PC0103
+#define MAP_FIGHT_AREA_POKECENTER_B1F                    484 // MAP_C11PC0103
+#define MAP_SANDGEM_POKECENTER_B1F                       485 // MAP_T02PC0103
+#define MAP_FLOAROMA_POKECENTER_B1F                      486 // MAP_T03PC0103
+#define MAP_SOLACEON_POKECENTER_B1F                      487 // MAP_T04PC0103
+#define MAP_CELESTIC_POKECENTER_B1F                      488 // MAP_T05PC0103
+#define MAP_SURVIVAL_AREA_POKECENTER_B1F                 489 // MAP_T06PC0103
+#define MAP_RESORT_AREA_POKECENTER_B1F                   490 // MAP_T07PC0103
+#define MAP_CANALAVE_WEST_HOUSE                          491 // MAP_C02R0601
+#define MAP_ROUTE_210_CAFE                               492 // MAP_R210AR0101
+#define MAP_BATTLE_TOWER_PARTNER_ROOM                    493 // MAP_D31R0207
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_BACK      494 // MAP_D26R0107
+#define MAP_POKEMON_LEAGUE_LOBBY_2F                      495 // MAP_C10R0114
+#define MAP_POKEMON_LEAGUE_LOBBY_B1F                     496 // MAP_C10R0115
+#define MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_2         497 // MAP_D26R0108
+#define MAP_ROUTE_225_HOUSE                              498 // MAP_R225R0101
+#define MAP_ROUTE_226_HOUSE                              499 // MAP_W226R0101
+#define MAP_ROUTE_227_HOUSE                              500 // MAP_R227R0101
+#define MAP_ROUTE_228_ROUTE_226_GATEHOUSE                501 // MAP_R228R0101
+#define MAP_ROUTE_228_NORTH_HOUSE                        502 // MAP_R228R0201
+#define MAP_ROUTE_228_SOUTH_HOUSE                        503 // MAP_R228R0301
+#define MAP_GREAT_MARSH_AREA_1                           504 // MAP_D06R0201
+#define MAP_GREAT_MARSH_AREA_2                           505 // MAP_D06R0202
+#define MAP_GREAT_MARSH_AREA_3                           506 // MAP_D06R0203
+#define MAP_GREAT_MARSH_AREA_4                           507 // MAP_D06R0204
+#define MAP_GREAT_MARSH_AREA_5                           508 // MAP_D06R0205
+#define MAP_GREAT_MARSH_AREA_6                           509 // MAP_D06R0206
+#define MAP_HALL_OF_ORIGIN                               510 // MAP_D05R0116
+#define MAP_HALL_OF_ORIGIN_UNUSED                        511 // MAP_D05R0117
+#define MAP_RUIN_MANIAC_CAVE_STAGE_2                     512 // MAP_D22R0102
+#define MAP_RUIN_MANIAC_CAVE_STAGE_3                     513 // MAP_D22R0103
+#define MAP_IRON_ISLAND_HOUSE                            514 // MAP_D24R0201
+#define MAP_SOLACEON_RUINS_B4F_ROOM_3                    515 // MAP_D07R0119
+#define MAP_SUNYSHORE_VISTA_LIGHTHOUSE_ELEVATOR          516 // MAP_C08R0802
+#define MAP_JUBLIFE_SOUTHWEST_HOUSE_2F                   517 // MAP_C01R0802
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_4                  518 // MAP_D17R0108
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_2                  519 // MAP_D17R0109
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_1                  520 // MAP_D17R0110
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_12                 521 // MAP_D17R0111
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_9                  522 // MAP_D17R0112
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_10                 523 // MAP_D17R0113
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_11                 524 // MAP_D17R0114
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_7                  525 // MAP_D17R0115
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_8                  526 // MAP_D17R0116
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_18                 527 // MAP_D17R0117
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_15                 528 // MAP_D17R0118
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_16                 529 // MAP_D17R0119
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_13                 530 // MAP_D17R0120
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_17                 531 // MAP_D17R0121
+#define MAP_TURNBACK_CAVE_RANDOM_ROOM_14                 532 // MAP_D17R0122
+#define MAP_TURNBACK_CAVE_UNUSED_1                       533 // MAP_D17R0123
+#define MAP_TURNBACK_CAVE_UNUSED_2                       534 // MAP_D17R0124
+#define MAP_TURNBACK_CAVE_EMPTY_ROOM_1                   535 // MAP_D17R0125
+#define MAP_TURNBACK_CAVE_UNUSED_3                       536 // MAP_D17R0126
+#define MAP_TURNBACK_CAVE_UNUSED_4                       537 // MAP_D17R0127
+#define MAP_TURNBACK_CAVE_UNUSED_5                       538 // MAP_D17R0128
+#define MAP_TURNBACK_CAVE_UNUSED_6                       539 // MAP_D17R0129
+#define MAP_TURNBACK_CAVE_EMPTY_ROOM_2                   540 // MAP_D17R0130
+#define MAP_TURNBACK_CAVE_UNUSED_7                       541 // MAP_D17R0131
+#define MAP_TURNBACK_CAVE_UNUSED_8                       542 // MAP_D17R0132
+#define MAP_TURNBACK_CAVE_UNUSED_9                       543 // MAP_D17R0133
+#define MAP_TURNBACK_CAVE_UNUSED_10                      544 // MAP_D17R0134
+#define MAP_TURNBACK_CAVE_UNUSED_11                      545 // MAP_D17R0135
+#define MAP_TURNBACK_CAVE_EMPTY_ROOM_3                   546 // MAP_D17R0136
+#define MAP_TURNBACK_CAVE_UNUSED_12                      547 // MAP_D17R0137
+#define MAP_TURNBACK_CAVE_UNUSED_13                      548 // MAP_D17R0138
+#define MAP_TURNBACK_CAVE_UNUSED_14                      549 // MAP_D17R0139
+#define MAP_TURNBACK_CAVE_UNUSED_15                      550 // MAP_D17R0140
+#define MAP_TURNBACK_CAVE_UNUSED_16                      551 // MAP_D17R0141
+#define MAP_TURNBACK_CAVE_UNUSED_17                      552 // MAP_D17R0142
+#define MAP_TURNBACK_CAVE_UNUSED_18                      553 // MAP_D17R0143
+#define MAP_TURNBACK_CAVE_UNUSED_19                      554 // MAP_D17R0144
+#define MAP_TURNBACK_CAVE_UNUSED_20                      555 // MAP_D17R0145
+#define MAP_TURNBACK_CAVE_UNUSED_21                      556 // MAP_D17R0146
+#define MAP_TURNBACK_CAVE_UNUSED_22                      557 // MAP_D17R0147
+#define MAP_HEARTHOME_SUPER_CONTEST_HALL_SEATS           558 // MAP_C05R1103
 
 #endif // POKEDIAMOND_CONSTANTS_MAPS_H
