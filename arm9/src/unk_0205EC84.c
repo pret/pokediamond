@@ -179,60 +179,60 @@ BOOL sub_0205EEB8(struct SaveVarsFlags *state, u32 a1) {
 s32 sub_0205EF20(struct SaveVarsFlags *state, s32 a1) {
     s32 ret = 0;
     switch (a1) {
-    case MAP_D28R0101:
+    case MAP_LAKE_VALOR_GALACTIC:
         if (_flag_check(state, 0x984) == TRUE) {
             ret = SEQ_D_LAKE;
         }
         break;
-    case MAP_D28R0103:
+    case MAP_VALOR_CAVERN:
         if (_flag_check(state, 0x984) == TRUE) {
             ret = SEQ_D_RYAYHY;
         }
         break;
-    case MAP_D27R0102:
+    case MAP_LAKE_VERITY_GALACTIC:
         if (_flag_check(state, 0x98E) == TRUE) {
             ret = SEQ_D_LAKE;
         }
         break;
-    case MAP_D29R0102:
+    case MAP_LAKE_ACUITY_GALACTIC:
         if (_flag_check(state, 0x98F) == TRUE) {
             ret = SEQ_D_LAKE;
         }
         break;
-    case MAP_D10R0101:
+    case MAP_PAL_PARK:
         if (_flag_check(state, 0x995) == TRUE) {
             ret = SEQ_D_SAFARI;
         }
         break;
-    case MAP_T02R0101:
+    case MAP_SANDGEM_ROWANS_LAB:
         if (_flag_check(state, 0x993) == TRUE) {
             ret = SEQ_OPENING2;
         }
         break;
-    case MAP_D26R0101:
-    case MAP_D26R0102:
-    case MAP_D26R0103:
-    case MAP_D26R0104:
-    case MAP_D26R0105:
-    case MAP_D26R0106:
-    case MAP_D26R0107:
-    case MAP_D26R0108:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_1F:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_2F:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_3F:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_1:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_B1F:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_B2F:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_BACK:
+    case MAP_VEILSTONE_GALACTIC_HEADQUARTERS_4F_2:
         if (_flag_check(state, 0x985) == TRUE) {
             if (!IsNighttime()) {
                 ret = SEQ_CITY07_D;
             } else {
                 ret = SEQ_CITY07_N;
             }
-        } else if (a1 == MAP_D26R0101) {
+        } else if (a1 == MAP_VEILSTONE_GALACTIC_HEADQUARTERS_1F) {
             if (_flag_check(state, 0x986) == TRUE) {
                 ret = SEQ_D_AGITO;
             }
         }
         break;
-    case MAP_C04R0201:
-    case MAP_C04R0202:
-    case MAP_C04R0203:
-    case MAP_C04R0204:
+    case MAP_ETERNA_GALACTIC_BUILDING_1F:
+    case MAP_ETERNA_GALACTIC_BUILDING_2F:
+    case MAP_ETERNA_GALACTIC_BUILDING_3F:
+    case MAP_ETERNA_GALACTIC_BUILDING_4F:
         if (_flag_check(state, 0x987) == TRUE) {
             if (!IsNighttime()) {
                 ret = SEQ_CITY04_D;
@@ -241,7 +241,7 @@ s32 sub_0205EF20(struct SaveVarsFlags *state, s32 a1) {
             }
         }
         break;
-    case MAP_D02R0101:
+    case MAP_VALLEY_WINDWORKS_INTERIOR:
         if (_flag_check(state, 0x988) == TRUE) {
             if (!IsNighttime()) {
                 ret = SEQ_ROAD_C_D;
@@ -250,7 +250,7 @@ s32 sub_0205EF20(struct SaveVarsFlags *state, s32 a1) {
             }
         }
         break;
-    case MAP_D13R0101:
+    case MAP_FLOAROMA_MEADOW:
         if (_flag_check(state, 0x989) == TRUE) {
             if (!IsNighttime()) {
                 ret = SEQ_TOWN03_D;
@@ -259,7 +259,7 @@ s32 sub_0205EF20(struct SaveVarsFlags *state, s32 a1) {
             }
         }
         break;
-    case MAP_R224:
+    case MAP_ROUTE_224:
         if (_flag_check(state, 0x98A) == TRUE) {
             if (!IsNighttime()) {
                 ret = SEQ_TOWN03_D;
@@ -268,7 +268,7 @@ s32 sub_0205EF20(struct SaveVarsFlags *state, s32 a1) {
             }
         }
         break;
-    case MAP_C10R0111:
+    case MAP_POKEMON_LEAGUE_CYNTHIA_ROOM:
         if (_flag_check(state, 0x98B) == TRUE) {
             ret = SEQ_SILENCE_FIELD;
         }
