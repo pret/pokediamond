@@ -39524,8 +39524,8 @@ _0224CA78:
 	mov r0, #2
 	pop {r4, pc}
 
-	thumb_func_start ov06_0224CA88
-ov06_0224CA88: ; 0x0224CA88
+	thumb_func_start FieldMoveTask_CreateDigEnvironment
+FieldMoveTask_CreateDigEnvironment: ; 0x0224CA88
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	add r6, r1, #0
@@ -39543,8 +39543,8 @@ ov06_0224CA88: ; 0x0224CA88
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start ov06_0224CAAC
-ov06_0224CAAC: ; 0x0224CAAC
+	thumb_func_start Task_FieldDig
+Task_FieldDig: ; 0x0224CAAC
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	bl TaskManager_GetFieldSystem
@@ -39613,8 +39613,8 @@ _0224CB1E:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start ov06_0224CB30
-ov06_0224CB30: ; 0x0224CB30
+	thumb_func_start FieldMoveTask_CreateTeleportEnvironment
+FieldMoveTask_CreateTeleportEnvironment: ; 0x0224CB30
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	add r6, r1, #0
@@ -39632,8 +39632,8 @@ ov06_0224CB30: ; 0x0224CB30
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start ov06_0224CB54
-ov06_0224CB54: ; 0x0224CB54
+	thumb_func_start Task_FieldTeleport
+Task_FieldTeleport: ; 0x0224CB54
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	bl TaskManager_GetFieldSystem

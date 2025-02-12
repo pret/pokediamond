@@ -241,8 +241,7 @@ Static arm9
     Object unk_0206367C.o
     Object unk_02063888.o
     Object field_move.o
-    Object field_move_s.o
-    Object unk_0206439C.o
+    Object field_move_environment.o
     Object unk_020643C0.o
     Object unk_020647A4.o
     Object unk_02064CA8.o

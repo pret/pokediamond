@@ -39,8 +39,4 @@ typedef struct StartMenuTaskData {
     u8 filler3[0x4];
 } StartMenuTaskData;
 
-typedef struct FieldMoveData {
-    u32 partySlot;
-} FieldMoveData;
-
 #endif // POKEDIAMOND_START_MENU_H

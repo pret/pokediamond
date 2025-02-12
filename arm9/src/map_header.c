@@ -751,7 +751,7 @@ u8 MapHeader_GetMapType(u32 mapno) {
     return sMapHeaders[mapno].map_type;
 }
 
-BOOL MapHeader_IsOutdoorNotTown(u32 mapno) {
+BOOL MapHeader_IsTeleportAllowed(u32 mapno) {
     if (!MapHeader_IsFlyAllowed(mapno)) {
         return FALSE;
     }

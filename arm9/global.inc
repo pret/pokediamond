@@ -2508,7 +2508,7 @@
 .extern MapHeader_IsEscapeRopeAllowed
 .extern MapHeader_IsFlyAllowed
 .extern MapHeader_IsBikeAllowed
-.extern MapHeader_IsOutdoorNotTown
+.extern MapHeader_IsTeleportAllowed
 .extern MapHeader_MapIsOnMainMatrix
 .extern MapHeader_IsCave
 .extern MapHeader_IsBuilding
@@ -4691,7 +4691,7 @@
 .extern sub_020638BC
 .extern FieldMove_GetMoveFunc
 .extern FieldMove_InitCheckData
-.extern sub_0206439C
+.extern FieldMove_CreateEnvironment
 .extern sub_020643C0
 .extern sub_020643F0
 .extern sub_020644E4
@@ -6954,7 +6954,7 @@
 .extern ov05_021F6234
 .extern ov05_021F6240
 .extern ov05_021F6254
-.extern ov05_021F6360
+.extern Task_UseSweetScentInField
 .extern ov06_02239944
 .extern ov06_02239AAC
 .extern ov06_0223BA04
@@ -7166,10 +7166,10 @@
 .extern ov06_0224C8C8
 .extern ov06_0224C8E8
 .extern ov06_0224CA58
-.extern ov06_0224CA88
-.extern ov06_0224CAAC
-.extern ov06_0224CB30
-.extern ov06_0224CB54
+.extern FieldMoveTask_CreateDigEnvironment
+.extern Task_FieldDig
+.extern FieldMoveTask_CreateTeleportEnvironment
+.extern Task_FieldTeleport
 .extern ov06_0224CBB0
 .extern ov06_0224CC24
 .extern ov06_0224CE30
@@ -9168,8 +9168,8 @@
 .extern ov18_02244DB0
 .extern ov18_02247544
 .extern ov18_0224A7C8
-.extern ov06_0224CAAC
-.extern ov06_0224CB54
+.extern Task_FieldDig
+.extern Task_FieldTeleport
 .extern gSineTable
 .extern CARDi_IdentifyBackupCore
 .extern CARDi_InitCommon

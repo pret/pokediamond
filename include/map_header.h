@@ -44,7 +44,7 @@ u8 MapHeader_IsEscapeRopeAllowed(u32 mapno);
 u8 MapHeader_IsFlyAllowed(u32 mapno);
 u8 MapHeader_IsBikeAllowed(u32 mapno);
 u8 MapHeader_GetMapType(u32 mapno);
-BOOL MapHeader_IsOutdoorNotTown(u32 mapno);
+BOOL MapHeader_IsTeleportAllowed(u32 mapno);
 BOOL MapHeader_MapIsOnMainMatrix(u32 mapno);
 BOOL MapHeader_IsPokemonCenter(u32 mapno);
 BOOL MapHeader_IsCave(u32 mapno);
