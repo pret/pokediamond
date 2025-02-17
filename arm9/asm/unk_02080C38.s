@@ -112,7 +112,7 @@ _02080CB4:
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl FieldSystem_GetSaveData
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0xb
 	str r0, [sp, #0x0]
 	bl PlayerProfile_GetPlayerName_NewString

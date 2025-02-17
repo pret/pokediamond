@@ -1309,7 +1309,7 @@ _021D7F86:
 	cmp r6, #2
 	bne _021D7FF4
 	ldr r0, [r5, #8]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #0
@@ -3607,7 +3607,7 @@ _021D91D6:
 	mov r1, #0
 	bl FillWindowPixelBuffer
 	ldr r0, [r5, #8]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #0

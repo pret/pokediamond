@@ -2450,7 +2450,7 @@ sub_020751A0: ; 0x020751A0
 	sub r1, #0xb
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl sub_02063948
+	bl FieldMove_GetMoveFunc
 	add r1, r0, #0x0
 	beq _020751C8
 	ldr r0, _02075234 ; =0x000005A4

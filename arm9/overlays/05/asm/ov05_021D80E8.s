@@ -248,7 +248,7 @@ _021D8290:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #8]
 	add r0, r4, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_0205478C
 	cmp r0, #0
 	beq _021D8314
@@ -280,7 +280,7 @@ _021D82EC:
 	ldr r1, [sp, #4]
 	ldr r2, [sp]
 	add r0, r4, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_0205478C
 	cmp r0, #0
 	beq _021D8314
@@ -1051,7 +1051,7 @@ ov05_021D8954: ; 0x021D8954
 	bl ov05_021D90F8
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get
-	bl sub_0205F244
+	bl Save_VarsFlags_CheckPalParkSysFlag
 	cmp r0, #1
 	bne _021D8998
 	ldr r1, [sp, #4]
@@ -1142,7 +1142,7 @@ _021D8A00:
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
 	add r0, r6, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_020547B0
 	cmp r0, #0
 	beq _021D8A4A
@@ -1168,7 +1168,7 @@ _021D8A4A:
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
 	add r0, r6, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r4, r0, #0
 	bl sub_020547BC
 	cmp r0, #0
@@ -1406,7 +1406,7 @@ _021D8C2E:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C3C:
 	add r0, r4, #0
-	bl sub_02054A48
+	bl MetatileBehavior_IsWaterfall
 	cmp r0, #0
 	beq _021D8C4A
 	ldr r0, _021D8D08 ; =0x00002716
@@ -1437,7 +1437,7 @@ _021D8C66:
 _021D8C78:
 	add r0, r4, #0
 	add r1, r6, #0
-	bl ov05_021E69BC
+	bl MetatileBehavior_IsRockClimbInDirection
 	cmp r0, #0
 	beq _021D8C88
 	ldr r0, _021D8D18 ; =0x00002713
@@ -1448,21 +1448,21 @@ _021D8C88:
 	cmp r0, #2
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl GetPlayerXCoord
 	add r7, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r1, r0, #0
 	ldr r0, [r5, #0x38]
 	add r2, r4, #0
-	bl ov05_021E643C
+	bl Field_PlayerCanSurfOnTile
 	cmp r0, #0
 	beq _021D8CE0
 	add r0, r6, #0
@@ -1524,12 +1524,12 @@ _021D8D4C:
 	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r7, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r6, r0, #0
 	add r0, r5, #0
 	bl ov05_021D8E1C
@@ -1991,7 +1991,7 @@ ov05_021D90F8: ; 0x021D90F8
 	bl GetPlayerXCoord
 	str r0, [r4]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	str r0, [r6]
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
@@ -2066,7 +2066,7 @@ ov05_021D9178: ; 0x021D9178
 	ldr r1, [sp, #4]
 	ldr r2, [sp]
 	add r0, r4, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add sp, #8
 	pop {r4, pc}
 
@@ -2081,7 +2081,7 @@ ov05_021D9194: ; 0x021D9194
 	ldr r1, [sp, #4]
 	ldr r2, [sp]
 	add r0, r4, #0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add sp, #8
 	pop {r4, pc}
 

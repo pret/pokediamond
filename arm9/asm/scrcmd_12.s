@@ -322,7 +322,7 @@ sub_02042F48: ; 0x02042F48
 	strh r0, [r2, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
@@ -339,7 +339,7 @@ sub_02042F6C: ; 0x02042F6C
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x10]
 	mov r7, #0x0
@@ -690,7 +690,7 @@ sub_02043274: ; 0x02043274
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -736,7 +736,7 @@ sub_020432C8: ; 0x020432C8
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -808,7 +808,7 @@ sub_02043358: ; 0x02043358
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -876,7 +876,7 @@ sub_020433DC: ; 0x020433DC
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -949,7 +949,7 @@ sub_0204346C: ; 0x0204346C
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1077,7 +1077,7 @@ _02043574:
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1151,7 +1151,7 @@ sub_020435F8: ; 0x020435F8
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1243,7 +1243,7 @@ sub_020436B8: ; 0x020436B8
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1334,7 +1334,7 @@ sub_02043774: ; 0x02043774
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1415,7 +1415,7 @@ sub_02043818: ; 0x02043818
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1441,7 +1441,7 @@ sub_02043850: ; 0x02043850
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0

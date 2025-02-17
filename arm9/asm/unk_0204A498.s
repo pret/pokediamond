@@ -328,8 +328,8 @@ _0204A6DC:
 	add sp, #0x4
 	pop {r3-r4, pc}
 
-	thumb_func_start sub_0204A6E0
-sub_0204A6E0: ; 0x0204A6E0
+	thumb_func_start GetMetatileBehavior
+GetMetatileBehavior: ; 0x0204A6E0
 	push {r3-r4, lr}
 	sub sp, #0x4
 	ldr r4, [r0, #0x58]
@@ -443,7 +443,7 @@ _0204A78A:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r7, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_020548B4
 	cmp r0, #0x0
 	beq _0204A7BC
@@ -501,7 +501,7 @@ _0204A7E4:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r7, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_020548B4
 	cmp r0, #0x0
 	beq _0204A82E

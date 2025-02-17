@@ -67,8 +67,8 @@ BOOL FieldSystem_ApplicationIsRunning(struct FieldSystem *fieldSystem) {
     return sub_0203739C(fieldSystem) || sub_020373C4(fieldSystem);
 }
 
-void sub_0204649C(void *r0) {
-    LoadOverlay_OVERLAY_05(r0);
+void FieldSystem_LoadFieldOverlay(FieldSystem *fieldSystem) {
+    FieldSystem_LoadFieldOverlayInternal(fieldSystem);
 }
 
 BOOL sub_020464A4(void *r0) {

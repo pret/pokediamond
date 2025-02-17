@@ -288,7 +288,7 @@ sub_0205C794: ; 0x0205C794
 	bl GetPlayerXCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_GetFacingDirection
@@ -332,7 +332,7 @@ _0205C802:
 	bl GetPlayerXCoord
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

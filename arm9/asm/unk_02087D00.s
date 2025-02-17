@@ -60,7 +60,7 @@ sub_02087D00: ; 0x02087D00
 	bl Save_PoffinData_Get
 	str r0, [r7, #0x8]
 	add r0, r4, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r7, #0xc]
 	add r0, r4, #0x0
 	bl SaveArray_Party_Get

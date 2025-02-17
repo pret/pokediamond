@@ -291,7 +291,7 @@ ov51_02254A68: ; 0x02254A68
 	ldr r0, [r5, #0x78]
 	str r0, [r4, #8]
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r4, #0x10]
 	mov r0, #0
 	mov r1, #0xa2

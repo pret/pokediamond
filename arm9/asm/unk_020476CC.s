@@ -182,7 +182,7 @@ sub_02047814: ; 0x02047814
 	add r5, r1, #0x0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -468,7 +468,7 @@ sub_02047A78: ; 0x02047A78
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Party_Get
@@ -612,7 +612,7 @@ sub_02047BC0: ; 0x02047BC0
 	ldr r0, [r0, #0xc]
 	str r1, [sp, #0x0]
 	add r7, r2, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -783,7 +783,7 @@ sub_02047D48: ; 0x02047D48
 	str r1, [sp, #0x0]
 	str r2, [sp, #0x4]
 	add r7, r3, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -1010,7 +1010,7 @@ sub_02047F38: ; 0x02047F38
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Party_Get
@@ -1056,7 +1056,7 @@ sub_02047FA4: ; 0x02047FA4
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Party_Get
 	ldr r0, [r5, #0xc]
@@ -1077,7 +1077,7 @@ sub_02047FD0: ; 0x02047FD0
 	add r4, r1, #0x0
 	ldr r1, [r2, #0x8]
 	ldr r2, [r2, #0xc]
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r5, r0, #0x0
 	bl sub_020548F0
 	cmp r0, #0x0

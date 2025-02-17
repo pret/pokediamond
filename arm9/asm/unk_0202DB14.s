@@ -15,7 +15,7 @@ sub_0202DB14: ; 0x0202DB14
 	sub sp, #0xc
 	str r0, [sp, #0x0]
 	str r1, [sp, #0x4]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x8]
 	ldr r0, _0202DBA0 ; =UNK_021C59E4
 	ldr r0, [r0, #0x0]
@@ -137,7 +137,7 @@ sub_0202DBE0: ; 0x0202DBE0
 	ldr r0, _0202DCD8 ; =UNK_021C59E4
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	ldr r1, _0202DCD8 ; =UNK_021C59E4
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x2

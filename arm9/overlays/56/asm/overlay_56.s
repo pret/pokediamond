@@ -1974,7 +1974,7 @@ ov56_02212E0C: ; 0x02212E0C
 	add r0, #0xc4
 	ldr r0, [r0]
 	str r1, [sp]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	add r0, #0xc4
@@ -2767,7 +2767,7 @@ ov56_0221341C: ; 0x0221341C
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r5, _02213618 ; =0x00010200
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	mov r1, #0x36
 	bl PlayerProfile_GetPlayerName_NewString
 	add r6, r0, #0

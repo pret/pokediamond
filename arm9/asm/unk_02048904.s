@@ -268,7 +268,7 @@ sub_02048AE4: ; 0x02048AE4
 	bl MapObjectManager_Init
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -321,7 +321,7 @@ sub_02048B50: ; 0x02048B50
 	bl sub_02034E20
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x34]
@@ -483,7 +483,7 @@ sub_02048CB0: ; 0x02048CB0
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl GetPlayerXCoord

@@ -3,8 +3,8 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start ov05_021F6360
-ov05_021F6360: ; 0x021F6360
+	thumb_func_start Task_UseSweetScentInField
+Task_UseSweetScentInField: ; 0x021F6360
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	bl TaskManager_GetFieldSystem

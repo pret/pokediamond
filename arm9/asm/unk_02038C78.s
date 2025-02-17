@@ -2079,8 +2079,8 @@ _020395B0:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start sub_020395BC
-sub_020395BC: ; 0x020395BC
+	thumb_func_start FieldMove_SetArgs
+FieldMove_SetArgs: ; 0x020395BC
 	push {r3-r7, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -2345,7 +2345,7 @@ _020397A0:
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	sub r0, r0, #0x7

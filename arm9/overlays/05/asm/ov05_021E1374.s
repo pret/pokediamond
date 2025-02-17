@@ -264,7 +264,7 @@ _021E1562:
 	ldr r0, [sp]
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	sub r1, r4, #7
 	str r1, [sp, #0x14]
 	add r1, r4, #7

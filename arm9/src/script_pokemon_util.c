@@ -26,7 +26,7 @@ BOOL MonNotFaintedOrEgg(struct Pokemon *pokemon) {
 
 BOOL GiveMon(HeapID heapId, struct SaveData *save, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType) {
     u32 ptr;
-    PlayerProfile *data = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *data = Save_PlayerData_GetProfile(save);
     struct Party *party = SaveArray_Party_Get(save);
     struct Pokemon *mon = AllocMonZeroed(heapId);
     ZeroMonData(mon);
@@ -45,7 +45,7 @@ BOOL GiveMon(HeapID heapId, struct SaveData *save, u16 species, u8 level, u16 it
 /* Seems to have something to do with Manaphy Egg*/
 BOOL GiveEgg(HeapID heapId, struct SaveData *save, u16 species, int level, int metLocIndex, int a3) {
 #pragma unused(heapId)
-    PlayerProfile *data = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *data = Save_PlayerData_GetProfile(save);
     struct Party *party = SaveArray_Party_Get(save);
     struct Pokemon *mon = AllocMonZeroed(HEAP_ID_32);
     ZeroMonData(mon);

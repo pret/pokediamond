@@ -16,7 +16,7 @@ sub_02064E90: ; 0x02064E90
 	ldr r5, [sp, #0xbc]
 	bl FieldSystem_GetSaveData
 	str r0, [sp, #0x20]
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x20]
 	bl Save_GameStats_Get

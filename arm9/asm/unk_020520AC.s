@@ -205,7 +205,7 @@ _0205211E:
 	str r5, [r4, #0x0]
 	str r6, [r4, #0x4]
 	add r0, r6, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	bl sub_02052E1C

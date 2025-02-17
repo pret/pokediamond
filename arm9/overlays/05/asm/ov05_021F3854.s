@@ -24,7 +24,7 @@ ov05_021F3860: ; 0x021F3860
 	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r7, r0, #0
 	ldr r0, [r4]
 	cmp r0, r6
@@ -38,7 +38,7 @@ _021F3882:
 	add r1, r6, #0
 	add r2, r7, #0
 	str r7, [r4, #4]
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r4, r0, #0
 	bl sub_02054A18
 	cmp r0, #0

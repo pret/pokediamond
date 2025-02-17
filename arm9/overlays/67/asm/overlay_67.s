@@ -55,7 +55,7 @@ ov67_021D74E0: ; 0x021D74E0
 	bl sub_020289A4
 	str r0, [r4, #0x44]
 	add r0, r5, #0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	str r0, [r4, #0x48]
 	mov r0, #0
 	mov r1, #0x2a

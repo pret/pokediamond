@@ -3,6 +3,8 @@
 
 #include "field_system.h"
 
+typedef struct FieldMoveTaskEnvironment FieldMoveTaskEnvironment;
+
 enum MartType {
     MART_ITEMS = 0,
     MART_GOODS,

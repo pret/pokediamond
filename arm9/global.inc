@@ -1471,7 +1471,7 @@
 .extern sub_020238A4
 .extern Save_PlayerData_sizeof
 .extern Save_PlayerData_Init
-.extern Save_PlayerData_GetProfileAddr
+.extern Save_PlayerData_GetProfile
 .extern Save_PlayerData_GetCoinsAddr
 .extern Save_PlayerData_GetIGTAddr
 .extern PlayerProfile_sizeof
@@ -2508,7 +2508,7 @@
 .extern MapHeader_IsEscapeRopeAllowed
 .extern MapHeader_IsFlyAllowed
 .extern MapHeader_IsBikeAllowed
-.extern MapHeader_IsOutdoorNotTown
+.extern MapHeader_IsTeleportAllowed
 .extern MapHeader_MapIsOnMainMatrix
 .extern MapHeader_IsCave
 .extern MapHeader_IsBuilding
@@ -2582,10 +2582,10 @@
 .extern sub_02035118
 .extern sub_0203515C
 .extern sub_020351A0
-.extern sub_02035D04
+.extern StartMenu_SetExitTaskFunc
 .extern sub_02035E50
 .extern sub_02036A78
-.extern sub_02036AB8
+.extern Task_UseFlyInField
 .extern sub_02036B90
 .extern sub_02036BC4
 .extern sub_02036BDC
@@ -2593,7 +2593,7 @@
 .extern sub_02036DD4
 .extern sub_02036FA4
 .extern sub_02037000
-.extern sub_02037024
+.extern FieldSystem_GetFacingObject
 .extern sub_02037090
 .extern sub_020370BC
 .extern sub_020371D0
@@ -2639,7 +2639,7 @@
 .extern LaunchStoragePCInterface
 .extern sub_02037E18
 .extern sub_02037E80
-.extern sub_02037E90
+.extern TownMap_Show
 .extern sub_02037EB8
 .extern sub_02037EF8
 .extern sub_02037F2C
@@ -2686,7 +2686,7 @@
 .extern FlagClear
 .extern ResetTempFlagsAndVars
 .extern sub_0203959C
-.extern sub_020395BC
+.extern FieldMove_SetArgs
 .extern sub_020395F4
 .extern sub_02039618
 .extern TrainerIsDoubleBattle
@@ -3434,7 +3434,7 @@
 .extern sub_02046420
 .extern sub_0204646C
 .extern FieldSystem_ApplicationIsRunning
-.extern sub_0204649C
+.extern FieldSystem_LoadFieldOverlay
 .extern sub_020464A4
 .extern sub_02046500
 .extern TaskManager_GetFieldSystem
@@ -3513,7 +3513,7 @@
 .extern sub_0204A3A4
 .extern sub_0204A690
 .extern sub_0204A6B4
-.extern sub_0204A6E0
+.extern GetMetatileBehavior
 .extern sub_0204A708
 .extern sub_0204A770
 .extern sub_0204A7C8
@@ -3861,7 +3861,7 @@
 .extern sub_02054A24
 .extern sub_02054A30
 .extern sub_02054A3C
-.extern sub_02054A48
+.extern MetatileBehavior_IsWaterfall
 .extern sub_02054A54
 .extern sub_02054A60
 .extern sub_02054A84
@@ -3902,7 +3902,7 @@
 .extern sub_02055304
 .extern sub_02055314
 .extern GetPlayerXCoord
-.extern GetPlayerYCoord
+.extern GetPlayerZCoord
 .extern sub_02055338
 .extern sub_02055344
 .extern sub_02055350
@@ -3982,7 +3982,7 @@
 .extern sub_02057254
 .extern sub_02057260
 .extern sub_02057278
-.extern sub_020572B8
+.extern PlayerAvatar_GetCoordsInFront
 .extern MapObjectManager_Init
 .extern MapObjectManager_Delete
 .extern sub_020573C8
@@ -4567,7 +4567,7 @@
 .extern Save_VarsFlags_CheckSafariSysFlag
 .extern sub_0205F224
 .extern sub_0205F234
-.extern sub_0205F244
+.extern Save_VarsFlags_CheckPalParkSysFlag
 .extern sub_0205F254
 .extern sub_0205F264
 .extern sub_0205F274
@@ -4623,7 +4623,7 @@
 .extern sub_0205F770
 .extern sub_0205F780
 .extern sub_0205F790
-.extern sub_0205F7A0
+.extern TownMap_Init
 .extern sub_0205FC50
 .extern sub_0205FD38
 .extern sub_0205FDDC
@@ -4689,9 +4689,9 @@
 .extern sub_02063808
 .extern sub_02063888
 .extern sub_020638BC
-.extern sub_02063948
-.extern sub_02063964
-.extern sub_0206439C
+.extern FieldMove_GetMoveFunc
+.extern FieldMove_InitCheckData
+.extern FieldMove_CreateEnvironment
 .extern sub_020643C0
 .extern sub_020643F0
 .extern sub_020644E4
@@ -5987,7 +5987,7 @@
 .extern ReadWholeNarcMemberByIdPair
 .extern GetNarcMemberSizeByIdPair
 .extern AllocAndReadWholeNarcMemberByIdPair
-.extern LoadOverlay_OVERLAY_05
+.extern FieldSystem_LoadFieldOverlayInternal
 .extern Save_PlayerData_GetOptionsAddr
 .extern MATH_CalcCRC16
 .extern MATH_CalcCRC16CCITT
@@ -6680,9 +6680,9 @@
 .extern Field_PlayerAvatar_ApplyTransitionFlags
 .extern ov05_021E61A4
 .extern CallFieldTask_Surf
-.extern ov05_021E643C
+.extern Field_PlayerCanSurfOnTile
 .extern CallFieldTask_RockClimb
-.extern ov05_021E69BC
+.extern MetatileBehavior_IsRockClimbInDirection
 .extern CallFieldTask_Waterfall
 .extern ov05_021E7030
 .extern ov05_021E70F0
@@ -6954,7 +6954,7 @@
 .extern ov05_021F6234
 .extern ov05_021F6240
 .extern ov05_021F6254
-.extern ov05_021F6360
+.extern Task_UseSweetScentInField
 .extern ov06_02239944
 .extern ov06_02239AAC
 .extern ov06_0223BA04
@@ -7166,10 +7166,10 @@
 .extern ov06_0224C8C8
 .extern ov06_0224C8E8
 .extern ov06_0224CA58
-.extern ov06_0224CA88
-.extern ov06_0224CAAC
-.extern ov06_0224CB30
-.extern ov06_0224CB54
+.extern FieldMoveTask_CreateDigEnvironment
+.extern Task_FieldDig
+.extern FieldMoveTask_CreateTeleportEnvironment
+.extern Task_FieldTeleport
 .extern ov06_0224CBB0
 .extern ov06_0224CC24
 .extern ov06_0224CE30
@@ -9168,8 +9168,8 @@
 .extern ov18_02244DB0
 .extern ov18_02247544
 .extern ov18_0224A7C8
-.extern ov06_0224CAAC
-.extern ov06_0224CB54
+.extern Task_FieldDig
+.extern Task_FieldTeleport
 .extern gSineTable
 .extern CARDi_IdentifyBackupCore
 .extern CARDi_InitCommon

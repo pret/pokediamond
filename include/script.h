@@ -14,6 +14,7 @@
 #include "save.h"
 #include "save_local_field_data.h"
 #include "task.h"
+#include "unk_0205F7A0.h"
 
 struct ScriptContext;
 
@@ -41,10 +42,6 @@ typedef struct FashionAppData {
     u32 portraitSlot;
     BOOL isContest;
 } FashionAppData;
-
-typedef struct TownMapAppData { // todo fill out
-    u8 padding[0x140];
-} TownMapAppData; // todo move to own file
 
 typedef struct ScrCmdUnkStruct01D9 {
     struct SaveData *save;

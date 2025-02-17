@@ -2627,7 +2627,7 @@ sub_02056CCC: ; 0x02056CCC
 	ldr r0, [sp, #0x0]
 	add r1, r6, r7
 	add r2, r5, r2
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	cmp r4, #0x3
 	bhi _02056D54
 	add r1, r4, r4
@@ -2690,7 +2690,7 @@ sub_02056D58: ; 0x02056D58
 	ldr r2, [sp, #0x0]
 	add r0, r7, #0x0
 	add r1, r6, #0x0
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r5, r0, #0x0
 	cmp r4, #0x3
 	bhi _02056DD8
@@ -2743,7 +2743,7 @@ _02056DD8:
 	add r0, r7, #0x0
 	add r1, r6, r5
 	add r2, r2, r3
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	bl sub_020547B0
 	cmp r0, #0x1
 	bne _02056E00
@@ -2780,7 +2780,7 @@ sub_02056E04: ; 0x02056E04
 	ldr r0, [sp, #0x0]
 	add r1, r6, r7
 	add r2, r4, r2
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r4, r0, #0x0
 	cmp r5, #0x3
 	bne _02056E56
@@ -2831,7 +2831,7 @@ sub_02056E6C: ; 0x02056E6C
 	ldr r0, [sp, #0x0]
 	add r1, r6, r7
 	add r2, r2, r3
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059AC4
@@ -2875,7 +2875,7 @@ sub_02056EC8: ; 0x02056EC8
 	ldr r0, [sp, #0x4]
 	add r1, r6, r7
 	add r2, r3, r2
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	bl PlayerAvatar_GetState
@@ -2963,7 +2963,7 @@ sub_02056F78: ; 0x02056F78
 	ldr r0, [sp, #0x0]
 	add r1, r6, r7
 	add r2, r2, r3
-	bl sub_0204A6E0
+	bl GetMetatileBehavior
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -3376,7 +3376,7 @@ sub_02057288: ; 0x02057288
 	add r0, r6, r0
 	str r0, [r4, #0x0]
 	ldr r0, [sp, #0x0]
-	bl GetPlayerYCoord
+	bl GetPlayerZCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -3385,8 +3385,8 @@ sub_02057288: ; 0x02057288
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start sub_020572B8
-sub_020572B8: ; 0x020572B8
+	thumb_func_start PlayerAvatar_GetCoordsInFront
+PlayerAvatar_GetCoordsInFront: ; 0x020572B8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0

@@ -13,7 +13,7 @@ sub_02066840: ; 0x02066840
 	add r6, r0, #0x0
 	str r1, [sp, #0x0]
 	add r7, r2, #0x0
-	bl Save_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfile
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_02029AFC
