@@ -3,8 +3,8 @@
 
 //include all msl files here
 
-#include "string.h"
-#include "arith.h"
 #include "rand.h"
+#include "stdlib.h"
+#include "string.h"
 
 #endif //MSL_H
