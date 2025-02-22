@@ -21,6 +21,8 @@ typedef struct Location {
 typedef struct UnkFieldStruct04 {
     u8 padding[0xC];
     u32 unk0C;
+    u8 unk10[0xC];
+    u32 unk1C;
 } UnkFieldStruct04;
 
 typedef struct UnkStruct_020464D4 {

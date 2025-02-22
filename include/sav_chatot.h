@@ -3,11 +3,11 @@
 
 #include "save.h"
 
-struct SaveChatotSoundClip {
+typedef struct SaveChatotSoundClip {
     // TODO: Fill this in
     BOOL exists;
     s8 data[1000];
-};
+} SaveChatotSoundClip;
 
 u32 Save_Chatot_sizeof(void);
 void Save_Chatot_Init(struct SaveChatotSoundClip *chatot);
