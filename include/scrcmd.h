@@ -32,6 +32,23 @@ typedef struct UnkStruct_0203B174 {
     struct FieldSystem *fieldSystem;
 } UnkStruct_0203B174;
 
+typedef struct UnkStruct_Scrcmd3 {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 nationalDexFlag;
+    u8 monSlot;
+    u8 unk6;
+    Pokemon *pokemon;
+    String *playerName;
+    PlayerProfile *profile;
+    SaveFashionData *saveFashionData;
+    Options *options;
+    SaveData *saveData;
+    SaveChatotSoundClip *chatotSoundClip;
+} UnkStruct_Scrcmd3;
+
 // scrcmd.c
 BOOL ScrCmd_Nop(ScriptContext *ctx);
 BOOL ScrCmd_Dummy(ScriptContext *ctx);
@@ -459,6 +476,41 @@ BOOL ScrCmd_SpecialMart(ScriptContext *ctx);
 BOOL ScrCmd_GoodsMart(ScriptContext *ctx);
 BOOL ScrCmd_SealsMart(ScriptContext *ctx);
 BOOL ScrCmd_AccessoriesShop(ScriptContext *ctx);
+
+// scrcmd_3.c
+BOOL ScrCmd_Unk00F8(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F9(ScriptContext *ctx);
+BOOL ScrCmd_Unk00FA(ScriptContext *ctx);
+BOOL ScrCmd_Unk00FB(ScriptContext *ctx);
+BOOL ScrCmd_Unk00FC(ScriptContext *ctx);
+BOOL ScrCmd_Unk00FD(ScriptContext *ctx);
+BOOL ScrCmd_Unk00FE(ScriptContext *ctx);
+BOOL ScrCmd_Unk00FF(ScriptContext *ctx);
+BOOL ScrCmd_Unk0100(ScriptContext *ctx);
+BOOL ScrCmd_Unk0101(ScriptContext *ctx);
+BOOL ScrCmd_Unk0102(ScriptContext *ctx);
+BOOL ScrCmd_Unk0103(ScriptContext *ctx);
+BOOL ScrCmd_Unk0104(ScriptContext *ctx);
+BOOL ScrCmd_Unk0105(ScriptContext *ctx);
+BOOL ScrCmd_Unk0106(ScriptContext *ctx);
+BOOL ScrCmd_Unk0107(ScriptContext *ctx);
+BOOL ScrCmd_Unk0108(ScriptContext *ctx);
+BOOL ScrCmd_Unk0109(ScriptContext *ctx);
+BOOL ScrCmd_Unk010A(ScriptContext *ctx);
+BOOL ScrCmd_Unk010B(ScriptContext *ctx);
+BOOL ScrCmd_Unk010C(ScriptContext *ctx);
+BOOL ScrCmd_Unk0110(ScriptContext *ctx);
+BOOL ScrCmd_Unk010D(ScriptContext *ctx);
+BOOL ScrCmd_Unk010E(ScriptContext *ctx);
+BOOL ScrCmd_Unk010F(ScriptContext *ctx);
+BOOL ScrCmd_Unk0117(ScriptContext *ctx);
+BOOL ScrCmd_Unk0118(ScriptContext *ctx);
+BOOL ScrCmd_Unk0111(ScriptContext *ctx);
+BOOL ScrCmd_Unk0112(ScriptContext *ctx);
+BOOL ScrCmd_Unk0113(ScriptContext *ctx);
+BOOL ScrCmd_Unk0114(ScriptContext *ctx);
+BOOL ScrCmd_Unk0115(ScriptContext *ctx);
+BOOL ScrCmd_Unk0116(ScriptContext *ctx);
 
 // scrcmd_names.c
 BOOL ScrCmd_GetPlayerName(ScriptContext *ctx);
