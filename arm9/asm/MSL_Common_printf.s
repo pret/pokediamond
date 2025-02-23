@@ -3,69 +3,72 @@
 
 	.data
 
-	.global UNK_02106DA0
-UNK_02106DA0: ; 0x02106DA0
-	.byte 0x30, 0x78, 0x30, 0x70, 0x30, 0x00, 0x00, 0x00
-	.size UNK_02106DA0,.-UNK_02106DA0
+	.global printf_double2hex_0p0
+printf_double2hex_0p0: ; 0x02106DA0
+	.asciz "0x0p0"
+	.size printf_double2hex_0p0,.-printf_double2hex_0p0
 
-	.global UNK_02106DA8
-UNK_02106DA8: ; 0x02106DA8
+	.balign 4, 0
+	.global printf_double2hex_neg_inf_upper
+printf_double2hex_neg_inf_upper: ; 0x02106DA8
 	.asciz "-INF"
-	.size UNK_02106DA8,.-UNK_02106DA8
+	.size printf_double2hex_neg_inf_upper,.-printf_double2hex_neg_inf_upper
 
 	.balign 4, 0
-	.global UNK_02106DB0
-UNK_02106DB0: ; 0x02106DB0
+	.global printf_double2hex_neg_inf_lower
+printf_double2hex_neg_inf_lower: ; 0x02106DB0
 	.asciz "-inf"
-	.size UNK_02106DB0,.-UNK_02106DB0
+	.size printf_double2hex_neg_inf_lower,.-printf_double2hex_neg_inf_lower
 
 	.balign 4, 0
-	.global UNK_02106DB8
-UNK_02106DB8: ; 0x02106DB8
+	.global printf_double2hex_inf_upper
+printf_double2hex_inf_upper: ; 0x02106DB8
 	.asciz "INF"
-	.size UNK_02106DB8,.-UNK_02106DB8
+	.size printf_double2hex_inf_upper,.-printf_double2hex_inf_upper
 
 	.balign 4, 0
-	.global UNK_02106DBC
-UNK_02106DBC: ; 0x02106DBC
+	.global printf_double2hex_inf_lower
+printf_double2hex_inf_lower: ; 0x02106DBC
 	.asciz "inf"
-	.size UNK_02106DBC,.-UNK_02106DBC
+	.size printf_double2hex_inf_lower,.-printf_double2hex_inf_lower
 
 	.balign 4, 0
-	.global UNK_02106DC0
-UNK_02106DC0: ; 0x02106DC0
+	.global printf_double2hex_neg_nan_upper
+printf_double2hex_neg_nan_upper: ; 0x02106DC0
 	.asciz "-NAN"
-	.size UNK_02106DC0,.-UNK_02106DC0
+	.size printf_double2hex_neg_nan_upper,.-printf_double2hex_neg_nan_upper
 
 	.balign 4, 0
-	.global UNK_02106DC8
-UNK_02106DC8: ; 0x02106DC8
+	.global printf_double2hex_neg_nan_lower
+printf_double2hex_neg_nan_lower: ; 0x02106DC8
 	.asciz "-nan"
-	.size UNK_02106DC8,.-UNK_02106DC8
+	.size printf_double2hex_neg_nan_lower,.-printf_double2hex_neg_nan_lower
 
 	.balign 4, 0
-	.global UNK_02106DD0
-UNK_02106DD0: ; 0x02106DD0
+	.global printf_double2hex_nan_upper
+printf_double2hex_nan_upper: ; 0x02106DD0
 	.asciz "NAN"
-	.size UNK_02106DD0,.-UNK_02106DD0
+	.size printf_double2hex_nan_upper,.-printf_double2hex_nan_upper
 
 	.balign 4, 0
-	.global UNK_02106DD4
-UNK_02106DD4: ; 0x02106DD4
+	.global printf_double2hex_nan_lower
+printf_double2hex_nan_lower: ; 0x02106DD4
 	.asciz "nan"
-	.size UNK_02106DD4,.-UNK_02106DD4
+	.size printf_double2hex_nan_lower,.-printf_double2hex_nan_lower
 
 	.balign 4, 0
-	.global UNK_02106DD8
-UNK_02106DD8: ; 0x02106DD8
-	.byte 0x00, 0x00, 0x00, 0x00
-	.size UNK_02106DD8,.-UNK_02106DD8
+	.global __pformatter_empty_string_1
+__pformatter_empty_string_1: ; 0x02106DD8
+	.asciz ""
+	.size __pformatter_empty_string_1,.-__pformatter_empty_string_1
 
-	.global UNK_02106DDC
-UNK_02106DDC: ; 0x02106DDC
-	.byte 0x00, 0x00, 0x00, 0x00
-	.size UNK_02106DDC,.-UNK_02106DDC
+	.balign 4, 0
+	.global __pformatter_empty_string_2
+__pformatter_empty_string_2: ; 0x02106DDC
+	.asciz ""
+	.size __pformatter_empty_string_2,.-__pformatter_empty_string_2
 
+	.balign 4, 0
 	.text
 
 	arm_func_start parse_format
@@ -890,7 +893,7 @@ double2hex: ; 0x020E00BC
 	mov r1, r0
 	bl _deq
 	bne _020E0188
-	ldr r3, _020E0570 ; =UNK_02106DA0
+	ldr r3, _020E0570 ; =printf_double2hex_0p0
 	sub r0, r8, #0x6
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -918,7 +921,7 @@ _020E0188:
 	cmp r6, #0x41
 	sub r0, r8, #0x5
 	bne _020E01E8
-	ldr r3, _020E0574 ; =UNK_02106DA8
+	ldr r3, _020E0574 ; =printf_double2hex_neg_inf_upper
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -934,7 +937,7 @@ _020E0188:
 	add sp, sp, #0x10
 	bx lr
 _020E01E8:
-	ldr r3, _020E0578 ; =UNK_02106DB0
+	ldr r3, _020E0578 ; =printf_double2hex_neg_inf_lower
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -953,7 +956,7 @@ _020E0224:
 	cmp r6, #0x41
 	sub r0, r8, #0x4
 	bne _020E0264
-	ldr r3, _020E057C ; =UNK_02106DB8
+	ldr r3, _020E057C ; =printf_double2hex_inf_upper
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -967,7 +970,7 @@ _020E0224:
 	add sp, sp, #0x10
 	bx lr
 _020E0264:
-	ldr r3, _020E0580 ; =UNK_02106DBC
+	ldr r3, _020E0580 ; =printf_double2hex_inf_lower
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -989,7 +992,7 @@ _020E0298:
 	cmp r6, #0x41
 	sub r0, r8, #0x5
 	bne _020E02F4
-	ldr r3, _020E0584 ; =UNK_02106DC0
+	ldr r3, _020E0584 ; =printf_double2hex_neg_nan_upper
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1005,7 +1008,7 @@ _020E0298:
 	add sp, sp, #0x10
 	bx lr
 _020E02F4:
-	ldr r3, _020E0588 ; =UNK_02106DC8
+	ldr r3, _020E0588 ; =printf_double2hex_neg_nan_lower
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1024,7 +1027,7 @@ _020E0330:
 	cmp r6, #0x41
 	sub r0, r8, #0x4
 	bne _020E0370
-	ldr r3, _020E058C ; =UNK_02106DD0
+	ldr r3, _020E058C ; =printf_double2hex_nan_upper
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1038,7 +1041,7 @@ _020E0330:
 	add sp, sp, #0x10
 	bx lr
 _020E0370:
-	ldr r3, _020E0590 ; =UNK_02106DD4
+	ldr r3, _020E0590 ; =printf_double2hex_nan_lower
 	add sp, sp, #0x44
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1174,15 +1177,15 @@ _020E04E4:
 	bx lr
 	.balign 4
 _020E056C: .word 0x000001FD
-_020E0570: .word UNK_02106DA0
-_020E0574: .word UNK_02106DA8
-_020E0578: .word UNK_02106DB0
-_020E057C: .word UNK_02106DB8
-_020E0580: .word UNK_02106DBC
-_020E0584: .word UNK_02106DC0
-_020E0588: .word UNK_02106DC8
-_020E058C: .word UNK_02106DD0
-_020E0590: .word UNK_02106DD4
+_020E0570: .word printf_double2hex_0p0
+_020E0574: .word printf_double2hex_neg_inf_upper
+_020E0578: .word printf_double2hex_neg_inf_lower
+_020E057C: .word printf_double2hex_inf_upper
+_020E0580: .word printf_double2hex_inf_lower
+_020E0584: .word printf_double2hex_neg_nan_upper
+_020E0588: .word printf_double2hex_neg_nan_lower
+_020E058C: .word printf_double2hex_nan_upper
+_020E0590: .word printf_double2hex_nan_lower
 _020E0594: .word 0x000007FF
 	arm_func_end double2hex
 
@@ -1357,7 +1360,7 @@ _020E07C4:
 _020E07D4:
 	cmp r1, #0x0
 	beq _020E0818
-	ldr r3, _020E0DFC ; =UNK_02106DA8
+	ldr r3, _020E0DFC ; =printf_double2hex_neg_inf_upper
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1373,7 +1376,7 @@ _020E07D4:
 	add sp, sp, #0x10
 	bx lr
 _020E0818:
-	ldr r3, _020E0E00 ; =UNK_02106DB0
+	ldr r3, _020E0E00 ; =printf_double2hex_neg_inf_lower
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1405,7 +1408,7 @@ _020E0870:
 _020E0880:
 	cmp r1, #0x0
 	beq _020E08BC
-	ldr r3, _020E0E04 ; =UNK_02106DB8
+	ldr r3, _020E0E04 ; =printf_double2hex_inf_upper
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1419,7 +1422,7 @@ _020E0880:
 	add sp, sp, #0x10
 	bx lr
 _020E08BC:
-	ldr r3, _020E0E08 ; =UNK_02106DBC
+	ldr r3, _020E0E08 ; =printf_double2hex_inf_lower
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1452,7 +1455,7 @@ _020E0918:
 _020E0928:
 	cmp r1, #0x0
 	beq _020E096C
-	ldr r3, _020E0E0C ; =UNK_02106DC0
+	ldr r3, _020E0E0C ; =printf_double2hex_neg_nan_upper
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1468,7 +1471,7 @@ _020E0928:
 	add sp, sp, #0x10
 	bx lr
 _020E096C:
-	ldr r3, _020E0E10 ; =UNK_02106DC8
+	ldr r3, _020E0E10 ; =printf_double2hex_neg_nan_lower
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1500,7 +1503,7 @@ _020E09C4:
 _020E09D4:
 	cmp r1, #0x0
 	beq _020E0A10
-	ldr r3, _020E0E14 ; =UNK_02106DD0
+	ldr r3, _020E0E14 ; =printf_double2hex_nan_upper
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1514,7 +1517,7 @@ _020E09D4:
 	add sp, sp, #0x10
 	bx lr
 _020E0A10:
-	ldr r3, _020E0E18 ; =UNK_02106DD4
+	ldr r3, _020E0E18 ; =printf_double2hex_nan_lower
 	add sp, sp, #0x2c
 	ldrb r2, [r3, #0x0]
 	ldrb r1, [r3, #0x1]
@@ -1795,14 +1798,14 @@ _020E0DE0:
 	.balign 4
 _020E0DF4: .word 0x000001FD
 _020E0DF8: .word __msl_digit
-_020E0DFC: .word UNK_02106DA8
-_020E0E00: .word UNK_02106DB0
-_020E0E04: .word UNK_02106DB8
-_020E0E08: .word UNK_02106DBC
-_020E0E0C: .word UNK_02106DC0
-_020E0E10: .word UNK_02106DC8
-_020E0E14: .word UNK_02106DD0
-_020E0E18: .word UNK_02106DD4
+_020E0DFC: .word printf_double2hex_neg_inf_upper
+_020E0E00: .word printf_double2hex_neg_inf_lower
+_020E0E04: .word printf_double2hex_inf_upper
+_020E0E08: .word printf_double2hex_inf_lower
+_020E0E0C: .word printf_double2hex_neg_nan_upper
+_020E0E10: .word printf_double2hex_neg_nan_lower
+_020E0E14: .word printf_double2hex_nan_upper
+_020E0E18: .word printf_double2hex_nan_lower
 _020E0E1C: .word 0x66666667
 	arm_func_end float2str
 
@@ -2165,7 +2168,7 @@ _020E130C:
 	ldr r1, [r0, #-0x4]
 	add r0, sp, #0x2c
 	cmp r1, #0x0
-	ldreq r1, _020E163C ; =UNK_02106DD8
+	ldreq r1, _020E163C ; =__pformatter_empty_string_1
 	bl wcstombs
 	cmp r0, #0x0
 	blt _020E148C
@@ -2179,7 +2182,7 @@ _020E134C:
 _020E135C:
 	ldrb r0, [sp, #0x1f]
 	cmp r7, #0x0
-	ldreq r7, _020E1640 ; =UNK_02106DDC
+	ldreq r7, _020E1640 ; =__pformatter_empty_string_2
 	cmp r0, #0x0
 	beq _020E1390
 	ldrb r0, [sp, #0x1e]
@@ -2385,8 +2388,8 @@ _020E1628:
 	add sp, sp, #0x10
 	bx lr
 	.balign 4
-_020E163C: .word UNK_02106DD8
-_020E1640: .word UNK_02106DDC
+_020E163C: .word __pformatter_empty_string_1
+_020E1640: .word __pformatter_empty_string_2
 	arm_func_end __pformatter
 
 	arm_func_start __FileWrite
@@ -2568,7 +2571,7 @@ sprintf: ; 0x020E185C
 	exception longlong2str, 737, 0x00A0FF20
 	exception double2hex, 1245, 0x00F07F20
 	exception float2str, 1893, 0x00C0FF20
-	exception __pformatter, 2084, UNK_020EC710
+	exception __pformatter, 2084, __pformatter_exception
 	exception __FileWrite, 45, 0x00200300
 	exception __StringWrite, 69, 0x00200300
 	exception printf, 281, 0x00300120
@@ -2578,6 +2581,6 @@ sprintf: ; 0x020E185C
 
 	.section .exception,8
 
-UNK_020EC710: ; 0x020EC710
+__pformatter_exception: ; 0x020EC710
 	.byte 0x20, 0xFF, 0x09, 0x60
 	.balign 8

@@ -2,6 +2,7 @@
 	.include "global.inc"
 
 	.data
+
 	.global __float_huge
 __float_huge: ; 0x02106B74
 	.word 0x7F800000 ; inf
