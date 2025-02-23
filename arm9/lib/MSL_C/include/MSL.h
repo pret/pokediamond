@@ -3,7 +3,6 @@
 
 //include all msl files here
 
-#include "rand.h"
 #include "stdlib.h"
 #include "string.h"
 

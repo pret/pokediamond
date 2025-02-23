@@ -5,9 +5,9 @@
 #include "party.h"
 #include "pokedex.h"
 #include "pokemon_storage_system.h"
+#include "sav_chatot.h"
 #include "save_vars_flags.h"
 #include "scrcmd.h"
-#include "sav_chatot.h"
 
 extern void *FieldSysGetAttrAddr(FieldSystem *fieldSystem, u8 idx);
 extern SaveFashionData *Save_FashionData_Get(SaveData *save);
@@ -54,7 +54,6 @@ extern void ov06_0224D3E8(TaskManager *taskManager);
 static BOOL sub_0203FEF4(ScriptContext *ctx);
 static BOOL sub_020401F0(ScriptContext *ctx);
 static BOOL sub_02040618(ScriptContext *ctx);
-
 
 BOOL ScrCmd_Unk00F8(ScriptContext *ctx) {
     void **miscDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
