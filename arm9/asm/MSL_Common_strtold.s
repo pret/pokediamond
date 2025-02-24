@@ -1417,12 +1417,12 @@ atod: ; 0x020E463C
 _020E4648: .word strtold
 	arm_func_end atod
 
-	exception __strtold, 4684, UNK_020EC720
+	exception __strtold, 4684, __strtold_exception
 	exception strtold, 225, 0x00500F00
 	exception atod, 17, 0x00000000
 
 	.section .exception,8
 
-UNK_020EC720: ; 0x020EC720
+__strtold_exception: ; 0x020EC720
 	.byte 0x00, 0xFF, 0x01, 0xD0
 	.balign 8
