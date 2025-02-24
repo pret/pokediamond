@@ -4,7 +4,7 @@
 	.rodata
 
 parse_format$f: ; 0x0210440C
-	.byte 0x00, 0x00, 0x00, 0x00
+	.word 0x00000000
 	.word 0x7FFFFFFF
 	.word 0x00000000
 	.word 0x00000000
@@ -1447,12 +1447,12 @@ sscanf: ; 0x020E2D54
 	bx lr
 	arm_func_end sscanf
 
-	exception __sformatter, 3412, UNK_020EC718
+	exception __sformatter, 3412, __sformatter_exception
 	exception vsscanf, 85, 0x00200000
 	exception sscanf, 41, 0x00300020
 
 	.section .exception,8
 
-UNK_020EC718: ; 0x020EC718
+__sformatter_exception: ; 0x020EC718
 	.byte 0x00, 0xFF, 0x01, 0xB0
 	.balign 8
