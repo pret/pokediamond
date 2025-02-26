@@ -2330,20 +2330,16 @@ _020E7018: .word __wStringWrite
 	exception long2str__wide, 593, 0x0090FF20
 	exception longlong2str__wide, 741, 0x00A0FF20
 	exception double2hex__wide, 921, 0x00F07F20
-	exception float2str__wide, 1612, UNK_020EC728
-	exception __wpformatter, 2288, UNK_020EC730
+	exception float2str__wide, 1612, float2str__wide_exception
+	exception __wpformatter, 2288, __wpformatter_exception
 	exception __wStringWrite, 65, 0x00200300
 	exception swprintf, 41, 0x00300020
 	exception vswprintf, 113, 0x00300300
 
 	.section .exception,8
 
-UNK_020EC728: ; 0x020EC728
-	.byte 0x20, 0xFF, 0x09, 0x60
-	.balign 8
+float2str__wide_exception: ; 0x020EC728
+	.byte 0x20, 0xFF, 0x09, 0x60, 0x00, 0x00, 0x00, 0x00
 
-	.section .exception,8
-
-UNK_020EC730: ; 0x020EC730
-	.byte 0x20, 0xFF, 0x11, 0x68
-	.balign 8
+__wpformatter_exception: ; 0x020EC730
+	.byte 0x20, 0xFF, 0x11, 0x68, 0x00, 0x00, 0x00, 0x00
