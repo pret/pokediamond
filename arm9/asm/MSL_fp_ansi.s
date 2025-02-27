@@ -1020,7 +1020,7 @@ __num2dec_internal: ; 0x020E9140
 	mov r7, r0
 	mov r0, r8
 	mov r1, r6
-	bl __signbitf
+	bl __signbitd
 	cmp r0, #0x0
 	movne r1, #0x1
 	moveq r1, #0x0
@@ -1043,7 +1043,7 @@ __num2dec_internal: ; 0x020E9140
 _020E91AC:
 	mov r0, r8
 	mov r1, r6
-	bl __fpclassifyf
+	bl __fpclassifyd
 	cmp r0, #0x2
 	bgt _020E91F8
 	strb r5, [r7, #0x0]
@@ -1053,7 +1053,7 @@ _020E91AC:
 	mov r0, r8
 	mov r1, r6
 	strb r2, [r7, #0x4]
-	bl __fpclassifyf
+	bl __fpclassifyd
 	cmp r0, #0x1
 	moveq r0, #0x4e
 	movne r0, #0x49
@@ -1389,7 +1389,7 @@ _020E968C:
 	bl ldexp
 	str r0, [sp, #0x8]
 	str r1, [sp, #0xc]
-	bl __fpclassifyf
+	bl __fpclassifyd
 	cmp r0, #0x2
 	bne _020E96C0
 	ldr r0, _020E9988 ; =0x7FEFFFFF
@@ -1427,7 +1427,7 @@ _020E971C:
 	adds r0, r0, #0x1
 	adc r1, r1, #0x0
 	stmia r4, {r0-r1}
-	bl __fpclassifyf
+	bl __fpclassifyd
 	cmp r0, #0x2
 	beq _020E9934
 	b _020E975C

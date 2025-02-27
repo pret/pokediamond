@@ -10,7 +10,7 @@ ldexp: ; 0x020E8318
 	ldr r0, [sp, #0x8]
 	ldr r1, [sp, #0xc]
 	mov r4, r2
-	bl __fpclassifyf
+	bl __fpclassifyd
 	cmp r0, #0x2
 	ble _020E8350
 	mov r0, #0x0

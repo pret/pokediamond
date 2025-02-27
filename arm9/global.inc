@@ -9342,12 +9342,12 @@
 .extern __float_nan
 .extern __flush_all
 .extern __flush_buffer
-.extern __fpclassifyf
+.extern __fpclassifyd
 .extern __memrchr
 .extern __msl_digit
 .extern __msl_generic_count_bits64
 .extern __prep_buffer
-.extern __signbitf
+.extern __signbitd
 .extern __stdio_exit
 .extern __wctype_mapC
 .extern copysign
