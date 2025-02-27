@@ -9000,7 +9000,7 @@
 .extern __load_buffer
 .extern __msl_assertion_failed
 .extern __num2dec_internal
-.extern __num2dec_internal2
+.extern __num2dec
 .extern __pformatter
 .extern __read_console
 .extern __rounddec

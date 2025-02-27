@@ -851,7 +851,7 @@ double2hex__wide: ; 0x020E5B4C
 	add r3, sp, #0xc
 	strb r10, [sp, #0x8]
 	strh r9, [sp, #0xa]
-	bl __num2dec_internal2
+	bl __num2dec
 	ldr r0, [sp, #0x68]
 	ldr r1, [sp, #0x6c]
 	bl fabs
@@ -1195,7 +1195,7 @@ float2str__wide: ; 0x020E6008
 	mov r2, r8
 	strb r12, [sp, #0x0]
 	strh r11, [sp, #0x2]
-	bl __num2dec_internal2
+	bl __num2dec
 	ldrb r0, [sp, #0x8]
 	add r1, sp, #0x9
 	add r0, r1, r0

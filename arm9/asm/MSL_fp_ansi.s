@@ -3,8 +3,8 @@
 
 	.data
 
-	.global UNK_02106E48
-UNK_02106E48: ; 0x02106E48
+	.global digit_values
+digit_values: ; 0x02106E48
 	.word 0x00000000, 0x40240000
 	.word 0x00000000, 0x40590000
 	.word 0x00000000, 0x408F4000
@@ -14,113 +14,113 @@ UNK_02106E48: ; 0x02106E48
 	.word 0x00000000, 0x416312D0
 	.word 0x00000000, 0x4197D784
 
-	.global UNK_02106E88
-UNK_02106E88: ; 0x02106E88
+	.global fp_str$6E88
+fp_str$6E88: ; 0x02106E88
 	.asciz "542101086242752217003726400434970855712890625"
 
 	.balign 4, 0
-	.global UNK_02106EB8
-UNK_02106EB8: ; 0x02106EB8
+	.global fp_str$6EB8
+fp_str$6EB8: ; 0x02106EB8
 	.asciz "11102230246251565404236316680908203125"
 
 	.balign 4, 0
-	.global UNK_02106EE0
-UNK_02106EE0: ; 0x02106EE0
+	.global fp_str$6EE0
+fp_str$6EE0: ; 0x02106EE0
 	.asciz "23283064365386962890625"
 
 	.balign 4, 0
-	.global UNK_02106EF8
-UNK_02106EF8: ; 0x02106EF8
+	.global fp_str$6EF8
+fp_str$6EF8: ; 0x02106EF8
 	.asciz "152587890625"
 
 	.balign 4, 0
-	.global UNK_02106F08
-UNK_02106F08: ; 0x02106F08
+	.global fp_str$6F08
+fp_str$6F08: ; 0x02106F08
 	.asciz "390625"
 
 	.balign 4, 0
-	.global UNK_02106F10
-UNK_02106F10: ; 0x02106F10
+	.global fp_str$6F10
+fp_str$6F10: ; 0x02106F10
 	.asciz "78125"
 
 	.balign 4, 0
-	.global UNK_02106F18
-UNK_02106F18: ; 0x02106F18
+	.global fp_str$6F18
+fp_str$6F18: ; 0x02106F18
 	.asciz "15625"
 
 	.balign 4, 0
-	.global UNK_02106F20
-UNK_02106F20: ; 0x02106F20
+	.global fp_str$6F20
+fp_str$6F20: ; 0x02106F20
 	.asciz "3125"
 
 	.balign 4, 0
-	.global UNK_02106F28
-UNK_02106F28: ; 0x02106F28
+	.global fp_str$6F28
+fp_str$6F28: ; 0x02106F28
 	.asciz "625"
 
 	.balign 4, 0
-	.global UNK_02106F2C
-UNK_02106F2C: ; 0x02106F2C
+	.global fp_str$6F2C
+fp_str$6F2C: ; 0x02106F2C
 	.asciz "125"
 
 	.balign 4, 0
-	.global UNK_02106F30
-UNK_02106F30: ; 0x02106F30
+	.global fp_str$6F30
+fp_str$6F30: ; 0x02106F30
 	.asciz "25"
 
 	.balign 4, 0
-	.global UNK_02106F34
-UNK_02106F34: ; 0x02106F34
+	.global fp_str$6F34
+fp_str$6F34: ; 0x02106F34
 	.asciz "5"
 
 	.balign 4, 0
-	.global UNK_02106F38
-UNK_02106F38: ; 0x02106F38
+	.global fp_str$6F38
+fp_str$6F38: ; 0x02106F38
 	.asciz "1"
 
 	.balign 4, 0
-	.global UNK_02106F3C
-UNK_02106F3C: ; 0x02106F3C
+	.global fp_str$6F3C
+fp_str$6F3C: ; 0x02106F3C
 	.asciz "2"
 
 	.balign 4, 0
-	.global UNK_02106F40
-UNK_02106F40: ; 0x02106F40
+	.global fp_str$6F40
+fp_str$6F40: ; 0x02106F40
 	.asciz "4"
 
 	.balign 4, 0
-	.global UNK_02106F44
-UNK_02106F44: ; 0x02106F44
+	.global fp_str$6F44
+fp_str$6F44: ; 0x02106F44
 	.asciz "8"
 
 	.balign 4, 0
-	.global UNK_02106F48
-UNK_02106F48: ; 0x02106F48
+	.global fp_str$6F48
+fp_str$6F48: ; 0x02106F48
 	.asciz "16"
 
 	.balign 4, 0
-	.global UNK_02106F4C
-UNK_02106F4C: ; 0x02106F4C
+	.global fp_str$6F4C
+fp_str$6F4C: ; 0x02106F4C
 	.asciz "32"
 
 	.balign 4, 0
-	.global UNK_02106F50
-UNK_02106F50: ; 0x02106F50
+	.global fp_str$6F50
+fp_str$6F50: ; 0x02106F50
 	.asciz "64"
 
 	.balign 4, 0
-	.global UNK_02106F54
-UNK_02106F54: ; 0x02106F54
+	.global fp_str$6F54
+fp_str$6F54: ; 0x02106F54
 	.asciz "128"
 
 	.balign 4, 0
-	.global UNK_02106F58
-UNK_02106F58: ; 0x02106F58
+	.global fp_str$6F58
+fp_str$6F58: ; 0x02106F58
 	.asciz "256"
 
 	.balign 4, 0
-	.global UNK_02106F5C
-UNK_02106F5C: ; 0x02106F5C
+	.global fp_str$6F5C
+fp_str$6F5C: ; 0x02106F5C
 	.asciz "179769313486231580793728714053034151"
 
 	.text
@@ -486,128 +486,128 @@ _020E8988:
 	b _020E8BBC ; case
 	b _020E8BD0 ; case
 _020E8A3C:
-	ldr r1, _020E8C88 ; =UNK_02106E88
+	ldr r1, _020E8C88 ; =fp_str$6E88
 	mov r0, r5
 	mvn r2, #0x13
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8A54:
-	ldr r1, _020E8C8C ; =UNK_02106EB8
+	ldr r1, _020E8C8C ; =fp_str$6EB8
 	add r2, r2, #0x25
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8A68:
-	ldr r1, _020E8C90 ; =UNK_02106EE0
+	ldr r1, _020E8C90 ; =fp_str$6EE0
 	add r2, r2, #0x2b
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8A7C:
-	ldr r1, _020E8C94 ; =UNK_02106EF8
+	ldr r1, _020E8C94 ; =fp_str$6EF8
 	add r2, r2, #0x30
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8A90:
-	ldr r1, _020E8C98 ; =UNK_02106F08
+	ldr r1, _020E8C98 ; =fp_str$6F08
 	add r2, r2, #0x32
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8AA4:
-	ldr r1, _020E8C9C ; =UNK_02106F10
+	ldr r1, _020E8C9C ; =fp_str$6F10
 	add r2, r2, #0x32
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8AB8:
-	ldr r1, _020E8CA0 ; =UNK_02106F18
+	ldr r1, _020E8CA0 ; =fp_str$6F18
 	add r2, r2, #0x33
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8ACC:
-	ldr r1, _020E8CA4 ; =UNK_02106F20
+	ldr r1, _020E8CA4 ; =fp_str$6F20
 	add r2, r2, #0x33
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8AE0:
-	ldr r1, _020E8CA8 ; =UNK_02106F28
+	ldr r1, _020E8CA8 ; =fp_str$6F28
 	add r2, r2, #0x33
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8AF4:
-	ldr r1, _020E8CAC ; =UNK_02106F2C
+	ldr r1, _020E8CAC ; =fp_str$6F2C
 	add r2, r2, #0x34
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B08:
-	ldr r1, _020E8CB0 ; =UNK_02106F30
+	ldr r1, _020E8CB0 ; =fp_str$6F30
 	add r2, r2, #0x34
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B1C:
-	ldr r1, _020E8CB4 ; =UNK_02106F34
+	ldr r1, _020E8CB4 ; =fp_str$6F34
 	add r2, r2, #0x34
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B30:
-	ldr r1, _020E8CB8 ; =UNK_02106F38
+	ldr r1, _020E8CB8 ; =fp_str$6F38
 	mov r2, #0x0
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B44:
-	ldr r1, _020E8CBC ; =UNK_02106F3C
+	ldr r1, _020E8CBC ; =fp_str$6F3C
 	mov r2, #0x0
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B58:
-	ldr r1, _020E8CC0 ; =UNK_02106F40
+	ldr r1, _020E8CC0 ; =fp_str$6F40
 	mov r2, #0x0
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B6C:
-	ldr r1, _020E8CC4 ; =UNK_02106F44
+	ldr r1, _020E8CC4 ; =fp_str$6F44
 	mov r2, #0x0
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B80:
-	ldr r1, _020E8CC8 ; =UNK_02106F48
+	ldr r1, _020E8CC8 ; =fp_str$6F48
 	mov r2, #0x1
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8B94:
-	ldr r1, _020E8CCC ; =UNK_02106F4C
+	ldr r1, _020E8CCC ; =fp_str$6F4C
 	mov r2, #0x1
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8BA8:
-	ldr r1, _020E8CD0 ; =UNK_02106F50
+	ldr r1, _020E8CD0 ; =fp_str$6F50
 	mov r2, #0x1
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8BBC:
-	ldr r1, _020E8CD4 ; =UNK_02106F54
+	ldr r1, _020E8CD4 ; =fp_str$6F54
 	mov r2, #0x2
 	bl __str2dec
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 _020E8BD0:
-	ldr r1, _020E8CD8 ; =UNK_02106F58
+	ldr r1, _020E8CD8 ; =fp_str$6F58
 	mov r2, #0x2
 	bl __str2dec
 	add sp, sp, #0x4c
@@ -642,12 +642,12 @@ _020E8C20:
 	strh r0, [r3, #0x0]
 	add r0, sp, #0x26
 	ble _020E8C64
-	ldr r1, _020E8CBC ; =UNK_02106F3C
+	ldr r1, _020E8CBC ; =fp_str$6F3C
 	mov r2, #0x0
 	bl __str2dec
 	b _020E8C70
 _020E8C64:
-	ldr r1, _020E8CB4 ; =UNK_02106F34
+	ldr r1, _020E8CB4 ; =fp_str$6F34
 	mvn r2, #0x0
 	bl __str2dec
 _020E8C70:
@@ -658,31 +658,31 @@ _020E8C70:
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
-_020E8C88: .word UNK_02106E88
-_020E8C8C: .word UNK_02106EB8
-_020E8C90: .word UNK_02106EE0
-_020E8C94: .word UNK_02106EF8
-_020E8C98: .word UNK_02106F08
-_020E8C9C: .word UNK_02106F10
-_020E8CA0: .word UNK_02106F18
-_020E8CA4: .word UNK_02106F20
-_020E8CA8: .word UNK_02106F28
-_020E8CAC: .word UNK_02106F2C
-_020E8CB0: .word UNK_02106F30
-_020E8CB4: .word UNK_02106F34
-_020E8CB8: .word UNK_02106F38
-_020E8CBC: .word UNK_02106F3C
-_020E8CC0: .word UNK_02106F40
-_020E8CC4: .word UNK_02106F44
-_020E8CC8: .word UNK_02106F48
-_020E8CCC: .word UNK_02106F4C
-_020E8CD0: .word UNK_02106F50
-_020E8CD4: .word UNK_02106F54
-_020E8CD8: .word UNK_02106F58
+_020E8C88: .word fp_str$6E88
+_020E8C8C: .word fp_str$6EB8
+_020E8C90: .word fp_str$6EE0
+_020E8C94: .word fp_str$6EF8
+_020E8C98: .word fp_str$6F08
+_020E8C9C: .word fp_str$6F10
+_020E8CA0: .word fp_str$6F18
+_020E8CA4: .word fp_str$6F20
+_020E8CA8: .word fp_str$6F28
+_020E8CAC: .word fp_str$6F2C
+_020E8CB0: .word fp_str$6F30
+_020E8CB4: .word fp_str$6F34
+_020E8CB8: .word fp_str$6F38
+_020E8CBC: .word fp_str$6F3C
+_020E8CC0: .word fp_str$6F40
+_020E8CC4: .word fp_str$6F44
+_020E8CC8: .word fp_str$6F48
+_020E8CCC: .word fp_str$6F4C
+_020E8CD0: .word fp_str$6F50
+_020E8CD4: .word fp_str$6F54
+_020E8CD8: .word fp_str$6F58
 	arm_func_end __two_exp
 
 	arm_func_start __equals_dec
-__equals_dec:
+__equals_dec: ; 0x020E8CDC
 	stmdb sp!, {r4,lr}
 	ldrb r3, [r0, #0x5]
 	cmp r3, #0x0
@@ -749,7 +749,7 @@ _020E8DB4:
 	arm_func_end __equals_dec
 
 	arm_func_start __less_dec
-__less_dec:
+__less_dec: ; 0x020E8DBC
 	stmdb sp!, {r3-r5,lr}
 	ldrb r2, [r0, #0x5]
 	cmp r2, #0x0
@@ -1012,7 +1012,7 @@ _020E9130:
 	arm_func_end __minus_dec
 
 	arm_func_start __num2dec_internal
-__num2dec_internal:
+__num2dec_internal: ; 0x020E9140
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x58
 	mov r8, r1
@@ -1114,8 +1114,8 @@ _020E921C:
 	ldmia sp!, {r4-r8,pc}
 	arm_func_end __num2dec_internal
 
-	arm_func_start __num2dec_internal2
-__num2dec_internal2: ; 0x020E92C0
+	arm_func_start __num2dec
+__num2dec: ; 0x020E92C0
 	stmdb sp!, {r3-r5,lr}
 	mov r4, r3
 	ldrsh r5, [r0, #0x2]
@@ -1161,7 +1161,7 @@ _020E9344:
 	cmp r2, r0
 	blt _020E9344
 	ldmia sp!, {r3-r5,pc}
-	arm_func_end __num2dec_internal2
+	arm_func_end __num2dec
 
 	arm_func_start __dec2num
 __dec2num: ; 0x020E9368
@@ -1268,7 +1268,7 @@ _020E94C8:
 	sub r1, r1, #0x1
 	add r1, r2, r1
 	strh r1, [sp, #0xd8]
-	ldr r1, _020E997C ; =UNK_02106F5C
+	ldr r1, _020E997C ; =fp_str$6F5C
 	mov r2, #0x134
 	ldrsh r11, [sp, #0xd8]
 	bl __str2dec
@@ -1317,7 +1317,7 @@ _020E9580:
 	mla r6, r0, r6, r1
 	blt _020E9580
 _020E9594:
-	ldr r0, _020E9980 ; =UNK_02106E48
+	ldr r0, _020E9980 ; =digit_values
 	ldr r1, [sp, #0xc]
 	add r3, r0, r7, lsl #0x3
 	ldr r2, [r3, #-0x8]
@@ -1586,18 +1586,11 @@ _020E996C: .word 0x3FF00000
 _020E9970: .word 0xBFF00000
 _020E9974: .word __float_huge
 _020E9978: .word 0x7FF00000
-_020E997C: .word UNK_02106F5C
-_020E9980: .word UNK_02106E48
+_020E997C: .word fp_str$6F5C
+_020E9980: .word digit_values
 _020E9984: .word 0x40140000
 _020E9988: .word 0x7FEFFFFF
 	arm_func_end __dec2num
-
-	.section .exception,8
-
-	.global UNK_020EC740
-UNK_020EC740: ; 0x020EC740
-	.byte 0x00, 0xFF, 0x05, 0x20
-	.balign 8
 
 	exception __rounddec, 65, 0x00200300
 	exception __ull2dec, 205, 0x0050FF00
@@ -1605,5 +1598,12 @@ UNK_020EC740: ; 0x020EC740
 	exception __str2dec, 157, 0x00100000
 	exception __two_exp, 901, 0x00B00300
 	exception __num2dec_internal, 385, 0x00E01F00
-	exception __num2dec_internal2, 169, 0x00200300
-	exception __dec2num, 1572, UNK_020EC740
+	exception __num2dec, 169, 0x00200300
+	exception __dec2num, 1572, __dec2num_exception
+
+	.section .exception,8
+
+	.global __dec2num_exception
+__dec2num_exception: ; 0x020EC740
+	.byte 0x00, 0xFF, 0x05, 0x20
+	.balign 8
