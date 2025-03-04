@@ -45,17 +45,17 @@ _020E9A18: .word 0x33333333
 _020E9A1C: .word 0x0F0F0F0F
 	arm_func_end __msl_generic_count_bits64
 
-	arm_func_start __signbitf
-__signbitf:
+	arm_func_start __signbitd
+__signbitd:
 	stmdb sp!, {r0-r3}
 	ldr r0, [sp, #0x4]
 	and r0, r0, #0x80000000
 	add sp, sp, #0x10
 	bx lr
-	arm_func_end __signbitf
+	arm_func_end __signbitd
 
-	arm_func_start __fpclassifyf
-__fpclassifyf: ; 0x020E9A34
+	arm_func_start __fpclassifyd
+__fpclassifyd: ; 0x020E9A34
 	stmdb sp!, {r0-r3}
 	ldr r2, [sp, #0x4]
 	ldr r0, _020E9A9C ; =0x7FF00000
@@ -87,7 +87,7 @@ _020E9A90:
 	.balign 4
 _020E9A9C: .word 0x7FF00000
 _020E9AA0: .word 0x000FFFFF
-	arm_func_end __fpclassifyf
+	arm_func_end __fpclassifyd
 
 	arm_func_start scalbn
 scalbn: ; 0x020E9AA4

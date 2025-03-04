@@ -1,5 +1,5 @@
-#include "rand.h"
 #include "code32.h"
+#include "stdlib.h"
 
 static unsigned long int random_next = 1;
 

@@ -13,7 +13,7 @@ _020E5074: .word memcpy
 	arm_func_end wmemcpy
 
 	arm_func_start wmemchr
-wmemchr:
+wmemchr: ; 0x020E5078
 	cmp r2, #0x0
 	beq _020E5098
 _020E5080:

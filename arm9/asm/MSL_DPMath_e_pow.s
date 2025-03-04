@@ -3,23 +3,26 @@
 
 	.rodata
 
-	.global UNK_02104744
-UNK_02104744: ; 0x02104744
+	.global dp_h
+dp_h: ; 0x02104744
+	; 0.0, 5.84962487220764160156e-01
 	.word 0x00000000, 0x00000000
 	.word 0x40000000, 0x3FE2B803
-	.size UNK_02104744,.-UNK_02104744
+	.size dp_h,.-dp_h
 
-	.global UNK_02104754
-UNK_02104754: ; 0x02104754
+	.global bp
+bp: ; 0x02104754
+	; 1.0, 1.5
 	.word 0x00000000, 0x3FF00000
 	.word 0x00000000, 0x3FF80000
-	.size UNK_02104754,.-UNK_02104754
+	.size bp,.-bp
 
-	.global UNK_02104764
-UNK_02104764: ; 0x02104764
+	.global dp_l
+dp_l: ; 0x02104764
+	; 0.0, 1.35003920212974897128e-08
 	.word 0x00000000, 0x00000000
 	.word 0x43CFD006, 0x3E4CFDEB
-	.size UNK_02104764,.-UNK_02104764
+	.size dp_l,.-dp_l
 
 	.text
 
@@ -426,7 +429,7 @@ _020E766C: .word 0x3E54AE0B
 _020E7670: .word 0x652B82FE
 _020E7674: .word 0x0003988E
 _020E7678: .word 0x000BB67A
-_020E767C: .word UNK_02104754
+_020E767C: .word bp
 _020E7680: .word 0x4A454EEF
 _020E7684: .word 0x3FCA7E28
 _020E7688: .word 0x93C9DB65
@@ -444,8 +447,8 @@ _020E76B4: .word 0x3FEEC709
 _020E76B8: .word 0x145B01F5
 _020E76BC: .word 0xBE3E2FE0
 _020E76C0: .word 0xDC3A03FD
-_020E76C4: .word UNK_02104764
-_020E76C8: .word UNK_02104744
+_020E76C4: .word dp_l
+_020E76C8: .word dp_h
 _020E76CC: .word 0x40900000
 _020E76D0: .word 0x8800759C
 _020E76D4: .word 0x7E37E43C
@@ -499,7 +502,7 @@ _020E7754:
 	subge r9, r9, #0x100000
 	movge r8, #0x0
 _020E7794:
-	ldr r2, _020E767C ; =UNK_02104754
+	ldr r2, _020E767C ; =bp
 	ldr r0, [sp, #0x70]
 	add r1, r2, r8, lsl #0x3
 	ldr r3, [r1, #0x4]
@@ -507,7 +510,7 @@ _020E7794:
 	mov r1, r9
 	str r9, [sp, #0x74]
 	bl _dsub
-	ldr r2, _020E767C ; =UNK_02104754
+	ldr r2, _020E767C ; =bp
 	mov r10, r0
 	add r3, r2, r8, lsl #0x3
 	mov r4, r1
@@ -533,7 +536,7 @@ _020E7794:
 	mov r9, r1
 	add r2, r2, #0x80000
 	add r1, r2, r8, lsl #0x12
-	ldr r2, _020E767C ; =UNK_02104754
+	ldr r2, _020E767C ; =bp
 	str r0, [sp, #0x28]
 	add r3, r2, r8, lsl #0x3
 	mov r0, #0x0
@@ -767,7 +770,7 @@ _020E7794:
 	bl _dadd
 	mov r2, r0
 	mov r3, r1
-	ldr r0, _020E76C4 ; =UNK_02104764
+	ldr r0, _020E76C4 ; =dp_l
 	add r1, r0, r8, lsl #0x3
 	ldr r0, [r0, r8, lsl #0x3]
 	ldr r1, [r1, #0x4]
@@ -783,7 +786,7 @@ _020E7794:
 	mov r2, r11
 	mov r3, r10
 	bl _dadd
-	ldr r2, _020E76C8 ; =UNK_02104744
+	ldr r2, _020E76C8 ; =dp_h
 	add r3, r2, r8, lsl #0x3
 	ldr r2, [r2, r8, lsl #0x3]
 	ldr r3, [r3, #0x4]
@@ -799,7 +802,7 @@ _020E7794:
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
 	bl _dsub
-	ldr r2, _020E76C8 ; =UNK_02104744
+	ldr r2, _020E76C8 ; =dp_h
 	add r3, r2, r8, lsl #0x3
 	ldr r2, [r2, r8, lsl #0x3]
 	ldr r3, [r3, #0x4]
@@ -1180,11 +1183,11 @@ _020E81F0:
 	bx lr
 	arm_func_end __ieee754_pow
 
-	exception __ieee754_pow, 4488, UNK_020EC738
+	exception __ieee754_pow, 4488, __ieee754_pow_exception
 
 	.section .exception,8
 
-	.global UNK_020EC738
-UNK_020EC738: ; 0x020EC738
+	.global __ieee754_pow_exception
+__ieee754_pow_exception: ; 0x020EC738
 	.byte 0x20, 0xFF, 0x01, 0xB8
 	.balign 8

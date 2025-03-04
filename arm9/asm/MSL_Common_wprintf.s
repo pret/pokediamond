@@ -851,7 +851,7 @@ double2hex__wide: ; 0x020E5B4C
 	add r3, sp, #0xc
 	strb r10, [sp, #0x8]
 	strh r9, [sp, #0xa]
-	bl __num2dec_internal2
+	bl __num2dec
 	ldr r0, [sp, #0x68]
 	ldr r1, [sp, #0x6c]
 	bl fabs
@@ -1195,7 +1195,7 @@ float2str__wide: ; 0x020E6008
 	mov r2, r8
 	strb r12, [sp, #0x0]
 	strh r11, [sp, #0x2]
-	bl __num2dec_internal2
+	bl __num2dec
 	ldrb r0, [sp, #0x8]
 	add r1, sp, #0x9
 	add r0, r1, r0
@@ -2330,20 +2330,16 @@ _020E7018: .word __wStringWrite
 	exception long2str__wide, 593, 0x0090FF20
 	exception longlong2str__wide, 741, 0x00A0FF20
 	exception double2hex__wide, 921, 0x00F07F20
-	exception float2str__wide, 1612, UNK_020EC728
-	exception __wpformatter, 2288, UNK_020EC730
+	exception float2str__wide, 1612, float2str__wide_exception
+	exception __wpformatter, 2288, __wpformatter_exception
 	exception __wStringWrite, 65, 0x00200300
 	exception swprintf, 41, 0x00300020
 	exception vswprintf, 113, 0x00300300
 
 	.section .exception,8
 
-UNK_020EC728: ; 0x020EC728
-	.byte 0x20, 0xFF, 0x09, 0x60
-	.balign 8
+float2str__wide_exception: ; 0x020EC728
+	.byte 0x20, 0xFF, 0x09, 0x60, 0x00, 0x00, 0x00, 0x00
 
-	.section .exception,8
-
-UNK_020EC730: ; 0x020EC730
-	.byte 0x20, 0xFF, 0x11, 0x68
-	.balign 8
+__wpformatter_exception: ; 0x020EC730
+	.byte 0x20, 0xFF, 0x11, 0x68, 0x00, 0x00, 0x00, 0x00
