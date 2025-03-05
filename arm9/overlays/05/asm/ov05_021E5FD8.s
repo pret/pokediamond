@@ -1157,7 +1157,7 @@ ov05_021E6904: ; 0x021E6904
 	pop {r4, pc}
 _021E6916:
 	add r0, r4, #0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov05_021E727C

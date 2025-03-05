@@ -13403,7 +13403,7 @@ ov18_0223FD8C: ; 0x0223FD8C
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	bl sub_02031190
 	ldr r1, _0223FDE0 ; =0x022513A0
 	lsl r0, r0, #3

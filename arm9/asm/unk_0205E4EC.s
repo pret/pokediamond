@@ -133,7 +133,7 @@ sub_0205E5B4: ; 0x0205E5B4
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	bl MapObject_GetManager
-	bl sub_020552A4
+	bl MapObjectManager_GetFirstActiveObjectWithMovement1
 	cmp r0, #0x0
 	bne _0205E5CC
 	mov r0, #0x0

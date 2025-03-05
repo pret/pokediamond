@@ -13,6 +13,7 @@
 #include "map_header.h"
 #include "map_object.h"
 #include "overlay_06.h"
+#include "player_avatar.h"
 #include "player_data.h"
 #include "save_local_field_data.h"
 #include "start_menu.h"
@@ -65,7 +66,6 @@ extern u16 PlayerAvatar_GetZCoord(PlayerAvatar *playerAvatar);
 extern u8 GetMetatileBehavior(FieldSystem *fieldSystem, s32 x, s32 z);
 extern void PlayerAvatar_GetCoordsInFront(PlayerAvatar *playerAvatar, s32 *x, s32 *z);
 extern BOOL Field_PlayerCanSurfOnTile(PlayerAvatar *fieldPlayerAvatar, u32 standingTile, u32 facingTile);
-extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern BOOL MetatileBehavior_IsRockClimbInDirection(u32 facingTile, u32 facingDirection);
 extern BOOL MetatileBehavior_IsWaterfall(u8 facingTile);
 extern LocalFieldData *Save_LocalFieldData_Get(SaveData *save);
@@ -157,7 +157,7 @@ void FieldMove_InitCheckData(FieldSystem *fieldSystem, FieldMoveCheckData *check
         }
     }
 
-    s32 x = PlayerAvatar_GetXCoord(fieldSystem->playerAvatar);
+    u32 x = PlayerAvatar_GetXCoord(fieldSystem->playerAvatar);
     s32 z = PlayerAvatar_GetZCoord(fieldSystem->playerAvatar);
     u32 standingTile = GetMetatileBehavior(fieldSystem, x, z);
 
