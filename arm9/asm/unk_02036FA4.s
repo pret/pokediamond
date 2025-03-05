@@ -13,10 +13,10 @@ sub_02036FA4: ; 0x02036FA4
 	bl PlayerAvatar_GetFacingDirection
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [r4, #0x0]
 	ldr r0, [r6, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	str r0, [r5, #0x0]
 	cmp r7, #0x3
 	bhi _02036FFA

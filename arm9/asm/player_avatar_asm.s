@@ -3,263 +3,6 @@
 
 	.text
 
-	thumb_func_start sub_02055068
-sub_02055068: ; 0x02055068
-	push {r4-r7, lr}
-	sub sp, #0xc
-	add r7, r0, #0x0
-	add r5, r1, #0x0
-	add r4, r2, #0x0
-	str r3, [sp, #0x8]
-	bl sub_0205517C
-	ldr r1, [sp, #0x20]
-	ldr r2, [sp, #0x24]
-	ldr r3, [sp, #0x28]
-	add r6, r0, #0x0
-	bl sub_0205519C
-	ldr r0, [sp, #0x20]
-	ldr r1, [sp, #0x24]
-	bl PlayerAvatar_GetSpriteByStateAndGender
-	add r2, r0, #0x0
-	str r5, [sp, #0x0]
-	ldr r3, [sp, #0x8]
-	add r0, r6, #0x0
-	add r1, r7, #0x0
-	str r4, [sp, #0x4]
-	bl sub_02055208
-	add r0, r6, #0x0
-	add sp, #0xc
-	pop {r4-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_020550A4
-sub_020550A4: ; 0x020550A4
-	push {r3-r7, lr}
-	add r4, r1, #0x0
-	add r7, r0, #0x0
-	add r6, r2, #0x0
-	bl sub_0205517C
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl sub_020554C8
-	str r0, [sp, #0x0]
-	ldr r1, [sp, #0x0]
-	add r0, r5, #0x0
-	add r2, r6, #0x0
-	add r3, r4, #0x0
-	bl sub_0205519C
-	add r0, r7, #0x0
-	bl sub_020552E4
-	add r4, r0, #0x0
-	ldr r0, [sp, #0x0]
-	add r1, r6, #0x0
-	bl PlayerAvatar_GetSpriteByStateAndGender
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	bl MapObject_SetSpriteID
-	mov r1, #0x9
-	add r0, r4, #0x0
-	lsl r1, r1, #0xa
-	bl MapObject_SetFlagsBits
-	mov r1, #0x6
-	add r0, r4, #0x0
-	lsl r1, r1, #0x6
-	bl MapObject_ClearFlagsBits
-	add r0, r4, #0x0
-	mov r1, #0x1
-	bl MapObject_SetFlag29
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl sub_0205539C
-	add r0, r5, #0x0
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_02055108
-sub_02055108: ; 0x02055108
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	bl PlayerAvatar_GetMapObject
-	add r4, r0, #0x0
-	bne _02055118
-	bl GF_AssertFail
-_02055118:
-	add r0, r4, #0x0
-	bl MapObject_GetManager
-	add r0, r5, #0x0
-	bl ov05_021EDBC8
-	add r0, r5, #0x0
-	bl PlayerAvatar_GetState
-	cmp r0, #0x2
-	bne _0205515C
-	add r0, r5, #0x0
-	bl GetPlayerXCoord
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl GetPlayerZCoord
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	bl PlayerAvatar_GetFacingDirection
-	add r3, r0, #0x0
-	mov r0, #0x1
-	str r0, [sp, #0x0]
-	add r0, r4, #0x0
-	add r1, r6, #0x0
-	add r2, r7, #0x0
-	bl ov06_0224ABAC
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	bl sub_02055450
-_0205515C:
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start sub_02055160
-sub_02055160: ; 0x02055160
-	ldr r3, _02055164 ; =FreeToHeap
-	bx r3
-	.balign 4
-_02055164: .word FreeToHeap
-
-	thumb_func_start sub_02055168
-sub_02055168: ; 0x02055168
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl PlayerAvatar_GetMapObject
-	bl MapObject_Remove
-	add r0, r4, #0x0
-	bl sub_02055160
-	pop {r4, pc}
-
-	thumb_func_start sub_0205517C
-sub_0205517C: ; 0x0205517C
-	push {r4, lr}
-	mov r0, #0xb
-	mov r1, #0x3c
-	bl AllocFromHeap
-	add r4, r0, #0x0
-	bne _0205518E
-	bl GF_AssertFail
-_0205518E:
-	add r0, r4, #0x0
-	mov r1, #0x0
-	mov r2, #0x3c
-	bl memset
-	add r0, r4, #0x0
-	pop {r4, pc}
-
-	thumb_func_start sub_0205519C
-sub_0205519C: ; 0x0205519C
-	push {r4-r6, lr}
-	add r4, r1, #0x0
-	add r5, r0, #0x0
-	add r1, r3, #0x0
-	add r6, r2, #0x0
-	bl sub_02055458
-	add r0, r5, #0x0
-	mov r1, #0x0
-	bl sub_0205536C
-	add r0, r5, #0x0
-	mov r1, #0x0
-	bl sub_02055374
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl PlayerAvatar_SetState
-	add r0, r5, #0x0
-	add r1, r6, #0x0
-	bl sub_020553E4
-	add r0, r5, #0x0
-	mov r1, #0x0
-	bl PlayerAvatar_SetTransitionFlags
-	add r0, r5, #0x0
-	bl sub_02055410
-	mov r1, #0x0
-	add r0, r5, #0x0
-	mvn r1, r1
-	bl sub_0205542C
-	mov r1, #0x0
-	add r0, r5, #0x0
-	mvn r1, r1
-	bl sub_02055434
-	add r0, r5, #0x0
-	mov r1, #0xff
-	bl sub_02055460
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl sub_020556C8
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl sub_0205574C
-	pop {r4-r6, pc}
-	.balign 4
-
-	thumb_func_start sub_02055208
-sub_02055208: ; 0x02055208
-	push {r4-r5, lr}
-	sub sp, #0xc
-	add r4, r0, #0x0
-	str r2, [sp, #0x0]
-	mov r0, #0x1
-	str r0, [sp, #0x4]
-	str r0, [sp, #0x8]
-	add r0, r1, #0x0
-	ldr r1, [sp, #0x18]
-	ldr r2, [sp, #0x1c]
-	bl MapObject_Create
-	add r5, r0, #0x0
-	bne _02055228
-	bl GF_AssertFail
-_02055228:
-	add r0, r5, #0x0
-	mov r1, #0xff
-	bl MapObject_SetID
-	add r0, r5, #0x0
-	mov r1, #0x0
-	bl MapObject_SetType
-	add r0, r5, #0x0
-	mov r1, #0x0
-	bl MapObject_SetEventFlag
-	add r0, r5, #0x0
-	mov r1, #0x0
-	bl MapObject_SetScriptID
-	mov r1, #0x0
-	add r0, r5, #0x0
-	add r2, r1, #0x0
-	bl MapObject_SetParam
-	add r0, r5, #0x0
-	mov r1, #0x0
-	mov r2, #0x1
-	bl MapObject_SetParam
-	add r0, r5, #0x0
-	mov r1, #0x0
-	mov r2, #0x2
-	bl MapObject_SetParam
-	mov r1, #0x0
-	add r0, r5, #0x0
-	mvn r1, r1
-	bl MapObject_SetXRange
-	mov r1, #0x0
-	add r0, r5, #0x0
-	mvn r1, r1
-	bl MapObject_SetYRange
-	mov r1, #0x9
-	add r0, r5, #0x0
-	lsl r1, r1, #0xa
-	bl MapObject_SetFlagsBits
-	mov r1, #0x6
-	add r0, r5, #0x0
-	lsl r1, r1, #0x6
-	bl MapObject_ClearFlagsBits
-	add r0, r5, #0x0
-	mov r1, #0x1
-	bl MapObject_SetFlag29
-	add r0, r4, #0x0
-	add r1, r5, #0x0
-	bl sub_0205539C
-	add sp, #0xc
-	pop {r4-r5, pc}
-	.balign 4
-
 	thumb_func_start sub_020552A4
 sub_020552A4: ; 0x020552A4
 	push {r3-r7, lr}
@@ -294,8 +37,8 @@ _020552DE:
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start sub_020552E4
-sub_020552E4: ; 0x020552E4
+	thumb_func_start PlayerAvatar_CreateMapObject
+PlayerAvatar_CreateMapObject: ; 0x020552E4
 	push {r4, lr}
 	bl sub_020552A4
 	add r4, r0, #0x0
@@ -329,15 +72,15 @@ sub_02055314: ; 0x02055314
 	bl MapObject_GetNextFacingDirection
 	pop {r3, pc}
 
-	thumb_func_start GetPlayerXCoord
-GetPlayerXCoord: ; 0x02055320
+	thumb_func_start PlayerAvatar_GetXCoord
+PlayerAvatar_GetXCoord: ; 0x02055320
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
 	bl MapObject_GetCurrentX
 	pop {r3, pc}
 
-	thumb_func_start GetPlayerZCoord
-GetPlayerZCoord: ; 0x0205532C
+	thumb_func_start PlayerAvatar_GetZCoord
+PlayerAvatar_GetZCoord: ; 0x0205532C
 	push {r3, lr}
 	bl PlayerAvatar_GetMapObject
 	bl MapObject_GetCurrentZ
@@ -410,8 +153,8 @@ _02055392:
 	bl MapObject_SetFlagsBits
 	pop {r4, pc}
 
-	thumb_func_start sub_0205539C
-sub_0205539C: ; 0x0205539C
+	thumb_func_start PlayerAvatar_SetMapObject
+PlayerAvatar_SetMapObject: ; 0x0205539C
 	str r1, [r0, #0x2c]
 	bx lr
 
@@ -469,8 +212,8 @@ PlayerAvatar_GetTransitionFlags: ; 0x020553E0
 	ldr r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start sub_020553E4
-sub_020553E4: ; 0x020553E4
+	thumb_func_start PlayerAvatar_SetGender
+PlayerAvatar_SetGender: ; 0x020553E4
 	str r1, [r0, #0x1c]
 	bx lr
 
@@ -574,8 +317,8 @@ sub_02055454: ; 0x02055454
 	ldr r0, [r0, #0x30]
 	bx lr
 
-	thumb_func_start sub_02055458
-sub_02055458: ; 0x02055458
+	thumb_func_start PlayerAvatar_SetPlayerSaveData
+PlayerAvatar_SetPlayerSaveData: ; 0x02055458
 	str r1, [r0, #0x34]
 	bx lr
 
@@ -663,8 +406,8 @@ sub_020554BC: ; 0x020554BC
 	bl sub_02055498
 	pop {r3, pc}
 
-	thumb_func_start sub_020554C8
-sub_020554C8: ; 0x020554C8
+	thumb_func_start PlayerSaveData_GetState
+PlayerSaveData_GetState: ; 0x020554C8
 	cmp r0, #0x0
 	beq _020554D0
 	ldr r0, [r0, #0x4]

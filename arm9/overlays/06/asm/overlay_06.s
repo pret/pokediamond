@@ -4819,10 +4819,10 @@ ov06_0223BA04: ; 0x0223BA04
 	sub sp, #0xb4
 	add r5, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	str r0, [sp, #0x14]
 	ldr r2, [sp, #0x14]
 	add r0, r5, #0
@@ -5351,10 +5351,10 @@ ov06_0223BE70: ; 0x0223BE70
 	add r5, r0, #0
 	ldr r0, [r5, #0x38]
 	str r1, [sp, #0xc]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -5602,10 +5602,10 @@ ov06_0223C08C: ; 0x0223C08C
 	mov r0, #0
 	str r0, [r4]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
@@ -5963,10 +5963,10 @@ _0223C3A6:
 	cmp r4, #0
 	beq _0223C3EC
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r5, #0x90
@@ -15673,10 +15673,10 @@ CheckPastoriaGymButton: ; 0x02241230
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -19914,10 +19914,10 @@ ov06_022433B8: ; 0x022433B8
 	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	ldr r1, [r5, #0x1c]
 	ldr r1, [r1]
 	str r1, [r4]
@@ -23734,11 +23734,11 @@ _02245148:
 	blo _02245132
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	strh r0, [r5, #0x14]
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	strh r0, [r5, #0x16]
 	ldr r0, [sp]
 	ldr r0, [r0, #0x1c]
@@ -24286,7 +24286,7 @@ _02245578:
 	cmp r0, #6
 	bhs _022455BC
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	ble _022455BC
@@ -24302,7 +24302,7 @@ _022455B4:
 	b _02245640
 _022455BC:
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	bgt _02245640
@@ -24333,7 +24333,7 @@ _022455E0:
 	cmp r0, #6
 	bhs _0224561E
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	bge _0224561E
@@ -24349,7 +24349,7 @@ _02245616:
 	b _02245640
 _0224561E:
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	blt _02245640
@@ -43359,10 +43359,10 @@ ov06_0224E8C4: ; 0x0224E8C4
 	add r1, sp, #0
 	bl sub_02055350
 	add r0, r6, #0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r5, r0, #0
 	add r0, r6, #0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0
 	add r0, r6, #0
 	bl PlayerAvatar_GetFacingDirection

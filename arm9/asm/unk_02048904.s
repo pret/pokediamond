@@ -283,7 +283,7 @@ sub_02048AE4: ; 0x02048AE4
 	ldr r1, [r3, #0x8]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl sub_02055068
+	bl PlayerAvatar_CreateWithParamsExtended
 	str r0, [r5, #0x38]
 	add r0, r5, #0x0
 	bl sub_02034AC8
@@ -299,7 +299,7 @@ sub_02048B34: ; 0x02048B34
 	add r4, r0, #0x0
 	bl sub_0204CC48
 	ldr r0, [r4, #0x38]
-	bl sub_02055160
+	bl PlayerAvatar_FreeToHeap
 	ldr r0, [r4, #0x34]
 	bl MapObjectManager_RemoveAllActiveObjects
 	ldr r0, [r4, #0x34]
@@ -326,7 +326,7 @@ sub_02048B50: ; 0x02048B50
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x34]
 	add r1, r4, #0x0
-	bl sub_020550A4
+	bl PlayerAvatar_CreateWithParams
 	str r0, [r5, #0x38]
 	ldr r0, [r5, #0x34]
 	bl sub_02058768
@@ -483,10 +483,10 @@ sub_02048CB0: ; 0x02048CB0
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	ldr r1, [r4, #0x1c]
 	ldr r1, [r1, #0x0]
 	str r1, [r5, #0x0]

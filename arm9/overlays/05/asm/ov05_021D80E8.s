@@ -1451,10 +1451,10 @@ _021D8C88:
 	bl Save_PlayerData_GetProfile
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r7, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
@@ -1521,10 +1521,10 @@ _021D8D34:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8D4C:
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -1988,10 +1988,10 @@ ov05_021D90F8: ; 0x021D90F8
 	ldr r0, [r5, #0x38]
 	add r4, r1, #0
 	add r6, r2, #0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [r4]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	str r0, [r6]
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

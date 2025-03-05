@@ -285,10 +285,10 @@ sub_0205C794: ; 0x0205C794
 	cmp r0, #0x1
 	bne _0205C802
 	add r0, r4, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_GetFacingDirection
@@ -329,10 +329,10 @@ _0205C802:
 	cmp r0, #0x2
 	bne _0205C864
 	add r0, r4, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

@@ -160,10 +160,10 @@ sub_0205E5E0: ; 0x0205E5E0
 	mov r1, #0x1
 	add r4, r0, #0x0
 	strb r1, [r5, #0x1]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	strh r0, [r5, #0x4]
 	mov r0, #0xff
 	strh r0, [r5, #0x6]
@@ -178,10 +178,10 @@ sub_0205E608: ; 0x0205E608
 	bl sub_02055698
 	add r6, r0, #0x0
 	beq _0205E638
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	mov r1, #0x2
 	ldrsh r1, [r5, r1]
 	cmp r4, r1
@@ -204,10 +204,10 @@ sub_0205E63C: ; 0x0205E63C
 	bl MapObject_GetFieldSystem
 	bl sub_02055698
 	add r4, r0, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	strh r0, [r5, #0x4]
 	pop {r3-r5, pc}
 	.balign 4
