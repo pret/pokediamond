@@ -3369,14 +3369,14 @@ sub_02057288: ; 0x02057288
 	str r0, [sp, #0x0]
 	add r4, r2, #0x0
 	add r7, r3, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r0, r6, r0
 	str r0, [r4, #0x0]
 	ldr r0, [sp, #0x0]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00

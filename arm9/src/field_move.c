@@ -60,8 +60,8 @@ static void FieldMove_UseChatter(FieldMoveUseData *useData, const FieldMoveCheck
 static BOOL Task_UseChatterInField(TaskManager *taskManager);
 
 extern void FieldSystem_GetFacingObject(FieldSystem *fieldSystem, LocalMapObject **object);
-extern u16 GetPlayerXCoord(PlayerAvatar *playerAvatar);
-extern u16 GetPlayerZCoord(PlayerAvatar *playerAvatar);
+extern u16 PlayerAvatar_GetXCoord(PlayerAvatar *playerAvatar);
+extern u16 PlayerAvatar_GetZCoord(PlayerAvatar *playerAvatar);
 extern u8 GetMetatileBehavior(FieldSystem *fieldSystem, s32 x, s32 z);
 extern void PlayerAvatar_GetCoordsInFront(PlayerAvatar *playerAvatar, s32 *x, s32 *z);
 extern BOOL Field_PlayerCanSurfOnTile(PlayerAvatar *fieldPlayerAvatar, u32 standingTile, u32 facingTile);
@@ -157,8 +157,8 @@ void FieldMove_InitCheckData(FieldSystem *fieldSystem, FieldMoveCheckData *check
         }
     }
 
-    s32 x = GetPlayerXCoord(fieldSystem->playerAvatar);
-    s32 z = GetPlayerZCoord(fieldSystem->playerAvatar);
+    s32 x = PlayerAvatar_GetXCoord(fieldSystem->playerAvatar);
+    s32 z = PlayerAvatar_GetZCoord(fieldSystem->playerAvatar);
     u32 standingTile = GetMetatileBehavior(fieldSystem, x, z);
 
     PlayerAvatar_GetCoordsInFront(fieldSystem->playerAvatar, &x, &z);
