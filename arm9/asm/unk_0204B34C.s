@@ -767,7 +767,7 @@ _0204B8F6:
 	bne _0204B910
 	ldr r0, [r5, #0x38]
 	mov r1, #0x0
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	mov r0, #0x4
 	str r0, [r4, #0x0]
 	b _0204B98E
@@ -789,7 +789,7 @@ _0204B922:
 	ble _0204B98E
 	ldr r0, [r5, #0x38]
 	ldr r1, [r4, #0x4]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	mov r0, #0x4
 	str r0, [r4, #0x0]
 	b _0204B98E
@@ -814,14 +814,14 @@ _0204B93A:
 _0204B964:
 	ldr r0, [r5, #0x38]
 	ldr r1, [r4, #0x4]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	mov r0, #0x4
 	str r0, [r4, #0x0]
 	b _0204B98E
 _0204B972:
 	ldr r0, [r5, #0x38]
 	ldr r1, [r4, #0x4]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetMapObject
 	bl MapObject_PauseMovement

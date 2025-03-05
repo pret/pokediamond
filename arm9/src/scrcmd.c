@@ -27,6 +27,7 @@
 #include "msgdata.h"
 #include "options.h"
 #include "party.h"
+#include "player_avatar.h"
 #include "player_data.h"
 #include "pokedex.h"
 #include "pokemon_storage_system.h"
@@ -67,7 +68,6 @@ extern MessageFormat *ov06_02244210(SaveData *sav, u16 poke, u16 sex, u8 flag, u
 extern void ov05_021E2CBC(ScriptContext *ctx, MessageFormat *messageFormat, u8 param2, u32 param3);
 extern void ov05_021E2BB8(void *param0, ScriptContext *ctx);
 extern BOOL sub_02030F40(void);
-extern void sub_02055304(PlayerAvatar *playerAvatar, u32 param1);
 extern void sub_02039460(FieldSystem *arg);
 extern void ov05_021E8128(u32 param0, u8 type, u16 map);
 extern void ov05_021E8130(u32 param0, u32 param1);
@@ -99,7 +99,6 @@ extern const ObjectEvent *sub_02034B6C(FieldSystem *fieldSystem);
 extern u32 sub_02059D1C(LocalMapObject *target);
 extern VecFx32 *MapObject_GetPositionVector(LocalMapObject *target);
 extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
-extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
 extern u16 PlayerAvatar_GetXCoord(PlayerAvatar *playerAvatar);
@@ -1027,13 +1026,13 @@ static BOOL sub_0203A4E0(ScriptContext *ctx) {
     if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
         return TRUE;
     } else if (gSystem.newKeys & PAD_KEY_UP) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 0);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 0);
     } else if (gSystem.newKeys & PAD_KEY_DOWN) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 1);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 1);
     } else if (gSystem.newKeys & PAD_KEY_LEFT) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 2);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 2);
     } else if (gSystem.newKeys & PAD_KEY_RIGHT) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 3);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 3);
     } else if (gSystem.newKeys & PAD_BUTTON_X) {
         sub_02039460(ctx->fieldSystem);
     } else {
@@ -1258,7 +1257,7 @@ static BOOL sub_0203A94C(ScriptContext *ctx) {
 
     if (tmp != 0xFFFF) {
         sub_0201BD7C(*printerNumber);
-        sub_02055304(ctx->fieldSystem->playerAvatar, tmp);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, tmp);
         *varPtr = 0;
         return TRUE;
     } else {
@@ -1296,7 +1295,7 @@ static BOOL sub_0203AA0C(ScriptContext *ctx) {
     }
 
     if (tmp != 0xFFFF) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, tmp);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, tmp);
         *unk = 0;
         return TRUE;
     } else {
