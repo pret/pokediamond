@@ -9,11 +9,6 @@ struct SaveData;
 
 #define MAX_MONEY 999999
 
-typedef enum PlayerGender {
-    PLAYER_GENDER_MALE = 0,
-    PLAYER_GENDER_FEMALE = 1
-} PlayerGender;
-
 typedef struct PlayerProfile {
     /* 0x00 */ u16 playerName[PLAYER_NAME_LENGTH + 1];
     /* 0x10 */ u32 playerId;
@@ -56,8 +51,8 @@ struct String *PlayerProfile_GetPlayerName_NewString(PlayerProfile *data, HeapID
 void PlayerProfile_SetTrainerID(PlayerProfile *playerProfile, u32 otid);
 u32 PlayerProfile_GetTrainerID(PlayerProfile *data);
 u16 PlayerProfile_GetTrainerID_VisibleHalf(PlayerProfile *data);
-void PlayerProfile_SetTrainerGender(PlayerProfile *data, PlayerGender gender);
-PlayerGender PlayerProfile_GetTrainerGender(PlayerProfile *data);
+void PlayerProfile_SetTrainerGender(PlayerProfile *data, u32 gender);
+u32 PlayerProfile_GetTrainerGender(PlayerProfile *data);
 BOOL PlayerProfile_TestBadgeFlag(PlayerProfile *data, u32 badgeno);
 void PlayerProfile_SetBadgeFlag(PlayerProfile *data, u32 badgeno);
 u32 PlayerProfile_CountBadges(PlayerProfile *data);

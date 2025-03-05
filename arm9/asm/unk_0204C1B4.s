@@ -418,10 +418,10 @@ _0204C4D0:
 	bl ov05_021DA5B8
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -478,10 +478,10 @@ _0204C54A:
 	bl ov05_021DA5B8
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -696,10 +696,10 @@ _0204C700:
 	bl PlayerAvatar_GetMapObject
 	add r7, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r4, #0x0
@@ -726,10 +726,10 @@ _0204C74A:
 	bl ov05_021DA5B8
 	str r0, [r5, #0x1c]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r1, r0, #0x0
 	ldr r2, [r5, #0x1c]
 	add r0, r6, #0x0
@@ -782,10 +782,10 @@ _0204C7BE:
 	bl PlayerAvatar_GetMapObject
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
@@ -844,10 +844,10 @@ _0204C846:
 	bl ov05_021DA5B8
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -1058,10 +1058,10 @@ sub_0204C9EC: ; 0x0204C9EC
 	add r1, sp, #0x4
 	bl sub_02055350
 	ldr r0, [r5, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0

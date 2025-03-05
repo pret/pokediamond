@@ -38,11 +38,11 @@ TownMap_Init: ; 0x0205F7A0
 	bl memset
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	asr r1, r4, #0x4

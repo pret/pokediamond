@@ -410,11 +410,11 @@ sub_020531E4: ; 0x020531E4
 	str r0, [sp, #0x0]
 	ldr r0, [r0, #0x8]
 	str r1, [sp, #0x4]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x8]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r4, [sp, #0x0]
 	str r0, [sp, #0x8]
 	add r6, r4, #0x0

@@ -1920,7 +1920,7 @@ sub_02056740: ; 0x02056740
 	bl sub_02056494
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r7, #0x0
@@ -2347,7 +2347,7 @@ sub_02056AB8: ; 0x02056AB8
 	bl sub_02056494
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r7, #0x0
@@ -3079,7 +3079,7 @@ sub_02057060: ; 0x02057060
 	pop {r3-r7, pc}
 _02057086:
 	add r0, r6, #0x0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_02055430
@@ -3369,14 +3369,14 @@ sub_02057288: ; 0x02057288
 	str r0, [sp, #0x0]
 	add r4, r2, #0x0
 	add r7, r3, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r0, r6, r0
 	str r0, [r4, #0x0]
 	ldr r0, [sp, #0x0]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
