@@ -1126,7 +1126,7 @@ _0204D37C:
 	ldrh r2, [r2, #0x0]
 	ldrsb r3, [r7, r3]
 	ldr r0, [r0, #0x34]
-	bl PlayerAvatar_CreateWithParamsExtended
+	bl PlayerAvatar_CreateWithParams
 	add r7, r0, #0x0
 	bne _0204D3B2
 	bl GF_AssertFail
@@ -2424,7 +2424,7 @@ _0204DD5E:
 	ldr r0, [r0, #0x0]
 	add r0, r0, r7
 	ldr r0, [r0, #0x8]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	add r0, r4, #0x0
 	mov r1, #0x80
 	bl MapObject_SetFlagsBits
@@ -5707,7 +5707,7 @@ sub_0204F6DC: ; 0x0204F6DC
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	bl sub_02031190
 	ldr r1, _0204F708 ; =UNK_021C5A68
 	lsl r0, r0, #0x3
@@ -5734,7 +5734,7 @@ sub_0204F70C: ; 0x0204F70C
 	ldr r2, [r3, #0x0]
 	add r0, r2, r0
 	ldr r0, [r0, #0x8]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	pop {r4, pc}
 	.balign 4
 _0204F728: .word UNK_021C5A68

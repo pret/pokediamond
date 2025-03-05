@@ -283,7 +283,7 @@ sub_02048AE4: ; 0x02048AE4
 	ldr r1, [r3, #0x8]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl PlayerAvatar_CreateWithParamsExtended
+	bl PlayerAvatar_CreateWithParams
 	str r0, [r5, #0x38]
 	add r0, r5, #0x0
 	bl sub_02034AC8
@@ -326,7 +326,7 @@ sub_02048B50: ; 0x02048B50
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x34]
 	add r1, r4, #0x0
-	bl PlayerAvatar_CreateWithParams
+	bl PlayerAvatar_CreateWithActiveMapObject
 	str r0, [r5, #0x38]
 	ldr r0, [r5, #0x34]
 	bl sub_02058768
