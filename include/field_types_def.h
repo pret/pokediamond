@@ -6,5 +6,6 @@ typedef struct LocalMapObject LocalMapObject;
 typedef struct MapObjectManager MapObjectManager;
 typedef struct ObjectEvent ObjectEvent;
 typedef struct TaskManager TaskManager;
+typedef struct PlayerAvatar PlayerAvatar;
 
 #endif // POKEDIAMOND_FIELD_TYPES_DEF_H

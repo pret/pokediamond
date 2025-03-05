@@ -102,8 +102,8 @@ extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
 extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
-extern u16 GetPlayerXCoord(PlayerAvatar *playerAvatar);
-extern u16 GetPlayerZCoord(PlayerAvatar *playerAvatar);
+extern u16 PlayerAvatar_GetXCoord(PlayerAvatar *playerAvatar);
+extern u16 PlayerAvatar_GetZCoord(PlayerAvatar *playerAvatar);
 extern u16 sub_02029E0C(SealCase *sealCase);
 extern u16 SealCase_CountSealOccurrenceAnywhere(SealCase *sealCase, u16 sealId);
 extern void sub_02029D44(SealCase *sealCase, u16 sealId, s16 amount);
@@ -227,9 +227,9 @@ extern u32 sub_02052608(u32 param0);
 extern void sub_02052E10(u32 param0);
 extern u32 sub_02052648(u32 param0);
 extern u32 sub_02052718(u32 param0, u32 param1);
-extern void sub_0205363C(u32 trainerId, PlayerGender playerGender, MessageFormat *messageFormat);
-extern u16 sub_02053678(u32 trainerId, PlayerGender playerGender, u32 param2);
-extern u16 sub_020536D0(PlayerGender playerGender, u16 param1, u16 param2);
+extern void sub_0205363C(u32 trainerId, u32 playerGender, MessageFormat *messageFormat);
+extern u16 sub_02053678(u32 trainerId, u32 playerGender, u32 param2);
+extern u16 sub_020536D0(u32 playerGender, u16 param1, u16 param2);
 extern void sub_02049EA4(TaskManager *taskManager);
 extern void LocalFieldData_SetBlackoutSpawn(LocalFieldData *localFieldData, u16 spawnPoint);
 extern void HealParty(Party *playerParty);
@@ -1800,8 +1800,8 @@ BOOL ScrCmd_GetPlayerPosition(ScriptContext *ctx) { // 0069
     u16 *x = ScriptGetVarPointer(ctx);
     u16 *y = ScriptGetVarPointer(ctx);
 
-    *x = GetPlayerXCoord(fieldSystem->playerAvatar);
-    *y = GetPlayerZCoord(fieldSystem->playerAvatar);
+    *x = PlayerAvatar_GetXCoord(fieldSystem->playerAvatar);
+    *y = PlayerAvatar_GetZCoord(fieldSystem->playerAvatar);
 
     return FALSE;
 }

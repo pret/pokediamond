@@ -672,13 +672,13 @@ _021E6500:
 	b _021E65E4
 _021E6514:
 	ldr r0, [r4, #0x20]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r5, r0, #0
 	ldr r0, [r4, #4]
 	bl sub_02059BF4
 	add r6, r0, #0
 	ldr r0, [r4, #0x20]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0
 	ldr r0, [r4, #4]
 	bl sub_02059C00
@@ -1329,13 +1329,13 @@ ov05_021E6A58: ; 0x021E6A58
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x10]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #4]
 	bl sub_02059BF4
 	add r6, r0, #0
 	ldr r0, [r5, #0x10]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0
 	ldr r0, [r5, #4]
 	bl sub_02059C00
@@ -2367,13 +2367,13 @@ ov05_021E727C: ; 0x021E727C
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r1, #0
 	add r4, r0, #0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0
 	add r0, r5, #0
 	bl sub_02059BF4
 	add r7, r0, #0
 	add r0, r4, #0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	str r0, [sp]
 	add r0, r5, #0
 	bl sub_02059C00

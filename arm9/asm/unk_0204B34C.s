@@ -507,10 +507,10 @@ sub_0204B70C: ; 0x0204B70C
 	add r7, r0, #0x0
 	ldr r0, [r7, #0x38]
 	add r5, r2, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r7, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0x0
 	cmp r5, #0x2
 	bne _0204B72A
@@ -562,10 +562,10 @@ sub_0204B770: ; 0x0204B770
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r6, r1, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0x0
 	cmp r6, #0x2
 	bne _0204B78E
@@ -588,10 +588,10 @@ sub_0204B7A0: ; 0x0204B7A0
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r6, r1, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x4]
 	cmp r0, #0x0
