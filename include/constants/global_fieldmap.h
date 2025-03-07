@@ -11,6 +11,7 @@
 #define PLAYER_STATE_WALKING 0
 #define PLAYER_STATE_CYCLING 1
 #define PLAYER_STATE_SURFING 2
+#define PLAYER_STATE_UNK_SP  3
 
 // Player transition bits
 #define PLAYER_TRANSITION_WALKING 1 << 0

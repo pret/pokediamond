@@ -5,10 +5,10 @@
 
 	thumb_func_start Field_PlayerAvatar_OrrTransitionFlags
 Field_PlayerAvatar_OrrTransitionFlags: ; 0x021E5FD8
-	ldr r3, _021E5FDC ; =PlayerAvatar_OrrTransitionFlags
+	ldr r3, _021E5FDC ; =PlayerAvatar_SetTransitionFlagsBits
 	bx r3
 	.balign 4, 0
-_021E5FDC: .word PlayerAvatar_OrrTransitionFlags
+_021E5FDC: .word PlayerAvatar_SetTransitionFlagsBits
 
 	thumb_func_start Field_PlayerAvatar_ApplyTransitionFlags
 Field_PlayerAvatar_ApplyTransitionFlags: ; 0x021E5FE0

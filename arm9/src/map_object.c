@@ -24,13 +24,13 @@ static void sub_02057CF0(MapObjectManager *manager, LocalMapObject *object);
 static void MapObject_InitFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent, FieldSystem *fieldSystem);
 static void MapObject_SetPositionVectorFromObjectEvent(LocalMapObject *object, ObjectEvent *objectEvent);
 static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager);
-/*static*/ void sub_02057EE0(LocalMapObject *object);
+static void sub_02057EE0(LocalMapObject *object);
 static void sub_02057F18(LocalMapObject *object);
 static void MapObject_Clear(LocalMapObject *object);
 static u32 sub_02057F90(LocalMapObject *object, u32 mapId, u32 objectEventCount, ObjectEvent *objectEvents);
 static LocalMapObject *MapObjectManager_GetFirstObjectWithIDAndMap(MapObjectManager *manager, u32 objectId, u32 mapId);
 static void sub_02058148(LocalMapObject *object);
-/*static*/ void sub_0205815C(LocalMapObject *object);
+static void sub_0205815C(LocalMapObject *object);
 static void MapObject_NoOp(LocalMapObject *object);
 static u32 FieldSystem_ResolveObjectSpriteID(FieldSystem *fieldSystem, s32 spriteId);
 static void sub_0205818C(LocalMapObject *object);
@@ -55,7 +55,7 @@ static u32 MapObject_GetFlags(LocalMapObject *object);
 static void MapObject_SetFlags2(LocalMapObject *object, u32 flags);
 static u32 MapObject_GetFlags2(LocalMapObject *object);
 static void MapObject_SetMapID(LocalMapObject *object, u32 mapId);
-/*static*/ void MapObject_SetMovement(LocalMapObject *object, u32 movement);
+static void MapObject_SetMovement(LocalMapObject *object, u32 movement);
 static u32 MapObject_GetEventFlag(LocalMapObject *object);
 static void MapObject_SetInitialFacingDirection(LocalMapObject *object, u32 initialFacing);
 static void sub_02058554(LocalMapObject *object, SysTask *sysTask);
@@ -66,7 +66,7 @@ static MapObjectManager *MapObject_GetManagerFromManager(LocalMapObject *object)
 static void sub_02058630(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 static void sub_02058644(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 static void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback callback);
-/*static*/ void sub_02058660(LocalMapObject *object);
+static void sub_02058660(LocalMapObject *object);
 static void sub_0205866C(LocalMapObject *object);
 static void sub_02058684(LocalMapObject *object, LocalMapObject_UnkCallback callback);
 static void sub_0205868C(LocalMapObject *object);
@@ -637,7 +637,7 @@ static void sub_02057E90(LocalMapObject *object, MapObjectManager *manager) { //
     MapObject_ClearHeldMovement(object);
 }
 
-/*static*/ void sub_02057EE0(LocalMapObject *object) {
+static void sub_02057EE0(LocalMapObject *object) {
     UnkLMOCallbackStruct *unk = sub_02058D14(MapObject_GetMovement(object));
     sub_02058630(object, sub_02058D2C(unk));
     sub_02058644(object, sub_02058D30(unk));
@@ -760,7 +760,7 @@ static void sub_02058148(LocalMapObject *object) {
     sub_0205815C(object);
 }
 
-/*static*/ void sub_0205815C(LocalMapObject *object) {
+static void sub_0205815C(LocalMapObject *object) {
     MapObject_ClearFlagsBits(object, (MapObjectFlagBits)(MAPOBJECTFLAG_UNK26 | MAPOBJECTFLAG_UNK24 | MAPOBJECTFLAG_UNK20 | MAPOBJECTFLAG_UNK15));
 }
 
@@ -1037,7 +1037,7 @@ u32 sub_0205845C(LocalMapObject *object) {
     return spriteId;
 }
 
-/*static*/ void MapObject_SetMovement(LocalMapObject *object, u32 movement) {
+static void MapObject_SetMovement(LocalMapObject *object, u32 movement) {
     object->movement = movement;
 }
 
@@ -1258,7 +1258,7 @@ static void sub_02058658(LocalMapObject *object, LocalMapObject_UnkCallback call
     object->unkC0 = callback;
 }
 
-/*static*/ void sub_02058660(LocalMapObject *object) {
+static void sub_02058660(LocalMapObject *object) {
     object->unkC0(object);
 }
 

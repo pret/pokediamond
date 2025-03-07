@@ -263,10 +263,10 @@ sub_0205E698: ; 0x0205E698
 	bl MapObject_GetCurrentZ
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02055338
+	bl PlayerAvatar_GetPreviousXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02055344
+	bl PlayerAvatar_GetPreviousZCoord
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	cmp r0, r6

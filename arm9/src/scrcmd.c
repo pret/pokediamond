@@ -91,7 +91,6 @@ extern void ov05_021E2B9C(u32 param0, u8 param1);
 extern u32 sub_0205AEA4(LocalMapObject *event, const void *ptr);
 extern BOOL sub_0205AEF0(u32 param0);
 extern void sub_0205AEFC(u32 param0);
-extern LocalMapObject *PlayerAvatar_GetMapObject(PlayerAvatar *playerAvatar);
 extern u32 sub_0205AE28(LocalMapObject *event);
 extern LocalMapObject *sub_0205E7C4(LocalMapObject *event);
 extern u32 sub_02034B64(FieldSystem *fieldSystem);
@@ -101,8 +100,6 @@ extern VecFx32 *MapObject_GetPositionVector(LocalMapObject *target);
 extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
-extern u16 PlayerAvatar_GetXCoord(PlayerAvatar *playerAvatar);
-extern u16 PlayerAvatar_GetZCoord(PlayerAvatar *playerAvatar);
 extern u16 sub_02029E0C(SealCase *sealCase);
 extern u16 SealCase_CountSealOccurrenceAnywhere(SealCase *sealCase, u16 sealId);
 extern void sub_02029D44(SealCase *sealCase, u16 sealId, s16 amount);
@@ -167,19 +164,16 @@ extern u32 LocalFieldData_GetWeatherType(LocalFieldData *localFieldData);
 extern void ov05_021DC174(u32 param0, u32 weather);
 extern void LocalFieldData_SetWeatherType(LocalFieldData *localFieldData, u32 weather);
 extern void CallFieldTask_Waterfall(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
-extern u32 PlayerAvatar_GetGender(PlayerAvatar *avatar);
 extern void *ov06_0224666C(FieldSystem *fieldSystem, u32 param1, Pokemon *mon, u32 playerGender);
 extern BOOL ov06_022466A0(void *param0);
 extern void ov06_022466AC(void *param0);
 extern void ov05_021E7030(TaskManager *taskManager);
-extern u32 PlayerAvatar_GetState(PlayerAvatar *avatar);
 extern void FieldSystem_SetSavedMusicId(FieldSystem *fieldSystem, u16 musicId);
 extern void FieldSystem_PlayOrFadeToNewMusicId(FieldSystem *fieldSystem, u16 musicId, u32 param2);
 extern void Field_PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 extern void Field_PlayerAvatar_ApplyTransitionFlags(PlayerAvatar *playerAvatar);
 extern u16 FieldSystem_GetOverriddenMusicId(FieldSystem *fieldSystem, u32 mapId);
 extern void sub_02055720(PlayerAvatar *avatar, u8 action);
-extern void PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 extern RoamerSaveData *Save_Roamers_Get(SaveData *save);
 extern u32 Roamers_GetRand(RoamerSaveData *roamerSaveData, u32 index);
 extern void GetSwarmInfoFromRand(u32 rand, u16 *map, u16 *species);
@@ -1797,10 +1791,10 @@ BOOL ScrCmd_GetPlayerPosition(ScriptContext *ctx) { // 0069
     FieldSystem *fieldSystem = ctx->fieldSystem;
 
     u16 *x = ScriptGetVarPointer(ctx);
-    u16 *y = ScriptGetVarPointer(ctx);
+    u16 *z = ScriptGetVarPointer(ctx);
 
     *x = PlayerAvatar_GetXCoord(fieldSystem->playerAvatar);
-    *y = PlayerAvatar_GetZCoord(fieldSystem->playerAvatar);
+    *z = PlayerAvatar_GetZCoord(fieldSystem->playerAvatar);
 
     return FALSE;
 }
@@ -2642,7 +2636,7 @@ BOOL ScrCmd_GetPlayerState(ScriptContext *ctx) { // 00CA
 
 BOOL ScrCmd_SetPlayerState(ScriptContext *ctx) { // 00CB
     u16 state = ScriptReadHalfword(ctx);
-    PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, state);
+    PlayerAvatar_SetTransitionFlagsBits(ctx->fieldSystem->playerAvatar, state);
     return TRUE;
 }
 
