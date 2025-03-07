@@ -74,10 +74,10 @@ ov05_021D8164: ; 0x021D8164
 	add r4, r3, #0
 	bl ov05_021D80E8
 	ldr r0, [r7, #0x38]
-	bl sub_02055378
+	bl PlayerAvatar_GetUnk14
 	str r0, [sp, #4]
 	ldr r0, [r7, #0x38]
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	str r0, [sp]
 	ldr r0, [r7, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -208,7 +208,7 @@ ov05_021D825C: ; 0x021D825C
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
-	bl sub_02055378
+	bl PlayerAvatar_GetUnk14
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r1, [r0]
@@ -231,7 +231,7 @@ _021D8290:
 	cmp r6, #0
 	bne _021D82EC
 	ldr r0, [r4, #0x38]
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	ldrb r1, [r5, #2]
 	lsl r2, r1, #0x18
 	asr r3, r2, #0x18

@@ -37268,7 +37268,7 @@ _0224B8A4:
 	beq _0224B970
 	ldr r0, [r4, #0x38]
 	mov r1, #0
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #1
 	add r1, r4, #0
 	bl ov18_0224B804
@@ -37318,7 +37318,7 @@ _0224B912:
 	beq _0224B970
 	ldr r0, [r4, #0x38]
 	mov r1, #1
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #0
 	add r1, r4, #0
 	bl ov18_0224B804

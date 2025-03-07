@@ -8,7 +8,6 @@
 #include "map_object.h"
 #include "unk_020051F4.h"
 
-extern LocalMapObject *PlayerAvatar_GetMapObject(PlayerAvatar *avatar);
 extern BOOL sub_02054B30(u8 param0);
 extern BOOL sub_02054B3C(u8 param0);
 extern BOOL sub_02054B48(u8 param0);
