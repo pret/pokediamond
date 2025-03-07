@@ -122,7 +122,7 @@ _02060892:
 	str r0, [r4, #0x7c]
 	ldr r0, [r5, #0x38]
 	add r1, #0x24
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r0, [r5, #0x20]
 	bl Camera_ClearFixedTarget
 	add r0, r4, #0x0

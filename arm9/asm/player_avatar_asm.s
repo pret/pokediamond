@@ -1,180 +1,11 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern PlayerAvatar_SetFlagsBits
+	.extern PlayerAvatar_ClearFlagsBits
+	.extern PlayerAvatar_GetFlagsBitsMask
+
 	.text
-
-	thumb_func_start PlayerAvatar_GetXCoord
-PlayerAvatar_GetXCoord: ; 0x02055320
-	push {r3, lr}
-	bl PlayerAvatar_GetMapObject
-	bl MapObject_GetCurrentX
-	pop {r3, pc}
-
-	thumb_func_start PlayerAvatar_GetZCoord
-PlayerAvatar_GetZCoord: ; 0x0205532C
-	push {r3, lr}
-	bl PlayerAvatar_GetMapObject
-	bl MapObject_GetCurrentZ
-	pop {r3, pc}
-
-	thumb_func_start sub_02055338
-sub_02055338: ; 0x02055338
-	push {r3, lr}
-	bl PlayerAvatar_GetMapObject
-	bl MapObject_GetPreviousX
-	pop {r3, pc}
-
-	thumb_func_start sub_02055344
-sub_02055344: ; 0x02055344
-	push {r3, lr}
-	bl PlayerAvatar_GetMapObject
-	bl MapObject_GetPreviousZ
-	pop {r3, pc}
-
-	thumb_func_start sub_02055350
-sub_02055350: ; 0x02055350
-	push {r4, lr}
-	add r4, r1, #0x0
-	bl PlayerAvatar_GetMapObject
-	add r1, r4, #0x0
-	bl MapObject_CopyPositionVector
-	pop {r4, pc}
-
-	thumb_func_start sub_02055360
-sub_02055360: ; 0x02055360
-	push {r3, lr}
-	bl sub_020553A4
-	bl MapObject_GetPositionVector
-	pop {r3, pc}
-
-	thumb_func_start sub_0205536C
-sub_0205536C: ; 0x0205536C
-	str r1, [r0, #0x10]
-	bx lr
-
-	thumb_func_start sub_02055370
-sub_02055370: ; 0x02055370
-	ldr r0, [r0, #0x10]
-	bx lr
-
-	thumb_func_start sub_02055374
-sub_02055374: ; 0x02055374
-	str r1, [r0, #0x14]
-	bx lr
-
-	thumb_func_start sub_02055378
-sub_02055378: ; 0x02055378
-	ldr r0, [r0, #0x14]
-	bx lr
-
-	thumb_func_start sub_0205537C
-sub_0205537C: ; 0x0205537C
-	push {r4, lr}
-	add r4, r1, #0x0
-	bl PlayerAvatar_GetMapObject
-	cmp r4, #0x1
-	bne _02055392
-	mov r1, #0x2
-	lsl r1, r1, #0x8
-	bl MapObject_ClearFlagsBits
-	pop {r4, pc}
-_02055392:
-	mov r1, #0x2
-	lsl r1, r1, #0x8
-	bl MapObject_SetFlagsBits
-	pop {r4, pc}
-
-	thumb_func_start PlayerAvatar_SetMapObject
-PlayerAvatar_SetMapObject: ; 0x0205539C
-	str r1, [r0, #0x2c]
-	bx lr
-
-	thumb_func_start PlayerAvatar_GetMapObject
-PlayerAvatar_GetMapObject: ; 0x020553A0
-	ldr r0, [r0, #0x2c]
-	bx lr
-
-	thumb_func_start sub_020553A4
-sub_020553A4: ; 0x020553A4
-	ldr r0, [r0, #0x2c]
-	bx lr
-
-	thumb_func_start PlayerAvatar_SetState
-PlayerAvatar_SetState: ; 0x020553A8
-	push {r3-r5, lr}
-	add r4, r1, #0x0
-	add r5, r0, #0x0
-	cmp r4, #0x3
-	blt _020553B6
-	bl GF_AssertFail
-_020553B6:
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	str r4, [r5, #0x18]
-	bl sub_020554DC
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start PlayerAvatar_GetState
-PlayerAvatar_GetState: ; 0x020553C4
-	push {r4, lr}
-	add r4, r0, #0x0
-	bne _020553CE
-	bl GF_AssertFail
-_020553CE:
-	ldr r0, [r4, #0x18]
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start PlayerAvatar_OrrTransitionFlags
-PlayerAvatar_OrrTransitionFlags: ; 0x020553D4
-	ldr r2, [r0, #0x4]
-	orr r1, r2
-	str r1, [r0, #0x4]
-	bx lr
-
-	thumb_func_start PlayerAvatar_SetTransitionFlags
-PlayerAvatar_SetTransitionFlags: ; 0x020553DC
-	str r1, [r0, #0x4]
-	bx lr
-
-	thumb_func_start PlayerAvatar_GetTransitionFlags
-PlayerAvatar_GetTransitionFlags: ; 0x020553E0
-	ldr r0, [r0, #0x4]
-	bx lr
-
-	thumb_func_start PlayerAvatar_SetGender
-PlayerAvatar_SetGender: ; 0x020553E4
-	str r1, [r0, #0x1c]
-	bx lr
-
-	thumb_func_start PlayerAvatar_GetGender
-PlayerAvatar_GetGender: ; 0x020553E8
-	ldr r0, [r0, #0x1c]
-	bx lr
-
-	thumb_func_start sub_020553EC
-sub_020553EC: ; 0x020553EC
-	ldr r2, [r0, #0x0]
-	orr r1, r2
-	str r1, [r0, #0x0]
-	bx lr
-
-	thumb_func_start sub_020553F4
-sub_020553F4: ; 0x020553F4
-	ldr r2, [r0, #0x0]
-	mvn r1, r1
-	and r1, r2
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start sub_02055400
-sub_02055400: ; 0x02055400
-	ldr r0, [r0, #0x0]
-	and r0, r1
-	bx lr
-	.balign 4
 
 	thumb_func_start sub_02055408
 sub_02055408: ; 0x02055408
@@ -376,10 +207,10 @@ sub_020554EC: ; 0x020554EC
 	bl LocalMapObject_SetPositionFromVectorAndDirection
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -398,10 +229,10 @@ sub_02055514: ; 0x02055514
 	bl MapObject_SetPositionFromXYZAndDirection
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 
 	thumb_func_start sub_02055540
@@ -626,11 +457,11 @@ sub_0205569C: ; 0x0205569C
 	cmp r1, #0x1
 	bne _020556AA
 	mov r1, #0x1
-	bl sub_020553EC
+	bl PlayerAvatar_SetFlagsBits
 	pop {r3, pc}
 _020556AA:
 	mov r1, #0x1
-	bl sub_020553F4
+	bl PlayerAvatar_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -638,7 +469,7 @@ _020556AA:
 sub_020556B4: ; 0x020556B4
 	push {r3, lr}
 	mov r1, #0x1
-	bl sub_02055400
+	bl PlayerAvatar_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _020556C4
 	mov r0, #0x1
@@ -653,11 +484,11 @@ sub_020556C8: ; 0x020556C8
 	cmp r1, #0x1
 	bne _020556D6
 	mov r1, #0x2
-	bl sub_020553EC
+	bl PlayerAvatar_SetFlagsBits
 	pop {r3, pc}
 _020556D6:
 	mov r1, #0x2
-	bl sub_020553F4
+	bl PlayerAvatar_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -665,7 +496,7 @@ _020556D6:
 sub_020556E0: ; 0x020556E0
 	push {r3, lr}
 	mov r1, #0x2
-	bl sub_02055400
+	bl PlayerAvatar_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _020556F0
 	mov r0, #0x1
@@ -680,11 +511,11 @@ sub_020556F4: ; 0x020556F4
 	cmp r1, #0x1
 	bne _02055702
 	mov r1, #0x4
-	bl sub_020553EC
+	bl PlayerAvatar_SetFlagsBits
 	pop {r3, pc}
 _02055702:
 	mov r1, #0x4
-	bl sub_020553F4
+	bl PlayerAvatar_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -692,7 +523,7 @@ _02055702:
 sub_0205570C: ; 0x0205570C
 	push {r3, lr}
 	mov r1, #0x4
-	bl sub_02055400
+	bl PlayerAvatar_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _0205571C
 	mov r0, #0x1
@@ -707,11 +538,11 @@ sub_02055720: ; 0x02055720
 	cmp r1, #0x1
 	bne _0205572E
 	mov r1, #0x8
-	bl sub_020553EC
+	bl PlayerAvatar_SetFlagsBits
 	pop {r3, pc}
 _0205572E:
 	mov r1, #0x8
-	bl sub_020553F4
+	bl PlayerAvatar_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -719,7 +550,7 @@ _0205572E:
 sub_02055738: ; 0x02055738
 	push {r3, lr}
 	mov r1, #0x8
-	bl sub_02055400
+	bl PlayerAvatar_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02055748
 	mov r0, #0x1
@@ -734,11 +565,11 @@ sub_0205574C: ; 0x0205574C
 	cmp r1, #0x1
 	bne _0205575A
 	mov r1, #0x10
-	bl sub_020553EC
+	bl PlayerAvatar_SetFlagsBits
 	pop {r3, pc}
 _0205575A:
 	mov r1, #0x10
-	bl sub_020553F4
+	bl PlayerAvatar_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -746,7 +577,7 @@ _0205575A:
 sub_02055764: ; 0x02055764
 	push {r3, lr}
 	mov r1, #0x10
-	bl sub_02055400
+	bl PlayerAvatar_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _02055774
 	mov r0, #0x1
@@ -761,11 +592,11 @@ sub_02055778: ; 0x02055778
 	cmp r1, #0x1
 	bne _02055786
 	mov r1, #0x20
-	bl sub_020553EC
+	bl PlayerAvatar_SetFlagsBits
 	pop {r3, pc}
 _02055786:
 	mov r1, #0x20
-	bl sub_020553F4
+	bl PlayerAvatar_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
@@ -773,7 +604,7 @@ _02055786:
 sub_02055790: ; 0x02055790
 	push {r3, lr}
 	mov r1, #0x20
-	bl sub_02055400
+	bl PlayerAvatar_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _020557A0
 	mov r0, #0x1
@@ -784,25 +615,25 @@ _020557A0:
 
 	thumb_func_start sub_020557A4
 sub_020557A4: ; 0x020557A4
-	ldr r3, _020557AC ; =sub_020553EC
+	ldr r3, _020557AC ; =PlayerAvatar_SetFlagsBits
 	mov r1, #0x40
 	bx r3
 	nop
-_020557AC: .word sub_020553EC
+_020557AC: .word PlayerAvatar_SetFlagsBits
 
 	thumb_func_start sub_020557B0
 sub_020557B0: ; 0x020557B0
-	ldr r3, _020557B8 ; =sub_020553F4
+	ldr r3, _020557B8 ; =PlayerAvatar_ClearFlagsBits
 	mov r1, #0x40
 	bx r3
 	nop
-_020557B8: .word sub_020553F4
+_020557B8: .word PlayerAvatar_ClearFlagsBits
 
 	thumb_func_start sub_020557BC
 sub_020557BC: ; 0x020557BC
 	push {r3, lr}
 	mov r1, #0x40
-	bl sub_02055400
+	bl PlayerAvatar_GetFlagsBitsMask
 	cmp r0, #0x0
 	beq _020557CC
 	mov r0, #0x1
@@ -817,18 +648,18 @@ sub_020557D0: ; 0x020557D0
 	cmp r1, #0x1
 	bne _020557DE
 	mov r1, #0x80
-	bl sub_020553EC
+	bl PlayerAvatar_SetFlagsBits
 	pop {r3, pc}
 _020557DE:
 	mov r1, #0x80
-	bl sub_020553F4
+	bl PlayerAvatar_ClearFlagsBits
 	pop {r3, pc}
 	.balign 4
 
 	thumb_func_start sub_020557E8
 sub_020557E8: ; 0x020557E8
-	ldr r3, _020557F0 ; =sub_02055400
+	ldr r3, _020557F0 ; =PlayerAvatar_GetFlagsBitsMask
 	mov r1, #0x80
 	bx r3
 	nop
-_020557F0: .word sub_02055400
+_020557F0: .word PlayerAvatar_GetFlagsBitsMask

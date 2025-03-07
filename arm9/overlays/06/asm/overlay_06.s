@@ -16506,7 +16506,7 @@ MoveHearthomeGymElevator: ; 0x02241914
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
 	add r1, sp, #0
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	ldr r0, [r5, #0x10]
@@ -16760,7 +16760,7 @@ ov06_02241B40: ; 0x02241B40
 	ldr r0, [r4]
 	add r1, sp, #0
 	ldr r0, [r0, #0x38]
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r1, [sp, #4]
 	asr r0, r1, #0xf
 	lsr r0, r0, #0x10
@@ -17339,7 +17339,7 @@ _02241FD8:
 	bl ov05_021E7EA0
 	ldr r0, [r7, #0x38]
 	add r1, sp, #4
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r0, [sp, #4]
 	add r1, r5, #0
 	str r0, [sp, #0x10]
@@ -17499,7 +17499,7 @@ _02242128:
 	bl ov05_021E7EA0
 	ldr r0, [r6, #0x38]
 	add r1, sp, #4
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r0, [sp, #0xc]
 	add r1, r5, #0
 	str r0, [sp, #0x18]
@@ -17779,7 +17779,7 @@ _02242342:
 	blt _022422CC
 	ldr r0, [r6, #0x38]
 	add r1, sp, #0x38
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r0, [sp, #0x14]
 	ldr r1, [sp, #0x3c]
 	bl ov06_02241D90
@@ -17916,7 +17916,7 @@ ov06_0224249C: ; 0x0224249C
 	ldr r0, [r0]
 	add r1, sp, #8
 	ldr r0, [r0, #0x38]
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r1, [sp, #8]
 	ldr r7, _02242524 ; =0x0224F8B8
 	asr r0, r1, #0xf
@@ -24255,7 +24255,7 @@ ov06_02245544: ; 0x02245544
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	add r1, sp, #4
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	mov r0, #2
 	ldr r1, [sp, #0xc]
 	lsl r0, r0, #0xe
@@ -43357,7 +43357,7 @@ ov06_0224E8C4: ; 0x0224E8C4
 	add r7, r1, #0
 	add r6, r0, #0
 	add r1, sp, #0
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	add r0, r6, #0
 	bl PlayerAvatar_GetXCoord
 	add r5, r0, #0
@@ -43412,7 +43412,7 @@ ov06_0224E92C: ; 0x0224E92C
 	sub sp, #0xc
 	add r4, r1, #0
 	add r1, sp, #0
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
@@ -44046,7 +44046,7 @@ ov06_0224EDB0: ; 0x0224EDB0
 _0224EDC8:
 	add r0, r6, #0
 	add r1, sp, #0
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
 	ldr r1, [sp]
@@ -44182,7 +44182,7 @@ ov06_0224EEC8: ; 0x0224EEC8
 	ldr r0, [r4, r0]
 	add r1, sp, #0
 	ldr r0, [r0, #0x38]
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	mov r1, #0xcf
 	lsl r1, r1, #4
 	ldr r2, [sp]
@@ -44346,7 +44346,7 @@ _0224EFF0:
 	add r1, #0x10
 	ldr r0, [r0, #0x38]
 	add r1, r5, r1
-	bl sub_02055350
+	bl PlayerAvatar_CopyPositionVector
 	ldr r0, _0224F028 ; =0x00000D0C
 	mov r1, #0
 	str r1, [r5, r0]

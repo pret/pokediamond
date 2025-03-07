@@ -88,7 +88,7 @@ sub_0205DD80: ; 0x0205DD80
 	strb r1, [r0, #0x3]
 	ldr r0, [sp, #0xc]
 	ldr r0, [r0, #0x38]
-	bl sub_02055360
+	bl PlayerAvatar_GetPositionVectorConst
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x18]
 	mov r5, #0x0

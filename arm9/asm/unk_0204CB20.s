@@ -953,13 +953,13 @@ sub_0204D248: ; 0x0204D248
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	add r4, r0, #0x0
 	ldr r0, _0204D2A8 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl sub_02055378
+	bl PlayerAvatar_GetUnk14
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	bne _0204D292

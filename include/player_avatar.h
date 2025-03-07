@@ -1,19 +1,41 @@
 #ifndef POKEDIAMOND_PLAYER_AVATAR_H
 #define POKEDIAMOND_PLAYER_AVATAR_H
 
+#include "nitro/FX_types.h"
+
 #include "global.h"
 
 #include "field_types_def.h"
+
+typedef enum PlayerAvatarFlags {
+    AVATAR_FLAG_UNK0 = (1 << 0),
+    AVATAR_FLAG_UNK1 = (1 << 1),
+    AVATAR_FLAG_UNK2 = (1 << 2),
+    AVATAR_FLAG_LOCK_BIKE_STATE = (1 << 3), // Blocks the player from mounting/dismounting their bike (though this was intended to stop dismounting during Cycling Road)
+    AVATAR_FLAG_UNK4 = (1 << 4),
+    AVATAR_FLAG_UNK5 = (1 << 5),
+    AVATAR_FLAG_UNK6 = (1 << 6),
+    AVATAR_FLAG_UNK7 = (1 << 7),
+} PlayerAvatarFlags; // TODO: check if this is right
 
 typedef struct PlayerSaveData {
     u8 padding[0x8];
 } PlayerSaveData;
 
 struct PlayerAvatar {
-    u8 padding0[0x3C];
+    PlayerAvatarFlags flags;
+    u32 transitionFlags;
+    u8 padding0[0x8];
+    u32 unk10;
+    u32 unk14;
+    s32 state;
+    u32 gender;
+    u8 padding1[0xC];
+    LocalMapObject *mapObject;
+    u8 padding2[0xC];
 }; // TODO: populate once we know more
 
-PlayerAvatar *PlayerAvatar_CreateWithParams(MapObjectManager *mapObjectManager, u32 x, s32 z, u32 direction, u32 state, u32 gender, PlayerSaveData *playerSaveData);
+PlayerAvatar *PlayerAvatar_CreateWithParams(MapObjectManager *mapObjectManager, u32 x, u32 z, u32 direction, s32 state, u32 gender, PlayerSaveData *playerSaveData);
 PlayerAvatar *PlayerAvatar_CreateWithActiveMapObject(MapObjectManager *mapObjectManager, PlayerSaveData *playerSaveData, u32 gender);
 void sub_02055108(PlayerAvatar *avatar);
 void PlayerAvatar_FreeToHeap(PlayerAvatar *avatar);
@@ -22,5 +44,24 @@ LocalMapObject *MapObjectManager_GetFirstActiveObjectWithMovement1(MapObjectMana
 u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *avatar);
 void PlayerAvatar_SetFacingDirection(PlayerAvatar *avatar, u32 direction);
 u32 PlayerAvatar_GetNextFacingDirection(PlayerAvatar *avatar);
+u32 PlayerAvatar_GetXCoord(PlayerAvatar *avatar);
+u32 PlayerAvatar_GetZCoord(PlayerAvatar *avatar);
+u32 PlayerAvatar_GetPreviousXCoord(PlayerAvatar *avatar);
+u32 PlayerAvatar_GetPreviousZCoord(PlayerAvatar *avatar);
+void PlayerAvatar_CopyPositionVector(PlayerAvatar *avatar, VecFx32 *vector);
+VecFx32 *PlayerAvatar_GetPositionVectorConst(PlayerAvatar *avatar);
+void PlayerAvatar_SetUnk10(PlayerAvatar *avatar, u32 param1);
+u32 PlayerAvatar_GetUnk10(PlayerAvatar *avatar);
+void PlayerAvatar_SetUnk14(PlayerAvatar *avatar, u32 param1);
+u32 PlayerAvatar_GetUnk14(PlayerAvatar *avatar);
+void PlayerAvatar_ToggleVisible(PlayerAvatar *avatar, BOOL invisible);
+void PlayerAvatar_SetMapObject(PlayerAvatar *avatar, LocalMapObject *mapObject);
+LocalMapObject *PlayerAvatar_GetMapObject(PlayerAvatar *avatar);
+void PlayerAvatar_SetState(PlayerAvatar *avatar, s32 state);
+s32 PlayerAvatar_GetState(PlayerAvatar *avatar);
+void PlayerAvatar_SetTransitionFlagsBits(PlayerAvatar *avatar, u32 flags);
+void PlayerAvatar_SetTransitionFlags(PlayerAvatar *avatar, u32 flags);
+u32 PlayerAvatar_GetTransitionFlags(PlayerAvatar *avatar);
+u32 PlayerAvatar_GetGender(PlayerAvatar *avatar);
 
 #endif // POKEDIAMOND_PLAYER_AVATAR_H
