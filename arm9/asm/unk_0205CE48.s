@@ -82,10 +82,10 @@ sub_0205CE80: ; 0x0205CE80
 	bl PlayerAvatar_GetState
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -492,12 +492,12 @@ _0205D1DA:
 _0205D1EE:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	lsl r0, r0, #0x10
 	lsr r2, r0, #0x10
 	ldr r0, [r5, #0x18]

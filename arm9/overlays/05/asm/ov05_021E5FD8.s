@@ -5,10 +5,10 @@
 
 	thumb_func_start Field_PlayerAvatar_OrrTransitionFlags
 Field_PlayerAvatar_OrrTransitionFlags: ; 0x021E5FD8
-	ldr r3, _021E5FDC ; =PlayerAvatar_OrrTransitionFlags
+	ldr r3, _021E5FDC ; =PlayerAvatar_SetTransitionFlagsBits
 	bx r3
 	.balign 4, 0
-_021E5FDC: .word PlayerAvatar_OrrTransitionFlags
+_021E5FDC: .word PlayerAvatar_SetTransitionFlagsBits
 
 	thumb_func_start Field_PlayerAvatar_ApplyTransitionFlags
 Field_PlayerAvatar_ApplyTransitionFlags: ; 0x021E5FE0
@@ -672,13 +672,13 @@ _021E6500:
 	b _021E65E4
 _021E6514:
 	ldr r0, [r4, #0x20]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r5, r0, #0
 	ldr r0, [r4, #4]
 	bl sub_02059BF4
 	add r6, r0, #0
 	ldr r0, [r4, #0x20]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0
 	ldr r0, [r4, #4]
 	bl sub_02059C00
@@ -1157,7 +1157,7 @@ ov05_021E6904: ; 0x021E6904
 	pop {r4, pc}
 _021E6916:
 	add r0, r4, #0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov05_021E727C
@@ -1329,13 +1329,13 @@ ov05_021E6A58: ; 0x021E6A58
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x10]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #4]
 	bl sub_02059BF4
 	add r6, r0, #0
 	ldr r0, [r5, #0x10]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0
 	ldr r0, [r5, #4]
 	bl sub_02059C00
@@ -2367,13 +2367,13 @@ ov05_021E727C: ; 0x021E727C
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r1, #0
 	add r4, r0, #0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0
 	add r0, r5, #0
 	bl sub_02059BF4
 	add r7, r0, #0
 	add r0, r4, #0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	str r0, [sp]
 	add r0, r5, #0
 	bl sub_02059C00

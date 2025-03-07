@@ -5,8 +5,8 @@
 
 #include "bg_window.h"
 #include "camera.h"
-#include "field_player_avatar.h"
 #include "field_types_def.h"
+#include "player_avatar.h"
 #include "save.h"
 #include "task.h"
 
