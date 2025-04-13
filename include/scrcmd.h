@@ -584,6 +584,27 @@ BOOL ScrCmd_SaveChatotCry(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk005D(struct ScriptContext *ctx);
 BOOL ScrCmd_SetVolume(struct ScriptContext *ctx);
 
+// scrcmd_7.c
+BOOL ScrCmd_Unk00B6(ScriptContext *ctx);
+BOOL ScrCmd_Unk00B7(ScriptContext *ctx);
+BOOL ScrCmd_Unk00B8(ScriptContext *ctx);
+BOOL ScrCmd_Unk00B9(ScriptContext *ctx);
+BOOL ScrCmd_Unk00E4(ScriptContext *ctx);
+BOOL ScrCmd_Unk00E5(ScriptContext *ctx);
+BOOL ScrCmd_Unk02A0(ScriptContext *ctx);
+BOOL ScrCmd_Unk00E7(ScriptContext *ctx);
+BOOL ScrCmd_Unk00E8(ScriptContext *ctx);
+BOOL ScrCmd_Unk00E9(ScriptContext *ctx);
+BOOL ScrCmd_Unk00EA(ScriptContext *ctx);
+BOOL ScrCmd_Unk00EB(ScriptContext *ctx);
+BOOL ScrCmd_Unk00EC(ScriptContext *ctx);
+BOOL ScrCmd_Unk00ED(ScriptContext *ctx);
+BOOL ScrCmd_Unk02BC(ScriptContext *ctx);
+BOOL ScrCmd_Unk00EE(ScriptContext *ctx);
+BOOL ScrCmd_Unk00EF(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F0(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F1(ScriptContext *ctx);
+
 // scrcmd_union.c
 BOOL ScrCmd_UnionGroup(struct ScriptContext *ctx);
 

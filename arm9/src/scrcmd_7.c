@@ -24,26 +24,6 @@ extern void sub_02004724(int param1);
 extern int sub_020480C8(int param1);
 extern int sub_020480D8(int param1);
 
-BOOL ScrCmd_Unk00B6(ScriptContext *ctx);
-BOOL ScrCmd_Unk00B7(ScriptContext *ctx);
-BOOL ScrCmd_Unk00B8(ScriptContext *ctx);
-BOOL ScrCmd_Unk00B9(ScriptContext *ctx);
-BOOL ScrCmd_Unk00E4(ScriptContext *ctx);
-BOOL ScrCmd_Unk00E5(ScriptContext *ctx);
-BOOL ScrCmd_Unk02A0(ScriptContext *ctx);
-BOOL ScrCmd_Unk00E7(ScriptContext *ctx);
-BOOL ScrCmd_Unk00E8(ScriptContext *ctx);
-BOOL ScrCmd_Unk00E9(ScriptContext *ctx);
-BOOL ScrCmd_Unk00EA(ScriptContext *ctx);
-BOOL ScrCmd_Unk00EB(ScriptContext *ctx);
-BOOL ScrCmd_Unk00EC(ScriptContext *ctx);
-BOOL ScrCmd_Unk00ED(ScriptContext *ctx);
-BOOL ScrCmd_Unk02BC(ScriptContext *ctx);
-BOOL ScrCmd_Unk00EE(ScriptContext *ctx);
-BOOL ScrCmd_Unk00EF(ScriptContext *ctx);
-BOOL ScrCmd_Unk00F0(ScriptContext *ctx);
-BOOL ScrCmd_Unk00F1(ScriptContext *ctx);
-
 BOOL ScrCmd_Unk00B6(ScriptContext *ctx) {
     FieldSystem *field = ctx->fieldSystem;
     void **trainer0;
@@ -85,22 +65,16 @@ BOOL ScrCmd_Unk00B7(ScriptContext *ctx) {
 
     *var2 = 0;
 
-    if (var1 == 0) {
-        trainer18 = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ENGAGED_TRAINER_0_FIELD_18);
-    } else {
-        trainer18 = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ENGAGED_TRAINER_1_FIELD_18);
-    }
+    trainer18 = var1 == 0 ? FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ENGAGED_TRAINER_0_FIELD_18) : FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ENGAGED_TRAINER_1_FIELD_18);
 
     if (*trainer18 == NULL) {
         *var2 = 1;
 
         return TRUE;
-    } else {
-        if (sub_0205CA64() == 1) {
-            sub_0205CA78(*trainer18);
-            *trainer18 = NULL;
-            *var2 = 1;
-        }
+    } else if (sub_0205CA64() == 1) {
+        sub_0205CA78(*trainer18);
+        *trainer18 = NULL;
+        *var2 = 1;
     }
 
     return TRUE;
@@ -118,15 +92,9 @@ BOOL ScrCmd_Unk00B8(ScriptContext *ctx) {
 BOOL ScrCmd_Unk00B9(ScriptContext *ctx) {
     u16 *trainer0Id = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ENGAGED_TRAINER_0_ID);
     u16 *trainer1Id = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ENGAGED_TRAINER_1_ID);
-    u16 id;
     u16 var1 = ScriptGetVar(ctx);
     u16 *trainerId = ScriptGetVarPointer(ctx);
-
-    if (var1 == 0) {
-        id = *trainer0Id;
-    } else {
-        id = *trainer1Id;
-    }
+    u16 id = var1 == 0 ? *trainer0Id : *trainer1Id;
 
     *trainerId = id;
 
@@ -185,16 +153,14 @@ BOOL ScrCmd_Unk00E7(ScriptContext *ctx) {
         var4 = 0;
         var5 = 2;
         var6 = 0;
+    } else if ((u16)sub_02039618(*scriptNumber) == FALSE) {
+        var4 = 3;
+        var5 = 5;
+        var6 = 6;
     } else {
-        if ((u16)sub_02039618(*scriptNumber) == FALSE) {
-            var4 = 3;
-            var5 = 5;
-            var6 = 6;
-        } else {
-            var4 = 7;
-            var5 = 9;
-            var6 = 10;
-        }
+        var4 = 7;
+        var5 = 9;
+        var6 = 10;
     }
 
     *var1 = var4;
@@ -218,16 +184,14 @@ BOOL ScrCmd_Unk00E8(ScriptContext *ctx) {
         var4 = 17;
         var5 = 0;
         var6 = 0;
+    } else if ((u16)sub_02039618(*scriptNumber) == FALSE) {
+        var4 = 18;
+        var5 = 0;
+        var6 = 6;
     } else {
-        if ((u16)sub_02039618(*scriptNumber) == FALSE) {
-            var4 = 18;
-            var5 = 0;
-            var6 = 6;
-        } else {
-            var4 = 19;
-            var5 = 0;
-            var6 = 10;
-        }
+        var4 = 19;
+        var5 = 0;
+        var6 = 10;
     }
 
     *var1 = var4;
