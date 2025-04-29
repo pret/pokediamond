@@ -7,78 +7,6 @@
 
 	.text
 
-	thumb_func_start sub_02055408
-sub_02055408: ; 0x02055408
-	ldr r0, [r0, #0x20]
-	bx lr
-
-	thumb_func_start sub_0205540C
-sub_0205540C: ; 0x0205540C
-	str r1, [r0, #0x20]
-	bx lr
-
-	thumb_func_start sub_02055410
-sub_02055410: ; 0x02055410
-	ldr r3, _02055418 ; =sub_020556F4
-	mov r1, #0x0
-	str r1, [r0, #0x20]
-	bx r3
-	.balign 4
-_02055418: .word sub_020556F4
-
-	thumb_func_start sub_0205541C
-sub_0205541C: ; 0x0205541C
-	ldr r3, [r0, #0x20]
-	add r1, r3, r1
-	str r1, [r0, #0x20]
-	cmp r1, r2
-	ble _02055428
-	str r2, [r0, #0x20]
-_02055428:
-	ldr r0, [r0, #0x20]
-	bx lr
-
-	thumb_func_start sub_0205542C
-sub_0205542C: ; 0x0205542C
-	str r1, [r0, #0x24]
-	bx lr
-
-	thumb_func_start sub_02055430
-sub_02055430: ; 0x02055430
-	ldr r0, [r0, #0x24]
-	bx lr
-
-	thumb_func_start sub_02055434
-sub_02055434: ; 0x02055434
-	str r1, [r0, #0x28]
-	bx lr
-
-	thumb_func_start sub_02055438
-sub_02055438: ; 0x02055438
-	ldr r0, [r0, #0x28]
-	bx lr
-
-	thumb_func_start sub_0205543C
-sub_0205543C: ; 0x0205543C
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r4, r2, #0x0
-	bl sub_0205542C
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	bl sub_02055434
-	pop {r3-r5, pc}
-
-	thumb_func_start sub_02055450
-sub_02055450: ; 0x02055450
-	str r1, [r0, #0x30]
-	bx lr
-
-	thumb_func_start sub_02055454
-sub_02055454: ; 0x02055454
-	ldr r0, [r0, #0x30]
-	bx lr
-
 	thumb_func_start PlayerAvatar_SetPlayerSaveData
 PlayerAvatar_SetPlayerSaveData: ; 0x02055458
 	str r1, [r0, #0x34]
@@ -505,8 +433,8 @@ _020556F0:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start sub_020556F4
-sub_020556F4: ; 0x020556F4
+	thumb_func_start PlayerAvatar_SetFlag2
+PlayerAvatar_SetFlag2: ; 0x020556F4
 	push {r3, lr}
 	cmp r1, #0x1
 	bne _02055702

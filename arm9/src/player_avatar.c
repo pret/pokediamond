@@ -13,20 +13,19 @@ static void PlayerAvatar_SetGender(PlayerAvatar *avatar, u32 gender);
 /*static*/ void PlayerAvatar_SetFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags);
 /*static*/ void PlayerAvatar_ClearFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags);
 /*static*/ PlayerAvatarFlags PlayerAvatar_GetFlagsBitsMask(PlayerAvatar *avatar, PlayerAvatarFlags flags);
+static void PlayerAvatar_SetUnk24(PlayerAvatar *avatar, s32 param1);
+static void PlayerAvatar_SetUnk28(PlayerAvatar *avatar, s32 param1);
 
 extern u32 PlayerAvatar_GetSpriteByStateAndGender(s32 state, u32 gender);
 extern u32 PlayerSaveData_GetState(PlayerSaveData *playerSaveData);
 extern void ov05_021EDBC8(PlayerAvatar *avatar);
 extern u32 ov06_0224ABAC(LocalMapObject *mapObject, u32 x, u32 z, u32 direction, u32 param4);
-extern void sub_02055450(PlayerAvatar *avatar, u32 param1);
 extern void PlayerAvatar_SetPlayerSaveData(PlayerAvatar *avatar, PlayerSaveData *saveData);
-extern void sub_02055410(PlayerAvatar *avatar);
-extern void sub_0205542C(PlayerAvatar *avatar, s32 param1);
-extern void sub_02055434(PlayerAvatar *avatar, s32 param1);
 extern void sub_02055460(PlayerAvatar *avatar, u32 param1);
 extern void sub_020556C8(PlayerAvatar *avatar, u32 param1);
 extern void sub_0205574C(PlayerAvatar *avatar, u32 param1);
 extern void sub_020554DC(PlayerAvatar *avatar, s32 state);
+extern void PlayerAvatar_SetFlag2(PlayerAvatar *avatar, BOOL flag);
 
 PlayerAvatar *PlayerAvatar_CreateWithParams(MapObjectManager *manager, u32 x, u32 z, u32 direction, s32 state, u32 gender, PlayerSaveData *playerSaveData) {
     PlayerAvatar *avatar = PlayerAvatar_Create();
@@ -58,7 +57,7 @@ void sub_02055108(PlayerAvatar *avatar) {
         u32 x = PlayerAvatar_GetXCoord(avatar);
         u32 z = PlayerAvatar_GetZCoord(avatar);
         u32 direction = PlayerAvatar_GetFacingDirection(avatar);
-        sub_02055450(avatar, ov06_0224ABAC(mapObject, x, z, direction, 1));
+        PlayerAvatar_SetUnk30(avatar, ov06_0224ABAC(mapObject, x, z, direction, 1));
     }
 }
 
@@ -85,9 +84,9 @@ static void PlayerAvatar_Setup(PlayerAvatar *avatar, s32 state, u32 gender, Play
     PlayerAvatar_SetState(avatar, state);
     PlayerAvatar_SetGender(avatar, gender);
     PlayerAvatar_SetTransitionFlags(avatar, 0);
-    sub_02055410(avatar);
-    sub_0205542C(avatar, -1);
-    sub_02055434(avatar, -1);
+    PlayerAvatar_ClearUnk20ClearFlag2(avatar);
+    PlayerAvatar_SetUnk24(avatar, -1);
+    PlayerAvatar_SetUnk28(avatar, -1);
     sub_02055460(avatar, 255);
     sub_020556C8(avatar, 1);
     sub_0205574C(avatar, 1);
@@ -242,4 +241,55 @@ u32 PlayerAvatar_GetGender(PlayerAvatar *avatar) {
 
 /*static*/ PlayerAvatarFlags PlayerAvatar_GetFlagsBitsMask(PlayerAvatar *avatar, PlayerAvatarFlags flags) {
     return (PlayerAvatarFlags)(avatar->flags & flags);
+}
+
+s32 PlayerAvatar_GetUnk20(PlayerAvatar *avatar) {
+    return avatar->unk20;
+}
+
+void PlayerAvatar_SetUnk20(PlayerAvatar *avatar, s32 param1) {
+    avatar->unk20 = param1;
+}
+
+void PlayerAvatar_ClearUnk20ClearFlag2(PlayerAvatar *avatar) {
+    avatar->unk20 = 0;
+    PlayerAvatar_SetFlag2(avatar, FALSE);
+}
+
+s32 PlayerAvatar_Unk20AddWithCeiling(PlayerAvatar *avatar, s32 param1, s32 param2) {
+    s32 var = avatar->unk20 + param1;
+    avatar->unk20 = var;
+    if (var > param2) {
+        avatar->unk20 = param2;
+    }
+    return avatar->unk20;
+}
+
+static void PlayerAvatar_SetUnk24(PlayerAvatar *avatar, s32 param1) {
+    avatar->unk24 = param1;
+}
+
+s32 PlayerAvatar_GetUnk24(PlayerAvatar *avatar) {
+    return avatar->unk24;
+}
+
+static void PlayerAvatar_SetUnk28(PlayerAvatar *avatar, s32 param1) {
+    avatar->unk28 = param1;
+}
+
+s32 PlayerAvatar_GetUnk28(PlayerAvatar *avatar) {
+    return avatar->unk28;
+}
+
+void PlayerAvatar_SetUnk24Unk28(PlayerAvatar *avatar, s32 unk24, s32 unk28) {
+    PlayerAvatar_SetUnk24(avatar, unk24);
+    PlayerAvatar_SetUnk28(avatar, unk28);
+}
+
+void PlayerAvatar_SetUnk30(PlayerAvatar *avatar, u32 param1) {
+    avatar->unk30 = param1;
+}
+
+u32 PlayerAvatar_GetUnk30(PlayerAvatar *avatar) {
+    return avatar->unk30;
 }
