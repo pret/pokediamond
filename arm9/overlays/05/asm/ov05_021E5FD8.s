@@ -53,16 +53,16 @@ ov05_021E6014: ; 0x021E6014
 	mov r1, #0
 	bl PlayerAvatar_SetState
 	add r0, r4, #0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	add r0, r4, #0
-	bl sub_02055454
+	bl PlayerAvatar_GetUnk30
 	cmp r0, #0
 	beq _021E6048
 	bl ov05_021E4DE4
 _021E6048:
 	add r0, r4, #0
 	mov r1, #0
-	bl sub_02055450
+	bl PlayerAvatar_SetUnk30
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -81,16 +81,16 @@ ov05_021E6054: ; 0x021E6054
 	mov r1, #1
 	bl PlayerAvatar_SetState
 	add r0, r4, #0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	add r0, r4, #0
-	bl sub_02055454
+	bl PlayerAvatar_GetUnk30
 	cmp r0, #0
 	beq _021E6088
 	bl ov05_021E4DE4
 _021E6088:
 	add r0, r4, #0
 	mov r1, #0
-	bl sub_02055450
+	bl PlayerAvatar_SetUnk30
 	ldr r0, _021E6098 ; =0x00000618
 	bl PlaySE
 	pop {r4, pc}
@@ -113,16 +113,16 @@ ov05_021E609C: ; 0x021E609C
 	mov r1, #2
 	bl PlayerAvatar_SetState
 	add r0, r5, #0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	add r0, r5, #0
-	bl sub_02055454
+	bl PlayerAvatar_GetUnk30
 	cmp r0, #0
 	beq _021E60D2
 	bl ov05_021E4DE4
 _021E60D2:
 	add r0, r5, #0
 	mov r1, #0
-	bl sub_02055450
+	bl PlayerAvatar_SetUnk30
 	add r0, r5, #0
 	bl PlayerAvatar_GetFacingDirection
 	add r4, r0, #0
@@ -139,7 +139,7 @@ _021E60D2:
 	bl ov06_0224ABAC
 	add r1, r0, #0
 	add r0, r5, #0
-	bl sub_02055450
+	bl PlayerAvatar_SetUnk30
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	.balign 4, 0
@@ -693,7 +693,7 @@ _021E6514:
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #0x20]
 	ldr r1, [r4, #0x28]
-	bl sub_02055450
+	bl PlayerAvatar_SetUnk30
 	ldr r0, [r4, #0x20]
 	mov r1, #2
 	bl PlayerAvatar_SetState
@@ -821,7 +821,7 @@ ov05_021E6638: ; 0x021E6638
 	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #0x10]
 	add r0, r7, #0
-	bl sub_02055454
+	bl PlayerAvatar_GetUnk30
 	str r0, [r4, #0x14]
 	cmp r0, #0
 	bne _021E6666
@@ -883,7 +883,7 @@ _021E66CC:
 	bl ov05_021E4DE4
 	ldr r0, [r4, #0xc]
 	mov r1, #0
-	bl sub_02055450
+	bl PlayerAvatar_SetUnk30
 	ldr r0, [r4, #0xc]
 	mov r1, #0
 	bl PlayerAvatar_SetState
@@ -1150,7 +1150,7 @@ ov05_021E6904: ; 0x021E6904
 	push {r4, lr}
 	add r4, r1, #0
 	add r0, r4, #0
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	cmp r0, #1
 	bge _021E6916
 	mov r0, #0

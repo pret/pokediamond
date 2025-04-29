@@ -30,9 +30,12 @@ struct PlayerAvatar {
     u32 unk14;
     s32 state;
     u32 gender;
-    u8 padding1[0xC];
+    s32 unk20;
+    s32 unk24;
+    s32 unk28;
     LocalMapObject *mapObject;
-    u8 padding2[0xC];
+    u32 unk30;
+    u8 padding2[0x8];
 }; // TODO: populate once we know more
 
 PlayerAvatar *PlayerAvatar_CreateWithParams(MapObjectManager *mapObjectManager, u32 x, u32 z, u32 direction, s32 state, u32 gender, PlayerSaveData *playerSaveData);
@@ -63,5 +66,14 @@ void PlayerAvatar_SetTransitionFlagsBits(PlayerAvatar *avatar, u32 flags);
 void PlayerAvatar_SetTransitionFlags(PlayerAvatar *avatar, u32 flags);
 u32 PlayerAvatar_GetTransitionFlags(PlayerAvatar *avatar);
 u32 PlayerAvatar_GetGender(PlayerAvatar *avatar);
+s32 PlayerAvatar_GetUnk20(PlayerAvatar *avatar);
+void PlayerAvatar_SetUnk20(PlayerAvatar *avatar, s32 param1);
+void PlayerAvatar_ClearUnk20ClearFlag2(PlayerAvatar *avatar);
+s32 PlayerAvatar_Unk20AddWithCeiling(PlayerAvatar *avatar, s32 param1, s32 param2);
+s32 PlayerAvatar_GetUnk24(PlayerAvatar *avatar);
+s32 PlayerAvatar_GetUnk28(PlayerAvatar *avatar);
+void PlayerAvatar_SetUnk24Unk28(PlayerAvatar *avatar, s32 unk24, s32 unk28);
+void PlayerAvatar_SetUnk30(PlayerAvatar *avatar, u32 param1);
+u32 PlayerAvatar_GetUnk30(PlayerAvatar *avatar);
 
 #endif // POKEDIAMOND_PLAYER_AVATAR_H
