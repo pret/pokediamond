@@ -16593,7 +16593,7 @@ _022419B8:
 _022419F0:
 	ldr r0, [r5, #0x38]
 	ldr r1, [sp, #4]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add r0, r6, #0
 	add r1, sp, #0
 	bl ov05_021E7EB0
@@ -16690,7 +16690,7 @@ _02241A88:
 _02241ABC:
 	ldr r0, [r5, #0x38]
 	ldr r1, [sp, #4]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add r0, r6, #0
 	add r1, sp, #0
 	bl ov05_021E7EB0
@@ -17245,7 +17245,7 @@ _02241F2A:
 _02241F2E:
 	ldr r0, [r6, #0x38]
 	ldr r1, [sp, #4]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add r0, r7, #0
 	add r1, sp, #0
 	bl ov05_021E7EB0

@@ -15773,7 +15773,7 @@ ov18_02240F34: ; 0x02240F34
 	ldr r0, [r1, #0x40]
 	mov r1, #0
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, _02240F80 ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa3
@@ -15837,7 +15837,7 @@ _02240FB4:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, _02241000 ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa3
@@ -16037,7 +16037,7 @@ _0224110C:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add sp, #0x14
 	pop {r4, r5, pc}
 _02241166:
@@ -16055,7 +16055,7 @@ _02241166:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add sp, #0x14
 	pop {r4, r5, pc}
 _0224118C:
@@ -16082,7 +16082,7 @@ _022411B0:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
@@ -16143,7 +16143,7 @@ _02241222:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, [r4, #0x10]
 	add r0, r0, #1
 	str r0, [r4, #0x10]

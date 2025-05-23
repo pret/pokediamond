@@ -19,13 +19,16 @@ typedef enum PlayerAvatarFlags {
 } PlayerAvatarFlags; // TODO: check if this is right
 
 typedef struct PlayerSaveData {
-    u8 padding[0x8];
-} PlayerSaveData;
+    u16 unk0;
+    u16 hasRunningShoes; // bool16
+    s32 state;
+} PlayerSaveData; // TODO: copied from heartgold, check if this is correct
 
 struct PlayerAvatar {
     PlayerAvatarFlags flags;
     u32 transitionFlags;
-    u8 padding0[0x8];
+    u32 unk8;
+    u8 padding0[0x4];
     u32 unk10;
     u32 unk14;
     s32 state;
@@ -35,7 +38,8 @@ struct PlayerAvatar {
     s32 unk28;
     LocalMapObject *mapObject;
     u32 unk30;
-    u8 padding2[0x8];
+    PlayerSaveData *playerSaveData;
+    u8 padding2[0x4];
 }; // TODO: populate once we know more
 
 PlayerAvatar *PlayerAvatar_CreateWithParams(MapObjectManager *mapObjectManager, u32 x, u32 z, u32 direction, s32 state, u32 gender, PlayerSaveData *playerSaveData);
@@ -75,5 +79,17 @@ s32 PlayerAvatar_GetUnk28(PlayerAvatar *avatar);
 void PlayerAvatar_SetUnk24Unk28(PlayerAvatar *avatar, s32 unk24, s32 unk28);
 void PlayerAvatar_SetUnk30(PlayerAvatar *avatar, u32 param1);
 u32 PlayerAvatar_GetUnk30(PlayerAvatar *avatar);
+PlayerSaveData *PlayerAvatar_GetPlayerSaveData(PlayerAvatar *avatar);
+void PlayerAvatar_SetUnk8(PlayerAvatar *avatar, u32 param1);
+u32 PlayerAvatar_GetUnk8(PlayerAvatar *avatar);
+void PlayerSaveData_Init(PlayerSaveData *playerSaveData);
+BOOL PlayerSaveData_CheckRunningShoes(PlayerSaveData *playerSaveData);
+void PlayerSaveData_SetRunningShoesFlag(PlayerSaveData *playerSaveData, BOOL flag);
+void PlayerAvatar_SetPlayerSaveDataUnk0(PlayerAvatar *playerAvatar, u16 unk0);
+u16 PlayerAvatar_GetPlayerSaveDataUnk0(PlayerAvatar *playerAvatar);
+void sub_020554EC(PlayerAvatar *avatar, VecFx32 *position, u32 direction);
+void sub_02055514(PlayerAvatar *avatar, u32 x, u32 z, u32 direction);
+void PlayerAvatar_SetMapObjectYPosition(PlayerAvatar *avatar, fx32 yVal);
+void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag);
 
 #endif // POKEDIAMOND_PLAYER_AVATAR_H
