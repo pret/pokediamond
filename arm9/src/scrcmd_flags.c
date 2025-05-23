@@ -4,10 +4,8 @@
 #include "save_vars_flags.h"
 #include "scrcmd.h"
 
-extern void *sub_02034E20(void *);
-extern void *Save_LocalFieldData_Get(void *);
-extern BOOL sub_02055474(void *);
-extern void sub_02055488(void *, u32);
+extern PlayerSaveData *sub_02034E20(LocalFieldData *localFieldData);
+extern LocalFieldData *Save_LocalFieldData_Get(SaveData *save);
 extern void sub_0205ECD4(struct SaveVarsFlags *state);
 extern BOOL sub_0205ECE0(struct SaveVarsFlags *state);
 extern void sub_0205ECFC(struct SaveVarsFlags *state);
@@ -59,20 +57,20 @@ BOOL ScrCmd_GiveSinnohDex(struct ScriptContext *ctx) // 0158
 BOOL ScrCmd_HasRunningShoes(struct ScriptContext *ctx) // 0159
 {
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
-    void *unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    void *unk = sub_02034E20(unk_sav_ptr);
+    LocalFieldData *localFieldData = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
+    PlayerSaveData *playerSaveData = sub_02034E20(localFieldData);
 
-    *ret_ptr = (u16)sub_02055474(unk);
+    *ret_ptr = (u16)PlayerSaveData_CheckRunningShoes(playerSaveData);
 
     return FALSE;
 }
 
 BOOL ScrCmd_GiveRunningShoes(struct ScriptContext *ctx) // 015A
 {
-    void *unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    void *unk = sub_02034E20(unk_sav_ptr);
+    LocalFieldData *localFieldData = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
+    PlayerSaveData *playerSaveData = sub_02034E20(localFieldData);
 
-    sub_02055488(unk, 1);
+    PlayerSaveData_SetRunningShoesFlag(playerSaveData, TRUE);
 
     return FALSE;
 }

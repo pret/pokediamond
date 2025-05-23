@@ -13403,7 +13403,7 @@ ov18_0223FD8C: ; 0x0223FD8C
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	bl sub_02031190
 	ldr r1, _0223FDE0 ; =0x022513A0
 	lsl r0, r0, #3
@@ -13445,13 +13445,13 @@ ov18_0223FDEC: ; 0x0223FDEC
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [sp]
 	ldr r0, _0223FE64 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0
 	add r0, r4, #0
 	bl sub_0204F610
@@ -13866,13 +13866,13 @@ ov18_022400A0: ; 0x022400A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, _022400F8 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r3, r0, #0
 	ldr r0, _022400F8 ; =0x022513A0
 	add r1, r4, #0
@@ -15773,7 +15773,7 @@ ov18_02240F34: ; 0x02240F34
 	ldr r0, [r1, #0x40]
 	mov r1, #0
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, _02240F80 ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa3
@@ -15837,7 +15837,7 @@ _02240FB4:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, _02241000 ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa3
@@ -16012,13 +16012,13 @@ _0224110C:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r5, r0, #0
 	ldr r0, _02241278 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -16037,7 +16037,7 @@ _0224110C:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add sp, #0x14
 	pop {r4, r5, pc}
 _02241166:
@@ -16055,7 +16055,7 @@ _02241166:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add sp, #0x14
 	pop {r4, r5, pc}
 _0224118C:
@@ -16082,7 +16082,7 @@ _022411B0:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
@@ -16143,7 +16143,7 @@ _02241222:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, [r4, #0x10]
 	add r0, r0, #1
 	str r0, [r4, #0x10]
@@ -19203,13 +19203,13 @@ _02242A20:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r5, r0, #0
 	ldr r0, _02242D68 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0
 	mov r0, #0x20
 	str r0, [sp]
@@ -22803,10 +22803,10 @@ _02244640:
 	cmp r0, #0
 	bne _0224467E
 	ldr r0, [sp]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [r5]
 	ldr r0, [sp]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	str r0, [r5, #4]
 	b _022446AA
 _0224467E:
@@ -26574,13 +26574,13 @@ ov18_02246338: ; 0x02246338
 	ldr r0, [r0, #0x38]
 	cmp r0, #0
 	beq _0224640E
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, _02246414 ; =0x022513EC
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov18_0223E2F4
@@ -35021,11 +35021,11 @@ ov18_0224A6B4: ; 0x0224A6B4
 	bl ov18_022498EC
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r1, r0, #0
 	add r0, r4, #0
 	bl ov18_0223E2F4
@@ -37188,14 +37188,14 @@ ov18_0224B804: ; 0x0224B804
 	add r4, r1, #0
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	lsl r1, r0, #0x10
 	mov r0, #0xf
 	lsl r0, r0, #0x10
 	sub r0, r0, r1
 	str r0, [sp]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	lsl r1, r0, #0x10
 	mov r0, #0x11
 	lsl r0, r0, #0x10
@@ -37268,7 +37268,7 @@ _0224B8A4:
 	beq _0224B970
 	ldr r0, [r4, #0x38]
 	mov r1, #0
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #1
 	add r1, r4, #0
 	bl ov18_0224B804
@@ -37318,7 +37318,7 @@ _0224B912:
 	beq _0224B970
 	ldr r0, [r4, #0x38]
 	mov r1, #1
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #0
 	add r1, r4, #0
 	bl ov18_0224B804

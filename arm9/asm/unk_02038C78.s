@@ -2341,11 +2341,11 @@ _02039786:
 _020397A0:
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	sub r0, r0, #0x7
