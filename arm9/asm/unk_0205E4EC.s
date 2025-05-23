@@ -217,7 +217,7 @@ sub_0205E65C: ; 0x0205E65C
 	push {r3, lr}
 	bl MapObject_GetFieldSystem
 	bl sub_02055698
-	bl sub_02055464
+	bl PlayerAvatar_GetUnk8
 	add r1, r0, #0x0
 	sub r1, #0x58
 	cmp r1, #0x3

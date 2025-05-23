@@ -290,7 +290,6 @@ extern void sub_02061574(FieldSystem *fieldSystem);
 extern u16 SpearPillarSequence(FieldSystem *fieldSystem, u8 operation);
 extern void ov06_0224525C(FieldSystem *fieldSystem, u16 var, u16 type);
 extern u16 ov06_02245340(FieldSystem *fieldSystem, u16 position);
-extern void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag);
 extern u16 Save_VarsFlags_GetSpiritombTalkCounter(SaveVarsFlags *varsFlags);
 extern void sub_0205F5A4(SaveVarsFlags *varsFlags, u16 param1);
 extern u16 sub_0205F594(SaveVarsFlags *varsFlags);

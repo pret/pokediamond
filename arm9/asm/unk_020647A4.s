@@ -503,7 +503,7 @@ _02064B00:
 _02064B1C:
 	ldr r0, [r5, #0x38]
 	ldr r1, [sp, #0x14]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x10
 	bl ov05_021E7EB0
@@ -620,7 +620,7 @@ _02064BEC:
 _02064C12:
 	ldr r0, [r5, #0x38]
 	ldr r1, [sp, #0x14]
-	bl sub_02055540
+	bl PlayerAvatar_SetMapObjectYPosition
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x10
 	bl ov05_021E7EB0

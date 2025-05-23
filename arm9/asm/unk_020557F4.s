@@ -806,7 +806,7 @@ _02055E62:
 	mov r1, #0x1
 	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02055E9C
 	add r0, r5, #0x0
@@ -862,7 +862,7 @@ sub_02055EF8: ; 0x02055EF8
 	add r4, r0, #0x0
 	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02055F22
 	ldr r0, _02055F40 ; =0x00000656
@@ -897,7 +897,7 @@ sub_02055F44: ; 0x02055F44
 	add r4, r0, #0x0
 	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02055F6E
 	ldr r0, _02055F8C ; =0x00000656
@@ -1363,8 +1363,8 @@ _020562DC:
 _020562E6:
 	add r0, r5, #0x0
 	mov r4, #0xc
-	bl sub_0205545C
-	bl sub_02055474
+	bl PlayerAvatar_GetPlayerSaveData
+	bl PlayerSaveData_CheckRunningShoes
 	cmp r0, #0x1
 	bne _02056306
 	add r1, sp, #0x8
@@ -1458,7 +1458,7 @@ sub_020563A8: ; 0x020563A8
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	add r0, sp, #0x10
 	bne _020563D6
@@ -1500,14 +1500,14 @@ sub_020563F0: ; 0x020563F0
 	beq _0205642C
 	add r0, r5, #0x0
 	mov r4, #0x1
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02056412
 	mov r4, #0x0
 _02056412:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_020554AC
+	bl PlayerAvatar_SetPlayerSaveDataUnk0
 	cmp r4, #0x0
 	bne _02056426
 	ldr r0, _02056430 ; =0x0000061C
@@ -2422,7 +2422,7 @@ sub_02056B5C: ; 0x02056B5C
 	add r4, r2, #0x0
 	add r5, r1, #0x0
 	add r1, r4, #0x0
-	bl sub_02055460
+	bl PlayerAvatar_SetUnk8
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_0205ADDC
@@ -3173,7 +3173,7 @@ _0205711E:
 	thumb_func_start sub_02057124
 sub_02057124: ; 0x02057124
 	push {r3, lr}
-	bl sub_02055464
+	bl PlayerAvatar_GetUnk8
 	sub r0, #0x58
 	cmp r0, #0x3
 	bhi _02057148
@@ -3216,7 +3216,7 @@ _02057162:
 	b _0205718E
 _02057172:
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_020568A8
