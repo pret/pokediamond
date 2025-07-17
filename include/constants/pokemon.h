@@ -269,7 +269,7 @@
 #define MON_DATA_POKERUS                    153
 #define MON_DATA_POKEBALL                   154
 #define MON_DATA_MET_LEVEL                  155
-#define MON_DATA_MET_GENDER                 156
+#define MON_DATA_OT_GENDER                  156
 #define MON_DATA_ENCOUNTER_TYPE             157
 #define MON_DATA_RESERVED_158               158 // HGSS
 #define MON_DATA_STATUS                     159
