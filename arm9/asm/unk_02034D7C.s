@@ -38,7 +38,7 @@ sub_02034D98: ; 0x02034D98
 	bl sub_0204ADE0
 	add r0, r4, #0x0
 	add r0, #0x8c
-	bl sub_02055468
+	bl PlayerSaveData_Init
 	bl GetMomSpawnId
 	add r4, #0x68
 	strh r0, [r4, #0x0]
