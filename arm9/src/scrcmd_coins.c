@@ -38,12 +38,12 @@ BOOL ScrCmd_UpdateCoinBox(struct ScriptContext *ctx) // 0077
     return FALSE;
 }
 
-BOOL ScrCmd_GetCoins(struct ScriptContext *ctx) // 0078 - todo: CheckCoins instead?
+BOOL ScrCmd_GetCoins(struct ScriptContext *ctx) // 0078 - todo: Coins_GetValue instead?
 {
     u16 *coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveData);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
-    *ret_ptr = CheckCoins(coins_ptr);
+    *ret_ptr = Coins_GetValue(coins_ptr);
 
     return FALSE;
 }
@@ -53,17 +53,17 @@ BOOL ScrCmd_GiveCoins(struct ScriptContext *ctx) // 0079
     u16 *coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveData);
     u16 amount = ScriptGetVar(ctx);
 
-    GiveCoins(coins_ptr, amount);
+    Coins_Add(coins_ptr, amount);
 
     return FALSE;
 }
 
-BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext *ctx) // 0080 - todo: TakeCoins instead?
+BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext *ctx) // 0080 - todo: Coins_Subtract instead?
 {
     u16 *coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveData);
     u16 amount = ScriptGetVar(ctx);
 
-    TakeCoins(coins_ptr, amount);
+    Coins_Subtract(coins_ptr, amount);
 
     return FALSE;
 }
@@ -73,7 +73,7 @@ BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext *ctx) // 02A8 - todo: TakeCoin
     u16 *coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveData);
     u16 *amount = ScriptGetVarPointer(ctx);
 
-    TakeCoins(coins_ptr, *amount);
+    Coins_Subtract(coins_ptr, *amount);
 
     return FALSE;
 }
@@ -88,7 +88,7 @@ BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext *ctx) // 0274 - todo: C
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u32 amount = ScriptReadWord(ctx);
-    u16 coins = CheckCoins(coins_ptr);
+    u16 coins = Coins_GetValue(coins_ptr);
 
     if (coins < amount) {
         *ret_ptr = 0;
@@ -109,7 +109,7 @@ BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext *ctx) // 02A9 - todo: Can
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 amount = *ScriptGetVarPointer(ctx);
-    u16 coins = CheckCoins(coins_ptr);
+    u16 coins = Coins_GetValue(coins_ptr);
 
     if (coins < amount) {
         *ret_ptr = 0;
@@ -126,7 +126,7 @@ BOOL ScrCmd_CanGiveCoins(struct ScriptContext *ctx) // 0276
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
     u16 amount = ScriptGetVar(ctx);
 
-    *ret_ptr = (u16)CanGiveCoins(coins_ptr, amount);
+    *ret_ptr = (u16)Coins_CanAdd(coins_ptr, amount);
 
     return FALSE;
 }
