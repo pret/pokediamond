@@ -3940,7 +3940,7 @@
 .extern sub_02055514
 .extern PlayerAvatar_SetMapObjectYPosition
 .extern PlayerAvatar_ToggleAutomaticHeightUpdating
-.extern sub_0205557C
+.extern PlayerAvatar_ToggleAutomaticHeightUpdatingImmediate
 .extern PlayerAvatar_GetSpriteByStateAndGender
 .extern sub_02055648
 .extern sub_02055698

@@ -517,7 +517,7 @@ _02064B2E:
 	bl ov05_021F4594
 	ldr r0, [r5, #0x38]
 	mov r1, #0x1
-	bl sub_0205557C
+	bl PlayerAvatar_ToggleAutomaticHeightUpdatingImmediate
 	ldr r0, _02064B6C ; =0x0000061A
 	bl PlaySE
 	ldr r0, [r4, #0x0]
@@ -634,7 +634,7 @@ _02064C24:
 	bl ov05_021F4594
 	ldr r0, [r5, #0x38]
 	mov r1, #0x1
-	bl sub_0205557C
+	bl PlayerAvatar_ToggleAutomaticHeightUpdatingImmediate
 	ldr r0, _02064C60 ; =0x0000061A
 	bl PlaySE
 	ldr r0, [r4, #0x0]

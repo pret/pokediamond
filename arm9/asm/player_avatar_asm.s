@@ -7,24 +7,6 @@
 
 	.text
 
-	thumb_func_start sub_0205557C
-sub_0205557C: ; 0x0205557C
-	push {r3-r5, lr}
-	add r5, r1, #0x0
-	bl PlayerAvatar_GetMapObject
-	add r4, r0, #0x0
-	cmp r5, #0x1
-	bne _02055598
-	mov r1, #0x0
-	bl MapObject_SetIgnoreHeights
-	add r0, r4, #0x0
-	bl sub_02059D1C
-	pop {r3-r5, pc}
-_02055598:
-	mov r1, #0x1
-	bl MapObject_SetIgnoreHeights
-	pop {r3-r5, pc}
-
 	thumb_func_start PlayerAvatar_GetSpriteByStateAndGender
 PlayerAvatar_GetSpriteByStateAndGender: ; 0x020555A0
 	push {r3, lr}

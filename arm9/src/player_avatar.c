@@ -2,6 +2,8 @@
 
 #include "global.h"
 
+#include "constants/sprites.h"
+
 #include "map_object.h"
 
 static PlayerAvatar *PlayerAvatar_Create(void);
@@ -28,6 +30,7 @@ extern u32 ov06_0224ABAC(LocalMapObject *mapObject, u32 x, u32 z, u32 direction,
 extern void sub_020556C8(PlayerAvatar *avatar, u32 param1);
 extern void sub_0205574C(PlayerAvatar *avatar, u32 param1);
 extern void PlayerAvatar_SetFlag2(PlayerAvatar *avatar, BOOL flag);
+extern u32 sub_02059D1C(LocalMapObject *object);
 
 PlayerAvatar *PlayerAvatar_CreateWithParams(MapObjectManager *manager, u32 x, u32 z, u32 direction, s32 state, u32 gender, PlayerSaveData *playerSaveData) {
     PlayerAvatar *avatar = PlayerAvatar_Create();
@@ -203,7 +206,7 @@ static LocalMapObject *PlayerAvatar_GetMapObjectConst(PlayerAvatar *avatar) {
 }
 
 void PlayerAvatar_SetState(PlayerAvatar *avatar, s32 state) {
-    GF_ASSERT(state < PLAYER_STATE_UNK_SP);
+    GF_ASSERT(state < PLAYER_STATE_USE_HM);
     avatar->state = state;
     PlayerAvatar_SetPlayerSaveDataState(avatar, state);
 }
@@ -397,6 +400,16 @@ void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag) {
     LocalMapObject *mapObject = PlayerAvatar_GetMapObject(avatar);
     if (flag == TRUE) {
         MapObject_SetIgnoreHeights(mapObject, FALSE);
+    } else {
+        MapObject_SetIgnoreHeights(mapObject, TRUE);
+    }
+}
+
+void PlayerAvatar_ToggleAutomaticHeightUpdatingImmediate(PlayerAvatar *avatar, BOOL flag) {
+    LocalMapObject *mapObject = PlayerAvatar_GetMapObject(avatar);
+    if (flag == TRUE) {
+        MapObject_SetIgnoreHeights(mapObject, FALSE);
+        sub_02059D1C(mapObject);
     } else {
         MapObject_SetIgnoreHeights(mapObject, TRUE);
     }
