@@ -24,7 +24,6 @@ static s32 PlayerSaveData_GetState(PlayerSaveData *playerSaveData);
 static void PlayerSaveData_SetState(PlayerSaveData *playerSaveData, s32 state);
 static void PlayerAvatar_SetPlayerSaveDataState(PlayerAvatar *avatar, s32 state);
 
-extern u32 PlayerAvatar_GetSpriteByStateAndGender(s32 state, u32 gender);
 extern void ov05_021EDBC8(PlayerAvatar *avatar);
 extern u32 ov06_0224ABAC(LocalMapObject *mapObject, u32 x, u32 z, u32 direction, u32 param4);
 extern void sub_020556C8(PlayerAvatar *avatar, u32 param1);
@@ -413,4 +412,56 @@ void PlayerAvatar_ToggleAutomaticHeightUpdatingImmediate(PlayerAvatar *avatar, B
     } else {
         MapObject_SetIgnoreHeights(mapObject, TRUE);
     }
+}
+
+u32 PlayerAvatar_GetSpriteByStateAndGender(s32 state, u32 gender) {
+    if (gender == PLAYER_GENDER_MALE) {
+        switch (state) {
+        case PLAYER_STATE_WALKING:
+            return SPRITE_HERO;
+        case PLAYER_STATE_CYCLING:
+            return SPRITE_CYCLEHERO;
+        case PLAYER_STATE_SURFING:
+            return SPRITE_SWIMHERO;
+        case PLAYER_STATE_USE_HM:
+            return SPRITE_SPHERO;
+        case PLAYER_STATE_WATERING:
+            return SPRITE_WATERHERO;
+        case PLAYER_STATE_CONTEST:
+            return SPRITE_CONTESTHERO;
+        case PLAYER_STATE_FISHING:
+            return SPRITE_FISHINGHERO;
+        case PLAYER_STATE_POKETCH:
+            return SPRITE_POKEHERO;
+        case PLAYER_STATE_SAVING:
+            return SPRITE_SAVEHERO;
+        case PLAYER_STATE_HEAL:
+            return SPRITE_BANZAIHERO;
+        }
+    } else {
+        switch (state) {
+        case PLAYER_STATE_WALKING:
+            return SPRITE_HEROINE;
+        case PLAYER_STATE_CYCLING:
+            return SPRITE_CYCLEHEROINE;
+        case PLAYER_STATE_SURFING:
+            return SPRITE_SWIMHEROINE;
+        case PLAYER_STATE_USE_HM:
+            return SPRITE_SPHEROINE;
+        case PLAYER_STATE_WATERING:
+            return SPRITE_WATERHEROINE;
+        case PLAYER_STATE_CONTEST:
+            return SPRITE_CONT_HEROINE;
+        case PLAYER_STATE_FISHING:
+            return SPRITE_FISH_HEROINE;
+        case PLAYER_STATE_POKETCH:
+            return SPRITE_POKEHEROINE;
+        case PLAYER_STATE_SAVING:
+            return SPRITE_SAVEHEROINE;
+        case PLAYER_STATE_HEAL:
+            return SPRITE_BANZAIHEROINE;
+        }
+    }
+    GF_ASSERT(FALSE);
+    return 0;
 }

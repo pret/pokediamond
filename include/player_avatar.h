@@ -92,5 +92,6 @@ void sub_02055514(PlayerAvatar *avatar, u32 x, u32 z, u32 direction);
 void PlayerAvatar_SetMapObjectYPosition(PlayerAvatar *avatar, fx32 yVal);
 void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag);
 void PlayerAvatar_ToggleAutomaticHeightUpdatingImmediate(PlayerAvatar *avatar, BOOL flag);
+u32 PlayerAvatar_GetSpriteByStateAndGender(s32 state, u32 gender);
 
 #endif // POKEDIAMOND_PLAYER_AVATAR_H
