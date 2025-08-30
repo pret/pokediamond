@@ -1695,7 +1695,7 @@ sub_0205AB20: ; 0x0205AB20
 _0205AB36:
 	add r0, r5, #0x0
 	bl MapObject_GetFieldSystem
-	bl sub_02055698
+	bl FieldSystem_GetPlayerAvatar
 	add r6, r0, #0x0
 	bl sub_02057124
 	cmp r0, #0x0
@@ -1824,7 +1824,7 @@ _0205AC22:
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	bl MapObject_GetFieldSystem
-	bl sub_02055698
+	bl FieldSystem_GetPlayerAvatar
 	str r0, [sp, #0xc]
 	bl PlayerAvatar_GetXCoord
 	str r0, [sp, #0x10]

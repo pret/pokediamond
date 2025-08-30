@@ -448,7 +448,7 @@ _0205D184:
 	pop {r3-r5, pc}
 _0205D194:
 	ldr r0, [r5, #0x14]
-	bl sub_02055738
+	bl PlayerAvatar_CheckBikeStateLocked
 	cmp r0, #0x1
 	bne _0205D1A4
 	mov r0, #0x0
@@ -651,7 +651,7 @@ sub_0205D328: ; 0x0205D328
 	pop {r3-r5, pc}
 _0205D336:
 	ldr r0, [r4, #0x14]
-	bl sub_02055738
+	bl PlayerAvatar_CheckBikeStateLocked
 	cmp r0, #0x1
 	bne _0205D344
 	mov r0, #0x1

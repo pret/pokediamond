@@ -93,5 +93,24 @@ void PlayerAvatar_SetMapObjectYPosition(PlayerAvatar *avatar, fx32 yVal);
 void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag);
 void PlayerAvatar_ToggleAutomaticHeightUpdatingImmediate(PlayerAvatar *avatar, BOOL flag);
 u32 PlayerAvatar_GetSpriteByStateAndGender(s32 state, u32 gender);
+u32 PlayerAvatar_GetTransitionBits(s32 state);
+PlayerAvatar *FieldSystem_GetPlayerAvatar(FieldSystem *fieldSystem);
+void PlayerAvatar_SetFlag0(PlayerAvatar *avatar, BOOL set);
+BOOL PlayerAvatar_CheckFlag0(PlayerAvatar *avatar);
+void PlayerAvatar_SetFlag1(PlayerAvatar *avatar, BOOL set);
+BOOL PlayerAvatar_CheckFlag1(PlayerAvatar *avatar);
+void PlayerAvatar_SetFlag2(PlayerAvatar *avatar, BOOL set);
+BOOL PlayerAvatar_CheckFlag2(PlayerAvatar *avatar);
+void PlayerAvatar_SetBikeStateLock(PlayerAvatar *avatar, BOOL lock);
+BOOL PlayerAvatar_CheckBikeStateLocked(PlayerAvatar *avatar);
+void PlayerAvatar_SetFlag4(PlayerAvatar *avatar, BOOL set);
+BOOL PlayerAvatar_CheckFlag4(PlayerAvatar *avatar);
+void PlayerAvatar_SetFlag5(PlayerAvatar *avatar, BOOL set);
+BOOL PlayerAvatar_CheckFlag5(PlayerAvatar *avatar);
+void PlayerAvatar_SetFlag6(PlayerAvatar *avatar);
+void PlayerAvatar_ClearFlag6(PlayerAvatar *avatar);
+BOOL PlayerAvatar_CheckFlag6(PlayerAvatar *avatar);
+void PlayerAvatar_SetFlag7(PlayerAvatar *avatar, BOOL set);
+BOOL PlayerAvatar_CheckFlag7(PlayerAvatar *avatar);
 
 #endif // POKEDIAMOND_PLAYER_AVATAR_H

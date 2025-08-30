@@ -12,9 +12,9 @@ static void PlayerAvatar_CreateMapObjectWithParams(PlayerAvatar *avatar, MapObje
 static LocalMapObject *PlayerAvatar_GetActiveMapObjectWithMovement1(MapObjectManager *manager);
 static LocalMapObject *PlayerAvatar_GetMapObjectConst(PlayerAvatar *avatar);
 static void PlayerAvatar_SetGender(PlayerAvatar *avatar, u32 gender);
-/*static*/ void PlayerAvatar_SetFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags);
-/*static*/ void PlayerAvatar_ClearFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags);
-/*static*/ PlayerAvatarFlags PlayerAvatar_GetFlagsBitsMask(PlayerAvatar *avatar, PlayerAvatarFlags flags);
+static void PlayerAvatar_SetFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags);
+static void PlayerAvatar_ClearFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags);
+static PlayerAvatarFlags PlayerAvatar_GetFlagsBitsMask(PlayerAvatar *avatar, PlayerAvatarFlags flags);
 static void PlayerAvatar_SetUnk24(PlayerAvatar *avatar, s32 param1);
 static void PlayerAvatar_SetUnk28(PlayerAvatar *avatar, s32 param1);
 static void PlayerAvatar_SetPlayerSaveData(PlayerAvatar *avatar, PlayerSaveData *playerSaveData);
@@ -26,9 +26,6 @@ static void PlayerAvatar_SetPlayerSaveDataState(PlayerAvatar *avatar, s32 state)
 
 extern void ov05_021EDBC8(PlayerAvatar *avatar);
 extern u32 ov06_0224ABAC(LocalMapObject *mapObject, u32 x, u32 z, u32 direction, u32 param4);
-extern void sub_020556C8(PlayerAvatar *avatar, u32 param1);
-extern void sub_0205574C(PlayerAvatar *avatar, u32 param1);
-extern void PlayerAvatar_SetFlag2(PlayerAvatar *avatar, BOOL flag);
 extern u32 sub_02059D1C(LocalMapObject *object);
 
 PlayerAvatar *PlayerAvatar_CreateWithParams(MapObjectManager *manager, u32 x, u32 z, u32 direction, s32 state, u32 gender, PlayerSaveData *playerSaveData) {
@@ -92,8 +89,8 @@ static void PlayerAvatar_Setup(PlayerAvatar *avatar, s32 state, u32 gender, Play
     PlayerAvatar_SetUnk24(avatar, -1);
     PlayerAvatar_SetUnk28(avatar, -1);
     PlayerAvatar_SetUnk8(avatar, 255);
-    sub_020556C8(avatar, 1);
-    sub_0205574C(avatar, 1);
+    PlayerAvatar_SetFlag1(avatar, TRUE);
+    PlayerAvatar_SetFlag4(avatar, TRUE);
 }
 
 static void PlayerAvatar_CreateMapObjectWithParams(PlayerAvatar *avatar, MapObjectManager *manager, u32 sprite, u32 direction, u32 x, u32 z) {
@@ -235,15 +232,15 @@ u32 PlayerAvatar_GetGender(PlayerAvatar *avatar) {
     return avatar->gender;
 }
 
-/*static*/ void PlayerAvatar_SetFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags) {
+static void PlayerAvatar_SetFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags) {
     avatar->flags |= flags;
 }
 
-/*static*/ void PlayerAvatar_ClearFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags) {
+static void PlayerAvatar_ClearFlagsBits(PlayerAvatar *avatar, PlayerAvatarFlags flags) {
     avatar->flags &= ~flags;
 }
 
-/*static*/ PlayerAvatarFlags PlayerAvatar_GetFlagsBitsMask(PlayerAvatar *avatar, PlayerAvatarFlags flags) {
+static PlayerAvatarFlags PlayerAvatar_GetFlagsBitsMask(PlayerAvatar *avatar, PlayerAvatarFlags flags) {
     return (PlayerAvatarFlags)(avatar->flags & flags);
 }
 
@@ -464,4 +461,150 @@ u32 PlayerAvatar_GetSpriteByStateAndGender(s32 state, u32 gender) {
     }
     GF_ASSERT(FALSE);
     return 0;
+}
+
+u32 PlayerAvatar_GetTransitionBits(s32 state) {
+    switch (state) {
+    case PLAYER_STATE_WALKING:
+        return PLAYER_TRANSITION_WALKING;
+    case PLAYER_STATE_CYCLING:
+        return PLAYER_TRANSITION_CYCLING;
+    case PLAYER_STATE_SURFING:
+        return PLAYER_TRANSITION_SURFING;
+    case PLAYER_STATE_WATERING:
+        return PLAYER_TRANSITION_WATERING;
+    case PLAYER_STATE_FISHING:
+        return PLAYER_TRANSITION_FISHING;
+    case PLAYER_STATE_POKETCH:
+        return PLAYER_TRANSITION_POKETCH;
+    case PLAYER_STATE_SAVING:
+        return PLAYER_TRANSITION_SAVING;
+    case PLAYER_STATE_HEAL:
+        return PLAYER_TRANSITION_HEAL;
+    case PLAYER_STATE_USE_HM:
+    default:
+        GF_ASSERT(FALSE);
+        return PLAYER_TRANSITION_WALKING;
+    }
+}
+
+PlayerAvatar *FieldSystem_GetPlayerAvatar(FieldSystem *fieldSystem) {
+    return fieldSystem->playerAvatar;
+}
+
+void PlayerAvatar_SetFlag0(PlayerAvatar *avatar, BOOL set) {
+    if (set == TRUE) {
+        PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_UNK0);
+    } else {
+        PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_UNK0);
+    }
+}
+
+BOOL PlayerAvatar_CheckFlag0(PlayerAvatar *avatar) {
+    if (PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_UNK0)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void PlayerAvatar_SetFlag1(PlayerAvatar *avatar, BOOL set) {
+    if (set == TRUE) {
+        PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_UNK1);
+    } else {
+        PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_UNK1);
+    }
+}
+
+BOOL PlayerAvatar_CheckFlag1(PlayerAvatar *avatar) {
+    if (PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_UNK1)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void PlayerAvatar_SetFlag2(PlayerAvatar *avatar, BOOL set) {
+    if (set == TRUE) {
+        PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_UNK2);
+    } else {
+        PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_UNK2);
+    }
+}
+
+BOOL PlayerAvatar_CheckFlag2(PlayerAvatar *avatar) {
+    if (PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_UNK2)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void PlayerAvatar_SetBikeStateLock(PlayerAvatar *avatar, BOOL lock) {
+    if (lock == TRUE) {
+        PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_LOCK_BIKE_STATE);
+    } else {
+        PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_LOCK_BIKE_STATE);
+    }
+}
+
+BOOL PlayerAvatar_CheckBikeStateLocked(PlayerAvatar *avatar) {
+    if (PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_LOCK_BIKE_STATE)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void PlayerAvatar_SetFlag4(PlayerAvatar *avatar, BOOL set) {
+    if (set == TRUE) {
+        PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_UNK4);
+    } else {
+        PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_UNK4);
+    }
+}
+
+BOOL PlayerAvatar_CheckFlag4(PlayerAvatar *avatar) {
+    if (PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_UNK4)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void PlayerAvatar_SetFlag5(PlayerAvatar *avatar, BOOL set) {
+    if (set == TRUE) {
+        PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_UNK5);
+    } else {
+        PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_UNK5);
+    }
+}
+
+BOOL PlayerAvatar_CheckFlag5(PlayerAvatar *avatar) {
+    if (PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_UNK5)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void PlayerAvatar_SetFlag6(PlayerAvatar *avatar) {
+    PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_UNK6);
+}
+
+void PlayerAvatar_ClearFlag6(PlayerAvatar *avatar) {
+    PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_UNK6);
+}
+
+BOOL PlayerAvatar_CheckFlag6(PlayerAvatar *avatar) {
+    if (PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_UNK6)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void PlayerAvatar_SetFlag7(PlayerAvatar *avatar, BOOL set) {
+    if (set == TRUE) {
+        PlayerAvatar_SetFlagsBits(avatar, AVATAR_FLAG_UNK7);
+    } else {
+        PlayerAvatar_ClearFlagsBits(avatar, AVATAR_FLAG_UNK7);
+    }
+}
+
+BOOL PlayerAvatar_CheckFlag7(PlayerAvatar *avatar) {
+    return PlayerAvatar_GetFlagsBitsMask(avatar, AVATAR_FLAG_UNK7);
 }

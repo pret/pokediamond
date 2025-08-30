@@ -214,7 +214,6 @@ Static arm9
     Object unk_0205478C.o
     Object unk_02054C14.o
     Object player_avatar.o
-    Object player_avatar_asm.o
     Object unk_020557F4.o
     Object map_object.o
     Object unk_02058EE8.o

@@ -173,7 +173,6 @@ extern void FieldSystem_PlayOrFadeToNewMusicId(FieldSystem *fieldSystem, u16 mus
 extern void Field_PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 extern void Field_PlayerAvatar_ApplyTransitionFlags(PlayerAvatar *playerAvatar);
 extern u16 FieldSystem_GetOverriddenMusicId(FieldSystem *fieldSystem, u32 mapId);
-extern void sub_02055720(PlayerAvatar *avatar, u8 action);
 extern RoamerSaveData *Save_Roamers_Get(SaveData *save);
 extern u32 Roamers_GetRand(RoamerSaveData *roamerSaveData, u32 index);
 extern void GetSwarmInfoFromRand(u32 rand, u16 *map, u16 *species);
@@ -2623,7 +2622,7 @@ BOOL ScrCmd_DummyRideBike(ScriptContext *ctx) { // 02BF
 
 BOOL ScrCmd_CyclingRoad(ScriptContext *ctx) { // 00C9
     u8 action = ScriptReadByte(ctx);
-    sub_02055720(ctx->fieldSystem->playerAvatar, action);
+    PlayerAvatar_SetBikeStateLock(ctx->fieldSystem->playerAvatar, action);
     return FALSE;
 }
 

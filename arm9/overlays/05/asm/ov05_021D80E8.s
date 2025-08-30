@@ -1551,7 +1551,7 @@ _021D8D76:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8D90:
 	ldr r0, [r5, #0x38]
-	bl sub_020556B4
+	bl PlayerAvatar_CheckFlag0
 	cmp r0, #0
 	beq _021D8D9E
 	mov r0, #0

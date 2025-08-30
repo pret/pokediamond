@@ -865,7 +865,7 @@ sub_0204B9CC: ; 0x0204B9CC
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetState
-	bl sub_02055648
+	bl PlayerAvatar_GetTransitionBits
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl Field_PlayerAvatar_OrrTransitionFlags

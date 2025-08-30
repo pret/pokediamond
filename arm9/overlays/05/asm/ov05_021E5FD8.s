@@ -146,11 +146,11 @@ _021E60D2:
 
 	thumb_func_start ov05_021E610C
 ov05_021E610C: ; 0x021E610C
-	ldr r3, _021E6114 ; =sub_020556C8
+	ldr r3, _021E6114 ; =PlayerAvatar_SetFlag1
 	mov r1, #1
 	bx r3
 	nop
-_021E6114: .word sub_020556C8
+_021E6114: .word PlayerAvatar_SetFlag1
 
 	thumb_func_start ov05_021E6118
 ov05_021E6118: ; 0x021E6118
@@ -230,7 +230,7 @@ ov05_021E61A4: ; 0x021E61A4
 	add r0, r5, #0
 	add r4, r2, #0
 	add r7, r3, #0
-	bl sub_020556B4
+	bl PlayerAvatar_CheckFlag0
 	cmp r0, #1
 	bne _021E61CE
 	add r0, r6, #0
@@ -945,7 +945,7 @@ ov05_021E6758: ; 0x021E6758
 	add r4, r1, #0
 	add r5, r0, #0
 	add r0, r4, #0
-	bl sub_02055764
+	bl PlayerAvatar_CheckFlag4
 	cmp r0, #1
 	bne _021E676C
 	mov r0, #0
@@ -1032,7 +1032,7 @@ _021E6804:
 	bl PlaySE
 	ldr r0, [r4, #0xc]
 	mov r1, #1
-	bl sub_0205574C
+	bl PlayerAvatar_SetFlag4
 	add r0, r4, #0
 	bl ov05_021E72DC
 	add sp, #0xc
@@ -1084,7 +1084,7 @@ _021E682A:
 	bne _021E68A2
 	ldr r0, [r4, #0xc]
 	mov r1, #1
-	bl sub_0205574C
+	bl PlayerAvatar_SetFlag4
 	add r0, r4, #0
 	bl ov05_021E72DC
 	ldr r0, [sp, #4]
