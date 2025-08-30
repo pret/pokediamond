@@ -13,6 +13,7 @@
 #include "map_header.h"
 #include "map_object.h"
 #include "overlay_06.h"
+#include "player_avatar.h"
 #include "player_data.h"
 #include "save_local_field_data.h"
 #include "start_menu.h"
@@ -60,12 +61,9 @@ static void FieldMove_UseChatter(FieldMoveUseData *useData, const FieldMoveCheck
 static BOOL Task_UseChatterInField(TaskManager *taskManager);
 
 extern void FieldSystem_GetFacingObject(FieldSystem *fieldSystem, LocalMapObject **object);
-extern u16 GetPlayerXCoord(PlayerAvatar *playerAvatar);
-extern u16 GetPlayerZCoord(PlayerAvatar *playerAvatar);
 extern u8 GetMetatileBehavior(FieldSystem *fieldSystem, s32 x, s32 z);
 extern void PlayerAvatar_GetCoordsInFront(PlayerAvatar *playerAvatar, s32 *x, s32 *z);
 extern BOOL Field_PlayerCanSurfOnTile(PlayerAvatar *fieldPlayerAvatar, u32 standingTile, u32 facingTile);
-extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern BOOL MetatileBehavior_IsRockClimbInDirection(u32 facingTile, u32 facingDirection);
 extern BOOL MetatileBehavior_IsWaterfall(u8 facingTile);
 extern LocalFieldData *Save_LocalFieldData_Get(SaveData *save);
@@ -76,7 +74,6 @@ extern BOOL Task_UseFlyInField(TaskManager *taksManager);
 extern void TownMap_Init(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2);
 extern void TownMap_Show(FieldSystem *fieldSystem, TownMapAppData *townMap);
 extern void StartMenu_SetExitTaskFunc(StartMenuTaskData *startMenu, TaskFunc taskFunc);
-extern u32 PlayerAvatar_GetState(PlayerAvatar *avatar);
 extern FieldMoveTaskEnvironment *FieldMoveTask_CreateTeleportEnvironment(FieldSystem *fieldSystem, Pokemon *mon, HeapID heapId);
 extern BOOL Task_FieldTeleport(TaskManager *taskManager);
 extern FieldMoveTaskEnvironment *FieldMoveTask_CreateDigEnvironment(FieldSystem *fieldSystem, Pokemon *mon, HeapID heapId);
@@ -157,8 +154,8 @@ void FieldMove_InitCheckData(FieldSystem *fieldSystem, FieldMoveCheckData *check
         }
     }
 
-    s32 x = GetPlayerXCoord(fieldSystem->playerAvatar);
-    s32 z = GetPlayerZCoord(fieldSystem->playerAvatar);
+    u32 x = PlayerAvatar_GetXCoord(fieldSystem->playerAvatar);
+    u32 z = PlayerAvatar_GetZCoord(fieldSystem->playerAvatar);
     u32 standingTile = GetMetatileBehavior(fieldSystem, x, z);
 
     PlayerAvatar_GetCoordsInFront(fieldSystem->playerAvatar, &x, &z);
