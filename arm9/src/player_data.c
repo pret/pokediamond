@@ -19,7 +19,7 @@ void Save_PlayerData_Init(PlayerData *pds) {
     MI_CpuClearFast(pds, sizeof(PlayerData));
     Options_Init(&pds->options);
     PlayerProfile_Init(&pds->profile);
-    InitCoins(&pds->coins);
+    Coins_Init(&pds->coins);
     InitIGT(&pds->igt);
 }
 
