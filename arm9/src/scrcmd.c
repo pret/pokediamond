@@ -1532,8 +1532,8 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { // 02A1
     GF_ASSERT(event);
 
     u16 *unk4 = AllocFromHeap(HEAP_ID_4, 0x100);
-    u16 xVal = (u16)MapObject_GetCurrentX(event);
-    u16 zVal = (u16)MapObject_GetCurrentZ(event);
+    u16 xVal = (u16)MapObject_GetXCoord(event);
+    u16 zVal = (u16)MapObject_GetZCoord(event);
 
     u32 pos = 0;
 
@@ -1805,8 +1805,8 @@ BOOL ScrCmd_GetEventPosition(ScriptContext *ctx) { // 006A
     u16 *x = ScriptGetVarPointer(ctx);
     u16 *z = ScriptGetVarPointer(ctx);
 
-    *x = (u16)MapObject_GetCurrentX(event);
-    *z = (u16)MapObject_GetCurrentZ(event);
+    *x = (u16)MapObject_GetXCoord(event);
+    *z = (u16)MapObject_GetZCoord(event);
     return FALSE;
 }
 

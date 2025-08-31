@@ -493,13 +493,13 @@ sub_0205A270: ; 0x0205A270
 	add r1, sp, #0x0
 	bl sub_0205A174
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_02059BF4
 	add r4, r4, r0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	bl sub_02059C00
@@ -1061,10 +1061,10 @@ sub_0205A67C: ; 0x0205A67C
 	bl MapObject_GetInitialZ
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	ldr r1, [sp, #0x0]
 	cmp r6, r1
 	bne _0205A6DA
@@ -1461,7 +1461,7 @@ sub_0205A940: ; 0x0205A940
 	bl MapObject_GetInitialX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	cmp r6, r0
 	bne _0205A98C
 	mov r0, #0x2
@@ -1473,7 +1473,7 @@ _0205A974:
 	bl MapObject_GetInitialZ
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	cmp r6, r0
 	bne _0205A98C
 	mov r0, #0x2
@@ -1492,10 +1492,10 @@ _0205A98C:
 	bl MapObject_GetInitialZ
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	ldr r1, [sp, #0x0]
 	cmp r6, r1
 	bne _0205A9C0
@@ -1746,10 +1746,10 @@ _0205AB8E:
 	bl MapObject_GetParam
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r3, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r5, [sp, #0x0]
@@ -1817,10 +1817,10 @@ _0205AC22:
 	mvn r7, r7
 	ldr r0, [sp, #0x0]
 	add r6, r7, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #0x8]
 	ldr r0, [sp, #0x0]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	bl MapObject_GetFieldSystem

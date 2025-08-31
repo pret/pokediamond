@@ -402,11 +402,11 @@ sub_0205C888: ; 0x0205C888
 	add r5, r1, #0x0
 	add r6, r2, #0x0
 	add r4, r3, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	cmp r0, r6
 	bne _0205C8AE
 	add r0, r7, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	cmp r4, r0
 	bge _0205C8AE
 	sub r1, r0, r5
@@ -426,11 +426,11 @@ sub_0205C8B4: ; 0x0205C8B4
 	add r5, r1, #0x0
 	add r6, r2, #0x0
 	add r4, r3, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	cmp r0, r6
 	bne _0205C8DA
 	add r0, r7, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	cmp r4, r0
 	ble _0205C8DA
 	add r1, r0, r5
@@ -450,11 +450,11 @@ sub_0205C8E0: ; 0x0205C8E0
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	cmp r0, r6
 	bne _0205C906
 	add r0, r7, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	cmp r4, r0
 	bge _0205C906
 	sub r1, r0, r5
@@ -474,11 +474,11 @@ sub_0205C90C: ; 0x0205C90C
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	cmp r0, r6
 	bne _0205C932
 	add r0, r7, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	cmp r4, r0
 	ble _0205C932
 	add r1, r0, r5
@@ -504,13 +504,13 @@ sub_0205C938: ; 0x0205C938
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0205C94C:
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x4]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0
 	bl sub_02059BF4
@@ -1024,16 +1024,16 @@ sub_0205CCEC: ; 0x0205CCEC
 	ldr r0, [r5, #0x28]
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x24]
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x24]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r3, r0, #0x0
 	ldr r2, [sp, #0x0]
 	add r0, r6, #0x0

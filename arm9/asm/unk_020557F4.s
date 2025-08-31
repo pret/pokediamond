@@ -2515,16 +2515,16 @@ sub_02056C0C: ; 0x02056C0C
 	add r5, r1, #0x0
 	str r2, [sp, #0x4]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	bl sub_02059BF4
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x4]
 	bl sub_02059C00
@@ -2613,13 +2613,13 @@ sub_02056CCC: ; 0x02056CCC
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2682,10 +2682,10 @@ sub_02056D58: ; 0x02056D58
 	bl MapObject_GetFieldSystem
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x0]
 	ldr r2, [sp, #0x0]
 	add r0, r7, #0x0
@@ -2766,13 +2766,13 @@ sub_02056E04: ; 0x02056E04
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -2816,13 +2816,13 @@ sub_02056E6C: ; 0x02056E6C
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2860,13 +2860,13 @@ sub_02056EC8: ; 0x02056EC8
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2948,13 +2948,13 @@ sub_02056F78: ; 0x02056F78
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00

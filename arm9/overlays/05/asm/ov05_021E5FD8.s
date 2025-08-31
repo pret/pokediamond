@@ -1647,14 +1647,14 @@ ov05_021E6CC4: ; 0x021E6CC4
 	sub sp, #0x18
 	add r5, r0, #0
 	ldr r0, [r5, #0x3c]
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0
 	mov r0, #0
 	bl sub_02059BF4
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r6, r0, #0
 	mov r0, #0
 	bl sub_02059C00
@@ -1878,14 +1878,14 @@ ov05_021E6E90: ; 0x021E6E90
 	sub sp, #0x18
 	add r5, r0, #0
 	ldr r0, [r5, #0x3c]
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0
 	mov r0, #1
 	bl sub_02059BF4
 	lsl r0, r0, #1
 	add r4, r4, r0
 	ldr r0, [r5, #0x3c]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r6, r0, #0
 	mov r0, #1
 	bl sub_02059C00

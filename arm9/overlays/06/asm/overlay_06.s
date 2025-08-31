@@ -1127,11 +1127,11 @@ ov06_02239F04: ; 0x02239F04
 	bl GF_AssertFail
 _02239F18:
 	add r0, r5, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	mov r0, #4
@@ -33893,10 +33893,10 @@ ov06_02249E9C: ; 0x02249E9C
 	sub sp, #0x34
 	add r5, r0, #0
 	add r4, r1, #0
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	bl MapObject_GetPositionVectorYCoord
@@ -36382,7 +36382,7 @@ ov06_0224B124: ; 0x0224B124
 	add r0, r2, r0
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl MapObject_GetPreviousY
+	bl MapObject_GetPreviousYCoord
 	lsl r1, r0, #0xf
 	mov r0, #2
 	lsl r0, r0, #0xe
@@ -36588,7 +36588,7 @@ ov06_0224B2C4: ; 0x0224B2C4
 	add r0, r1, r0
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl MapObject_GetPreviousY
+	bl MapObject_GetPreviousYCoord
 	lsl r1, r0, #0xf
 	mov r0, #2
 	lsl r0, r0, #0xe
@@ -36887,13 +36887,13 @@ ov06_0224B568: ; 0x0224B568
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -37092,10 +37092,10 @@ _0224B710:
 	pop {r3, r4, r5, r6, r7, pc}
 _0224B72A:
 	add r0, r6, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224B744
@@ -37731,10 +37731,10 @@ ov06_0224BBEC: ; 0x0224BBEC
 	str r5, [sp, #0x20]
 	bl MapObject_CopyPositionVector
 	add r0, r5, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
@@ -37925,13 +37925,13 @@ ov06_0224BD90: ; 0x0224BD90
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -38121,10 +38121,10 @@ _0224BF2A:
 	str r0, [r4]
 _0224BF40:
 	add r0, r6, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224BF5A
@@ -38252,13 +38252,13 @@ ov06_0224C038: ; 0x0224C038
 	bl ov05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	str r0, [sp, #0xc]
 	add r0, r5, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	str r4, [sp, #0x18]
@@ -38454,10 +38454,10 @@ _0224C1DE:
 	str r0, [r4]
 _0224C1F4:
 	add r0, r6, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r7, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	ldr r1, [r4, #0x18]
 	cmp r1, r7
 	bne _0224C20E
@@ -40118,10 +40118,10 @@ ov06_0224CECC: ; 0x0224CECC
 	bl ov05_021E4C20
 	add r7, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r1, r0, #0
 	ldr r0, [sp, #8]
 	add r2, sp, #0x20
@@ -40663,10 +40663,10 @@ ov06_0224D2E0: ; 0x0224D2E0
 	str r5, [sp, #0x20]
 	bl MapObject_CopyPositionVector
 	add r0, r5, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0
 	add r0, r5, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, sp, #8
@@ -43303,10 +43303,10 @@ ov06_0224E858: ; 0x0224E858
 	add r1, sp, #0
 	bl MapObject_CopyPositionVector
 	add r0, r6, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r5, r0, #0
 	add r0, r6, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r4, r0, #0
 	add r0, r6, #0
 	bl MapObject_GetFacingDirection

@@ -1077,7 +1077,7 @@ _021D7DF6:
 	ldr r0, [r4, #0x34]
 	bl sub_02058774
 	ldr r0, [r4, #0x38]
-	bl PlayerAvatar_GetPositionVectorConst
+	bl PlayerAvatar_GetPositionVector
 	ldr r1, [r4, #0x24]
 	bl ov05_021EF5E0
 	add r0, r4, #0
@@ -1109,7 +1109,7 @@ ov05_021D7E4C: ; 0x021D7E4C
 	bl sub_02034E10
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
-	bl PlayerAvatar_GetPositionVectorConst
+	bl PlayerAvatar_GetPositionVector
 	add r1, r4, #0
 	add r2, r5, #0
 	mov r3, #1

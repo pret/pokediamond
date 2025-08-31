@@ -1036,11 +1036,11 @@ _0204C9B4:
 	add r2, r4, #0x0
 	bl sub_020554EC
 	ldr r0, [r5, #0x38]
-	bl PlayerAvatar_GetPositionVectorConst
+	bl PlayerAvatar_GetPositionVector
 	ldr r1, [r5, #0x20]
 	bl Camera_SetLookAtTargetAndRecalcPos
 	ldr r0, [r5, #0x38]
-	bl PlayerAvatar_GetPositionVectorConst
+	bl PlayerAvatar_GetPositionVector
 	ldr r1, [r5, #0x20]
 	bl Camera_SetFixedTarget
 	add sp, #0x10
@@ -1102,11 +1102,11 @@ _0204CA48:
 	add r2, r4, #0x0
 	bl sub_020554EC
 	ldr r0, [r5, #0x38]
-	bl PlayerAvatar_GetPositionVectorConst
+	bl PlayerAvatar_GetPositionVector
 	ldr r1, [r5, #0x20]
 	bl Camera_SetLookAtTargetAndRecalcPos
 	ldr r0, [r5, #0x38]
-	bl PlayerAvatar_GetPositionVectorConst
+	bl PlayerAvatar_GetPositionVector
 	ldr r1, [r5, #0x20]
 	bl Camera_SetFixedTarget
 	add sp, #0x10

@@ -423,9 +423,9 @@ static void SavedMapObject_InitFromLocalMapObject(FieldSystem *fieldSystem, Loca
     savedObject->initialX = MapObject_GetInitialX(localObject);
     savedObject->initialY = MapObject_GetInitialY(localObject);
     savedObject->initialZ = MapObject_GetInitialZ(localObject);
-    savedObject->currentX = MapObject_GetCurrentX(localObject);
-    savedObject->currentY = MapObject_GetCurrentY(localObject);
-    savedObject->currentZ = MapObject_GetCurrentZ(localObject);
+    savedObject->currentX = MapObject_GetXCoord(localObject);
+    savedObject->currentY = MapObject_GetYCoord(localObject);
+    savedObject->currentZ = MapObject_GetZCoord(localObject);
 
     VecFx32 coords;
     sub_02059E60(savedObject->currentX, savedObject->currentZ, &coords); // some kind of x y vec copy with convertion between int and fx32
@@ -496,13 +496,13 @@ static void MapObject_ConvertXZToPositionVec(LocalMapObject *object) {
     VecFx32 position;
     MapObject_CopyPositionVector(object, &position);
 
-    u32 x = MapObject_GetCurrentX(object);
+    u32 x = MapObject_GetXCoord(object);
     position.x = x * FX32_CONST(16) + FX32_CONST(8);
     MapObject_SetPreviousX(object, x);
 
-    MapObject_SetPreviousY(object, MapObject_GetCurrentY(object));
+    MapObject_SetPreviousY(object, MapObject_GetYCoord(object));
 
-    u32 z = MapObject_GetCurrentZ(object);
+    u32 z = MapObject_GetZCoord(object);
     position.z = z * FX32_CONST(16) + FX32_CONST(8);
     MapObject_SetPreviousZ(object, z);
 
@@ -1618,7 +1618,7 @@ static void MapObject_SetInitialZ(LocalMapObject *object, u32 initialY) {
     object->initialZ = initialY;
 }
 
-u32 MapObject_GetPreviousX(LocalMapObject *object) {
+u32 MapObject_GetPreviousXCoord(LocalMapObject *object) {
     return object->previousX;
 }
 
@@ -1626,7 +1626,7 @@ void MapObject_SetPreviousX(LocalMapObject *object, u32 previousX) {
     object->previousX = previousX;
 }
 
-u32 MapObject_GetPreviousY(LocalMapObject *object) {
+u32 MapObject_GetPreviousYCoord(LocalMapObject *object) {
     return object->previousY;
 }
 
@@ -1634,7 +1634,7 @@ void MapObject_SetPreviousY(LocalMapObject *object, u32 previousY) {
     object->previousY = previousY;
 }
 
-u32 MapObject_GetPreviousZ(LocalMapObject *object) {
+u32 MapObject_GetPreviousZCoord(LocalMapObject *object) {
     return object->previousZ;
 }
 
@@ -1642,7 +1642,7 @@ void MapObject_SetPreviousZ(LocalMapObject *object, u32 previousZ) {
     object->previousZ = previousZ;
 }
 
-u32 MapObject_GetCurrentX(LocalMapObject *object) {
+u32 MapObject_GetXCoord(LocalMapObject *object) {
     return object->currentX;
 }
 
@@ -1654,7 +1654,7 @@ void MapObject_AddCurrentX(LocalMapObject *object, u32 currentX) {
     object->currentX += currentX;
 }
 
-s32 MapObject_GetCurrentY(LocalMapObject *object) {
+s32 MapObject_GetYCoord(LocalMapObject *object) {
     return object->currentY;
 }
 
@@ -1666,7 +1666,7 @@ void MapObject_AddCurrentY(LocalMapObject *object, s32 currentY) {
     object->currentY += currentY;
 }
 
-u32 MapObject_GetCurrentZ(LocalMapObject *object) {
+u32 MapObject_GetZCoord(LocalMapObject *object) {
     return object->currentZ;
 }
 
@@ -1932,7 +1932,7 @@ LocalMapObject *MapObjectManager_GetFirstObjectWithXAndZ(MapObjectManager *manag
 
     do {
         if (MapObject_GetFlagsBitsMask(objects, MAPOBJECTFLAG_ACTIVE) != 0) {
-            if (x == MapObject_GetCurrentX(objects) && z == MapObject_GetCurrentZ(objects)) {
+            if (x == MapObject_GetXCoord(objects) && z == MapObject_GetZCoord(objects)) {
                 return objects;
             }
         }
