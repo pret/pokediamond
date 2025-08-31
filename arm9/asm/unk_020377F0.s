@@ -2411,7 +2411,7 @@ _02038956:
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	add r6, r1, #0x0
-	bl CheckCoins
+	bl Coins_GetValue
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	ldr r1, [r5, #0x8]
@@ -2429,7 +2429,7 @@ _02038956:
 	ldr r0, [r4, #0xc]
 	bl Save_PlayerData_GetCoinsAddr
 	ldr r1, [r5, #0x0]
-	bl SetCoins
+	bl Coins_SetValue
 	add r0, r7, #0x0
 	bl sub_0205F6C8
 	ldr r1, [r5, #0x18]
@@ -2467,7 +2467,7 @@ sub_020389CC: ; 0x020389CC
 	str r4, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetCoinsAddr
-	bl CheckCoins
+	bl Coins_GetValue
 	str r0, [r4, #0x0]
 	bl GF_RTC_DateTimeToSec
 	str r0, [r4, #0x4]

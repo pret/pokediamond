@@ -1956,7 +1956,7 @@ ov05_021E29C8: ; 0x021E29C8
 	str r0, [sp, #0x10]
 	ldr r0, [r6, #0xc]
 	bl Save_PlayerData_GetCoinsAddr
-	bl CheckCoins
+	bl Coins_GetValue
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]
