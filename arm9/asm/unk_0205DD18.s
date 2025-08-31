@@ -88,7 +88,7 @@ sub_0205DD80: ; 0x0205DD80
 	strb r1, [r0, #0x3]
 	ldr r0, [sp, #0xc]
 	ldr r0, [r0, #0x38]
-	bl sub_02055360
+	bl PlayerAvatar_GetPositionVector
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x18]
 	mov r5, #0x0
@@ -882,10 +882,10 @@ _0205E374:
 	mov r0, #0x0
 	strb r0, [r6, #0x0]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r3, r4, #0x0
 	add r3, #0x90
 	add r2, r0, #0x0

@@ -164,9 +164,9 @@ sub_02055900: ; 0x02055900
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	add r0, r5, #0x0
-	bl sub_020557B0
+	bl PlayerAvatar_ClearFlag6
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -174,23 +174,23 @@ sub_02055900: ; 0x02055900
 sub_02055928: ; 0x02055928
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_020557BC
+	bl PlayerAvatar_CheckFlag6
 	cmp r0, #0x1
 	bne _02055964
 	add r0, r4, #0x0
-	bl sub_02055370
-	cmp r0, #0x1
-	bne _02055964
-	add r0, r4, #0x0
-	mov r1, #0x0
-	bl sub_020556C8
-	add r0, r4, #0x0
-	bl sub_02055764
+	bl PlayerAvatar_GetUnk10
 	cmp r0, #0x1
 	bne _02055964
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_0205574C
+	bl PlayerAvatar_SetFlag1
+	add r0, r4, #0x0
+	bl PlayerAvatar_CheckFlag4
+	cmp r0, #0x1
+	bne _02055964
+	add r0, r4, #0x0
+	mov r1, #0x0
+	bl PlayerAvatar_SetFlag4
 	add r0, r4, #0x0
 	bl PlayerAvatar_GetMapObject
 	mov r1, #0x0
@@ -203,7 +203,7 @@ _02055964:
 sub_02055968: ; 0x02055968
 	push {r4-r6, lr}
 	add r4, r0, #0x0
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	cmp r0, #0x1
 	bne _02055A20
 	add r0, r4, #0x0
@@ -292,17 +292,17 @@ _02055A34: .word 0x00000653
 sub_02055A38: ; 0x02055A38
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02055378
+	bl PlayerAvatar_GetUnk14
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -313,7 +313,7 @@ sub_02055A38: ; 0x02055A38
 	beq _02055A76
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 _02055A76:
 	add r0, r7, #0x0
@@ -340,17 +340,17 @@ _02055A8E:
 _02055AA4:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 _02055AAE:
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 _02055AB8:
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 _02055AC2:
 	add r0, r7, #0x0
@@ -371,12 +371,12 @@ _02055ADA:
 	bne _02055AEC
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 _02055AEC:
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 _02055AF6:
 	cmp r4, #0x0
@@ -385,12 +385,12 @@ _02055AF6:
 	bne _02055B08
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	pop {r3-r7, pc}
 _02055B08:
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 _02055B10:
 	pop {r3-r7, pc}
 	.balign 4
@@ -400,12 +400,12 @@ sub_02055B14: ; 0x02055B14
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	add r0, r4, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	pop {r4, pc}
 	.balign 4
 
@@ -413,10 +413,10 @@ sub_02055B14: ; 0x02055B14
 sub_02055B30: ; 0x02055B30
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02055378
+	bl PlayerAvatar_GetUnk14
 	cmp r4, #0x0
 	bne _02055B48
 	mov r0, #0x1
@@ -464,10 +464,10 @@ sub_02055B8C: ; 0x02055B8C
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_02055374
+	bl PlayerAvatar_SetUnk14
 	add r0, r4, #0x0
 	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
@@ -520,7 +520,7 @@ sub_02055BEC: ; 0x02055BEC
 	pop {r3-r7, pc}
 _02055C10:
 	add r0, r5, #0x0
-	bl sub_020556E0
+	bl PlayerAvatar_CheckFlag1
 	cmp r0, #0x1
 	bne _02055C1E
 	add r0, r4, #0x0
@@ -597,7 +597,7 @@ sub_02055C78: ; 0x02055C78
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x0
 	beq _02055D28
@@ -607,10 +607,10 @@ sub_02055C78: ; 0x02055C78
 	beq _02055CCA
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020556C8
+	bl PlayerAvatar_SetFlag1
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _02055CCA:
@@ -639,18 +639,18 @@ _02055CE4:
 	bl sub_02056B5C
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020556C8
+	bl PlayerAvatar_SetFlag1
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	mov r1, #0x0
 	mvn r1, r1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _02055D28:
@@ -686,15 +686,15 @@ _02055D54:
 	bl sub_02056B5C
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020556C8
+	bl PlayerAvatar_SetFlag1
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	mov r1, #0x0
 	mvn r1, r1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	b _02055DA0
 _02055D8E:
 	mov r1, #0x6
@@ -707,7 +707,7 @@ _02055D8E:
 _02055DA0:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x1
 	pop {r3-r7, pc}
 
@@ -729,7 +729,7 @@ sub_02055DAC: ; 0x02055DAC
 	cmp r0, #0x1
 	bne _02055DFE
 	add r0, r5, #0x0
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	cmp r0, #0x3
 	blt _02055DFE
 	cmp r7, #0x0
@@ -743,7 +743,7 @@ sub_02055DAC: ; 0x02055DAC
 	bl sub_02056B5C
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _02055DFE:
@@ -771,28 +771,28 @@ _02055E18:
 	add r1, r6, #0x0
 	bl sub_02056B5C
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02055778
+	bl PlayerAvatar_SetFlag5
 	mov r1, #0x0
 	mvn r1, r1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _02055E62:
 	cmp r4, #0x1
 	bne _02055EF0
 	add r0, r5, #0x0
-	bl sub_02055790
+	bl PlayerAvatar_CheckFlag5
 	cmp r0, #0x0
 	bne _02055EAC
 	add r0, r4, #0x0
@@ -804,20 +804,20 @@ _02055E62:
 	bl sub_02056B5C
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02055E9C
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl sub_0205540C
+	bl PlayerAvatar_SetUnk20
 _02055E9C:
 	mov r1, #0x0
 	mvn r1, r1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _02055EAC:
@@ -834,18 +834,18 @@ _02055EAC:
 	bl sub_02056B5C
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_02055778
+	bl PlayerAvatar_SetFlag5
 	mov r1, #0x0
 	mvn r1, r1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _02055EF0:
@@ -862,7 +862,7 @@ sub_02055EF8: ; 0x02055EF8
 	add r4, r0, #0x0
 	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02055F22
 	ldr r0, _02055F40 ; =0x00000656
@@ -880,10 +880,10 @@ _02055F22:
 _02055F2C:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020557D0
+	bl PlayerAvatar_SetFlag7
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -897,7 +897,7 @@ sub_02055F44: ; 0x02055F44
 	add r4, r0, #0x0
 	bl MapObject_GetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02055F6E
 	ldr r0, _02055F8C ; =0x00000656
@@ -915,10 +915,10 @@ _02055F6E:
 _02055F78:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020557D0
+	bl PlayerAvatar_SetFlag7
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -945,10 +945,10 @@ sub_02055F90: ; 0x02055F90
 	bl sub_02056B5C
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl sub_0205540C
+	bl PlayerAvatar_SetUnk20
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _02055FCE:
@@ -960,13 +960,13 @@ _02055FCE:
 	add r1, r4, #0x0
 	bl sub_02056B5C
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020556F4
+	bl PlayerAvatar_SetFlag2
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -975,7 +975,7 @@ _02055FCE:
 sub_02055FFC: ; 0x02055FFC
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl sub_020556B4
+	bl PlayerAvatar_CheckFlag0
 	cmp r0, #0x1
 	bne _0205603E
 	add r0, r4, #0x0
@@ -984,21 +984,21 @@ sub_02055FFC: ; 0x02055FFC
 	lsl r1, r1, #0x6
 	bl MapObject_ClearFlagsBits
 	add r0, r4, #0x0
-	bl sub_020557E8
+	bl PlayerAvatar_CheckFlag7
 	cmp r0, #0x0
 	bne _02056026
 	add r0, r4, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 _02056026:
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_020557D0
+	bl PlayerAvatar_SetFlag7
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl sub_02055778
+	bl PlayerAvatar_SetFlag5
 _0205603E:
 	pop {r4, pc}
 
@@ -1056,7 +1056,7 @@ sub_020560A0: ; 0x020560A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	add r1, r0, #0x0
 	cmp r4, #0x1
 	bne _020560B8
@@ -1073,7 +1073,7 @@ _020560B8:
 	mov r1, #0x3
 _020560C4:
 	add r0, r5, #0x0
-	bl sub_0205540C
+	bl PlayerAvatar_SetUnk20
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -1087,7 +1087,7 @@ sub_020560D0: ; 0x020560D0
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r4, #0x10
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	cmp r0, #0x1
 	beq _020560F2
 	cmp r0, #0x2
@@ -1221,7 +1221,7 @@ sub_020561D0: ; 0x020561D0
 	bl sub_020561EC
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1289,7 +1289,7 @@ sub_02056244: ; 0x02056244
 	cmp r4, r1
 	bne _0205625C
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0205625C:
@@ -1297,18 +1297,18 @@ _0205625C:
 	cmp r0, r4
 	beq _0205627A
 	add r0, r5, #0x0
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	cmp r0, #0x1
 	beq _0205627A
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x2
 	pop {r3-r5, pc}
 _0205627A:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -1363,8 +1363,8 @@ _020562DC:
 _020562E6:
 	add r0, r5, #0x0
 	mov r4, #0xc
-	bl sub_0205545C
-	bl sub_02055474
+	bl PlayerAvatar_GetPlayerSaveData
+	bl PlayerSaveData_CheckRunningShoes
 	cmp r0, #0x1
 	bne _02056306
 	add r1, sp, #0x8
@@ -1387,7 +1387,7 @@ _02056306:
 	add r0, r5, #0x0
 	bl sub_020572D4
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 	b _0205636C
 _0205632A:
 	cmp r4, #0x0
@@ -1407,7 +1407,7 @@ _02056332:
 	add r0, r5, #0x0
 	bl sub_020572D4
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 	b _0205636C
 _02056356:
 	mov r0, #0x8
@@ -1458,7 +1458,7 @@ sub_020563A8: ; 0x020563A8
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	add r0, sp, #0x10
 	bne _020563D6
@@ -1500,14 +1500,14 @@ sub_020563F0: ; 0x020563F0
 	beq _0205642C
 	add r0, r5, #0x0
 	mov r4, #0x1
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	cmp r0, #0x1
 	bne _02056412
 	mov r4, #0x0
 _02056412:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_020554AC
+	bl PlayerAvatar_SetPlayerSaveDataUnk0
 	cmp r4, #0x0
 	bne _02056426
 	ldr r0, _02056430 ; =0x0000061C
@@ -1527,7 +1527,7 @@ sub_02056438: ; 0x02056438
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	mov r4, #0x4c
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	cmp r0, #0x1
 	beq _02056450
 	cmp r0, #0x2
@@ -1555,17 +1555,17 @@ sub_02056464: ; 0x02056464
 	add r5, r0, #0x0
 	mov r1, #0x1
 	mov r2, #0x3
-	bl sub_0205541C
+	bl PlayerAvatar_Unk20AddWithCeiling
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0205570C
+	bl PlayerAvatar_CheckFlag2
 	cmp r0, #0x0
 	bne _02056488
 	cmp r4, #0x2
 	blt _02056488
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_020556F4
+	bl PlayerAvatar_SetFlag2
 _02056488:
 	cmp r4, #0x3
 	bne _02056490
@@ -1580,7 +1580,7 @@ sub_02056494: ; 0x02056494
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	mov r6, #0x1
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	sub r4, r0, #0x1
 	bpl _020564A6
 	mov r4, #0x0
@@ -1588,16 +1588,16 @@ sub_02056494: ; 0x02056494
 _020564A6:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_0205540C
+	bl PlayerAvatar_SetUnk20
 	add r0, r5, #0x0
-	bl sub_0205570C
+	bl PlayerAvatar_CheckFlag2
 	cmp r0, #0x1
 	bne _020564C4
 	cmp r4, #0x0
 	bne _020564C4
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020556F4
+	bl PlayerAvatar_SetFlag2
 _020564C4:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
@@ -1673,7 +1673,7 @@ sub_0205653C: ; 0x0205653C
 	bl sub_02056558
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1721,18 +1721,18 @@ sub_0205658C: ; 0x0205658C
 	add r5, r0, #0x0
 	cmp r4, r1
 	bne _020565BA
-	bl sub_0205570C
+	bl PlayerAvatar_CheckFlag2
 	cmp r0, #0x1
 	bne _020565AE
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x3
 	pop {r4-r6, pc}
 _020565AE:
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _020565BA:
@@ -1740,22 +1740,22 @@ _020565BA:
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020556F4
+	bl PlayerAvatar_SetFlag2
 	cmp r6, r4
 	beq _020565E2
 	add r0, r5, #0x0
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	cmp r0, #0x1
 	beq _020565E2
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x2
 	pop {r4-r6, pc}
 _020565E2:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x1
 	pop {r4-r6, pc}
 	.balign 4
@@ -1774,7 +1774,7 @@ sub_020565F0: ; 0x020565F0
 	add r1, r4, #0x0
 	bl sub_02056B5C
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_02056614
@@ -1792,7 +1792,7 @@ sub_02056614: ; 0x02056614
 	mov r7, #0x38
 	bl sub_020572D4
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 	b _020566EA
 _02056638:
 	mov r0, #0x10
@@ -1802,10 +1802,10 @@ _02056638:
 	mov r7, #0x50
 	bl sub_020572D4
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	b _020566EA
 _02056656:
 	mov r0, #0x40
@@ -1819,11 +1819,11 @@ _02056656:
 	add r0, r6, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	sub r1, r7, #0x1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	b _020566EA
 _02056680:
 	cmp r4, #0x0
@@ -1845,7 +1845,7 @@ _020566A0:
 	add r0, r6, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	b _020566EA
 _020566B0:
 	add r0, r6, #0x0
@@ -1856,21 +1856,21 @@ _020566B0:
 	add r0, r6, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	sub r1, r7, #0x1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	b _020566EA
 _020566D4:
 	add r0, r5, #0x0
 	mov r7, #0x50
 	bl sub_020572D4
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_0205540C
+	bl PlayerAvatar_SetUnk20
 _020566EA:
 	ldr r0, [sp, #0x0]
 	add r1, r7, #0x0
@@ -1889,7 +1889,7 @@ sub_02056704: ; 0x02056704
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
@@ -1907,7 +1907,7 @@ sub_02056704: ; 0x02056704
 	add r1, r6, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 _0205673E:
 	pop {r4-r6, pc}
 
@@ -1920,7 +1920,7 @@ sub_02056740: ; 0x02056740
 	bl sub_02056494
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r7, #0x0
@@ -1944,7 +1944,7 @@ _02056774:
 	bl sub_0205AFDC
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	b _020567C4
 _0205678C:
 	cmp r4, #0x0
@@ -1965,7 +1965,7 @@ _020567AA:
 	add r1, r6, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	b _020567C4
 _020567BA:
 	add r0, r5, #0x0
@@ -1978,7 +1978,7 @@ _020567C4:
 	bne _020567D2
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020556F4
+	bl PlayerAvatar_SetFlag2
 _020567D2:
 	ldr r2, [sp, #0x4]
 	add r0, r5, #0x0
@@ -2060,7 +2060,7 @@ sub_02056858: ; 0x02056858
 	bl sub_02056874
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -2104,7 +2104,7 @@ sub_020568A8: ; 0x020568A8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	add r6, r0, #0x0
 	mov r0, #0x0
 	mvn r0, r0
@@ -2114,13 +2114,13 @@ sub_020568A8: ; 0x020568A8
 	bge _020568CC
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _020568CC:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x3
 	pop {r4-r6, pc}
 _020568D8:
@@ -2129,26 +2129,26 @@ _020568D8:
 	cmp r0, r4
 	beq _02056908
 	add r0, r5, #0x0
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	cmp r0, #0x1
 	beq _02056908
 	cmp r6, #0x2
 	bge _020568FC
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x2
 	pop {r4-r6, pc}
 _020568FC:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x3
 	pop {r4-r6, pc}
 _02056908:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
@@ -2166,7 +2166,7 @@ sub_02056914: ; 0x02056914
 	add r1, r4, #0x0
 	bl sub_02056B5C
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_02056938
@@ -2189,14 +2189,14 @@ sub_02056938: ; 0x02056938
 	add r0, r5, #0x0
 	bl sub_020572D4
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 	b _02056A6C
 _0205696A:
 	mov r0, #0x10
 	tst r0, r4
 	beq _020569BA
 	add r0, r5, #0x0
-	bl sub_02055408
+	bl PlayerAvatar_GetUnk20
 	cmp r0, #0x3
 	blt _02056994
 	add r0, r5, #0x0
@@ -2204,10 +2204,10 @@ _0205696A:
 	bl sub_02056438
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl sub_0205569C
+	bl PlayerAvatar_SetFlag0
 	b _02056A6C
 _02056994:
 	add r0, r7, #0x0
@@ -2224,7 +2224,7 @@ _020569AA:
 	add r1, r7, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	b _02056A6C
 _020569BA:
 	mov r0, #0x40
@@ -2240,12 +2240,12 @@ _020569BA:
 	add r1, r4, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	mov r1, #0x0
 	mvn r1, r1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	b _02056A6C
 _020569EC:
 	cmp r4, #0x0
@@ -2270,7 +2270,7 @@ _02056A14:
 	add r1, r7, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	b _02056A6C
 _02056A24:
 	add r0, r6, #0x0
@@ -2283,12 +2283,12 @@ _02056A24:
 	add r1, r4, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	mov r1, #0x0
 	mvn r1, r1
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl sub_0205543C
+	bl PlayerAvatar_SetUnk24Unk28
 	b _02056A6C
 _02056A50:
 	add r0, r5, #0x0
@@ -2300,7 +2300,7 @@ _02056A50:
 	add r0, r5, #0x0
 	bl sub_020572D4
 	add r0, r5, #0x0
-	bl sub_020557A4
+	bl PlayerAvatar_SetFlag6
 _02056A6C:
 	ldr r2, [sp, #0x0]
 	add r0, r5, #0x0
@@ -2316,7 +2316,7 @@ sub_02056A7C: ; 0x02056A7C
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
@@ -2334,7 +2334,7 @@ sub_02056A7C: ; 0x02056A7C
 	add r1, r6, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 _02056AB6:
 	pop {r4-r6, pc}
 
@@ -2347,7 +2347,7 @@ sub_02056AB8: ; 0x02056AB8
 	bl sub_02056494
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r7, #0x0
@@ -2371,7 +2371,7 @@ _02056AEC:
 	bl sub_0205AFDC
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	b _02056B3C
 _02056B04:
 	cmp r4, #0x0
@@ -2392,7 +2392,7 @@ _02056B22:
 	add r1, r6, #0x0
 	bl MapObject_SetNextFacingDirection
 	add r0, r5, #0x0
-	bl sub_02055410
+	bl PlayerAvatar_ClearUnk20ClearFlag2
 	b _02056B3C
 _02056B32:
 	add r0, r5, #0x0
@@ -2405,7 +2405,7 @@ _02056B3C:
 	bne _02056B4A
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl sub_020556F4
+	bl PlayerAvatar_SetFlag2
 _02056B4A:
 	ldr r2, [sp, #0x4]
 	add r0, r5, #0x0
@@ -2422,7 +2422,7 @@ sub_02056B5C: ; 0x02056B5C
 	add r4, r2, #0x0
 	add r5, r1, #0x0
 	add r1, r4, #0x0
-	bl sub_02055460
+	bl PlayerAvatar_SetUnk8
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_0205ADDC
@@ -2515,16 +2515,16 @@ sub_02056C0C: ; 0x02056C0C
 	add r5, r1, #0x0
 	str r2, [sp, #0x4]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	bl sub_02059BF4
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x4]
 	bl sub_02059C00
@@ -2613,13 +2613,13 @@ sub_02056CCC: ; 0x02056CCC
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2682,10 +2682,10 @@ sub_02056D58: ; 0x02056D58
 	bl MapObject_GetFieldSystem
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x0]
 	ldr r2, [sp, #0x0]
 	add r0, r7, #0x0
@@ -2766,13 +2766,13 @@ sub_02056E04: ; 0x02056E04
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -2816,13 +2816,13 @@ sub_02056E6C: ; 0x02056E6C
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2860,13 +2860,13 @@ sub_02056EC8: ; 0x02056EC8
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2948,13 +2948,13 @@ sub_02056F78: ; 0x02056F78
 	bl MapObject_GetFieldSystem
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -3079,13 +3079,13 @@ sub_02057060: ; 0x02057060
 	pop {r3-r7, pc}
 _02057086:
 	add r0, r6, #0x0
-	bl sub_02055314
+	bl PlayerAvatar_GetNextFacingDirection
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_02055430
+	bl PlayerAvatar_GetUnk24
 	str r0, [sp, #0x0]
 	add r0, r6, #0x0
-	bl sub_02055438
+	bl PlayerAvatar_GetUnk28
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r7, r1
@@ -3173,7 +3173,7 @@ _0205711E:
 	thumb_func_start sub_02057124
 sub_02057124: ; 0x02057124
 	push {r3, lr}
-	bl sub_02055464
+	bl PlayerAvatar_GetUnk8
 	sub r0, #0x58
 	cmp r0, #0x3
 	bhi _02057148
@@ -3216,7 +3216,7 @@ _02057162:
 	b _0205718E
 _02057172:
 	add r0, r5, #0x0
-	bl sub_020554BC
+	bl PlayerAvatar_GetPlayerSaveDataUnk0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl sub_020568A8
@@ -3245,7 +3245,7 @@ sub_02057194: ; 0x02057194
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl sub_0205536C
+	bl PlayerAvatar_SetUnk10
 	cmp r4, #0x0
 	bne _020571C6
 	add r0, r5, #0x0
@@ -3369,14 +3369,14 @@ sub_02057288: ; 0x02057288
 	str r0, [sp, #0x0]
 	add r4, r2, #0x0
 	add r7, r3, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r0, r6, r0
 	str r0, [r4, #0x0]
 	ldr r0, [sp, #0x0]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -3474,7 +3474,7 @@ _0205734E:
 	pop {r3-r5, pc}
 _0205735A:
 	add r0, r5, #0x0
-	bl sub_02055738
+	bl PlayerAvatar_CheckBikeStateLocked
 	cmp r0, #0x0
 	bne _02057368
 	mov r0, #0x0

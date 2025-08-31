@@ -21,10 +21,10 @@ ov05_021F3860: ; 0x021F3860
 	add r5, r1, #0
 	ldr r0, [r5, #0x38]
 	add r4, r2, #0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0
 	ldr r0, [r4]
 	cmp r0, r6

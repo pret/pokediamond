@@ -2160,13 +2160,13 @@ sub_020596D8: ; 0x020596D8
 	cmp r0, #0x1
 	bne _02059708
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousY
+	bl MapObject_GetPreviousYCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2185,13 +2185,13 @@ sub_0205970C: ; 0x0205970C
 	cmp r0, #0x1
 	bne _0205973C
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2210,13 +2210,13 @@ sub_02059740: ; 0x02059740
 	cmp r0, #0x1
 	bne _02059770
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousY
+	bl MapObject_GetPreviousYCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2235,13 +2235,13 @@ sub_02059774: ; 0x02059774
 	cmp r0, #0x1
 	bne _020597A4
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2445,16 +2445,16 @@ sub_02059918: ; 0x02059918
 	sub sp, #0xc
 	add r4, r1, #0x0
 	add r5, r0, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl sub_02059C00
@@ -2501,16 +2501,16 @@ _0205997C:
 	cmp r0, #0x0
 	bne _020599F4
 	ldr r0, [sp, #0x8]
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x8]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	cmp r7, r5
 	bne _020599C8
 	cmp r0, r6
 	bne _020599C8
 	ldr r0, [sp, #0x8]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	sub r0, r0, r4
 	bpl _020599BE
 	neg r0, r0
@@ -2522,16 +2522,16 @@ _020599BE:
 	pop {r4-r7, pc}
 _020599C8:
 	ldr r0, [sp, #0x8]
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x8]
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	cmp r7, r5
 	bne _020599F4
 	cmp r0, r6
 	bne _020599F4
 	ldr r0, [sp, #0x8]
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	sub r0, r0, r4
 	bpl _020599EA
 	neg r0, r0
@@ -2839,17 +2839,17 @@ sub_02059C0C: ; 0x02059C0C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetPreviousX
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetPreviousY
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetPreviousZ
@@ -2872,17 +2872,17 @@ sub_02059C0C: ; 0x02059C0C
 sub_02059C60: ; 0x02059C60
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl MapObject_SetPreviousX
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl MapObject_SetPreviousY
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl MapObject_SetPreviousZ
@@ -2894,13 +2894,13 @@ sub_02059C90: ; 0x02059C90
 	push {r3-r7, lr}
 	add r5, r1, #0x0
 	add r4, r0, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl sub_02059BF4
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl sub_02059C00
@@ -3005,7 +3005,7 @@ _02059D4E:
 	add r0, r5, #0x0
 	bl MapObject_SetPositionVector
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentY
+	bl MapObject_GetYCoord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_SetPreviousY
@@ -3037,10 +3037,10 @@ _02059DAC:
 sub_02059DB4: ; 0x02059DB4
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl MapObject_GetFieldSystem
@@ -3052,10 +3052,10 @@ sub_02059DB4: ; 0x02059DB4
 	add r0, r5, #0x0
 	bl sub_02058728
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r2, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0

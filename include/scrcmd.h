@@ -6,6 +6,8 @@
 #include "script.h"
 #include "unk_0200CA44.h"
 
+#define obj_player 255
+
 extern u16 FieldSystem_VarGet(FieldSystem *fieldSystem, u16);
 extern u16 *GetVarPointer(FieldSystem *fieldSystem, u16);
 extern SaveData *FieldSystem_GetSaveData(FieldSystem *fieldSystem);

@@ -259,12 +259,12 @@ _021E1562:
 	ldr r0, [sp]
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0
 	ldr r0, [sp]
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	sub r1, r4, #7
 	str r1, [sp, #0x14]
 	add r1, r4, #7
@@ -319,10 +319,10 @@ _021E15CA: ; jump table
 	.short _021E15DC - _021E15CA - 2 ; case 8
 _021E15DC:
 	add r0, r4, #0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r7, r0, #0
 	add r0, r4, #0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	ldr r1, [sp, #0x14]
 	cmp r7, r1
 	blt _021E161A
