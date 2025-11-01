@@ -372,11 +372,11 @@ Field_SaveGame: ; 0x021E85FC
 	mov r2, #0
 	bl ov05_021EFA9C
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #8]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #0xc]
 	mov r1, #0

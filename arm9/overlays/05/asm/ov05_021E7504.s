@@ -37,12 +37,12 @@ _021E7532:
 	str r0, [r1, #0x10]
 _021E7536:
 	ldr r0, [r1]
-	ldr r3, _021E7540 ; =sub_02055304
+	ldr r3, _021E7540 ; =PlayerAvatar_SetFacingDirection
 	ldr r0, [r0, #0x38]
 	ldr r1, [r1, #0x10]
 	bx r3
 	.balign 4, 0
-_021E7540: .word sub_02055304
+_021E7540: .word PlayerAvatar_SetFacingDirection
 
 	thumb_func_start ov05_021E7544
 ov05_021E7544: ; 0x021E7544
@@ -264,7 +264,7 @@ _021E771C:
 	ldr r0, [r5]
 	mov r1, #1
 	ldr r0, [r0, #0x38]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	ldr r0, [r5, #4]
 	mov r1, #1
 	str r1, [r0]

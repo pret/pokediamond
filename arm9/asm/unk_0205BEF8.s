@@ -113,20 +113,20 @@ _0205BF74: .word UNK_020F7178
 sub_0205BF78: ; 0x0205BF78
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	cmp r5, r0
 	beq _0205BF90
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _0205BF90:
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	cmp r5, r0
 	beq _0205BFA6
 	mov r0, #0x1
@@ -140,20 +140,20 @@ _0205BFA6:
 sub_0205BFAC: ; 0x0205BFAC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	cmp r5, r0
 	beq _0205BFC4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0205BFC4:
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	cmp r5, r0
 	bne _0205BFDA
 	mov r0, #0x1

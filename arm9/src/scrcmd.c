@@ -27,6 +27,7 @@
 #include "msgdata.h"
 #include "options.h"
 #include "party.h"
+#include "player_avatar.h"
 #include "player_data.h"
 #include "pokedex.h"
 #include "pokemon_storage_system.h"
@@ -67,7 +68,6 @@ extern MessageFormat *ov06_02244210(SaveData *sav, u16 poke, u16 sex, u8 flag, u
 extern void ov05_021E2CBC(ScriptContext *ctx, MessageFormat *messageFormat, u8 param2, u32 param3);
 extern void ov05_021E2BB8(void *param0, ScriptContext *ctx);
 extern BOOL sub_02030F40(void);
-extern void sub_02055304(PlayerAvatar *playerAvatar, u32 param1);
 extern void sub_02039460(FieldSystem *arg);
 extern void ov05_021E8128(u32 param0, u8 type, u16 map);
 extern void ov05_021E8130(u32 param0, u32 param1);
@@ -91,7 +91,6 @@ extern void ov05_021E2B9C(u32 param0, u8 param1);
 extern u32 sub_0205AEA4(LocalMapObject *event, const void *ptr);
 extern BOOL sub_0205AEF0(u32 param0);
 extern void sub_0205AEFC(u32 param0);
-extern LocalMapObject *PlayerAvatar_GetMapObject(PlayerAvatar *playerAvatar);
 extern u32 sub_0205AE28(LocalMapObject *event);
 extern LocalMapObject *sub_0205E7C4(LocalMapObject *event);
 extern u32 sub_02034B64(FieldSystem *fieldSystem);
@@ -99,11 +98,8 @@ extern const ObjectEvent *sub_02034B6C(FieldSystem *fieldSystem);
 extern u32 sub_02059D1C(LocalMapObject *target);
 extern VecFx32 *MapObject_GetPositionVector(LocalMapObject *target);
 extern void ov05_021EF5E0(VecFx32 *target, u32 param1);
-extern u32 PlayerAvatar_GetFacingDirection(PlayerAvatar *playerAvatar);
 extern u32 sub_02059E74(u32 direction);
 extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
-extern u16 GetPlayerXCoord(PlayerAvatar *playerAvatar);
-extern u16 GetPlayerZCoord(PlayerAvatar *playerAvatar);
 extern u16 sub_02029E0C(SealCase *sealCase);
 extern u16 SealCase_CountSealOccurrenceAnywhere(SealCase *sealCase, u16 sealId);
 extern void sub_02029D44(SealCase *sealCase, u16 sealId, s16 amount);
@@ -168,19 +164,15 @@ extern u32 LocalFieldData_GetWeatherType(LocalFieldData *localFieldData);
 extern void ov05_021DC174(u32 param0, u32 weather);
 extern void LocalFieldData_SetWeatherType(LocalFieldData *localFieldData, u32 weather);
 extern void CallFieldTask_Waterfall(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
-extern u32 PlayerAvatar_GetGender(PlayerAvatar *avatar);
 extern void *ov06_0224666C(FieldSystem *fieldSystem, u32 param1, Pokemon *mon, u32 playerGender);
 extern BOOL ov06_022466A0(void *param0);
 extern void ov06_022466AC(void *param0);
 extern void ov05_021E7030(TaskManager *taskManager);
-extern u32 PlayerAvatar_GetState(PlayerAvatar *avatar);
 extern void FieldSystem_SetSavedMusicId(FieldSystem *fieldSystem, u16 musicId);
 extern void FieldSystem_PlayOrFadeToNewMusicId(FieldSystem *fieldSystem, u16 musicId, u32 param2);
 extern void Field_PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 extern void Field_PlayerAvatar_ApplyTransitionFlags(PlayerAvatar *playerAvatar);
 extern u16 FieldSystem_GetOverriddenMusicId(FieldSystem *fieldSystem, u32 mapId);
-extern void sub_02055720(PlayerAvatar *avatar, u8 action);
-extern void PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 extern RoamerSaveData *Save_Roamers_Get(SaveData *save);
 extern u32 Roamers_GetRand(RoamerSaveData *roamerSaveData, u32 index);
 extern void GetSwarmInfoFromRand(u32 rand, u16 *map, u16 *species);
@@ -227,9 +219,9 @@ extern u32 sub_02052608(u32 param0);
 extern void sub_02052E10(u32 param0);
 extern u32 sub_02052648(u32 param0);
 extern u32 sub_02052718(u32 param0, u32 param1);
-extern void sub_0205363C(u32 trainerId, PlayerGender playerGender, MessageFormat *messageFormat);
-extern u16 sub_02053678(u32 trainerId, PlayerGender playerGender, u32 param2);
-extern u16 sub_020536D0(PlayerGender playerGender, u16 param1, u16 param2);
+extern void sub_0205363C(u32 trainerId, u32 playerGender, MessageFormat *messageFormat);
+extern u16 sub_02053678(u32 trainerId, u32 playerGender, u32 param2);
+extern u16 sub_020536D0(u32 playerGender, u16 param1, u16 param2);
 extern void sub_02049EA4(TaskManager *taskManager);
 extern void LocalFieldData_SetBlackoutSpawn(LocalFieldData *localFieldData, u16 spawnPoint);
 extern void HealParty(Party *playerParty);
@@ -297,7 +289,6 @@ extern void sub_02061574(FieldSystem *fieldSystem);
 extern u16 SpearPillarSequence(FieldSystem *fieldSystem, u8 operation);
 extern void ov06_0224525C(FieldSystem *fieldSystem, u16 var, u16 type);
 extern u16 ov06_02245340(FieldSystem *fieldSystem, u16 position);
-extern void PlayerAvatar_ToggleAutomaticHeightUpdating(PlayerAvatar *avatar, u8 flag);
 extern u16 Save_VarsFlags_GetSpiritombTalkCounter(SaveVarsFlags *varsFlags);
 extern void sub_0205F5A4(SaveVarsFlags *varsFlags, u16 param1);
 extern u16 sub_0205F594(SaveVarsFlags *varsFlags);
@@ -1027,13 +1018,13 @@ static BOOL sub_0203A4E0(ScriptContext *ctx) {
     if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
         return TRUE;
     } else if (gSystem.newKeys & PAD_KEY_UP) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 0);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 0);
     } else if (gSystem.newKeys & PAD_KEY_DOWN) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 1);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 1);
     } else if (gSystem.newKeys & PAD_KEY_LEFT) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 2);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 2);
     } else if (gSystem.newKeys & PAD_KEY_RIGHT) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, 3);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, 3);
     } else if (gSystem.newKeys & PAD_BUTTON_X) {
         sub_02039460(ctx->fieldSystem);
     } else {
@@ -1258,7 +1249,7 @@ static BOOL sub_0203A94C(ScriptContext *ctx) {
 
     if (tmp != 0xFFFF) {
         sub_0201BD7C(*printerNumber);
-        sub_02055304(ctx->fieldSystem->playerAvatar, tmp);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, tmp);
         *varPtr = 0;
         return TRUE;
     } else {
@@ -1296,7 +1287,7 @@ static BOOL sub_0203AA0C(ScriptContext *ctx) {
     }
 
     if (tmp != 0xFFFF) {
-        sub_02055304(ctx->fieldSystem->playerAvatar, tmp);
+        PlayerAvatar_SetFacingDirection(ctx->fieldSystem->playerAvatar, tmp);
         *unk = 0;
         return TRUE;
     } else {
@@ -1541,8 +1532,8 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { // 02A1
     GF_ASSERT(event);
 
     u16 *unk4 = AllocFromHeap(HEAP_ID_4, 0x100);
-    u16 xVal = (u16)MapObject_GetCurrentX(event);
-    u16 zVal = (u16)MapObject_GetCurrentZ(event);
+    u16 xVal = (u16)MapObject_GetXCoord(event);
+    u16 zVal = (u16)MapObject_GetZCoord(event);
 
     u32 pos = 0;
 
@@ -1798,10 +1789,10 @@ BOOL ScrCmd_GetPlayerPosition(ScriptContext *ctx) { // 0069
     FieldSystem *fieldSystem = ctx->fieldSystem;
 
     u16 *x = ScriptGetVarPointer(ctx);
-    u16 *y = ScriptGetVarPointer(ctx);
+    u16 *z = ScriptGetVarPointer(ctx);
 
-    *x = GetPlayerXCoord(fieldSystem->playerAvatar);
-    *y = GetPlayerZCoord(fieldSystem->playerAvatar);
+    *x = PlayerAvatar_GetXCoord(fieldSystem->playerAvatar);
+    *z = PlayerAvatar_GetZCoord(fieldSystem->playerAvatar);
 
     return FALSE;
 }
@@ -1814,8 +1805,8 @@ BOOL ScrCmd_GetEventPosition(ScriptContext *ctx) { // 006A
     u16 *x = ScriptGetVarPointer(ctx);
     u16 *z = ScriptGetVarPointer(ctx);
 
-    *x = (u16)MapObject_GetCurrentX(event);
-    *z = (u16)MapObject_GetCurrentZ(event);
+    *x = (u16)MapObject_GetXCoord(event);
+    *z = (u16)MapObject_GetZCoord(event);
     return FALSE;
 }
 
@@ -2631,7 +2622,7 @@ BOOL ScrCmd_DummyRideBike(ScriptContext *ctx) { // 02BF
 
 BOOL ScrCmd_CyclingRoad(ScriptContext *ctx) { // 00C9
     u8 action = ScriptReadByte(ctx);
-    sub_02055720(ctx->fieldSystem->playerAvatar, action);
+    PlayerAvatar_SetBikeStateLock(ctx->fieldSystem->playerAvatar, action);
     return FALSE;
 }
 
@@ -2643,7 +2634,7 @@ BOOL ScrCmd_GetPlayerState(ScriptContext *ctx) { // 00CA
 
 BOOL ScrCmd_SetPlayerState(ScriptContext *ctx) { // 00CB
     u16 state = ScriptReadHalfword(ctx);
-    PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, state);
+    PlayerAvatar_SetTransitionFlagsBits(ctx->fieldSystem->playerAvatar, state);
     return TRUE;
 }
 

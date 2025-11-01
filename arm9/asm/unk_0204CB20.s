@@ -251,12 +251,12 @@ sub_0204CC9C: ; 0x0204CC9C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	ldr r0, _0204CCD8 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 _0204CCD6:
 	pop {r3, pc}
 	.balign 4
@@ -402,7 +402,7 @@ _0204CDD4:
 	ldrb r1, [r1, r2]
 	cmp r1, #0x0
 	beq _0204CDF2
-	bl sub_02055168
+	bl PlayerAvatar_DeleteFromMap
 _0204CDF2:
 	ldr r0, [r6, #0x0]
 	add r1, r0, r7
@@ -606,7 +606,7 @@ sub_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -619,7 +619,7 @@ sub_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -645,7 +645,7 @@ sub_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -658,7 +658,7 @@ sub_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -839,13 +839,13 @@ sub_0204D168: ; 0x0204D168
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0x0
 	ldr r0, _0204D194 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -953,13 +953,13 @@ sub_0204D248: ; 0x0204D248
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl sub_02055370
+	bl PlayerAvatar_GetUnk10
 	add r4, r0, #0x0
 	ldr r0, _0204D2A8 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl sub_02055378
+	bl PlayerAvatar_GetUnk14
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	bne _0204D292
@@ -1126,7 +1126,7 @@ _0204D37C:
 	ldrh r2, [r2, #0x0]
 	ldrsb r3, [r7, r3]
 	ldr r0, [r0, #0x34]
-	bl sub_02055068
+	bl PlayerAvatar_CreateWithParams
 	add r7, r0, #0x0
 	bne _0204D3B2
 	bl GF_AssertFail
@@ -1232,10 +1232,10 @@ sub_0204D43C: ; 0x0204D43C
 	cmp r7, #0x0
 	beq _0204D484
 _0204D47E:
-	bl sub_02055168
+	bl PlayerAvatar_DeleteFromMap
 	b _0204D488
 _0204D484:
-	bl sub_02055160
+	bl PlayerAvatar_FreeToHeap
 _0204D488:
 	ldr r0, _0204D4CC ; =UNK_021C5A68
 	mov r1, #0x0
@@ -2424,7 +2424,7 @@ _0204DD5E:
 	ldr r0, [r0, #0x0]
 	add r0, r0, r7
 	ldr r0, [r0, #0x8]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	add r0, r4, #0x0
 	mov r1, #0x80
 	bl MapObject_SetFlagsBits
@@ -2543,12 +2543,12 @@ _0204DE86:
 	bne _0204DE98
 	b _0204E068
 _0204DE98:
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	ldrh r1, [r5, #0x0]
 	sub r0, r0, r1
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x18]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	ldrh r1, [r5, #0x2]
 	sub r7, r0, r1
 	ldr r0, [sp, #0x18]
@@ -5707,7 +5707,7 @@ sub_0204F6DC: ; 0x0204F6DC
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	bl sub_02031190
 	ldr r1, _0204F708 ; =UNK_021C5A68
 	lsl r0, r0, #0x3
@@ -5734,7 +5734,7 @@ sub_0204F70C: ; 0x0204F70C
 	ldr r2, [r3, #0x0]
 	add r0, r2, r0
 	ldr r0, [r0, #0x8]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	pop {r4, pc}
 	.balign 4
 _0204F728: .word UNK_021C5A68

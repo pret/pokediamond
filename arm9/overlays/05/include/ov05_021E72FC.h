@@ -4,6 +4,7 @@
 #include "nitro/types.h"
 
 #include "field_system.h"
+#include "player_avatar.h"
 #include "task.h"
 
 typedef struct UnkStruct021E7358 {
@@ -11,12 +12,12 @@ typedef struct UnkStruct021E7358 {
     u32 Unk04;
     u32 Unk08;
     FieldSystem *fieldSystem;
-    u32 Unk10;
+    PlayerAvatar *avatar;
 
 } UnkStruct021E7358;
 
-BOOL ov05_021E72FC(FieldSystem *fieldSystem, u32 param1);
-void ov05_021E7358(FieldSystem *fieldSystem, u32 param1, u32 param2);
+BOOL ov05_021E72FC(FieldSystem *fieldSystem, PlayerAvatar *avatar);
+void ov05_021E7358(FieldSystem *fieldSystem, PlayerAvatar *avatar, u32 param2);
 u32 ov05_021E7388(u32 param0);
 BOOL ov05_021E73B4(TaskManager *taskManager);
 UnkStruct021E7358 *ov05_021E74D4(u32 param0);

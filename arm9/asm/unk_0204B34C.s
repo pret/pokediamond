@@ -507,10 +507,10 @@ sub_0204B70C: ; 0x0204B70C
 	add r7, r0, #0x0
 	ldr r0, [r7, #0x38]
 	add r5, r2, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r7, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0x0
 	cmp r5, #0x2
 	bne _0204B72A
@@ -562,10 +562,10 @@ sub_0204B770: ; 0x0204B770
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r6, r1, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r2, r0, #0x0
 	cmp r6, #0x2
 	bne _0204B78E
@@ -588,10 +588,10 @@ sub_0204B7A0: ; 0x0204B7A0
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r6, r1, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x4]
 	cmp r0, #0x0
@@ -767,7 +767,7 @@ _0204B8F6:
 	bne _0204B910
 	ldr r0, [r5, #0x38]
 	mov r1, #0x0
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	mov r0, #0x4
 	str r0, [r4, #0x0]
 	b _0204B98E
@@ -789,7 +789,7 @@ _0204B922:
 	ble _0204B98E
 	ldr r0, [r5, #0x38]
 	ldr r1, [r4, #0x4]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	mov r0, #0x4
 	str r0, [r4, #0x0]
 	b _0204B98E
@@ -814,14 +814,14 @@ _0204B93A:
 _0204B964:
 	ldr r0, [r5, #0x38]
 	ldr r1, [r4, #0x4]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	mov r0, #0x4
 	str r0, [r4, #0x0]
 	b _0204B98E
 _0204B972:
 	ldr r0, [r5, #0x38]
 	ldr r1, [r4, #0x4]
-	bl sub_02055304
+	bl PlayerAvatar_SetFacingDirection
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetMapObject
 	bl MapObject_PauseMovement
@@ -865,7 +865,7 @@ sub_0204B9CC: ; 0x0204B9CC
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl PlayerAvatar_GetState
-	bl sub_02055648
+	bl PlayerAvatar_GetTransitionBits
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl Field_PlayerAvatar_OrrTransitionFlags

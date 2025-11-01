@@ -133,7 +133,7 @@ sub_0205E5B4: ; 0x0205E5B4
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	bl MapObject_GetManager
-	bl sub_020552A4
+	bl MapObjectManager_GetFirstActiveObjectWithMovement1
 	cmp r0, #0x0
 	bne _0205E5CC
 	mov r0, #0x0
@@ -156,14 +156,14 @@ sub_0205E5E0: ; 0x0205E5E0
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	bl MapObject_GetFieldSystem
-	bl sub_02055698
+	bl FieldSystem_GetPlayerAvatar
 	mov r1, #0x1
 	add r4, r0, #0x0
 	strb r1, [r5, #0x1]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	strh r0, [r5, #0x4]
 	mov r0, #0xff
 	strh r0, [r5, #0x6]
@@ -175,13 +175,13 @@ sub_0205E608: ; 0x0205E608
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	bl MapObject_GetFieldSystem
-	bl sub_02055698
+	bl FieldSystem_GetPlayerAvatar
 	add r6, r0, #0x0
 	beq _0205E638
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	mov r1, #0x2
 	ldrsh r1, [r5, r1]
 	cmp r4, r1
@@ -202,12 +202,12 @@ sub_0205E63C: ; 0x0205E63C
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	bl MapObject_GetFieldSystem
-	bl sub_02055698
+	bl FieldSystem_GetPlayerAvatar
 	add r4, r0, #0x0
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	strh r0, [r5, #0x4]
 	pop {r3-r5, pc}
 	.balign 4
@@ -216,8 +216,8 @@ sub_0205E63C: ; 0x0205E63C
 sub_0205E65C: ; 0x0205E65C
 	push {r3, lr}
 	bl MapObject_GetFieldSystem
-	bl sub_02055698
-	bl sub_02055464
+	bl FieldSystem_GetPlayerAvatar
+	bl PlayerAvatar_GetUnk8
 	add r1, r0, #0x0
 	sub r1, #0x58
 	cmp r1, #0x3
@@ -254,19 +254,19 @@ sub_0205E698: ; 0x0205E698
 	sub sp, #0x8
 	add r5, r0, #0x0
 	bl MapObject_GetFieldSystem
-	bl sub_02055698
+	bl FieldSystem_GetPlayerAvatar
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02055338
+	bl PlayerAvatar_GetPreviousXCoord
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_02055344
+	bl PlayerAvatar_GetPreviousZCoord
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	cmp r0, r6
@@ -541,10 +541,10 @@ sub_0205E8D0: ; 0x0205E8D0
 	add r4, r2, #0x0
 	strb r0, [r5, #0x1]
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	strh r0, [r5, #0x4]
 	mov r0, #0xff
 	strh r0, [r5, #0x6]
@@ -557,16 +557,16 @@ sub_0205E8F4: ; 0x0205E8F4
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r5, [r1, #0x8]
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	cmp r4, r7
 	bne _0205E91E
 	cmp r6, r0
@@ -596,22 +596,22 @@ sub_0205E940: ; 0x0205E940
 	sub sp, #0xc
 	str r0, [sp, #0x0]
 	add r5, r1, #0x0
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl MapObject_GetCurrentX
+	bl MapObject_GetXCoord
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x8]
-	bl MapObject_GetCurrentZ
+	bl MapObject_GetZCoord
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl MapObject_GetPreviousX
+	bl MapObject_GetPreviousXCoord
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x8]
-	bl MapObject_GetPreviousZ
+	bl MapObject_GetPreviousZCoord
 	add r3, r0, #0x0
 	ldr r0, [sp, #0x8]
 	cmp r4, r0

@@ -82,10 +82,10 @@ sub_0205CE80: ; 0x0205CE80
 	bl PlayerAvatar_GetState
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -448,7 +448,7 @@ _0205D184:
 	pop {r3-r5, pc}
 _0205D194:
 	ldr r0, [r5, #0x14]
-	bl sub_02055738
+	bl PlayerAvatar_CheckBikeStateLocked
 	cmp r0, #0x1
 	bne _0205D1A4
 	mov r0, #0x0
@@ -492,12 +492,12 @@ _0205D1DA:
 _0205D1EE:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerXCoord
+	bl PlayerAvatar_GetXCoord
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl GetPlayerZCoord
+	bl PlayerAvatar_GetZCoord
 	lsl r0, r0, #0x10
 	lsr r2, r0, #0x10
 	ldr r0, [r5, #0x18]
@@ -651,7 +651,7 @@ sub_0205D328: ; 0x0205D328
 	pop {r3-r5, pc}
 _0205D336:
 	ldr r0, [r4, #0x14]
-	bl sub_02055738
+	bl PlayerAvatar_CheckBikeStateLocked
 	cmp r0, #0x1
 	bne _0205D344
 	mov r0, #0x1

@@ -100,7 +100,7 @@ _02053786:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
 	ldr r0, [r0, #0x38]
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	ldr r1, [r4, r0]
@@ -292,7 +292,7 @@ _020538FA:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
 	ldr r0, [r0, #0x38]
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	ldr r1, [r4, r0]
@@ -380,7 +380,7 @@ _020539A2:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x1
 	ldr r0, [r0, #0x38]
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	add sp, #0x10
 	pop {r3-r5, pc}
 _020539C4:
@@ -448,7 +448,7 @@ _02053A36:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
 	ldr r0, [r0, #0x38]
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	ldr r1, [r4, r0]
@@ -613,7 +613,7 @@ _02053B76:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
 	ldr r0, [r0, #0x38]
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r1, #0x57
 	lsl r1, r1, #0x2
 	add r0, r4, #0x0
@@ -680,7 +680,7 @@ _02053BF2:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x1
 	ldr r0, [r0, #0x38]
-	bl sub_0205537C
+	bl PlayerAvatar_ToggleVisible
 	mov r0, #0x61
 	mov r1, #0x6
 	lsl r0, r0, #0x2
