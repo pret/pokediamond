@@ -798,11 +798,6 @@ void ApplyCellsToImage(char *cellFilePath, struct Image *image, bool toPNG, bool
         {
             cellHeight = options->cells[i]->maxY - options->cells[i]->minY;
             cellWidth = options->cells[i]->maxX - options->cells[i]->minX;
-            if (snap)
-            {
-                cellHeight = SnapToTile(cellHeight);
-                cellWidth = SnapToTile(cellWidth);
-            }
             cellInfo[i].minX = options->cells[i]->minX;
             cellInfo[i].minY = options->cells[i]->minY;
         }
@@ -846,6 +841,11 @@ void ApplyCellsToImage(char *cellFilePath, struct Image *image, bool toPNG, bool
             cellHeight = maxY - minY;
             cellInfo[i].minX = minX;
             cellInfo[i].minY = minY;
+        }
+        if (snap)
+        {
+            cellHeight = SnapToTile(cellHeight);
+            cellWidth = SnapToTile(cellWidth);
         }
 
         outputHeight += cellHeight + 1;
@@ -1592,7 +1592,7 @@ void ReadNtrCell_LABL(unsigned char * restrict data, unsigned int blockOffset, u
         {
             FATAL_ERROR("corrupted LABL block\n");
         }
-        unsigned long slen = strnlen((char *)data + offset, blockSize - offset);
+        unsigned long slen = strnlen((char *)data + offset, (blockOffset + blockSize) - offset);
         options->labels[i] = malloc(slen + 1);
         strncpy(options->labels[i], (char *)data + offset, slen + 1);
     }
