@@ -59,9 +59,6 @@ endif
 
 ifeq ($(NOWINE),1)
   WINE :=
-  WINPATH := wslpath
-else
-  WINPATH := winepath
 endif
 
 ################ Target Executable and Sources ###############
