@@ -26,9 +26,17 @@ default: all
 # If you are using WSL, it is recommended you build with NOWINE=1.
 WSLENV ?= no
 ifeq ($(WSLENV),no)
-NOWINE = 0
+  NOWINE = 0
 else
-NOWINE = 1
+  # As of build 17063, WSLENV is defined in both WSL1 and WSL2
+  # so we need to use the kernel release to detect between
+  # the two.
+  UNAME_R := $(shell uname -r)
+  ifeq ($(findstring WSL2,$(UNAME_R)),)
+    NOWINE = 1
+  else
+    NOWINE = 0
+  endif
 endif
 
 ifeq ($(OS),Windows_NT)
@@ -50,7 +58,10 @@ endif
 endif
 
 ifeq ($(NOWINE),1)
-WINE :=
+  WINE :=
+  WINPATH := wslpath
+else
+  WINPATH := winepath
 endif
 
 ################ Target Executable and Sources ###############
