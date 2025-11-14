@@ -59,7 +59,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, HeapID
             FreeToHeap(itemData);
             return TRUE;
         }
-    } else if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_RESTORE) && hp != 0 && hp < GetMonData(pokemon, MON_DATA_MAXHP, NULL)) {
+    } else if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_RESTORE) && hp != 0 && hp < GetMonData(pokemon, MON_DATA_MAX_HP, NULL)) {
         FreeToHeap(itemData);
         return TRUE;
     }
@@ -72,7 +72,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, HeapID
         return TRUE;
     }
     if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PP_UP) || GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PP_MAX)) {
-        if (GetMonData(pokemon, MON_DATA_MOVE1PPUP + moveId, NULL) < 3 && WazaGetMaxPp((u16)GetMonData(pokemon, MON_DATA_MOVE1 + moveId, NULL), 0) >= 5) {
+        if (GetMonData(pokemon, MON_DATA_MOVE1_PP_UPS + moveId, NULL) < 3 && WazaGetMaxPp((u16)GetMonData(pokemon, MON_DATA_MOVE1 + moveId, NULL), 0) >= 5) {
             FreeToHeap(itemData);
             return TRUE;
         }
@@ -256,7 +256,7 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
     }
     {
         sp50 = (int)GetMonData(pokemon, MON_DATA_HP, NULL);
-        sp54 = (int)GetMonData(pokemon, MON_DATA_MAXHP, NULL);
+        sp54 = (int)GetMonData(pokemon, MON_DATA_MAX_HP, NULL);
         if ((GetItemAttr_PreloadedItemData(itemData, ITEMATTR_REVIVE) || GetItemAttr_PreloadedItemData(itemData, ITEMATTR_REVIVE_ALL)) && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP)) {
             if (sp50 == 0) {
                 RestoreMonHPBy(pokemon, (u32)sp50, (u32)sp54, GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_RESTORE_PARAM));
@@ -276,7 +276,7 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
                 AddMonData(pokemon, MON_DATA_EXPERIENCE, (int)CalcMonExpToNextLevel(pokemon));
                 CalcMonLevelAndStats(pokemon);
                 if (sp50 == 0) {
-                    sp5C = (s32)GetMonData(pokemon, MON_DATA_MAXHP, NULL);
+                    sp5C = (s32)GetMonData(pokemon, MON_DATA_MAX_HP, NULL);
                     RestoreMonHPBy(pokemon, (u32)sp50, (u32)sp5C, (u32)(sp5C - sp54));
                 }
                 hadEffect = TRUE;
@@ -446,8 +446,8 @@ u8 MonMoveCanRestorePP(struct Pokemon *pokemon, s32 moveIdx) {
     if (move_id == MOVE_NONE) {
         return FALSE;
     }
-    u8 pp = (u8)GetMonData(pokemon, MON_DATA_MOVE1PP + moveIdx, NULL);
-    u8 ppUp = (u8)GetMonData(pokemon, MON_DATA_MOVE1PPUP + moveIdx, NULL);
+    u8 pp = (u8)GetMonData(pokemon, MON_DATA_MOVE1_PP + moveIdx, NULL);
+    u8 ppUp = (u8)GetMonData(pokemon, MON_DATA_MOVE1_PP_UPS + moveIdx, NULL);
     return (u8)(pp < WazaGetMaxPp(move_id, ppUp));
 }
 
@@ -462,9 +462,9 @@ BOOL MonMoveRestorePP(struct Pokemon *pokemon, s32 moveIdx, s32 ppRestore) {
     if (move_id == MOVE_NONE) {
         return FALSE;
     }
-    ppAttr = MON_DATA_MOVE1PP + moveIdx;
+    ppAttr = MON_DATA_MOVE1_PP + moveIdx;
     pp = (u8)GetMonData(pokemon, ppAttr, NULL);
-    ppUpAttr = MON_DATA_MOVE1PPUP + moveIdx;
+    ppUpAttr = MON_DATA_MOVE1_PP_UPS + moveIdx;
     maxPp = WazaGetMaxPp(move_id, (u8)GetMonData(pokemon, ppUpAttr, NULL));
     if (pp < maxPp) {
         if (ppRestore == PP_RESTORE_ALL) {
@@ -487,7 +487,7 @@ BOOL BoostMonMovePpUpBy(struct Pokemon *pokemon, s32 moveIdx, u32 nPpUp) {
     s32 ppUpAttr;
     s32 ppAttr;
 
-    ppUpAttr = MON_DATA_MOVE1PPUP + moveIdx;
+    ppUpAttr = MON_DATA_MOVE1_PP_UPS + moveIdx;
     ppUp = (u8)GetMonData(pokemon, ppUpAttr, NULL);
     if (ppUp == 3) {
         return FALSE;
@@ -496,7 +496,7 @@ BOOL BoostMonMovePpUpBy(struct Pokemon *pokemon, s32 moveIdx, u32 nPpUp) {
     if (WazaGetMaxPp(move, 0) < 5) {
         return FALSE;
     }
-    ppAttr = MON_DATA_MOVE1PP + moveIdx;
+    ppAttr = MON_DATA_MOVE1_PP + moveIdx;
     pp = (u8)GetMonData(pokemon, ppAttr, NULL);
     maxPp = WazaGetMaxPp(move, ppUp);
     if (ppUp + nPpUp > 3) {
@@ -582,7 +582,7 @@ BOOL DoItemFriendshipMod(struct Pokemon *pokemon, s32 friendship, s32 mod, u16 l
         if (GetMonData(pokemon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL) {
             mod++;
         }
-        if (location == GetMonData(pokemon, MON_DATA_EGG_MET_LOCATION, NULL)) {
+        if (location == GetMonData(pokemon, MON_DATA_EGG_LOCATION, NULL)) {
             mod++;
         }
     }
@@ -607,7 +607,7 @@ void HealParty(struct Party *party) {
     for (i = 0; i < nmons; i++) {
         struct Pokemon *pokemon = Party_GetMonByIndex(party, i);
         if (GetMonData(pokemon, MON_DATA_SPECIES_EXISTS, NULL)) {
-            sp8 = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
+            sp8 = GetMonData(pokemon, MON_DATA_MAX_HP, NULL);
             SetMonData(pokemon, MON_DATA_HP, &sp8);
 
             sp8 = 0;

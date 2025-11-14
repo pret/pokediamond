@@ -63,7 +63,7 @@ BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext *ctx) // 0199 - todo: CheckPa
     struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);
     struct Pokemon *party_mon = Party_GetMonByIndex(party, *mon_slot);
 
-    u16 party_mon_otid = (u16)GetMonData(party_mon, MON_DATA_OTID, NULL);
+    u16 party_mon_otid = (u16)GetMonData(party_mon, MON_DATA_OT_ID, NULL);
     u16 player_otid = (u16)PlayerProfile_GetTrainerID(player);
     if (party_mon_otid == player_otid) {
         *ret_ptr = 0;
@@ -298,7 +298,7 @@ BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext *ctx) // 01BA
             friendship_to_add++;
         }
 
-        u32 party_mon_egg_met_location = GetMonData(party_mon, MON_DATA_EGG_MET_LOCATION, NULL);
+        u32 party_mon_egg_met_location = GetMonData(party_mon, MON_DATA_EGG_LOCATION, NULL);
         if (map_sec == party_mon_egg_met_location) {
             friendship_to_add++;
         }

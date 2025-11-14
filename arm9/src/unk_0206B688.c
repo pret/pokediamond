@@ -53,7 +53,7 @@ u32 sub_0206B6D4(u32 species, u32 is_egg, u32 form) {
 }
 
 u16 BoxMon_GetAlternateForm(struct BoxPokemon *boxmon) {
-    u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
+    u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES_OR_EGG, NULL);
     switch (species) {
     case SPECIES_UNOWN:
         return GetBoxMonUnownLetter(boxmon);
