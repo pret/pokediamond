@@ -35,15 +35,15 @@ void Save_HOF_RecordParty(struct HallOfFame *hof, struct Party *party, RTCDate *
                 hof_party->party[j].level = (u8)GetMonData(mon, MON_DATA_LEVEL, NULL);
                 hof_party->party[j].form = (u8)GetMonData(mon, MON_DATA_FORM, NULL);
                 hof_party->party[j].personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
-                hof_party->party[j].otid = GetMonData(mon, MON_DATA_OTID, NULL);
+                hof_party->party[j].otid = GetMonData(mon, MON_DATA_OT_ID, NULL);
                 hof_party->party[j].moves[0] = (u16)GetMonData(mon, MON_DATA_MOVE1, NULL);
                 hof_party->party[j].moves[1] = (u16)GetMonData(mon, MON_DATA_MOVE2, NULL);
                 hof_party->party[j].moves[2] = (u16)GetMonData(mon, MON_DATA_MOVE3, NULL);
                 hof_party->party[j].moves[3] = (u16)GetMonData(mon, MON_DATA_MOVE4, NULL);
                 if (str != NULL) {
-                    GetMonData(mon, MON_DATA_NICKNAME_3, str);
+                    GetMonData(mon, MON_DATA_NICKNAME_STRING, str);
                     CopyStringToU16Array(str, hof_party->party[j].nickname, POKEMON_NAME_LENGTH + 1);
-                    GetMonData(mon, MON_DATA_OT_NAME_2, str);
+                    GetMonData(mon, MON_DATA_OT_NAME_STRING, str);
                     CopyStringToU16Array(str, hof_party->party[j].otname, PLAYER_NAME_LENGTH + 1);
                 } else {
                     hof_party->party[j].nickname[0] = EOS;
