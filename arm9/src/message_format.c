@@ -155,12 +155,12 @@ void BufferSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 spe
 }
 
 void BufferBoxMonNickname(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon) {
-    GetBoxMonData(mon, MON_DATA_NICKNAME_3, messageFormat->buffer);
+    GetBoxMonData(mon, MON_DATA_NICKNAME_STRING, messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
 void BufferBoxMonOTName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon) {
-    GetBoxMonData(mon, MON_DATA_OT_NAME_2, messageFormat->buffer);
+    GetBoxMonData(mon, MON_DATA_OT_NAME_STRING, messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 

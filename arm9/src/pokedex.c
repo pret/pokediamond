@@ -601,7 +601,7 @@ void Pokedex_SetMonCaughtFlag(struct Pokedex *pokedex, struct Pokemon *pokemon) 
     u16 species;     // r6
 
     species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    language = GetMonData(pokemon, MON_DATA_GAME_LANGUAGE, NULL);
+    language = GetMonData(pokemon, MON_DATA_LANGUAGE, NULL);
     personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
     gender = GetMonGender(pokemon);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
