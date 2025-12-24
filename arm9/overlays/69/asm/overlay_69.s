@@ -4037,7 +4037,7 @@ HOF_MonGetMetLocationStringId: ; 0x0222F6C4
 	add r5, r0, #0
 	add r0, r4, #0
 	add r6, r2, #0
-	bl AcquireMonLock
+	bl Pokemon_UnlockEncryption
 	str r0, [sp]
 	add r0, r4, #0
 	mov r1, #0x79
@@ -4124,7 +4124,7 @@ _0222F778:
 _0222F77A:
 	ldr r1, [sp]
 	add r0, r4, #0
-	bl ReleaseMonLock
+	bl Pokemon_LockEncryption
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

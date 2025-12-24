@@ -29,7 +29,7 @@ void Save_HOF_RecordParty(struct HallOfFame *hof, struct Party *party, RTCDate *
         int i, j;
         for (i = 0, j = 0; i < nmons; i++) {
             struct Pokemon *mon = Party_GetMonByIndex(party, i);
-            BOOL lock = AcquireMonLock(mon);
+            BOOL lock = Pokemon_UnlockEncryption(mon);
             if (!Pokemon_GetData(mon, MON_DATA_IS_EGG, NULL)) {
                 hof_party->party[j].species = (u16)Pokemon_GetData(mon, MON_DATA_SPECIES, NULL);
                 hof_party->party[j].level = (u8)Pokemon_GetData(mon, MON_DATA_LEVEL, NULL);
@@ -51,7 +51,7 @@ void Save_HOF_RecordParty(struct HallOfFame *hof, struct Party *party, RTCDate *
                 }
                 j++;
             }
-            ReleaseMonLock(mon, lock);
+            Pokemon_LockEncryption(mon, lock);
         }
         hof_party->year = (u16)date->year;
         hof_party->month = (u8)date->month;

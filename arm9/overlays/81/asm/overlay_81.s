@@ -1051,7 +1051,7 @@ _02238648:
 	bl BG_LoadCharTilesData
 	ldr r1, [sp, #0x20]
 	add r0, r4, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	add r0, r7, #0
 	bl FreeToHeap
 _02238690:

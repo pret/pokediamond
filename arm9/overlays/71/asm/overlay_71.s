@@ -1343,7 +1343,7 @@ ov71_0222E118: ; 0x0222E118
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	bl AcquireMonLock
+	bl Pokemon_UnlockEncryption
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #0x9a
@@ -1382,7 +1382,7 @@ ov71_0222E118: ; 0x0222E118
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
-	bl ReleaseMonLock
+	bl Pokemon_LockEncryption
 	ldrh r0, [r4]
 	cmp r0, #0
 	beq _0222E18E

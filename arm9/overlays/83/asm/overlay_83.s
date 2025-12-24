@@ -22593,7 +22593,7 @@ _0223853E:
 	bl BoxPokemon_SetData
 	ldr r1, [sp]
 	add r0, r4, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	add sp, #0x30
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

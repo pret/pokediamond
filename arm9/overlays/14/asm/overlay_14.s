@@ -4713,7 +4713,7 @@ _021D9B9E:
 	add r1, r6, #0
 	bl Party_GetMonByIndex
 	add r4, r0, #0
-	bl AcquireMonLock
+	bl Pokemon_UnlockEncryption
 	add r7, r0, #0
 	add r0, r4, #0
 	mov r1, #0xac
@@ -4731,7 +4731,7 @@ _021D9B9E:
 _021D9BD2:
 	add r0, r4, #0
 	add r1, r7, #0
-	bl ReleaseMonLock
+	bl Pokemon_LockEncryption
 	cmp r5, #2
 	blt _021D9BE4
 	add sp, #8
@@ -5483,7 +5483,7 @@ _021DA1A2:
 _021DA1A8:
 	ldr r1, [sp]
 	add r0, r5, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	ldr r0, [sp, #4]
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -9323,7 +9323,7 @@ _021DBFB8:
 	bl SpeciesData_Free
 	ldr r1, [sp]
 	add r0, r5, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	pop {r3, r4, r5, r6, r7, pc}
 
 	thumb_func_start ov14_021DBFF4
@@ -9371,7 +9371,7 @@ _021DC034:
 	mov r0, #0x1a
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl AcquireMonLock
+	bl Pokemon_UnlockEncryption
 	add r6, r0, #0
 	mov r0, #0x1a
 	lsl r0, r0, #4
@@ -9489,7 +9489,7 @@ _021DC034:
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	add r1, r6, #0
-	bl ReleaseMonLock
+	bl Pokemon_LockEncryption
 	add r0, r7, #0
 	add r0, #0xa4
 	ldrb r0, [r0]
@@ -18971,7 +18971,7 @@ _021E0A36:
 	bl ov14_021E0B54
 	ldr r1, [sp, #0x10]
 	add r0, r6, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	add sp, #0x44
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -19079,7 +19079,7 @@ _021E0B28:
 	bl ov14_021E0B54
 	ldr r1, [sp, #0x14]
 	add r0, r6, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -21876,7 +21876,7 @@ _021E20AA:
 _021E20C8:
 	ldr r1, [sp, #0x1c]
 	add r0, r5, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	ldr r0, [sp, #0x24]
 	add r6, r6, #2
 	add r0, r0, #1

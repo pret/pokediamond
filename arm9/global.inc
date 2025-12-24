@@ -4730,10 +4730,10 @@
 .extern BoxPokemon_Init
 .extern SizeOfStructPokemon
 .extern Pokemon_New
-.extern AcquireMonLock
-.extern ReleaseMonLock
+.extern Pokemon_UnlockEncryption
+.extern Pokemon_LockEncryption
 .extern AcquireBoxMonLock
-.extern ReleaseBoxMonLock
+.extern BoxPokemon_LockEncryption
 .extern Pokemon_InitWithParams
 .extern Pokemon_InitWithNature
 .extern Pokemon_InitWithGenderNatureLetter

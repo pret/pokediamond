@@ -10874,7 +10874,7 @@ ov80_02232C88: ; 0x02232C88
 _02232CF2:
 	add r0, r5, #0
 	mov r1, #1
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0
 	beq _02232D60
@@ -11282,7 +11282,7 @@ _02233028:
 	blt _02233028
 	ldr r1, [sp]
 	add r0, r7, #0
-	bl ReleaseBoxMonLock
+	bl BoxPokemon_LockEncryption
 	cmp r4, #0
 	beq _0223304C
 	mov r0, #1

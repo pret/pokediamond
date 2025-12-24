@@ -293,7 +293,7 @@ _02254A62:
 	add r1, r6, #0
 	bl Party_GetMonByIndex
 	add r4, r0, #0
-	bl AcquireMonLock
+	bl Pokemon_UnlockEncryption
 	add r7, r0, #0
 	add r0, r4, #0
 	bl sub_0206B688
@@ -342,7 +342,7 @@ _02254ABE:
 	strb r0, [r5, #0x13]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl ReleaseMonLock
+	bl Pokemon_LockEncryption
 	ldr r0, [sp]
 	add r6, r6, #1
 	ldr r0, [r0]
