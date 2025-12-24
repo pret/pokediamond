@@ -45038,7 +45038,7 @@ ov08_02228244: ; 0x02228244
 	str r0, [r2]
 	ldr r0, [r4, #0xc]
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r1, r4, #0
 	add r1, #0x9c
 	str r0, [r1]
@@ -45067,7 +45067,7 @@ _02228272:
 _02228290:
 	ldr r0, [r4, #0xc]
 	mov r1, #0x9a
-	bl GetMonData
+	bl Pokemon_GetData
 	add r4, #0x98
 	str r0, [r4]
 	pop {r4, pc}
@@ -45080,7 +45080,7 @@ _0222829E:
 	add r4, #0xa0
 	mov r1, #0xaa
 	add r2, r4, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	pop {r4, pc}
 
 	thumb_func_start ov08_022282B4

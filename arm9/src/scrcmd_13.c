@@ -42,7 +42,7 @@ BOOL ScrCmd_Unk0253(struct ScriptContext *ctx) // 0253
 BOOL ScrCmd_Unk0254(struct ScriptContext *ctx) // 0254
 {
     void *unk = sub_02022528(ctx->fieldSystem->saveData);
-    struct Pokemon *pokemon = AllocMonZeroed(HEAP_ID_32);
+    struct Pokemon *pokemon = Pokemon_New(HEAP_ID_32);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 eggs = sub_0202C000(unk);
@@ -61,7 +61,7 @@ BOOL ScrCmd_Unk0255(struct ScriptContext *ctx) // 0255
 {
     void *unk = sub_02022528(ctx->fieldSystem->saveData);
     struct PCStorage *pc = SaveArray_PCStorage_Get(ctx->fieldSystem->saveData);
-    struct Pokemon *pokemon = AllocMonZeroed(HEAP_ID_32);
+    struct Pokemon *pokemon = Pokemon_New(HEAP_ID_32);
     PlayerProfile *player = Save_PlayerData_GetProfile(ctx->fieldSystem->saveData);
     struct Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData); // unused
 

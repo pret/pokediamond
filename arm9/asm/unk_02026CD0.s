@@ -15,27 +15,27 @@ sub_02026CD0: ; 0x02026CD0
 	mov r1, #0x5
 	mov r2, #0x0
 	add r7, r3, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r2, r5, #0x0
 	strh r0, [r5, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0xa
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0x0
 	add r0, r4, #0x0
 	add r2, r1, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	str r0, [r5, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	str r0, [r5, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r1, r5, #0x0
 	add r1, #0x33
 	strb r0, [r1, #0x0]
@@ -2120,17 +2120,17 @@ _02027B9C:
 	str r0, [sp, #0xc]
 	ldrh r1, [r5, #0x10]
 	add r0, r4, #0x0
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	add r2, r5, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0x12
-	bl SetMonData
+	bl Pokemon_SetData
 	add r5, #0x3b
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, r5, #0x0
-	bl SetMonData
+	bl Pokemon_SetData
 	add sp, #0x10
 	pop {r3-r5, pc}
 	nop
@@ -2295,17 +2295,17 @@ sub_02027CB8: ; 0x02027CB8
 	str r0, [sp, #0xc]
 	ldrh r1, [r5, #0x8]
 	add r0, r4, #0x0
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	add r2, r5, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0xa
-	bl SetMonData
+	bl Pokemon_SetData
 	add r5, #0x33
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, r5, #0x0
-	bl SetMonData
+	bl Pokemon_SetData
 	add sp, #0x10
 	pop {r3-r5, pc}
 	.balign 4

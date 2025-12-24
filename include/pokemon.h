@@ -24,7 +24,7 @@
 #define LEVEL_UP_LEARNSET_MOVE(x) ((u16)(((x) & LEVEL_UP_LEARNSET_MOVEID_MASK) >> LEVEL_UP_LEARNSET_MOVEID_SHIFT))
 #define LEVEL_UP_LEARNSET_LVL(x)  (((x) & LEVEL_UP_LEARNSET_LEVEL_MASK) >> LEVEL_UP_LEARNSET_LEVEL_SHIFT)
 
-struct BaseStats {
+typedef struct SpeciesData {
     /* 0x00 */ u8 hp;
     /* 0x01 */ u8 atk;
     /* 0x02 */ u8 def;
@@ -53,11 +53,11 @@ struct BaseStats {
     /* 0x19 */ u8 color : 7;
     u8 flip : 1;
     u8 padding_1A[2];
-    /* 0x1C */ u32 unk1C;
-    /* 0x20 */ u32 unk20;
-    /* 0x24 */ u32 unk24;
-    /* 0x28 */ u32 unk28;
-};
+    /* 0x1C */ u32 tmhm_1;
+    /* 0x20 */ u32 tmhm_2;
+    /* 0x24 */ u32 tmhm_3;
+    /* 0x28 */ u32 tmhm_4;
+} SpeciesData;
 
 // Structs
 
@@ -73,56 +73,73 @@ typedef struct {
     /* 0x10 */ u8 hpEV;
     /* 0x11 */ u8 atkEV;
     /* 0x12 */ u8 defEV;
-    /* 0x13 */ u8 spdEV;
-    /* 0x14 */ u8 spatkEV;
-    /* 0x15 */ u8 spdefEV;
-    /* 0x16 */ u8 coolStat;
-    /* 0x17 */ u8 beautyStat;
-    /* 0x18 */ u8 cuteStat;
-    /* 0x19 */ u8 smartStat;
-    /* 0x1A */ u8 toughStat;
+    /* 0x13 */ u8 speedEV;
+    /* 0x14 */ u8 spAtkEV;
+    /* 0x15 */ u8 spDefEV;
+    /* 0x16 */ u8 cool;
+    /* 0x17 */ u8 beauty;
+    /* 0x18 */ u8 cute;
+    /* 0x19 */ u8 smart;
+    /* 0x1A */ u8 tough;
     /* 0x1B */ u8 sheen;
     // TODO: Finish SinnohRibbonSet1
-    /* 0x1C */ u32 sinnohRibbons;
+    /* 0x1C */ u32 ribbonsDS1;
     //    u8 sinnohChampRibbon:1, abilityRibbon:1;
     //    u8 field_0x1d;
     //    u8 gorgeousRoyalRibbon:1, footprintRibbon:1;
     //    u8 field_0x1f;
 } PokemonDataBlockA;
 
-typedef struct {
+typedef struct PokemonDataBlockB {
     /* 0x00 */ u16 moves[4];
-    /* 0x08 */ u8 movePP[4];
-    /* 0x0C */ u8 movePpUps[4];
-    /* 0x10 */ u32 hpIV : 5, atkIV : 5, defIV : 5, spdIV : 5, spatkIV : 5, spdefIV : 5, isEgg : 1, isNicknamed : 1;
-    // TODO: Finish HoennRibbonSet
-    /* 0x14 */ u32 ribbonFlags; // cool, ...
-    /* 0x18 */ u8 fatefulEncounter : 1, gender : 2, alternateForm : 5;
-    /* 0x19 */ u8 HGSS_shinyLeaves; // TODO: Turn into bitfield
-    /* 0x1A */ u16 Unused;
-    /* 0x1C */ u16 Platinum_EggLocation;
-    /* 0x1E */ u16 Platinum_MetLocation;
+    /* 0x08 */ u8 moveCurrentPPs[4];
+    /* 0x0C */ u8 movePPUps[4];
+
+    /* 0x10 */ u32 hpIV : 5;
+               u32 atkIV : 5;
+               u32 defIV : 5;
+               u32 speedIV : 5;
+               u32 spAtkIV : 5;
+               u32 spDefIV : 5;
+               u32 isEgg : 1;
+               u32 hasNickname : 1;
+
+    /* 0x14 */ u32 ribbonsGBA; //!< A bitmask of ribbons introduced in Generation 3. Cool, Beauty, Cute, Smart, Tough, Champion, Winning, Victory, Artist, Effort, Marine, Land, Sky, Country, National, Earth and World Ribbons.
+    /* 0x18 */ u8 fatefulEncounter : 1;
+               u8 gender : 2;
+               u8 form : 5;
+    /* 0x19 */ u8 unused1; //!< First 6 bits track Shiny Leaves from HGSS.
+    /* 0x1A */ u16 unused2;
+
+    /* 0x1C */ u16 EggLocation_PtHGSS;
+    /* 0x1E */ u16 MetLocation_PtHGSS;
 } PokemonDataBlockB;
 
 typedef struct {
-    /* 0x00 */ u16 nickname[11];
-    /* 0x16 */ u8 Unused;
+    /* 0x00 */ u16 nickname[POKEMON_NAME_LENGTH + 1];
+    /* 0x16 */ u8 unused;
     /* 0x17 */ u8 originGame;
-    // TODO: Finish SinnohRibbonSet2
-    /* 0x18 */ u64 sinnohRibbons2; // cool, ...
+    /* 0x18 */ u64 ribbonsDS2; //!< A bitmask of ribbons given to the Pokemon from Sinnoh's Super Contests.
 } PokemonDataBlockC;
 
 typedef struct {
-    /* 0x00 */ u16 otTrainerName[8];
-    /* 0x10 */ u8 dateEggReceived[3];
-    /* 0x13 */ u8 dateMet[3];
+    /* 0x00 */ u16 otName[PLAYER_NAME_LENGTH + 1];
+
+    /* 0x10 */ u8 eggYear;
+    /* 0x11 */ u8 eggMonth;
+    /* 0x12 */ u8 eggDay;
+
+    /* 0x13 */ u8 metYear;
+    /* 0x14 */ u8 metMonth;
+    /* 0x15 */ u8 metDay;
+
     /* 0x16 */ u16 DP_EggLocation;
     /* 0x18 */ u16 DP_MetLocation;
     /* 0x1A */ u8 pokerus;
     /* 0x1B */ u8 pokeball;
     /* 0x1C */ u8 metLevel : 7;
     u8 otGender : 1;
-    /* 0x1D */ u8 encounterType;
+    /* 0x1D */ u8 metTerrain;
     /* 0x1E */ u16 HGSS_Pokeball;
 } PokemonDataBlockD;
 
@@ -134,21 +151,21 @@ typedef union {
 } PokemonDataBlock;
 
 typedef struct BoxPokemon {
-    /* 0x000 */ u32 pid;
-    /* 0x004 */ u16 party_lock : 1;
-    u16 box_lock : 1;
-    u16 checksum_fail : 1;
-    u16 Unused : 13;          // Might be used for validity checks
-    /* 0x006 */ u16 checksum; // Stored checksum of pokemon
-    /* 0x008 */ PokemonDataBlock substructs[4];
+    /* 0x000 */ u32 personality;
+    /* 0x004 */ u16 partyDecrypted : 1;
+    u16 boxDecrypted : 1;
+    u16 checksumFailed : 1;
+    u16 unused : 13;
+    /* 0x006 */ u16 checksum;
+    /* 0x008 */ PokemonDataBlock dataBlocks[4];
 } BoxPokemon;
 
 struct PartyPokemon {
     /* 0x088 */ u32 status; // slp:3, psn:1, brn:1, frz:1, prz:1, tox:1, ...
     /* 0x08C */ u8 level;
-    /* 0x08D */ u8 capsule;
+    /* 0x08D */ u8 ballCapsuleID;
     /* 0x08E */ u16 hp;
-    /* 0x090 */ u16 maxHp;
+    /* 0x090 */ u16 maxHP;
     /* 0x092 */ u16 atk;
     /* 0x094 */ u16 def;
     /* 0x096 */ u16 speed;
@@ -205,114 +222,114 @@ typedef struct Party {
     struct Pokemon mons[PARTY_SIZE];
 } Party;
 
-void ZeroMonData(struct Pokemon *pokemon);
-void ZeroBoxMonData(struct BoxPokemon *boxmon);
+void Pokemon_Init(Pokemon *mon);
+void BoxPokemon_Init(BoxPokemon *boxMon);
 u32 SizeOfStructPokemon(void);
-struct Pokemon *AllocMonZeroed(HeapID heapId);
-BOOL AcquireMonLock(struct Pokemon *mon);
-BOOL ReleaseMonLock(struct Pokemon *mon, BOOL decrypt_result);
-BOOL AcquireBoxMonLock(struct BoxPokemon *mon);
-BOOL ReleaseBoxMonLock(struct BoxPokemon *mon, BOOL decrypt_result);
-void CreateMon(struct Pokemon *pokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId);
-void CreateBoxMon(struct BoxPokemon *boxPokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId);
-void CreateMonWithNature(struct Pokemon *pokemon, u16 species, u8 level, u8 fixedIv, u8 nature);
-void CreateMonWithGenderNatureLetter(struct Pokemon *pokemon, u16 species, u8 level, u8 fixedIv, u8 gender, u8 nature, u8 letter);
-u32 GenPersonalityByGenderAndNature(u16 species, u8 gender, u8 nature);
-void CreateMonWithFixedIVs(struct Pokemon *pokemon, int species, int level, int ivs, int personality);
-void CalcMonLevelAndStats(struct Pokemon *pokemon);
-void CalcMonStats(struct Pokemon *pokemon);
+Pokemon *Pokemon_New(HeapID heapId);
+BOOL AcquireMonLock(Pokemon *mon);
+BOOL ReleaseMonLock(Pokemon *mon, BOOL decrypt_result);
+BOOL AcquireBoxMonLock(BoxPokemon *boxMon);
+BOOL ReleaseBoxMonLock(BoxPokemon *boxMon, BOOL decrypt_result);
+void Pokemon_InitWithParams(Pokemon *mon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId);
+void BoxPokemon_InitWithParams(BoxPokemon *boxMon, int species, int level, int ivs, BOOL hasFixedPersonality, int personality, int otIDType, int otID);
+void Pokemon_InitWithNature(Pokemon *mon, u16 species, u8 level, u8 fixedIv, u8 nature);
+void Pokemon_InitWithGenderNatureLetter(Pokemon *mon, u16 species, u8 level, u8 ivs, u8 gender, u8 nature, u8 letter);
+u32 Personality_CreateFromGenderAndNature(u16 species, u8 gender, u8 nature);
+void CreateMonWithFixedIVs(Pokemon *mon, int species, int level, int ivs, int personality);
+void Pokemon_CalcLevelAndStats(Pokemon *mon);
+void Pokemon_CalcStats(Pokemon *mon);
 #ifndef IN_POKEMON_C
-u32 GetMonData();
-u32 GetBoxMonData();
+u32 Pokemon_GetData();
+u32 BoxPokemon_GetData();
 #else
-u32 GetMonData(struct Pokemon *pokemon, int attr, void *ptr);
-u32 GetBoxMonData(struct BoxPokemon *pokemon, int attr, void *ptr);
+u32 Pokemon_GetData(Pokemon *mon, int param, void *ptr);
+u32 BoxPokemon_GetData(BoxPokemon *boxMon, int param, void *ptr);
 #endif
-void SetMonData(struct Pokemon *pokemon, int attr, void *ptr);
-void SetBoxMonData(struct BoxPokemon *pokemon, int attr, void *ptr);
-void AddMonData(struct Pokemon *pokemon, int attr, int amount);
-struct BaseStats *AllocAndLoadMonPersonal(int species, HeapID heapId);
-int GetPersonalAttr(struct BaseStats *baseStats, enum BaseStat attr);
-void FreeMonPersonal(struct BaseStats *personal);
-int GetMonBaseStat_HandleFormConversion(int species, int form, enum BaseStat stat_id);
-int GetMonBaseStat(int species, enum BaseStat stat_id);
-u8 GetPercentProgressTowardsNextLevel(struct Pokemon *pokemon);
-u32 CalcMonExpToNextLevel(struct Pokemon *pokemon);
-u32 GetMonBaseExperienceAtCurrentLevel(struct Pokemon *pokemon);
-u32 GetMonExpBySpeciesAndLevel(int species, int level);
-void LoadGrowthTable(int growthRate, u32 *table);
-u32 GetExpByGrowthRateAndLevel(int rate, int level);
-int CalcMonLevel(struct Pokemon *pokemon);
-int CalcBoxMonLevel(struct BoxPokemon *boxmon);
-int CalcLevelBySpeciesAndExp(u16 species, u32 experience);
-int CalcLevelBySpeciesAndExp_PreloadedPersonal(struct BaseStats *personal, u16 species, u32 experience);
-u8 GetBoxMonNature(struct BoxPokemon *boxmon);
-u8 GetMonNature(struct Pokemon *mon);
-u8 GetNatureFromPersonality(u32 pid);
-void MonApplyFriendshipMod(struct Pokemon *pokemon, u32 kind, u32 location);
-u8 GetMonGender(struct Pokemon *pokemon);
-u8 GetBoxMonGender(struct BoxPokemon *boxmon);
-u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
-u8 MonIsShiny(struct Pokemon *pokemon);
-u32 GenerateShinyPersonality(u32 otid);
-void sub_02068B70(struct SomeDrawPokemonStruct *spC, struct BoxPokemon *boxmon, u8 sp10);
+void Pokemon_SetData(Pokemon *mon, int param, void *ptr);
+void BoxPokemon_SetData(BoxPokemon *boxMon, int param, void *ptr);
+void AddMonData(Pokemon *mon, int param, int amount);
+SpeciesData *SpeciesData_NewFromSpecies(int species, HeapID heapId);
+int SpeciesData_GetValue(SpeciesData *speciesData, enum SpeciesDataParam attr);
+void SpeciesData_Free(SpeciesData *speciesData);
+int Species_GetFormValue(int species, int form, enum SpeciesDataParam stat_id);
+int Species_GetValue(int species, enum SpeciesDataParam stat_id);
+u8 Pokemon_CalcPercentToNextLevel(Pokemon *mon);
+u32 Pokemon_CalcExpToNextLevel(Pokemon *mon);
+u32 Pokemon_GetCurrentLevelBaseExp(Pokemon *mon);
+u32 Species_GetExpAtLevel(int species, int level);
+void ExpRate_LoadTable(int growthRate, u32 *table);
+u32 ExpRate_GetExpAtLevel(int rate, int level);
+int Pokemon_CalcLevel(Pokemon *mon);
+int BoxPokemon_CalcLevel(BoxPokemon *boxMon);
+int Species_CalcLevelByExp(u16 species, u32 experience);
+int SpeciesData_CalcLevelByExp(SpeciesData *speciesData, u16 species, u32 experience);
+u8 BoxPokemon_GetNature(BoxPokemon *boxMon);
+u8 Pokemon_GetNature(Pokemon *mon);
+u8 Personality_GetNature(u32 personality);
+void Pokemon_UpdateFriendship(Pokemon *mon, u32 kind, u32 location);
+u8 Pokemon_GetGender(Pokemon *mon);
+u8 BoxPokemon_GetGender(BoxPokemon *boxMon);
+u8 Species_GetGenderFromPersonality(u16 species, u32 personality);
+u8 Pokemon_IsShiny(Pokemon *mon);
+u32 Personality_GenerateShiny(u32 otID);
+void sub_02068B70(struct SomeDrawPokemonStruct *spC, BoxPokemon *boxMon, u8 sp10);
 void sub_02068C00(struct SomeDrawPokemonStruct *spC, int species, u8 gender, u8 sp10, u8 shiny, u8 form, u32 personality);
-u8 sub_02068E14(struct Pokemon *pokemon, u32 a1);
-u8 sub_02068E1C(struct BoxPokemon *boxmon, u32 a1);
+u8 sub_02068E14(Pokemon *mon, u32 a1);
+u8 sub_02068E1C(BoxPokemon *boxMon, u32 a1);
 u8 sub_02068E88(int species, u8 gender, u32 a2, u8 form, u32 pid);
 u32 GetArceusTypeByHeldItemEffect(u16 plate);
 int sub_0206AA30(int a0);
-void sub_02068B68(struct SomeDrawPokemonStruct *spC, struct Pokemon *pokemon, u8 sp10);
+void sub_02068B68(struct SomeDrawPokemonStruct *spC, Pokemon *mon, u8 sp10);
 void sub_02068FE0(struct SomeDrawPokemonStruct *a0, u16 a1, int a2);
 void sub_02069010(void *dest, int a1);
 void sub_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6);
 void sub_020690AC(struct SomeDrawPokemonStruct *a0, u32 a1);
 u32 sub_020690C4(void);
 u32 sub_020690C8(void);
-u8 GetBoxMonUnownLetter(struct BoxPokemon *boxmon);
-u8 GetMonUnownLetter(struct Pokemon *pokemon);
+u8 GetBoxMonUnownLetter(BoxPokemon *boxMon);
+u8 GetMonUnownLetter(Pokemon *mon);
 void LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u16 *levelUpLearnset);
-struct BoxPokemon *sub_020690E4(struct Pokemon *pokemon);
+BoxPokemon *sub_020690E4(Pokemon *mon);
 
-u16 GetMonEvolution(struct Party *party, struct Pokemon *pokemon, u32 context, u32 usedItem, u32 *method_ret);
+u16 GetMonEvolution(struct Party *party, Pokemon *mon, u32 context, u32 usedItem, u32 *method_ret);
 u16 ReadFromPersonalPmsNarc(u16 species);
 u16 GetEggSpecies(u16 species);
-BOOL sub_020690E8(struct Pokemon *pokemon);
-u32 sub_02069698(struct Pokemon *pokemon, u16 move);
-void sub_02069708(struct Pokemon *pokemon, u16 move);
-void sub_02069718(struct BoxPokemon *boxmon, u16 move);
-void MonSetMoveInSlot(struct Pokemon *pokemon, u16 move, u8 slot);
-u32 sub_02069818(struct Pokemon *pokemon, u32 *r5, u16 *sp0);
-void sub_020698E0(struct Pokemon *pokemon, int slot1, int slot2);
-void sub_020698E8(struct BoxPokemon *boxmon, int slot1, int slot2);
-void sub_020699A4(struct Pokemon *pokemon, u32 slot);
-void CopyBoxPokemonToPokemon(struct BoxPokemon *src, struct Pokemon *dest);
+BOOL sub_020690E8(Pokemon *mon);
+u32 sub_02069698(Pokemon *mon, u16 move);
+void sub_02069708(Pokemon *mon, u16 move);
+void sub_02069718(BoxPokemon *boxMon, u16 move);
+void MonSetMoveInSlot(Pokemon *mon, u16 move, u8 slot);
+u32 sub_02069818(Pokemon *mon, u32 *r5, u16 *sp0);
+void sub_020698E0(Pokemon *mon, int slot1, int slot2);
+void sub_020698E8(BoxPokemon *boxMon, int slot1, int slot2);
+void sub_020699A4(Pokemon *mon, u32 slot);
+void CopyBoxPokemonToPokemon(BoxPokemon *src, Pokemon *dest);
 u8 Party_GetMaxLevel(struct Party *party);
 u16 SpeciesToSinnohDexNo(u16 species);
 u16 SinnohDexNoToSpecies(u16 sinnoh_dex);
-void CopyPokemonToPokemon(struct Pokemon *src, struct Pokemon *dest);
-void CopyPokemonToBoxPokemon(struct Pokemon *src, struct BoxPokemon *dest);
-void CopyBoxPokemonToBoxPokemon(struct BoxPokemon *src, struct BoxPokemon *dest);
-s8 MonGetFlavorPreference(struct Pokemon *pokemon, int flavor);
+void CopyPokemonToPokemon(Pokemon *src, Pokemon *dest);
+void CopyPokemonToBoxPokemon(Pokemon *src, BoxPokemon *dest);
+void CopyBoxPokemonToBoxPokemon(BoxPokemon *src, BoxPokemon *dest);
+s8 MonGetFlavorPreference(Pokemon *mon, int flavor);
 int Species_LoadLearnsetTable(u16 species, u32 form, u16 *dest);
 void Party_GivePokerusAtRandom(struct Party *party);
 void Party_UpdatePokerus(struct Party *party, int r5);
 void Party_SpreadPokerus(struct Party *party);
-BOOL Pokemon_HasPokerus(struct Pokemon *pokemon);
-BOOL Pokemon_IsImmuneToPokerus(struct Pokemon *pokemon);
-void Pokemon_UpdateArceusForm(struct Pokemon *pokemon);
+BOOL Pokemon_HasPokerus(Pokemon *mon);
+BOOL Pokemon_IsImmuneToPokerus(Pokemon *mon);
+void Pokemon_UpdateArceusForm(Pokemon *mon);
 void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, HeapID heapId);
-void sub_0206A014(struct Pokemon *pokemon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
-void sub_0206A094(struct Pokemon *pokemon, u32 a1, u32 a2);
-BOOL sub_0206A13C(struct Pokemon *pokemon, u32 a1);
-void sub_0206A1C4(struct Pokemon *pokemon);
-void sub_0206A23C(struct Pokemon *r5, u32 personality);
+void sub_0206A014(Pokemon *mon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
+void sub_0206A094(Pokemon *mon, u32 a1, u32 a2);
+BOOL sub_0206A13C(Pokemon *mon, u32 a1);
+void sub_0206A1C4(Pokemon *mon);
+void sub_0206A23C(Pokemon *r5, u32 personality);
 int LowestFlagNo(u32 mask);
 BOOL IsPokemonLegendaryOrMythical(u16 species);
 u16 GetLegendaryMon(u32 idx);
-BOOL sub_0206A998(struct Pokemon *pokemon);
-BOOL sub_0206A9AC(struct BoxPokemon *boxmon, PlayerProfile *sb2, HeapID heapId);
-void Pokemon_RemoveCapsule(struct Pokemon *pokemon);
-void RestoreBoxMonPP(struct BoxPokemon *boxmon);
+BOOL sub_0206A998(Pokemon *mon);
+BOOL sub_0206A9AC(BoxPokemon *boxMon, PlayerProfile *sb2, HeapID heapId);
+void Pokemon_RemoveCapsule(Pokemon *mon);
+void RestoreBoxMonPP(BoxPokemon *boxMon);
 
 #endif // POKEDIAMOND_POKEMON_H

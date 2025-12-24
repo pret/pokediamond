@@ -180,7 +180,7 @@ sub_0204BB20: ; 0x0204BB20
 	bl sub_02022528
 	str r0, [sp, #0x4]
 	mov r0, #0x4
-	bl AllocMonZeroed
+	bl Pokemon_New
 	ldr r5, [sp, #0x0]
 	add r4, r0, #0x0
 	mov r6, #0x0
@@ -198,7 +198,7 @@ _0204BB3C:
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	strh r0, [r5, #0x0]
@@ -220,12 +220,12 @@ _0204BB72:
 	ldrb r0, [r7, #0x2]
 	strh r0, [r5, #0x4]
 	add r0, r4, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	strb r0, [r5, #0x6]
 	add r0, r4, #0x0
 	mov r1, #0xb1
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	strb r0, [r5, #0x7]
 	add r6, r6, #0x1
 	add r5, #0x8
@@ -473,7 +473,7 @@ sub_0204BD40: ; 0x0204BD40
 	add r5, r0, #0x0
 	mov r0, #0x20
 	add r6, r1, #0x0
-	bl AllocMonZeroed
+	bl Pokemon_New
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl sub_02022528

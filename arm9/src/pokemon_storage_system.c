@@ -22,7 +22,7 @@ void PCStorage_InitializeBoxes(struct PCStorage *pc) {
     int i, j;
     for (i = 0; i < NUM_BOXES; i++) {
         for (j = 0; j < MONS_PER_BOX; j++) {
-            ZeroBoxMonData(&pc->boxes[i][j]);
+            BoxPokemon_Init(&pc->boxes[i][j]);
         }
     }
     for (i = 0, j = 0; i < NUM_BOXES; i++) {
@@ -65,7 +65,7 @@ BOOL PCStorage_PlaceMonInBoxFirstEmptySlot(struct PCStorage *pc, int boxno, stru
         boxno = (int)pc->curBox;
     }
     for (int i = 0; i < MONS_PER_BOX; i++) {
-        if (GetBoxMonData(&pc->boxes[boxno][i], MON_DATA_SPECIES, NULL) == SPECIES_NONE) {
+        if (BoxPokemon_GetData(&pc->boxes[boxno][i], MON_DATA_SPECIES, NULL) == SPECIES_NONE) {
             pc->boxes[boxno][i] = *boxmon;
             Save_SetDirtyBit();
             return TRUE;
@@ -93,7 +93,7 @@ void PCStorage_DeleteBoxMonByIndexPair(struct PCStorage *pc, int boxno, int slot
         boxno = (int)pc->curBox;
     }
     if (slotno < MONS_PER_BOX && boxno < NUM_BOXES) {
-        ZeroBoxMonData(&pc->boxes[boxno][slotno]);
+        BoxPokemon_Init(&pc->boxes[boxno][slotno]);
         Save_SetDirtyBit();
         return;
     }
@@ -109,7 +109,7 @@ int PCStorage_FindFirstBoxWithEmptySlot(struct PCStorage *pc) {
     i = (int)pc->curBox;
     do {
         for (j = 0; j < (int)MONS_PER_BOX; j++) {
-            if (!GetBoxMonData(&pc->boxes[i][j], MON_DATA_SPECIES_EXISTS, NULL)) {
+            if (!BoxPokemon_GetData(&pc->boxes[i][j], MON_DATA_SPECIES_EXISTS, NULL)) {
                 return i;
             }
         }
@@ -128,7 +128,7 @@ BOOL PCStorage_FindFirstEmptySlot(struct PCStorage *pc, int *boxno, int *slotno)
     int i = *boxno, j = *slotno;
     do {
         while (j < (int)MONS_PER_BOX) {
-            if (!GetBoxMonData(&pc->boxes[i][j], MON_DATA_SPECIES_EXISTS, NULL)) {
+            if (!BoxPokemon_GetData(&pc->boxes[i][j], MON_DATA_SPECIES_EXISTS, NULL)) {
                 *boxno = i;
                 *slotno = j;
                 return TRUE;
@@ -151,7 +151,7 @@ int PCStorage_CountMonsAndEggsInAllBoxes(struct PCStorage *pc) {
     int i, j, count = 0;
     for (i = 0; i < (int)NUM_BOXES; i++) {
         for (j = 0; j < (int)MONS_PER_BOX; j++) {
-            if (GetBoxMonData(&pc->boxes[i][j], MON_DATA_SPECIES_EXISTS, NULL)) {
+            if (BoxPokemon_GetData(&pc->boxes[i][j], MON_DATA_SPECIES_EXISTS, NULL)) {
                 count++;
             }
         }
@@ -216,7 +216,7 @@ int PCStorage_CountMonsAndEggsInBox(struct PCStorage *pc, int boxno) {
     if (boxno < NUM_BOXES) {
         int i, count = 0;
         for (i = 0; i < (int)MONS_PER_BOX; i++) {
-            if (GetBoxMonData(&pc->boxes[boxno][i], MON_DATA_SPECIES_EXISTS, NULL)) {
+            if (BoxPokemon_GetData(&pc->boxes[boxno][i], MON_DATA_SPECIES_EXISTS, NULL)) {
                 count++;
             }
         }
@@ -233,7 +233,7 @@ int PCStorage_CountMonsInBox(struct PCStorage *pc, int boxno) {
     if (boxno < NUM_BOXES) {
         int i, count = 0;
         for (i = 0; i < (int)MONS_PER_BOX; i++) {
-            if (GetBoxMonData(&pc->boxes[boxno][i], MON_DATA_SPECIES_EXISTS, NULL) && !GetBoxMonData(&pc->boxes[boxno][i], MON_DATA_IS_EGG, NULL)) {
+            if (BoxPokemon_GetData(&pc->boxes[boxno][i], MON_DATA_SPECIES_EXISTS, NULL) && !BoxPokemon_GetData(&pc->boxes[boxno][i], MON_DATA_IS_EGG, NULL)) {
                 count++;
             }
         }
@@ -259,7 +259,7 @@ void PCStorage_SetBoxMonDataByIndexPair(struct PCStorage *pc, int boxno, int slo
     if (boxno == -1) {
         boxno = (int)pc->curBox;
     }
-    SetBoxMonData(&pc->boxes[boxno][slotno], (int)attr, value);
+    BoxPokemon_SetData(&pc->boxes[boxno][slotno], (int)attr, value);
     Save_SetDirtyBit();
 }
 

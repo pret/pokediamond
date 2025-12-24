@@ -3298,7 +3298,7 @@ ov67_021D8F00: ; 0x021D8F00
 	str r3, [sp, #0xc]
 	mov r0, #0x2a
 	add r7, r1, #0
-	bl AllocMonZeroed
+	bl Pokemon_New
 	str r4, [sp]
 	mov r1, #0
 	str r1, [sp, #4]
@@ -3307,7 +3307,7 @@ ov67_021D8F00: ; 0x021D8F00
 	add r1, r7, #0
 	mov r2, #1
 	mov r3, #0x20
-	bl CreateMonWithGenderNatureLetter
+	bl Pokemon_InitWithGenderNatureLetter
 	add r0, r6, #0
 	bl sub_020690E4
 	add r2, r0, #0

@@ -250,7 +250,7 @@ sub_02047814: ; 0x02047814
 	add r3, r6, #0x0
 	bl Bag_AddItem
 	add r0, r6, #0x0
-	bl AllocMonZeroed
+	bl Pokemon_New
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_VarsFlags_Get
@@ -265,7 +265,7 @@ sub_02047814: ; 0x02047814
 	add r0, r6, #0x0
 	mov r2, #0x5
 	mov r3, #0x20
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
 	bl Party_AddMon
@@ -278,7 +278,7 @@ sub_02047814: ; 0x02047814
 	ldr r1, _02047960 ; =0x0000018F
 	add r0, r6, #0x0
 	mov r3, #0x20
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	ldr r0, [r4, #0x8]
 	add r1, r6, #0x0
 	bl Party_AddMon
@@ -646,7 +646,7 @@ sub_02047BC0: ; 0x02047BC0
 	mov r2, #0x0
 	bl sub_02047A44
 	mov r0, #0xb
-	bl AllocMonZeroed
+	bl Pokemon_New
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x14]
 	bl Party_GetCount
@@ -667,7 +667,7 @@ _02047C40:
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r7, r0
 	beq _02047C82
 	cmp r7, #0x0
@@ -675,16 +675,16 @@ _02047C40:
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r1, r7, #0x0
-	bl GetMonExpBySpeciesAndLevel
+	bl Species_GetExpAtLevel
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	mov r1, #0x8
 	add r2, sp, #0x18
-	bl SetMonData
+	bl Pokemon_SetData
 	add r0, r5, #0x0
-	bl CalcMonLevelAndStats
+	bl Pokemon_CalcLevelAndStats
 _02047C82:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
@@ -844,7 +844,7 @@ _02047DC2:
 	b _02047E14
 _02047DD8:
 	mov r0, #0xb
-	bl AllocMonZeroed
+	bl Pokemon_New
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0

@@ -15,10 +15,10 @@
 #include "unk_0202C144.h"
 
 BOOL MonNotFaintedOrEgg(struct Pokemon *pokemon) {
-    if (GetMonData(pokemon, MON_DATA_HP, NULL) == 0) {
+    if (Pokemon_GetData(pokemon, MON_DATA_HP, NULL) == 0) {
         return FALSE;
     }
-    if (GetMonData(pokemon, MON_DATA_IS_EGG, NULL)) {
+    if (Pokemon_GetData(pokemon, MON_DATA_IS_EGG, NULL)) {
         return FALSE;
     }
     return TRUE;
@@ -28,12 +28,12 @@ BOOL GiveMon(HeapID heapId, struct SaveData *save, u16 species, u8 level, u16 it
     u32 ptr;
     PlayerProfile *data = Save_PlayerData_GetProfile(save);
     struct Party *party = SaveArray_Party_Get(save);
-    struct Pokemon *mon = AllocMonZeroed(heapId);
-    ZeroMonData(mon);
-    CreateMon(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    struct Pokemon *mon = Pokemon_New(heapId);
+    Pokemon_Init(mon);
+    Pokemon_InitWithParams(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
     sub_0206A014(mon, data, ITEM_POKE_BALL, mapSec, encounterType, heapId);
     ptr = item;
-    SetMonData(mon, MON_DATA_HELD_ITEM, &ptr);
+    Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &ptr);
     BOOL isAdded = Party_AddMon(party, mon);
     if (isAdded) {
         sub_0202C144(save, mon);
@@ -47,8 +47,8 @@ BOOL GiveEgg(HeapID heapId, struct SaveData *save, u16 species, int level, int m
 #pragma unused(heapId)
     PlayerProfile *data = Save_PlayerData_GetProfile(save);
     struct Party *party = SaveArray_Party_Get(save);
-    struct Pokemon *mon = AllocMonZeroed(HEAP_ID_32);
-    ZeroMonData(mon);
+    struct Pokemon *mon = Pokemon_New(HEAP_ID_32);
+    Pokemon_Init(mon);
     ov05_SetEggStats(mon, species, level, data, 4, sub_02015CF8(metLocIndex, a3));
     BOOL isAdded = Party_AddMon(party, mon);
     FreeToHeap(mon);
@@ -66,13 +66,13 @@ int GetIdxOfFirstPartyMonWithMove(struct Party *party, int move) {
     for (int i = 0; i < partyCount; i++) {
         struct Pokemon *mon = Party_GetMonByIndex(party, i);
 
-        if (GetMonData(mon, MON_DATA_IS_EGG, NULL)) {
+        if (Pokemon_GetData(mon, MON_DATA_IS_EGG, NULL)) {
             continue;
         }
-        if (GetMonData(mon, MON_DATA_MOVE1, NULL) == move
-            || GetMonData(mon, MON_DATA_MOVE2, NULL) == move
-            || GetMonData(mon, MON_DATA_MOVE3, NULL) == move
-            || GetMonData(mon, MON_DATA_MOVE4, NULL) == move) {
+        if (Pokemon_GetData(mon, MON_DATA_MOVE1, NULL) == move
+            || Pokemon_GetData(mon, MON_DATA_MOVE2, NULL) == move
+            || Pokemon_GetData(mon, MON_DATA_MOVE3, NULL) == move
+            || Pokemon_GetData(mon, MON_DATA_MOVE4, NULL) == move) {
             return i;
         }
     }
@@ -116,7 +116,7 @@ struct Pokemon *GetFirstNonEggInParty(struct Party *party) {
     for (i = 0; i < partyCount; i++) {
         struct Pokemon *mon = Party_GetMonByIndex(party, i);
 
-        if (!GetMonData(mon, MON_DATA_IS_EGG, NULL)) {
+        if (!Pokemon_GetData(mon, MON_DATA_IS_EGG, NULL)) {
             return mon;
         }
     }
@@ -134,11 +134,11 @@ void GiveAllMonsTheSinnohChampRibbon(struct Party *party) {
     for (int i = 0; i < partyCount; i++) {
         struct Pokemon *mon = Party_GetMonByIndex(party, i);
 
-        if (GetMonData(mon, MON_DATA_IS_EGG, NULL)) {
+        if (Pokemon_GetData(mon, MON_DATA_IS_EGG, NULL)) {
             continue;
         }
 
-        SetMonData(mon, MON_DATA_SINNOH_CHAMP_RIBBON, &var);
+        Pokemon_SetData(mon, MON_DATA_SINNOH_CHAMP_RIBBON, &var);
     }
 }
 
@@ -155,18 +155,18 @@ int ApplyPoisonStep(struct Party *party, int location) {
             continue;
         }
 
-        if (!(GetMonData(mon, MON_DATA_STATUS, NULL) & 0x88)) {
+        if (!(Pokemon_GetData(mon, MON_DATA_STATUS, NULL) & 0x88)) {
             continue;
         }
 
-        hp = GetMonData(mon, MON_DATA_HP, NULL);
+        hp = Pokemon_GetData(mon, MON_DATA_HP, NULL);
         if (hp > 1) {
             hp--;
         }
-        SetMonData(mon, MON_DATA_HP, &hp);
+        Pokemon_SetData(mon, MON_DATA_HP, &hp);
         if (hp == 1) {
             numHealed++;
-            MonApplyFriendshipMod(mon, FRIENDSHIP_EVENT_HEAL_FIELD_PSN, (u32)location);
+            Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_HEAL_FIELD_PSN, (u32)location);
         }
         numPoisoned++;
     }
@@ -184,10 +184,10 @@ int ApplyPoisonStep(struct Party *party, int location) {
 
 BOOL SurvivePoisoning(struct Pokemon *mon) {
     int status;
-    if (GetMonData(mon, MON_DATA_STATUS, NULL) & 0x88) {
-        if (GetMonData(mon, MON_DATA_HP, NULL) == 1) {
+    if (Pokemon_GetData(mon, MON_DATA_STATUS, NULL) & 0x88) {
+        if (Pokemon_GetData(mon, MON_DATA_HP, NULL) == 1) {
             status = 0;
-            SetMonData(mon, MON_DATA_STATUS, &status);
+            Pokemon_SetData(mon, MON_DATA_STATUS, &status);
             return TRUE;
         }
     }

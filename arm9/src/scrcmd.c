@@ -2125,7 +2125,7 @@ BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx) { // 028C
     Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyId);
     LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, HEAP_ID_4);
     *pokepicManager = DrawPokemonPicFromMon(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, mon, HEAP_ID_4);
-    u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u32 species = Pokemon_GetData(mon, MON_DATA_SPECIES, NULL);
     Script_SetMonSeenFlagBySpecies(ctx->fieldSystem, (u16)species);
     return FALSE;
 }
@@ -2418,11 +2418,11 @@ BOOL ScrCmd_NamePokemonScreen(ScriptContext *ctx) { // 00BB
     Pokemon *mon = Party_GetMonByIndex(party, partyPos);
 
     u16 monNick[20];
-    GetMonData(mon, MON_DATA_NICKNAME, monNick);
+    Pokemon_GetData(mon, MON_DATA_NICKNAME, monNick);
 
     u16 *var = ScriptGetVarPointer(ctx);
 
-    s32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    s32 species = Pokemon_GetData(mon, MON_DATA_SPECIES, NULL);
 
     CreateNamingScreen(ctx->taskManager, NAMINGSCREEN_POKEMON, species, POKEMON_NAME_LENGTH, partyPos, monNick, var);
     return TRUE;
@@ -3889,12 +3889,12 @@ BOOL ScrCmd_GetTotalPokemonEVs(ScriptContext *ctx) { // 0233
     u16 partyPosition = ScriptGetVar(ctx);
     Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
 
-    u32 hpEv = GetMonData(mon, MON_DATA_HP_EV, NULL);
-    u32 atkEv = GetMonData(mon, MON_DATA_ATK_EV, NULL);
-    u32 defEv = GetMonData(mon, MON_DATA_DEF_EV, NULL);
-    u32 speedEv = GetMonData(mon, MON_DATA_SPEED_EV, NULL);
-    u32 spAtkEv = GetMonData(mon, MON_DATA_SPATK_EV, NULL);
-    u32 spDefEv = GetMonData(mon, MON_DATA_SPDEF_EV, NULL);
+    u32 hpEv = Pokemon_GetData(mon, MON_DATA_HP_EV, NULL);
+    u32 atkEv = Pokemon_GetData(mon, MON_DATA_ATK_EV, NULL);
+    u32 defEv = Pokemon_GetData(mon, MON_DATA_DEF_EV, NULL);
+    u32 speedEv = Pokemon_GetData(mon, MON_DATA_SPEED_EV, NULL);
+    u32 spAtkEv = Pokemon_GetData(mon, MON_DATA_SPATK_EV, NULL);
+    u32 spDefEv = Pokemon_GetData(mon, MON_DATA_SPDEF_EV, NULL);
 
     *var = hpEv + atkEv + defEv + speedEv + spAtkEv + spDefEv;
     return FALSE;
@@ -3919,7 +3919,7 @@ BOOL ScrCmd_GetPokemonFootprint(ScriptContext *ctx) { // 023A
     u16 *var2 = ScriptGetVarPointer(ctx);
     u16 partyPosition = ScriptGetVar(ctx);
     Pokemon *mon = Party_GetMonByIndex(SaveArray_Party_Get(ctx->fieldSystem->saveData), partyPosition);
-    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u16 species = Pokemon_GetData(mon, MON_DATA_SPECIES, NULL);
     *var = ov05_021F61E8(species);
     *var2 = ov05_021F61DC(species);
     return FALSE;
@@ -4011,9 +4011,9 @@ BOOL ScrCmd_Unk024D(ScriptContext *ctx) { // 024D - todo: ClosePCAnimation?
 
 static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species) {
     Pokedex *pokedex = Save_Pokedex_Get(fieldSystem->saveData);
-    Pokemon *mon = AllocMonZeroed(HEAP_ID_32);
-    ZeroMonData(mon);
-    CreateMon(mon, species, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    Pokemon *mon = Pokemon_New(HEAP_ID_32);
+    Pokemon_Init(mon);
+    Pokemon_InitWithParams(mon, species, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
     Pokedex_SetMonSeenFlag(pokedex, mon);
     FreeToHeap(mon);
 }
@@ -4095,9 +4095,9 @@ BOOL ScrCmd_SetDeoxysForm(ScriptContext *ctx) { // 0263
 
     for (s32 i = 0; i < partyCount; i++) {
         Pokemon *mon = Party_GetMonByIndex(playerParty, i);
-        if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_DEOXYS) {
-            SetMonData(mon, MON_DATA_FORM, &form);
-            CalcMonLevelAndStats(mon);
+        if (Pokemon_GetData(mon, MON_DATA_SPECIES, NULL) == SPECIES_DEOXYS) {
+            Pokemon_SetData(mon, MON_DATA_FORM, &form);
+            Pokemon_CalcLevelAndStats(mon);
             Pokedex_SetMonCaughtFlag(pokedex, mon);
         }
     }
@@ -4118,8 +4118,8 @@ BOOL ScrCmd_CheckBurmyForms(ScriptContext *ctx) { // 0264
         s32 j;
         BOOL hasMultiple;
         Pokemon *mon = Party_GetMonByIndex(playerParty, i);
-        u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-        u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
+        u32 species = Pokemon_GetData(mon, MON_DATA_SPECIES, NULL);
+        u32 form = Pokemon_GetData(mon, MON_DATA_FORM, NULL);
         if (species == SPECIES_BURMY) {
             hasMultiple = FALSE;
             unk0[i] = form;
@@ -4179,12 +4179,12 @@ _0203EFA2:
     add r6, r0, #0x0
     mov r1, #0x5
     mov r2, #0x0
-    bl GetMonData
+    bl Pokemon_GetData
     str r0, [sp, #0x10]
     add r0, r6, #0x0
     mov r1, #0x70
     mov r2, #0x0
-    bl GetMonData
+    bl Pokemon_GetData
     add r3, r0, #0x0
     mov r0, #0x67
     ldr r1, [sp, #0x10]

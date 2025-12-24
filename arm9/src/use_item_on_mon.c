@@ -27,7 +27,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, HeapID
         FreeToHeap(itemData);
         return FALSE;
     }
-    status = GetMonData(pokemon, MON_DATA_STATUS, NULL);
+    status = Pokemon_GetData(pokemon, MON_DATA_STATUS, NULL);
     // slp
     if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_SLP_HEAL) && (status & MON_STATUS_SLP_MASK)) {
         FreeToHeap(itemData);
@@ -53,17 +53,17 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, HeapID
         FreeToHeap(itemData);
         return TRUE;
     }
-    hp = GetMonData(pokemon, MON_DATA_HP, NULL);
+    hp = Pokemon_GetData(pokemon, MON_DATA_HP, NULL);
     if ((GetItemAttr_PreloadedItemData(itemData, ITEMATTR_REVIVE) || GetItemAttr_PreloadedItemData(itemData, ITEMATTR_REVIVE_ALL)) && !GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP)) {
         if (hp == 0) {
             FreeToHeap(itemData);
             return TRUE;
         }
-    } else if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_RESTORE) && hp != 0 && hp < GetMonData(pokemon, MON_DATA_MAX_HP, NULL)) {
+    } else if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_RESTORE) && hp != 0 && hp < Pokemon_GetData(pokemon, MON_DATA_MAX_HP, NULL)) {
         FreeToHeap(itemData);
         return TRUE;
     }
-    if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP) && GetMonData(pokemon, MON_DATA_LEVEL, NULL) < MAX_LEVEL) {
+    if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP) && Pokemon_GetData(pokemon, MON_DATA_LEVEL, NULL) < MAX_LEVEL) {
         FreeToHeap(itemData);
         return TRUE;
     }
@@ -72,7 +72,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, HeapID
         return TRUE;
     }
     if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PP_UP) || GetItemAttr_PreloadedItemData(itemData, ITEMATTR_PP_MAX)) {
-        if (GetMonData(pokemon, MON_DATA_MOVE1_PP_UPS + moveId, NULL) < 3 && WazaGetMaxPp((u16)GetMonData(pokemon, MON_DATA_MOVE1 + moveId, NULL), 0) >= 5) {
+        if (Pokemon_GetData(pokemon, MON_DATA_MOVE1_PP_UPS + moveId, NULL) < 3 && WazaGetMaxPp((u16)Pokemon_GetData(pokemon, MON_DATA_MOVE1 + moveId, NULL), 0) >= 5) {
             FreeToHeap(itemData);
             return TRUE;
         }
@@ -89,13 +89,13 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, HeapID
             }
         }
     }
-    hpEv = (s32)GetMonData(pokemon, MON_DATA_HP_EV, NULL);
-    atkEv = (s32)GetMonData(pokemon, MON_DATA_ATK_EV, NULL);
-    defEv = (s32)GetMonData(pokemon, MON_DATA_DEF_EV, NULL);
-    speedEv = (s32)GetMonData(pokemon, MON_DATA_SPEED_EV, NULL);
-    spAtkEv = (s32)GetMonData(pokemon, MON_DATA_SPATK_EV, NULL);
-    spDefEv = (s32)GetMonData(pokemon, MON_DATA_SPDEF_EV, NULL);
-    if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_SHEDINJA && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_EV_UP)) {
+    hpEv = (s32)Pokemon_GetData(pokemon, MON_DATA_HP_EV, NULL);
+    atkEv = (s32)Pokemon_GetData(pokemon, MON_DATA_ATK_EV, NULL);
+    defEv = (s32)Pokemon_GetData(pokemon, MON_DATA_DEF_EV, NULL);
+    speedEv = (s32)Pokemon_GetData(pokemon, MON_DATA_SPEED_EV, NULL);
+    spAtkEv = (s32)Pokemon_GetData(pokemon, MON_DATA_SPATK_EV, NULL);
+    spDefEv = (s32)Pokemon_GetData(pokemon, MON_DATA_SPDEF_EV, NULL);
+    if (Pokemon_GetData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_SHEDINJA && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_EV_UP)) {
         s32 dHpEv = (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_EV_UP_PARAM);
         if (dHpEv > 0) {
             if (hpEv < MAX_EV && (hpEv + atkEv + defEv + speedEv + spAtkEv + spDefEv) < MAX_EV_SUM) {
@@ -228,7 +228,7 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
     hadEffect = FALSE;
     effectFound = FALSE;
     {
-        sp54 = sp50 = (int)GetMonData(pokemon, MON_DATA_STATUS, NULL);
+        sp54 = sp50 = (int)Pokemon_GetData(pokemon, MON_DATA_STATUS, NULL);
         if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_SLP_HEAL)) {
             sp54 &= ~MON_STATUS_SLP_MASK;
             effectFound = TRUE;
@@ -250,13 +250,13 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
             effectFound = TRUE;
         }
         if (sp50 != sp54) {
-            SetMonData(pokemon, MON_DATA_STATUS, &sp54);
+            Pokemon_SetData(pokemon, MON_DATA_STATUS, &sp54);
             hadEffect = TRUE;
         }
     }
     {
-        sp50 = (int)GetMonData(pokemon, MON_DATA_HP, NULL);
-        sp54 = (int)GetMonData(pokemon, MON_DATA_MAX_HP, NULL);
+        sp50 = (int)Pokemon_GetData(pokemon, MON_DATA_HP, NULL);
+        sp54 = (int)Pokemon_GetData(pokemon, MON_DATA_MAX_HP, NULL);
         if ((GetItemAttr_PreloadedItemData(itemData, ITEMATTR_REVIVE) || GetItemAttr_PreloadedItemData(itemData, ITEMATTR_REVIVE_ALL)) && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP)) {
             if (sp50 == 0) {
                 RestoreMonHPBy(pokemon, (u32)sp50, (u32)sp54, GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_RESTORE_PARAM));
@@ -270,13 +270,13 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
             }
             effectFound = TRUE;
         }
-        sp58 = (s32)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+        sp58 = (s32)Pokemon_GetData(pokemon, MON_DATA_LEVEL, NULL);
         if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP)) {
             if (sp58 < MAX_LEVEL) {
-                AddMonData(pokemon, MON_DATA_EXPERIENCE, (int)CalcMonExpToNextLevel(pokemon));
-                CalcMonLevelAndStats(pokemon);
+                AddMonData(pokemon, MON_DATA_EXPERIENCE, (int)Pokemon_CalcExpToNextLevel(pokemon));
+                Pokemon_CalcLevelAndStats(pokemon);
                 if (sp50 == 0) {
-                    sp5C = (s32)GetMonData(pokemon, MON_DATA_MAX_HP, NULL);
+                    sp5C = (s32)Pokemon_GetData(pokemon, MON_DATA_MAX_HP, NULL);
                     RestoreMonHPBy(pokemon, (u32)sp50, (u32)sp5C, (u32)(sp5C - sp54));
                 }
                 hadEffect = TRUE;
@@ -313,19 +313,19 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
         effectFound = TRUE;
     }
     {
-        sp50 = (s32)GetMonData(pokemon, MON_DATA_HP_EV, NULL);
-        sp54 = (s32)GetMonData(pokemon, MON_DATA_ATK_EV, NULL);
-        sp58 = (s32)GetMonData(pokemon, MON_DATA_DEF_EV, NULL);
-        sp5C = (s32)GetMonData(pokemon, MON_DATA_SPEED_EV, NULL);
-        sp60 = (s32)GetMonData(pokemon, MON_DATA_SPATK_EV, NULL);
-        sp64 = (s32)GetMonData(pokemon, MON_DATA_SPDEF_EV, NULL);
-        if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_SHEDINJA && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_EV_UP)) {
+        sp50 = (s32)Pokemon_GetData(pokemon, MON_DATA_HP_EV, NULL);
+        sp54 = (s32)Pokemon_GetData(pokemon, MON_DATA_ATK_EV, NULL);
+        sp58 = (s32)Pokemon_GetData(pokemon, MON_DATA_DEF_EV, NULL);
+        sp5C = (s32)Pokemon_GetData(pokemon, MON_DATA_SPEED_EV, NULL);
+        sp60 = (s32)Pokemon_GetData(pokemon, MON_DATA_SPATK_EV, NULL);
+        sp64 = (s32)Pokemon_GetData(pokemon, MON_DATA_SPDEF_EV, NULL);
+        if (Pokemon_GetData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_SHEDINJA && GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_EV_UP)) {
             sp6C = (int)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_HP_EV_UP_PARAM);
             sp68 = TryModEV(sp50, sp54 + sp58 + sp5C + sp60 + sp64, sp6C);
             if (sp68 != -1) {
                 sp50 = sp68;
-                SetMonData(pokemon, MON_DATA_HP_EV, &sp50);
-                CalcMonLevelAndStats(pokemon);
+                Pokemon_SetData(pokemon, MON_DATA_HP_EV, &sp50);
+                Pokemon_CalcLevelAndStats(pokemon);
                 hadEffect = TRUE;
             }
             if (sp6C > 0) {
@@ -337,8 +337,8 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
             sp68 = TryModEV(sp54, sp50 + sp58 + sp5C + sp60 + sp64, sp6C);
             if (sp68 != -1) {
                 sp54 = sp68;
-                SetMonData(pokemon, MON_DATA_ATK_EV, &sp54);
-                CalcMonLevelAndStats(pokemon);
+                Pokemon_SetData(pokemon, MON_DATA_ATK_EV, &sp54);
+                Pokemon_CalcLevelAndStats(pokemon);
                 hadEffect = TRUE;
             }
             if (sp6C > 0) {
@@ -350,8 +350,8 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
             sp68 = TryModEV(sp58, sp50 + sp54 + sp5C + sp60 + sp64, sp6C);
             if (sp68 != -1) {
                 sp58 = sp68;
-                SetMonData(pokemon, MON_DATA_DEF_EV, &sp58);
-                CalcMonLevelAndStats(pokemon);
+                Pokemon_SetData(pokemon, MON_DATA_DEF_EV, &sp58);
+                Pokemon_CalcLevelAndStats(pokemon);
                 hadEffect = TRUE;
             }
             if (sp6C > 0) {
@@ -363,8 +363,8 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
             sp68 = TryModEV(sp5C, sp50 + sp54 + sp58 + sp60 + sp64, sp6C);
             if (sp68 != -1) {
                 sp5C = sp68;
-                SetMonData(pokemon, MON_DATA_SPEED_EV, &sp5C);
-                CalcMonLevelAndStats(pokemon);
+                Pokemon_SetData(pokemon, MON_DATA_SPEED_EV, &sp5C);
+                Pokemon_CalcLevelAndStats(pokemon);
                 hadEffect = TRUE;
             }
             if (sp6C > 0) {
@@ -376,8 +376,8 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
             sp68 = TryModEV(sp60, sp50 + sp54 + sp58 + sp5C + sp64, sp6C);
             if (sp68 != -1) {
                 sp60 = sp68;
-                SetMonData(pokemon, MON_DATA_SPATK_EV, &sp60);
-                CalcMonLevelAndStats(pokemon);
+                Pokemon_SetData(pokemon, MON_DATA_SPATK_EV, &sp60);
+                Pokemon_CalcLevelAndStats(pokemon);
                 hadEffect = TRUE;
             }
             if (sp6C > 0) {
@@ -389,8 +389,8 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
             sp68 = TryModEV(sp64, sp50 + sp54 + sp58 + sp5C + sp60, sp6C);
             if (sp68 != -1) {
                 sp64 = sp68;
-                SetMonData(pokemon, MON_DATA_SPDEF_EV, &sp64);
-                CalcMonLevelAndStats(pokemon);
+                Pokemon_SetData(pokemon, MON_DATA_SPDEF_EV, &sp64);
+                Pokemon_CalcLevelAndStats(pokemon);
                 hadEffect = TRUE;
             }
             if (sp6C > 0) {
@@ -403,7 +403,7 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
         return FALSE;
     }
     {
-        sp50 = (s32)GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
+        sp50 = (s32)Pokemon_GetData(pokemon, MON_DATA_FRIENDSHIP, NULL);
         if (sp50 < 100) {
             if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_LO)) {
                 DoItemFriendshipMod(pokemon, sp50, (s32)GetItemAttr_PreloadedItemData(itemData, ITEMATTR_FRIENDSHIP_MOD_LO_PARAM), location, heapId);
@@ -442,12 +442,12 @@ BOOL UseItemOnMonInParty(struct Party *party, u16 itemId, s32 partyIdx, s32 move
 }
 
 u8 MonMoveCanRestorePP(struct Pokemon *pokemon, s32 moveIdx) {
-    u16 move_id = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + moveIdx, NULL);
+    u16 move_id = (u16)Pokemon_GetData(pokemon, MON_DATA_MOVE1 + moveIdx, NULL);
     if (move_id == MOVE_NONE) {
         return FALSE;
     }
-    u8 pp = (u8)GetMonData(pokemon, MON_DATA_MOVE1_PP + moveIdx, NULL);
-    u8 ppUp = (u8)GetMonData(pokemon, MON_DATA_MOVE1_PP_UPS + moveIdx, NULL);
+    u8 pp = (u8)Pokemon_GetData(pokemon, MON_DATA_MOVE1_PP + moveIdx, NULL);
+    u8 ppUp = (u8)Pokemon_GetData(pokemon, MON_DATA_MOVE1_PP_UPS + moveIdx, NULL);
     return (u8)(pp < WazaGetMaxPp(move_id, ppUp));
 }
 
@@ -458,14 +458,14 @@ BOOL MonMoveRestorePP(struct Pokemon *pokemon, s32 moveIdx, s32 ppRestore) {
     s32 ppAttr;
     s32 ppUpAttr;
 
-    move_id = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + moveIdx, NULL);
+    move_id = (u16)Pokemon_GetData(pokemon, MON_DATA_MOVE1 + moveIdx, NULL);
     if (move_id == MOVE_NONE) {
         return FALSE;
     }
     ppAttr = MON_DATA_MOVE1_PP + moveIdx;
-    pp = (u8)GetMonData(pokemon, ppAttr, NULL);
+    pp = (u8)Pokemon_GetData(pokemon, ppAttr, NULL);
     ppUpAttr = MON_DATA_MOVE1_PP_UPS + moveIdx;
-    maxPp = WazaGetMaxPp(move_id, (u8)GetMonData(pokemon, ppUpAttr, NULL));
+    maxPp = WazaGetMaxPp(move_id, (u8)Pokemon_GetData(pokemon, ppUpAttr, NULL));
     if (pp < maxPp) {
         if (ppRestore == PP_RESTORE_ALL) {
             pp = maxPp;
@@ -475,7 +475,7 @@ BOOL MonMoveRestorePP(struct Pokemon *pokemon, s32 moveIdx, s32 ppRestore) {
                 pp = maxPp;
             }
         }
-        SetMonData(pokemon, ppAttr, &pp);
+        Pokemon_SetData(pokemon, ppAttr, &pp);
         return TRUE;
     }
     return FALSE;
@@ -488,16 +488,16 @@ BOOL BoostMonMovePpUpBy(struct Pokemon *pokemon, s32 moveIdx, u32 nPpUp) {
     s32 ppAttr;
 
     ppUpAttr = MON_DATA_MOVE1_PP_UPS + moveIdx;
-    ppUp = (u8)GetMonData(pokemon, ppUpAttr, NULL);
+    ppUp = (u8)Pokemon_GetData(pokemon, ppUpAttr, NULL);
     if (ppUp == 3) {
         return FALSE;
     }
-    move = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + moveIdx, NULL);
+    move = (u16)Pokemon_GetData(pokemon, MON_DATA_MOVE1 + moveIdx, NULL);
     if (WazaGetMaxPp(move, 0) < 5) {
         return FALSE;
     }
     ppAttr = MON_DATA_MOVE1_PP + moveIdx;
-    pp = (u8)GetMonData(pokemon, ppAttr, NULL);
+    pp = (u8)Pokemon_GetData(pokemon, ppAttr, NULL);
     maxPp = WazaGetMaxPp(move, ppUp);
     if (ppUp + nPpUp > 3) {
         ppUp = 3;
@@ -506,8 +506,8 @@ BOOL BoostMonMovePpUpBy(struct Pokemon *pokemon, s32 moveIdx, u32 nPpUp) {
     }
     newMaxPp = WazaGetMaxPp(move, ppUp);
     pp = (u8)(pp + newMaxPp - maxPp);
-    SetMonData(pokemon, ppUpAttr, &ppUp);
-    SetMonData(pokemon, ppAttr, &pp);
+    Pokemon_SetData(pokemon, ppUpAttr, &ppUp);
+    Pokemon_SetData(pokemon, ppAttr, &pp);
     return TRUE;
 }
 
@@ -526,7 +526,7 @@ void RestoreMonHPBy(struct Pokemon *pokemon, u32 hp, u32 maxHp, u32 restoration)
     } else {
         hp = hp + restoration;
     }
-    SetMonData(pokemon, MON_DATA_HP, &hp);
+    Pokemon_SetData(pokemon, MON_DATA_HP, &hp);
 }
 
 s32 TryModEV(s32 ev, s32 evSum, s32 by) {
@@ -552,7 +552,7 @@ s32 TryModEV(s32 ev, s32 evSum, s32 by) {
 }
 
 BOOL CanItemModFriendship(struct Pokemon *pokemon, struct ItemData *itemData) {
-    s32 friendship = (s32)GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
+    s32 friendship = (s32)Pokemon_GetData(pokemon, MON_DATA_FRIENDSHIP, NULL);
     if (friendship >= 255) {
         return FALSE;
     }
@@ -576,13 +576,13 @@ BOOL DoItemFriendshipMod(struct Pokemon *pokemon, s32 friendship, s32 mod, u16 l
         return FALSE;
     }
     if (mod > 0) {
-        if (GetItemAttr((u16)GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL), ITEMATTR_HOLD_EFFECT, heapId) == HOLD_EFFECT_FRIENDSHIP_UP) {
+        if (GetItemAttr((u16)Pokemon_GetData(pokemon, MON_DATA_HELD_ITEM, NULL), ITEMATTR_HOLD_EFFECT, heapId) == HOLD_EFFECT_FRIENDSHIP_UP) {
             mod = mod * 150 / 100;
         }
-        if (GetMonData(pokemon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL) {
+        if (Pokemon_GetData(pokemon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL) {
             mod++;
         }
-        if (location == GetMonData(pokemon, MON_DATA_EGG_LOCATION, NULL)) {
+        if (location == Pokemon_GetData(pokemon, MON_DATA_EGG_LOCATION, NULL)) {
             mod++;
         }
     }
@@ -593,7 +593,7 @@ BOOL DoItemFriendshipMod(struct Pokemon *pokemon, s32 friendship, s32 mod, u16 l
     if (mod < 0) {
         mod = 0;
     }
-    SetMonData(pokemon, MON_DATA_FRIENDSHIP, &mod);
+    Pokemon_SetData(pokemon, MON_DATA_FRIENDSHIP, &mod);
     return TRUE;
 }
 
@@ -606,12 +606,12 @@ void HealParty(struct Party *party) {
     nmons = Party_GetCount(party);
     for (i = 0; i < nmons; i++) {
         struct Pokemon *pokemon = Party_GetMonByIndex(party, i);
-        if (GetMonData(pokemon, MON_DATA_SPECIES_EXISTS, NULL)) {
-            sp8 = GetMonData(pokemon, MON_DATA_MAX_HP, NULL);
-            SetMonData(pokemon, MON_DATA_HP, &sp8);
+        if (Pokemon_GetData(pokemon, MON_DATA_SPECIES_EXISTS, NULL)) {
+            sp8 = Pokemon_GetData(pokemon, MON_DATA_MAX_HP, NULL);
+            Pokemon_SetData(pokemon, MON_DATA_HP, &sp8);
 
             sp8 = 0;
-            SetMonData(pokemon, MON_DATA_STATUS, &sp8);
+            Pokemon_SetData(pokemon, MON_DATA_STATUS, &sp8);
 
             for (j = 0; j < MAX_MON_MOVES; j++) {
                 if (MonMoveCanRestorePP(pokemon, j) == 1) {

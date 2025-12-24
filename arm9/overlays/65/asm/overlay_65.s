@@ -3372,23 +3372,23 @@ ov65_021D8F34: ; 0x021D8F34
 	str r0, [r4, #0x30]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonData
+	bl Pokemon_GetData
 	strh r0, [r4, #0x34]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonGender
+	bl Pokemon_GetGender
 	add r1, r4, #0
 	add r1, #0x37
 	strb r0, [r1]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonNature
+	bl Pokemon_GetNature
 	add r1, r4, #0
 	add r1, #0x36
 	strb r0, [r1]
 	ldrh r0, [r4, #0x34]
-	mov r1, #0x1c ; BASE_FLIP
-	bl GetMonBaseStat
+	mov r1, #0x1c ; SPECIES_DATA_FLIP_SPRITE
+	bl Species_GetValue
 	mov r1, #1
 	eor r1, r0
 	add r0, r4, #0
@@ -3402,7 +3402,7 @@ ov65_021D8F34: ; 0x021D8F34
 	ldr r2, [r4, #0x3c]
 	ldr r0, [r0]
 	mov r1, #0x76
-	bl GetMonData
+	bl Pokemon_GetData
 	add r1, r4, #0
 	ldr r0, [r4, #0x10]
 	add r1, #0x36

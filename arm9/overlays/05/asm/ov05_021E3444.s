@@ -2799,12 +2799,12 @@ _021E4980:
 	add r0, r7, #0
 	mov r1, #0xa0
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r7, r0, #0
 	ldr r0, [sp]
 	mov r1, #0xa0
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0x55
 	lsl r1, r1, #2
 	ldr r1, [r5, r1]

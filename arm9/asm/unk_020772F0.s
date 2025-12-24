@@ -1407,7 +1407,7 @@ sub_02077894: ; 0x02077894
 	cmp r0, #0x1
 	bne _020778DE
 	mov r0, #0x12
-	bl AllocMonZeroed
+	bl Pokemon_New
 	mov r3, #0xa
 	str r3, [sp, #0x0]
 	str r3, [sp, #0x4]
@@ -1416,7 +1416,7 @@ sub_02077894: ; 0x02077894
 	ldr r1, [r4, #0x4]
 	add r6, r0, #0x0
 	mov r2, #0x5
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	add r0, r6, #0x0
 	bl FreeToHeap
 _020778DE:
@@ -1978,7 +1978,7 @@ _02077D88:
 	cmp r0, #0x1
 	bne _02077DCE
 	mov r0, #0x12
-	bl AllocMonZeroed
+	bl Pokemon_New
 	mov r3, #0xa
 	str r3, [sp, #0x0]
 	str r3, [sp, #0x4]
@@ -1987,7 +1987,7 @@ _02077D88:
 	ldr r1, [r4, #0x4]
 	add r5, r0, #0x0
 	mov r2, #0x5
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	add r0, r5, #0x0
 	bl sub_020690E4
 	add r2, r0, #0x0
@@ -2158,7 +2158,7 @@ _02077F04:
 	beq _02077F50
 _02077F1A:
 	mov r0, #0x12
-	bl AllocMonZeroed
+	bl Pokemon_New
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r3, [sp, #0x4]
@@ -2167,7 +2167,7 @@ _02077F1A:
 	ldr r1, [r5, #0x4]
 	add r6, r0, #0x0
 	mov r2, #0x1
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	add r0, r6, #0x0
 	bl sub_020690E4
 	add r2, r0, #0x0

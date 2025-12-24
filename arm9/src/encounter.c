@@ -762,7 +762,7 @@ static void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup) {
             GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK8);
         } else if (winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
             mon = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
-            if (Pokedex_ConvertToCurrentDexNo(FALSE, GetMonData(mon, MON_DATA_SPECIES, NULL)) != 0) {
+            if (Pokedex_ConvertToCurrentDexNo(FALSE, Pokemon_GetData(mon, MON_DATA_SPECIES, NULL)) != 0) {
                 GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK9);
             } else {
                 GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK10);
@@ -774,7 +774,7 @@ static void sub_020472F4(FieldSystem *fieldSystem, BattleSetup *setup) {
         }
     } else if ((battleType & BATTLE_TYPE_SAFARI || battleType & BATTLE_TYPE_PAL_PARK) && winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
         mon = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
-        if (Pokedex_ConvertToCurrentDexNo(FALSE, GetMonData(mon, MON_DATA_SPECIES, NULL)) != 0) {
+        if (Pokedex_ConvertToCurrentDexNo(FALSE, Pokemon_GetData(mon, MON_DATA_SPECIES, NULL)) != 0) {
             GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK9);
         } else {
             GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK10);
@@ -797,10 +797,10 @@ static void sub_020473CC(FieldSystem *fieldSystem, BattleSetup *setup) {
                 return;
             }
             mon = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
-            sub_02028AD4(fieldSystem->unk98, sub_0202920C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), GetMonData(mon, MON_DATA_SPECIES, NULL), GetMonData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
+            sub_02028AD4(fieldSystem->unk98, sub_0202920C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), Pokemon_GetData(mon, MON_DATA_SPECIES, NULL), Pokemon_GetData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
         } else if (winFlag == BATTLE_OUTCOME_MON_CAUGHT) {
             mon = Party_GetMonByIndex(setup->party[setup->unk170], 0);
-            sub_02028AD4(fieldSystem->unk98, sub_0202918C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), GetMonData(mon, MON_DATA_SPECIES, NULL), GetMonData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
+            sub_02028AD4(fieldSystem->unk98, sub_0202918C(Save_PlayerData_GetIGTAddr(fieldSystem->saveData), Pokemon_GetData(mon, MON_DATA_SPECIES, NULL), Pokemon_GetData(mon, MON_DATA_GENDER, NULL), setup->unk160, HEAP_ID_FIELD), 2);
         }
     } else if ((battleType & BATTLE_TYPE_TRAINER) || (battleType & BATTLE_TYPE_INGAME_PARTNER)) {
         if (winFlag == BATTLE_OUTCOME_WIN) {

@@ -326,18 +326,18 @@ _02254A7A:
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetBoxMonData
+	bl BoxPokemon_GetData
 	strh r0, [r6, #0x1c]
 	add r0, r4, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetBoxMonData
+	bl BoxPokemon_GetData
 	strh r0, [r6, #0x20]
 	ldr r0, [sp, #8]
 	bl ov05_021EC7B4
 	str r0, [r5, #0xc]
 	add r0, r4, #0
-	bl GetBoxMonGender
+	bl BoxPokemon_GetGender
 	str r0, [r5, #0x14]
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0
@@ -912,8 +912,8 @@ _02254F00:
 	cmp r0, #0
 	beq _02254F36
 	ldrh r0, [r6, #0x1c]
-	mov r1, #0x1c ; BASE_FLIP
-	bl GetMonBaseStat
+	mov r1, #0x1c ; SPECIES_DATA_FLIP_SPRITE
+	bl Species_GetValue
 	cmp r0, #0
 	ldr r0, [r7, #0x24]
 	beq _02254F30

@@ -138,13 +138,13 @@ void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData *s
 
 void BufferBoxMonSpeciesName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon) {
     struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, messageFormat->heapId);
-    ReadMsgDataIntoString(msgData, GetBoxMonData(mon, MON_DATA_SPECIES, NULL), messageFormat->buffer);
+    ReadMsgDataIntoString(msgData, BoxPokemon_GetData(mon, MON_DATA_SPECIES, NULL), messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
     DestroyMsgData(msgData);
 }
 
 void BufferBoxMonSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon) {
-    BufferSpeciesNameWithArticle(messageFormat, idx, GetBoxMonData(mon, MON_DATA_SPECIES, NULL));
+    BufferSpeciesNameWithArticle(messageFormat, idx, BoxPokemon_GetData(mon, MON_DATA_SPECIES, NULL));
 }
 
 void BufferSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 species) {
@@ -155,12 +155,12 @@ void BufferSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 spe
 }
 
 void BufferBoxMonNickname(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon) {
-    GetBoxMonData(mon, MON_DATA_NICKNAME_STRING, messageFormat->buffer);
+    BoxPokemon_GetData(mon, MON_DATA_NICKNAME_STRING, messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
 void BufferBoxMonOTName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon) {
-    GetBoxMonData(mon, MON_DATA_OT_NAME_STRING, messageFormat->buffer);
+    BoxPokemon_GetData(mon, MON_DATA_OT_NAME_STRING, messageFormat->buffer);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 

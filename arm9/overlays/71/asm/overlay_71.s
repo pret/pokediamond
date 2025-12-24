@@ -1348,37 +1348,37 @@ ov71_0222E118: ; 0x0222E118
 	add r0, r5, #0
 	mov r1, #0x9a
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	strb r0, [r4, #4]
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	strh r0, [r4]
 	add r0, r5, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	strb r0, [r4, #6]
 	add r0, r5, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	strb r0, [r4, #5]
 	add r0, r5, #0
 	mov r1, #0x6f
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	strh r0, [r4, #8]
 	add r0, r5, #0
 	mov r1, #0xa1
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	str r0, [r4, #0xc]
 	add r0, r5, #0
 	mov r1, #6
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
@@ -1386,8 +1386,8 @@ ov71_0222E118: ; 0x0222E118
 	ldrh r0, [r4]
 	cmp r0, #0
 	beq _0222E18E
-	mov r1, #0x1c ; BASE_FLIP
-	bl GetMonBaseStat
+	mov r1, #0x1c ; SPECIES_DATA_FLIP_SPRITE
+	bl Species_GetValue
 	strh r0, [r4, #0xa]
 _0222E18E:
 	cmp r6, #0
@@ -2647,12 +2647,12 @@ ov71_0222EBFC: ; 0x0222EBFC
 	mov r1, #0
 	add r0, r6, #0
 	add r2, r1, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r7, r0, #0
 	add r0, r6, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r3, #0
 	str r3, [sp]
 	mov r1, #0xa
@@ -2697,7 +2697,7 @@ ov71_0222EC5C: ; 0x0222EC5C
 	bl Party_GetMonByIndex
 	mov r1, #0x76
 	add r2, r4, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r0, r5, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -2731,7 +2731,7 @@ _0222ECB6:
 	bl Party_GetMonByIndex
 	mov r1, #0x4d
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222ECCE
 	mov r0, #2
@@ -2932,7 +2932,7 @@ _0222EE14:
 	bl Party_GetMonByIndex
 	mov r1, #0xa0
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	mov r0, #1
@@ -2978,7 +2978,7 @@ _0222EEA6:
 	bl Party_GetMonByIndex
 	mov r1, #6
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r5, #0x20
 	lsl r0, r0, #0x10
 	lsl r4, r5, #4
@@ -6320,10 +6320,10 @@ ov71_022309E8: ; 0x022309E8
 	add r6, r2, #0
 	str r3, [sp, #0xc]
 	ldr r5, [sp, #0x28]
-	bl AllocMonZeroed
+	bl Pokemon_New
 	add r7, r0, #0
 	mov r0, #0x1a
-	bl AllocMonZeroed
+	bl Pokemon_New
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	add r1, r6, #0
@@ -6338,7 +6338,7 @@ ov71_022309E8: ; 0x022309E8
 	add r0, r4, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _02230A40
 	mov r1, #0x46
@@ -6347,7 +6347,7 @@ ov71_022309E8: ; 0x022309E8
 	add r0, r4, #0
 	mov r1, #9
 	add r2, sp, #0x10
-	bl SetMonData
+	bl Pokemon_SetData
 _02230A40:
 	bl sub_02031190
 	bl sub_0202DFA4
@@ -6427,7 +6427,7 @@ ov71_02230AE4: ; 0x02230AE4
 	add r0, r4, #0
 	mov r1, #0x74
 	add r2, sp, #4
-	bl GetMonData
+	bl Pokemon_GetData
 	add r0, r5, #0
 	bl PlayerProfile_GetNamePtr
 	add r7, r0, #0
@@ -6435,7 +6435,7 @@ ov71_02230AE4: ; 0x02230AE4
 	bl PlayerProfile_GetTrainerGender
 	add r5, r0, #0
 	add r0, r4, #0
-	bl GetMonGender
+	bl Pokemon_GetGender
 	add r3, r0, #0
 	mov r0, #0x1a
 	lsl r1, r5, #0x18

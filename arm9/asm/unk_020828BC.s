@@ -765,7 +765,7 @@ sub_02082D60: ; 0x02082D60
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	mov r2, #0x0
-	bl GenPersonalityByGenderAndNature
+	bl Personality_CreateFromGenderAndNature
 	mov r1, #0x1
 	str r1, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -777,7 +777,7 @@ sub_02082D60: ; 0x02082D60
 	ldrh r1, [r7, #0x14]
 	add r0, r6, #0x0
 	mov r3, #0x20
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	mov r4, #0x0
 	add r5, r7, #0x0
 _02082D9A:
@@ -789,7 +789,7 @@ _02082D9A:
 	add r0, r6, #0x0
 	add r1, #0x36
 	add r2, #0x2
-	bl SetMonData
+	bl Pokemon_SetData
 	add r4, r4, #0x1
 	add r5, r5, #0x2
 	cmp r4, #0x4
@@ -810,11 +810,11 @@ _02082D9A:
 	add r0, r6, #0x0
 	mov r1, #0x76
 	add r2, r5, #0x0
-	bl SetMonData
+	bl Pokemon_SetData
 	ldr r2, [sp, #0x14]
 	add r0, r6, #0x0
 	mov r1, #0x90
-	bl SetMonData
+	bl Pokemon_SetData
 	add r0, r5, #0x0
 	bl String_Delete
 	ldr r0, [sp, #0x14]
@@ -838,30 +838,30 @@ _02082D9A:
 	strb r1, [r0, #0x0]
 	add r0, r6, #0x0
 	mov r1, #0x13
-	bl SetMonData
+	bl Pokemon_SetData
 	add r0, r6, #0x0
 	mov r1, #0x14
 	add r2, sp, #0x1c
-	bl SetMonData
+	bl Pokemon_SetData
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x15
 	add r2, #0x3
-	bl SetMonData
+	bl Pokemon_SetData
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x16
 	add r2, #0x2
-	bl SetMonData
+	bl Pokemon_SetData
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x17
 	add r2, #0x1
-	bl SetMonData
+	bl Pokemon_SetData
 	add r0, r6, #0x0
 	mov r1, #0x18
 	add r2, sp, #0x18
-	bl SetMonData
+	bl Pokemon_SetData
 	add sp, #0x20
 	pop {r3-r7, pc}
 	nop

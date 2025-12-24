@@ -10,13 +10,13 @@ ov05_021F38CC: ; 0x021F38CC
 	mov r1, #0
 	add r2, r1, #0
 	add r5, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0
 	mov r1, #0x46
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0xf
 	and r0, r1
 	lsl r0, r0, #0x10
@@ -25,7 +25,7 @@ ov05_021F38CC: ; 0x021F38CC
 	add r0, r5, #0
 	mov r1, #0x47
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0xf
 	and r0, r1
 	lsl r0, r0, #0x10
@@ -34,7 +34,7 @@ ov05_021F38CC: ; 0x021F38CC
 	add r0, r5, #0
 	mov r1, #0x48
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0xf
 	and r0, r1
 	lsl r0, r0, #0x10
@@ -43,7 +43,7 @@ ov05_021F38CC: ; 0x021F38CC
 	add r0, r5, #0
 	mov r1, #0x49
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0xf
 	and r0, r1
 	lsl r0, r0, #0x10
@@ -51,7 +51,7 @@ ov05_021F38CC: ; 0x021F38CC
 	add r0, r5, #0
 	mov r1, #0x4a
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0xf
 	and r0, r1
 	lsl r0, r0, #0x10
@@ -59,7 +59,7 @@ ov05_021F38CC: ; 0x021F38CC
 	add r0, r5, #0
 	mov r1, #0x4b
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	mov r1, #0xf
 	and r0, r1
 	lsl r0, r0, #0x10
@@ -174,7 +174,7 @@ Field_CheckPokemonSizeRecord: ; 0x021F3A18
 	mov r1, #5
 	mov r2, #0
 	str r0, [sp]
-	bl GetMonData
+	bl Pokemon_GetData
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	ldr r0, [sp]
@@ -339,7 +339,7 @@ Field_BufferPartyPokemonSize: ; 0x021F3B7C
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r6, #0

@@ -196,7 +196,7 @@ void Save_Poketch_PokemonHistoryAddMon(struct Poketch *poketch, struct BoxPokemo
         }
         i = 11;
     }
-    poketch->pokemonHistory[i][0] = (u16)GetBoxMonData(mon, MON_DATA_SPECIES, NULL);
+    poketch->pokemonHistory[i][0] = (u16)BoxPokemon_GetData(mon, MON_DATA_SPECIES, NULL);
     poketch->pokemonHistory[i][1] = BoxMon_GetAlternateForm(mon);
 }
 

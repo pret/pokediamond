@@ -9,8 +9,8 @@ u32 sub_0206B6D4(u32 species, u32 is_egg, u32 form);
 
 u32 sub_0206B688(struct BoxPokemon *boxmon) {
     BOOL decry = AcquireBoxMonLock(boxmon);
-    u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
-    u32 is_egg = GetBoxMonData(boxmon, MON_DATA_IS_EGG, NULL);
+    u32 species = BoxPokemon_GetData(boxmon, MON_DATA_SPECIES, NULL);
+    u32 is_egg = BoxPokemon_GetData(boxmon, MON_DATA_IS_EGG, NULL);
     u32 form = BoxMon_GetAlternateForm(boxmon);
     u32 ret = sub_0206B6D4(species, is_egg, form);
     ReleaseBoxMonLock(boxmon, decry);
@@ -53,7 +53,7 @@ u32 sub_0206B6D4(u32 species, u32 is_egg, u32 form) {
 }
 
 u16 BoxMon_GetAlternateForm(struct BoxPokemon *boxmon) {
-    u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES_OR_EGG, NULL);
+    u32 species = BoxPokemon_GetData(boxmon, MON_DATA_SPECIES_OR_EGG, NULL);
     switch (species) {
     case SPECIES_UNOWN:
         return GetBoxMonUnownLetter(boxmon);
@@ -62,7 +62,7 @@ u16 BoxMon_GetAlternateForm(struct BoxPokemon *boxmon) {
     case SPECIES_WORMADAM:
     case SPECIES_SHELLOS:
     case SPECIES_GASTRODON:
-        return (u16)GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
+        return (u16)BoxPokemon_GetData(boxmon, MON_DATA_FORM, NULL);
     default:
         return 0;
     }
@@ -102,8 +102,8 @@ u32 sub_0206B7BC(u32 species, u32 form, u32 is_egg) {
 u32 sub_0206B83C(struct BoxPokemon *boxmon) {
     BOOL decry = AcquireBoxMonLock(boxmon);
     u32 form = BoxMon_GetAlternateForm(boxmon);
-    u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
-    u32 is_egg = GetBoxMonData(boxmon, MON_DATA_IS_EGG, NULL);
+    u32 species = BoxPokemon_GetData(boxmon, MON_DATA_SPECIES, NULL);
+    u32 is_egg = BoxPokemon_GetData(boxmon, MON_DATA_IS_EGG, NULL);
     ReleaseBoxMonLock(boxmon, decry);
     return sub_0206B7BC(species, form, is_egg);
 }

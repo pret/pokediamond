@@ -1617,7 +1617,7 @@ _020382F6:
 	ldr r0, [r4, #0x44]
 	mov r1, #0x6
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r3, r0, #0x0
 	add r0, sp, #0x30
 	str r0, [sp, #0x0]
@@ -1942,7 +1942,7 @@ _02038590:
 	ldr r2, [r4, #0xc]
 	mov r1, #0x75
 	add r2, #0x1c
-	bl SetMonData
+	bl Pokemon_SetData
 	pop {r3-r5, pc}
 _020385A8:
 	ldr r0, [r5, #0xc]
@@ -2009,13 +2009,13 @@ _02038620:
 	mov r1, #0x6f
 	mov r2, #0x0
 	add r6, r0, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	ldr r1, [r4, #0xc]
 	mov r2, #0x0
 	str r0, [r1, #0x10]
 	add r0, r6, #0x0
 	mov r1, #0x70
-	bl GetMonData
+	bl Pokemon_GetData
 	ldr r1, [r4, #0xc]
 	cmp r5, #0x0
 	str r0, [r1, #0x8]

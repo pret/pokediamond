@@ -469,7 +469,7 @@ ov70_021D77CC: ; 0x021D77CC
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x3d
-	bl AllocMonZeroed
+	bl Pokemon_New
 	mov r1, #0x66
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1191,7 +1191,7 @@ _021D7DC8:
 	bl AddTextPrinterParameterized
 	ldrh r0, [r7, #0x10]
 	ldr r1, [r7, #8]
-	bl GetGenderBySpeciesAndPersonality
+	bl Species_GetGenderFromPersonality
 	cmp r0, #0
 	beq _021D7E3A
 	cmp r0, #1
@@ -1556,13 +1556,13 @@ _021D80F4:
 	ldrb r2, [r2]
 	ldr r0, [r7, r0]
 	mov r3, #0x20
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	mov r0, #0x66
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	ldr r2, [sp, #0x1c]
 	mov r1, #0x70
-	bl SetMonData
+	bl Pokemon_SetData
 	mov r1, #0x66
 	lsl r1, r1, #2
 	ldr r1, [r7, r1]

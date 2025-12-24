@@ -212,7 +212,7 @@ _0224D6D8:
 	ldrb r0, [r6, r1]
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #4]
-	bl GetNatureFromPersonality
+	bl Personality_GetNature
 	str r0, [r4, #0x24]
 	ldrb r0, [r5, #1]
 	add r1, r4, #0
@@ -363,7 +363,7 @@ _0224D774:
 	add r0, #0x8c
 	strb r1, [r0]
 	ldr r0, [r5, #4]
-	bl GetNatureFromPersonality
+	bl Personality_GetNature
 	add r1, r4, #0
 	add r1, #0x8d
 	strb r0, [r1]
@@ -520,7 +520,7 @@ _0224D8C4:
 	add r0, #0x8c
 	strb r1, [r0]
 	ldr r0, [r4, #4]
-	bl GetNatureFromPersonality
+	bl Personality_GetNature
 	add r1, r5, #0
 	add r1, #0x8d
 	strb r0, [r1]
@@ -7222,8 +7222,8 @@ ov11_02250F94: ; 0x02250F94
 	bl ov11_02243420
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	mov r1, #0x1a ; BASE_GREAT_MARSH_RATE
-	bl GetMonBaseStat
+	mov r1, #0x1a ; SPECIES_DATA_SAFARI_FLEE_RATE
+	bl Species_GetValue
 	ldr r2, _0225100C ; =ov11_0225E830
 	lsl r1, r5, #1
 	ldrb r2, [r2, r1]
@@ -8896,7 +8896,7 @@ _02251CEC:
 	mov r1, #0xa2
 	mov r2, #0
 	add r6, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	ldr r1, [r4, #8]
 	mov r2, #0
 	ldr r1, [r1, #4]
@@ -8905,7 +8905,7 @@ _02251CEC:
 	str r0, [r5, #0x28]
 	add r0, r6, #0
 	mov r1, #0xa3
-	bl GetMonData
+	bl Pokemon_GetData
 	str r0, [r5, #0x2c]
 	ldr r0, [r4, #8]
 	mov r1, #0x9f
@@ -8914,7 +8914,7 @@ _02251CEC:
 	ldrh r0, [r0, #0x20]
 	str r0, [r5, #0x30]
 	add r0, r6, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _02251D72
 	add r0, r5, #0
@@ -9035,7 +9035,7 @@ _02251E2E:
 	bl ov11_02230014
 	mov r1, #0x9f
 	add r2, r5, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _02251E6A
 	ldr r0, [sp, #0x10]
@@ -9435,7 +9435,7 @@ _02252196:
 	str r0, [sp, #0x14]
 _022521A4:
 	mov r0, #5
-	bl AllocMonZeroed
+	bl Pokemon_New
 	add r6, r0, #0
 	mov r5, #0
 _022521AE:
@@ -9827,7 +9827,7 @@ _022524D0:
 	bl ov11_02230014
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _022524F2
 	ldrb r0, [r7, #0xc]

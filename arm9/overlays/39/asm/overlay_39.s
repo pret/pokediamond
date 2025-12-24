@@ -73,12 +73,12 @@ _022548CC:
 	add r0, r7, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	strh r0, [r5, #0x1c]
 	add r0, r7, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	strh r0, [r5, #0x28]
 	ldr r0, [sp, #4]
 	str r7, [r4, #0x48]
@@ -995,8 +995,8 @@ ov39_02254FA4: ; 0x02254FA4
 	b _02254FCC
 _02254FBA:
 	add r0, r7, #0
-	mov r1, #0x1c ; BASE_FLIP
-	bl GetMonBaseStat
+	mov r1, #0x1c ; SPECIES_DATA_FLIP_SPRITE
+	bl Species_GetValue
 	cmp r0, #0
 	beq _02254FCA
 	mov r1, #4

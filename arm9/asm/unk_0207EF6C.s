@@ -1168,8 +1168,8 @@ _0207F876:
 	mov r0, #0x97
 	lsl r0, r0, #0x2
 	ldrh r0, [r4, r0]
-	mov r1, #0x1c ; BASE_FLIP
-	bl GetMonBaseStat
+	mov r1, #0x1c ; SPECIES_DATA_FLIP_SPRITE
+	bl Species_GetValue
 	mov r1, #0x1
 	eor r0, r1
 	mov r1, #0xb6

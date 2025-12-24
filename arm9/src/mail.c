@@ -64,9 +64,9 @@ void Mail_SetNewMessageDetails(struct Mail *mail, u8 type, u8 monIdx, struct Sav
     for (i = 0; monIdx < Party_GetCount(party); monIdx++) {
         union MailPatternData *ptr;
         pokemon = Party_GetMonByIndex(party, monIdx);
-        species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-        is_egg = (BOOL)GetMonData(pokemon, MON_DATA_IS_EGG, NULL);
-        form = GetMonData(pokemon, MON_DATA_FORM, NULL);
+        species = (u16)Pokemon_GetData(pokemon, MON_DATA_SPECIES, NULL);
+        is_egg = (BOOL)Pokemon_GetData(pokemon, MON_DATA_IS_EGG, NULL);
+        form = Pokemon_GetData(pokemon, MON_DATA_FORM, NULL);
         sp10 = sub_0206B6C8(pokemon);
         r7 = sub_0206B7BC(species, form, is_egg);
         ptr = &mail->unk_18[i];

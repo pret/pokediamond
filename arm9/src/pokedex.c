@@ -187,7 +187,7 @@ BOOL Pokedex_HasSeenDeoxysForm(struct Pokedex *pokedex, u32 state) {
 }
 
 void Pokedex_TrySetSeenDeoxysForm(struct Pokedex *pokedex, u16 species, struct Pokemon *pokemon) {
-    u8 form = (u8)GetMonData(pokemon, MON_DATA_FORM, NULL);
+    u8 form = (u8)Pokemon_GetData(pokemon, MON_DATA_FORM, NULL);
     if (species == SPECIES_DEOXYS && !Pokedex_HasSeenDeoxysForm(pokedex, form)) {
         s32 r2 = Pokedex_CountSeenDeoxysForms_Internal(pokedex);
         Pokedex_SetSeenDeoxysFormAt(pokedex, form, (u8)r2);
@@ -240,13 +240,13 @@ void Pokedex_SetMonSeenForm(struct Pokedex *pokedex, u16 species, struct Pokemon
     if (species == SPECIES_UNOWN) {
         SetSeenUnownLetter(pokedex, species, GetMonUnownLetter(pokemon));
     } else if (species == SPECIES_BURMY) {
-        Pokedex_SetSeenBurmyOrWormadamForm(pokedex, species, (s32)GetMonData(pokemon, MON_DATA_FORM, NULL));
+        Pokedex_SetSeenBurmyOrWormadamForm(pokedex, species, (s32)Pokemon_GetData(pokemon, MON_DATA_FORM, NULL));
     } else if (species == SPECIES_WORMADAM) {
-        Pokedex_SetSeenBurmyOrWormadamForm(pokedex, species, (s32)GetMonData(pokemon, MON_DATA_FORM, NULL));
+        Pokedex_SetSeenBurmyOrWormadamForm(pokedex, species, (s32)Pokemon_GetData(pokemon, MON_DATA_FORM, NULL));
     } else if (species == SPECIES_SHELLOS) {
-        Pokedex_SetSeenShellosOrGastrodonForm(pokedex, species, GetMonData(pokemon, MON_DATA_FORM, NULL));
+        Pokedex_SetSeenShellosOrGastrodonForm(pokedex, species, Pokemon_GetData(pokemon, MON_DATA_FORM, NULL));
     } else if (species == SPECIES_GASTRODON) {
-        Pokedex_SetSeenShellosOrGastrodonForm(pokedex, species, GetMonData(pokemon, MON_DATA_FORM, NULL));
+        Pokedex_SetSeenShellosOrGastrodonForm(pokedex, species, Pokemon_GetData(pokemon, MON_DATA_FORM, NULL));
     } else if (species == SPECIES_DEOXYS) {
         Pokedex_TrySetSeenDeoxysForm(pokedex, species, pokemon);
     }
@@ -263,7 +263,7 @@ void Pokedex_SetMeisterFlagBySpeciesAndLanguage(struct Pokedex *pokedex, u32 spe
 s32 sub_020242C8(struct Pokedex *pokedex, u16 species, s32 r4) {
     u8 r0;
     u8 r1;
-    if (GetMonBaseStat(species, BASE_GENDER_RATIO) == MON_RATIO_UNKNOWN) {
+    if (Species_GetValue(species, SPECIES_DATA_GENDER_RATIO) == MON_RATIO_UNKNOWN) {
         return r4 == 0 ? 2 : -1;
     }
     r1 = (u8)CheckDexFlag(pokedex->field_0084, species);
@@ -572,9 +572,9 @@ static inline void SetSeenGender(struct Pokedex *pokedex, u16 species, u8 gender
 }
 
 void Pokedex_SetMonSeenFlag(struct Pokedex *pokedex, struct Pokemon *pokemon) {
-    u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    u32 personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    u32 gender = GetMonGender(pokemon);
+    u16 species = (u16)Pokemon_GetData(pokemon, MON_DATA_SPECIES, NULL);
+    u32 personality = Pokemon_GetData(pokemon, MON_DATA_PERSONALITY, NULL);
+    u32 gender = Pokemon_GetGender(pokemon);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     if (DexSpeciesIsInvalid(species)) {
         return;
@@ -600,10 +600,10 @@ void Pokedex_SetMonCaughtFlag(struct Pokedex *pokedex, struct Pokemon *pokemon) 
     u32 gender;      // r7
     u16 species;     // r6
 
-    species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    language = GetMonData(pokemon, MON_DATA_LANGUAGE, NULL);
-    personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    gender = GetMonGender(pokemon);
+    species = (u16)Pokemon_GetData(pokemon, MON_DATA_SPECIES, NULL);
+    language = Pokemon_GetData(pokemon, MON_DATA_LANGUAGE, NULL);
+    personality = Pokemon_GetData(pokemon, MON_DATA_PERSONALITY, NULL);
+    gender = Pokemon_GetGender(pokemon);
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     if (DexSpeciesIsInvalid(species)) {
         return;

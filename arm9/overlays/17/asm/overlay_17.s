@@ -8856,7 +8856,7 @@ ov17_021DB700: ; 0x021DB700
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r0, r6, #0
 	add r1, r4, #0
 	mov r2, #2
@@ -13208,7 +13208,7 @@ ov17_021DD6DC: ; 0x021DD6DC
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0x68]
-	bl AllocMonZeroed
+	bl Pokemon_New
 	mov r1, #0x8a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -13278,7 +13278,7 @@ ov17_021DD778: ; 0x021DD778
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0x68]
-	bl AllocMonZeroed
+	bl Pokemon_New
 	mov r1, #0x8a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -14501,7 +14501,7 @@ ov17_021DE0F4: ; 0x021DE0F4
 	add r3, r6, #0
 	bl BufferString
 	mov r0, #0xd
-	bl AllocMonZeroed
+	bl Pokemon_New
 	add r6, r0, #0
 	ldr r0, [r5, #4]
 	add r1, r6, #0

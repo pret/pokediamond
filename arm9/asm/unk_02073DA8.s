@@ -244,7 +244,7 @@ _02073F66:
 	add r6, r0, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x0
-	bl SetMonData
+	bl Pokemon_SetData
 	add r0, r6, #0x0
 	bl Pokemon_UpdateArceusForm
 	ldr r2, _02074058 ; =0x0000069C
@@ -631,7 +631,7 @@ sub_020742A8: ; 0x020742A8
 	add r5, r0, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x0
-	bl SetMonData
+	bl Pokemon_SetData
 	add r0, r5, #0x0
 	bl Pokemon_UpdateArceusForm
 	ldr r1, _02074330 ; =0x00000B25
@@ -2386,7 +2386,7 @@ sub_02075118: ; 0x02075118
 	bl Party_GetMonByIndex
 	mov r1, #0xa1
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0x0
 	ldr r2, _02075198 ; =0x0000069C
 	bne _0207515C

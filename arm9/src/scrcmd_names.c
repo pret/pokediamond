@@ -393,7 +393,7 @@ BOOL ScrCmd_GetPokemonMoveName(ScriptContext *ctx) // 01CB - todo: BufferPartyPo
     u16 mon_move_idx = ScriptGetVar(ctx);
     Party *party = SaveArray_Party_Get(fieldSystem->saveData);
     Pokemon *pokemon = Party_GetMonByIndex(party, mon_idx);
-    u16 move = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + mon_move_idx, NULL);
+    u16 move = (u16)Pokemon_GetData(pokemon, MON_DATA_MOVE1 + mon_move_idx, NULL);
 
     BufferMoveName(*messageFormat, idx, move);
 

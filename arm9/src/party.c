@@ -28,7 +28,7 @@ void Party_InitWithMaxSize(struct Party *party, int count) {
     party->curCount = 0;
     party->maxCount = count;
     for (i = 0; i < PARTY_SIZE; i++) {
-        ZeroMonData(&party->mons[i]);
+        Pokemon_Init(&party->mons[i]);
     }
 }
 
@@ -53,7 +53,7 @@ BOOL Party_RemoveMon(struct Party *party, int pos) {
         party->mons[i] = party->mons[i + 1];
     }
 
-    ZeroMonData(&party->mons[i]);
+    Pokemon_Init(&party->mons[i]);
     party->curCount--;
     return TRUE;
 }
@@ -74,7 +74,7 @@ void ReplacePartySlotWithMon(struct Party *party, int pos, struct Pokemon *pokem
     GF_ASSERT(pos >= 0);
     GF_ASSERT(pos < party->curCount);
     GF_ASSERT(pos < party->maxCount);
-    r2 = (int)(GetMonData(&party->mons[pos], MON_DATA_SPECIES_EXISTS, NULL) - GetMonData(pokemon, MON_DATA_SPECIES_EXISTS, NULL));
+    r2 = (int)(Pokemon_GetData(&party->mons[pos], MON_DATA_SPECIES_EXISTS, NULL) - Pokemon_GetData(pokemon, MON_DATA_SPECIES_EXISTS, NULL));
     party->mons[pos] = *pokemon;
     party->curCount += r2;
 }
@@ -102,7 +102,7 @@ void CopyParty(struct Party *src, struct Party *dest) {
 BOOL Party_HasMon(struct Party *party, u16 species) {
     int i;
     for (i = 0; i < party->curCount; i++) {
-        if (species == GetMonData(&party->mons[i], MON_DATA_SPECIES, NULL)) {
+        if (species == Pokemon_GetData(&party->mons[i], MON_DATA_SPECIES, NULL)) {
             break;
         }
     }

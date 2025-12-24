@@ -1685,7 +1685,7 @@ _0222E4AC:
 	bl ov11_02230014
 	mov r1, #0x9a
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r2, r0, #0
 	ldr r1, [r6, #0x34]
 	add r0, r5, #0
@@ -2024,19 +2024,19 @@ _0222E76C:
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222E79E
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E79E
 	add r0, r6, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E7AA
 _0222E79E:
@@ -2129,19 +2129,19 @@ _0222E848:
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222E87A
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E87A
 	add r0, r6, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E886
 _0222E87A:
@@ -2255,38 +2255,38 @@ _0222E938:
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222E9AC
 	add r0, r5, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E9AC
 	add r0, r5, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E9B8
 	b _0222E9AC
 _0222E984:
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222E9AC
 	add r0, r5, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E9AC
 	add r0, r5, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222E9B8
 _0222E9AC:
@@ -2355,19 +2355,19 @@ _0222EA22:
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222EA54
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EA54
 	add r0, r6, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EA60
 _0222EA54:
@@ -2457,19 +2457,19 @@ _0222EAEE:
 	bne _0222EB2E
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222EB56
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EB56
 	add r0, r6, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222EB56
 	ldr r0, [sp, #0x38]
@@ -2479,19 +2479,19 @@ _0222EAEE:
 _0222EB2E:
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222EB56
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EB56
 	add r0, r6, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EB64
 _0222EB56:
@@ -2582,19 +2582,19 @@ _0222EBF6:
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222EC28
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EC28
 	add r0, r6, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EC34
 _0222EC28:
@@ -2707,38 +2707,38 @@ _0222ECE0:
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222ED54
 	add r0, r5, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222ED54
 	add r0, r5, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222ED60
 	b _0222ED54
 _0222ED2C:
 	mov r1, #5
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222ED54
 	add r0, r5, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222ED54
 	add r0, r5, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222ED60
 _0222ED54:
@@ -2810,19 +2810,19 @@ _0222EDD2:
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	beq _0222EE04
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EE04
 	add r0, r6, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonData
+	bl Pokemon_GetData
 	cmp r0, #0
 	bne _0222EE10
 _0222EE04:
@@ -2865,7 +2865,7 @@ _0222EE3E:
 	add r2, r4, #0
 	mov r1, #0x8f
 	add r2, #0xf4
-	bl GetMonData
+	bl Pokemon_GetData
 _0222EE5A:
 	ldr r1, [r4, #0x2c]
 	mov r0, #1
@@ -2898,7 +2898,7 @@ _0222EE8C:
 	add r1, r7, #0
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipMod
+	bl Pokemon_UpdateFriendship
 	ldr r0, [r4, #0x68]
 	add r5, r5, #1
 	bl Party_GetCount
@@ -2920,7 +2920,7 @@ _0222EEBC:
 	add r1, r7, #0
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipMod
+	bl Pokemon_UpdateFriendship
 	ldr r0, [r4, #0x70]
 	add r5, r5, #1
 	bl Party_GetCount

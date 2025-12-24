@@ -245,9 +245,9 @@ _020604D0:
 	bl Save_PlayerData_GetProfile
 	str r0, [sp, #0x18]
 	mov r0, #0x4
-	bl AllocMonZeroed
+	bl Pokemon_New
 	str r0, [sp, #0x1c]
-	bl ZeroMonData
+	bl Pokemon_Init
 	ldr r0, [sp, #0x18]
 	bl PlayerProfile_GetTrainerID_VisibleHalf
 	mov r1, #0x0
@@ -260,7 +260,7 @@ _020604D0:
 	add r1, r7, #0x0
 	add r2, r6, #0x0
 	mov r3, #0x20
-	bl CreateMon
+	bl Pokemon_InitWithParams
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x0
@@ -272,7 +272,7 @@ _020604D0:
 	ldr r0, [sp, #0x1c]
 	mov r1, #0xae
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x2
@@ -280,7 +280,7 @@ _020604D0:
 	mov r1, #0x0
 	ldr r0, [sp, #0x1c]
 	add r2, r1, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x3
@@ -288,7 +288,7 @@ _020604D0:
 	ldr r0, [sp, #0x1c]
 	mov r1, #0xa3
 	mov r2, #0x0
-	bl GetMonData
+	bl Pokemon_GetData
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x5
