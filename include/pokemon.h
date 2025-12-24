@@ -133,14 +133,15 @@ typedef struct {
     /* 0x14 */ u8 metMonth;
     /* 0x15 */ u8 metDay;
 
-    /* 0x16 */ u16 DP_EggLocation;
-    /* 0x18 */ u16 DP_MetLocation;
+    /* 0x16 */ u16 EggLocation_DP;
+    /* 0x18 */ u16 MetLocation_DP;
+
     /* 0x1A */ u8 pokerus;
     /* 0x1B */ u8 pokeball;
     /* 0x1C */ u8 metLevel : 7;
     u8 otGender : 1;
     /* 0x1D */ u8 metTerrain;
-    /* 0x1E */ u16 HGSS_Pokeball;
+    /* 0x1E */ u16 unused; //!< Stores Apricorn Ball and Mood from HGSS. Unused otherwise.
 } PokemonDataBlockD;
 
 typedef union {
@@ -166,13 +167,13 @@ struct PartyPokemon {
     /* 0x08D */ u8 ballCapsuleID;
     /* 0x08E */ u16 hp;
     /* 0x090 */ u16 maxHP;
-    /* 0x092 */ u16 atk;
-    /* 0x094 */ u16 def;
+    /* 0x092 */ u16 attack;
+    /* 0x094 */ u16 defense;
     /* 0x096 */ u16 speed;
-    /* 0x098 */ u16 spatk;
-    /* 0x09A */ u16 spdef;
+    /* 0x098 */ u16 spAtk;
+    /* 0x09A */ u16 spDef;
     /* 0x09C */ struct Mail mail;
-    /* 0x0D4 */ u8 sealCoords[8][3]; // seal coords
+    /* 0x0D4 */ u8 ballCapsule[8][3];
 };
 
 typedef struct Pokemon {

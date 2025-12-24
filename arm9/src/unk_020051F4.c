@@ -242,7 +242,7 @@ u32 sub_02005578(u16 species) {
     struct SaveChatotSoundClip **r0 = sub_02003D38(35);
 
     if (species != SPECIES_CHATOT) {
-        if (species > SPECIES_MANAPHY_EGG || species == SPECIES_NONE) {
+        if (species > SPECIES_BAD_EGG || species == SPECIES_NONE) {
             species = SPECIES_BULBASAUR;
         }
     }
@@ -335,7 +335,7 @@ u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) 
 
     u16 species = param1;
     if (species != SPECIES_CHATOT) {
-        if (species > SPECIES_MANAPHY_EGG || species == SPECIES_NONE) {
+        if (species > SPECIES_BAD_EGG || species == SPECIES_NONE) {
             species = SPECIES_BULBASAUR;
         }
     }
