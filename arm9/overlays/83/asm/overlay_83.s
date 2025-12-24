@@ -21879,7 +21879,7 @@ MigrateBoxMon: ; 0x02237F6C
 	add r0, r4, #0
 	bl BoxPokemon_Init
 	add r0, r4, #0
-	bl AcquireBoxMonLock
+	bl BoxPokemon_UnlockEncryption
 	mov r1, #0
 	str r0, [sp]
 	add r0, r6, #0

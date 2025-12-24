@@ -5455,7 +5455,7 @@ ov14_021DA168: ; 0x021DA168
 	mov r1, #0
 	add r5, r0, #0
 	str r1, [sp, #4]
-	bl AcquireBoxMonLock
+	bl BoxPokemon_UnlockEncryption
 	str r0, [sp]
 	add r0, r5, #0
 	mov r1, #0xac
@@ -9189,7 +9189,7 @@ ov14_021DBEAC: ; 0x021DBEAC
 	add r0, r5, #0
 	add r6, r2, #0
 	add r4, #0x4c
-	bl AcquireBoxMonLock
+	bl BoxPokemon_UnlockEncryption
 	str r0, [sp]
 	str r5, [r7, #0x4c]
 	add r0, r5, #0
@@ -18859,7 +18859,7 @@ ov14_021E0940: ; 0x021E0940
 	str r2, [sp, #8]
 	str r3, [sp, #0xc]
 	ldr r4, [sp, #0x64]
-	bl AcquireBoxMonLock
+	bl BoxPokemon_UnlockEncryption
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x10]
@@ -18987,7 +18987,7 @@ ov14_021E0A60: ; 0x021E0A60
 	str r2, [sp, #8]
 	add r7, r3, #0
 	ldr r4, [sp, #0x70]
-	bl AcquireBoxMonLock
+	bl BoxPokemon_UnlockEncryption
 	str r0, [sp, #0x14]
 	add r0, r6, #0
 	mov r1, #0x4c
@@ -21819,7 +21819,7 @@ _021E204A:
 	bl PCStorage_GetMonByIndexPair
 	add r4, r4, #1
 	add r5, r0, #0
-	bl AcquireBoxMonLock
+	bl BoxPokemon_UnlockEncryption
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x1c]

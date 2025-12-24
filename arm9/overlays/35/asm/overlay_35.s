@@ -318,7 +318,7 @@ _02254A7A:
 	str r0, [sp, #8]
 	bl DaycareMon_GetBoxMon
 	add r4, r0, #0
-	bl AcquireBoxMonLock
+	bl BoxPokemon_UnlockEncryption
 	str r0, [sp, #0xc]
 	add r0, r4, #0
 	bl sub_0206B688

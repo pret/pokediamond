@@ -8,7 +8,7 @@ u16 BoxMon_GetAlternateForm(struct BoxPokemon *boxmon);
 u32 sub_0206B6D4(u32 species, u32 is_egg, u32 form);
 
 u32 sub_0206B688(struct BoxPokemon *boxmon) {
-    BOOL decry = AcquireBoxMonLock(boxmon);
+    BOOL decry = BoxPokemon_UnlockEncryption(boxmon);
     u32 species = BoxPokemon_GetData(boxmon, MON_DATA_SPECIES, NULL);
     u32 is_egg = BoxPokemon_GetData(boxmon, MON_DATA_IS_EGG, NULL);
     u32 form = BoxMon_GetAlternateForm(boxmon);
@@ -100,7 +100,7 @@ u32 sub_0206B7BC(u32 species, u32 form, u32 is_egg) {
 }
 
 u32 sub_0206B83C(struct BoxPokemon *boxmon) {
-    BOOL decry = AcquireBoxMonLock(boxmon);
+    BOOL decry = BoxPokemon_UnlockEncryption(boxmon);
     u32 form = BoxMon_GetAlternateForm(boxmon);
     u32 species = BoxPokemon_GetData(boxmon, MON_DATA_SPECIES, NULL);
     u32 is_egg = BoxPokemon_GetData(boxmon, MON_DATA_IS_EGG, NULL);

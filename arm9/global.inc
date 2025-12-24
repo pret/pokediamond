@@ -4732,7 +4732,7 @@
 .extern Pokemon_New
 .extern Pokemon_UnlockEncryption
 .extern Pokemon_LockEncryption
-.extern AcquireBoxMonLock
+.extern BoxPokemon_UnlockEncryption
 .extern BoxPokemon_LockEncryption
 .extern Pokemon_InitWithParams
 .extern Pokemon_InitWithNature
