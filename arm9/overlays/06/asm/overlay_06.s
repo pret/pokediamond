@@ -7687,7 +7687,7 @@ ov06_0223D044: ; 0x0223D044
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	add r2, r7, #0
-	bl CreateMonWithFixedIVs
+	bl Pokemon_InitAndCalcStats
 	add r0, r4, #0
 	mov r1, #7
 	add r2, sp, #0x30
@@ -21974,7 +21974,7 @@ ov06_02244388: ; 0x02244388
 	lsr r1, r1, #0x15
 	mov r2, #0x32
 	and r3, r4
-	bl CreateMonWithFixedIVs
+	bl Pokemon_InitAndCalcStats
 	ldrh r0, [r6]
 	add r2, sp, #8
 	add r2, #1

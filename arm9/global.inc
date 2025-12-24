@@ -4738,7 +4738,7 @@
 .extern Pokemon_InitWithNature
 .extern Pokemon_InitWithGenderNatureLetter
 .extern Personality_CreateFromGenderAndNature
-.extern CreateMonWithFixedIVs
+.extern Pokemon_InitAndCalcStats
 .extern Pokemon_CalcLevelAndStats
 .extern Pokemon_CalcStats
 .extern Pokemon_GetData
