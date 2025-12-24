@@ -19,7 +19,7 @@ extern u16 sub_0204BAD4(struct FieldSystem *);
 extern u16 sub_0204BAE4(struct FieldSystem *);
 extern void sub_0205F224(struct SaveVarsFlags *state);
 extern void sub_0205F234(struct SaveVarsFlags *state);
-extern void sub_0208089C(struct Pokemon *pokemon, PlayerProfile *player, u32 a2, u32 a3, HeapID heapId);
+extern void sub_0208089C(struct Pokemon *pokemon, PlayerProfile *player, u32 a2, u32 a3, enum HeapID heapID);
 
 BOOL ScrCmd_Unk0253(struct ScriptContext *ctx) // 0253
 {
@@ -52,7 +52,7 @@ BOOL ScrCmd_Unk0254(struct ScriptContext *ctx) // 0254
         *ret_ptr = 0;
     }
 
-    FreeToHeap(pokemon);
+    Heap_Free(pokemon);
 
     return FALSE;
 }
@@ -75,7 +75,7 @@ BOOL ScrCmd_Unk0255(struct ScriptContext *ctx) // 0255
         sub_0202C144(ctx->fieldSystem->saveData, pokemon);
     }
 
-    FreeToHeap(pokemon);
+    Heap_Free(pokemon);
     sub_0202BEDC(unk);
 
     return FALSE;

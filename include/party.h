@@ -8,7 +8,7 @@ BOOL Party_HasMon(struct Party *party_p, u16 species);
 int Party_GetCount(struct Party *party_p);
 struct Pokemon *Party_GetMonByIndex(struct Party *party_p, int idx);
 u32 SaveArray_Party_sizeof(void);
-struct Party *SaveArray_Party_Alloc(HeapID heapId);
+struct Party *SaveArray_Party_Alloc(enum HeapID heapID);
 void SaveArray_Party_Init(struct Party *party);
 void Party_InitWithMaxSize(struct Party *party, int count);
 BOOL Party_AddMon(struct Party *party, struct Pokemon *pokemon);

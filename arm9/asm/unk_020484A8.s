@@ -53,7 +53,7 @@ _020484CC:
 	add r1, r4, #0x0
 	bl SaveHallOfFame
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x14
 	pop {r3-r6, pc}
 	.balign 4
@@ -110,7 +110,7 @@ _02048556:
 	mov r1, #0x4
 	mov r0, #0x3
 	lsl r2, r1, #0xf
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	bl sub_02048764
@@ -238,9 +238,9 @@ _02048666:
 	cmp r0, #0x0
 	bne _02048688
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x4
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x0
 	bl OS_ResetSystem
 	add sp, #0xc
@@ -262,7 +262,7 @@ CallTask_GameClear: ; 0x02048694
 	add r4, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x3c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl Save_VarsFlags_Get

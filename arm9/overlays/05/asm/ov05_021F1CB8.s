@@ -197,11 +197,11 @@ ov05_021F1E2C: ; 0x021F1E2C
 	cmp r5, #1
 	bne _021F1E4C
 	mov r0, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	b _021F1E52
 _021F1E4C:
 	mov r0, #4
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 _021F1E52:
 	add r5, r0, #0
 	add r0, r6, #0

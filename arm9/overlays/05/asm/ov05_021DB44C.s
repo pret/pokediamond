@@ -14,7 +14,7 @@ ov05_021DB44C: ; 0x021DB44C
 _021DB45A:
 	mov r0, #4
 	mov r1, #0x14
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	ldr r0, _021DB4AC ; =ov05_021F65FC
 	lsl r1, r6, #2
@@ -67,7 +67,7 @@ _021DB4BA:
 	bl ov05_021DB7A0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}
@@ -326,7 +326,7 @@ _021DB6A4:
 	mul r4, r1
 	mov r0, #4
 	add r1, r4, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp]
 	add r2, r4, #0
 	str r0, [r1]
@@ -419,7 +419,7 @@ _021DB73E:
 _021DB78A:
 	ldr r1, [sp, #0x14]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #8]
 	add sp, #0x1fc
 	add sp, #0x20
@@ -433,7 +433,7 @@ ov05_021DB7A0: ; 0x021DB7A0
 	add r4, r0, #0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}

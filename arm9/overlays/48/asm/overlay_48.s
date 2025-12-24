@@ -12,7 +12,7 @@ ov48_02254854: ; 0x02254854
 	mov r1, #0x40
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254892
 	ldr r3, [sp]
@@ -32,7 +32,7 @@ ov48_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -126,7 +126,7 @@ ov48_02254938: ; 0x02254938
 	ldr r0, [r4, #0x2c]
 	bl ov48_02254AD4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov48_02254938
 
@@ -331,7 +331,7 @@ ov48_02254AA0: ; 0x02254AA0
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0xb0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254ACE
 	add r0, #8
@@ -356,7 +356,7 @@ ov48_02254AD4: ; 0x02254AD4
 	push {r3, lr}
 	cmp r0, #0
 	beq _02254ADE
-	bl FreeToHeap
+	bl Heap_Free
 _02254ADE:
 	pop {r3, pc}
 	thumb_func_end ov48_02254AD4

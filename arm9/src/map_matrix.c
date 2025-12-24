@@ -55,11 +55,11 @@ static void MapMatrix_MapMatrixData_Load(
 
     MI_CpuCopy8(
         cursor, map_matrix->maps.data, map_matrix->width * map_matrix->height * sizeof(u16));
-    FreeToHeap(buffer);
+    Heap_Free(buffer);
 }
 
 struct MapMatrix *MapMatrix_New(void) {
-    struct MapMatrix *map_matrix = AllocFromHeap(HEAP_ID_FIELD, sizeof(struct MapMatrix));
+    struct MapMatrix *map_matrix = Heap_Alloc(HEAP_ID_FIELD, sizeof(struct MapMatrix));
 
     map_matrix->width = 0;
     map_matrix->height = 0;
@@ -79,7 +79,7 @@ void MapMatrix_Load(u16 map_id, struct MapMatrix *map_matrix) {
 }
 
 void MapMatrix_Free(struct MapMatrix *map_matrix) {
-    FreeToHeap(map_matrix);
+    Heap_Free(map_matrix);
 }
 
 u16 MapMatrix_GetMapData(s32 map_id, struct MapMatrix *map_matrix) {
@@ -131,9 +131,9 @@ u32 MapMatrix_GetMapAltitude(
     return map_matrix->data.altitudes[y * matrix_width + x];
 }
 
-struct MapData *MapMatrix_MapData_New(HeapID heapId) {
-    struct MapData *map_data = AllocFromHeap(heapId, sizeof(struct MapData));
-    void *buffer = AllocAtEndAndReadWholeNarcMemberByIdPair(NARC_FIELDDATA_MAPMATRIX_MAP_MATRIX, 0, heapId);
+struct MapData *MapMatrix_MapData_New(enum HeapID heapID) {
+    struct MapData *map_data = Heap_Alloc(heapID, sizeof(struct MapData));
+    void *buffer = AllocAtEndAndReadWholeNarcMemberByIdPair(NARC_FIELDDATA_MAPMATRIX_MAP_MATRIX, 0, heapID);
     u8 *cursor = (u8 *)buffer;
 
     cursor += 4;
@@ -142,14 +142,14 @@ struct MapData *MapMatrix_MapData_New(HeapID heapId) {
     cursor += name_length;
 
     MI_CpuCopy8(cursor, map_data, sizeof(struct MapData));
-    FreeToHeap(buffer);
+    Heap_Free(buffer);
 
     return map_data;
 }
 
 void MapMatrix_MapData_Free(struct MapData *map_data) {
     GF_ASSERT(map_data != NULL);
-    FreeToHeap(map_data);
+    Heap_Free(map_data);
 }
 
 u16 MapMatrix_MapData_GetData(struct MapData *map_data, s32 x, s32 y) {

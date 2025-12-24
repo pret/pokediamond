@@ -13,7 +13,7 @@ sub_0204A368: ; 0x0204A368
 	bne _0204A388
 	ldr r1, _0204A38C ; =0x000080E2
 	mov r0, #0xb
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x54]
 	ldr r0, [r5, #0x28]
 	ldr r1, [r5, #0x54]
@@ -31,7 +31,7 @@ sub_0204A390: ; 0x0204A390
 	ldr r0, [r4, #0x54]
 	cmp r0, #0x0
 	beq _0204A3A2
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	str r0, [r4, #0x54]
 _0204A3A2:

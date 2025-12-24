@@ -7,7 +7,7 @@
 #include "heap.h"
 #include "unk_0202F150.h"
 
-void sub_02031480(HeapID heapId);
+void sub_02031480(enum HeapID heapID);
 void sub_020314D0();
 BOOL sub_020314E8();
 void sub_020314FC(u8 param0, u32 param1, u8 *param2);

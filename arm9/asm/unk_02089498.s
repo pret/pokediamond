@@ -42,7 +42,7 @@ sub_02089498: ; 0x02089498
 	mov r0, #0x3
 	mov r1, #0x58
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0x0
 	mov r1, #0x38
 	mov r2, #0x58
@@ -197,7 +197,7 @@ sub_020895F0: ; 0x020895F0
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	add r0, r4, #0x0
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x0
 	bl OS_ResetSystem
 	mov r0, #0x1
@@ -329,7 +329,7 @@ sub_020896E0: ; 0x020896E0
 	mov r1, #0x0
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start sub_02089734

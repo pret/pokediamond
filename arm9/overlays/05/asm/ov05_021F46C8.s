@@ -10,7 +10,7 @@ ov05_021F46C8: ; 0x021F46C8
 	mov r1, #0xca
 	lsl r1, r1, #2
 	add r6, r0, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0xca
 	mov r1, #0
 	lsl r2, r2, #2
@@ -47,7 +47,7 @@ _021F4712:
 	ldr r0, [r4, r0]
 	bl sub_02012974
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start ov05_021F4724

@@ -18,7 +18,7 @@ sub_02088320: ; 0x02088320
 	add r6, r0, #0x0
 	add r7, r2, #0x0
 	str r3, [sp, #0x0]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x59
 	mov r1, #0x0
 	lsl r2, r2, #0x2
@@ -54,7 +54,7 @@ sub_02088360: ; 0x02088360
 	lsl r2, r2, #0x2
 	bl MI_CpuFill8
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start sub_0208837C
@@ -138,7 +138,7 @@ _02088402:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4
 	ldr r0, [r0, #0x0]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x16
 	ldr r1, [sp, #0x0]
 	lsl r2, r2, #0x4
@@ -160,7 +160,7 @@ sub_0208843C: ; 0x0208843C
 	mov r0, #0x16
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x10]
 	bl sub_0201FD58
 	mov r0, #0x15
@@ -216,7 +216,7 @@ sub_02088490: ; 0x02088490
 _020884B4:
 	ldr r0, [r5, #0x0]
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [sp, #0x38]
 	mov r1, #0x0
 	mov r2, #0x8
@@ -259,15 +259,15 @@ _020884D8:
 	bl sub_02009DE0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0x0]
 	mov r1, #0x24
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [r4, #0x8]
 	mov r3, #0xe
 	str r0, [r1, #0x0]
@@ -464,7 +464,7 @@ sub_02088694: ; 0x02088694
 	add r1, r2, r1
 	strb r0, [r1, #0x1]
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3-r5, pc}
 	.balign 4
 

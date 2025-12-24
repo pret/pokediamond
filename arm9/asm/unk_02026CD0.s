@@ -440,7 +440,7 @@ sub_02026FE4: ; 0x02026FE4
 sub_02026FE8: ; 0x02026FE8
 	push {r4, lr}
 	mov r1, #0x98
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x98
 	add r4, r0, #0x0

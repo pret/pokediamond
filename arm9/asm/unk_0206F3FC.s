@@ -148,7 +148,7 @@ sub_0206F3FC: ; 0x0206F3FC
 	mov r0, #0x3
 	mov r1, #0xc
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r4, #0x0
 	bl sub_0206FE74
 	add r4, r0, #0x0
@@ -1022,7 +1022,7 @@ _0206FB30:
 	ldr r0, [sp, #0x0]
 	bl OverlayManager_FreeData
 	mov r0, #0xc
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x1
 	pop {r3-r7, pc}
 	.balign 4
@@ -1237,7 +1237,7 @@ sub_0206FCD4: ; 0x0206FCD4
 	bl FreeBgTilemapBuffer
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 	.balign 4
 
@@ -1293,7 +1293,7 @@ sub_0206FD24: ; 0x0206FD24
 	bl memcpy
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r1, #0x1a
 	mov r0, #0x0
 	lsl r1, r1, #0x4
@@ -3668,7 +3668,7 @@ sub_020710C4: ; 0x020710C4
 	bl ClearFrameAndWindow2
 	mov r0, #0xc
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	ldr r0, _02071174 ; =0x000005A4
 	ldr r0, [r5, r0]
@@ -3729,7 +3729,7 @@ _02071146:
 	bl sub_02072844
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r5, #0x0
 	bl sub_0207295C
 	mov r1, #0x0
@@ -5373,7 +5373,7 @@ sub_02071DF4: ; 0x02071DF4
 	beq _02071E30
 _02071E1E:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl sub_0207703C
@@ -5391,7 +5391,7 @@ _02071E30:
 	cmp r0, #0x0
 	bne _02071E5A
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	mov r1, #0x1
 	bl sub_0207703C
@@ -5399,7 +5399,7 @@ _02071E30:
 	pop {r3-r5, pc}
 _02071E5A:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _02071F1C ; =0x000005A4
 	ldr r2, _02071F20 ; =0x00000B25
 	ldr r1, [r5, r0]
@@ -6241,7 +6241,7 @@ _020724FE:
 	cmp r4, #0x6
 	blo _020724FE
 	ldr r0, [sp, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4

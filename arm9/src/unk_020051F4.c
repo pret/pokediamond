@@ -307,7 +307,7 @@ BOOL sub_02005670() {
     return GF_SndPlayerCountPlayingSeqByPlayerNo(0);
 }
 
-u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) {
+u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, enum HeapID heapID) {
     s32 st1c, st18;
     u8 *st14 = sub_02003D38(15);
     u8 *st10 = sub_02003D38(16);
@@ -374,7 +374,7 @@ u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) 
         sub_02005578(species);
         GF_SndPlayerSetTrackPan(1, 0xFFFF, param2);
         sub_02005AC8(species, 1, param3);
-        sub_02005AE0(20, heapId);
+        sub_02005AE0(20, heapID);
         break;
     case 2:
         sub_02005578(species);
@@ -389,7 +389,7 @@ u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) 
         sub_02005578(species);
         GF_SndPlayerSetTrackPan(1, 0xFFFF, param2);
         sub_02005AC8(species, 1, param3);
-        sub_02005AE0(30, heapId);
+        sub_02005AE0(30, heapID);
         GF_SndPlayerSetTrackPitch(1, 0xFFFF, 192);
         sub_02005BC8(species, 16);
         GF_SndPlayerSetTrackPan(8, 0xFFFF, param2);
@@ -397,11 +397,11 @@ u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) 
         break;
     case 4:
         sub_02004984(14);
-        sub_02004B30(species, param3, st1c, 14, heapId);
+        sub_02004B30(species, param3, st1c, 14, heapID);
         sub_02004ACC(14, (u8)st1c);
-        sub_02005AE0(15, heapId);
+        sub_02005AE0(15, heapID);
         sub_02004AE4(14, 34304);
-        sub_02005BF8(species, -64, st18, st1c, heapId);
+        sub_02005BF8(species, -64, st18, st1c, heapID);
         sub_02004AE4(15, 34304);
         break;
     case 5:
@@ -423,28 +423,28 @@ u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) 
         sub_02005578(species);
         GF_SndPlayerSetTrackPan(1, 0xFFFF, param2);
         sub_02005AC8(species, 1, param3);
-        sub_02005AE0(11, heapId);
+        sub_02005AE0(11, heapID);
         GF_SndPlayerSetTrackPitch(1, 0xFFFF, -128);
         break;
     case 8:
         sub_02005578(species);
         GF_SndPlayerSetTrackPan(1, 0xFFFF, param2);
         sub_02005AC8(species, 1, param3);
-        sub_02005AE0(60, heapId);
+        sub_02005AE0(60, heapID);
         GF_SndPlayerSetTrackPitch(1, 0xFFFF, 60);
         break;
     case 9:
         sub_02004984(14);
-        sub_02004B30(species, param3, st1c, 14, heapId);
+        sub_02004B30(species, param3, st1c, 14, heapID);
         sub_02004ACC(14, (u8)st1c);
-        sub_02005AE0(13, heapId);
+        sub_02005AE0(13, heapID);
         sub_02004AE4(14, 26624);
         break;
     case 10:
         sub_02005578(species);
         GF_SndPlayerSetTrackPan(1, 0xFFFF, param2);
         sub_02005AC8(species, 1, param3);
-        sub_02005AE0(100, heapId);
+        sub_02005AE0(100, heapID);
         GF_SndPlayerSetTrackPitch(1, 0xFFFF, -44);
         break;
     case 11:
@@ -457,7 +457,7 @@ u32 sub_020056AC(u32 param0, u16 param1, s32 param2, s32 param3, HeapID heapId) 
         sub_02005578(species);
         GF_SndPlayerSetTrackPan(1, 0xFFFF, param2);
         sub_02005AC8(species, 1, param3);
-        sub_02005AE0(20, heapId);
+        sub_02005AE0(20, heapID);
         GF_SndPlayerSetTrackPitch(1, 0xFFFF, -96);
         break;
     case 13:
@@ -480,11 +480,11 @@ void sub_02005AC8(u32 param0, int playerNo, s32 param2) {
     sub_02004858(param0, playerNo);
 }
 
-void sub_02005AE0(u32 param0, HeapID heapId) {
+void sub_02005AE0(u32 param0, enum HeapID heapID) {
     u32 *r6 = sub_02003D38(34);
     sub_02005BA0();
 
-    u32 *ptr = AllocFromHeap(heapId, 2 * sizeof(u32));
+    u32 *ptr = Heap_Alloc(heapID, 2 * sizeof(u32));
     if (ptr == NULL) {
         GF_AssertFail();
         return;
@@ -541,7 +541,7 @@ void sub_02005BA0() {
     if (*r4 != NULL) {
         void *r5 = sub_0201B6C8(*r4);
         SysTask_Destroy(*r4);
-        FreeToHeap(r5);
+        Heap_Free(r5);
     }
 
     *r4 = 0;
@@ -558,12 +558,12 @@ u32 sub_02005BC8(u16 param0, s32 param1) {
     return res;
 }
 
-void sub_02005BF8(u32 param0, s32 param1, s32 param2, s32 param3, HeapID heapId) {
+void sub_02005BF8(u32 param0, s32 param1, s32 param2, s32 param3, enum HeapID heapID) {
 #pragma unused(param1)
     *(u8 *)sub_02003D38(17) = 1;
 
     sub_02004984(15);
-    sub_02004B30(param0, param2, param3, 15, heapId);
+    sub_02004B30(param0, param2, param3, 15, heapID);
 }
 
 u32 PlaySound(u16 param0) {

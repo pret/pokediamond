@@ -91,7 +91,7 @@ BOOL ScrCmd_GiveEgg(struct ScriptContext *ctx) // 0097
         ov05_SetEggStats(egg, species, 1, player, 3, met_loc);
 
         Party_AddMon(party, egg);
-        FreeToHeap(egg);
+        Heap_Free(egg);
     }
 
     return FALSE;

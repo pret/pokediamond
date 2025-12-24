@@ -157,7 +157,7 @@ sub_0205AEA4: ; 0x0205AEA4
 	add r6, r1, #0x0
 	mov r0, #0x4
 	mov r1, #0x14
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	bne _0205AEBA
 	bl GF_AssertFail
@@ -212,7 +212,7 @@ _0205AF14:
 	bl sub_0205AE50
 	mov r0, #0x4
 	add r1, r4, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r5, #0x0
 	bl SysTask_Destroy
 	pop {r3-r5, pc}

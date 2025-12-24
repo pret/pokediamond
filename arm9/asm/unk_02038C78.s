@@ -1064,7 +1064,7 @@ _02038DD2:
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	cmp r5, #0x0
 	beq _02038E14
 	ldr r0, [sp, #0x0]
@@ -1086,7 +1086,7 @@ CreateFieldContext: ; 0x02038E20
 	push {r4, lr}
 	mov r0, #0xb
 	mov r1, #0xdc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	bne _02038E32
 	bl GF_AssertFail
@@ -1109,9 +1109,9 @@ DeleteScriptContext: ; 0x02038E48
 	ldr r0, [r4, #0x78]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x7c]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start sub_02038E60
@@ -1161,7 +1161,7 @@ CreateScriptContext: ; 0x02038EB0
 	add r6, r1, #0x0
 	mov r0, #0xb
 	mov r1, #0x84
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	bne _02038EC6
 	bl GF_AssertFail
@@ -2313,7 +2313,7 @@ sub_02039754: ; 0x02039754
 	mov r1, #0x6
 	add r0, r4, #0x0
 	mul r1, r2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [sp, #0x1c]
 	cmp r5, #0x0
 	bne _02039786

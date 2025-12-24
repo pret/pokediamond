@@ -67,13 +67,13 @@ typedef struct Trainer {
 
 typedef struct BattleSetup BattleSetup;
 
-void EnemyTrainerSet_Init(BattleSetup *setup, struct SaveData *r4, HeapID heapId);
+void EnemyTrainerSet_Init(BattleSetup *setup, struct SaveData *r4, enum HeapID heapID);
 s32 TrainerData_GetAttr(u32 tr_idx, u32 attr_no);
-BOOL TrainerMessageWithIdPairExists(u32 pos, u32 idx, HeapID heapId);
-void GetTrainerMessageByIdPair(u32 pos, u32 idx, struct String *str, HeapID heapId);
+BOOL TrainerMessageWithIdPairExists(u32 pos, u32 idx, enum HeapID heapID);
+void GetTrainerMessageByIdPair(u32 pos, u32 idx, struct String *str, enum HeapID heapID);
 void TrainerData_ReadTrData(u32 idx, struct TrainerData *dest);
 void TrainerData_ReadTrPoke(u32 idx, union TrainerMon *dest);
 int TrainerClass_GetGenderOrTrainerCount(int a0);
-void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, HeapID heapId);
+void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, enum HeapID heapID);
 
 #endif // POKEDIAMOND_TRAINER_DATA_H

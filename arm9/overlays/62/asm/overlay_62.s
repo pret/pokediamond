@@ -1569,7 +1569,7 @@ _0222E160:
 	mov r1, #0
 	str r1, [r0]
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp]
 	bl SysTask_Destroy
 _0222E17C:
@@ -1587,7 +1587,7 @@ ov62_0222E180: ; 0x0222E180
 	mov r0, #0x35
 	lsl r1, r1, #4
 	str r2, [sp, #0x10]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #8]
 	mov r1, #0x59
@@ -5227,7 +5227,7 @@ _0222FDFC:
 	add r0, r5, #0
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 _0222FE1C:
 	add r0, r0, #1
@@ -5243,7 +5243,7 @@ ov62_0222FE24: ; 0x0222FE24
 	add r5, r1, #0
 	mov r0, #0x35
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #1
 	str r0, [r4]

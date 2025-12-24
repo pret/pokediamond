@@ -16,7 +16,7 @@ ov05_021F5990: ; 0x021F5990
 	str r0, [sp]
 	add r7, r1, #0
 	str r3, [sp, #4]
-	bl CreateHeap
+	bl Heap_Create
 	cmp r0, #1
 	beq _021F59B2
 	bl GF_AssertFail
@@ -24,7 +24,7 @@ _021F59B2:
 	sub r5, r6, r5
 	add r0, r7, #0
 	add r1, r5, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021F59C4
 	bl GF_AssertFail
@@ -72,9 +72,9 @@ _021F5A06:
 _021F5A0E:
 	ldr r4, [r6, #4]
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl DestroyHeap
+	bl Heap_Destroy
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 
@@ -215,10 +215,10 @@ ov05_021F5B14: ; 0x021F5B14
 	cmp r2, #0
 	ldr r0, [r0, #4]
 	bne _021F5B22
-	bl AllocFromHeap
+	bl Heap_Alloc
 	b _021F5B26
 _021F5B22:
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 _021F5B26:
 	add r4, r0, #0
 	cmp r4, #0
@@ -230,10 +230,10 @@ _021F5B30:
 
 	thumb_func_start ov05_021F5B34
 ov05_021F5B34: ; 0x021F5B34
-	ldr r3, _021F5B38 ; =FreeToHeap
+	ldr r3, _021F5B38 ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021F5B38: .word FreeToHeap
+_021F5B38: .word Heap_Free
 
 	thumb_func_start ov05_021F5B3C
 ov05_021F5B3C: ; 0x021F5B3C

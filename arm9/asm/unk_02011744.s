@@ -30,7 +30,7 @@ sub_02011744: ; 0x02011744
 	str r0, [sp, #0x4]
 	add r0, r7, #0x0
 	mov r1, #0x68
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [sp, #0x8]
 	cmp r0, #0x0
 	bne _0201175E
@@ -63,7 +63,7 @@ _0201177E:
 	mul r4, r1
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x8]
 	cmp r0, #0x0
 	str r0, [r1, #0x60]
@@ -93,15 +93,15 @@ _020117C6:
 	add r5, r6, #0x0
 _020117CA:
 	ldr r0, [r5, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0xc
 	blt _020117CA
 	ldr r0, [r6, #0x60]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -137,12 +137,12 @@ _02011802:
 	mov r1, #0x24
 	ldr r0, [r5, #0x2c]
 	mul r1, r6
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r7, r0, #0x0
 	mov r1, #0xc
 	ldr r0, [r5, #0x2c]
 	mul r1, r6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x0]
 	str r6, [r4, #0x4]
 	ldr r0, [r5, #0x28]
@@ -160,7 +160,7 @@ _02011802:
 	add r3, r4, #0x0
 	bl sub_02011EAC
 	add r0, r7, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, sp, #0x8
 	bl sub_02011FDC
 	add r0, r4, #0x0
@@ -183,7 +183,7 @@ _02011884:
 	add r0, r4, #0x0
 	bl sub_02011F00
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
 	bl sub_02011B90
 	pop {r4, pc}
@@ -920,7 +920,7 @@ _02011DC6:
 	lsl r4, r4, #0x5
 	ldr r0, [sp, #0x34]
 	add r1, r4, #0x0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x4]
 	ldr r1, [sp, #0x10]
@@ -971,7 +971,7 @@ _02011E1A:
 	ldr r0, [sp, #0x28]
 	str r0, [r5, #0x20]
 	add r0, r7, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x2c]
 	add r0, r0, r4
 	add sp, #0x14
@@ -1171,7 +1171,7 @@ _02011F80:
 sub_02011FAC: ; 0x02011FAC
 	push {r4, lr}
 	mov r1, #0x14
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	bne _02011FBC
 	bl GF_AssertFail
@@ -1191,7 +1191,7 @@ sub_02011FC8: ; 0x02011FC8
 	bl GF_AssertFail
 _02011FD2:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 

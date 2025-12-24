@@ -12,7 +12,7 @@ ov40_02254854: ; 0x02254854
 	mov r1, #0x34
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254892
 	ldr r3, [sp]
@@ -32,7 +32,7 @@ ov40_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -155,7 +155,7 @@ ov40_02254978: ; 0x02254978
 	ldr r0, [r4, #8]
 	bl ov40_02254DA8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov40_02254978
 
@@ -709,7 +709,7 @@ ov40_02254D6C: ; 0x02254D6C
 	add r5, r1, #0
 	mov r0, #8
 	mov r1, #0x9c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254DA2
 	add r0, #8
@@ -739,7 +739,7 @@ ov40_02254DA8: ; 0x02254DA8
 	beq _02254DB8
 	bl ov40_02254EE4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254DB8:
 	pop {r4, pc}
 	.align 2, 0

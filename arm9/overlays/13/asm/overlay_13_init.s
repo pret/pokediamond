@@ -15,13 +15,13 @@ ov13_02211E60: ; 0x02211E60
 	add r5, r0, #0
 	add r0, r4, #0
 	lsl r1, r1, #0x12
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r1, #1
 	mov r2, #0
 	bl ov13_02223494
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl OS_RestoreInterrupts
 	ldr r1, _02211EA0 ; =0x04000208

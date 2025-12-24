@@ -10,7 +10,7 @@ ov05_021F61F4: ; 0x021F61F4
 	add r5, r0, #0
 	add r0, r6, #0
 	mov r1, #0x34
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x34
@@ -46,7 +46,7 @@ ov05_021F6240: ; 0x021F6240
 	push {r4, lr}
 	add r4, r0, #0
 	bl sub_0201B6C8
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	bl SysTask_Destroy
 	pop {r4, pc}

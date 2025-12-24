@@ -15,7 +15,7 @@
     in the return type / parameters. They are right for this code
     but they might not be for every code, please do not blindly
     trust these prototypes if you are decompiling these functions. */
-extern u32 ov06_02244DB0(HeapID);
+extern u32 ov06_02244DB0(enum HeapID);
 extern void ov06_02244DBC(void *);
 extern void ov06_02244DC4(void *, void *);
 extern void ov06_02244EF8(void *);
@@ -23,7 +23,7 @@ extern void ov06_02244F18(void *);
 extern BOOL ov06_02244F24(void *);
 extern void ov06_02244F2C(void *);
 extern void *ov06_02245088(struct FieldSystem *fieldSystem);
-extern u32 ov06_02245114(HeapID, struct FieldSystem *);
+extern u32 ov06_02245114(enum HeapID, struct FieldSystem *);
 extern void ov06_02245190(u32);
 extern void ov06_02245198(u8, u32);
 extern u32 ov06_022451F0(u32);
@@ -35,7 +35,7 @@ extern void sub_0205F1D4(struct SaveVarsFlags *);
 extern void sub_0206367C(struct FieldSystem *, u32);
 
 void CallTask_UseGreatMarshBinoculars(struct FieldSystem *fieldSystem) {
-    struct UnkStruct_0206015C *unkStruct = AllocFromHeapAtEnd(HEAP_ID_FIELD, 0x10);
+    struct UnkStruct_0206015C *unkStruct = Heap_AllocAtEnd(HEAP_ID_FIELD, 0x10);
     unkStruct->unk0 = ov06_02244DB0(HEAP_ID_FIELD);
     unkStruct->unk4 = ov06_02245114(HEAP_ID_FIELD, fieldSystem);
     unkStruct->unkC = 0;
@@ -128,7 +128,7 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager) {
         sub_0206367C(fieldSystem, 0);
         ov06_02245190(unkStruct1->unk4);
         ov06_02244DBC(unkStruct1->unk0);
-        FreeToHeap(unkStruct1);
+        Heap_Free(unkStruct1);
         return TRUE;
 
     default:

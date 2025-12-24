@@ -23,7 +23,7 @@ static void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskMana
 static BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager);
 static void Blackout_PrintMessage(BlackoutScreenEnvironment *environment, s32 msgNo, u8 x, u8 y);
 
-extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, enum HeapID heapID);
 extern BOOL IsPaletteFadeFinished(void);
 extern SaveData *FieldSystem_GetSaveData(FieldSystem *fieldSystem);
 extern LocalFieldData *Save_LocalFieldData_Get(SaveData *save);
@@ -91,7 +91,7 @@ static void Blackout_InitDisplays(BgConfig *bgConfig) {
 }
 
 static void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager) {
-    BlackoutScreenEnvironment *env = AllocFromHeap(HEAP_ID_FIELD, sizeof(BlackoutScreenEnvironment));
+    BlackoutScreenEnvironment *env = Heap_Alloc(HEAP_ID_FIELD, sizeof(BlackoutScreenEnvironment));
 
     GF_ASSERT(env != NULL);
     memset(env, 0, sizeof(BlackoutScreenEnvironment));
@@ -155,8 +155,8 @@ static BOOL Task_ShowPrintedBlackoutMessage(TaskManager *taskManager) {
         MessageFormat_Delete(env->msgFmt);
         DestroyMsgData(env->msgData);
         FreeBgTilemapBuffer(env->bgConfig, GF_BG_LYR_MAIN_3);
-        FreeToHeap(env->bgConfig);
-        FreeToHeap(env);
+        Heap_Free(env->bgConfig);
+        Heap_Free(env);
         return TRUE;
     }
 

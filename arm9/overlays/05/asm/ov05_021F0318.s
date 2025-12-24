@@ -149,7 +149,7 @@ ov05_021F043C: ; 0x021F043C
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x60
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	add r4, r0, #0
 	bl ov05_021F0454
@@ -240,7 +240,7 @@ ov05_021F04F8: ; 0x021F04F8
 	bl GF_AssertFail
 _021F0508:
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4]
 _021F0512:

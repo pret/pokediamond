@@ -71,7 +71,7 @@ _0204CB40:
 	bl ov18_02244D1C
 	add r1, r0, #0x0
 	mov r0, #0xf
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, _0204CC34 ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x4]
@@ -281,7 +281,7 @@ _0204CCF0:
 	ldr r0, [r1, r0]
 	cmp r0, #0x0
 	beq _0204CD0E
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r7, #0x0]
 	mov r1, #0x0
 	add r2, r0, r5
@@ -326,11 +326,11 @@ _0204CD2C:
 	ldr r0, _0204CD70 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 _0204CD60:
 	ldr r0, _0204CD70 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0204CD70 ; =UNK_021C5A68
 	mov r1, #0x0
 	str r1, [r0, #0x0]
@@ -4559,7 +4559,7 @@ sub_0204ED9C: ; 0x0204ED9C
 	ldr r0, [r1, r0]
 	cmp r0, #0x0
 	beq _0204EDE2
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r2, _0204EDE8 ; =UNK_021C5A68
 	lsl r1, r4, #0x2
 	ldr r3, [r2, #0x0]
@@ -4616,7 +4616,7 @@ sub_0204EDEC: ; 0x0204EDEC
 	ldr r0, [r1, r0]
 	cmp r0, #0x0
 	beq _0204EE2A
-	bl FreeToHeap
+	bl Heap_Free
 _0204EE2A:
 	mov r0, #0x9e
 	lsl r0, r0, #0x2
@@ -5027,7 +5027,7 @@ sub_0204F124: ; 0x0204F124
 	cmp r0, #0x0
 	bne _0204F14A
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0x0
 	bl SysTask_Destroy
 	pop {r3-r7, pc}
@@ -5048,7 +5048,7 @@ _0204F156:
 	add r0, #0xea
 	strb r1, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0x0
 	bl SysTask_Destroy
 _0204F172:
@@ -5062,7 +5062,7 @@ sub_0204F178: ; 0x0204F178
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0x0
 	mov r2, #0x0
 	str r2, [r1, #0x0]
@@ -6067,7 +6067,7 @@ _0204F990:
 	add r0, r5, #0x0
 	bl String_Delete
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3-r5, pc}
 	nop
 _0204F9B0: .word UNK_021C5A68
@@ -6186,7 +6186,7 @@ sub_0204FA78: ; 0x0204FA78
 	ldr r0, [r1, r0]
 	cmp r0, #0x0
 	beq _0204FA98
-	bl FreeToHeap
+	bl Heap_Free
 _0204FA98:
 	mov r0, #0xf
 	lsl r4, r5, #0x2

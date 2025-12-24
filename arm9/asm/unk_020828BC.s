@@ -188,7 +188,7 @@ _0208292A:
 	ldr r1, [sp, #0x24]
 	add r0, r5, #0x0
 	add r1, r1, #0x1
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x78]
 	cmp r0, #0x1
@@ -495,9 +495,9 @@ _02082B6A:
 	blt _02082B5A
 _02082B7E:
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x58
 	pop {r3-r7, pc}
 	.balign 4
@@ -708,7 +708,7 @@ _02082CD2:
 	b _02082BE0
 _02082D06:
 	ldr r0, [sp, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x18
 	pop {r3-r7, pc}
 	.balign 4
@@ -948,12 +948,12 @@ sub_02082ED0: ; 0x02082ED0
 	ldr r1, [sp, #0x18]
 	ldr r0, [sp, #0x8]
 	add r1, r1, #0x1
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	ldr r1, [sp, #0x18]
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x8]
 	add r1, r1, #0x1
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x18]
 	add r2, r5, #0x0
@@ -1208,11 +1208,11 @@ _02083058:
 	str r0, [sp, #0x4]
 	strh r1, [r0, #0x0]
 	ldr r0, [sp, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x24
 	pop {r4-r7, pc}
 	.balign 4

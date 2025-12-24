@@ -28,7 +28,7 @@ ov77_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x32
 	lsl r2, r2, #7
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D75DC ; =0x0000C32C
 	add r0, r4, #0
 	mov r2, #0x32
@@ -824,14 +824,14 @@ ov77_021D7BAC: ; 0x021D7BAC
 	bl sub_0201B398
 	ldr r0, _021D7C1C ; =0x0000C010
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	add r0, r5, #0
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _021D7C20 ; =gSystem + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
@@ -937,7 +937,7 @@ _021D7CC2:
 	blt _021D7C9A
 _021D7CCA:
 	ldr r0, [sp, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r7, #1
 	bl sub_02088D1C
 	str r0, [sp, #0x10]
@@ -995,7 +995,7 @@ _021D7D10:
 	blt _021D7D10
 _021D7D44:
 	ldr r0, [sp, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x10]
 	add r7, r7, #1
 	cmp r7, r0
@@ -2395,19 +2395,19 @@ ov77_021D88D0: ; 0x021D88D0
 	add r4, r0, #0
 	ldr r0, _021D8900 ; =0x0000C290
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D8904 ; =0x0000C28C
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D8908 ; =0x0000C298
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D890C ; =0x0000C294
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D8910 ; =0x0000C0CC
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	nop
 _021D8900: .word 0x0000C290

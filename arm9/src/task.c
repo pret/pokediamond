@@ -6,7 +6,7 @@
 #include "script.h"
 
 struct TaskManager *Task_New(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env) {
-    struct TaskManager *taskManager = AllocFromHeapAtEnd(HEAP_ID_32, sizeof(struct TaskManager));
+    struct TaskManager *taskManager = Heap_AllocAtEnd(HEAP_ID_32, sizeof(struct TaskManager));
     taskManager->prev = NULL;
     taskManager->func = taskFunc;
     taskManager->state = 0;
@@ -14,7 +14,7 @@ struct TaskManager *Task_New(struct FieldSystem *fieldSystem, TaskFunc taskFunc,
     taskManager->unk10 = NULL;
     taskManager->unk14 = NULL;
     taskManager->fieldSystem = fieldSystem;
-    taskManager->unk1C = AllocFromHeapAtEnd(HEAP_ID_32, 4);
+    taskManager->unk1C = Heap_AllocAtEnd(HEAP_ID_32, 4);
     return taskManager;
 }
 
@@ -28,7 +28,7 @@ void TaskManager_Jump(struct TaskManager *taskManager, TaskFunc taskFunc, void *
     taskManager->state = 0;
     taskManager->env = env;
     if (taskManager->unk14 != NULL || taskManager->unk14 != NULL) {
-        FreeToHeap(taskManager->unk14);
+        Heap_Free(taskManager->unk14);
         taskManager->unk10 = NULL;
         taskManager->unk14 = NULL;
     }
@@ -47,10 +47,10 @@ BOOL sub_02046420(struct TaskManager *taskManager) {
     while (taskManager->unk10->func(taskManager->unk10) == TRUE) {
         struct TaskManager *taskManager2 = taskManager->unk10->prev;
         if (taskManager->unk10->unk14 != NULL) {
-            FreeToHeap(taskManager->unk10->unk14);
+            Heap_Free(taskManager->unk10->unk14);
         }
-        FreeToHeap(taskManager->unk10->unk1C);
-        FreeToHeap(taskManager->unk10);
+        Heap_Free(taskManager->unk10->unk1C);
+        Heap_Free(taskManager->unk10);
         taskManager->unk10 = taskManager2;
         if (taskManager2 == NULL) {
             return TRUE;
@@ -85,7 +85,7 @@ BOOL sub_020464B8(struct TaskManager *taskManager) {
         break;
     case 1:
         if (!FieldSystem_ApplicationIsRunning(fieldSystem)) {
-            FreeToHeap(r4_2);
+            Heap_Free(r4_2);
             return TRUE;
         }
         break;
@@ -94,7 +94,7 @@ BOOL sub_020464B8(struct TaskManager *taskManager) {
 }
 
 void sub_02046500(struct TaskManager *taskManager, u32 r5, u32 r4) {
-    u32 *r2 = AllocFromHeapAtEnd(HEAP_ID_32, 3 * sizeof(u32));
+    u32 *r2 = Heap_AllocAtEnd(HEAP_ID_32, 3 * sizeof(u32));
     r2[0] = 0;
     r2[1] = r5;
     r2[2] = r4;

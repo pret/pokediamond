@@ -78,7 +78,7 @@ _021F52F8:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _021F5302
-	bl FreeToHeap
+	bl Heap_Free
 _021F5302:
 	mov r1, #0x10
 	mov r0, #0
@@ -140,7 +140,7 @@ ov05_021F5358: ; 0x021F5358
 	cmp r0, #0
 	bne _021F5376
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 _021F5376:
 	mov r1, #0x14
 	mov r0, #0

@@ -340,14 +340,14 @@ _02212098:
 	mov r0, #3
 	mov r1, #0x36
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	b _022120BE
 _022120B2:
 	mov r2, #0xb
 	mov r0, #3
 	mov r1, #0x36
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 _022120BE:
 	mov r1, #0x3f
 	add r0, r4, #0
@@ -564,7 +564,7 @@ _02212274:
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x36
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -916,7 +916,7 @@ ov56_02212540: ; 0x02212540
 	mov r1, #0
 	bl FreeBgTilemapBuffer
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov56_02212540
@@ -7113,7 +7113,7 @@ _02215532:
 	add r2, r6, #0
 	bl BufferPlayersName
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r2, #0x56
 	add r0, #0xcc
@@ -8445,7 +8445,7 @@ ov56_022160E4: ; 0x022160E4
 	add r2, r4, #0
 	bl BufferPlayersName
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _0221611C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

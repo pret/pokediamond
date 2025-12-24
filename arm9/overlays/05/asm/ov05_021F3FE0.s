@@ -408,7 +408,7 @@ _021F42EA:
 	mov r1, #0
 	str r1, [r0]
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -439,7 +439,7 @@ ov05_021F4328: ; 0x021F4328
 	push {r3, lr}
 	mov r0, #4
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	str r1, [r0, #0x10]
 	str r1, [r0, #0x14]
@@ -458,7 +458,7 @@ ov05_021F4344: ; 0x021F4344
 	mov r0, #4
 	mov r1, #0x1c
 	add r4, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
@@ -495,7 +495,7 @@ ov05_021F4344: ; 0x021F4344
 	add r2, r6, #0
 	bl ov05_021F41F0
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	str r0, [r4, #0x1c]
 	pop {r4, r5, r6}
@@ -509,7 +509,7 @@ ov05_021F43C0: ; 0x021F43C0
 	push {r3, lr}
 	cmp r0, #0
 	beq _021F43CA
-	bl FreeToHeap
+	bl Heap_Free
 _021F43CA:
 	pop {r3, pc}
 
@@ -538,7 +538,7 @@ ov05_021F43E4: ; 0x021F43E4
 	mov r1, #0xb4
 	add r6, r2, #0
 	add r7, r3, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r1, r0, #0
 	add r2, r1, #0
 	mov r0, #0

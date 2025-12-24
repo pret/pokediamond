@@ -16,13 +16,13 @@ extern u32 (*NNS_GfdDefaultFuncAllocPlttVram)(u32 param0, u32 param1, u32 param2
 extern void sub_0201327C(u32 param0);
 extern void sub_020132BC(u32 param0);
 
-extern void *sub_02012CDC(void *, void *, void *, u32, u32, HeapID);
+extern void *sub_02012CDC(void *, void *, void *, u32, u32, enum HeapID);
 
 extern void sub_02068C00(struct UnkStruct_02006D98_4 *, u16, u32, u32, u32, u32, u32);
 extern void sub_02012CC8(void);
 extern struct Camera *sub_0201343C(void);
 extern void sub_02013194(void *, u32, u32, u32);
-extern u32 sub_0201318C(u32, u32, HeapID);
+extern u32 sub_0201318C(u32, u32, enum HeapID);
 
 extern void sub_02012DE4(void *);
 
@@ -76,7 +76,7 @@ void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 *arg0) // TODO: 
     sub_02007558(arg0->field_04[1], 35, 1);
     arg0->field_10 = 1;
     sub_02012CC8();
-    arg0->field_14 = AllocFromHeap(HEAP_ID_76, 0x4800);
+    arg0->field_14 = Heap_Alloc(HEAP_ID_76, 0x4800);
     arg0->field_18 = sub_02012CDC(ov63_021DB450, ov63_021DB474, arg0->field_14, 0x4800, 1, HEAP_ID_76);
     Camera_SetPerspectiveClippingPlane(0x1000, 0x384000, sub_0201343C());
     sub_02013194(arg0->field_18, sub_0201318C(0x3D, 4, HEAP_ID_76), 10, 1);
@@ -84,7 +84,7 @@ void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 *arg0) // TODO: 
 
 void ov63_021DB580(UnkStruct63_021DB450 *param0) {
     sub_02012DE4(param0->field_18);
-    FreeToHeap(param0->field_14);
+    Heap_Free(param0->field_14);
     sub_020072E8(param0->field_00);
 }
 

@@ -79,11 +79,11 @@ struct UnkCallbackStruct2_0205FA2C {
 };
 
 u32 sub_0205FA2C(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, HeapID heapId);
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, enum HeapID heapID);
 u32 sub_0205FAD8(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem);
 u32 sub_0205FB34(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, HeapID heapId);
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, enum HeapID heapID);
 u32 sub_0205FBC0(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem);
 BOOL sub_0205FBE8(struct TaskManager *taskManager);

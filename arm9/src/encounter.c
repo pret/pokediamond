@@ -43,22 +43,22 @@ extern u16 *LocalFieldData_GetSafariBallsCounter(LocalFieldData *localFieldData)
 extern Location *LocalFieldData_GetDynamicWarp(LocalFieldData *localFieldData);
 extern void sub_02049160(TaskManager *taskManager, Location *location);
 extern void QueueScript(TaskManager *taskManager, u16 script, LocalMapObject *lastInteracted, void *param3);
-extern BattleSetup *BattleSetup_New(HeapID heapId, u32 flags);
+extern BattleSetup *BattleSetup_New(enum HeapID heapID, u32 flags);
 extern void BattleSetup_InitFromFieldSystem(BattleSetup *setup, FieldSystem *fieldSystem);
 extern void ov06_0223CCDC(FieldSystem *fieldSystem, BattleSetup *setup);
 extern void ov06_0223CD7C(FieldSystem *fieldSystem, u16 species, u8 level, BattleSetup *setup);
 extern void PalPark_HandleBattleEnd(FieldSystem *fieldSystem, BattleSetup *setup);
 extern u32 PalPark_CountMonsNotCaught(FieldSystem *fieldSystem);
 extern void StartScriptFromMenu(TaskManager *taskManager, u16 script, LocalMapObject *lastInteracted);
-extern BattleSetup *sub_02047814(HeapID heapId, FieldSystem *fieldSystem);
+extern BattleSetup *sub_02047814(enum HeapID heapID, FieldSystem *fieldSystem);
 extern void sub_02047F1C(BattleSetup *setup, FieldSystem *fieldSystem, void *param2);
 extern void sub_02047BC0(BattleSetup *setup, FieldSystem *fieldSystem, s32 maxLevel);
 extern void sub_0204FF5C(FieldSystem *fieldSystem);
 extern void sub_02047D48(BattleSetup *setup, FieldSystem *fieldSystem, Party *party, void *param3);
-extern void *sub_0202920C(IGT *igt, u16 species, u8 gender, u8 param3, HeapID heapId);
-extern void *sub_0202918C(IGT *igt, u16 species, u8 gender, u8 param3, HeapID heapId);
+extern void *sub_0202920C(IGT *igt, u16 species, u8 gender, u8 param3, enum HeapID heapID);
+extern void *sub_0202918C(IGT *igt, u16 species, u8 gender, u8 param3, enum HeapID heapID);
 extern void sub_02028AD4(u32 *param0, void *param1, u32 param2);
-extern void sub_020299DC(u32 *param0, u16 mapId, u16 trainerId, HeapID heapId);
+extern void sub_020299DC(u32 *param0, u16 mapId, u16 trainerId, enum HeapID heapID);
 
 static BOOL Task_StartBattle(TaskManager *taskManager);
 static void CallTask_StartBattle(TaskManager *taskManager, BattleSetup *setup);
@@ -108,7 +108,7 @@ static void CallTask_StartBattle(TaskManager *taskManager, BattleSetup *setup) {
 }
 
 static Encounter *Encounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag) {
-    Encounter *encounter = AllocFromHeapAtEnd(HEAP_ID_FIELD, sizeof(Encounter));
+    Encounter *encounter = Heap_AllocAtEnd(HEAP_ID_FIELD, sizeof(Encounter));
     encounter->winFlag = winFlag;
     if (winFlag != NULL) {
         *winFlag = BATTLE_OUTCOME_NONE;
@@ -121,7 +121,7 @@ static Encounter *Encounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *wi
 
 static void Encounter_Delete(Encounter *encounter) {
     BattleSetup_Delete(encounter->setup);
-    FreeToHeap(encounter);
+    Heap_Free(encounter);
 }
 
 static BOOL Encounter_GetResult(Encounter *encounter) {
@@ -314,7 +314,7 @@ void sub_02046948(TaskManager *taskManager, u32 param1, u32 *winFlag) {
 }
 
 static WildEncounter *WildEncounter_New(BattleSetup *setup, s32 effect, s32 bgm, u32 *winFlag) {
-    WildEncounter *encounter = AllocFromHeapAtEnd(HEAP_ID_FIELD, sizeof(WildEncounter));
+    WildEncounter *encounter = Heap_AllocAtEnd(HEAP_ID_FIELD, sizeof(WildEncounter));
     encounter->winFlag = winFlag;
     if (winFlag != NULL) {
         *winFlag = BATTLE_OUTCOME_NONE;
@@ -328,7 +328,7 @@ static WildEncounter *WildEncounter_New(BattleSetup *setup, s32 effect, s32 bgm,
 
 static void WildEncounter_Delete(WildEncounter *encounter) {
     BattleSetup_Delete(encounter->setup);
-    FreeToHeap(encounter);
+    Heap_Free(encounter);
 }
 
 void sub_020469B8(FieldSystem *fieldSystem, BattleSetup *setup) {
@@ -644,7 +644,7 @@ void SetupAndStartTutorialBattle(TaskManager *taskManager) {
     TaskManager_Call(taskManager, Task_TutorialBattle, encounter);
 }
 
-void SetupAndStartTrainerBattle(TaskManager *taskManager, u32 opponentTrainer1, u32 opponentTrainer2, u32 followerTrainerNum, HeapID heapId, u32 *winFlag) {
+void SetupAndStartTrainerBattle(TaskManager *taskManager, u32 opponentTrainer1, u32 opponentTrainer2, u32 followerTrainerNum, enum HeapID heapID, u32 *winFlag) {
     u32 battleType;
     BattleSetup *setup;
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
@@ -669,7 +669,7 @@ void SetupAndStartTrainerBattle(TaskManager *taskManager, u32 opponentTrainer1, 
     setup->trainerId[BATTLER_ENEMY2] = opponentTrainer2;
     setup->trainerId[BATTLER_PLAYER2] = followerTrainerNum;
 
-    EnemyTrainerSet_Init(setup, fieldSystem->saveData, heapId);
+    EnemyTrainerSet_Init(setup, fieldSystem->saveData, heapID);
 
     GameStats_Inc(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK8);
 

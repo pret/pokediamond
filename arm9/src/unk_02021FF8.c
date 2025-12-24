@@ -5,23 +5,23 @@
 #include "heap.h"
 #include "string16.h"
 
-struct UnkStruct_020220C4 *sub_020220C4(u8 *a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, HeapID heapId) {
+struct UnkStruct_020220C4 *sub_020220C4(u8 *a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, enum HeapID heapID) {
     struct UnkStruct_020220C4 *ret;
     s32 i;
     GF_ASSERT(a1 != 0);
-    ret = AllocFromHeap(heapId, sizeof(struct UnkStruct_020220C4));
+    ret = Heap_Alloc(heapID, sizeof(struct UnkStruct_020220C4));
     if (ret != NULL) {
         ret->field_0 = a0;
         ret->field_4 = a1;
         ret->field_8 = a2;
         ret->field_C = a3;
-        ret->field_10 = AllocFromHeap(heapId, a1 * sizeof(struct UnkStruct_020220C4_sub));
+        ret->field_10 = Heap_Alloc(heapID, a1 * sizeof(struct UnkStruct_020220C4_sub));
         if (ret->field_10 != NULL) {
             for (i = 0; i < a1; i++) {
                 sub_02022120(&ret->field_10[i]);
             }
         } else {
-            FreeToHeap(ret);
+            Heap_Free(ret);
             ret = NULL;
         }
     }
@@ -36,8 +36,8 @@ void sub_02022120(struct UnkStruct_020220C4_sub *sub) {
 
 void sub_0202212C(struct UnkStruct_020220C4 *unk) {
     GF_ASSERT(unk != NULL);
-    FreeToHeap(unk->field_10);
-    FreeToHeap(unk);
+    Heap_Free(unk->field_10);
+    Heap_Free(unk);
 }
 
 extern u16 sub_02020A98(void);

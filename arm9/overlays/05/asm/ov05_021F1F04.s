@@ -305,7 +305,7 @@ ov05_021F2160: ; 0x021F2160
 	add r7, r0, #0
 	mov r0, #4
 	mul r1, r6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	add r0, r7, #0
 	add r0, #0xe4
@@ -316,7 +316,7 @@ ov05_021F2160: ; 0x021F2160
 _021F2180:
 	mov r0, #4
 	lsl r1, r6, #3
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	add r7, #0xf4
 	str r5, [r7]
@@ -345,11 +345,11 @@ ov05_021F21AC: ; 0x021F21AC
 	add r1, #0xe4
 	ldr r1, [r1]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r4, #0xf4
 	ldr r1, [r4]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 
 	thumb_func_start ov05_021F21CC
@@ -2837,7 +2837,7 @@ ov05_021F33B4: ; 0x021F33B4
 	ldr r1, [sp, #8]
 	mov r0, #4
 	str r2, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021F33E2
 	bl GF_AssertFail
@@ -2910,7 +2910,7 @@ ov05_021F3458: ; 0x021F3458
 	ldr r0, [r4, #0x24]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	mov r1, #0
 	lsl r0, r0, #8
@@ -2968,7 +2968,7 @@ ov05_021F34DC: ; 0x021F34DC
 	str r0, [sp, #0x10]
 	mov r0, #4
 	mov r1, #0x58
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x58
 	add r5, r0, #0
@@ -3204,13 +3204,13 @@ _021F370A:
 	ldr r0, [r5, #0x24]
 	bl sub_0201F744
 	ldr r0, [r5, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
@@ -3237,13 +3237,13 @@ _021F3758:
 	ldr r0, [r5, #0x24]
 	bl sub_0201F744
 	ldr r0, [r5, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _021F377C:

@@ -19,7 +19,7 @@ struct ov59_UnkPlayerStruct {
 };
 
 typedef struct ov59_IntroOverlayData {
-    HeapID heapId;
+    enum HeapID heapID;
     struct SaveData *save;
     struct Options *options;
     u32 controllerCounter;

@@ -163,7 +163,7 @@ ov05_021E1BF8: ; 0x021E1BF8
 	lsl r1, r1, #2
 	str r2, [sp, #0x18]
 	add r5, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E1C18
 	add sp, #0x1c
@@ -570,7 +570,7 @@ _021E1F22:
 	ldr r0, [r6, #4]
 	bl SysTask_Destroy
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 _021E1F30: .word 0x000005DC
@@ -1167,7 +1167,7 @@ _021E23BE:
 	ldr r0, [r6, #4]
 	bl SysTask_Destroy
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 _021E23CC: .word 0x000005DC
@@ -1436,7 +1436,7 @@ _021E25F6:
 	ldr r0, [r6, #4]
 	bl SysTask_Destroy
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021E2602:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

@@ -11,24 +11,24 @@
 #include "filesystem.h"
 #include "msgdata.h"
 
-NARC *OpenNutsDataNarc(HeapID heapId) {
-    return NARC_New(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, heapId);
+NARC *OpenNutsDataNarc(enum HeapID heapID) {
+    return NARC_New(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, heapID);
 }
 
-struct NutData *ReadNutDataFromNarc(NARC *narc, u32 berry_idx, HeapID heapId) {
-    return NARC_AllocAndReadWholeMember(narc, berry_idx, heapId);
+struct NutData *ReadNutDataFromNarc(NARC *narc, u32 berry_idx, enum HeapID heapID) {
+    return NARC_AllocAndReadWholeMember(narc, berry_idx, heapID);
 }
 
 void CloseNutsDataNarc(NARC *narc) {
     NARC_Delete(narc);
 }
 
-struct NutData *LoadNutDataSingle(s32 berry_idx, HeapID heapId) {
-    return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, berry_idx, heapId);
+struct NutData *LoadNutDataSingle(s32 berry_idx, enum HeapID heapID) {
+    return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, berry_idx, heapID);
 }
 
-struct NutData *LoadNutDataSingleByItemId(s32 item_id, HeapID heapId) {
-    return LoadNutDataSingle(item_id - FIRST_BERRY_IDX, heapId);
+struct NutData *LoadNutDataSingleByItemId(s32 item_id, enum HeapID heapID) {
+    return LoadNutDataSingle(item_id - FIRST_BERRY_IDX, heapID);
 }
 
 u32 GetNutAttr(struct NutData *nut, u32 attr) {
@@ -60,15 +60,15 @@ u32 GetNutAttr(struct NutData *nut, u32 attr) {
     }
 }
 
-struct String *GetNutName(u32 berry_idx, HeapID heapId) {
-    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0373_bin, heapId);
+struct String *GetNutName(u32 berry_idx, enum HeapID heapID) {
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0373_bin, heapID);
     struct String *ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;
 }
 
-struct String *GetNutDesc(u32 berry_idx, HeapID heapId) {
-    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0372_bin, heapId);
+struct String *GetNutDesc(u32 berry_idx, enum HeapID heapID) {
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0372_bin, heapID);
     struct String *ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;

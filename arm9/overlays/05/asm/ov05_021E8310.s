@@ -245,7 +245,7 @@ Field_SaveStatsPrinter_Print: ; 0x021E84F4
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x10]
 	mov r3, #1
 	str r3, [sp]
@@ -303,7 +303,7 @@ Field_SaveStatsPrinter_RemoveFromScreen: ; 0x021E856C
 	ldr r0, [r4, #0x10]
 	bl RemoveWindow
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -315,7 +315,7 @@ Field_SaveStatsPrinter_New: ; 0x021E8588
 	add r0, r5, #0
 	mov r1, #0x34
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r6, [r4]
 	str r5, [r4, #4]
@@ -359,7 +359,7 @@ Field_SaveStatsPrinter_Delete: ; 0x021E85E4
 	ldr r0, [r4, #0x14]
 	bl MessageFormat_Delete
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start Field_SaveGame

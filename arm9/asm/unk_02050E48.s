@@ -24,7 +24,7 @@ sub_02050E48: ; 0x02050E48
 	str r2, [sp, #0x0]
 	str r3, [sp, #0x4]
 	ldr r6, [r5, #0xc]
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x30
 	add r4, r0, #0x0
@@ -79,7 +79,7 @@ sub_02050ED4: ; 0x02050ED4
 	add r5, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x40
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
@@ -235,7 +235,7 @@ _02051006:
 	add r0, #0x3c
 	strb r1, [r0, #0x0]
 	ldr r0, [r4, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	mov r0, #0x1
@@ -258,7 +258,7 @@ _02051032:
 	add r0, #0x3c
 	strb r1, [r0, #0x0]
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1
@@ -479,7 +479,7 @@ _020511E4:
 	add r0, r4, #0x0
 	bl sub_02051998
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -487,7 +487,7 @@ _020511F6:
 	add r0, r4, #0x0
 	bl sub_02051998
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_0204F7FC
 	add sp, #0x8
 	mov r0, #0x1
@@ -1295,7 +1295,7 @@ sub_02051880: ; 0x02051880
 _0205188E:
 	mov r0, #0xb
 	mov r1, #0x8c
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x8c
@@ -1370,11 +1370,11 @@ _02051938:
 	add r6, r0, #0x0
 	mov r0, #0xb
 	add r1, r6, #0x0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [r4, #0x4c]
 	mov r0, #0xb
 	add r1, r6, #0x0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [r4, #0x48]
 	mov r0, #0xb
 	bl SaveArray_Party_Alloc
@@ -1421,17 +1421,17 @@ sub_02051998: ; 0x02051998
 	ldr r0, [r4, #0x50]
 	cmp r0, #0x0
 	beq _020519A6
-	bl FreeToHeap
+	bl Heap_Free
 _020519A6:
 	ldr r0, [r4, #0x4c]
 	cmp r0, #0x0
 	beq _020519B0
-	bl FreeToHeap
+	bl Heap_Free
 _020519B0:
 	ldr r0, [r4, #0x48]
 	cmp r0, #0x0
 	beq _020519BA
-	bl FreeToHeap
+	bl Heap_Free
 _020519BA:
 	ldr r0, [r4, #0x2c]
 	bl DestroyMsgData
@@ -2259,7 +2259,7 @@ _0205200C:
 _02052028:
 	bl sub_0204F7FC
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x1
 	pop {r4-r6, pc}
 _02052036:
@@ -2299,7 +2299,7 @@ _02052066:
 	bne _0205209C
 	mov r0, #0xb
 	mov r1, #0x2c
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r2, r0, #0x0
 	str r4, [r2, #0x24]
 	mov r0, #0x0

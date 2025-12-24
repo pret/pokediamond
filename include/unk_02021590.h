@@ -29,14 +29,14 @@ struct FontData {
     u8 *glyphWidths;
 };
 
-struct FontData *FontData_New(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, HeapID heapId);
+struct FontData *FontData_New(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, enum HeapID heapID);
 void FontData_Delete(struct FontData *ptr);
-void FontData_ModeSwitch(struct FontData *ptr, u32 a1, HeapID heapId);
-void FontData_Init(struct FontData *ptr, NarcId narcId, s32 fileId, BOOL unk, HeapID heapId);
+void FontData_ModeSwitch(struct FontData *ptr, u32 a1, enum HeapID heapID);
+void FontData_Init(struct FontData *ptr, NarcId narcId, s32 fileId, BOOL unk, enum HeapID heapID);
 void FontData_FreeWidthsAndNarc(struct FontData *ptr);
-void InitFontResources(struct FontData *ptr, u32 a1, HeapID heapId);
-void InitFontResources_FromPreloaded(struct FontData *ptr, HeapID heapId);
-void InitFontResources_LazyFromNarc(struct FontData *ptr, HeapID heapId);
+void InitFontResources(struct FontData *ptr, u32 a1, enum HeapID heapID);
+void InitFontResources_FromPreloaded(struct FontData *ptr, enum HeapID heapID);
+void InitFontResources_LazyFromNarc(struct FontData *ptr, enum HeapID heapID);
 void FreeLoadedFontResources(struct FontData *ptr);
 void FreeLoadedFontResources_FromPreloaded(struct FontData *ptr);
 void FreeLoadedFontResources_LazyFromNarc(struct FontData *ptr);

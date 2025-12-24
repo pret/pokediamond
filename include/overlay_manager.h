@@ -25,9 +25,9 @@ struct OverlayManager {
     u32 unk24;
 };
 
-struct OverlayManager *OverlayManager_New(const struct OverlayManagerTemplate *template, s32 *a1, HeapID heapId);
+struct OverlayManager *OverlayManager_New(const struct OverlayManagerTemplate *template, s32 *a1, enum HeapID heapID);
 void OverlayManager_Delete(struct OverlayManager *overlayManager);
-void *OverlayManager_CreateAndGetData(struct OverlayManager *overlayManager, u32 size, HeapID heapId);
+void *OverlayManager_CreateAndGetData(struct OverlayManager *overlayManager, u32 size, enum HeapID heapID);
 void *OverlayManager_GetData(struct OverlayManager *overlayManager);
 void OverlayManager_FreeData(struct OverlayManager *overlayManager);
 s32 *OverlayManager_GetField18(struct OverlayManager *overlayManager);

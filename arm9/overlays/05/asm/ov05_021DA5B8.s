@@ -8,17 +8,17 @@ ov05_021DA5B8: ; 0x021DA5B8
 	push {r3, lr}
 	mov r0, #4
 	mov r1, #0x28
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	str r1, [r0]
 	pop {r3, pc}
 
 	thumb_func_start ov05_021DA5C8
 ov05_021DA5C8: ; 0x021DA5C8
-	ldr r3, _021DA5CC ; =FreeToHeap
+	ldr r3, _021DA5CC ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021DA5CC: .word FreeToHeap
+_021DA5CC: .word Heap_Free
 
 	thumb_func_start ov05_021DA5D0
 ov05_021DA5D0: ; 0x021DA5D0
@@ -1080,7 +1080,7 @@ ov05_021DAE14: ; 0x021DAE14
 	cmp r0, #0
 	beq _021DAE3C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021DAE3C:
@@ -1250,7 +1250,7 @@ ov05_021DAF78: ; 0x021DAF78
 	add r4, r1, #0
 	mov r0, #4
 	mov r1, #1
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r2, r0, #0
 	strb r4, [r2]
 	ldr r0, [r5, #0x10]
@@ -1338,7 +1338,7 @@ ov05_021DB030: ; 0x021DB030
 	push {r3, lr}
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	str r1, [r0]
 	pop {r3, pc}
@@ -1445,7 +1445,7 @@ _021DB106:
 	cmp r1, r0
 	bne _021DB126
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -1512,7 +1512,7 @@ _021DB1A0:
 	cmp r0, #0
 	beq _021DB1B4
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	mov r0, #1
 	pop {r4, r5, pc}
@@ -1576,7 +1576,7 @@ _021DB222:
 	cmp r0, #0
 	beq _021DB236
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x10
 	mov r0, #1
 	pop {r4, r5, r6, pc}
@@ -1727,7 +1727,7 @@ _021DB348:
 	cmp r1, r0
 	bne _021DB368
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x18
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1834,7 +1834,7 @@ _021DB432:
 	cmp r0, #0
 	beq _021DB446
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x10
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}

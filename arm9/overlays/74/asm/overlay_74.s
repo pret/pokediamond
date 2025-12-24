@@ -13,7 +13,7 @@ ov74_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x4a
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0xad
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -56,7 +56,7 @@ ov74_021D7540: ; 0x021D7540
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	ldr r0, [r4]
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -675,7 +675,7 @@ _021D79D8:
 	blt _021D79D8
 _021D79EE:
 	ldr r0, [r6, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end ov74_021D79C8
@@ -1309,7 +1309,7 @@ _021D7F0C:
 	cmp r0, #0x1e
 	blt _021D7EB8
 	ldr r0, [sp]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

@@ -7,28 +7,28 @@
 
 void ListMenuItems_DestroyMenuStrings(struct ListMenuItem *items);
 
-struct ListMenuItem *ListMenuItems_New(u32 count, HeapID heapId) {
+struct ListMenuItem *ListMenuItems_New(u32 count, enum HeapID heapID) {
     s32 i;
-    struct ListMenuItem *ret = AllocFromHeap(heapId, (count + 1) * sizeof(struct ListMenuItem));
+    struct ListMenuItem *ret = Heap_Alloc(heapID, (count + 1) * sizeof(struct ListMenuItem));
     if (ret != NULL) {
         for (i = 0; i < count; i++) {
             ret[i].text = NULL;
             ret[i].value = 0;
         }
         ret[i].text = (struct String *)-1u;
-        ret[i].value = (s32)heapId;
+        ret[i].value = (s32)heapID;
     }
     return ret;
 }
 
 void ListMenuItems_Delete(struct ListMenuItem *items) {
     ListMenuItems_DestroyMenuStrings(items);
-    FreeToHeap(items);
+    Heap_Free(items);
 }
 
 void ListMenuItems_AppendFromMsgData(struct ListMenuItem *items, struct MsgData *msgData, u32 msgNo, s32 value) {
-    HeapID heapId;
-    struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapId);
+    enum HeapID heapID;
+    struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapID);
     if (newItem != NULL) {
         newItem->text = NewString_ReadMsgData(msgData, msgNo);
         newItem->value = value;
@@ -36,24 +36,24 @@ void ListMenuItems_AppendFromMsgData(struct ListMenuItem *items, struct MsgData 
 }
 
 void ListMenuItems_AddItem(struct ListMenuItem *items, struct String *str, s32 value) {
-    HeapID heapId;
-    struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapId);
+    enum HeapID heapID;
+    struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapID);
     if (newItem != NULL) {
-        newItem->text = StringDup(str, heapId);
+        newItem->text = StringDup(str, heapID);
         newItem->value = value;
     }
 }
 
 void ListMenuItems_CopyItem(struct ListMenuItem *items, struct ListMenuItem *src) {
-    HeapID heapId;
-    struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapId);
+    enum HeapID heapID;
+    struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapID);
     if (newItem != NULL) {
         newItem->text = src->text;
         newItem->value = src->value;
     }
 }
 
-struct ListMenuItem *ListMenuItems_SeekEnd(struct ListMenuItem *items, HeapID *heapIdPtr) {
+struct ListMenuItem *ListMenuItems_SeekEnd(struct ListMenuItem *items, enum HeapID *heapIdPtr) {
     struct ListMenuItem *ret;
     for (; items->text != NULL; items++) {
         if (items->text == (struct String *)-1u) {
@@ -64,7 +64,7 @@ struct ListMenuItem *ListMenuItems_SeekEnd(struct ListMenuItem *items, HeapID *h
     ret = items;
     for (; items->text != (struct String *)-1u; items++)
         ;
-    *heapIdPtr = (HeapID)items->value;
+    *heapIdPtr = (enum HeapID)items->value;
     return ret;
 }
 

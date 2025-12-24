@@ -261,7 +261,7 @@ _02239892:
 _02239896:
 	ldr r0, _022398A8 ; =0x02251380
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _022398A8 ; =0x02251380
 	mov r1, #0
 	str r1, [r0]
@@ -1747,7 +1747,7 @@ ov18_0223A3D4: ; 0x0223A3D4
 	mov r0, #3
 	mov r1, #0x1d
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	mov r0, #0x1d
 	bl BgConfig_Alloc
 	add r4, r0, #0
@@ -1958,7 +1958,7 @@ _0223A5EC:
 	ldr r0, [r5, #0x18]
 	cmp r0, #0
 	beq _0223A5F8
-	bl FreeToHeap
+	bl Heap_Free
 	str r6, [r5, #0x18]
 _0223A5F8:
 	add r4, r4, #1
@@ -1978,13 +1978,13 @@ _0223A5F8:
 	ldr r0, _0223A648 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0223A648 ; =0x02251380
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0, #4]
 	mov r0, #0x1d
-	bl DestroyHeap
+	bl Heap_Destroy
 	bl ov18_0223D638
 	ldr r1, _0223A648 ; =0x02251380
 	ldr r1, [r1]
@@ -2526,7 +2526,7 @@ _0223AA5C:
 	lsl r0, r0, #6
 	str r2, [r1, r0]
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 	mov r0, #1
@@ -2703,7 +2703,7 @@ ov18_0223AC24: ; 0x0223AC24
 	bl sub_02028AD4
 	mov r0, #0xb
 	mov r1, #0x54
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x54
@@ -6340,7 +6340,7 @@ _0223C7F6:
 	mov r1, #0x5e
 	mov r0, #0xb
 	lsl r1, r1, #4
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r2, #0x5e
 	mov r1, #0
 	lsl r2, r2, #4
@@ -6386,7 +6386,7 @@ ov18_0223C848: ; 0x0223C848
 	ldr r1, [r0]
 	ldr r0, _0223C880 ; =0x00000884
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _0223C878 ; =0x02251380
 	ldr r0, _0223C87C ; =0x00000878
 	ldr r2, [r1]
@@ -6982,7 +6982,7 @@ ov18_0223CCA8: ; 0x0223CCA8
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0223CCBC
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0223CCC0 ; =0x02251384
 	mov r1, #0
 	str r1, [r0]
@@ -7843,7 +7843,7 @@ _0223D31E:
 _0223D330:
 	mov r0, #0xb
 	mov r1, #4
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #4
 	add r4, r0, #0
@@ -7884,7 +7884,7 @@ ov18_0223D370: ; 0x0223D370
 	ldr r1, [r0]
 	ldr r0, _0223D3A8 ; =0x000004C4
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _0223D3A4 ; =0x02251384
 	mov r0, #0x13
 	ldr r2, [r1]
@@ -8199,7 +8199,7 @@ _0223D5BC:
 	add r1, #0x8c
 	str r2, [r1]
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0223D634 ; =0x02251388
 	mov r1, #0
 	str r1, [r0]
@@ -9526,44 +9526,44 @@ ov18_0223E060: ; 0x0223E060
 	mov r1, #0x15
 	mov r0, #0xf
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	bl ov18_0223D414
 	bl sub_0204D320
 	add r1, r0, #0
 	mov r0, #0xf
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	mov r2, #1
 	bl sub_0204CB20
 	bl ov18_0223ECE4
 	add r1, r0, #0
 	mov r0, #0xf
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	bl ov18_0223E958
 	bl ov18_02245350
 	add r1, r0, #0
 	mov r0, #0xf
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	bl ov18_02244ED0
 	bl ov18_0223CC78
 	add r1, r0, #0
 	mov r0, #0xf
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	bl ov18_0223CB94
 	bl ov18_02239848
 	add r1, r0, #0
 	mov r0, #0xf
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	bl ov18_02239744
 	bl ov18_0224D360
 	add r1, r0, #0
 	mov r0, #0xf
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	add r0, r5, #0
 	bl FieldSystem_GetSaveData
@@ -10821,7 +10821,7 @@ _0223EA12:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223EA30
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0223EA3C ; =0x022513A0
 	mov r2, #0
 	ldr r1, [r0, #4]
@@ -10925,11 +10925,11 @@ _0223EAE2:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223EAF4
-	bl FreeToHeap
+	bl Heap_Free
 _0223EAF4:
 	ldr r0, _0223EB04 ; =0x022513A0
 	ldr r0, [r0, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0223EB04 ; =0x022513A0
 	mov r1, #0
 	str r1, [r0, #4]
@@ -14013,7 +14013,7 @@ _022401D2:
 	add r2, r1, #0
 	bl SetBlendBrightness
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	ldr r2, _02240204 ; =0x022513A0
@@ -14045,7 +14045,7 @@ ov18_02240210: ; 0x02240210
 	mov r1, #0x1c
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x1c
 	add r4, r0, #0
@@ -14125,7 +14125,7 @@ ov18_022402A0: ; 0x022402A0
 	add r2, r1, #0
 	bl SetBlendBrightness
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _022402EC ; =0x022513A0
 	ldr r1, [r0, #4]
 	mov r0, #0xa3
@@ -14201,7 +14201,7 @@ ov18_02240334: ; 0x02240334
 	mov r0, #4
 	mov r1, #0x20
 	add r7, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x20
 	add r4, r0, #0
@@ -14403,7 +14403,7 @@ _022404A4:
 	ldr r0, [r1, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _022404EC ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -15316,7 +15316,7 @@ ov18_02240BB8: ; 0x02240BB8
 	bne _02240C08
 	mov r0, #4
 	sub r1, #0xb4
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r2, #0x79
 	mov r1, #0
 	lsl r2, r2, #2
@@ -15375,7 +15375,7 @@ ov18_02240C14: ; 0x02240C14
 	mov r0, #0xa6
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02240C6C ; =0x022513A0
 	mov r0, #0xa5
 	ldr r2, [r1, #4]
@@ -15611,7 +15611,7 @@ ov18_02240DC8: ; 0x02240DC8
 	mov r0, #0xa7
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02240E24 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -15700,7 +15700,7 @@ _02240EA4:
 	bl GXx_SetMasterBrightness_
 	bl sub_020307D0
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	ldr r1, _02240EE4 ; =0x022513A0
@@ -15725,7 +15725,7 @@ ov18_02240EE8: ; 0x02240EE8
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x14
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x14
 	add r4, r0, #0
@@ -15781,7 +15781,7 @@ ov18_02240F34: ; 0x02240F34
 	ldr r0, [r1, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02240F80 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -15845,7 +15845,7 @@ _02240FB4:
 	ldr r0, [r1, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02241000 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -16084,7 +16084,7 @@ _022411B0:
 	ldr r0, [r0, #0x38]
 	bl PlayerAvatar_SetMapObjectYPosition
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	ldr r1, _02241278 ; =0x022513A0
@@ -16187,7 +16187,7 @@ ov18_02241288: ; 0x02241288
 	mov r0, #4
 	mov r1, #0x24
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x24
 	add r4, r0, #0
@@ -16766,7 +16766,7 @@ _022416D6:
 	mov r0, #0xa7
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02241730 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -16793,7 +16793,7 @@ ov18_02241738: ; 0x02241738
 	mov r0, #4
 	lsl r1, r1, #4
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x12
 	mov r1, #0
 	lsl r2, r2, #4
@@ -18113,7 +18113,7 @@ ov18_02242180: ; 0x02242180
 	mov r0, #4
 	lsl r1, r1, #2
 	add r6, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r2, #0x59
 	mov r1, #0
 	lsl r2, r2, #2
@@ -18702,7 +18702,7 @@ _02242604:
 	mov r0, #0xa7
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02242658 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -20148,7 +20148,7 @@ ov18_022431A4: ; 0x022431A4
 	mov r0, #4
 	lsl r1, r1, #4
 	add r6, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r2, #0x13
 	mov r1, #0
 	lsl r2, r2, #4
@@ -20261,7 +20261,7 @@ _02243268:
 	ldr r0, [r1, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _022432AC ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -20902,7 +20902,7 @@ ov18_02243794: ; 0x02243794
 	mov r0, #4
 	mov r1, #0x30
 	add r6, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x30
@@ -21008,7 +21008,7 @@ _02243840:
 	ldr r0, [r1, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _0224388C ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -21176,7 +21176,7 @@ ov18_022439A8: ; 0x022439A8
 	mov r0, #4
 	mov r1, #0x14
 	add r6, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x14
@@ -21272,7 +21272,7 @@ _02243A44:
 	ldr r0, [r1, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02243A88 ; =0x022513A0
 	mov r0, #0xa3
 	ldr r2, [r1, #4]
@@ -21711,7 +21711,7 @@ _02243DCA:
 	ldr r0, [sp]
 	bl SysTask_Destroy
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _02243E10 ; =0x022513A0
 	mov r2, #0
 	ldr r1, [r0, #4]
@@ -21744,7 +21744,7 @@ ov18_02243E18: ; 0x02243E18
 	bne _02243E82
 	mov r0, #4
 	mov r1, #0x34
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x34
 	add r4, r0, #0
@@ -21798,7 +21798,7 @@ ov18_02243E8C: ; 0x02243E8C
 	bne _02243EA6
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 _02243EA6:
 	ldr r5, [r4, #8]
@@ -21824,7 +21824,7 @@ _02243EBE:
 	add r0, r6, #0
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl sub_0204E254
 	pop {r4, r5, r6, pc}
@@ -21919,7 +21919,7 @@ ov18_02243F5C: ; 0x02243F5C
 	bne _02243FA4
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x10
 	add r4, r0, #0
@@ -21992,7 +21992,7 @@ _02243FFA:
 	bl SysTask_Destroy
 	ldr r0, [r4, #4]
 	ldr r0, [r0, r5]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #4]
 	add r0, r0, r5
 	str r7, [r0, #0x20]
@@ -22018,7 +22018,7 @@ ov18_02244028: ; 0x02244028
 	add r0, r3, #0
 	mov r1, #0x24
 	str r3, [sp, #8]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [sp, #0xc]
 	mov r1, #0
 	mov r2, #0x24
@@ -22307,7 +22307,7 @@ _0224425E:
 	blt _0224425E
 _02244268:
 	ldr r0, [r5, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp]
 	ldr r1, [sp]
 	str r0, [r5, #8]
@@ -22404,10 +22404,10 @@ ov18_02244318: ; 0x02244318
 	ldr r0, [r4, #0x10]
 	bl DestroyListMenuCursorObj
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 _02244334:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov18_02244318
 
@@ -24433,7 +24433,7 @@ _02245288:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02245298
-	bl FreeToHeap
+	bl Heap_Free
 _02245298:
 	ldr r0, _022452A0 ; =0x022513EC
 	mov r1, #0
@@ -25133,7 +25133,7 @@ _022457E6:
 	add r0, r5, #0
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov18_0223E6A0
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov18_022457D4
@@ -25163,7 +25163,7 @@ _0224580A:
 	add r0, r5, #0
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov18_0223E6A0
 	bl ov18_022479A0
 	pop {r3, r4, r5, pc}
@@ -25389,7 +25389,7 @@ ov18_022459E8: ; 0x022459E8
 	bl ov18_02247984
 	mov r0, #4
 	mov r1, #0x30
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -25441,7 +25441,7 @@ ov18_02245A50: ; 0x02245A50
 	bne _02245AA2
 	mov r0, #0xb
 	mov r1, #0x30
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -25908,7 +25908,7 @@ ov18_02245E1C: ; 0x02245E1C
 	mov r1, #0x30
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -27115,7 +27115,7 @@ _022467A6:
 _022467AA:
 	bl sub_0204F7FC
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_0202EDD8
 	cmp r0, #0
 	beq _022467CE
@@ -27435,7 +27435,7 @@ _02246A60:
 	ldr r0, [sp, #4]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov18_0223E6A0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -27462,7 +27462,7 @@ _02246A80:
 	ldr r0, [sp, #4]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov18_0223E6A0
 	bl ov18_022479A0
 _02246ACA:
@@ -27650,7 +27650,7 @@ _02246C28:
 	add r0, r5, #0
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov18_0223E6A0
 	bl sub_0204F7FC
 	bl ov18_022479A0
@@ -27664,7 +27664,7 @@ ov18_02246C44: ; 0x02246C44
 	bl ov18_02247984
 	mov r0, #4
 	mov r1, #0x14
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0x14
 	add r4, r0, #0
@@ -28539,7 +28539,7 @@ ov18_02247324: ; 0x02247324
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, r1, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	bl SysTask_Destroy
 	pop {r4, pc}
@@ -28635,7 +28635,7 @@ _022473DA:
 	pop {r4, r5, pc}
 _022473F6:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	bl ov18_0223E6A0
@@ -28670,7 +28670,7 @@ ov18_02247428: ; 0x02247428
 	bne _02247464
 	mov r0, #0xb
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #4
 	add r4, r0, #0
@@ -29479,7 +29479,7 @@ ov18_02247A34: ; 0x02247A34
 	mov r0, #0x21
 	mov r1, #0x3c
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x3c
 	add r4, r0, #0
@@ -29639,7 +29639,7 @@ _02247B88:
 	blx r1
 _02247B9A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_0204F7FC
 	add r0, r5, #0
 	bl SysTask_Destroy
@@ -31109,7 +31109,7 @@ _02248760:
 	add r1, r4, #0
 	bl ov18_02248784
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_0204F7FC
 	add r0, r5, #0
 	bl SysTask_Destroy
@@ -31927,7 +31927,7 @@ ov18_02248DF8: ; 0x02248DF8
 _02248E0C:
 	mov r0, #0x21
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x38
 	add r4, r0, #0
@@ -32606,7 +32606,7 @@ ov18_022492F8: ; 0x022492F8
 	add r4, r0, #0
 	mov r0, #0xf
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, _02249324 ; =0x022513F8
 	mov r2, #8
 	str r0, [r1]
@@ -32628,12 +32628,12 @@ _02249324: .word ov18_022513F8
 	thumb_func_start ov18_02249328
 ov18_02249328: ; 0x02249328
 	ldr r0, _02249330 ; =0x022513F8
-	ldr r3, _02249334 ; =FreeToHeap
+	ldr r3, _02249334 ; =Heap_Free
 	ldr r0, [r0]
 	bx r3
 	.align 2, 0
 _02249330: .word ov18_022513F8
-_02249334: .word FreeToHeap
+_02249334: .word Heap_Free
 	thumb_func_end ov18_02249328
 
 	thumb_func_start ov18_02249338
@@ -32873,7 +32873,7 @@ ov18_022494C8: ; 0x022494C8
 	mov r1, #0x25
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x25
 	mov r1, #0
 	lsl r2, r2, #4
@@ -35162,7 +35162,7 @@ ov18_0224A7C8: ; 0x0224A7C8
 	add r5, r0, #0
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x25
 	mov r1, #0
 	lsl r2, r2, #4
@@ -35304,7 +35304,7 @@ _0224A8F0:
 	bl sub_0205EBEC
 _0224A8FE:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	cmp r4, #0
 	bne _0224A90C
 	bl sub_0204F7FC
@@ -35955,7 +35955,7 @@ _0224AE52:
 	bl SysTask_Destroy
 _0224AE5C:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _0224AE64: .word ov18_022513F8
@@ -36064,7 +36064,7 @@ ov18_0224AF28: ; 0x0224AF28
 	add r5, r0, #0
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x25
 	mov r1, #0
 	lsl r2, r2, #4
@@ -37347,7 +37347,7 @@ _0224B946:
 	add r0, r4, #0
 	bl ov18_0224BD54
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -37393,7 +37393,7 @@ _0224B9B4:
 	add r0, r5, #0
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov18_0224B980
 
@@ -37696,7 +37696,7 @@ _0224BC5C:
 	bne _0224BC86
 	mov r0, #0xb
 	mov r1, #0xc
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0
 	mov r2, #0xc
 	add r5, r0, #0
@@ -37812,7 +37812,7 @@ ov18_0224BD54: ; 0x0224BD54
 	mov r1, #0x25
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x25
 	add r4, r0, #0
 	mov r1, #0
@@ -37928,7 +37928,7 @@ _0224BE5E:
 	pop {r3, r4, r5, pc}
 _0224BE68:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov18_0223E6A0
 	add r0, r5, #0
 	bl SysTask_Destroy
@@ -37951,7 +37951,7 @@ ov18_0224BE84: ; 0x0224BE84
 	bl sub_020021EC
 _0224BE96:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -37965,7 +37965,7 @@ ov18_0224BEA4: ; 0x0224BEA4
 	add r6, r0, #0
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x14
 	add r4, r0, #0
@@ -39376,7 +39376,7 @@ ov18_0224CA34: ; 0x0224CA34
 	ldr r0, [r4, #0x70]
 	bl MessageFormat_Delete
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov18_0224CA34
@@ -40346,7 +40346,7 @@ ov18_0224D1F8: ; 0x0224D1F8
 	mov r1, #0x25
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x25
 	mov r1, #0
 	lsl r2, r2, #4
@@ -40457,10 +40457,10 @@ ov18_0224D324: ; 0x0224D324
 	ldr r0, _0224D340 ; =0x022513FC
 	ldr r0, [r0]
 	ldr r0, [r0, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0224D340 ; =0x022513FC
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0224D340 ; =0x022513FC
 	mov r1, #0
 	str r1, [r0]
@@ -40750,7 +40750,7 @@ ov18_0224D56C: ; 0x0224D56C
 	blx r1
 _0224D596:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	ldr r0, _0224D5B0 ; =0x022513FC
@@ -40789,7 +40789,7 @@ ov18_0224D5CC: ; 0x0224D5CC
 	mov r1, #0x2c
 	add r5, r2, #0
 	add r6, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x2c
@@ -40885,7 +40885,7 @@ ov18_0224D698: ; 0x0224D698
 	add r6, r0, #0
 	mov r0, #4
 	add r1, r4, #1
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	add r2, r4, #1
 	add r5, r0, #0
@@ -40912,7 +40912,7 @@ _0224D6CE:
 	add r2, r4, #1
 	bl sub_02030ADC
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0224D6FC: .word ov18_022513FC
@@ -41047,7 +41047,7 @@ _0224D7BC:
 	blx r4
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov18_0223D658
 	add r1, r4, #0
 	bl ov18_0224DEC8
@@ -41229,7 +41229,7 @@ _0224D8FA:
 	mov r3, #0x66
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x24]
-	bl FreeToHeap
+	bl Heap_Free
 	b _0224D9DE
 _0224D994:
 	ldr r0, [sp, #0x10]
@@ -41292,7 +41292,7 @@ ov18_0224DA00: ; 0x0224DA00
 	mov r1, #0x2c
 	add r6, r2, #0
 	add r4, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x2c
 	add r5, r0, #0
@@ -41378,7 +41378,7 @@ ov18_0224DAA8: ; 0x0224DAA8
 	blx r1
 _0224DACE:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov18_0224DAA8
@@ -41402,7 +41402,7 @@ ov18_0224DAE0: ; 0x0224DAE0
 	add r7, r2, #0
 	str r3, [sp, #4]
 	ldr r6, [sp, #0x20]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x44
 	add r4, r0, #0
@@ -41464,7 +41464,7 @@ ov18_0224DB5C: ; 0x0224DB5C
 	ldr r0, [r4, #0x24]
 	bl DestroyMsgData
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov18_0224DB5C
 
@@ -42173,12 +42173,12 @@ _0224E018: .word ov18_0225074A
 
 	thumb_func_start ov18_0224E01C
 ov18_0224E01C: ; 0x0224E01C
-	ldr r3, _0224E024 ; =AllocFromHeap
+	ldr r3, _0224E024 ; =Heap_Alloc
 	mov r0, #4
 	mov r1, #0x44
 	bx r3
 	.align 2, 0
-_0224E024: .word AllocFromHeap
+_0224E024: .word Heap_Alloc
 	thumb_func_end ov18_0224E01C
 
 	thumb_func_start ov18_0224E028
@@ -42211,10 +42211,10 @@ _0224E058: .word 0x000003D9
 
 	thumb_func_start ov18_0224E05C
 ov18_0224E05C: ; 0x0224E05C
-	ldr r3, _0224E060 ; =FreeToHeap
+	ldr r3, _0224E060 ; =Heap_Free
 	bx r3
 	.align 2, 0
-_0224E060: .word FreeToHeap
+_0224E060: .word Heap_Free
 	thumb_func_end ov18_0224E05C
 
 	thumb_func_start ov18_0224E064
@@ -42525,12 +42525,12 @@ _0224E2CC:
 
 	thumb_func_start ov18_0224E2D8
 ov18_0224E2D8: ; 0x0224E2D8
-	ldr r3, _0224E2E0 ; =AllocFromHeap
+	ldr r3, _0224E2E0 ; =Heap_Alloc
 	mov r0, #4
 	mov r1, #0x4c
 	bx r3
 	.align 2, 0
-_0224E2E0: .word AllocFromHeap
+_0224E2E0: .word Heap_Alloc
 	thumb_func_end ov18_0224E2D8
 
 	thumb_func_start ov18_0224E2E4
@@ -42572,10 +42572,10 @@ ov18_0224E314: ; 0x0224E314
 
 	thumb_func_start ov18_0224E320
 ov18_0224E320: ; 0x0224E320
-	ldr r3, _0224E324 ; =FreeToHeap
+	ldr r3, _0224E324 ; =Heap_Free
 	bx r3
 	.align 2, 0
-_0224E324: .word FreeToHeap
+_0224E324: .word Heap_Free
 	thumb_func_end ov18_0224E320
 
 	thumb_func_start ov18_0224E328
@@ -43322,7 +43322,7 @@ _0224E91A:
 	ldr r0, [r4, r0]
 	bl ov05_021D80A4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _0224E93C:
@@ -43473,7 +43473,7 @@ ov18_0224EA74: ; 0x0224EA74
 	add r5, r0, #0
 	ldr r1, _0224EAC0 ; =0x00000528
 	mov r0, #0xb
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	ldr r2, _0224EAC0 ; =0x00000528
 	add r4, r0, #0
 	mov r1, #0
@@ -45676,11 +45676,11 @@ _0224FBC4: .word ov18_02251350
 
 	thumb_func_start ov18_0224FBC8
 ov18_0224FBC8: ; 0x0224FBC8
-	ldr r3, _0224FBD0 ; =FreeToHeap
+	ldr r3, _0224FBD0 ; =Heap_Free
 	ldr r0, [r0, #0x54]
 	bx r3
 	nop
-_0224FBD0: .word FreeToHeap
+_0224FBD0: .word Heap_Free
 	thumb_func_end ov18_0224FBC8
 
 	thumb_func_start ov18_0224FBD4

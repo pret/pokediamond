@@ -141,7 +141,7 @@ void CreateChunkFooter(struct SaveData *save, u8 *data, int id, u32 size);
 BOOL ValidateChunk(struct SaveData *save, u8 *data, int id, u32 size);
 u32 sub_020232B4(u8 *data, u32 size);
 int WriteSaveFileToFlash(struct SaveData *save, int idx, u8 *data);
-u8 *ReadSaveFileFromFlash(struct SaveData *save, HeapID heapId, int idx, int *ret_p);
+u8 *ReadSaveFileFromFlash(struct SaveData *save, enum HeapID heapID, int idx, int *ret_p);
 BOOL SaveDetectFlash(void);
 int FlashWriteChunk(u32 offset, u8 *data, u32 size);
 BOOL FlashLoadChunk(u32 src, void *dest, u32 size);

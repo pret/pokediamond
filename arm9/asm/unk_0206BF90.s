@@ -23,11 +23,11 @@ sub_0206BF90: ; 0x0206BF90
 	add r5, r0, #0x0
 	mov r0, #0x5
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	mov r0, #0x5
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0x0
 	ldr r0, _0206BFE4 ; =UNK_020F828C
 	mov r1, #0xc
@@ -223,7 +223,7 @@ sub_0206C0C8: ; 0x0206C0C8
 	mov r1, #0x4
 	str r2, [sp, #0x8]
 	add r7, r3, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	bl ov11_022300D4
@@ -281,7 +281,7 @@ _0206C138:
 	blt _0206C138
 _0206C14A:
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	pop {r4-r7, pc}
 
@@ -644,7 +644,7 @@ _0206C3C4:
 _0206C3DE:
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x10]
 	add r4, r4, #0x1
 	add r5, r5, #0x4
@@ -905,7 +905,7 @@ _0206C5A4:
 	pop {r3-r7, pc}
 _0206C5CC:
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x0]
 	bl SysTask_Destroy
 _0206C5D8:
@@ -962,7 +962,7 @@ _0206C61E:
 	pop {r3-r7, pc}
 _0206C63E:
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x0]
 	bl SysTask_Destroy
 _0206C64A:

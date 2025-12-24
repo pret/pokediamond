@@ -35,7 +35,7 @@ ov67_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x2a
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r4, #0
 	bl OverlayManager_GetField18
 	add r5, r0, #0
@@ -165,7 +165,7 @@ ov67_021D7624: ; 0x021D7624
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x2a
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -327,7 +327,7 @@ ov67_021D777C: ; 0x021D777C
 	bl FreeBgTilemapBuffer
 	mov r0, #0x2a
 	add r1, r4, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov67_021D777C
@@ -3315,7 +3315,7 @@ ov67_021D8F00: ; 0x021D8F00
 	ldr r1, [sp, #0xc]
 	bl BufferBoxMonSpeciesName
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov67_021D8F00

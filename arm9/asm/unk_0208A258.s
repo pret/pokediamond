@@ -52,7 +52,7 @@ _0208A2A6:
 	lsl r1, r1, #0x6
 	strb r0, [r4, r1]
 	ldr r0, [r4, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x11

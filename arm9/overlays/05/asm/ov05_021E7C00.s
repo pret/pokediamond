@@ -8,7 +8,7 @@ ov05_021E7C00: ; 0x021E7C00
 	push {r4, lr}
 	mov r1, #0x46
 	lsl r1, r1, #6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bl ov05_021E7C1C
 	add r0, r4, #0
@@ -16,10 +16,10 @@ ov05_021E7C00: ; 0x021E7C00
 
 	thumb_func_start ov05_021E7C14
 ov05_021E7C14: ; 0x021E7C14
-	ldr r3, _021E7C18 ; =FreeToHeap
+	ldr r3, _021E7C18 ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021E7C18: .word FreeToHeap
+_021E7C18: .word Heap_Free
 
 	thumb_func_start ov05_021E7C1C
 ov05_021E7C1C: ; 0x021E7C1C
@@ -137,7 +137,7 @@ ov05_021E7CD8: ; 0x021E7CD8
 	cmp r4, #0
 	beq _021E7D0E
 	mov r0, #4
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [sp, #4]
 	ldr r2, [sp, #4]
 	add r0, r6, #0
@@ -247,7 +247,7 @@ _021E7DBE:
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	beq _021E7DD2
-	bl FreeToHeap
+	bl Heap_Free
 _021E7DD2:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}

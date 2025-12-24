@@ -16,7 +16,7 @@ ov04_021D74E0: ; 0x021D74E0
 _021D74F2:
 	ldr r1, _021D7648 ; =0x00001FAC
 	add r0, r4, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, _021D7644 ; =ov04_0220FBC0
 	mov r1, #0x1f
 	str r0, [r2, #4]
@@ -48,7 +48,7 @@ _021D74F2:
 	str r4, [r0, r1]
 	ldr r1, _021D764C ; =0x0002B020
 	add r0, r4, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, _021D7644 ; =ov04_0220FBC0
 	ldr r1, _021D7650 ; =0x00001F04
 	ldr r3, [r2]
@@ -202,13 +202,13 @@ ov04_021D7660: ; 0x021D7660
 	ldr r0, [r2, r1]
 	sub r1, #0x50
 	ldr r1, [r2, r1]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r1, _021D76A0 ; =ov04_0220FBC0
 	ldr r0, _021D76A8 ; =0x00001F54
 	ldr r2, [r1]
 	ldr r1, [r1, #4]
 	ldr r0, [r2, r0]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, _021D76A0 ; =ov04_0220FBC0
 	mov r1, #0
 	str r1, [r0, #4]

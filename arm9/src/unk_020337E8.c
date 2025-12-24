@@ -19,10 +19,10 @@ extern BOOL DWC_CheckValidConsole(struct DWC_Struct *);
 extern BOOL DWC_CheckUserData(struct DWC_Struct *);
 extern s32 DWC_GetGsProfileId(struct DWC_Struct *, struct DWC_token *);
 
-s32 sub_020337E8(HeapID heapId) {
-    s32 ret = (s32)AllocFromHeap(heapId, 0x720);
+s32 sub_020337E8(enum HeapID heapID) {
+    s32 ret = (s32)Heap_Alloc(heapID, 0x720);
     s32 ret1 = DWC_Init((ret + 0x1F) & ~0x1F);
-    FreeToHeap((void *)ret);
+    Heap_Free((void *)ret);
     return ret1;
 }
 

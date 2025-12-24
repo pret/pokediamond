@@ -81,10 +81,10 @@ _021D81CE:
 
 	thumb_func_start ov84_021D81D4
 ov84_021D81D4: ; 0x021D81D4
-	ldr r3, _021D81D8 ; =FreeToHeap
+	ldr r3, _021D81D8 ; =Heap_Free
 	bx r3
 	.align 2, 0
-_021D81D8: .word FreeToHeap
+_021D81D8: .word Heap_Free
 	thumb_func_end ov84_021D81D4
 
 	thumb_func_start ov84_021D81DC
@@ -95,7 +95,7 @@ ov84_021D81DC: ; 0x021D81DC
 	mov r0, #0x4b
 	mov r1, #0x10
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D8218
 	mov r0, #0x4b
@@ -129,15 +129,15 @@ ov84_021D821C: ; 0x021D821C
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _021D822C
-	bl FreeToHeap
+	bl Heap_Free
 _021D822C:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _021D8236
-	bl FreeToHeap
+	bl Heap_Free
 _021D8236:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021D823C:
 	pop {r4, pc}
 	.align 2, 0
@@ -534,7 +534,7 @@ ov84_021D84F8: ; 0x021D84F8
 	mov r1, #0x38
 	add r5, r2, #0
 	add r7, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D85AC
 	ldr r0, [sp, #0x14]
@@ -630,11 +630,11 @@ _021D85C6:
 	ldr r0, [r4, #0x28]
 	bl RemoveWindow
 	ldr r0, [r4, #0x24]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x28]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov84_021D85B8
 
@@ -973,7 +973,7 @@ ov84_021D8874: ; 0x021D8874
 	add r6, r1, #0
 	mov r0, #0x4b
 	mov r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D88A0
 	str r5, [r4]
@@ -1019,7 +1019,7 @@ ov84_021D88C8: ; 0x021D88C8
 	add r4, r0, #0
 	bl ov84_021D8A74
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -1253,7 +1253,7 @@ ov84_021D8A8C: ; 0x021D8A8C
 	add r4, r1, #0
 	mov r0, #0x4b
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	cmp r0, #0
 	beq _021D8AA8
 	str r5, [r0]
@@ -1286,7 +1286,7 @@ ov84_021D8AC0: ; 0x021D8AC0
 	add r4, r0, #0
 	bl ov84_021D8C3C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -1502,7 +1502,7 @@ ov84_021D8C54: ; 0x021D8C54
 	add r5, r0, #0
 	mov r0, #0x4b
 	lsl r1, r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D8CC6
 	str r5, [r4]
@@ -1582,7 +1582,7 @@ ov84_021D8CEC: ; 0x021D8CEC
 	add r0, r4, #0
 	bl ov84_021D9044
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -1934,7 +1934,7 @@ _021D8FA6:
 	cmp r6, #6
 	blt _021D8FA6
 	ldr r0, [sp, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 _021D8FC8:
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0]
@@ -2023,7 +2023,7 @@ _021D906A:
 	cmp r0, #0
 	beq _021D9082
 	bl sub_0201B6C8
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x15
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -2069,7 +2069,7 @@ ov84_021D90C4: ; 0x021D90C4
 	add r6, r1, #0
 	mov r0, #0x4b
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021D90DA
 	b _021D91F6
@@ -2412,7 +2412,7 @@ ov84_021D9394: ; 0x021D9394
 	add r4, r1, #0
 	mov r0, #0x4b
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	cmp r0, #0
 	beq _021D93B0
 	str r5, [r0]
@@ -2445,7 +2445,7 @@ ov84_021D93C8: ; 0x021D93C8
 	add r4, r0, #0
 	bl ov84_021D9544
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -2660,7 +2660,7 @@ ov84_021D955C: ; 0x021D955C
 	add r6, r1, #0
 	mov r0, #0x4b
 	mov r1, #0x6c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D958E
 	str r5, [r4]
@@ -2710,7 +2710,7 @@ ov84_021D95B8: ; 0x021D95B8
 	add r4, r0, #0
 	bl ov84_021D9A04
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -3285,7 +3285,7 @@ ov84_021D9A54: ; 0x021D9A54
 	add r4, r1, #0
 	mov r0, #0x4b
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	cmp r0, #0
 	beq _021D9A70
 	str r5, [r0]
@@ -3318,7 +3318,7 @@ ov84_021D9A88: ; 0x021D9A88
 	add r4, r0, #0
 	bl ov84_021D9C04
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -3533,7 +3533,7 @@ ov84_021D9C1C: ; 0x021D9C1C
 	add r6, r1, #0
 	mov r0, #0x4b
 	mov r1, #0xf4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D9C7C
 	str r5, [r4]
@@ -3610,10 +3610,10 @@ ov84_021D9CA4: ; 0x021D9CA4
 	ldr r0, [r5, #0x58]
 	cmp r0, #0
 	beq _021D9CC4
-	bl FreeToHeap
+	bl Heap_Free
 _021D9CC4:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	bl OS_RestoreInterrupts
 	mov r0, #1
@@ -4723,7 +4723,7 @@ ov84_021DA58C: ; 0x021DA58C
 	mov r1, #0x1c
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021DA5CE
 	mov r0, #0
@@ -4743,7 +4743,7 @@ ov84_021DA58C: ; 0x021DA58C
 	add r5, r0, #0
 	bne _021DA5CA
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021DA5CA:
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -4760,7 +4760,7 @@ ov84_021DA5D8: ; 0x021DA5D8
 	add r4, r0, #0
 	beq _021DA5EC
 	bl sub_0201B6C8
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	bl SysTask_Destroy
 _021DA5EC:

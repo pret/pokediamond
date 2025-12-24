@@ -6,8 +6,8 @@
 
 #include "heap.h"
 
-struct UnkStruct_020851B8 *sub_020851B8(u8 heapId) {
-    struct UnkStruct_020851B8 *ptr = AllocFromHeap((HeapID)heapId, sizeof(struct UnkStruct_020851B8));
+struct UnkStruct_020851B8 *sub_020851B8(u8 heapID) {
+    struct UnkStruct_020851B8 *ptr = Heap_Alloc((enum HeapID)heapID, sizeof(struct UnkStruct_020851B8));
     memset(ptr, 0, sizeof(struct UnkStruct_020851B8));
     return ptr;
 }

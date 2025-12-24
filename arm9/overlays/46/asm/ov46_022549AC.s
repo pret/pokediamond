@@ -10,7 +10,7 @@ ov46_022549AC: ; 0x022549AC
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _022549D8
 	add r0, #8
@@ -34,7 +34,7 @@ ov46_022549DC: ; 0x022549DC
 	push {r3, lr}
 	cmp r0, #0
 	beq _022549E6
-	bl FreeToHeap
+	bl Heap_Free
 _022549E6:
 	pop {r3, pc}
 	thumb_func_end ov46_022549DC

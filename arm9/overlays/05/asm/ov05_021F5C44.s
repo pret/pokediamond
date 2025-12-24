@@ -9,7 +9,7 @@ ov05_021F5C44: ; 0x021F5C44
 	add r0, r1, #0
 	mov r1, #0x18
 	add r5, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	add r2, r4, #0
 	mov r1, #0x18
@@ -94,7 +94,7 @@ _021F5CBA:
 	add r1, r6, #0
 	bl sub_02046A20
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _021F5D10:
@@ -105,7 +105,7 @@ _021F5D18:
 	ldr r0, [r4, #0x34]
 	bl MapObjectManager_UnpauseAllMovement
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _021F5D28:
@@ -152,7 +152,7 @@ ov05_021F5D68: ; 0x021F5D68
 	push {r4, lr}
 	add r4, r0, #0
 	bl sub_0201B6C8
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	bl SysTask_Destroy
 	pop {r4, pc}
@@ -580,7 +580,7 @@ ov05_021F6074: ; 0x021F6074
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r5, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	bne _021F6088
 	bl GF_AssertFail

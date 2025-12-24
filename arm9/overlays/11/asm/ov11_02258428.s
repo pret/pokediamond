@@ -9,7 +9,7 @@ ov11_02258428: ; 0x02258428
 	mov r1, #7
 	mov r0, #5
 	lsl r1, r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #7
 	mov r1, #0
 	lsl r2, r2, #8
@@ -122,7 +122,7 @@ ov11_022584D4: ; 0x022584D4
 _02258512:
 	mov r0, #5
 	add r1, r7, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	lsl r1, r4, #2
 	add r1, r6, r1
 	str r0, [r1, #0x3c]
@@ -144,7 +144,7 @@ _02258512:
 	add r0, #0xc
 	bl MIi_CpuCopy32
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, r4, #1
 _0225854E:
 	cmp r4, #7
@@ -152,7 +152,7 @@ _0225854E:
 	mov r1, #2
 	mov r0, #5
 	lsl r1, r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r6, #0x58]
 	mov r0, #1
 	str r0, [sp]
@@ -205,7 +205,7 @@ _022585BC:
 	bl sub_020799E8
 	add r1, r0, #0
 	mov r0, #5
-	bl AllocFromHeap
+	bl Heap_Alloc
 	lsl r1, r5, #2
 	add r1, r4, r1
 	add r1, #0x80
@@ -223,11 +223,11 @@ _022585DE:
 	blt _022585AE
 	mov r0, #5
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r6, #0x5c]
 	mov r0, #5
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r6, #0x60]
 	ldr r1, [r6, #0x5c]
 	ldr r0, [r6, #0x58]
@@ -245,7 +245,7 @@ _022585DE:
 	mov r2, #0x20
 	bl MIi_CpuCopy16
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_02002BE4
 	bl sub_02002C04
 	ldr r0, _02258650 ; =ov11_0225B824
@@ -284,23 +284,23 @@ ov11_02258658: ; 0x02258658
 	add r5, r6, #0
 _02258680:
 	ldr r0, [r5, #0x3c]
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #7
 	blt _02258680
 	ldr r0, [r6, #0x58]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl ov11_0225A6B0
 	ldr r0, [r6, #0x5c]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r6, #0x60]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r6, #0x64]
 	bl SysTask_Destroy
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _022586B4: .word 0x000004C8
@@ -1692,7 +1692,7 @@ ov11_0225916C: ; 0x0225916C
 	str r0, [r1]
 	mov r0, #5
 	mov r1, #0x14
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x14
@@ -4224,7 +4224,7 @@ _0225A6E4:
 	ldr r0, [sp, #4]
 	add r0, #0x80
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	add r0, #0x9c
 	ldr r0, [r0]
@@ -4362,7 +4362,7 @@ _0225A7CE:
 	ldr r2, [sp, #0xc]
 	bl MIi_CpuCopy32
 	ldr r0, [sp, #0x44]
-	bl FreeToHeap
+	bl Heap_Free
 _0225A814:
 	ldr r0, [r6, #0x34]
 	cmp r0, #0
@@ -6034,7 +6034,7 @@ _0225B4D6:
 	ldr r0, [r0]
 	bl ov11_022312AC
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _0225B526:

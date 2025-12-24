@@ -7,8 +7,8 @@
 #include "main.h"
 #include "player_data.h"
 
-struct Options *Options_New(HeapID heapId) {
-    struct Options *ret = AllocFromHeap(heapId, sizeof(struct Options));
+struct Options *Options_New(enum HeapID heapID) {
+    struct Options *ret = Heap_Alloc(heapID, sizeof(struct Options));
     Options_Init(ret);
     return ret;
 }

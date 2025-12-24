@@ -31,7 +31,7 @@
 #include "unk_020051F4.h"
 #include "unk_02024E64.h"
 
-extern void *sub_02077A84(HeapID heapId, u32 param1, u32 param2, u32 param3, struct Options *options);
+extern void *sub_02077A84(enum HeapID heapID, u32 param1, u32 param2, u32 param3, struct Options *options);
 
 extern void sub_0200E3A0(PMLCDTarget, int);
 
@@ -288,19 +288,19 @@ const u8 ov59_021D9FE8[0x64] = {
     0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x40, 0x41, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x42, 0x43, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x44, 0x45, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, 0x46, 0x47, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x48, 0x49, 0x28, 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2E, 0x2F, 0x4A, 0x4B, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x4C, 0x4D, 0x38, 0x39, 0x3A, 0x3B, 0x3C, 0x3D, 0x3E, 0x3F, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53, 0x58, 0x59, 0x5A, 0x5B, 0x60, 0x61, 0x54, 0x55, 0x56, 0x57, 0x5C, 0x5D, 0x5E, 0x5F, 0x62, 0x63
 };
 
-extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, enum HeapID heapID);
 extern BOOL IsPaletteFadeFinished(void);
 
-extern u32 sub_020142EC(u32 param0, u32 param1, u32 param2, HeapID heapId);
+extern u32 sub_020142EC(u32 param0, u32 param1, u32 param2, enum HeapID heapID);
 
 extern void sub_02077AC4(void *param0);
 
 extern void sub_020143D0(u32 param0);
-extern u32 sub_02014590(HeapID heapId);
+extern u32 sub_02014590(enum HeapID heapID);
 extern void sub_020145A8(u32 param0);
 
-extern u32 *sub_0201244C(u16 param0, u16 param1, HeapID heapId);
-extern u32 *sub_02012470(u16 param0, u16 param1, HeapID heapId);
+extern u32 *sub_0201244C(u16 param0, u16 param1, enum HeapID heapID);
+extern u32 *sub_02012470(u16 param0, u16 param1, enum HeapID heapID);
 
 extern const struct OverlayManagerTemplate UNK_020FA5FC;
 
@@ -312,11 +312,11 @@ FS_EXTERN_OVERLAY(OVERLAY_52);
 
 BOOL ov59_IntroInit(struct OverlayManager *overlayManager, u32 *status) {
 #pragma unused(status)
-    CreateHeap(3, HEAP_ID_INTRO, 0x40000);
+    Heap_Create(HEAP_ID_MAIN, HEAP_ID_INTRO, 0x40000);
     ov59_IntroOverlayData *data = (ov59_IntroOverlayData *)OverlayManager_CreateAndGetData(overlayManager, sizeof(ov59_IntroOverlayData), HEAP_ID_INTRO);
     memset((void *)data, 0, sizeof(ov59_IntroOverlayData));
 
-    data->heapId = HEAP_ID_INTRO;
+    data->heapID = HEAP_ID_INTRO;
     s32 *field18 = OverlayManager_GetField18(overlayManager);
     data->save = (struct SaveData *)field18[2]; //?
     data->options = Save_PlayerData_GetOptionsAddr(data->save);
@@ -366,7 +366,7 @@ BOOL ov59_IntroMain(struct OverlayManager *overlayManager, u32 *status) {
 
     case 1:
         if (ov59_MasterController(data) == TRUE) {
-            BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapId);
+            BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapID);
             *status = 2;
         }
 
@@ -374,7 +374,7 @@ BOOL ov59_IntroMain(struct OverlayManager *overlayManager, u32 *status) {
             break;
         }
 
-        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapID);
         *status = 3;
 
         break;
@@ -433,7 +433,7 @@ BOOL ov59_IntroExit(struct OverlayManager *overlayManager, u32 *status) {
 #pragma unused(status)
     ov59_IntroOverlayData *data = (ov59_IntroOverlayData *)OverlayManager_GetData(overlayManager);
 
-    HeapID heapId = data->heapId;
+    enum HeapID heapID = data->heapID;
     PlayerName_StringToFlat(Save_PlayerData_GetProfile(data->save), data->playerStruct->name);
     PlayerProfile_SetTrainerGender(Save_PlayerData_GetProfile(data->save), data->playerStruct->gender);
 
@@ -443,7 +443,7 @@ BOOL ov59_IntroExit(struct OverlayManager *overlayManager, u32 *status) {
     sub_02077AC4(data->rivalStruct);
 
     OverlayManager_FreeData(overlayManager);
-    DestroyHeap(heapId);
+    Heap_Destroy(heapID);
 
     RegisterMainOverlay(FS_OVERLAY_ID(OVERLAY_52), &ov52_021D76D8);
 
@@ -475,7 +475,7 @@ BOOL ov59_TestPokeballTouchLocation(void) {
 void ov59_IntroSetupBg(ov59_IntroOverlayData *data) {
     struct GraphicsBanks graphicsBanks = ov59_021D9F18;
     GfGfx_SetBanks(&graphicsBanks);
-    data->bgConfig = BgConfig_Alloc(data->heapId);
+    data->bgConfig = BgConfig_Alloc(data->heapID);
 
     struct GraphicsModes graphicsModes = ov59_021D9DCC;
     SetBothScreensModesAndDisable(&graphicsModes);
@@ -501,10 +501,10 @@ void ov59_IntroSetupBg(ov59_IntroOverlayData *data) {
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_3);
 
-    sub_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heapId);
-    LoadUserFrameGfx1(data->bgConfig, GF_BG_LYR_MAIN_0, 985, 3, 0, data->heapId);
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_5_OFFSET, data->heapId);
-    LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_6_OFFSET, data->heapId);
+    sub_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heapID);
+    LoadUserFrameGfx1(data->bgConfig, GF_BG_LYR_MAIN_0, 985, 3, 0, data->heapID);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_5_OFFSET, data->heapID);
+    LoadFontPal1(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_6_OFFSET, data->heapID);
 
     struct BgTemplate bgTemplateSub = ov59_021D9EBC;
     bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7800;
@@ -562,17 +562,17 @@ void ov59_IntroDestroyBg(ov59_IntroOverlayData *data) {
     FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_SUB_2);
     FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_SUB_3);
 
-    FreeToHeap(data->bgConfig);
+    Heap_Free(data->bgConfig);
 }
 
 void ov59_IntroSetupMsg(ov59_IntroOverlayData *data) {
-    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0341_bin, data->heapId);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0341_bin, data->heapID);
 
     ResetAllTextPrinters();
 
-    data->unk60 = sub_020142EC(0, 0, 6, data->heapId);
+    data->unk60 = sub_020142EC(0, 0, 6, data->heapID);
 
-    data->messageFormat = MessageFormat_New(data->heapId);
+    data->messageFormat = MessageFormat_New(data->heapID);
 
     data->displayMessageCounter = 0;
     data->displayControlMessageCounter = 0;
@@ -587,7 +587,7 @@ void ov59_IntroDestroyMsg(ov59_IntroOverlayData *data) {
 
 void ov59_021D7A4C(ov59_IntroOverlayData *data) // ov59_Setup... something?
 {
-    data->unk68 = sub_02014590(data->heapId);
+    data->unk68 = sub_02014590(data->heapID);
 }
 
 void ov59_021D7A5C(ov59_IntroOverlayData *data) // ov59_Destroy... something?
@@ -709,8 +709,8 @@ BOOL ov59_DisplayMessage(ov59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvanc
         TextFlags_SetCanABSpeedUpPrint(TRUE);
         sub_02002B7C(0);
 
-        struct String *string = String_New(1024, data->heapId);
-        data->string = String_New(1024, data->heapId);
+        struct String *string = String_New(1024, data->heapID);
+        data->string = String_New(1024, data->heapID);
         ReadMsgDataIntoString(data->msgData, msgNo, string);
         BufferString(data->messageFormat, 0, data->playerStruct->name, data->selectedGender, 1, 2);
         BufferString(data->messageFormat, 1, data->rivalStruct->name, 0, 1, 2);
@@ -779,7 +779,7 @@ BOOL ov59_CreateListWithText(ov59_IntroOverlayData *data, u32 param1, u32 param2
             break;
         }
         AddWindow(data->bgConfig, &data->listWindow, windowTemplate);
-        data->listMenuItem = ListMenuItems_New(menuItemsCount, data->heapId);
+        data->listMenuItem = ListMenuItems_New(menuItemsCount, data->heapID);
         for (i = 0; i < menuItemsCount; i++) {
             ListMenuItems_AppendFromMsgData(data->listMenuItem, data->msgData, listStruct[i].msgNo, listStruct[i].val);
         }
@@ -789,7 +789,7 @@ BOOL ov59_CreateListWithText(ov59_IntroOverlayData *data, u32 param1, u32 param2
         template.maxShowed = (u16)menuItemsCount;
         template.moveCursorFunc = ov59_PlaySelectSound;
         template.window = &data->listWindow;
-        data->listMenu = ListMenuInit(&template, 0, 0, data->heapId);
+        data->listMenu = ListMenuInit(&template, 0, 0, data->heapID);
         DrawFrameAndWindow1(template.window, TRUE, 985, 3);
         CopyWindowToVram(&data->listWindow);
         data->createListCounter = 1;
@@ -815,7 +815,7 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
     switch (data->displayControlMessageCounter) {
     case 0:
         ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_PLANE_TOGGLE_OFF);
-        data->string = String_New(1024, data->heapId);
+        data->string = String_New(1024, data->heapID);
         ReadMsgDataIntoString(data->msgData, msgNo, data->string);
         struct WindowTemplate template;
         if (param2 == 1) {
@@ -868,9 +868,9 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
 }
 
 void ov59_LoadInitialTilemap(ov59_IntroOverlayData *data) {
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_main_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapId);
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heapId);
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_sub_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heapId);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_main_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapID);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heapID);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_sub_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heapID);
 
     u32 mainPal;
     u32 subPal;
@@ -881,8 +881,8 @@ void ov59_LoadInitialTilemap(ov59_IntroOverlayData *data) {
         mainPal = NARC_intro_main_background_pearl_NCLR;
         subPal = NARC_intro_sub_background_pearl_NCLR;
     }
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 0x60, data->heapId);
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0xa0, data->heapId);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_0_OFFSET, 0x60, data->heapID);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_0_OFFSET, 0xa0, data->heapID);
     ov59_LoadMainScrnData(data);
     ov59_LoadCharDataFromIndex(data);
     ov59_LoadSubScrnData(data);
@@ -895,21 +895,21 @@ void ov59_LoadMainScrnData(ov59_IntroOverlayData *data) {
     if (data->scrnDataIndexMain >= 5) {
         return;
     }
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndexMain], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapId);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndexMain], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heapID);
 }
 
 void ov59_LoadCharDataFromIndex(ov59_IntroOverlayData *data) {
     struct ov59_GraphicsPaletteMap021D9F90 graphicsPaletteMap = ov59_021D9F90;
     if (data->spriteDataIndex0 != 0 && data->spriteDataIndex0 < 12) {
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_7_OFFSET, 0x20, data->heapId);
-        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapID);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_7_OFFSET, 0x20, data->heapID);
+        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapID);
         ov59_TilemapChangePalette(data, GF_BG_LYR_MAIN_1, 7);
     }
     if (data->spriteDataIndex1 != 0 && data->spriteDataIndex1 < 12) {
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapId);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_8_OFFSET, 0x20, data->heapId);
-        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapId);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapID);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_8_OFFSET, 0x20, data->heapID);
+        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapID);
         ov59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
     }
 }
@@ -919,7 +919,7 @@ void ov59_LoadSubScrnData(ov59_IntroOverlayData *data) {
     if (data->scrnDataIndexSub >= 5) {
         return;
     }
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndexSub], data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heapId);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndexSub], data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heapID);
     if (data->scrnDataIndexSub == 1) {
         ov59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 3);
     } else if (data->scrnDataIndexSub == 2) {
@@ -931,17 +931,17 @@ void ov59_LoadSubScrnData(ov59_IntroOverlayData *data) {
 void ov59_DrawMunchlax(ov59_IntroOverlayData *data) {
     struct SomeDrawPokemonStruct drawStruct;
     sub_02068C00(&drawStruct, SPECIES_MUNCHLAX, MON_MALE, 2, FALSE, 0, 0);
-    u16 *src = (u16 *)AllocFromHeap(data->heapId, 0x64 * sizeof(u16));
+    u16 *src = (u16 *)Heap_Alloc(data->heapID, 0x64 * sizeof(u16));
     for (s32 i = 0; i < 0x64; i++) {
         src[i] = ov59_021D9FE8[i] + 1;
     }
-    u32 *charData = sub_0201244C(drawStruct.unk0, drawStruct.unk2, data->heapId);
-    u32 *plttData = sub_02012470(drawStruct.unk0, drawStruct.unk4, data->heapId);
+    u32 *charData = sub_0201244C(drawStruct.unk0, drawStruct.unk2, data->heapID);
+    u32 *plttData = sub_02012470(drawStruct.unk0, drawStruct.unk4, data->heapID);
 
     FillBgTilemapRect(data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, 0, 32, 24, 9);
     LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_MAIN_2, src, 11, 11, 10, 10);
     ov59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 9);
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 32, 0, data->heapId);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 32, 0, data->heapID);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_MAIN_2, charData, 0xc80, 1);
     BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, GF_PAL_SLOT_8_OFFSET); // r2 and r3 regswap
     BG_LoadPlttData(GF_BG_LYR_MAIN_2, ov59_021D9ED8, 32, GF_PAL_SLOT_9_OFFSET);
@@ -949,13 +949,13 @@ void ov59_DrawMunchlax(ov59_IntroOverlayData *data) {
     FillBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, 0, 0, 0, 32, 24, 10);
     LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, src, 11, 7, 10, 10);
     ov59_TilemapChangePalette(data, GF_BG_LYR_SUB_1, 10);
-    BG_ClearCharDataRange(GF_BG_LYR_SUB_1, 32, 0, data->heapId);
+    BG_ClearCharDataRange(GF_BG_LYR_SUB_1, 32, 0, data->heapID);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_SUB_1, charData, 0xc80, 1);
     BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, GF_PAL_SLOT_10_OFFSET);
     BG_LoadPlttData(GF_BG_LYR_SUB_1, ov59_021D9ED8, 32, GF_PAL_SLOT_10_OFFSET);
-    FreeToHeap(plttData);
-    FreeToHeap(charData);
-    FreeToHeap(src);
+    Heap_Free(plttData);
+    Heap_Free(charData);
+    Heap_Free(src);
 }
 #else
 // clang-format off
@@ -973,7 +973,7 @@ asm void ov59_DrawMunchlax(ov59_IntroOverlayData *data) {
     bl sub_02068C00
     ldr r0, [r5, #0]
     mov r1, #0xc8
-    bl AllocFromHeap
+    bl Heap_Alloc
     add r7, r0, #0
     ldr r2, =ov59_021D9FE8
     mov r1, #0
@@ -1099,11 +1099,11 @@ _021D82C8:
     lsl r3, r0, #6
     bl BG_LoadPlttData
     add r0, r6, #0
-    bl FreeToHeap
+    bl Heap_Free
     add r0, r4, #0
-    bl FreeToHeap
+    bl Heap_Free
     add r0, r7, #0
-    bl FreeToHeap
+    bl Heap_Free
     add sp, #0x20
     pop {r3, r4, r5, r6, r7, pc}
 }
@@ -1111,11 +1111,11 @@ _021D82C8:
 #endif
 
 void ov59_LoadPokeballButton(ov59_IntroOverlayData *data) {
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0038_NSCR, data->bgConfig, GF_BG_LYR_SUB_2, 0, 0, FALSE, data->heapId);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0038_NSCR, data->bgConfig, GF_BG_LYR_SUB_2, 0, 0, FALSE, data->heapID);
     ov59_TilemapChangePalette(data, GF_BG_LYR_SUB_2, 9);
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0039_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_7_OFFSET, 0x60, data->heapId);
-    BG_ClearCharDataRange(GF_BG_LYR_SUB_2, 0x20, 0, data->heapId);
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_pokeball_button_1_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heapId);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0039_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_7_OFFSET, 0x60, data->heapID);
+    BG_ClearCharDataRange(GF_BG_LYR_SUB_2, 0x20, 0, data->heapID);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_pokeball_button_1_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heapID);
 }
 
 BOOL ov59_MoveSprite(ov59_IntroOverlayData *data, enum GFBgLayer layer, u32 param2) {
@@ -1169,7 +1169,7 @@ void ov59_AnimatePlayerSprite(ov59_IntroOverlayData *data) {
         data->maleAnimTimer = timer;
         G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG2, GX_BLEND_PLANEMASK_BG3, 6, 10);
         struct ov59_CharStruct021D9DEC charStruct = ov59_021D9DEC;
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->maleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->maleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapID);
     } else {
         if (data->femaleAnimTimer != 0) {
             timer = data->femaleAnimTimer - 1;
@@ -1181,7 +1181,7 @@ void ov59_AnimatePlayerSprite(ov59_IntroOverlayData *data) {
         data->femaleAnimTimer = timer;
         G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, GX_BLEND_PLANEMASK_BG3, 6, 10);
         struct ov59_CharStruct021D9DEC charStruct = ov59_021D9DFC;
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->femaleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapId);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->femaleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heapID);
     }
 }
 
@@ -1218,7 +1218,7 @@ BOOL ov59_PlayerShrinkAnimation(ov59_IntroOverlayData *data) {
     if (addr->charData[data->spriteDataIndex2] == 0xFF) {
         ret = TRUE;
     } else {
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, addr->charData[data->spriteDataIndex2], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapId);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, addr->charData[data->spriteDataIndex2], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heapID);
     }
     return ret;
 }
@@ -1644,7 +1644,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         sub_02005350(SEQ_OPENING, 0);
         ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_PLANE_TOGGLE_ON);
         ToggleBgLayer(GF_BG_LYR_SUB_3, GX_PLANE_TOGGLE_ON);
-        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 1;
         break;
 
@@ -1673,7 +1673,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         ov59_LoadCharDataFromIndex(data);
         ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_PLANE_TOGGLE_ON);
         ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_PLANE_TOGGLE_ON);
-        BeginNormalPaletteFade(3, 1, 1, RGB_BLACK, 16, 4, data->heapId);
+        BeginNormalPaletteFade(3, 1, 1, RGB_BLACK, 16, 4, data->heapID);
         data->controllerCounter = 4;
         break;
 
@@ -1721,7 +1721,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         break;
 
     case 8: // fade to black
-        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 9;
         break;
 
@@ -1739,7 +1739,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         ov59_LoadMainScrnData(data);
         data->scrnDataIndexSub = 1;
         ov59_LoadSubScrnData(data);
-        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 11;
         break;
 
@@ -1857,7 +1857,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
             break;
         }
         sub_020146C4(data->unk68);
-        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 25;
         break;
 
@@ -1896,7 +1896,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         ov59_LoadSubScrnData(data);
         ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_PLANE_TOGGLE_ON);
         BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
-        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 29;
         break;
 
@@ -1919,7 +1919,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         ov59_LoadMainScrnData(data);
         data->scrnDataIndexSub = 2;
         ov59_LoadSubScrnData(data);
-        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 32;
         break;
 
@@ -1973,7 +1973,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         break;
 
     case 39: // fade to black
-        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 0, 0, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 40;
         break;
 
@@ -2001,7 +2001,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         break;
 
     case 43: // fade to black
-        BeginNormalPaletteFade(4, 0, 0, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(4, 0, 0, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 44;
         break;
 
@@ -2013,7 +2013,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         data->scrnDataIndexSub = 4;
         ov59_LoadSubScrnData(data);
         ToggleBgLayer(GF_BG_LYR_SUB_2, GX_PLANE_TOGGLE_ON);
-        BeginNormalPaletteFade(4, 1, 1, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(4, 1, 1, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 45;
         break;
 
@@ -2063,7 +2063,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
             PlaySE(SEQ_SE_DP_BOWA2);
             data->controllerCounter = 50;
         } else {
-            GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, arr2[data->spriteDataIndex2], data->bgConfig, GF_BG_LYR_SUB_2, 32, 0, FALSE, data->heapId);
+            GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, arr2[data->spriteDataIndex2], data->bgConfig, GF_BG_LYR_SUB_2, 32, 0, FALSE, data->heapID);
             data->spriteDataIndex2++;
             data->spriteData2Timer = 4;
         }
@@ -2301,7 +2301,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
 
     case 76: // load keyboard overlay (except this is not an overlay at all)
         data->playerStruct->gender = data->selectedGender;
-        data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heapId);
+        data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heapID);
         data->controllerCounter = 77;
         break;
 
@@ -2316,7 +2316,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
             ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_PLANE_TOGGLE_ON);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 0);
         }
-        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 78;
         break;
 
@@ -2464,7 +2464,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         break;
 
     case 92: // load keyboard
-        data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heapId);
+        data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heapID);
         data->controllerCounter = 93;
         break;
 
@@ -2474,7 +2474,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         ToggleBgLayer(GF_BG_LYR_SUB_3, GX_PLANE_TOGGLE_ON);
         ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_PLANE_TOGGLE_ON);
         BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
-        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapId);
+        BeginNormalPaletteFade(0, 1, 1, RGB_BLACK, 6, 1, data->heapID);
         data->controllerCounter = 94;
         break;
 
@@ -2597,7 +2597,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
         break;
 
     case 108: // load overaly 59 TV
-        data->loadedOverlay = OverlayManager_New(&ov59_021D9DDC, 0, data->heapId);
+        data->loadedOverlay = OverlayManager_New(&ov59_021D9DDC, 0, data->heapID);
         data->controllerCounter = 109;
         break;
 

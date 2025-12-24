@@ -23,7 +23,7 @@ ov73_021D74F0: ; 0x021D74F0
 	mov r0, #3
 	mov r1, #0x38
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D757C ; =0x000015E8
 	add r0, r5, #0
 	mov r2, #0x38
@@ -201,7 +201,7 @@ ov73_021D7640: ; 0x021D7640
 	mov r0, #0
 	str r0, [r6, #0x18]
 	add r0, r4, #0
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -872,7 +872,7 @@ _021D7BC6:
 	bl GF_AssertFail
 _021D7C0C:
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021D7C12:
 	ldr r0, [r5]
 	add r0, r0, #1
@@ -2023,7 +2023,7 @@ ov73_021D856C: ; 0x021D856C
 _021D857C:
 	ldr r0, _021D858C ; =0x0000152C
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D858C ; =0x0000152C
 	mov r1, #0
 	str r1, [r4, r0]
@@ -2522,7 +2522,7 @@ ov73_021D8980: ; 0x021D8980
 	mov r1, #1
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov73_021D8980
 
@@ -3425,7 +3425,7 @@ ov73_021D9094: ; 0x021D9094
 	mov r1, #8
 	str r2, [sp]
 	add r5, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0
 	str r5, [r4]
@@ -3481,7 +3481,7 @@ ov73_021D90F4: ; 0x021D90F4
 	bl ov73_021D91BC
 _021D9104:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov73_021D90F4
 
@@ -3508,7 +3508,7 @@ ov73_021D9120: ; 0x021D9120
 	add r0, r3, #0
 	lsl r1, r1, #4
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x1b
 	mov r1, #0
 	lsl r2, r2, #4
@@ -3591,7 +3591,7 @@ ov73_021D91BC: ; 0x021D91BC
 	ldr r0, [r4, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov73_021D91BC
@@ -3690,7 +3690,7 @@ ov73_021D9258: ; 0x021D9258
 	bl sub_02013D98
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
@@ -3716,7 +3716,7 @@ ov73_021D9288: ; 0x021D9288
 	bl sub_02013E14
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
@@ -5118,9 +5118,9 @@ ov73_021D9D48: ; 0x021D9D48
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x20]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x28]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov73_021D9D48
@@ -6047,7 +6047,7 @@ ov73_021DA374: ; 0x021DA374
 	ldr r0, [r4, #4]
 	bl BgTilemapRectChangePalette
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #4]
 	mov r1, #1
 	bl ScheduleBgTilemapBufferTransfer
@@ -9210,7 +9210,7 @@ _021DBAA4:
 	add r0, r1, r0
 	str r0, [sp, #0x20]
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x28]
 	add r0, r0, #1
 	str r0, [sp, #0x28]

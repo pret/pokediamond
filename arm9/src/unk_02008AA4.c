@@ -103,7 +103,7 @@ void sub_02008AA4(struct UnkStruct_0200BB14_sub *param0,
 }
 
 struct UnkStruct_02008AA4_1 *sub_02008BE0(struct UnkStruct_02008AA4_2 *param0,
-    HeapID heapId,
+    enum HeapID heapID,
     struct UnkStruct_02008DEC_1 *param2,
     struct UnkStruct_02008DEC_1 *param3,
     struct UnkStruct_02008DEC_1 *param4,
@@ -116,8 +116,8 @@ struct UnkStruct_02008AA4_1 *sub_02008BE0(struct UnkStruct_02008AA4_2 *param0,
         r4++;
     }
 
-    struct UnkStruct_02008AA4_1 *r6 = AllocFromHeap(heapId, sizeof(struct UnkStruct_02008AA4_1));
-    r6->unk00 = AllocFromHeap(heapId, r4 * sizeof(struct UnkStruct_0200BB14_sub));
+    struct UnkStruct_02008AA4_1 *r6 = Heap_Alloc(heapID, sizeof(struct UnkStruct_02008AA4_1));
+    r6->unk00 = Heap_Alloc(heapID, r4 * sizeof(struct UnkStruct_0200BB14_sub));
     r6->unk04 = r4;
 
     for (int r7 = 0; r7 < r6->unk04; r7++) {
@@ -145,9 +145,9 @@ void sub_02008C80(struct UnkStruct_02008AA4_1 *param0) {
     GF_ASSERT(param0);
 
     if (param0->unk00 != NULL) {
-        FreeToHeap(param0->unk00);
+        Heap_Free(param0->unk00);
     }
-    FreeToHeap(param0);
+    Heap_Free(param0);
 }
 
 u32 sub_02008C9C(u32 param0, void *param1, u32 param2) {

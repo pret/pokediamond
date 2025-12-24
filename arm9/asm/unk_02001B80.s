@@ -24,7 +24,7 @@ sub_02001B8C: ; 0x02001B8C
 	mov r1, #0x20
 	add r7, r2, #0x0
 	str r0, [sp, #0x4]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	add r3, r5, #0x0
 	ldmia r3!, {r0-r1}
@@ -125,7 +125,7 @@ _02001C68:
 	bl DestroyListMenuCursorObj
 	ldrb r0, [r4, #0x1c]
 	add r1, r4, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 
 	thumb_func_start sub_02001C78
@@ -886,7 +886,7 @@ sub_020021EC: ; 0x020021EC
 	bl RemoveWindow
 	ldr r1, [r5, #0x4]
 	add r0, r4, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [r5, #0x0]
 	bl ListMenuItems_Delete
 	add r0, r5, #0x0

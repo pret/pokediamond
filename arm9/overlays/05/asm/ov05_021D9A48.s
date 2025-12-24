@@ -157,7 +157,7 @@ ov05_021D9B54: ; 0x021D9B54
 	mov r1, #0xae
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	mov r1, #0
 	add r2, r7, #0
@@ -199,7 +199,7 @@ _021D9B98:
 	mov r1, #4
 	add r0, r7, #0
 	add r2, r1, #0
-	bl GF_ExpHeap_FndInitAllocator
+	bl HeapExp_FndInitAllocator
 	mov r0, #0x6e
 	mov r1, #4
 	bl NARC_New
@@ -712,7 +712,7 @@ _021D9F54:
 	bl NNS_G3dFreeAnmObj
 	str r7, [r5, #0x10]
 	ldr r0, [r5, #0x24]
-	bl FreeToHeap
+	bl Heap_Free
 _021D9F6E:
 	mov r0, #0
 	str r0, [r5, #0x14]
@@ -747,7 +747,7 @@ _021D9F90:
 	mov r0, #0
 	str r0, [r5]
 	ldr r0, [r5, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 _021D9FAC:
 	mov r0, #0
 	str r0, [r5, #4]
@@ -822,7 +822,7 @@ ov05_021DA018: ; 0x021DA018
 	ldr r0, [r4, r0]
 	bl NARC_Delete
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021DA038:
 	pop {r4, pc}
 	.balign 4, 0
@@ -1428,7 +1428,7 @@ ov05_021DA430: ; 0x021DA430
 	mov r1, #0xe
 	mov r0, #4
 	lsl r1, r1, #6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r2, #0xe
 	mov r0, #0
@@ -1446,7 +1446,7 @@ ov05_021DA450: ; 0x021DA450
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _021DA462
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4]
 _021DA462:

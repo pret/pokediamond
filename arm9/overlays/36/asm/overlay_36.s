@@ -12,7 +12,7 @@ ov36_02254854: ; 0x02254854
 	mov r0, #8
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254892
 	ldr r3, [sp]
@@ -32,7 +32,7 @@ ov36_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -108,7 +108,7 @@ ov36_02254914: ; 0x02254914
 	ldr r0, [r4, r0]
 	bl ov36_02254E78
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 _02254930: .word 0x00005B84
@@ -813,7 +813,7 @@ ov36_02254E30: ; 0x02254E30
 	add r5, r1, #0
 	mov r0, #8
 	mov r1, #0x70
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254E74
 	add r0, #8
@@ -849,7 +849,7 @@ ov36_02254E78: ; 0x02254E78
 	beq _02254E88
 	bl ov36_02254EE4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254E88:
 	pop {r4, pc}
 	.align 2, 0

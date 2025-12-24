@@ -541,7 +541,7 @@ _021F000E:
 	add r2, r6, #0
 	bl BufferPlayersName
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #0x24
 	bl ov05_021F01EC
@@ -743,7 +743,7 @@ _021F01D4:
 	add r0, r4, #0
 	bl ov05_021F0290
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_02037778
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -857,7 +857,7 @@ ov05_021F02C4: ; 0x021F02C4
 	ldr r5, [r6, #0x10]
 	mov r0, #0xb
 	mov r1, #0x94
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	bl ov05_021F0254
 	str r6, [r4, #0x30]

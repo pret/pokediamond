@@ -6,8 +6,8 @@
 #include "main.h"
 #include "poke_overlay.h"
 
-struct OverlayManager *OverlayManager_New(const struct OverlayManagerTemplate *template, s32 *a1, HeapID heapId) {
-    struct OverlayManager *ret = (struct OverlayManager *)AllocFromHeap(heapId, sizeof(struct OverlayManager));
+struct OverlayManager *OverlayManager_New(const struct OverlayManagerTemplate *template, s32 *a1, enum HeapID heapID) {
+    struct OverlayManager *ret = (struct OverlayManager *)Heap_Alloc(heapID, sizeof(struct OverlayManager));
     ret->template = *template;
     ret->managerStatus = 0;
     ret->overlayStatus = 0;
@@ -19,11 +19,11 @@ struct OverlayManager *OverlayManager_New(const struct OverlayManagerTemplate *t
 }
 
 void OverlayManager_Delete(struct OverlayManager *overlayManager) {
-    FreeToHeap(overlayManager);
+    Heap_Free(overlayManager);
 }
 
-void *OverlayManager_CreateAndGetData(struct OverlayManager *overlayManager, u32 size, HeapID heapId) {
-    return overlayManager->data = AllocFromHeap(heapId, size);
+void *OverlayManager_CreateAndGetData(struct OverlayManager *overlayManager, u32 size, enum HeapID heapID) {
+    return overlayManager->data = Heap_Alloc(heapID, size);
 }
 
 void *OverlayManager_GetData(struct OverlayManager *overlayManager) {
@@ -31,7 +31,7 @@ void *OverlayManager_GetData(struct OverlayManager *overlayManager) {
 }
 
 void OverlayManager_FreeData(struct OverlayManager *overlayManager) {
-    FreeToHeap(overlayManager->data);
+    Heap_Free(overlayManager->data);
     overlayManager->data = NULL;
 }
 

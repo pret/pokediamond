@@ -184,7 +184,7 @@ sub_020859C0: ; 0x020859C0
 	mov r0, #0x3
 	mov r1, #0x35
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	mov r0, #0x35
 	bl ov62_02230F3C
 	bl ov62_0222F7E0
@@ -505,7 +505,7 @@ sub_02085C08: ; 0x02085C08
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
@@ -539,7 +539,7 @@ sub_02085C08: ; 0x02085C08
 	bl sub_02085D8C
 	ldr r0, _02085D64 ; =0x00000428
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
 	bl ov62_0222DAEC
 	mov r0, #0x73
@@ -570,7 +570,7 @@ sub_02085C08: ; 0x02085C08
 	bl OverlayManager_FreeData
 	bl sub_0201CD04
 	mov r0, #0x35
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _02085D68 ; =SDK_OVERLAY_OVERLAY_08_ID
 	bl UnloadOverlayByID
 	mov r0, #0x1
@@ -805,11 +805,11 @@ _02085F14:
 	b _02085F38
 _02085F20:
 	ldr r0, [r6, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r6, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r4-r7, pc}
@@ -828,7 +828,7 @@ ShowSealCapsuleEditor: ; 0x02085F48
 	add r5, r1, #0x0
 	mov r0, #0xb
 	mov r1, #0x18
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	add r2, r4, #0x0
 	mov r1, #0x18
@@ -841,7 +841,7 @@ _02085F5E:
 	mov r0, #0xb
 	mov r1, #0x30
 	str r5, [r4, #0x10]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x30
 	str r0, [r4, #0x8]
@@ -854,7 +854,7 @@ _02085F5E:
 	mov r1, #0x40
 	str r5, [r0, #0x28]
 	mov r0, #0xb
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x40
 	str r0, [r4, #0xc]

@@ -1852,7 +1852,7 @@ _0222E3FE:
 	mov r1, #2
 	bl FreeBgTilemapBuffer
 	ldr r0, [r7]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
@@ -1916,7 +1916,7 @@ ov83_0222E48C: ; 0x0222E48C
 	mov r0, #3
 	mov r1, #0x51
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0x57
 	add r0, r5, #0
 	lsl r1, r1, #2
@@ -2372,7 +2372,7 @@ ov83_0222E850: ; 0x0222E850
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x51
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0
 	bl ov83_02239450
 	mov r0, #1
@@ -3029,7 +3029,7 @@ _0222EDD0:
 	mov r1, #5
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov83_0222ED88
 
@@ -3085,7 +3085,7 @@ ov83_0222EDF8: ; 0x0222EDF8
 	mov r2, #3
 	mov r1, #0x5b
 	lsl r2, r2, #8
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _0222EE88 ; =0x00000496
 	mov r0, #9
 	mov r2, #1
@@ -3312,14 +3312,14 @@ ov83_0222F048: ; 0x0222F048
 	push {r4, lr}
 	add r4, r0, #0
 	mov r0, #0x5b
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _0222F06C ; =SDK_OVERLAY_OVERLAY_63_ID
 	ldr r1, _0222F070 ; =ov63_021DBAB8
 	bl RegisterMainOverlay
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x55
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r4, pc}
 	nop
@@ -4167,7 +4167,7 @@ ov83_0222F74C: ; 0x0222F74C
 	mov r1, #0xf5
 	mov r0, #0xf
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, _0222F79C ; =ov83_0223B884
 	mov r2, #0xf5
 	str r0, [r1]
@@ -4538,7 +4538,7 @@ ov83_0222F9DC: ; 0x0222F9DC
 	ldr r1, _0222F9F4 ; =ov83_0223B884
 	mov r0, #0xf
 	ldr r1, [r1]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, _0222F9F4 ; =ov83_0223B884
 	mov r1, #0
 	str r1, [r0]
@@ -4667,7 +4667,7 @@ _0222FAB6:
 	mov r1, #5
 	bl FreeBgTilemapBuffer
 	ldr r0, [r7]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov83_0222FA4C
 
@@ -6505,7 +6505,7 @@ ov83_02230954: ; 0x02230954
 	mov r0, #3
 	mov r1, #0x56
 	lsl r2, r0, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _022309FC ; =0x00002998
 	add r0, r5, #0
 	mov r2, #0x56
@@ -6561,7 +6561,7 @@ _022309D0:
 	mov r0, #0
 	mov r1, #0x5b
 	lsl r2, r2, #8
-	bl CreateHeap
+	bl Heap_Create
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
@@ -7695,11 +7695,11 @@ _0223139A:
 	bl RegisterMainOverlay
 _022313A6:
 	mov r0, #0x5b
-	bl DestroyHeap
+	bl Heap_Destroy
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x56
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _022313E0 ; =0x000015D4
 	ldr r0, [r4, r0]
 	cmp r0, #2
@@ -7828,7 +7828,7 @@ ov83_02231494: ; 0x02231494
 	bl sub_0202E4F0
 	ldr r0, _022314B0 ; =ov83_0223B888
 	ldr r0, [r0, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_02033ED0
 	ldr r0, _022314B0 ; =ov83_0223B888
 	mov r1, #0
@@ -7919,7 +7919,7 @@ _0223153C:
 	bl ov83_02239D98
 	add r1, r0, #0
 	mov r0, #0x56
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r2, r0, #0
 	ldr r0, _022315C0 ; =ov83_0223B888
 	ldr r1, _022315C4 ; =ov83_02231440
@@ -9395,7 +9395,7 @@ ov83_022320D8: ; 0x022320D8
 	add r3, r6, #0
 	bl BG_LoadScreenTilemapData
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -9696,7 +9696,7 @@ _02232312:
 	ldr r0, [r4, r0]
 	bl sub_02020248
 	ldr r0, [sp, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 _0223237C:
 	ldr r0, [sp, #8]
 	add r6, r6, #1
@@ -9726,7 +9726,7 @@ ov83_022323A8: ; 0x022323A8
 	mov r0, #3
 	mov r1, #0x57
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _0223240C ; =0x00003CF4
 	add r0, r4, #0
 	mov r2, #0x57
@@ -9759,7 +9759,7 @@ ov83_022323A8: ; 0x022323A8
 	mov r0, #0
 	mov r1, #0x5b
 	lsl r2, r2, #8
-	bl CreateHeap
+	bl Heap_Create
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -11361,16 +11361,16 @@ _02233104:
 	bl FreeBgTilemapBuffer
 	ldr r0, _0223315C ; =0x0000299C
 	ldr r0, [r7, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _02233160 ; =SDK_OVERLAY_OVERLAY_83_ID
 	ldr r1, _02233164 ; =ov83_0223A434
 	bl RegisterMainOverlay
 	mov r0, #0x5b
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, [sp]
 	bl OverlayManager_FreeData
 	mov r0, #0x57
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -11390,7 +11390,7 @@ ov83_02233168: ; 0x02233168
 	bl ov83_022331E0
 	ldr r1, _022331B4 ; =0x00003CF4
 	add r0, r5, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	ldr r2, _022331B4 ; =0x00003CF4
 	mov r1, #0
 	add r4, r0, #0
@@ -11412,7 +11412,7 @@ ov83_02233168: ; 0x02233168
 	mov r1, #1
 	bl ov83_02231DF0
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _022331B4: .word 0x00003CF4
@@ -15963,7 +15963,7 @@ ov83_022352FC: ; 0x022352FC
 	add r0, r3, #0
 	lsl r1, r1, #0xc
 	add r7, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	beq _02235330
 	add r1, r5, #0
@@ -15975,7 +15975,7 @@ ov83_022352FC: ; 0x022352FC
 	cmp r0, #0
 	bne _02235330
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _02235330:
@@ -16110,7 +16110,7 @@ ov83_022353C0: ; 0x022353C0
 	add r1, #8
 	bl sub_02020248
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov83_022353C0
 
@@ -16227,7 +16227,7 @@ ov83_022354F0: ; 0x022354F0
 	str r0, [sp, #0xc]
 	mov r0, #0x4e
 	lsl r1, r1, #0xc
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r6, #0
 	str r0, [sp, #0x10]
 	add r7, r6, #0
@@ -16348,7 +16348,7 @@ _02235602:
 	cmp r6, #0x1e
 	blt _02235512
 	ldr r0, [sp, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0xc]
 	bl NARC_Delete
 	ldr r1, _02235640 ; =ov83_022354AC
@@ -18509,7 +18509,7 @@ ov83_02236764: ; 0x02236764
 	mov r0, #3
 	mov r1, #0x4e
 	lsl r2, r2, #0xe
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _022367F0 ; =0x00012608
 	add r0, r5, #0
 	mov r2, #0x4e
@@ -19280,14 +19280,14 @@ ov83_02236DD0: ; 0x02236DD0
 	add r4, r0, #0
 	bl OverlayManager_GetData
 	ldr r0, [r0, #0x20]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _02236DFC ; =SDK_OVERLAY_OVERLAY_63_ID
 	ldr r1, _02236E00 ; =ov63_021DBAB8
 	bl RegisterMainOverlay
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4e
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0
 	bl ov83_02239450
 	mov r0, #1
@@ -22615,12 +22615,12 @@ _02238604: .word heap_id
 ov83_Alloc: ; 0x02238608
 	add r1, r0, #0
 	ldr r0, _02238614 ; =heap_id
-	ldr r3, _02238618 ; =AllocFromHeap
+	ldr r3, _02238618 ; =Heap_Alloc
 	ldr r0, [r0]
 	bx r3
 	nop
 _02238614: .word heap_id
-_02238618: .word AllocFromHeap
+_02238618: .word Heap_Alloc
 	thumb_func_end ov83_Alloc
 
 	thumb_func_start ov83_0223861C
@@ -22669,7 +22669,7 @@ _02238652:
 	mov r0, #0
 	bl CTRDG_Enable
 	ldr r0, _022386C0 ; =ov83_Alloc
-	ldr r1, _022386C4 ; =FreeToHeap
+	ldr r1, _022386C4 ; =Heap_Free
 	bl SetCustomAllocatorAndDestructor
 	ldr r1, _022386B8 ; =0x000004A8
 	ldr r3, _022386C8 ; =ov83_0223A6B4
@@ -22701,7 +22701,7 @@ _022386B4: .word ov83_0223B69C
 _022386B8: .word 0x000004A8
 _022386BC: .word 0x08020000
 _022386C0: .word ov83_Alloc
-_022386C4: .word FreeToHeap
+_022386C4: .word Heap_Free
 _022386C8: .word ov83_0223A6B4
 	thumb_func_end ov83_0223861C
 
@@ -22827,7 +22827,7 @@ ov83_022387A0: ; 0x022387A0
 	add r6, r1, #0
 	mov r0, #3
 	add r2, r3, #0
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
@@ -24232,7 +24232,7 @@ ov83_022391EC: ; 0x022391EC
 	lsl r3, r3, #8
 	bl BG_LoadScreenTilemapData
 	ldr r0, [sp, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -24322,7 +24322,7 @@ ov83_022392EC: ; 0x022392EC
 	add r0, r2, #0
 	lsl r1, r1, #8
 	str r2, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, _0223936C ; =0x0000A001
 	add r4, r0, #0
 	bl MATHi_CRC16InitTableRev
@@ -24332,7 +24332,7 @@ ov83_022392EC: ; 0x022392EC
 	bl MATH_CalcCRC16
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, sp, #4
 	bl OS_GetMacAddress
 	add r0, sp, #4
@@ -24354,7 +24354,7 @@ _0223932E:
 	mov r1, #0x41
 	ldr r0, [sp]
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, sp, #4
 	mov r2, #8
 	add r4, r0, #0
@@ -24367,7 +24367,7 @@ _0223932E:
 	add r3, r7, #0
 	bl sub_020952AC
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -24385,7 +24385,7 @@ ov83_02239374: ; 0x02239374
 	add r0, r2, #0
 	lsl r1, r1, #8
 	str r2, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, _0223940C ; =0x0000A001
 	add r4, r0, #0
 	bl MATHi_CRC16InitTableRev
@@ -24395,7 +24395,7 @@ ov83_02239374: ; 0x02239374
 	bl MATH_CalcCRC16
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	bl sub_0202EF18
 	ldrb r2, [r0, #4]
@@ -24429,7 +24429,7 @@ _022393CE:
 	mov r1, #0x41
 	ldr r0, [sp]
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, sp, #4
 	mov r2, #8
 	add r4, r0, #0
@@ -24442,7 +24442,7 @@ _022393CE:
 	add r3, r7, #0
 	bl sub_020952AC
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -25751,7 +25751,7 @@ ov83_02239DC0: ; 0x02239DC0
 	bic r1, r0
 	add r1, #0x20
 	mov r0, #0x56
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r2, r0, #0
 	add r2, #0x20
 	mov r1, #0x1f
@@ -25769,7 +25769,7 @@ ov83_02239DE0: ; 0x02239DE0
 	beq _02239DEE
 	sub r0, r1, #4
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 _02239DEE:
 	pop {r3, pc}
 	thumb_func_end ov83_02239DE0

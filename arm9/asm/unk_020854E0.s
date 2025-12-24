@@ -29,7 +29,7 @@ sub_020854E0: ; 0x020854E0
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x20]
 	mov r1, #0x1c
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
@@ -67,7 +67,7 @@ sub_02085538: ; 0x02085538
 	mov r1, #0x1c
 	add r6, r2, #0x0
 	str r3, [sp, #0x0]
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
@@ -97,7 +97,7 @@ sub_02085578: ; 0x02085578
 	add r6, r1, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x1c
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
@@ -124,7 +124,7 @@ sub_020855B0: ; 0x020855B0
 	add r6, r1, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x1c
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
@@ -191,10 +191,10 @@ sub_0208562C: ; 0x0208562C
 	ldr r0, [r4, #0x14]
 	cmp r0, #0x0
 	beq _0208563A
-	bl FreeToHeap
+	bl Heap_Free
 _0208563A:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 
@@ -235,7 +235,7 @@ sub_02085644: ; 0x02085644
 	add r2, sp, #0x0
 	bl Pokemon_SetData
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0x0
 _0208569E:
 	pop {r3-r7, pc}
@@ -272,7 +272,7 @@ _020856BC:
 	add r2, r5, #0x0
 	bl Mailbox_DeleteSlotI
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -284,7 +284,7 @@ sub_020856F0: ; 0x020856F0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x34
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x34
 	add r6, r0, #0x0
@@ -358,7 +358,7 @@ sub_0208578C: ; 0x0208578C
 	bl String_Delete
 _0208579A:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 
@@ -418,7 +418,7 @@ sub_020857F8: ; 0x020857F8
 	mov r0, #0x3
 	mov r1, #0x28
 	lsl r2, r2, #0xc
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r4, #0x0
 	mov r1, #0x1c
 	mov r2, #0x28
@@ -629,6 +629,6 @@ sub_020859A0: ; 0x020859A0
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	ldr r0, [r4, #0x0]
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x1
 	pop {r3-r5, pc}

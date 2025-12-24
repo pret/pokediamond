@@ -1610,7 +1610,7 @@ sub_02074AF4: ; 0x02074AF4
 	mov r1, #0x2c
 	add r4, r5, r0
 	mov r0, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0x0
 	mov r0, #0x3
 	lsl r0, r0, #0x8
@@ -1672,7 +1672,7 @@ _02074B6A:
 	add r1, r7, #0x0
 	str r0, [r3, #0x0]
 	mov r0, #0xc
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r1, #0x3
 	lsl r1, r1, #0x8
 	ldrb r3, [r4, r1]

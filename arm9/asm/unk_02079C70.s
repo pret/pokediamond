@@ -92,7 +92,7 @@ sub_02079C7C: ; 0x02079C7C
 	mov r0, #0x3
 	mov r1, #0x13
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _02079DAC ; =0x0000069C
 	add r0, r4, #0x0
 	mov r2, #0x13
@@ -339,7 +339,7 @@ sub_02079ECC: ; 0x02079ECC
 	add r0, r4, #0x0
 	bl OverlayManager_FreeData
 	mov r0, #0x13
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -533,7 +533,7 @@ sub_0207A08C: ; 0x0207A08C
 	bl FreeBgTilemapBuffer
 	mov r0, #0x13
 	add r1, r4, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 	.balign 4
 
@@ -1649,7 +1649,7 @@ _0207A980:
 	cmp r0, #0x2
 	bne _0207A99E
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 _0207A99E:
 	mov r1, #0x7
 	mov r0, #0x0
@@ -1831,7 +1831,7 @@ sub_0207AAE0: ; 0x0207AAE0
 	add r2, r7, #0x0
 	bl sub_0207AB0C
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -2765,7 +2765,7 @@ _0207B256:
 	mov r1, #0x3
 	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0207B2AC ; =0x0000068C
 	ldrsb r0, [r5, r0]
 	cmp r0, #0x0

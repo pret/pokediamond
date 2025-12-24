@@ -13,7 +13,7 @@ UNK_020FD144: ; 0x020FD144
 sub_02087A6C: ; 0x02087A6C
 	push {r3, lr}
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r3, r0, #0x0
 	mov r2, #0x18
 	mov r1, #0x0
@@ -32,7 +32,7 @@ sub_02087A84: ; 0x02087A84
 	bl GF_AssertFail
 _02087A8E:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 
@@ -107,17 +107,17 @@ _02087B1A:
 	bl GF_AssertFail
 _02087B24:
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	str r0, [r4, #0x4]

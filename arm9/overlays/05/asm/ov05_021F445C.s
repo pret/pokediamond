@@ -45,12 +45,12 @@ ov05_021F4498: ; 0x021F4498
 	add r5, r0, #0
 	add r0, r6, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x18
 	add r4, r0, #0
 	add r0, r6, #0
 	mul r1, r5
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #4]
 	mov r6, #0
 	str r5, [r4]
@@ -107,9 +107,9 @@ ov05_021F450C: ; 0x021F450C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4, 0
 

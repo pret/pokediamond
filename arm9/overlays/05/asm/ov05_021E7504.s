@@ -130,7 +130,7 @@ _021E75EA:
 	mov r1, #1
 	str r1, [r0]
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 _021E7606:
@@ -269,7 +269,7 @@ _021E771C:
 	mov r1, #1
 	str r1, [r0]
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _021E7740:
@@ -288,7 +288,7 @@ ov05_021E7750: ; 0x021E7750
 	mov r0, #4
 	mov r1, #0x14
 	add r7, r2, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x14

@@ -32,8 +32,8 @@ BOOL Mail_TypeIsValid(struct Mail *mail) {
     return mail->mail_type <= 11;
 }
 
-struct Mail *Mail_New(HeapID heapId) {
-    struct Mail *ret = (struct Mail *)AllocFromHeapAtEnd(heapId, sizeof(struct Mail));
+struct Mail *Mail_New(enum HeapID heapID) {
+    struct Mail *ret = (struct Mail *)Heap_AllocAtEnd(heapID, sizeof(struct Mail));
     Mail_Init(ret);
     return ret;
 }
@@ -185,10 +185,10 @@ s32 Mailbox_CountMessages(struct Mail *mail, BOOL r1) {
     }
 }
 
-struct Mail *Mailbox_AllocAndFetchMailI(struct Mail *mail, BOOL r1, s32 idx, HeapID heapId) {
+struct Mail *Mailbox_AllocAndFetchMailI(struct Mail *mail, BOOL r1, s32 idx, enum HeapID heapID) {
     struct Mail *ret;
     mail = Mailbox_GetPtrToSlotI(mail, r1, idx);
-    ret = Mail_New(heapId);
+    ret = Mail_New(heapID);
     if (mail != NULL) {
         Mail_Copy(mail, ret);
     }

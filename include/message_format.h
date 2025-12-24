@@ -17,7 +17,7 @@ typedef struct MessageFormatFields {
 
 typedef struct MessageFormat {
     u32 count;
-    HeapID heapId;
+    enum HeapID heapID;
     MessageFormatFields *fields;
     struct String *buffer;
 } MessageFormat;
@@ -29,8 +29,8 @@ struct UnkStruct_0200B870 {
     u32 unk_28;
 };
 
-MessageFormat *MessageFormat_New(HeapID heapId);
-MessageFormat *MessageFormat_New_Custom(u32 nstr, u32 strlen, HeapID heapId);
+MessageFormat *MessageFormat_New(enum HeapID heapID);
+MessageFormat *MessageFormat_New_Custom(u32 nstr, u32 strlen, enum HeapID heapID);
 void MessageFormat_Delete(MessageFormat *messageFormat);
 void MessageFormat_InitFields(MessageFormatFields *fields);
 void SetStringAsPlaceholder(MessageFormat *messageFormat, u32 idx, struct String *str, MessageFormatAttrs *attrs);
@@ -93,7 +93,7 @@ void BufferMonthNameAbbr(MessageFormat *messageFormat, u32 idx, u32 month);
 void MessageFormat_UpperFirstChar(MessageFormat *messageFormat, u32 idx);
 void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest, struct String *src);
 void MessageFormat_ResetBuffers(MessageFormat *messageFormat);
-struct UnkStruct_0200B870 *MessagePrinter_New(u32 color1, u32 color2, u32 color3, HeapID heapId);
+struct UnkStruct_0200B870 *MessagePrinter_New(u32 color1, u32 color2, u32 color3, enum HeapID heapID);
 void MessagePrinter_Delete(struct UnkStruct_0200B870 *a0);
 void sub_0200B9A8(struct UnkStruct_0200B870 *a0, int a1, struct Window *a2, int a3, int a4);
 void sub_0200B9EC(struct UnkStruct_0200B870 *string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y);

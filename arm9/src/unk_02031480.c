@@ -14,9 +14,9 @@ struct UnkStruct_02031480 {
 
 static struct UnkStruct_02031480 *UNK_021C59FC;
 
-void sub_02031480(HeapID heapId) {
+void sub_02031480(enum HeapID heapID) {
     if (UNK_021C59FC == NULL) {
-        UNK_021C59FC = AllocFromHeap(heapId, sizeof(struct UnkStruct_02031480));
+        UNK_021C59FC = Heap_Alloc(heapID, sizeof(struct UnkStruct_02031480));
         MI_CpuFill8(UNK_021C59FC, 0, sizeof(struct UnkStruct_02031480));
     }
 
@@ -29,7 +29,7 @@ void sub_02031480(HeapID heapId) {
 }
 
 void sub_020314D0() {
-    FreeToHeap(UNK_021C59FC);
+    Heap_Free(UNK_021C59FC);
     UNK_021C59FC = NULL;
 }
 

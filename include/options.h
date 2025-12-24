@@ -14,7 +14,7 @@ typedef struct Options {
     u16 frame : 5;
 } Options;
 
-struct Options *Options_New(HeapID heapId);
+struct Options *Options_New(enum HeapID heapID);
 void Options_Copy(struct Options *src, struct Options *dest);
 void Options_Init(struct Options *options);
 void Options_SetButtonModeOnMain(struct SaveData *save, u32 buttonMode);

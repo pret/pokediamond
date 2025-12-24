@@ -23,13 +23,13 @@ struct NutData {
     u8 smoothness;
 };
 
-NARC *OpenNutsDataNarc(HeapID heapId);
-struct NutData *ReadNutDataFromNarc(NARC *narc, u32 berry_idx, HeapID heapId);
+NARC *OpenNutsDataNarc(enum HeapID heapID);
+struct NutData *ReadNutDataFromNarc(NARC *narc, u32 berry_idx, enum HeapID heapID);
 void CloseNutsDataNarc(NARC *narc);
-struct NutData *LoadNutDataSingle(s32 berry_idx, HeapID heapId);
-struct NutData *LoadNutDataSingleByItemId(s32 item_id, HeapID heapId);
+struct NutData *LoadNutDataSingle(s32 berry_idx, enum HeapID heapID);
+struct NutData *LoadNutDataSingleByItemId(s32 item_id, enum HeapID heapID);
 u32 GetNutAttr(struct NutData *nut, u32 attr);
-struct String *GetNutName(u32 berry_idx, HeapID heapId);
-struct String *GetNutDesc(u32 berry_idx, HeapID heapId);
+struct String *GetNutName(u32 berry_idx, enum HeapID heapID);
+struct String *GetNutDesc(u32 berry_idx, enum HeapID heapID);
 
 #endif // POKEDIAMOND_NUTDATA_H

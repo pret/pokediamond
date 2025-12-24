@@ -2254,7 +2254,7 @@ _021E7198:
 	str r0, [sp]
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	mov r0, #0
 	str r0, [r4]
@@ -2298,7 +2298,7 @@ ov05_021E71E8: ; 0x021E71E8
 	add r0, r4, #0
 	bl ov05_021E6014
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _021E7216:
@@ -2394,7 +2394,7 @@ ov05_021E72B8: ; 0x021E72B8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r5, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	bne _021E72CC
 	bl GF_AssertFail
@@ -2409,12 +2409,12 @@ _021E72CC:
 
 	thumb_func_start ov05_021E72DC
 ov05_021E72DC: ; 0x021E72DC
-	ldr r3, _021E72E4 ; =FreeToHeapExplicit
+	ldr r3, _021E72E4 ; =Heap_FreeExplicit
 	add r1, r0, #0
 	mov r0, #4
 	bx r3
 	.balign 4, 0
-_021E72E4: .word FreeToHeapExplicit
+_021E72E4: .word Heap_FreeExplicit
 
 	thumb_func_start ov05_021E72E8
 ov05_021E72E8: ; 0x021E72E8

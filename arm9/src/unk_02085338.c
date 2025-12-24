@@ -7,8 +7,8 @@
 
 extern BOOL sub_0205ED0C(struct SaveVarsFlags *state);
 
-struct UnkStruct_02085338 *sub_02085338(u8 r5, u8 r7, struct SaveData *save, HeapID heapId) {
-    struct UnkStruct_02085338 *ret = (struct UnkStruct_02085338 *)AllocFromHeap(heapId, sizeof(struct UnkStruct_02085338));
+struct UnkStruct_02085338 *sub_02085338(u8 r5, u8 r7, struct SaveData *save, enum HeapID heapID) {
+    struct UnkStruct_02085338 *ret = (struct UnkStruct_02085338 *)Heap_Alloc(heapID, sizeof(struct UnkStruct_02085338));
     ret->unk_00 = r5;
     ret->unk_01 = r7;
     ret->unk_0c = Save_Pokedex_Get(save);
@@ -29,7 +29,7 @@ struct UnkStruct_02085338 *sub_02085338(u8 r5, u8 r7, struct SaveData *save, Hea
 }
 
 void sub_020853A8(struct UnkStruct_02085338 *ptr) {
-    FreeToHeap(ptr);
+    Heap_Free(ptr);
 }
 
 void sub_020853B0(struct UnkStruct_02085338 *ptr, u16 a1) {

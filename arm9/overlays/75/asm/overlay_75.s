@@ -32,7 +32,7 @@ ov75_021E6BA0: ; 0x021E6BA0
 	mov r1, #6
 	mov r0, #3
 	lsl r2, r1, #0xf
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021E6D60 ; =0x000004A4
 	add r0, r5, #0
 	mov r2, #6
@@ -460,7 +460,7 @@ ov75_021E6F00: ; 0x021E6F00
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #6
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -759,7 +759,7 @@ ov75_021E71BC: ; 0x021E71BC
 	bl FreeBgTilemapBuffer
 	mov r0, #6
 	add r1, r4, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov75_021E71BC
@@ -4248,7 +4248,7 @@ _021E8CCC:
 	lsr r2, r2, #0x18
 	bl ov75_021EB130
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -7904,7 +7904,7 @@ _021EA9A8:
 	bl ScheduleWindowCopyToVram
 	mov r0, #6
 	add r1, r7, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -7993,7 +7993,7 @@ _021EAA8C:
 	bl ScheduleWindowCopyToVram
 	ldr r1, [sp, #0x18]
 	mov r0, #6
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -8620,7 +8620,7 @@ ov75_021EAF70: ; 0x021EAF70
 	bl BlitBitmapRectToWindow
 	mov r0, #6
 	add r1, r6, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end ov75_021EAF70
@@ -8695,7 +8695,7 @@ ov75_021EB004: ; 0x021EB004
 	bl BlitBitmapRectToWindow
 	mov r0, #6
 	add r1, r6, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

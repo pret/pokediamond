@@ -9,7 +9,7 @@ ov05_021DBEF4: ; 0x021DBEF4
 	mov r1, #0x42
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	cmp r0, #0
 	beq _021DBF1E
 	mov r2, #0
@@ -218,7 +218,7 @@ ov05_021DC06C: ; 0x021DC06C
 	ldr r0, [r6, r4]
 	cmp r0, #0
 	beq _021DC08A
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r6, r4]
 _021DC08A:
@@ -250,7 +250,7 @@ ov05_021DC0AC: ; 0x021DC0AC
 	push {r3, lr}
 	cmp r0, #0
 	beq _021DC0B6
-	bl FreeToHeap
+	bl Heap_Free
 _021DC0B6:
 	pop {r3, pc}
 

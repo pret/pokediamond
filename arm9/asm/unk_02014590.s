@@ -8,7 +8,7 @@ sub_02014590: ; 0x02014590
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r1, #0x9c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0x0
 	add r4, r0, #0x0
 	bl sub_020146F0
@@ -30,7 +30,7 @@ sub_020145A8: ; 0x020145A8
 	bl sub_020146C4
 _020145BE:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 
@@ -567,7 +567,7 @@ sub_02014970: ; 0x02014970
 	add r5, r6, #0x0
 _020149B4:
 	ldr r0, [r5, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x4
@@ -656,7 +656,7 @@ sub_02014A3C: ; 0x02014A3C
 	mov r1, #0x14
 	add r5, r2, #0x0
 	add r6, r3, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	add r2, r4, #0x0
 	mov r1, #0x14
@@ -696,7 +696,7 @@ sub_02014A8C: ; 0x02014A8C
 	mov r1, #0x14
 	add r5, r2, #0x0
 	add r6, r3, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	add r2, r4, #0x0
 	mov r1, #0x14
@@ -746,9 +746,9 @@ sub_02014AD4: ; 0x02014AD4
 	add r0, r5, #0x0
 	bl SysTask_Destroy
 	ldr r0, [r4, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -782,9 +782,9 @@ _02014B44:
 	add r0, r5, #0x0
 	bl SysTask_Destroy
 	ldr r0, [r4, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_02014B58

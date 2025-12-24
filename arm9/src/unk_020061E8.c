@@ -7,10 +7,10 @@
 
 extern struct TextPrinter *sub_0201B6C8(void);
 
-SysTask *sub_020061E8(SysTaskFunc func, u32 r1, u32 r2, HeapID heapId) {
+SysTask *sub_020061E8(SysTaskFunc func, u32 r1, u32 r2, enum HeapID heapID) {
     void *r4;
     if (r1 != 0) {
-        r4 = AllocFromHeap(heapId, r1);
+        r4 = Heap_Alloc(heapID, r1);
         if (r4 == 0) {
             return NULL;
         }
@@ -24,7 +24,7 @@ SysTask *sub_020061E8(SysTaskFunc func, u32 r1, u32 r2, HeapID heapId) {
 void sub_0200621C(SysTask *sysTask) {
     struct TextPrinter *textPrinter = sub_0201B6C8();
     if (textPrinter != NULL) {
-        FreeToHeap(textPrinter);
+        Heap_Free(textPrinter);
     }
     SysTask_Destroy(sysTask);
 }

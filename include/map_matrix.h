@@ -41,7 +41,7 @@ u8 MapMatrix_GetMatrixID(struct MapMatrix *map_matrix);
 u32 MapMatrix_GetMapAltitude(
     struct MapMatrix *map_matrix, u8 param1, s16 x, s16 y, int matrix_width);
 
-struct MapData *MapMatrix_MapData_New(HeapID heapId);
+struct MapData *MapMatrix_MapData_New(enum HeapID heapID);
 void MapMatrix_MapData_Free(struct MapData *map_data);
 u16 MapMatrix_MapData_GetData(struct MapData *map_data, s32 x, s32 y);
 

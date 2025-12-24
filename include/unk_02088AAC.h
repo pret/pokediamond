@@ -6,7 +6,7 @@
 #include "unk_0208890C.h"
 
 struct UnkStruct_02088AAC {
-    HeapID heapId;
+    enum HeapID heapID;
     u16 unk04;
     u16 unk06;
     u32 item;

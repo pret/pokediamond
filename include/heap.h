@@ -5,47 +5,27 @@
 
 #include "global.h"
 
+#include "constants/heap.h"
+
 #include "NNS_FND_allocator.h"
 #include "NNS_FND_expheap.h"
 
-typedef enum HeapID {
-    HEAP_ID_DEFAULT,
-    HEAP_ID_1,
-    HEAP_ID_2,
-    HEAP_ID_MAIN,
-    HEAP_ID_4,
-    HEAP_ID_POKETCH_MAIN = 7,
-    HEAP_ID_POKETCH_APP,
-    HEAP_ID_FIELD = 11,
-    HEAP_ID_15 = 15,
-    HEAP_ID_32 = 32,
-    HEAP_ID_49 = 49,
-    HEAP_ID_76 = 76,
-    HEAP_ID_77,
-    HEAP_ID_INTRO = 82,
-    HEAP_ID_INTRO_TV = 83,
-} HeapID;
+typedef struct HeapParam {
+    u32 size; // maximum size of the heap
+    OSArenaId arena; // where to allocate the heap from
+} HeapParam;
 
-struct HeapParam {
-    u32 size;
-    OSArenaId arena;
-};
-
-void InitHeapSystem(const struct HeapParam *templates, u32 nTemplates, u32 totalNumHeaps, u32 pre_size);
-s32 FindFirstAvailableHeapHandle(void);
-BOOL CreateHeap(u32 parent, u32 child, u32 size);
-BOOL CreateHeapAtEnd(u32 parent, u32 child, u32 size);
-BOOL CreateHeapInternal(u32 parent, u32 child, u32 size, s32 alignment);
-void DestroyHeap(HeapID heapId);
-void *AllocFromHeapInternal(NNSFndHeapHandle heap, u32 size, s32 alignment, HeapID heapId);
-void AllocFail(void);
-void *AllocFromHeap(HeapID heapId, u32 size);
-void *AllocFromHeapAtEnd(HeapID heapId, u32 size);
-void FreeToHeap(void *ptr);
-void FreeToHeapExplicit(HeapID heapId, void *ptr);
-u32 GF_ExpHeap_FndGetTotalFreeSize(HeapID heapId);
-void GF_ExpHeap_FndInitAllocator(NNSFndAllocator *pAllocator, HeapID heapId, int alignment);
-void ReallocFromHeap(void *ptr, u32 newSize);
-BOOL GF_heap_c_dummy_return_true(HeapID heapId);
+void Heap_InitSystem(const HeapParam *templates, u32 nTemplates, u32 totalNumHeaps, u32 preSize);
+BOOL Heap_Create(enum HeapID parent, enum HeapID child, u32 size);
+BOOL Heap_CreateAtEnd(enum HeapID parent, enum HeapID child, u32 size);
+void Heap_Destroy(enum HeapID heapID);
+void *Heap_Alloc(enum HeapID heapID, u32 size);
+void *Heap_AllocAtEnd(enum HeapID heapID, u32 size);
+void Heap_Free(void *ptr);
+void Heap_FreeExplicit(enum HeapID heapID, void *ptr);
+u32 HeapExp_FndGetTotalFreeSize(enum HeapID heapID);
+void HeapExp_FndInitAllocator(NNSFndAllocator *pAllocator, enum HeapID heapID, int alignment);
+void Heap_Realloc(void *ptr, u32 newSize);
+BOOL GF_heap_c_dummy_return_true(enum HeapID heapID);
 
 #endif // POKEDIAMOND_HEAP_H

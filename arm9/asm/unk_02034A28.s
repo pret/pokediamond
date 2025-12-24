@@ -15,7 +15,7 @@ sub_02034A28: ; 0x02034A28
 _02034A38:
 	ldr r1, _02034A44 ; =0x00000AC8
 	add r0, r4, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x14]
 	pop {r3-r5, pc}
 	.balign 4
@@ -31,7 +31,7 @@ sub_02034A48: ; 0x02034A48
 	bl GF_AssertFail
 _02034A56:
 	ldr r0, [r4, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 

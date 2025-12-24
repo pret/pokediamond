@@ -25,7 +25,7 @@ typedef struct BagCursor {
     BagCursorBattle battle;
 } BagCursor;
 
-BagCursor *BagCursor_New(HeapID heapId);
+BagCursor *BagCursor_New(enum HeapID heapID);
 void BagCursor_Field_PocketGetPosition(BagCursor *cursor, u32 pocket, u8 *position, u8 *scroll);
 u16 BagCursor_Field_GetPocket(BagCursor *cursor);
 void BagCursor_Field_PocketSetPosition(BagCursor *cursor, u32 pocket, u8 position, u8 scroll);

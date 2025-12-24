@@ -9,7 +9,7 @@ sub_02012944: ; 0x02012944
 	add r5, r1, #0x0
 	mov r1, #0xc
 	add r4, r2, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	strb r1, [r0, #0x0]
 	strb r1, [r0, #0x1]
@@ -37,7 +37,7 @@ sub_02012974: ; 0x02012974
 	bl GF_AssertFail
 _0201297E:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 
@@ -119,7 +119,7 @@ sub_02012A00: ; 0x02012A00
 	push {r3-r5, lr}
 	ldr r1, _02012A2C ; =0x0000079C
 	add r5, r0, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, _02012A2C ; =0x0000079C
 	mov r1, #0x0
 	add r4, r0, #0x0
@@ -247,7 +247,7 @@ sub_02012B00: ; 0x02012B00
 	ldr r0, [r4, r0]
 	bl sub_02012974
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 

@@ -879,7 +879,7 @@ sub_02086A80: ; 0x02086A80
 	mov r1, #0x12
 	lsl r1, r1, #0xa
 	add r4, r0, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r2, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -935,7 +935,7 @@ sub_02086AF0: ; 0x02086AF0
 	add r0, r5, #0x0
 	bl sub_02012DE4
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_02086B08
@@ -975,7 +975,7 @@ sub_02086B40: ; 0x02086B40
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	bne _02086B54
 	bl GF_AssertFail
@@ -1023,10 +1023,10 @@ _02086B9C:
 
 	thumb_func_start sub_02086BA0
 sub_02086BA0: ; 0x02086BA0
-	ldr r3, _02086BA4 ; =FreeToHeap
+	ldr r3, _02086BA4 ; =Heap_Free
 	bx r3
 	.balign 4
-_02086BA4: .word FreeToHeap
+_02086BA4: .word Heap_Free
 
 	thumb_func_start sub_02086BA8
 sub_02086BA8: ; 0x02086BA8

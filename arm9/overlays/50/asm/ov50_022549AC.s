@@ -10,7 +10,7 @@ ov50_022549AC: ; 0x022549AC
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _022549DA
 	add r0, #8
@@ -39,10 +39,10 @@ ov50_022549E0: ; 0x022549E0
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _022549F0
-	bl FreeToHeap
+	bl Heap_Free
 _022549F0:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _022549F6:
 	pop {r4, pc}
 	thumb_func_end ov50_022549E0

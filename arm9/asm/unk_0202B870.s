@@ -158,7 +158,7 @@ sub_0202B93C: ; 0x0202B93C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x34
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [sp, #0x4]
 	add r5, r0, #0x0
 	ldr r0, _0202B9E8 ; =UNK_020EEAD0
@@ -248,7 +248,7 @@ sub_0202B9EC: ; 0x0202B9EC
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	lsl r1, r1, #0x2
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r2, #0x4e
 	mov r1, #0x0
 	lsl r2, r2, #0x2
@@ -286,7 +286,7 @@ _0202BA38:
 	cmp r6, #0xd
 	blt _0202BA38
 	ldr r0, [sp, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0x0
 	bl String_Delete
 	ldr r0, [sp, #0x4]
@@ -611,7 +611,7 @@ sub_0202BC98: ; 0x0202BC98
 	mov r1, #0xe0
 	str r2, [sp, #0x10]
 	add r4, r3, #0x0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r6, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -643,7 +643,7 @@ sub_0202BC98: ; 0x0202BC98
 	bl sub_0202BAD4
 _0202BCEA:
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x14
 	pop {r4-r7, pc}
 
@@ -722,7 +722,7 @@ sub_0202BD6C: ; 0x0202BD6C
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x4c
 	add r7, r0, #0x0
@@ -766,7 +766,7 @@ _0202BDC4:
 	blt _0202BDC4
 _0202BDE2:
 	ldr r0, [sp, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0x0
 	add sp, #0x10
 	pop {r3-r7, pc}
@@ -780,7 +780,7 @@ sub_0202BDF0: ; 0x0202BDF0
 	str r1, [sp, #0x0]
 	add r0, r7, #0x0
 	mov r1, #0x4c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x4c
 	add r4, r0, #0x0
@@ -855,5 +855,5 @@ _0202BE7E:
 	mov r2, #0x4c
 	bl MI_CpuFill8
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4-r6, pc}

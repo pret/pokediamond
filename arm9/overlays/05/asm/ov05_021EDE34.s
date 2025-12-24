@@ -229,7 +229,7 @@ ov05_021EDFBC: ; 0x021EDFBC
 _021EDFC4:
 	ldr r1, _021EE03C ; =0x0000086C
 	mov r0, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	lsl r4, r6, #2
 	add r1, r5, r4
 	add r1, #0x90
@@ -298,7 +298,7 @@ ov05_021EE050: ; 0x021EE050
 _021EE058:
 	ldr r1, _021EE0B0 ; =0x0000086C
 	mov r0, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	lsl r4, r6, #2
 	add r1, r5, r4
 	add r1, #0x90
@@ -353,7 +353,7 @@ ov05_021EE0C0: ; 0x021EE0C0
 	beq _021EE0E6
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r7, #0
@@ -382,7 +382,7 @@ _021EE0FC:
 	ldr r0, [r4, #0xc]
 	str r0, [r5, #8]
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 
 	thumb_func_start ov05_021EE114
@@ -2821,7 +2821,7 @@ ov05_021EF368: ; 0x021EF368
 	lsl r1, r1, #2
 	str r2, [sp, #4]
 	add r6, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x41
 	mov r1, #0
 	lsl r2, r2, #2
@@ -3074,7 +3074,7 @@ _021EF542:
 	add r0, r5, r4
 	add r0, #0x90
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, r4
 	add r0, #0x90
 	str r7, [r0]
@@ -3109,7 +3109,7 @@ ov05_021EF5A8: ; 0x021EF5A8
 	ldr r0, [r4]
 	bl ov05_021F3C30
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -3710,7 +3710,7 @@ _021EF9EC:
 	mov r1, #0
 	str r1, [r0]
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _021EF9FE:
@@ -3728,7 +3728,7 @@ ov05_021EFA08: ; 0x021EFA08
 	mov r1, #0x28
 	add r6, r2, #0
 	add r7, r3, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r1, r0, #0
 	str r5, [r1]
 	str r4, [r1, #4]

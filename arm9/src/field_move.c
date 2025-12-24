@@ -74,9 +74,9 @@ extern BOOL Task_UseFlyInField(TaskManager *taksManager);
 extern void TownMap_Init(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2);
 extern void TownMap_Show(FieldSystem *fieldSystem, TownMapAppData *townMap);
 extern void StartMenu_SetExitTaskFunc(StartMenuTaskData *startMenu, TaskFunc taskFunc);
-extern FieldMoveTaskEnvironment *FieldMoveTask_CreateTeleportEnvironment(FieldSystem *fieldSystem, Pokemon *mon, HeapID heapId);
+extern FieldMoveTaskEnvironment *FieldMoveTask_CreateTeleportEnvironment(FieldSystem *fieldSystem, Pokemon *mon, enum HeapID heapID);
 extern BOOL Task_FieldTeleport(TaskManager *taskManager);
-extern FieldMoveTaskEnvironment *FieldMoveTask_CreateDigEnvironment(FieldSystem *fieldSystem, Pokemon *mon, HeapID heapId);
+extern FieldMoveTaskEnvironment *FieldMoveTask_CreateDigEnvironment(FieldSystem *fieldSystem, Pokemon *mon, enum HeapID heapID);
 extern BOOL Task_FieldDig(TaskManager *taskManager);
 extern void *sub_0202914C(u32 param0, u16 mapId, u32 param2);
 extern void sub_02028AD4(u32 *param0, void *param1, u32 param2);
@@ -181,7 +181,7 @@ void FieldMove_InitCheckData(FieldSystem *fieldSystem, FieldMoveCheckData *check
 }
 
 static FieldUseMoveEnvironment *FieldMove_CreateUseEnvironment(FieldMoveUseData *useData, const FieldMoveCheckData *checkData) {
-    FieldUseMoveEnvironment *environment = AllocFromHeap(HEAP_ID_32, sizeof(FieldUseMoveEnvironment));
+    FieldUseMoveEnvironment *environment = Heap_Alloc(HEAP_ID_32, sizeof(FieldUseMoveEnvironment));
     environment->magic = 0x19740205;
     environment->facingObject = checkData->facingObject;
     environment->useData = *useData;
@@ -190,7 +190,7 @@ static FieldUseMoveEnvironment *FieldMove_CreateUseEnvironment(FieldMoveUseData 
 
 static void FieldMove_DeleteUseEnvironment(FieldUseMoveEnvironment *environment) {
     GF_ASSERT(environment->magic == 0x19740205);
-    FreeToHeap(environment);
+    Heap_Free(environment);
 }
 
 static u32 FieldMove_CheckCut(const FieldMoveCheckData *checkData) {
@@ -248,10 +248,10 @@ static u32 FieldMove_CheckFly(const FieldMoveCheckData *checkData) {
 static void FieldMove_UseFly(FieldMoveUseData *useData, const FieldMoveCheckData *checkData) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(useData->taskManager);
     StartMenuTaskData *startMenu = TaskManager_GetEnvironment(useData->taskManager);
-    FieldMoveData *fieldMoveData = AllocFromHeap(HEAP_ID_FIELD, sizeof(FieldMoveData));
+    FieldMoveData *fieldMoveData = Heap_Alloc(HEAP_ID_FIELD, sizeof(FieldMoveData));
     fieldMoveData->partySlot = useData->partySlot;
     startMenu->exitTaskEnvironment2 = fieldMoveData;
-    TownMapAppData *townMap = AllocFromHeap(HEAP_ID_FIELD, sizeof(TownMapAppData));
+    TownMapAppData *townMap = Heap_Alloc(HEAP_ID_FIELD, sizeof(TownMapAppData));
     startMenu->exitTaskEnvironment = townMap;
     TownMap_Init(fieldSystem, startMenu->exitTaskEnvironment, 1);
     TownMap_Show(fieldSystem, startMenu->exitTaskEnvironment);
@@ -519,7 +519,7 @@ static BOOL Task_UseTeleportInField(TaskManager *taskManager) {
     FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
     FieldMoveEnvironment *fieldMoveEnvironment = TaskManager_GetEnvironment(taskManager);
     FieldMoveTaskEnvironment *fieldMoveTaskEnvironment = FieldMoveTask_CreateTeleportEnvironment(fieldSystem, fieldMoveEnvironment->mon, HEAP_ID_4);
-    FreeToHeap(fieldMoveEnvironment);
+    Heap_Free(fieldMoveEnvironment);
     TaskManager_Jump(taskManager, Task_FieldTeleport, fieldMoveTaskEnvironment);
     return FALSE;
 }
@@ -553,7 +553,7 @@ static BOOL Task_UseDigInField(TaskManager *taskManager) {
     FieldMoveEnvironment *fieldMoveEnvironment = TaskManager_GetEnvironment(taskManager);
     FieldMoveTaskEnvironment *fieldMoveTaskEnvironment = FieldMoveTask_CreateDigEnvironment(fieldSystem, fieldMoveEnvironment->mon, HEAP_ID_FIELD);
     sub_02028AD4(fieldSystem->unk98, sub_0202914C(10, fieldSystem->location->mapId, 4), 1);
-    FreeToHeap(fieldMoveEnvironment);
+    Heap_Free(fieldMoveEnvironment);
     TaskManager_Jump(taskManager, Task_FieldDig, fieldMoveTaskEnvironment);
     return FALSE;
 }

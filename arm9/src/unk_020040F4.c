@@ -712,7 +712,7 @@ void sub_02004AF8(u32 param0, s32 param1) {
     NNS_SndWaveOutSetVolume(*(u32 *)sub_02004930(param0), param1);
 }
 
-u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, HeapID heapId) {
+u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, enum HeapID heapID) {
     GetSoundDataPointer();
 
     void **r4 = sub_02003D38(33);
@@ -731,7 +731,7 @@ u32 sub_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, HeapID heapId) 
     }
 
     if (param3 == 14) {
-        void *ptr = AllocFromHeap(heapId, r6);
+        void *ptr = Heap_Alloc(heapID, r6);
         *r4 = ptr;
         if (ptr == NULL) {
             GF_AssertFail();
@@ -788,7 +788,7 @@ void sub_02004C3C(u32 param0) {
 
     if (*ptr == 1) {
         *ptr = 0;
-        FreeToHeap(*ptr2);
+        Heap_Free(*ptr2);
     }
 }
 

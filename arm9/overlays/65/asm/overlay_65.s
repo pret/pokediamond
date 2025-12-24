@@ -13,7 +13,7 @@ ov65_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x2d
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #2
 	add r0, r4, #0
 	lsl r1, r1, #8
@@ -80,7 +80,7 @@ ov65_021D753C: ; 0x021D753C
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	ldr r0, [r4]
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov65_021D753C
@@ -819,7 +819,7 @@ _021D7B0A:
 	cmp r4, #6
 	blt _021D7B0A
 	ldr r0, [r5, #0x24]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end ov65_021D7B04
@@ -2710,7 +2710,7 @@ ov65_021D8A08: ; 0x021D8A08
 	mov r0, #3
 	mov r1, #0x2e
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0x6f
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -2921,7 +2921,7 @@ ov65_021D8BBC: ; 0x021D8BBC
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	ldr r0, [r4]
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -3149,7 +3149,7 @@ _021D8D6E:
 	mov r1, #4
 	bl FreeBgTilemapBuffer
 	ldr r0, [r5, #0x68]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end ov65_021D8D68

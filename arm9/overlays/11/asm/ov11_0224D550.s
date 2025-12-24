@@ -9,7 +9,7 @@ ov11_0224D550: ; 0x0224D550
 	add r4, r0, #0
 	mov r0, #5
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	str r4, [r1]
 	mov r2, #0
@@ -34,7 +34,7 @@ ov11_0224D574: ; 0x0224D574
 	bl ov11_0222FF74
 	mov r0, #5
 	mov r1, #0x2c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r2, #0
 	ldr r0, _0224D720 ; =0x00000195
@@ -242,7 +242,7 @@ ov11_0224D738: ; 0x0224D738
 	bl ov11_0222FF74
 	mov r0, #5
 	mov r1, #0x9c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	ldr r0, _0224D874 ; =0x00000195
 	ldrb r1, [r6, r0]
@@ -400,7 +400,7 @@ ov11_0224D87C: ; 0x0224D87C
 	bl ov11_0222FF74
 	mov r0, #5
 	mov r1, #0x9c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	add r1, r5, #0
 	mov r0, #0
@@ -611,7 +611,7 @@ ov11_0224DA2C: ; 0x0224DA2C
 	mov r0, #5
 	mov r1, #0x74
 	str r2, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r2, r0, #0
 	str r5, [r2]
 	str r4, [r2, #4]
@@ -705,7 +705,7 @@ ov11_0224DAE8: ; 0x0224DAE8
 	mov r0, #5
 	mov r1, #0x10
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r7, [r4]
 	ldr r0, [r5, #0x20]
@@ -756,7 +756,7 @@ ov11_0224DB4C: ; 0x0224DB4C
 	str r0, [sp, #0x2c]
 	mov r0, #5
 	mov r1, #0x24
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r2, #0
 	ldr r0, _0224DCCC ; =0x00000195
@@ -946,7 +946,7 @@ ov11_0224DCE4: ; 0x0224DCE4
 	mov r0, #5
 	mov r1, #0x1c
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0
 	strb r0, [r4, #0xa]
@@ -993,7 +993,7 @@ ov11_0224DD44: ; 0x0224DD44
 	add r4, r1, #0
 	mov r0, #5
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r0, #0
 	strb r0, [r1, #0xa]
@@ -1034,7 +1034,7 @@ ov11_0224DD8C: ; 0x0224DD8C
 	str r0, [sp, #0x14]
 	mov r0, #5
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0
 	ldr r1, _0224DE38 ; =0x00000195
@@ -1252,7 +1252,7 @@ ov11_0224DF60: ; 0x0224DF60
 	mov r0, #5
 	mov r1, #0x3c
 	add r5, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r4, #0
@@ -1364,7 +1364,7 @@ ov11_0224E034: ; 0x0224E034
 	mov r0, #5
 	mov r1, #0x24
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r3, r0, #0
 	mov r1, #0x65
 	mov r4, #0
@@ -1423,7 +1423,7 @@ ov11_0224E0A4: ; 0x0224E0A4
 	mov r0, #5
 	mov r1, #0x34
 	add r5, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0
 	mov r0, #0
 	strb r0, [r6, #0xf]
@@ -1493,15 +1493,15 @@ ov11_0224E130: ; 0x0224E130
 	mov r0, #5
 	mov r1, #0x34
 	str r2, [sp, #4]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #5
 	mov r1, #0x34
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r0, #5
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [r4, #8]
 	str r0, [r1, #4]
 	mov r0, #5
@@ -1578,7 +1578,7 @@ ov11_0224E1DC: ; 0x0224E1DC
 	mov r0, #5
 	mov r1, #0x34
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r2, r0, #0
 	mov r3, #0
 	strb r3, [r2, #0xa]
@@ -1635,7 +1635,7 @@ ov11_0224E248: ; 0x0224E248
 	mov r0, #5
 	mov r1, #0x1c
 	add r4, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #0xe]
@@ -1673,7 +1673,7 @@ ov11_0224E28C: ; 0x0224E28C
 	str r0, [sp]
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r6, [r4]
 	ldrb r0, [r5]
@@ -1721,7 +1721,7 @@ ov11_0224E2F4: ; 0x0224E2F4
 	str r0, [sp]
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	add r0, r6, #0
 	str r5, [r4]
@@ -1756,7 +1756,7 @@ ov11_0224E344: ; 0x0224E344
 	mov r0, #5
 	mov r1, #0x70
 	add r5, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r1, #0
 	add r0, #0x6a
@@ -1835,7 +1835,7 @@ ov11_0224E3E0: ; 0x0224E3E0
 	add r4, r1, #0
 	mov r0, #5
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #9]
@@ -1989,7 +1989,7 @@ ov11_0224E510: ; 0x0224E510
 	mov r0, #5
 	mov r1, #0x74
 	str r2, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	ldr r0, _0224E5F0 ; =0x00000195
 	ldrb r2, [r4, r0]
@@ -2131,7 +2131,7 @@ ov11_0224E628: ; 0x0224E628
 	add r4, r1, #0
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #6]
@@ -2159,7 +2159,7 @@ ov11_0224E65C: ; 0x0224E65C
 	mov r0, #5
 	mov r1, #0x68
 	str r2, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	str r5, [r1]
 	ldr r0, [sp]
@@ -2275,7 +2275,7 @@ ov11_0224E734: ; 0x0224E734
 	str r0, [sp, #4]
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r6, [r4]
 	ldrb r0, [r7]
@@ -2318,7 +2318,7 @@ ov11_0224E790: ; 0x0224E790
 	str r0, [sp]
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r5, [r4]
 	ldrb r0, [r7]
@@ -2358,7 +2358,7 @@ ov11_0224E7E8: ; 0x0224E7E8
 	str r0, [sp]
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r5, [r4]
 	ldrb r0, [r7]
@@ -2397,7 +2397,7 @@ ov11_0224E840: ; 0x0224E840
 	add r7, r0, #0
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r5, [r4]
 	mov r0, #0x22
@@ -2437,7 +2437,7 @@ ov11_0224E894: ; 0x0224E894
 	str r0, [sp]
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r5, [r4]
 	ldrb r0, [r7]
@@ -2470,7 +2470,7 @@ ov11_0224E8EC: ; 0x0224E8EC
 	add r4, r1, #0
 	mov r0, #5
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	add r0, r4, #0
 	str r5, [r1]
@@ -2505,7 +2505,7 @@ ov11_0224E924: ; 0x0224E924
 	str r0, [sp]
 	mov r0, #5
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	str r6, [r7]
 	ldrb r0, [r4]
@@ -2660,7 +2660,7 @@ ov11_0224EA74: ; 0x0224EA74
 	mov r0, #5
 	mov r1, #0x10
 	add r4, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #0xa]
@@ -2689,7 +2689,7 @@ ov11_0224EAAC: ; 0x0224EAAC
 	mov r0, #5
 	mov r1, #0x10
 	add r4, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #0xa]
@@ -2721,7 +2721,7 @@ ov11_0224EAEC: ; 0x0224EAEC
 	mov r0, #5
 	mov r1, #0x10
 	add r4, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r0, #0
 	strb r0, [r1, #7]
@@ -2759,7 +2759,7 @@ ov11_0224EB34: ; 0x0224EB34
 	mov r0, #5
 	mov r1, #0x10
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #7]
@@ -2788,7 +2788,7 @@ ov11_0224EB6C: ; 0x0224EB6C
 	mov r0, #5
 	mov r1, #0x10
 	add r4, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r0, #0
 	strb r0, [r1, #7]
@@ -2827,7 +2827,7 @@ ov11_0224EBB8: ; 0x0224EBB8
 	mov r0, #5
 	mov r1, #0x10
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #7]
@@ -2923,7 +2923,7 @@ ov11_0224EC80: ; 0x0224EC80
 	add r4, r1, #0
 	mov r0, #5
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #0xe]
@@ -2952,7 +2952,7 @@ ov11_0224ECB8: ; 0x0224ECB8
 	add r4, r1, #0
 	mov r0, #5
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r0, #0
 	mov r2, #0
 	strb r2, [r1, #0xe]
@@ -2987,7 +2987,7 @@ ov11_0224ECF0: ; 0x0224ECF0
 	add r7, r0, #0
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r5, [r4]
 	mov r0, #0x3b
@@ -3026,7 +3026,7 @@ ov11_0224ED44: ; 0x0224ED44
 	add r7, r0, #0
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r5, [r4]
 	mov r0, #0x3c
@@ -3065,7 +3065,7 @@ ov11_0224ED98: ; 0x0224ED98
 	add r7, r0, #0
 	mov r0, #5
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r5, [r4]
 	mov r0, #0x3d
@@ -3695,7 +3695,7 @@ _0224F2C2:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _0224F2D8:
@@ -4286,7 +4286,7 @@ _0224F7A2:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _0224F7C0:
@@ -4982,7 +4982,7 @@ _0224FD68:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _0224FD86:
@@ -5275,7 +5275,7 @@ _0224FFC0:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _0224FFDE:
@@ -5335,7 +5335,7 @@ _02250048:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _0225005E:
@@ -5659,7 +5659,7 @@ _022502CA:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 	add sp, #4
@@ -6338,7 +6338,7 @@ _02250874:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _0225088A:
@@ -6412,7 +6412,7 @@ _02250906:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _0225092A:
@@ -6477,7 +6477,7 @@ _0225099A:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _022509B0:
@@ -7160,7 +7160,7 @@ _02250F14:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp]
 	bl SysTask_Destroy
 _02250F3E:
@@ -7185,7 +7185,7 @@ ov11_02250F44: ; 0x02250F44
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -7200,7 +7200,7 @@ ov11_02250F74: ; 0x02250F74
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -7253,7 +7253,7 @@ _02250FF2:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
@@ -7275,7 +7275,7 @@ ov11_02251014: ; 0x02251014
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -7457,7 +7457,7 @@ _0225118E:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _022511B6:
@@ -7556,7 +7556,7 @@ _0225126C:
 	ldr r0, [r6]
 	bl ov11_022567B8
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #8]
 	bl SysTask_Destroy
 _0225128C:
@@ -7575,7 +7575,7 @@ ov11_02251294: ; 0x02251294
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -7750,7 +7750,7 @@ _022513F8:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp]
 	bl SysTask_Destroy
 _02251418:
@@ -7785,7 +7785,7 @@ _02251442:
 	ldr r0, [r5]
 	bl ov11_022567B8
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 	pop {r4, r5, r6, pc}
@@ -7800,7 +7800,7 @@ ov11_02251464: ; 0x02251464
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -7905,7 +7905,7 @@ _02251540:
 	bl ov11_0222D7F8
 	mov r0, #5
 	mov r1, #0x34
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #4]
 	ldr r1, [r4]
 	str r1, [r0]
@@ -8530,16 +8530,16 @@ _02251A08:
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 	add sp, #0x1fc
@@ -9278,14 +9278,14 @@ ov11_02252018: ; 0x02252018
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	add sp, #4
@@ -9304,14 +9304,14 @@ ov11_02252070: ; 0x02252070
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -9396,7 +9396,7 @@ _02252146:
 	bl ov11_0222D7F8
 	mov r0, #5
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #4]
 	mov r0, #5
 	bl SaveArray_Party_Alloc
@@ -9447,7 +9447,7 @@ _022521AE:
 	cmp r5, #6
 	blt _022521AE
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	ldr r1, [sp, #0x18]
 	mov r7, #0
@@ -9760,11 +9760,11 @@ _02252444:
 	bl ov11_022567B8
 	ldr r0, [r4, #4]
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _02252468:
@@ -9852,7 +9852,7 @@ _022524FE:
 	ldr r0, [r5]
 	bl ov11_022567B8
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp]
 	bl SysTask_Destroy
 	add sp, #0xc
@@ -9869,7 +9869,7 @@ ov11_02252524: ; 0x02252524
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -10092,7 +10092,7 @@ _022526E0:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 _0225270A:
@@ -10111,7 +10111,7 @@ ov11_02252714: ; 0x02252714
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -10127,7 +10127,7 @@ ov11_02252734: ; 0x02252734
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -10406,7 +10406,7 @@ _02252974:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	add sp, #0x1fc
@@ -10473,7 +10473,7 @@ _022529FA:
 	mov r2, #0x17
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -10931,7 +10931,7 @@ _02252D8C:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _02252DAA:
@@ -11004,7 +11004,7 @@ _02252E30:
 	ldr r0, [r5]
 	bl ov11_022567B8
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _02252E46:
@@ -11187,7 +11187,7 @@ _02252F98:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _02252FB6:
@@ -11225,7 +11225,7 @@ _02252FE4:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _02253000:
@@ -11258,7 +11258,7 @@ _0225302A:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _0225304A:
@@ -11301,7 +11301,7 @@ _02253074:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _0225309E:
@@ -11570,7 +11570,7 @@ _022532C8:
 	mov r1, #0
 	bl sub_020143A8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0xc]
 	bl SysTask_Destroy
 	add sp, #0x18
@@ -11739,7 +11739,7 @@ _02253440:
 	bl ov11_0222D7F8
 	mov r0, #5
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #4]
 	ldrb r1, [r4, #9]
 	ldr r0, [r4]
@@ -11831,9 +11831,9 @@ _02253508:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 _02253524:
@@ -11895,7 +11895,7 @@ _02253582:
 	ldr r0, [r5]
 	bl ov11_022567B8
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	bl SysTask_Destroy
 _02253598:
@@ -11989,7 +11989,7 @@ _02253636:
 	ldr r0, [r5]
 	bl ov11_022567B8
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	bl SysTask_Destroy
 _0225364C:
@@ -12057,7 +12057,7 @@ _022536BA:
 	ldr r0, [r5]
 	bl ov11_022567B8
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 _022536D0:
@@ -12096,7 +12096,7 @@ _02253706:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}
@@ -12141,7 +12141,7 @@ _0225374E:
 	ldr r0, [r4]
 	bl ov11_022567B8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, pc}

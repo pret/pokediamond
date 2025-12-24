@@ -39,7 +39,7 @@ extern void CopyToBgTilemapRect(u32 param0, u32 param1, u32 param2, u32 param3, 
 extern void ov11_02252DB4(u32 param0, u32 param1);
 
 BOOL ov21_02254A6C(UnkStruct02254A6C *param0, void *param1) {
-    UnkStruct02254A6C *strct = (UnkStruct02254A6C *)AllocFromHeap(HEAP_ID_POKETCH_APP, 3 << 8);
+    UnkStruct02254A6C *strct = (UnkStruct02254A6C *)Heap_Alloc(HEAP_ID_POKETCH_APP, 3 << 8);
     u32 sp4;
     if (strct != NULL) {
         ov20_022536F4(strct->Unk08, 8);
@@ -47,11 +47,11 @@ BOOL ov21_02254A6C(UnkStruct02254A6C *param0, void *param1) {
         strct->Unk04 = ov20_02252D34();
         void *res = GfGfxLoader_GetScrnData(12, 0x19, 1, &sp4, 8);
         if (res == 0) {
-            FreeToHeap(strct);
+            Heap_Free(strct);
             return FALSE;
         }
         ov21_02254AD4((void *)(sp4 + 0xc), strct->Unk30);
-        FreeToHeap(res);
+        Heap_Free(res);
         param0->Unk00 = strct;
         return TRUE;
     }
@@ -71,7 +71,7 @@ void ov21_02254AD4(void *param0, void *param1) {
 
 void ov21_02254B04(void *param0) {
     if (param0 != NULL) {
-        FreeToHeap(param0);
+        Heap_Free(param0);
     }
 }
 

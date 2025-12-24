@@ -11,7 +11,7 @@ ov86_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x54
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0
 	mov r1, #0x44
 	mov r2, #0x54
@@ -233,7 +233,7 @@ ov86_021D76B0: ; 0x021D76B0
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	add r0, r4, #0
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -457,7 +457,7 @@ ov86_021D7858: ; 0x021D7858
 	mov r1, #7
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov86_021D7858
 

@@ -5,6 +5,6 @@
 
 #include "heap.h"
 
-void ShowSaveDataWriteError(HeapID heapId, u32 err_no);
+void ShowSaveDataWriteError(enum HeapID heapID, u32 err_no);
 
 #endif

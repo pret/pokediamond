@@ -98,7 +98,7 @@ _021E33FE:
 	cmp r0, #0
 	beq _021E3414
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -116,7 +116,7 @@ Field_GivePoketch: ; 0x021E3424
 	add r4, r0, #0
 	mov r0, #0xb
 	mov r1, #4
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [r2]

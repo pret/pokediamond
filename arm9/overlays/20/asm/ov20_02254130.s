@@ -17,7 +17,7 @@ ov20_02254130: ; 0x02254130
 _02254144:
 	add r0, r5, #0
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254192
 	ldr r0, [sp]
@@ -30,7 +30,7 @@ _02254144:
 	str r0, [r4, #0x10]
 	add r0, r5, #0
 	mul r1, r7
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x14]
 	cmp r0, #0
 	beq _02254188
@@ -50,7 +50,7 @@ _02254176:
 _02254188:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r4, #0
 _02254192:
 	add r0, r4, #0
@@ -67,10 +67,10 @@ ov20_02254198: ; 0x02254198
 _022541A2:
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #0x14]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [r4, #8]
 	add r1, r4, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 	thumb_func_end ov20_02254198
 

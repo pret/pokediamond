@@ -10,12 +10,12 @@ sub_0201C360: ; 0x0201C360
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x14
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	mul r1, r5
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x0]
 	mov r6, #0x0
 	str r5, [r4, #0x4]
@@ -41,9 +41,9 @@ sub_0201C39C: ; 0x0201C39C
 	add r4, r0, #0x0
 	bl sub_0201C414
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 

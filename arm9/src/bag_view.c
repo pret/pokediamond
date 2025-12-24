@@ -30,8 +30,8 @@ static u32 GetNumFashionAccessories(SaveData *saveData);
 static u32 GetNumFashionBackgrounds(SaveData *saveData);
 static u32 GetNumBattlePoints(SaveData *saveData);
 
-BagView *BagView_New(u8 heapId) {
-    BagView *ptr = AllocFromHeap((HeapID)heapId, sizeof(BagView));
+BagView *BagView_New(u8 heapID) {
+    BagView *ptr = Heap_Alloc((enum HeapID)heapID, sizeof(BagView));
     memset(ptr, 0, sizeof(BagView));
     return ptr;
 }
@@ -117,9 +117,9 @@ static u32 GetNumBattlePoints(SaveData *saveData) {
     return FrontierData_BattlePointAction(Save_FrontierData_Get(saveData), 0, DATA_GET);
 }
 
-BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 itemId, HeapID heapId) {
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
-    MessageFormat *messageFormat = MessageFormat_New(heapId);
+BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 itemId, enum HeapID heapID) {
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapID);
+    MessageFormat *messageFormat = MessageFormat_New(heapID);
     String *string;
 
     if (itemId == ITEM_NONE) {
@@ -150,27 +150,27 @@ BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 
     return TRUE;
 }
 
-void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 itemId, enum ItemUseError code, HeapID heapId) {
+void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 itemId, enum ItemUseError code, enum HeapID heapID) {
 #pragma unused(itemId)
     MsgData *msgData;
 
     switch (code) {
     case ITEMUSEERROR_NODISMOUNT:
         // You can’t dismount your Bike here.
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapID);
         ReadMsgDataIntoString(msgData, narc_0007_00056, dest);
         DestroyMsgData(msgData);
         break;
     case ITEMUSEERROR_NOFOLLOWER:
         // It can’t be used when you have someone with you.
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapId);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heapID);
         ReadMsgDataIntoString(msgData, narc_0007_00111, dest);
         DestroyMsgData(msgData);
         break;
     default:
         // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapId);
-        MessageFormat *messageFormat = MessageFormat_New(heapId);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heapID);
+        MessageFormat *messageFormat = MessageFormat_New(heapID);
         String *src = NewString_ReadMsgData(msgData, narc_0199_00036);
         BufferPlayersName(messageFormat, 0, playerProfile);
         StringExpandPlaceholders(messageFormat, dest, src);

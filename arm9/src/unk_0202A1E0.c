@@ -422,8 +422,8 @@ void sub_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784
     dst->u_1 = substruct4->u_102;
 }
 
-struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, HeapID heapId) {
-    struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2 = AllocFromHeap(heapId, sizeof(struct SaveStruct23_Substruct4_Substruct2) /* 1020 */);
+struct SaveStruct23_Substruct4_Substruct2 *sub_0202A878(struct SaveStruct23_Substruct4 *substruct4, enum HeapID heapID) {
+    struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2 = Heap_Alloc(heapID, sizeof(struct SaveStruct23_Substruct4_Substruct2) /* 1020 */);
     MI_CpuCopy8(&substruct4->substruct2, substruct4_substruct2, sizeof(struct SaveStruct23_Substruct4_Substruct2));
     return substruct4_substruct2;
 }

@@ -24,7 +24,7 @@ sub_02014518: ; 0x02014518
 	push {r3-r7, lr}
 	mov r1, #0x78
 	add r7, r0, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x78
 	add r6, r0, #0x0
@@ -71,7 +71,7 @@ _0201456E:
 	ldr r0, [r6, #0x0]
 	bl DestroyMsgData
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4-r6, pc}
 
 	thumb_func_start sub_02014588

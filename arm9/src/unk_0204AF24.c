@@ -8,7 +8,7 @@
 
 extern void sub_02037394(struct FieldSystem *);
 extern u32 IsPaletteFadeFinished(void);
-extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, enum HeapID heapID);
 extern void ov05_021E331C(struct FieldSystem *);
 
 BOOL sub_0204AF24(struct TaskManager *taskManager) {

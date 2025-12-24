@@ -198,7 +198,7 @@ _02065050: .word 0x00000668
 sub_02065054: ; 0x02065054
 	push {r4, lr}
 	ldr r1, _0206506C ; =0x0000066C
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, _0206506C ; =0x0000066C
 	mov r1, #0x0
 	add r4, r0, #0x0
@@ -210,10 +210,10 @@ _0206506C: .word 0x0000066C
 
 	thumb_func_start sub_02065070
 sub_02065070: ; 0x02065070
-	ldr r3, _02065074 ; =FreeToHeap
+	ldr r3, _02065074 ; =Heap_Free
 	bx r3
 	.balign 4
-_02065074: .word FreeToHeap
+_02065074: .word Heap_Free
 
 	thumb_func_start GetTrainerCardLevel
 GetTrainerCardLevel: ; 0x02065078
@@ -587,7 +587,7 @@ sub_02065344: ; 0x02065344
 	add r5, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x8
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [r4, #0x0]
@@ -656,7 +656,7 @@ _020653C8:
 	ldr r0, [r4, #0x78]
 	bl sub_02052EAC
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _020653E2:

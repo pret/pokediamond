@@ -21,14 +21,14 @@ ov20_02252448: ; 0x02252448
 	mov r1, #7
 	lsl r2, r0, #0xe
 	add r7, r3, #0
-	bl CreateHeap
+	bl Heap_Create
 	mov r0, #3
 	mov r1, #8
 	lsl r2, r0, #0xe
-	bl CreateHeap
+	bl Heap_Create
 	mov r0, #7
 	mov r1, #0x60
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _022524B2
 	str r4, [r5]
@@ -234,13 +234,13 @@ _022525C6:
 	add r0, r4, #0
 	bl ov20_0225257C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	mov r0, #7
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #8
-	bl DestroyHeap
+	bl Heap_Destroy
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _022525EC: .word ov20_022544CC

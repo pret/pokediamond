@@ -11,7 +11,7 @@ ov05_021D7F4C: ; 0x021D7F4C
 	add r0, r5, #0
 	mov r1, #0x14
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	str r7, [r4]
 	str r5, [r4, #4]
@@ -21,7 +21,7 @@ ov05_021D7F4C: ; 0x021D7F4C
 	str r6, [r4, #8]
 	add r0, r5, #0
 	add r1, r7, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	ldr r1, [r4, #0xc]
 	mov r0, #0
@@ -31,7 +31,7 @@ ov05_021D7F4C: ; 0x021D7F4C
 	bl sub_0201B578
 	add r1, r0, #0
 	add r0, r5, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x10]
 	ldr r1, [r4, #0x10]
 	add r0, r6, #0
@@ -60,11 +60,11 @@ _021D7FAA:
 	blt _021D7FAA
 _021D7FBC:
 	ldr r0, [r5, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start ov05_021D7FD0
@@ -158,7 +158,7 @@ _021D806C:
 	cmp r1, #0
 	beq _021D807A
 	ldr r0, [r5, #4]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x10]
 _021D807A:
 	ldr r3, [r6, #8]
@@ -205,7 +205,7 @@ _021D80BE:
 	cmp r0, #0
 	beq _021D80CC
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 _021D80CC:
 	ldr r0, [r4, #4]
 	bl SysTask_Destroy

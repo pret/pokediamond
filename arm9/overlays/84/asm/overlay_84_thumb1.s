@@ -25,7 +25,7 @@ _021D74FC:
 	mov r0, #3
 	mov r1, #0x4b
 	lsl r2, r0, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D7670 ; =0x00001244
 	add r0, r6, #0
 	mov r2, #0x4b
@@ -269,7 +269,7 @@ _021D772E:
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4b
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _021D773E:
@@ -697,7 +697,7 @@ ov84_021D7A84: ; 0x021D7A84
 	mov r1, #5
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov84_021D7A84
 
@@ -934,7 +934,7 @@ ov84_021D7BC8: ; 0x021D7BC8
 	add r0, #0x6c
 	mov r1, #0x4b
 	mov r2, #0x20
-	bl GF_ExpHeap_FndInitAllocator
+	bl HeapExp_FndInitAllocator
 	ldr r0, [r4, #4]
 	mov r1, #0
 	bl NNS_G3dGetAnmByIdx
@@ -983,12 +983,12 @@ ov84_021D7CD4: ; 0x021D7CD4
 	add r0, #0x6c
 	bl NNS_G3dFreeAnmObj
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 _021D7CF0:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _021D7CFA
-	bl FreeToHeap
+	bl Heap_Free
 _021D7CFA:
 	pop {r4, pc}
 	thumb_func_end ov84_021D7CD4
@@ -1118,7 +1118,7 @@ ov84_021D7DF4: ; 0x021D7DF4
 	add r4, #0x38
 	cmp r0, #0
 	beq _021D7E08
-	bl FreeToHeap
+	bl Heap_Free
 _021D7E08:
 	ldr r1, _021D7ED4 ; =0x021DA648
 	lsl r3, r5, #1
@@ -1381,7 +1381,7 @@ ov84_021D801C: ; 0x021D801C
 	mov r1, #0x30
 	str r2, [sp]
 	add r6, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D8090
 	ldr r0, [sp]

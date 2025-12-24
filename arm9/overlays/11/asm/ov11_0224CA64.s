@@ -10,7 +10,7 @@ ov11_0224CA64: ; 0x0224CA64
 	mov r1, #0x69
 	mov r0, #5
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r2, #0x69
 	mov r0, #0
@@ -135,7 +135,7 @@ _0224CB64:
 	add r0, r4, #0
 	bl ov11_0225468C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 

@@ -3,7 +3,7 @@
 
 #include "heap.h"
 
-void ShowSaveDataReadError(HeapID heapId);
-void ShowGBACartRemovedError(HeapID heapId);
+void ShowSaveDataReadError(enum HeapID heapID);
+void ShowGBACartRemovedError(enum HeapID heapID);
 
 #endif

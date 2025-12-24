@@ -9,24 +9,24 @@
 #include "heap.h"
 #include "string16.h"
 
-static void *LoadSingleElementFromNarc(NarcId narc_id, s32 file_id, HeapID heapId);
+static void *LoadSingleElementFromNarc(NarcId narc_id, s32 file_id, enum HeapID heapID);
 static void FreeMsgDataRawData(void *data);
 static void ReadMsgData_ExistingTable_ExistingArray(struct MsgDataTable *table, u32 num, u16 *dest);
-static void ReadMsgData_NewNarc_ExistingArray(NarcId narc_id, u32 group, u32 num, HeapID heapId, u16 *dest);
+static void ReadMsgData_NewNarc_ExistingArray(NarcId narc_id, u32 group, u32 num, enum HeapID heapID, u16 *dest);
 static void CopyEncryptedMessage16(u16 *dest, const u16 *src, struct MsgDataAlloc *param);
 static void ReadMsgData_ExistingTable_ExistingString(struct MsgDataTable *table, u32 num, struct String *dest);
-static struct String *ReadMsgData_ExistingTable_NewString(struct MsgDataTable *table, u32 num, HeapID heapId);
-static void ReadMsgData_ExistingNarc_ExistingString(NARC *narc, u32 group, u32 num, HeapID heapId, struct String *dest);
-static struct String *ReadMsgData_ExistingNarc_NewString(NARC *narc, u32 group, u32 num, HeapID heapId);
+static struct String *ReadMsgData_ExistingTable_NewString(struct MsgDataTable *table, u32 num, enum HeapID heapID);
+static void ReadMsgData_ExistingNarc_ExistingString(NARC *narc, u32 group, u32 num, enum HeapID heapID, struct String *dest);
+static struct String *ReadMsgData_ExistingNarc_NewString(NARC *narc, u32 group, u32 num, enum HeapID heapID);
 static u16 GetMsgCount_ExistingTable(struct MsgDataTable *tbl);
 static u16 GetMsgCount_TableFromNarc(NarcId narc_id, s32 file_id);
 
-static void *LoadSingleElementFromNarc(NarcId narc_id, s32 file_id, HeapID heapId) {
-    return AllocAndReadWholeNarcMemberByIdPair(narc_id, file_id, heapId);
+static void *LoadSingleElementFromNarc(NarcId narc_id, s32 file_id, enum HeapID heapID) {
+    return AllocAndReadWholeNarcMemberByIdPair(narc_id, file_id, heapID);
 }
 
 static void FreeMsgDataRawData(void *data) {
-    FreeToHeap(data);
+    Heap_Free(data);
 }
 
 inline static void Decrypt1(struct MsgDataAlloc *arg0, u32 arg1, u32 seed) {
@@ -60,8 +60,8 @@ static void ReadMsgData_ExistingTable_ExistingArray(struct MsgDataTable *table, 
     }
 }
 
-static void ReadMsgData_NewNarc_ExistingArray(NarcId narc_id, u32 group, u32 num, HeapID heapId, u16 *dest) {
-    NARC *narc = NARC_New(narc_id, heapId);
+static void ReadMsgData_NewNarc_ExistingArray(NarcId narc_id, u32 group, u32 num, enum HeapID heapID, u16 *dest) {
+    NARC *narc = NARC_New(narc_id, heapID);
     u16 header[2];
     struct MsgDataAlloc alloc;
     if (narc != NULL) {
@@ -84,12 +84,12 @@ static void ReadMsgData_ExistingTable_ExistingString(struct MsgDataTable *table,
     if (num < table->count) {
         alloc = table->alloc[num];
         Decrypt1(&alloc, num, table->key);
-        buf = AllocFromHeapAtEnd(HEAP_ID_DEFAULT, 2 * alloc.length);
+        buf = Heap_AllocAtEnd(HEAP_ID_DEFAULT, 2 * alloc.length);
         if (buf != NULL) {
             MI_CpuCopy16((char *)table + alloc.offset, buf, 2 * alloc.length);
             Decrypt2(buf, alloc.length, num);
             CopyU16ArrayToStringN(dest, buf, alloc.length);
-            FreeToHeap(buf);
+            Heap_Free(buf);
         }
     } else {
         GF_ASSERT(FALSE);
@@ -97,41 +97,41 @@ static void ReadMsgData_ExistingTable_ExistingString(struct MsgDataTable *table,
     }
 }
 
-static struct String *ReadMsgData_ExistingTable_NewString(struct MsgDataTable *table, u32 num, HeapID heapId) {
+static struct String *ReadMsgData_ExistingTable_NewString(struct MsgDataTable *table, u32 num, enum HeapID heapID) {
     struct MsgDataAlloc alloc;
     u16 *buf;
     struct String *dest;
     if (num < table->count) {
         alloc = table->alloc[num];
         Decrypt1(&alloc, num, table->key);
-        buf = AllocFromHeapAtEnd(heapId, 2 * alloc.length);
+        buf = Heap_AllocAtEnd(heapID, 2 * alloc.length);
         if (buf != NULL) {
             MI_CpuCopy16((char *)table + alloc.offset, buf, 2 * alloc.length);
             Decrypt2(buf, alloc.length, num);
-            dest = String_New(alloc.length, heapId);
+            dest = String_New(alloc.length, heapID);
             if (dest != NULL) {
                 CopyU16ArrayToStringN(dest, buf, alloc.length);
             }
-            FreeToHeap(buf);
+            Heap_Free(buf);
             return dest;
         } else {
             return NULL;
         }
     } else {
         GF_ASSERT(FALSE);
-        return String_New(4, heapId);
+        return String_New(4, heapID);
     }
 }
 
-void ReadMsgData_NewNarc_ExistingString(NarcId narc_id, u32 group, u32 num, HeapID heapId, struct String *dest) {
-    NARC *narc = NARC_New(narc_id, heapId);
+void ReadMsgData_NewNarc_ExistingString(NarcId narc_id, u32 group, u32 num, enum HeapID heapID, struct String *dest) {
+    NARC *narc = NARC_New(narc_id, heapID);
     if (narc != NULL) {
-        ReadMsgData_ExistingNarc_ExistingString(narc, group, num, heapId, dest);
+        ReadMsgData_ExistingNarc_ExistingString(narc, group, num, heapID, dest);
         NARC_Delete(narc);
     }
 }
 
-static void ReadMsgData_ExistingNarc_ExistingString(NARC *narc, u32 group, u32 num, HeapID heapId, struct String *dest) {
+static void ReadMsgData_ExistingNarc_ExistingString(NARC *narc, u32 group, u32 num, enum HeapID heapID, struct String *dest) {
     u16 *buf;
     u32 size;
     u16 sp10[2];
@@ -142,12 +142,12 @@ static void ReadMsgData_ExistingNarc_ExistingString(NARC *narc, u32 group, u32 n
         NARC_ReadFromMember(narc, group, 8 * num + 4, 8, &alloc);
         Decrypt1(&alloc, num, sp10[1]);
         size = alloc.length * 2;
-        buf = AllocFromHeapAtEnd(heapId, size);
+        buf = Heap_AllocAtEnd(heapID, size);
         if (buf != NULL) {
             NARC_ReadFromMember(narc, group, alloc.offset, size, buf);
             Decrypt2(buf, alloc.length, num);
             CopyU16ArrayToStringN(dest, buf, alloc.length);
-            FreeToHeap(buf);
+            Heap_Free(buf);
             return;
         }
     } else {
@@ -156,19 +156,19 @@ static void ReadMsgData_ExistingNarc_ExistingString(NARC *narc, u32 group, u32 n
     }
 }
 
-struct String *ReadMsgData_NewNarc_NewString(NarcId narc_id, u32 group, u32 num, HeapID heapId) {
-    NARC *narc = NARC_New(narc_id, heapId);
+struct String *ReadMsgData_NewNarc_NewString(NarcId narc_id, u32 group, u32 num, enum HeapID heapID) {
+    NARC *narc = NARC_New(narc_id, heapID);
     struct String *string;
     if (narc != NULL) {
-        string = ReadMsgData_ExistingNarc_NewString(narc, group, num, heapId);
+        string = ReadMsgData_ExistingNarc_NewString(narc, group, num, heapID);
         NARC_Delete(narc);
     } else {
-        string = String_New(4, heapId);
+        string = String_New(4, heapID);
     }
     return string;
 }
 
-static struct String *ReadMsgData_ExistingNarc_NewString(NARC *narc, u32 group, u32 num, HeapID heapId) {
+static struct String *ReadMsgData_ExistingNarc_NewString(NARC *narc, u32 group, u32 num, enum HeapID heapID) {
     struct String *dest;
     u16 *buf;
     u32 size;
@@ -179,21 +179,21 @@ static struct String *ReadMsgData_ExistingNarc_NewString(NARC *narc, u32 group, 
     if (num < sp10[0]) {
         NARC_ReadFromMember(narc, group, 8 * num + 4, 8, &alloc);
         Decrypt1(&alloc, num, sp10[1]);
-        dest = String_New(alloc.length, heapId);
+        dest = String_New(alloc.length, heapID);
         if (dest != NULL) {
             size = alloc.length * 2;
-            buf = AllocFromHeapAtEnd(heapId, size);
+            buf = Heap_AllocAtEnd(heapID, size);
             if (buf != NULL) {
                 NARC_ReadFromMember(narc, group, alloc.offset, size, buf);
                 Decrypt2(buf, alloc.length, num);
                 CopyU16ArrayToStringN(dest, buf, alloc.length);
-                FreeToHeap(buf);
+                Heap_Free(buf);
             }
         }
         return dest;
     } else {
         GF_ASSERT(FALSE);
-        return String_New(4, heapId);
+        return String_New(4, heapID);
     }
 }
 
@@ -207,22 +207,22 @@ static u16 GetMsgCount_TableFromNarc(NarcId narc_id, s32 file_id) {
     return n[0];
 }
 
-struct MsgData *NewMsgDataFromNarc(MsgDataLoadType type, NarcId narc_id, s32 file_id, HeapID heapId) {
-    struct MsgData *msgData = AllocFromHeapAtEnd(heapId, sizeof(struct MsgData));
+struct MsgData *NewMsgDataFromNarc(MsgDataLoadType type, NarcId narc_id, s32 file_id, enum HeapID heapID) {
+    struct MsgData *msgData = Heap_AllocAtEnd(heapID, sizeof(struct MsgData));
     if (msgData != NULL) {
         if (type == MSGDATA_LOAD_DIRECT) {
-            msgData->data.raw = LoadSingleElementFromNarc(narc_id, file_id, heapId);
+            msgData->data.raw = LoadSingleElementFromNarc(narc_id, file_id, heapID);
             if (msgData->data.raw == NULL) {
-                FreeToHeap(msgData);
+                Heap_Free(msgData);
                 return NULL;
             }
         } else {
-            msgData->data.narc = NARC_New(narc_id, heapId);
+            msgData->data.narc = NARC_New(narc_id, heapID);
         }
         msgData->type = (u16)type;
         msgData->narc_id = (u16)narc_id;
         msgData->file_id = (u16)file_id;
-        msgData->heapId = (u16)heapId;
+        msgData->heapID = (u16)heapID;
     }
     return msgData;
 }
@@ -237,7 +237,7 @@ void DestroyMsgData(struct MsgData *msgData) {
             NARC_Delete(msgData->data.narc);
             break;
         }
-        FreeToHeap(msgData);
+        Heap_Free(msgData);
     }
 }
 
@@ -247,7 +247,7 @@ void ReadMsgDataIntoString(struct MsgData *msgData, u32 msg_no, struct String *d
         ReadMsgData_ExistingTable_ExistingString(msgData->data.raw, msg_no, dest);
         break;
     case MSGDATA_LOAD_LAZY:
-        ReadMsgData_ExistingNarc_ExistingString(msgData->data.narc, msgData->file_id, msg_no, (HeapID)msgData->heapId, dest);
+        ReadMsgData_ExistingNarc_ExistingString(msgData->data.narc, msgData->file_id, msg_no, (enum HeapID)msgData->heapID, dest);
         break;
     }
 }
@@ -255,9 +255,9 @@ void ReadMsgDataIntoString(struct MsgData *msgData, u32 msg_no, struct String *d
 struct String *NewString_ReadMsgData(struct MsgData *msgData, u32 msg_no) {
     switch (msgData->type) {
     case MSGDATA_LOAD_DIRECT:
-        return ReadMsgData_ExistingTable_NewString(msgData->data.raw, msg_no, (HeapID)msgData->heapId);
+        return ReadMsgData_ExistingTable_NewString(msgData->data.raw, msg_no, (enum HeapID)msgData->heapID);
     case MSGDATA_LOAD_LAZY:
-        return ReadMsgData_ExistingNarc_NewString(msgData->data.narc, msgData->file_id, msg_no, (HeapID)msgData->heapId);
+        return ReadMsgData_ExistingNarc_NewString(msgData->data.narc, msgData->file_id, msg_no, (enum HeapID)msgData->heapID);
     default:
         return NULL;
     }
@@ -280,18 +280,18 @@ void ReadMsgDataIntoU16Array(struct MsgData *msgData, u32 msg_no, u16 *dest) {
         ReadMsgData_ExistingTable_ExistingArray(msgData->data.raw, msg_no, dest);
         break;
     case MSGDATA_LOAD_LAZY:
-        ReadMsgData_NewNarc_ExistingArray((NarcId)msgData->narc_id, msgData->file_id, msg_no, (HeapID)msgData->heapId, dest);
+        ReadMsgData_NewNarc_ExistingArray((NarcId)msgData->narc_id, msgData->file_id, msg_no, (enum HeapID)msgData->heapID, dest);
         break;
     }
 }
 
-void GetSpeciesNameIntoArray(u16 species, HeapID heapId, u16 *dest) {
-    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heapId);
+void GetSpeciesNameIntoArray(u16 species, enum HeapID heapID, u16 *dest) {
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heapID);
     ReadMsgDataIntoU16Array(msgData, species, dest);
     DestroyMsgData(msgData);
 }
 
-struct String *ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, struct MsgData *msgData, u32 msgno, HeapID heapId) {
+struct String *ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, struct MsgData *msgData, u32 msgno, enum HeapID heapID) {
     struct String *ret = NULL;
     struct String *r4 = String_New(1024, HEAP_ID_DEFAULT);
     struct String *r5;
@@ -299,7 +299,7 @@ struct String *ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, stru
         r5 = NewString_ReadMsgData(msgData, msgno);
         if (r5 != NULL) {
             StringExpandPlaceholders(messageFormat, r4, r5);
-            ret = StringDup(r4, heapId);
+            ret = StringDup(r4, heapID);
             String_Delete(r5);
         }
         String_Delete(r4);
@@ -307,11 +307,11 @@ struct String *ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, stru
     return ret;
 }
 
-struct String *GetMoveName(u32 move, HeapID heapId) {
-    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0588_bin, heapId);
+struct String *GetMoveName(u32 move, enum HeapID heapID) {
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0588_bin, heapID);
     struct String *ret;
     if (msgData != NULL) {
-        ret = String_New(16, heapId);
+        ret = String_New(16, heapID);
         if (ret != NULL) {
             ReadMsgDataIntoString(msgData, move, ret);
         }
@@ -321,9 +321,9 @@ struct String *GetMoveName(u32 move, HeapID heapId) {
     return NULL;
 }
 
-struct String *GetSpeciesName(u16 species, HeapID heapId) {
+struct String *GetSpeciesName(u16 species, enum HeapID heapID) {
     struct String *ret;
-    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heapId);
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heapID);
     if (msgData != NULL) {
         ret = NewString_ReadMsgData(msgData, species);
         DestroyMsgData(msgData);

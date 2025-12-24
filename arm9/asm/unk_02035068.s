@@ -300,7 +300,7 @@ sub_02035254: ; 0x02035254
 	mov r1, #0x2
 	mov r0, #0xb
 	lsl r1, r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x0
 	strh r2, [r0, #0x2a]
 	mov r1, #0x7e
@@ -506,7 +506,7 @@ _020353D6:
 	add r1, r5, #0x0
 	bl sub_0203598C
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x34]
 	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
@@ -535,10 +535,10 @@ _02035412:
 	add r0, r6, #0x0
 	bl TaskManager_Jump
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	b _02035484
 _02035432:
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x34]
 	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
@@ -559,7 +559,7 @@ _02035440:
 	mov r1, #0x3
 	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x34]
 	bl MapObjectManager_UnpauseAllMovement
 	mov r0, #0x1
@@ -1661,7 +1661,7 @@ sub_02035D34: ; 0x02035D34
 	add r6, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_Pokedex_Get
@@ -1731,7 +1731,7 @@ sub_02035DC8: ; 0x02035DC8
 	cmp r1, #0x0
 	beq _02035DF0
 	mov r0, #0xb
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _02035DF0:
 	mov r0, #0xc
 	strh r0, [r4, #0x2a]
@@ -1794,7 +1794,7 @@ sub_02035E50: ; 0x02035E50
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x40
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -1804,7 +1804,7 @@ sub_02035E50: ; 0x02035E50
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0x0
 	add r0, #0x23
 	ldrb r0, [r0, #0x0]
@@ -1846,7 +1846,7 @@ _02035E9C: ; jump table (using 16-bit offset)
 _02035ECC:
 	mov r0, #0xb
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Party_Get
@@ -1898,7 +1898,7 @@ _02035ECC:
 _02035F4A:
 	mov r0, #0xb
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Party_Get
@@ -1938,7 +1938,7 @@ _02035F4A:
 	bl sub_0203796C
 	mov r0, #0xb
 	mov r1, #0x4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldrh r1, [r6, #0x24]
 	strh r1, [r0, #0x0]
 	mov r1, #0x0
@@ -1955,7 +1955,7 @@ _02035F4A:
 _02035FD0:
 	mov r0, #0xb
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Party_Get
@@ -1995,7 +1995,7 @@ _02035FD0:
 	bl sub_0203796C
 	mov r0, #0xb
 	mov r1, #0x4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	strh r1, [r0, #0x0]
 	ldr r1, [r6, #0x34]
@@ -2080,7 +2080,7 @@ _020360AC:
 _020360EA:
 	mov r0, #0xb
 	mov r1, #0x4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r6, #0x0
 	add r1, #0x22
 	ldrb r1, [r1, #0x0]
@@ -2119,7 +2119,7 @@ _020360EA:
 _02036144:
 	mov r0, #0xb
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldrh r1, [r6, #0x24]
 	strh r1, [r0, #0x2]
 	mov r1, #0x3
@@ -2141,7 +2141,7 @@ _02036144:
 _02036170:
 	mov r0, #0xb
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
@@ -2256,7 +2256,7 @@ _02036254:
 	strh r0, [r4, #0x2a]
 _0203625E:
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -2338,7 +2338,7 @@ sub_020362E4: ; 0x020362E4
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x8]
 	bl sub_0206E384
 	cmp r0, #0x5
@@ -2394,7 +2394,7 @@ _0203637A:
 _0203638A:
 	mov r0, #0xb
 	mov r1, #0x40
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x40
 	add r5, r0, #0x0
@@ -2455,7 +2455,7 @@ _020363F6:
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	bl ItemIdIsMail
 	cmp r0, #0x1
@@ -2494,7 +2494,7 @@ _020363F6:
 _02036474:
 	mov r0, #0xb
 	mov r1, #0x40
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x40
 	add r5, r0, #0x0
@@ -2554,7 +2554,7 @@ _020364EE:
 	strh r0, [r4, #0x2a]
 _020364F8:
 	ldr r0, [sp, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -2689,7 +2689,7 @@ sub_020365F0: ; 0x020365F0
 _02036618:
 	mov r0, #0x20
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2738,7 +2738,7 @@ _02036676:
 _02036678:
 	strh r0, [r4, #0x2a]
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -2794,7 +2794,7 @@ sub_020366D4: ; 0x020366D4
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0xc
@@ -2949,7 +2949,7 @@ _02036834:
 	bl StartScriptFromMenu
 _0203683E:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -2966,7 +2966,7 @@ sub_0203684C: ; 0x0203684C
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -2976,13 +2976,13 @@ sub_0203684C: ; 0x0203684C
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldrb r0, [r7, #0x12]
 	cmp r0, #0x2
 	bne _0203692E
 	mov r0, #0xb
 	mov r1, #0x40
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x7f
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -3050,7 +3050,7 @@ _020368EE:
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	str r5, [r4, r0]
@@ -3073,7 +3073,7 @@ _0203692E:
 	bl StartMenu_SetExitTaskFunc
 _0203694A:
 	add r0, r7, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -3193,7 +3193,7 @@ sub_02036A14: ; 0x02036A14
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r1, #0x73
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
@@ -3223,7 +3223,7 @@ sub_02036A78: ; 0x02036A78
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r1, #0x73
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
@@ -3255,7 +3255,7 @@ Task_UseFlyInField: ; 0x02036AB8
 	ldr r1, [r4, r0]
 	mov r0, #0xb
 	ldr r7, [r1, #0x0]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r5, [r4, r0]
@@ -3264,7 +3264,7 @@ Task_UseFlyInField: ; 0x02036AB8
 	bne _02036B0E
 	mov r0, #0xb
 	add r1, r5, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r1, #0x7a
 	lsl r1, r1, #0x2
 	lsl r2, r7, #0x18
@@ -3320,7 +3320,7 @@ _02036B0E:
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0x0
 	bl FieldSystem_LoadFieldOverlay
 	mov r0, #0x72
@@ -3372,7 +3372,7 @@ sub_02036BC4: ; 0x02036BC4
 	mov r0, #0xb
 	mov r1, #0x4
 	add r6, r2, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	strh r5, [r0, #0x0]
 	strb r6, [r0, #0x2]
 	strb r4, [r0, #0x3]
@@ -3497,7 +3497,7 @@ _02036CD4:
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
@@ -3515,7 +3515,7 @@ sub_02036CEC: ; 0x02036CEC
 	ldr r7, [r6, r0]
 	mov r0, #0xb
 	mov r1, #0x40
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
@@ -3649,7 +3649,7 @@ sub_02036E08: ; 0x02036E08
 	mov r0, #0x3
 	mov r1, #0x49
 	lsl r2, r0, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r0, [r4, #0xc]
 	bl SaveArray_Party_Get
 	ldrb r1, [r5, #0x0]
@@ -3736,7 +3736,7 @@ _02036EF2:
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldrb r1, [r5, #0x0]
 	str r1, [r0, #0x0]
 	mov r1, #0x7f
@@ -3744,7 +3744,7 @@ _02036EF2:
 	str r0, [r6, r1]
 	sub r0, r1, #0x4
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	str r4, [r6, r0]
@@ -3773,7 +3773,7 @@ sub_02036F1C: ; 0x02036F1C
 	ldr r0, [r4, r0]
 	bl sub_0206C92C
 	mov r0, #0x49
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _02036F9C ; =0x00000475
 	mov r1, #0x0
 	bl sub_02005350
@@ -3801,7 +3801,7 @@ sub_02036F1C: ; 0x02036F1C
 	mov r0, #0x7f
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _02036FA0 ; =sub_020362E4
 	add r0, r4, #0x0
 	bl StartMenu_SetExitTaskFunc

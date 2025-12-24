@@ -24,7 +24,7 @@ extern PCStorage *SaveArray_PCStorage_Get(SaveData *save);
 extern u32 sub_0205F3C0(SaveVarsFlags *state);
 extern u32 sub_02054C14(u32 number);
 
-static String *sub_02040AE4(u32 msg_no, HeapID heapId);
+static String *sub_02040AE4(u32 msg_no, enum HeapID heapID);
 
 BOOL ScrCmd_GetPlayerName(ScriptContext *ctx) // 00CD - todo: BufferPlayerName? TextPlayerName?
 {
@@ -235,9 +235,9 @@ BOOL ScrCmd_Unk00DA(ScriptContext *ctx) // 00DA - todo: BufferPokemonSpeciesName
     return FALSE;
 }
 
-static String *sub_02040AE4(u32 msg_no, HeapID heapId) // todo: GetPokemonSpeciesName?
+static String *sub_02040AE4(u32 msg_no, enum HeapID heapID) // todo: GetPokemonSpeciesName?
 {
-    MsgData *msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heapId);
+    MsgData *msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heapID);
     String *ret = NewString_ReadMsgData(msg_data, msg_no);
     DestroyMsgData(msg_data);
 

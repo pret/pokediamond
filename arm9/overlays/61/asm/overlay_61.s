@@ -12,7 +12,7 @@ ov61_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x29
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0
 	mov r1, #0xbc
 	mov r2, #0x29
@@ -80,7 +80,7 @@ ov61_021D7568: ; 0x021D7568
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	add r0, r4, #0
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -1034,7 +1034,7 @@ ov61_021D7CB4: ; 0x021D7CB4
 	mov r1, #0
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov61_021D7CB4
 
@@ -1079,7 +1079,7 @@ ov61_021D7CE8: ; 0x021D7CE8
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r7, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
@@ -1105,13 +1105,13 @@ ov61_021D7CE8: ; 0x021D7CE8
 	mov r1, #4
 	bl BG_LoadCharTilesData
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, [sp, #0x1c]
 	mov r0, #0x4f
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	ldr r1, [sp, #0x1c]
 	add r0, r6, #0
@@ -1238,13 +1238,13 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	bl sub_0200372C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, [sp, #0x20]
 	mov r0, #0x4f
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x34]
 	ldr r1, [sp, #0x20]
 	ldr r2, [r5, #0x34]
@@ -1259,7 +1259,7 @@ _021D7E00:
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x38]
 	ldr r2, [r5, #0x38]
 	add r0, r6, #0
@@ -1360,9 +1360,9 @@ ov61_021D7FB4: ; 0x021D7FB4
 	sub sp, #4
 	add r4, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x34]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	bl PaletteData_FreeBuffers

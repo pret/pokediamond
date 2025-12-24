@@ -13,7 +13,7 @@ ov66_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x11
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r4, #0
 	mov r1, #0xe4
 	mov r2, #0x11
@@ -119,7 +119,7 @@ ov66_021D75B0: ; 0x021D75B0
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x11
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end ov66_021D75B0
@@ -341,7 +341,7 @@ _021D7782:
 	cmp r4, #8
 	blt _021D7782
 	ldr r0, [r5, #0x28]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x40]
 	bl ov66_021D9544
 	ldr r0, [r5, #0x30]
@@ -661,34 +661,34 @@ ov66_021D7A34: ; 0x021D7A34
 	add r4, r0, #0
 	add r0, #0xb4
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	add r0, #0xac
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	add r0, #0xa8
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	add r0, #0xa4
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	add r0, #0xa0
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, #0x98
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov66_021D7A34
@@ -866,7 +866,7 @@ ov66_021D7BB4: ; 0x021D7BB4
 	mov r1, #0x11
 	ldr r0, [r4, #4]
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x11
 	mov r1, #0
 	lsl r2, r2, #4
@@ -896,7 +896,7 @@ _021D7BEA:
 	add r0, r5, #0
 	bl ov66_021D8670
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov66_021D7BD4
@@ -3754,7 +3754,7 @@ ov66_021D9228: ; 0x021D9228
 	mov r1, #0xc
 	str r2, [sp, #8]
 	add r4, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	mov r0, #0
 	strb r0, [r7]
@@ -3774,7 +3774,7 @@ ov66_021D9228: ; 0x021D9228
 	mov r1, #0x1c
 	add r0, r5, #0
 	mul r1, r2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r7, #8]
 	ldrh r3, [r7]
 	mov r2, #0x1c
@@ -3912,9 +3912,9 @@ _021D935E:
 	blt _021D935E
 _021D9380:
 	ldr r0, [r5, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 	thumb_func_end ov66_021D9350
@@ -4109,7 +4109,7 @@ _021D94C8:
 _021D94DA:
 	add r0, r4, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0
 	mov r0, #0
 	strb r0, [r6]
@@ -4124,7 +4124,7 @@ _021D94DA:
 	mov r1, #0x18
 	add r0, r4, #0
 	mul r1, r2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r6, #4]
 	ldr r3, [sp]
 	mov r2, #0x18
@@ -4164,9 +4164,9 @@ ov66_021D9544: ; 0x021D9544
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov66_021D9544

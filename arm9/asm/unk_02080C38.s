@@ -47,7 +47,7 @@ sub_02080C38: ; 0x02080C38
 	add r5, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x8
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x8
 	add r4, r0, #0x0
@@ -249,7 +249,7 @@ _02080DE2:
 	bl GF_AssertFail
 _02080DE6:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x28
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -271,7 +271,7 @@ sub_02080E0C: ; 0x02080E0C
 	add r6, r1, #0x0
 	mov r0, #0xb
 	mov r1, #0x8
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x8
 	add r4, r0, #0x0
@@ -500,7 +500,7 @@ _02080FCE:
 	bl GF_AssertFail
 _02080FD2:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _02080FDC:
@@ -750,7 +750,7 @@ _020811A4:
 	bl GF_AssertFail
 _020811A8:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x10
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -772,7 +772,7 @@ sub_020811D8: ; 0x020811D8
 	push {r4, lr}
 	ldr r1, _02081204 ; =0x000019C4
 	mov r0, #0x14
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, _02081204 ; =0x000019C4
 	mov r1, #0x0
 	add r4, r0, #0x0
@@ -794,10 +794,10 @@ _02081208: .word 0x00000123
 
 	thumb_func_start sub_0208120C
 sub_0208120C: ; 0x0208120C
-	ldr r3, _02081210 ; =FreeToHeap
+	ldr r3, _02081210 ; =Heap_Free
 	bx r3
 	.balign 4
-_02081210: .word FreeToHeap
+_02081210: .word Heap_Free
 
 	thumb_func_start sub_02081214
 sub_02081214: ; 0x02081214
@@ -807,7 +807,7 @@ sub_02081214: ; 0x02081214
 	mov r0, #0xb
 	mov r1, #0x14
 	lsl r2, r2, #0xe
-	bl CreateHeap
+	bl Heap_Create
 	bl sub_020811D8
 	add r4, r0, #0x0
 	bl GetLCRNGSeed
@@ -1162,14 +1162,14 @@ sub_020814E8: ; 0x020814E8
 	mov r0, #0x56
 	lsl r0, r0, #0x2
 	ldr r0, [r7, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r6, #0x57
 	mov r4, #0x0
 	add r5, r7, #0x0
 	lsl r6, r6, #0x2
 _020814FE:
 	ldr r0, [r5, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
@@ -1177,9 +1177,9 @@ _020814FE:
 	add r0, r5, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, r6]
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x4
@@ -1191,7 +1191,7 @@ _020814FE:
 	add r0, r7, #0x0
 	bl sub_0208120C
 	mov r0, #0x14
-	bl DestroyHeap
+	bl Heap_Destroy
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -1287,7 +1287,7 @@ sub_020815D0: ; 0x020815D0
 	bl sub_02027740
 	mov r0, #0x14
 	mov r1, #0x28
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x28
 	add r4, r0, #0x0
@@ -1354,7 +1354,7 @@ sub_02081668: ; 0x02081668
 	add r4, r0, #0x0
 	ldr r0, _0208167C ; =0x000019B8
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0208167C ; =0x000019B8
 	mov r1, #0x0
 	str r1, [r4, r0]
@@ -3262,7 +3262,7 @@ sub_02082444: ; 0x02082444
 _02082456:
 	mov r0, #0x4
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x10
 	add r4, r0, #0x0
@@ -3413,7 +3413,7 @@ sub_0208251C: ; 0x0208251C
 _02082580:
 	ldr r0, _02082598 ; =0x000019BC
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _02082598 ; =0x000019BC
 	mov r1, #0x0
 	str r1, [r5, r0]

@@ -155,10 +155,10 @@ ov05_021E4BE8: ; 0x021E4BE8
 
 	thumb_func_start ov05_021E4C00
 ov05_021E4C00: ; 0x021E4C00
-	ldr r3, _021E4C04 ; =FreeToHeap
+	ldr r3, _021E4C04 ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021E4C04: .word FreeToHeap
+_021E4C04: .word Heap_Free
 
 	thumb_func_start ov05_021E4C08
 ov05_021E4C08: ; 0x021E4C08
@@ -1093,7 +1093,7 @@ ov05_021E5294: ; 0x021E5294
 	add r1, r0, #0
 	add r0, r4, #0
 	mov r2, #0x20
-	bl GF_ExpHeap_FndInitAllocator
+	bl HeapExp_FndInitAllocator
 	pop {r4, pc}
 
 	.section .rodata

@@ -72,9 +72,9 @@ void MailMsg_Init_FromTemplate(struct MailMessage *mailMsg, u32 a1) {
     }
 }
 
-struct String *MailMsg_GetExpandedString(struct MailMessage *mailMsg, HeapID heapId) {
+struct String *MailMsg_GetExpandedString(struct MailMessage *mailMsg, enum HeapID heapID) {
     s32 i;
-    MessageFormat *messageFormat = MessageFormat_New(heapId);
+    MessageFormat *messageFormat = MessageFormat_New(heapID);
     struct MsgData *msgData;
     struct String *ret;
     for (i = 0; i < MAILMSG_FIELDS_MAX; i++) {
@@ -83,15 +83,15 @@ struct String *MailMsg_GetExpandedString(struct MailMessage *mailMsg, HeapID hea
         }
         BufferECWord(messageFormat, (u32)i, mailMsg->fields[i]);
     }
-    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], heapId);
-    ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heapId);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], heapID);
+    ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heapID);
     DestroyMsgData(msgData);
     MessageFormat_Delete(messageFormat);
     return ret;
 }
 
-struct String *MailMsg_GetRawString(struct MailMessage *mailMsg, HeapID heapId) {
-    return ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], mailMsg->msg_no, heapId);
+struct String *MailMsg_GetRawString(struct MailMessage *mailMsg, enum HeapID heapID) {
+    return ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], mailMsg->msg_no, heapID);
 }
 
 BOOL MailMsg_IsInit(struct MailMessage *mailMsg) {

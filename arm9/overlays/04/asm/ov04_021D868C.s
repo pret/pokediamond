@@ -522,7 +522,7 @@ ov04_021D8A7C: ; 0x021D8A7C
 	cmp r1, #0
 	bne _021D8ACA
 	ldr r1, _021D8BD0 ; =0x000035DC
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, _021D8BCC ; =ov04_0220FBC8
 	mov r1, #0x35
 	str r0, [r2]
@@ -766,7 +766,7 @@ ov04_021D8C6C: ; 0x021D8C6C
 	lsl r0, r0, #8
 	ldr r0, [r2, r0]
 	ldr r1, [r1]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r1, #0
 	ldr r0, _021D8CBC ; =ov04_0220FBC8
 	cmp r4, #0

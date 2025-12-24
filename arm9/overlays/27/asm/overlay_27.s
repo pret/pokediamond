@@ -12,7 +12,7 @@ ov27_02254854: ; 0x02254854
 	mov r1, #0x7c
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254892
 	ldr r3, [sp]
@@ -32,7 +32,7 @@ ov27_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -84,7 +84,7 @@ ov27_022548E4: ; 0x022548E4
 	ldr r0, [r4, #0x74]
 	bl ov27_02254B88
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov27_022548E4
@@ -363,7 +363,7 @@ ov27_02254AF0: ; 0x02254AF0
 	str r0, [sp, #4]
 	mov r0, #8
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [sp, #8]
 	cmp r0, #0
 	beq _02254B82
@@ -449,7 +449,7 @@ ov27_02254B88: ; 0x02254B88
 	bl SysTask_Destroy
 _02254BB0:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254BB6:
 	pop {r4, pc}
 	thumb_func_end ov27_02254B88

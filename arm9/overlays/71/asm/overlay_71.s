@@ -27,7 +27,7 @@ ov71_0222D5C0: ; 0x0222D5C0
 	ldr r2, _0222D734 ; =0x000707D0
 	mov r0, #3
 	mov r1, #0x1a
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _0222D738 ; =0x000036B4
 	add r0, r5, #0
 	mov r2, #0x1a
@@ -1684,7 +1684,7 @@ _0222E3EA:
 	mov r0, #0x79
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r6, r7]
 	add r5, r5, #4
 	add r4, r4, #1
@@ -1703,7 +1703,7 @@ _0222E402:
 _0222E414:
 	ldr r0, _0222E434 ; =0x000007A8
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r6, r7]
 	add r4, r4, #4
 	add r5, r5, #1
@@ -1736,7 +1736,7 @@ ov71_0222E438: ; 0x0222E438
 	bl String_Delete
 	ldr r0, _0222E4D4 ; =0x0000221C
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	bl ov71_0222E378
 	ldr r0, _0222E4D8 ; =0x00000438
@@ -1750,7 +1750,7 @@ ov71_0222E438: ; 0x0222E438
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r0, #0x1a
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1777,7 +1777,7 @@ ov71_0222E438: ; 0x0222E438
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x1a
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
@@ -2146,7 +2146,7 @@ ov71_0222E76C: ; 0x0222E76C
 	bl SaveArray_Party_sizeof
 	add r1, r0, #0
 	mov r0, #0x1a
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, _0222E844 ; =0x0000221C
 	str r0, [r5, r1]
 	ldr r0, [r5, r1]
@@ -2249,7 +2249,7 @@ _0222E8B2:
 	bl BG_LoadScreenTilemapData
 _0222E8D0:
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 _0222E8D6:
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -4363,7 +4363,7 @@ _0222F9A0:
 	add r2, r6, #0
 	bl BufferPlayersName
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #0x24
 	bl ov71_0222F84C
@@ -6404,9 +6404,9 @@ _02230A98:
 	mov r1, #0x13
 	bl GameStats_Inc
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

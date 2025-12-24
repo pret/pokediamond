@@ -23,8 +23,8 @@ const struct OverlayManagerTemplate UNK_020FD6E4 = {
     SDK_OVERLAY_INVALID_ID,
 };
 
-struct PoffinCaseAppData *sub_0208890C(u32 a0, struct SaveData *save, HeapID heapId, u32 *a3) {
-    struct PoffinCaseAppData *ret = AllocFromHeap(heapId, sizeof(struct PoffinCaseAppData));
+struct PoffinCaseAppData *sub_0208890C(u32 a0, struct SaveData *save, enum HeapID heapID, u32 *a3) {
+    struct PoffinCaseAppData *ret = Heap_Alloc(heapID, sizeof(struct PoffinCaseAppData));
     MI_CpuFill8(ret, 0, sizeof(struct PoffinCaseAppData));
 
     ret->save = save;
@@ -42,9 +42,9 @@ void sub_02088950(struct FieldSystem *fieldSystem, struct PoffinCaseAppData *par
     sub_020373D4(fieldSystem, (struct OverlayManagerTemplate *)&UNK_020FD6E4, param1);
 }
 
-struct PoffinCaseAppData *sub_02088960(struct FieldSystem *fieldSystem, u32 a1, HeapID heapId) {
+struct PoffinCaseAppData *sub_02088960(struct FieldSystem *fieldSystem, u32 a1, enum HeapID heapID) {
     struct SaveData *save = FieldSystem_GetSaveData(fieldSystem);
-    struct PoffinCaseAppData *ret = sub_0208890C(a1, save, heapId, fieldSystem->unk98);
+    struct PoffinCaseAppData *ret = sub_0208890C(a1, save, heapID, fieldSystem->unk98);
 
     sub_02088950(fieldSystem, ret);
 

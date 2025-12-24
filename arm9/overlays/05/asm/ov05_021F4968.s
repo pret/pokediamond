@@ -11,7 +11,7 @@ ov05_021F4968: ; 0x021F4968
 	sub r1, r1, r0
 	bx r3
 	nop
-_021F4974: .word ReallocFromHeap
+_021F4974: .word Heap_Realloc
 
 	thumb_func_start ov05_021F4978
 ov05_021F4978: ; 0x021F4978
@@ -21,11 +21,11 @@ ov05_021F4978: ; 0x021F4978
 	add r5, r0, #0
 	mov r0, #4
 	lsl r1, r1, #6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	ldr r1, _021F49A8 ; =0x000008B8
 	mov r2, #0
 	str r0, [r4, r1]
@@ -266,7 +266,7 @@ _021F4B70:
 	bl ov05_021DB918
 	ldr r0, _021F4B9C ; =0x000008B8
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021F4B9C ; =0x000008B8
 	mov r1, #0
 	str r1, [r5, r0]
@@ -331,7 +331,7 @@ _021F4C10:
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _021F4C1E
-	bl FreeToHeap
+	bl Heap_Free
 _021F4C1E:
 	add r6, r6, #1
 	add r4, r4, #4
@@ -340,11 +340,11 @@ _021F4C1E:
 	ldr r1, [r5]
 	ldr r0, _021F4C6C ; =0x000008BC
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, [r5]
 	ldr r0, _021F4C70 ; =0x0000089C
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, [r5]
 	ldr r0, _021F4C70 ; =0x0000089C
 	mov r2, #0
@@ -352,14 +352,14 @@ _021F4C1E:
 	ldr r1, [r5]
 	add r0, r0, #4
 	ldr r0, [r1, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x8a
 	ldr r1, [r5]
 	mov r2, #0
 	lsl r0, r0, #4
 	str r2, [r1, r0]
 	ldr r0, [r5]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r5]
 	pop {r3, r4, r5, r6, r7, pc}

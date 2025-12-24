@@ -89,7 +89,7 @@ _021D7580:
 	mov r0, #3
 	mov r1, #0x34
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D7610 ; =0x0000041C
 	add r0, r6, #0
 	mov r2, #0x34
@@ -164,7 +164,7 @@ _021D7628:
 	mov r0, #3
 	mov r1, #0x34
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D76B8 ; =0x0000041C
 	add r0, r6, #0
 	mov r2, #0x34
@@ -317,7 +317,7 @@ _021D7754:
 	mov r0, #0xeb
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov55_021D7720
 
@@ -349,7 +349,7 @@ ov55_021D77AC: ; 0x021D77AC
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x34
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov55_021D77AC
@@ -708,7 +708,7 @@ ov55_021D7AA4: ; 0x021D7AA4
 	mov r1, #0
 	bl FreeBgTilemapBuffer
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov55_021D7AA4
@@ -1995,7 +1995,7 @@ ov55_021D84C8: ; 0x021D84C8
 	mov r1, #0x19
 	bl ov55_021DA0A4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x3b
 	mov r1, #0xd
 	lsl r0, r0, #4
@@ -3335,7 +3335,7 @@ _021D8F1A:
 	mov r1, #0xc
 	bl ov55_021DA0A4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D8FE0 ; =0x00000418
 	mov r1, #0
 	strh r1, [r5, r0]
@@ -3535,7 +3535,7 @@ ov55_021D90D8: ; 0x021D90D8
 	lsl r0, r0, #2
 	strb r1, [r5, r0]
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021D9170:
 	mov r0, #0x3b
 	mov r1, #3
@@ -4419,7 +4419,7 @@ _021D987C:
 	add r2, r5, #0
 	bl BufferPlayersName
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r2, r4, #0
 	add r2, #0xb8
 	ldr r0, [r4, #0x10]
@@ -4777,7 +4777,7 @@ _021D9C18:
 	add r0, r4, r0
 	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x20]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x3b
 	mov r1, #0x15
 	lsl r0, r0, #4
@@ -5226,7 +5226,7 @@ ov55_021D9F8C: ; 0x021D9F8C
 	mov r1, #0x1c
 	bl ov55_021DA0A4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x3b
 	mov r1, #0x1c
 	lsl r0, r0, #4

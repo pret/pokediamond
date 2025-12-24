@@ -19,21 +19,21 @@ typedef struct Bag {
 } Bag;
 
 u32 Save_Bag_sizeof(void);
-Bag *Save_Bag_New(HeapID heapId);
+Bag *Save_Bag_New(enum HeapID heapID);
 void Save_Bag_Init(Bag *bag);
 void Save_Bag_Copy(const Bag *src, Bag *dest);
 u32 Bag_GetRegisteredItem(Bag *bag);
 void Bag_SetRegisteredItem(Bag *bag, u32 item);
-BOOL Bag_HasSpaceForItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId);
-BOOL Bag_AddItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId);
-BOOL Bag_TakeItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId);
+BOOL Bag_HasSpaceForItem(Bag *bag, u16 itemId, u16 quantity, enum HeapID heapID);
+BOOL Bag_AddItem(Bag *bag, u16 itemId, u16 quantity, enum HeapID heapID);
+BOOL Bag_TakeItem(Bag *bag, u16 itemId, u16 quantity, enum HeapID heapID);
 BOOL Pocket_TakeItem(ItemSlot *slots, u32 count, u16 itemId, u16 quantity);
-BOOL Bag_HasItem(Bag *bag, u16 itemId, u16 quantity, HeapID heapId);
+BOOL Bag_HasItem(Bag *bag, u16 itemId, u16 quantity, enum HeapID heapID);
 BOOL Bag_PocketNotEmpty(Bag *bag, u32 pocket);
-u16 Bag_GetQuantity(Bag *bag, u16 itemId, HeapID heapId);
+u16 Bag_GetQuantity(Bag *bag, u16 itemId, enum HeapID heapID);
 u16 Pocket_GetQuantity(ItemSlot *slots, u32 count, u16 itemId);
 void SortPocket(ItemSlot *slots, u32 count);
-BagView *Bag_CreateView(Bag *bag, const u8 *pockets, HeapID heapId);
+BagView *Bag_CreateView(Bag *bag, const u8 *pockets, enum HeapID heapID);
 ItemSlot *Bag_GetPocketSlotN(Bag *bag, u8 pocket, u32 slot);
 Bag *Save_Bag_Get(SaveData *saveData);
 

@@ -3,6 +3,6 @@
 
 #include "heap.h"
 
-void ShowWFCUserInfoWarning(HeapID heapId, u32 a1);
+void ShowWFCUserInfoWarning(enum HeapID heapID, u32 a1);
 
 #endif

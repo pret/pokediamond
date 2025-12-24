@@ -12,7 +12,7 @@ sub_02022318: ; 0x02022318
 	add r6, r0, #0x0
 	add r5, r2, #0x0
 	str r3, [sp, #0x4]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	str r6, [r4, #0x0]
 	bl NNS_G3dInit
@@ -27,7 +27,7 @@ sub_02022318: ; 0x02022318
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x0]
 	add r1, r6, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x8]
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -52,7 +52,7 @@ _0202236E:
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	add r1, r5, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x4]
 	ldr r0, [sp, #0x20]
 	ldr r1, [r4, #0x4]
@@ -87,11 +87,11 @@ sub_020223BC: ; 0x020223BC
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start sub_020223D4

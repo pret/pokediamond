@@ -16,7 +16,7 @@ ov16_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x25
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0
 	mov r1, #4
 	mov r2, #0x25
@@ -168,7 +168,7 @@ _021D7630:
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x25
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	mov r1, #0x7f
 	bl GF_SndPlayerSetPlayerVolume
@@ -242,7 +242,7 @@ ov16_021D76AC: ; 0x021D76AC
 	add r5, r1, #0
 	ldr r1, _021D77D0 ; =0x00001D10
 	add r7, r0, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021D76C2
 	bl GF_AssertFail
@@ -1824,7 +1824,7 @@ ov16_021D8298: ; 0x021D8298
 _021D82B0:
 	ldr r0, _021D83D8 ; =0x00001A0C
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D83DC ; =0x00001A10
 	ldr r0, [r6, r0]
 	cmp r0, #0
@@ -1833,7 +1833,7 @@ _021D82B0:
 _021D82C4:
 	ldr r0, _021D83DC ; =0x00001A10
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D83E0 ; =0x00001A14
 	ldr r0, [r6, r0]
 	cmp r0, #0
@@ -1842,7 +1842,7 @@ _021D82C4:
 _021D82D8:
 	ldr r0, _021D83E0 ; =0x00001A14
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D83E4 ; =0x00001A18
 	ldr r0, [r6, r0]
 	cmp r0, #0
@@ -1851,7 +1851,7 @@ _021D82D8:
 _021D82EC:
 	ldr r0, _021D83E4 ; =0x00001A18
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x1d
 	lsl r0, r0, #8
 	ldr r0, [r6, r0]
@@ -1862,7 +1862,7 @@ _021D8302:
 	mov r0, #0x1d
 	lsl r0, r0, #8
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D83E8 ; =0x00001D04
 	ldr r0, [r6, r0]
 	cmp r0, #0
@@ -1871,7 +1871,7 @@ _021D8302:
 _021D8318:
 	ldr r0, _021D83E8 ; =0x00001D04
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D83EC ; =0x00001D08
 	ldr r0, [r6, r0]
 	cmp r0, #0
@@ -1880,7 +1880,7 @@ _021D8318:
 _021D832C:
 	ldr r0, _021D83EC ; =0x00001D08
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D83F0 ; =0x00001D0C
 	ldr r0, [r6, r0]
 	cmp r0, #0
@@ -1889,7 +1889,7 @@ _021D832C:
 _021D8340:
 	ldr r0, _021D83F0 ; =0x00001D0C
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D83F4 ; =0x00001A30
 	ldr r4, _021D83F8 ; =0x021FF440
 	mov r7, #0
@@ -1954,7 +1954,7 @@ _021D83BA:
 	add r0, r6, r0
 	bl ov16_021D8628
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021D83D4: .word 0x00001A1C
@@ -2264,7 +2264,7 @@ ov16_021D8628: ; 0x021D8628
 	ldr r0, [r4]
 	bl ov16_021D8F2C
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x4f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -3154,14 +3154,14 @@ ov16_021D8C78: ; 0x021D8C78
 	ldr r1, [r4]
 	add r0, r6, #0
 	lsr r1, r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	beq _021D8CAE
 	add r0, r4, #0
 	add r1, r5, #0
 	bl MI_UncompressLZ8
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021D8CAE:
 	add r4, r5, #0
 _021D8CB0:
@@ -3201,7 +3201,7 @@ _021D8CDC:
 	bl BG_LoadCharTilesData
 _021D8CF0:
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021D8CF6:
 	add r0, r4, #0
 	add sp, #8
@@ -3242,7 +3242,7 @@ _021D8D22:
 	blx r3
 _021D8D3C:
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021D8D42:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3262,7 +3262,7 @@ ov16_021D8D48: ; 0x021D8D48
 	cmp r0, #0
 	bne _021D8D6A
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 _021D8D6A:
@@ -3284,7 +3284,7 @@ ov16_021D8D70: ; 0x021D8D70
 	cmp r0, #0
 	bne _021D8D92
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 _021D8D92:
@@ -3306,7 +3306,7 @@ ov16_021D8D98: ; 0x021D8D98
 	cmp r0, #0
 	bne _021D8DBA
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 _021D8DBA:
@@ -5009,7 +5009,7 @@ ov16_021D9A90: ; 0x021D9A90
 	add r0, r7, #0
 	str r2, [sp, #0x10]
 	str r3, [sp, #0x14]
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r6, r0, #0
 	bne _021D9AAE
 	bl GF_AssertFail
@@ -5022,7 +5022,7 @@ _021D9AAE:
 	str r0, [sp, #0x24]
 	ldr r1, _021D9CA8 ; =0x000003DA
 	add r0, r7, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	bne _021D9ACC
 	bl GF_AssertFail
@@ -5241,11 +5241,11 @@ _021D9C82:
 	add r2, r5, r2
 	bl ov16_021DA5C4
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
@@ -6112,7 +6112,7 @@ _021DA226:
 	ldr r3, [sp, #0x18]
 	bl ov16_021DA004
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 _021DA24E:
@@ -6231,7 +6231,7 @@ _021DA30A:
 	add r1, r6, #0
 	bl ov16_021DA004
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 _021DA332:
@@ -6406,7 +6406,7 @@ _021DA45E:
 	add r1, r6, #0
 	bl ov16_021DA004
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 _021DA486:
@@ -6560,7 +6560,7 @@ _021DA588:
 	add r1, r6, #0
 	bl ov16_021DA004
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 _021DA5B0:
@@ -6615,7 +6615,7 @@ ov16_021DA5FC: ; 0x021DA5FC
 	push {r3, r4, r5, lr}
 	mov r1, #0x48
 	add r5, r0, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DA60E
 	bl GF_AssertFail
@@ -6967,7 +6967,7 @@ _021DA84C:
 ov16_021DA858: ; 0x021DA858
 	push {r4, lr}
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DA868
 	bl GF_AssertFail
@@ -7560,7 +7560,7 @@ ov16_021DAC7C: ; 0x021DAC7C
 	bl GF_AssertFail
 _021DAC8A:
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #0x10]
 	pop {r4, pc}
@@ -7576,7 +7576,7 @@ ov16_021DAC98: ; 0x021DAC98
 	str r1, [r6, #4]
 	mov r1, #0x30
 	add r5, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DACB2
 	bl GF_AssertFail
@@ -7635,7 +7635,7 @@ ov16_021DAD20: ; 0x021DAD20
 	str r1, [r5, #4]
 	mov r1, #0x14
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DAD3A
 	bl GF_AssertFail
@@ -7678,7 +7678,7 @@ ov16_021DAD78: ; 0x021DAD78
 	str r1, [r6, #4]
 	mov r1, #0x30
 	add r5, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DAD92
 	bl GF_AssertFail
@@ -7742,7 +7742,7 @@ ov16_021DAE0C: ; 0x021DAE0C
 	str r1, [r6, #4]
 	mov r1, #0x30
 	add r5, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DAE26
 	bl GF_AssertFail
@@ -7802,7 +7802,7 @@ ov16_021DAE94: ; 0x021DAE94
 	str r0, [r5, #4]
 	add r0, r2, #0
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DAEB0
 	bl GF_AssertFail
@@ -7832,7 +7832,7 @@ ov16_021DAED4: ; 0x021DAED4
 	str r1, [r5, #4]
 	mov r1, #0x18
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DAEEE
 	bl GF_AssertFail
@@ -7880,7 +7880,7 @@ ov16_021DAF38: ; 0x021DAF38
 	str r1, [r5, #4]
 	mov r1, #0x18
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DAF52
 	bl GF_AssertFail
@@ -7928,7 +7928,7 @@ ov16_021DAF9C: ; 0x021DAF9C
 	str r1, [r5, #4]
 	mov r1, #0x18
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DAFB6
 	bl GF_AssertFail
@@ -7976,7 +7976,7 @@ ov16_021DB000: ; 0x021DB000
 	str r1, [r5, #4]
 	mov r1, #0xc
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB01A
 	bl GF_AssertFail
@@ -8019,7 +8019,7 @@ ov16_021DB058: ; 0x021DB058
 	str r1, [r5, #4]
 	mov r1, #0xc
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB072
 	bl GF_AssertFail
@@ -8062,7 +8062,7 @@ ov16_021DB0B0: ; 0x021DB0B0
 	str r1, [r5, #4]
 	mov r1, #0x18
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB0CA
 	bl GF_AssertFail
@@ -8110,7 +8110,7 @@ ov16_021DB114: ; 0x021DB114
 	str r1, [r5, #4]
 	mov r1, #0xc
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB12E
 	bl GF_AssertFail
@@ -8153,7 +8153,7 @@ ov16_021DB16C: ; 0x021DB16C
 	str r1, [r5, #4]
 	mov r1, #0x18
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB186
 	bl GF_AssertFail
@@ -8201,7 +8201,7 @@ ov16_021DB1D0: ; 0x021DB1D0
 	str r1, [r5, #4]
 	mov r1, #0xc
 	add r6, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB1EA
 	bl GF_AssertFail
@@ -8241,7 +8241,7 @@ ov16_021DB228: ; 0x021DB228
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB23C
 	bl GF_AssertFail
@@ -8261,7 +8261,7 @@ _021DB242:
 	ldr r1, [r5, #8]
 	ldr r0, [r5, #0xc]
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021DB268
@@ -8294,7 +8294,7 @@ _021DB292:
 	add r0, r4, #0
 	bl ov16_021DB358
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	bl sub_020117BC
 	add r2, r4, #0
@@ -8306,7 +8306,7 @@ _021DB2AA:
 	sub r1, r1, #1
 	bne _021DB2AA
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DB288
@@ -8576,7 +8576,7 @@ _021DB48C:
 ov16_021DB490: ; 0x021DB490
 	push {r3, lr}
 	mov r1, #0x14
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r3, r0, #0
 	mov r2, #0x14
 	mov r1, #0
@@ -8590,10 +8590,10 @@ _021DB49E:
 
 	thumb_func_start ov16_021DB4A8
 ov16_021DB4A8: ; 0x021DB4A8
-	ldr r3, _021DB4AC ; =FreeToHeap
+	ldr r3, _021DB4AC ; =Heap_Free
 	bx r3
 	.align 2, 0
-_021DB4AC: .word FreeToHeap
+_021DB4AC: .word Heap_Free
 	thumb_func_end ov16_021DB4A8
 
 	thumb_func_start ov16_021DB4B0
@@ -9980,7 +9980,7 @@ _021DBDCA:
 	bl GF_AssertFail
 _021DBDD4:
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4]
 	str r0, [r4, #4]
@@ -10439,7 +10439,7 @@ ov16_021DC10C: ; 0x021DC10C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DC11E
 	bl GF_AssertFail
@@ -10472,7 +10472,7 @@ ov16_021DC148: ; 0x021DC148
 	bl GF_AssertFail
 _021DC152:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DC148
@@ -10482,7 +10482,7 @@ ov16_021DC15C: ; 0x021DC15C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DC16E
 	bl GF_AssertFail
@@ -10507,7 +10507,7 @@ ov16_021DC184: ; 0x021DC184
 	bl GF_AssertFail
 _021DC18E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DC184
@@ -10522,7 +10522,7 @@ ov16_021DC198: ; 0x021DC198
 	mov r1, #0x14
 	add r0, r5, #0
 	mul r1, r2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
@@ -10579,7 +10579,7 @@ _021DC202:
 	add r0, #0x50
 	bl ov16_021DAC7C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov16_021DC1F8
 
@@ -10596,7 +10596,7 @@ ov16_021DC234: ; 0x021DC234
 	ldr r0, [r5, #4]
 	add r4, r1, #0
 	mov r1, #0x24
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #8]
 	cmp r0, #0
 	bne _021DC24C
@@ -10662,7 +10662,7 @@ ov16_021DC2B0: ; 0x021DC2B0
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -10695,7 +10695,7 @@ _021DC2E8:
 	mov r1, #0x52
 	ldr r0, [r4, #4]
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	bne _021DC2FA
 	bl GF_AssertFail
@@ -10924,7 +10924,7 @@ _021DC4AC:
 	add r0, r6, #0
 	bl ov16_021DC754
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -11326,7 +11326,7 @@ ov16_021DC770: ; 0x021DC770
 	str r0, [sp, #8]
 	bl GX_LoadBGPltt
 	ldr r0, [sp, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	add r1, r6, #0
 	bl ov16_021DC860
@@ -11431,7 +11431,7 @@ ov16_021DC860: ; 0x021DC860
 	ldr r0, [r5]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	add r0, r5, #0
 	mov r1, #0x27
@@ -11456,7 +11456,7 @@ ov16_021DC860: ; 0x021DC860
 	ldr r0, [r5]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #3
 	bl ScheduleBgTilemapBufferTransfer
@@ -11508,7 +11508,7 @@ ov16_021DC93C: ; 0x021DC93C
 	add r4, r0, #0
 	add r0, #0xd8
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0xd8
@@ -14016,7 +14016,7 @@ ov16_021DDCA4: ; 0x021DDCA4
 	add r6, r1, #0
 	mov r1, #0x28
 	add r5, r0, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DDCB8
 	bl GF_AssertFail
@@ -14052,7 +14052,7 @@ ov16_021DDCEC: ; 0x021DDCEC
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DDCFE
 	bl GF_AssertFail
@@ -14080,7 +14080,7 @@ ov16_021DDD14: ; 0x021DDD14
 	mul r7, r1
 	add r0, r5, #0
 	add r1, r7, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DDD34
 	bl GF_AssertFail
@@ -14107,7 +14107,7 @@ ov16_021DDD50: ; 0x021DDD50
 	bl GF_AssertFail
 _021DDD5A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DDD50
@@ -14120,7 +14120,7 @@ ov16_021DDD64: ; 0x021DDD64
 	bl GF_AssertFail
 _021DDD6E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DDD64
@@ -14135,7 +14135,7 @@ _021DDD82:
 	add r0, r4, #0
 	bl ov16_021DAC7C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov16_021DDD78
 
@@ -14152,7 +14152,7 @@ ov16_021DDD94: ; 0x021DDD94
 	ldr r0, [r5, #4]
 	add r4, r1, #0
 	mov r1, #0x24
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #8]
 	cmp r0, #0
 	bne _021DDDAC
@@ -14233,7 +14233,7 @@ ov16_021DDE28: ; 0x021DDE28
 	ldr r0, [r4, #8]
 	bl ov16_021DE0EC
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end ov16_021DDE28
@@ -14262,7 +14262,7 @@ _021DDE56: ; jump table
 _021DDE60:
 	ldr r0, [r4, #4]
 	mov r1, #0x3c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	cmp r0, #0
 	bne _021DDE72
@@ -14438,7 +14438,7 @@ _021DDFB2:
 	str r0, [r4]
 	b _021DDFD8
 _021DDFC2:
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -14465,7 +14465,7 @@ ov16_021DDFE0: ; 0x021DDFE0
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #8]
 	mov r0, #0x60
 	str r0, [sp]
@@ -14527,7 +14527,7 @@ ov16_021DDFE0: ; 0x021DDFE0
 	bl ov16_021D7C98
 	add r0, r6, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r3, r0, #0
 	str r5, [r3]
 	str r4, [r3, #4]
@@ -14593,9 +14593,9 @@ ov16_021DE0EC: ; 0x021DE0EC
 	ldr r0, [r4]
 	bl sub_0202212C
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	pop {r4, pc}
@@ -14856,7 +14856,7 @@ _021DE2AC:
 	add r0, r6, #0
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	mov r1, #6
 	bl ScheduleBgTilemapBufferTransfer
@@ -15440,7 +15440,7 @@ ov16_021DE788: ; 0x021DE788
 	add r0, r4, #0
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #7
 	bl ScheduleBgTilemapBufferTransfer
@@ -16133,7 +16133,7 @@ ov16_021DEC64: ; 0x021DEC64
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DEC76
 	bl GF_AssertFail
@@ -16162,7 +16162,7 @@ ov16_021DECA0: ; 0x021DECA0
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DECB2
 	bl GF_AssertFail
@@ -16190,7 +16190,7 @@ ov16_021DECC8: ; 0x021DECC8
 	mul r7, r1
 	add r0, r5, #0
 	add r1, r7, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DECE8
 	bl GF_AssertFail
@@ -16217,7 +16217,7 @@ ov16_021DED04: ; 0x021DED04
 	bl GF_AssertFail
 _021DED0E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DED04
@@ -16230,7 +16230,7 @@ ov16_021DED18: ; 0x021DED18
 	bl GF_AssertFail
 _021DED22:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DED18
@@ -16245,7 +16245,7 @@ _021DED36:
 	add r0, r4, #0
 	bl ov16_021DAC7C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov16_021DED2C
 
@@ -16262,7 +16262,7 @@ ov16_021DED48: ; 0x021DED48
 	ldr r0, [r5, #4]
 	add r4, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0
 	bne _021DED5E
 	bl GF_AssertFail
@@ -16449,7 +16449,7 @@ ov16_021DEEA4: ; 0x021DEEA4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -16481,7 +16481,7 @@ _021DEED4: ; jump table
 _021DEEDC:
 	ldr r0, [r4, #4]
 	mov r1, #0x64
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x64
@@ -16618,7 +16618,7 @@ _021DEFCE:
 	str r0, [r4]
 	b _021DEFF2
 _021DEFDC:
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -16812,7 +16812,7 @@ ov16_021DF168: ; 0x021DF168
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x5c]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #0x5c]
 	str r0, [r4, #0x60]
@@ -17306,7 +17306,7 @@ ov16_021DF514: ; 0x021DF514
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	ldr r0, [sp, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	cmp r7, #3
 	bhi _021DF584
 	add r0, r7, r7
@@ -17363,7 +17363,7 @@ _021DF584:
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #3
 	ldr r0, [r0]
@@ -18020,7 +18020,7 @@ ov16_021DFAA0: ; 0x021DFAA0
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DFAB2
 	bl GF_AssertFail
@@ -18056,7 +18056,7 @@ ov16_021DFAE8: ; 0x021DFAE8
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DFAFA
 	bl GF_AssertFail
@@ -18095,7 +18095,7 @@ ov16_021DFB24: ; 0x021DFB24
 	bl GF_AssertFail
 _021DFB2E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DFB24
@@ -18108,7 +18108,7 @@ ov16_021DFB38: ; 0x021DFB38
 	bl GF_AssertFail
 _021DFB42:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021DFB38
@@ -18132,7 +18132,7 @@ ov16_021DFB54: ; 0x021DFB54
 	ldr r0, [r5, #4]
 	add r6, r1, #0
 	mov r1, #0x9c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DFB6A
 	bl GF_AssertFail
@@ -18342,7 +18342,7 @@ ov16_021DFCEC: ; 0x021DFCEC
 	add r0, r5, #0
 	bl ov16_021E18D0
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -18375,7 +18375,7 @@ _021DFD32:
 	mov r1, #0x4e
 	ldr r0, [r4, #4]
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x4e
 	str r0, [r4, #8]
 	mov r1, #0
@@ -18652,7 +18652,7 @@ _021DFF4E:
 	b _021DFF6E
 _021DFF56:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -18763,7 +18763,7 @@ ov16_021DFFE0: ; 0x021DFFE0
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #6
 	ldr r0, [r0]
@@ -18943,7 +18943,7 @@ ov16_021E0158: ; 0x021E0158
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #4]
 	mov r0, #1
 	lsl r0, r0, #8
@@ -19091,7 +19091,7 @@ ov16_021E026C: ; 0x021E026C
 	ldr r0, [r4]
 	bl sub_0202212C
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #4]
 	pop {r4, pc}
@@ -19130,7 +19130,7 @@ ov16_021E02AC: ; 0x021E02AC
 	ldr r0, [r4, #8]
 	bl sub_0202212C
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #0xc]
 	pop {r4, pc}
@@ -19159,7 +19159,7 @@ ov16_021E02D4: ; 0x021E02D4
 	add r0, r2, #0
 	mov r1, #0x18
 	str r2, [sp, #0xc]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #4]
 	str r0, [r1, #0xc]
 	mov r0, #0
@@ -19327,7 +19327,7 @@ ov16_021E0400: ; 0x021E0400
 	add r0, r2, #0
 	mov r1, #0x28
 	str r2, [sp, #0xc]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #4]
 	str r0, [r1, #0xc]
 	mov r0, #0
@@ -19520,7 +19520,7 @@ ov16_021E0558: ; 0x021E0558
 	add r0, r2, #0
 	mov r1, #0x2c
 	str r2, [sp, #0xc]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #4]
 	str r0, [r1, #0xc]
 	mov r0, #0
@@ -19750,7 +19750,7 @@ ov16_021E06F8: ; 0x021E06F8
 	add r0, r2, #0
 	mov r1, #0x28
 	str r2, [sp, #0xc]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #4]
 	str r0, [r1, #0xc]
 	mov r0, #0
@@ -19982,7 +19982,7 @@ ov16_021E08A0: ; 0x021E08A0
 	add r0, r2, #0
 	mov r1, #0x3c
 	str r2, [sp, #0xc]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #4]
 	str r0, [r1, #0xc]
 	mov r0, #0
@@ -20429,7 +20429,7 @@ ov16_021E0BB8: ; 0x021E0BB8
 	add r0, r1, #0
 	mov r1, #0x7e
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x10]
 	str r0, [r1, #0x1c]
 	mov r0, #0
@@ -20693,7 +20693,7 @@ ov16_021E0D90: ; 0x021E0D90
 	add r0, r1, #0
 	mov r1, #0x7e
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x10]
 	str r0, [r1, #0x1c]
 	mov r0, #0
@@ -21023,7 +21023,7 @@ ov16_021E0FDC: ; 0x021E0FDC
 	add r0, r1, #0
 	mov r1, #0x7e
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x10]
 	str r0, [r1, #0x1c]
 	mov r0, #0
@@ -21397,7 +21397,7 @@ ov16_021E127C: ; 0x021E127C
 	add r0, r1, #0
 	mov r1, #0x7e
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x10]
 	str r0, [r1, #0x1c]
 	mov r0, #0
@@ -21785,7 +21785,7 @@ ov16_021E1534: ; 0x021E1534
 	add r0, r1, #0
 	mov r1, #0x2a
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x10]
 	str r0, [r1, #0x1c]
 	mov r0, #0
@@ -22291,7 +22291,7 @@ ov16_021E18D0: ; 0x021E18D0
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x1c]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x18]
 	bl ov16_021DB4A8
 	mov r0, #0
@@ -25402,7 +25402,7 @@ ov16_021E2F64: ; 0x021E2F64
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E2F76
 	bl GF_AssertFail
@@ -25437,7 +25437,7 @@ ov16_021E2FA8: ; 0x021E2FA8
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x14
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E2FBA
 	bl GF_AssertFail
@@ -25465,7 +25465,7 @@ ov16_021E2FD4: ; 0x021E2FD4
 	bl GF_AssertFail
 _021E2FDE:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E2FD4
@@ -25478,7 +25478,7 @@ ov16_021E2FE8: ; 0x021E2FE8
 	bl GF_AssertFail
 _021E2FF2:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E2FE8
@@ -25496,7 +25496,7 @@ ov16_021E3000: ; 0x021E3000
 	ldr r0, [r6, #4]
 	add r5, r1, #0
 	mov r1, #0x34
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E3016
 	bl GF_AssertFail
@@ -25592,17 +25592,17 @@ ov16_021E30B0: ; 0x021E30B0
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	beq _021E30C0
-	bl FreeToHeap
+	bl Heap_Free
 _021E30C0:
 	ldr r0, [r5, #8]
 	cmp r0, #0
 	beq _021E30CA
-	bl FreeToHeap
+	bl Heap_Free
 _021E30CA:
 	add r0, r5, #0
 	bl ov16_021E4070
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -25637,7 +25637,7 @@ _021E3102: ; jump table
 _021E310A:
 	ldr r0, [r4, #4]
 	ldr r1, _021E31D4 ; =0x00000844
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, _021E31D4 ; =0x00000844
 	str r0, [r4, #8]
 	mov r1, #0
@@ -25842,12 +25842,12 @@ _021E329E:
 	bl GfGfx_EngineATogglePlanes
 	ldr r0, _021E32D0 ; =0x00000804
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021E32D4 ; =0x00000808
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -25960,7 +25960,7 @@ ov16_021E3348: ; 0x021E3348
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, [r6]
 	ldr r0, _021E34C0 ; =0x00001764
 	ldr r0, [r1, r0]
@@ -25991,7 +25991,7 @@ ov16_021E3348: ; 0x021E3348
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021E33E6:
 	ldr r1, [r6]
 	ldr r0, _021E34C4 ; =0x0000176C
@@ -26023,7 +26023,7 @@ _021E33E6:
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021E342A:
 	ldr r1, [r6]
 	ldr r0, _021E34C8 ; =0x00001760
@@ -26055,7 +26055,7 @@ _021E342A:
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021E346E:
 	ldr r1, [r6]
 	ldr r0, _021E34CC ; =0x00001768
@@ -26087,7 +26087,7 @@ _021E346E:
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021E34B2:
 	ldr r0, [r5]
 	mov r1, #3
@@ -26992,7 +26992,7 @@ ov16_021E3BC8: ; 0x021E3BC8
 	bl BgClearTilemapBufferAndCommit
 	ldr r0, _021E3C10 ; =0x000007F4
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r1, _021E3C10 ; =0x000007F4
 	mov r2, #0
 	str r2, [r5, r1]
@@ -27000,7 +27000,7 @@ ov16_021E3BC8: ; 0x021E3BC8
 	add r1, #8
 	str r2, [r5, r0]
 	ldr r0, [r5, r1]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021E3C14 ; =0x000007FC
 	mov r1, #0
 	str r1, [r5, r0]
@@ -27046,7 +27046,7 @@ ov16_021E3C18: ; 0x021E3C18
 	add r7, r1, r0
 	ldr r0, [sp, #0x2c]
 	add r1, r7, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r5, r0, #0
 	mov r1, #0
 	cmp r7, #0
@@ -27086,7 +27086,7 @@ _021E3C7E:
 	lsl r1, r1, #6
 	str r0, [r6, r1]
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
 	mov r1, #0x1e
 	add r0, #0xec
@@ -27162,7 +27162,7 @@ _021E3CEC:
 	add r7, r1, r0
 	ldr r0, [sp, #0x2c]
 	add r1, r7, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r5, r0, #0
 	mov r1, #0
 	cmp r7, #0
@@ -27214,7 +27214,7 @@ _021E3D68:
 	add r6, #0xc4
 	str r0, [r6]
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x3c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -27296,7 +27296,7 @@ _021E3E30:
 	cmp r4, #0
 	beq _021E3E3C
 	add r1, r4, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	b _021E3E3E
 _021E3E3C:
 	mov r0, #0
@@ -27891,7 +27891,7 @@ ov16_021E42AC: ; 0x021E42AC
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E42BE
 	bl GF_AssertFail
@@ -27922,7 +27922,7 @@ ov16_021E42E8: ; 0x021E42E8
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E42FA
 	bl GF_AssertFail
@@ -27953,7 +27953,7 @@ ov16_021E4314: ; 0x021E4314
 	bl GF_AssertFail
 _021E431E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E4314
@@ -27966,7 +27966,7 @@ ov16_021E4328: ; 0x021E4328
 	bl GF_AssertFail
 _021E4332:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E4328
@@ -27990,7 +27990,7 @@ ov16_021E4344: ; 0x021E4344
 	ldr r0, [r5, #4]
 	add r6, r1, #0
 	mov r1, #0x28
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E435A
 	bl GF_AssertFail
@@ -28047,7 +28047,7 @@ ov16_021E43AC: ; 0x021E43AC
 	add r0, r4, #0
 	bl ov16_021E4968
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end ov16_021E43AC
@@ -28078,7 +28078,7 @@ _021E43E0: ; jump table
 _021E43E8:
 	ldr r0, [r4, #4]
 	mov r1, #0x2c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x2c
@@ -28231,9 +28231,9 @@ _021E450A:
 	b _021E4534
 _021E451C:
 	ldr r0, [r5, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -28430,7 +28430,7 @@ ov16_021E4634: ; 0x021E4634
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #6
 	ldr r0, [r0]
@@ -28612,7 +28612,7 @@ ov16_021E47E4: ; 0x021E47E4
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x14]
 	mov r1, #0xfe
 	strb r1, [r0]
@@ -28818,7 +28818,7 @@ ov16_021E4968: ; 0x021E4968
 	ldr r0, [r4, #0x10]
 	bl sub_0202212C
 	ldr r0, [r4, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #0x14]
 	pop {r4, pc}
@@ -28894,7 +28894,7 @@ _021E49F8:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
 	beq _021E4A04
-	bl FreeToHeap
+	bl Heap_Free
 _021E4A04:
 	ldr r1, [r5, #0x18]
 	add r2, r5, #0
@@ -28922,7 +28922,7 @@ _021E4A2E:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
 	beq _021E4A38
-	bl FreeToHeap
+	bl Heap_Free
 _021E4A38:
 	ldr r1, [r5, #0x1c]
 	add r2, r5, #0
@@ -29154,7 +29154,7 @@ ov16_021E4BCC: ; 0x021E4BCC
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E4BDE
 	bl GF_AssertFail
@@ -29183,7 +29183,7 @@ ov16_021E4C08: ; 0x021E4C08
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E4C1A
 	bl GF_AssertFail
@@ -29208,7 +29208,7 @@ ov16_021E4C30: ; 0x021E4C30
 	bl GF_AssertFail
 _021E4C3A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E4C30
@@ -29221,7 +29221,7 @@ ov16_021E4C44: ; 0x021E4C44
 	bl GF_AssertFail
 _021E4C4E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E4C44
@@ -29329,7 +29329,7 @@ _021E4CF8: ; jump table
 _021E4D00:
 	ldr r0, [r4, #4]
 	mov r1, #0x74
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x74
@@ -29522,7 +29522,7 @@ _021E4E58:
 	str r0, [r4]
 	b _021E4E76
 _021E4E66:
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -29651,7 +29651,7 @@ ov16_021E4F1C: ; 0x021E4F1C
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x33
@@ -29676,7 +29676,7 @@ ov16_021E4F1C: ; 0x021E4F1C
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x34
@@ -29702,7 +29702,7 @@ ov16_021E4F1C: ; 0x021E4F1C
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x36
@@ -29728,7 +29728,7 @@ ov16_021E4F1C: ; 0x021E4F1C
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #3
 	ldr r0, [r0]
@@ -31364,7 +31364,7 @@ ov16_021E5C88: ; 0x021E5C88
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E5C9A
 	bl GF_AssertFail
@@ -31397,7 +31397,7 @@ ov16_021E5CC8: ; 0x021E5CC8
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E5CDA
 	bl GF_AssertFail
@@ -31430,7 +31430,7 @@ ov16_021E5D00: ; 0x021E5D00
 	bl GF_AssertFail
 _021E5D0A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E5D00
@@ -31443,7 +31443,7 @@ ov16_021E5D14: ; 0x021E5D14
 	bl GF_AssertFail
 _021E5D1E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E5D14
@@ -31536,7 +31536,7 @@ _021E5D9C: ; jump table
 _021E5DA4:
 	ldr r0, [r4, #4]
 	mov r1, #0xd0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0xd0
@@ -31734,7 +31734,7 @@ _021E5F1C:
 	str r0, [r4]
 	b _021E5F3A
 _021E5F2A:
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -31839,7 +31839,7 @@ ov16_021E5FA4: ; 0x021E5FA4
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #3
 	ldr r0, [r0]
@@ -33930,7 +33930,7 @@ ov16_021E6F18: ; 0x021E6F18
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E6F2A
 	bl GF_AssertFail
@@ -33959,7 +33959,7 @@ ov16_021E6F54: ; 0x021E6F54
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E6F66
 	bl GF_AssertFail
@@ -33984,7 +33984,7 @@ ov16_021E6F7C: ; 0x021E6F7C
 	bl GF_AssertFail
 _021E6F86:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E6F7C
@@ -33997,7 +33997,7 @@ ov16_021E6F90: ; 0x021E6F90
 	bl GF_AssertFail
 _021E6F9A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E6F90
@@ -34057,7 +34057,7 @@ _021E6FDC: ; jump table
 _021E6FE4:
 	ldr r0, [r4, #4]
 	mov r1, #0x58
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x58
@@ -34250,7 +34250,7 @@ _021E713C:
 	str r0, [r4]
 	b _021E715A
 _021E714A:
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -34359,7 +34359,7 @@ ov16_021E71D0: ; 0x021E71D0
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x33
@@ -34384,7 +34384,7 @@ ov16_021E71D0: ; 0x021E71D0
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x37
@@ -34410,7 +34410,7 @@ ov16_021E71D0: ; 0x021E71D0
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x38
@@ -34436,7 +34436,7 @@ ov16_021E71D0: ; 0x021E71D0
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #3
 	ldr r0, [r0]
@@ -35602,7 +35602,7 @@ ov16_021E7BB0: ; 0x021E7BB0
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E7BC2
 	bl GF_AssertFail
@@ -35648,7 +35648,7 @@ ov16_021E7C10: ; 0x021E7C10
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E7C22
 	bl GF_AssertFail
@@ -35676,7 +35676,7 @@ ov16_021E7C38: ; 0x021E7C38
 	mul r7, r1
 	add r0, r5, #0
 	add r1, r7, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E7C58
 	bl GF_AssertFail
@@ -35715,7 +35715,7 @@ ov16_021E7C90: ; 0x021E7C90
 	bl GF_AssertFail
 _021E7C9A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E7C90
@@ -35728,7 +35728,7 @@ ov16_021E7CA4: ; 0x021E7CA4
 	bl GF_AssertFail
 _021E7CAE:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E7CA4
@@ -35749,7 +35749,7 @@ _021E7CC2:
 	add r0, #0x28
 	bl ov16_021DAC7C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov16_021E7CB8
 
@@ -35766,7 +35766,7 @@ ov16_021E7CE4: ; 0x021E7CE4
 	ldr r0, [r5, #4]
 	add r6, r1, #0
 	mov r1, #0x3c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x3c
 	add r4, r0, #0
@@ -35836,7 +35836,7 @@ ov16_021E7D68: ; 0x021E7D68
 	add r0, r4, #0
 	bl ov16_021E8088
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end ov16_021E7D68
@@ -35866,7 +35866,7 @@ _021E7D9A: ; jump table
 _021E7DA2:
 	ldr r0, [r4, #4]
 	mov r1, #0xc4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0xc4
@@ -36077,7 +36077,7 @@ _021E7F2A:
 	b _021E7F4E
 _021E7F3C:
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -36100,7 +36100,7 @@ ov16_021E7F54: ; 0x021E7F54
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #4]
 	mov r0, #0xd0
 	str r0, [sp]
@@ -36260,7 +36260,7 @@ ov16_021E8088: ; 0x021E8088
 	ldr r0, [r4]
 	bl sub_0202212C
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #4]
 	pop {r4, pc}
@@ -36528,7 +36528,7 @@ _021E829E:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021E82AC
-	bl FreeToHeap
+	bl Heap_Free
 _021E82AC:
 	add r4, r4, #1
 	add r5, r5, #4
@@ -36579,7 +36579,7 @@ ov16_021E82B8: ; 0x021E82B8
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x3c
@@ -36605,7 +36605,7 @@ ov16_021E82B8: ; 0x021E82B8
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	ldr r0, [r5]
 	mov r1, #0x3f
@@ -36631,7 +36631,7 @@ ov16_021E82B8: ; 0x021E82B8
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #6
 	ldr r0, [r0]
@@ -37349,7 +37349,7 @@ _021E8926:
 	ldr r0, [r6]
 	cmp r0, #0
 	beq _021E8934
-	bl FreeToHeap
+	bl Heap_Free
 _021E8934:
 	ldr r0, [sp, #4]
 	ldr r3, [sp, #0x34]
@@ -37803,7 +37803,7 @@ ov16_021E8C70: ; 0x021E8C70
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x34
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E8C82
 	bl GF_AssertFail
@@ -37862,7 +37862,7 @@ ov16_021E8CF4: ; 0x021E8CF4
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E8D06
 	bl GF_AssertFail
@@ -37890,7 +37890,7 @@ ov16_021E8D1C: ; 0x021E8D1C
 	mul r7, r1
 	add r0, r5, #0
 	add r1, r7, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E8D3C
 	bl GF_AssertFail
@@ -37960,7 +37960,7 @@ ov16_021E8DBC: ; 0x021E8DBC
 	bl GF_AssertFail
 _021E8DC6:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E8DBC
@@ -37973,7 +37973,7 @@ ov16_021E8DD0: ; 0x021E8DD0
 	bl GF_AssertFail
 _021E8DDA:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E8DD0
@@ -38009,7 +38009,7 @@ _021E8DEE:
 	add r0, #0x8c
 	bl ov16_021DAC7C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov16_021E8DE4
 
@@ -38090,7 +38090,7 @@ _021E8E96: ; jump table
 _021E8E9E:
 	ldr r0, [r4, #4]
 	mov r1, #0x28
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x28
@@ -38264,7 +38264,7 @@ _021E8FE4:
 	b _021E900C
 _021E8FF0:
 	add r0, r1, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -38730,7 +38730,7 @@ _021E932E:
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #2
 	ldr r0, [r0]
@@ -39047,7 +39047,7 @@ ov16_021E95D0: ; 0x021E95D0
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x34
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E95E2
 	bl GF_AssertFail
@@ -39076,7 +39076,7 @@ ov16_021E960C: ; 0x021E960C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E961E
 	bl GF_AssertFail
@@ -39107,7 +39107,7 @@ ov16_021E9638: ; 0x021E9638
 	bl GF_AssertFail
 _021E9642:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E9638
@@ -39120,7 +39120,7 @@ ov16_021E964C: ; 0x021E964C
 	bl GF_AssertFail
 _021E9656:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021E964C
@@ -39144,7 +39144,7 @@ ov16_021E9668: ; 0x021E9668
 	ldr r0, [r5, #4]
 	add r4, r1, #0
 	mov r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0
 	add r2, r6, #0
 	mov r1, #0x1c
@@ -39250,7 +39250,7 @@ ov16_021E972C: ; 0x021E972C
 	add r0, r5, #0
 	bl ov16_021EA074
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -39283,7 +39283,7 @@ _021E976A: ; jump table
 _021E9774:
 	ldr r0, [r4, #4]
 	mov r1, #0x28
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x28
@@ -39420,7 +39420,7 @@ _021E9860:
 	str r0, [r4]
 	b _021E9890
 _021E987C:
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -39444,7 +39444,7 @@ ov16_021E9894: ; 0x021E9894
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #4]
 	mov r0, #0x30
 	str r0, [sp]
@@ -39605,7 +39605,7 @@ ov16_021E99C0: ; 0x021E99C0
 	ldr r0, [r4]
 	bl sub_0202212C
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #4]
 	pop {r4, pc}
@@ -39870,7 +39870,7 @@ _021E9B9E:
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #5
 	ldr r0, [r0]
@@ -40230,7 +40230,7 @@ ov16_021E9E6C: ; 0x021E9E6C
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #0xa8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x18]
 	mov r0, #0x10
 	str r0, [sp]
@@ -40480,7 +40480,7 @@ ov16_021EA074: ; 0x021EA074
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x14]
 	bl ov16_021DB4A8
 	mov r0, #0
@@ -40774,7 +40774,7 @@ ov16_021EA274: ; 0x021EA274
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EA286
 	bl GF_AssertFail
@@ -40810,7 +40810,7 @@ ov16_021EA2BC: ; 0x021EA2BC
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x14
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EA2CE
 	bl GF_AssertFail
@@ -40838,7 +40838,7 @@ ov16_021EA2E8: ; 0x021EA2E8
 	bl GF_AssertFail
 _021EA2F2:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EA2E8
@@ -40851,7 +40851,7 @@ ov16_021EA2FC: ; 0x021EA2FC
 	bl GF_AssertFail
 _021EA306:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EA2FC
@@ -40872,7 +40872,7 @@ ov16_021EA314: ; 0x021EA314
 	add r7, r0, #0
 	ldr r0, [r5, #4]
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EA332
 	bl GF_AssertFail
@@ -40929,7 +40929,7 @@ ov16_021EA388: ; 0x021EA388
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -40963,7 +40963,7 @@ _021EA3C2:
 	mov r1, #0x33
 	ldr r0, [r4, #4]
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x33
 	str r0, [r4, #8]
 	mov r1, #0
@@ -41127,7 +41127,7 @@ _021EA4F6:
 	str r0, [r4]
 	b _021EA518
 _021EA504:
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -41562,7 +41562,7 @@ ov16_021EA7F0: ; 0x021EA7F0
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #3
 	ldr r0, [r0]
@@ -42479,7 +42479,7 @@ ov16_021EAF18: ; 0x021EAF18
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EAF2A
 	bl GF_AssertFail
@@ -42512,7 +42512,7 @@ ov16_021EAF58: ; 0x021EAF58
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EAF6A
 	bl GF_AssertFail
@@ -42543,7 +42543,7 @@ ov16_021EAF84: ; 0x021EAF84
 	bl GF_AssertFail
 _021EAF8E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EAF84
@@ -42556,7 +42556,7 @@ ov16_021EAF98: ; 0x021EAF98
 	bl GF_AssertFail
 _021EAFA2:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EAF98
@@ -42583,7 +42583,7 @@ ov16_021EAFB4: ; 0x021EAFB4
 	add r7, r0, #0
 	ldr r0, [r5, #4]
 	mov r1, #0x70
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x70
 	add r4, r0, #0
@@ -42675,7 +42675,7 @@ ov16_021EB078: ; 0x021EB078
 	add r0, r4, #0
 	bl ov16_021EB3F4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end ov16_021EB078
@@ -42704,7 +42704,7 @@ _021EB0A8: ; jump table
 _021EB0B0:
 	ldr r0, [r4, #4]
 	mov r1, #0x74
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x74
@@ -42854,7 +42854,7 @@ _021EB1D0:
 	b _021EB1F4
 _021EB1E2:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -43024,11 +43024,11 @@ ov16_021EB31C: ; 0x021EB31C
 	add r6, r1, #0
 	add r0, r4, #0
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #4]
 	add r0, r4, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x10]
 	mov r0, #0x6a
 	str r0, [sp]
@@ -43130,11 +43130,11 @@ ov16_021EB3F4: ; 0x021EB3F4
 	ldr r0, [r4, #0x14]
 	bl sub_0202212C
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #4]
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #0x10]
 	pop {r4, pc}
@@ -43596,7 +43596,7 @@ ov16_021EB724: ; 0x021EB724
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #6
 	ldr r0, [r0]
@@ -43636,7 +43636,7 @@ ov16_021EB724: ; 0x021EB724
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #7
 	ldr r0, [r0]
@@ -44776,7 +44776,7 @@ ov16_021EC080: ; 0x021EC080
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x68]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #0x68]
 	str r0, [r4, #0x6c]
@@ -45060,7 +45060,7 @@ ov16_021EC274: ; 0x021EC274
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EC286
 	bl GF_AssertFail
@@ -45098,7 +45098,7 @@ ov16_021EC2C0: ; 0x021EC2C0
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EC2D2
 	bl GF_AssertFail
@@ -45129,7 +45129,7 @@ ov16_021EC2EC: ; 0x021EC2EC
 	bl GF_AssertFail
 _021EC2F6:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EC2EC
@@ -45142,7 +45142,7 @@ ov16_021EC300: ; 0x021EC300
 	bl GF_AssertFail
 _021EC30A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EC300
@@ -45165,7 +45165,7 @@ ov16_021EC31C: ; 0x021EC31C
 	add r5, r0, #0
 	ldr r0, [r5, #4]
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EC330
 	bl GF_AssertFail
@@ -45198,7 +45198,7 @@ ov16_021EC350: ; 0x021EC350
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -45231,7 +45231,7 @@ _021EC382: ; jump table
 _021EC38A:
 	ldr r0, [r4, #4]
 	mov r1, #0x14
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r2, #0x14
 	mov r1, #0
@@ -45332,7 +45332,7 @@ _021EC434:
 	str r0, [r4]
 	b _021EC456
 _021EC442:
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -45564,7 +45564,7 @@ ov16_021EC5A8: ; 0x021EC5A8
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #3
 	ldr r0, [r0]
@@ -46224,7 +46224,7 @@ ov16_021ECB54: ; 0x021ECB54
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021ECB66
 	bl GF_AssertFail
@@ -46259,7 +46259,7 @@ ov16_021ECB98: ; 0x021ECB98
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021ECBAA
 	bl GF_AssertFail
@@ -46287,7 +46287,7 @@ ov16_021ECBC0: ; 0x021ECBC0
 	mul r7, r1
 	add r0, r5, #0
 	add r1, r7, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021ECBE0
 	bl GF_AssertFail
@@ -46319,7 +46319,7 @@ ov16_021ECC08: ; 0x021ECC08
 	bl GF_AssertFail
 _021ECC12:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021ECC08
@@ -46332,7 +46332,7 @@ ov16_021ECC1C: ; 0x021ECC1C
 	bl GF_AssertFail
 _021ECC26:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021ECC1C
@@ -46350,7 +46350,7 @@ _021ECC3A:
 	add r0, #0x14
 	bl ov16_021DAC7C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov16_021ECC30
 
@@ -46367,7 +46367,7 @@ ov16_021ECC54: ; 0x021ECC54
 	ldr r0, [r5, #4]
 	add r4, r1, #0
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0
 	add r2, r6, #0
 	mov r1, #0x18
@@ -46452,7 +46452,7 @@ ov16_021ECCF4: ; 0x021ECCF4
 	add r0, r4, #0
 	bl ov16_021ECFD4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end ov16_021ECCF4
@@ -46481,7 +46481,7 @@ _021ECD24: ; jump table
 _021ECD2C:
 	ldr r0, [r4, #4]
 	mov r1, #0x40
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x40
@@ -46615,7 +46615,7 @@ _021ECE1E:
 	b _021ECE42
 _021ECE30:
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -46774,7 +46774,7 @@ ov16_021ECF40: ; 0x021ECF40
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #4]
 	mov r0, #0x80
 	str r0, [sp]
@@ -46857,7 +46857,7 @@ ov16_021ECFD4: ; 0x021ECFD4
 	ldr r0, [r4]
 	bl sub_0202212C
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #4]
 	pop {r4, pc}
@@ -46972,7 +46972,7 @@ _021ED0BA:
 	ldr r0, [r5, #0x38]
 	cmp r0, #0
 	beq _021ED0C4
-	bl FreeToHeap
+	bl Heap_Free
 _021ED0C4:
 	add r4, r4, #1
 	add r5, r5, #4
@@ -47023,7 +47023,7 @@ ov16_021ED0D0: ; 0x021ED0D0
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #6
 	ldr r0, [r0]
@@ -47407,7 +47407,7 @@ _021ED422:
 	ldr r0, [r6]
 	cmp r0, #0
 	beq _021ED430
-	bl FreeToHeap
+	bl Heap_Free
 _021ED430:
 	ldr r0, [sp, #4]
 	ldr r3, [sp, #0x34]
@@ -47639,7 +47639,7 @@ ov16_021ED5C8: ; 0x021ED5C8
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021ED5DA
 	bl GF_AssertFail
@@ -47671,7 +47671,7 @@ ov16_021ED604: ; 0x021ED604
 	add r6, r1, #0
 	mov r1, #0x20
 	add r5, r0, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021ED618
 	bl GF_AssertFail
@@ -47705,7 +47705,7 @@ ov16_021ED648: ; 0x021ED648
 	bl GF_AssertFail
 _021ED652:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021ED648
@@ -47722,7 +47722,7 @@ _021ED666:
 	add r0, r4, #0
 	bl ov16_021EE14C
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021ED65C
@@ -47740,7 +47740,7 @@ ov16_021ED680: ; 0x021ED680
 	ldr r0, [r6, #4]
 	add r5, r1, #0
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021ED696
 	bl GF_AssertFail
@@ -47809,7 +47809,7 @@ ov16_021ED6FC: ; 0x021ED6FC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -47843,7 +47843,7 @@ _021ED730: ; jump table
 _021ED738:
 	ldr r0, [r4, #4]
 	mov r1, #0xc4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0xc4
@@ -48066,7 +48066,7 @@ _021ED8CA:
 	bl SysTask_Destroy
 _021ED8DA:
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r4]
@@ -48321,7 +48321,7 @@ ov16_021EDA7C: ; 0x021EDA7C
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #3
 	ldr r0, [r0]
@@ -48402,7 +48402,7 @@ ov16_021EDAE4: ; 0x021EDAE4
 _021EDB82:
 	add r0, r4, #0
 	mov r1, #0x60
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -48467,7 +48467,7 @@ _021EDB82:
 	bl sub_02009D68
 	add r0, r4, #0
 	mov r1, #0xa0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r5, #0
 	add r1, #0xc0
 	str r0, [r1]
@@ -48562,10 +48562,10 @@ ov16_021EDC70: ; 0x021EDC70
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r5, #0xc0
 	ldr r0, [r5]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EDC70
@@ -49046,9 +49046,9 @@ ov16_021EE0F0: ; 0x021EE0F0
 	ldr r0, [r4, #8]
 	bl sub_02013E44
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EE0F0
@@ -49834,7 +49834,7 @@ ov16_021EE6CC: ; 0x021EE6CC
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EE6DE
 	bl GF_AssertFail
@@ -49870,7 +49870,7 @@ ov16_021EE714: ; 0x021EE714
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021EE726
 	bl GF_AssertFail
@@ -49901,7 +49901,7 @@ ov16_021EE740: ; 0x021EE740
 	bl GF_AssertFail
 _021EE74A:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EE740
@@ -49914,7 +49914,7 @@ ov16_021EE754: ; 0x021EE754
 	bl GF_AssertFail
 _021EE75E:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EE754
@@ -49938,7 +49938,7 @@ ov16_021EE770: ; 0x021EE770
 	ldr r0, [r5, #4]
 	add r6, r1, #0
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	add r2, r4, #0
 	mov r1, #0x18
@@ -50021,7 +50021,7 @@ ov16_021EE810: ; 0x021EE810
 	add r0, r4, #0
 	bl ov16_021EEAA0
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end ov16_021EE810
@@ -50050,7 +50050,7 @@ _021EE840: ; jump table
 _021EE848:
 	ldr r0, [r4, #4]
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #8]
 	mov r1, #0
 	mov r2, #0x30
@@ -50184,7 +50184,7 @@ _021EE93A:
 	b _021EE95E
 _021EE94C:
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -50325,7 +50325,7 @@ ov16_021EEA3C: ; 0x021EEA3C
 	add r4, r1, #0
 	add r0, r6, #0
 	mov r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #4]
 	mov r0, #0xf8
 	str r0, [sp]
@@ -50381,7 +50381,7 @@ ov16_021EEAA0: ; 0x021EEAA0
 	ldr r0, [r4]
 	bl sub_0202212C
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #4]
 	pop {r4, pc}
@@ -50464,7 +50464,7 @@ ov16_021EEB10: ; 0x021EEB10
 	ldr r0, [r5, #0x2c]
 	cmp r0, #0
 	beq _021EEB4A
-	bl FreeToHeap
+	bl Heap_Free
 _021EEB4A:
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -50512,7 +50512,7 @@ ov16_021EEB50: ; 0x021EEB50
 	ldr r0, [r0]
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
 	mov r1, #6
 	ldr r0, [r0]
@@ -50835,7 +50835,7 @@ _021EEE1E:
 	ldr r0, [r6]
 	cmp r0, #0
 	beq _021EEE2C
-	bl FreeToHeap
+	bl Heap_Free
 _021EEE2C:
 	ldr r0, [sp, #4]
 	ldr r3, [sp, #0x34]
@@ -50975,7 +50975,7 @@ ov16_021EEF0C: ; 0x021EEF0C
 	mov r1, #0x7a
 	ldr r0, [r5, #0xc]
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x7a
 	add r4, r0, #0
 	mov r1, #0
@@ -51020,7 +51020,7 @@ ov16_021EEF68: ; 0x021EEF68
 	ldr r0, [r4, r0]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov16_021EEF68
@@ -52094,7 +52094,7 @@ ov16_021EF790: ; 0x021EF790
 	add r0, r5, #0
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	mov r0, #0x45
 	mov r1, #0x33
@@ -52118,7 +52118,7 @@ ov16_021EF790: ; 0x021EF790
 	add r0, r5, #0
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	mov r0, #0x45
 	mov r1, #0x34
@@ -52143,7 +52143,7 @@ ov16_021EF790: ; 0x021EF790
 	add r0, r5, #0
 	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	str r4, [sp]
 	mov r0, #0x45
 	mov r1, #0x36
@@ -52168,7 +52168,7 @@ ov16_021EF790: ; 0x021EF790
 	add r0, r5, #0
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #3
 	bl ScheduleBgTilemapBufferTransfer
@@ -52216,7 +52216,7 @@ ov16_021EF8A8: ; 0x021EF8A8
 	add r0, r4, #0
 	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #2
 	bl ScheduleBgTilemapBufferTransfer
@@ -52589,7 +52589,7 @@ ov16_021EFBA4: ; 0x021EFBA4
 	mov r4, #0
 _021EFBAA:
 	ldr r0, [r5]
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, r4, #1
 	cmp r4, #2
 	blt _021EFBAA

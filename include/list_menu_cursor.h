@@ -8,7 +8,7 @@ struct ListMenuCursor {
     // ???
 };
 
-extern struct ListMenuCursor *ListMenuCursorNew(HeapID heapId);
+extern struct ListMenuCursor *ListMenuCursorNew(enum HeapID heapID);
 extern void ListMenuUpdateCursorObj(struct ListMenuCursor *, struct Window *, u8 x, u8 y);
 extern void ListMenuCursorSetColor(struct ListMenuCursor *, u32);
 extern void DestroyListMenuCursorObj(struct ListMenuCursor *);

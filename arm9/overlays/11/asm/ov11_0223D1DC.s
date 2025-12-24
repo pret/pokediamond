@@ -9,7 +9,7 @@ ov11_0223D1DC: ; 0x0223D1DC
 	ldr r1, _0223D22C ; =0x0000314C
 	add r5, r0, #0
 	mov r0, #5
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	ldr r2, _0223D22C ; =0x0000314C
 	mov r0, #0
@@ -88,9 +88,9 @@ ov11_0223D284: ; 0x0223D284
 	add r4, r0, #0
 	ldr r0, _0223D298 ; =0x00002120
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 _0223D298: .word 0x00002120

@@ -39,7 +39,7 @@ sub_02027E44: ; 0x02027E44
 Poffin_New: ; 0x02027E5C
 	push {r4, lr}
 	mov r1, #0x8
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	bl sub_02027E44
 	add r0, r4, #0x0

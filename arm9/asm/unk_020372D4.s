@@ -187,16 +187,16 @@ sub_02037400: ; 0x02037400
 	mov r0, #0x3
 	mov r1, #0xb
 	lsl r2, r2, #0xe
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0x20
 	mov r0, #0x3
 	lsl r2, r1, #0x9
-	bl CreateHeap
+	bl Heap_Create
 	mov r2, #0x3
 	mov r0, #0x0
 	mov r1, #0x5b
 	lsl r2, r2, #0x8
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0x0
 	mov r1, #0xb8
 	mov r2, #0xb
@@ -207,7 +207,7 @@ sub_02037400: ; 0x02037400
 	bl MI_CpuFill8
 	mov r0, #0xb
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x0]
 	mov r1, #0x0
 	str r1, [r0, #0x0]
@@ -268,7 +268,7 @@ sub_020374B0: ; 0x020374B0
 	add r0, r4, #0x0
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
 	add r0, #0x90
 	ldr r0, [r0, #0x0]
@@ -278,15 +278,15 @@ sub_020374B0: ; 0x020374B0
 	ldr r0, [r0, #0x0]
 	bl sub_0208A320
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	mov r0, #0x5b
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0xb
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x20
-	bl DestroyHeap
+	bl Heap_Destroy
 	pop {r3-r5, pc}
 
 	thumb_func_start sub_02037504

@@ -42,7 +42,7 @@ ov63_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x1e
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0x79
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -363,7 +363,7 @@ ov63_021D77B4: ; 0x021D77B4
 	add r0, r7, #0
 	bl OverlayManager_FreeData
 	add r0, r4, #0
-	bl DestroyHeap
+	bl Heap_Destroy
 	cmp r5, #1
 	beq _021D77F2
 	cmp r5, #2
@@ -500,7 +500,7 @@ ov63_021D78BC: ; 0x021D78BC
 	add r0, #0x68
 	add r1, r4, #0
 	mov r2, #4
-	bl GF_ExpHeap_FndInitAllocator
+	bl HeapExp_FndInitAllocator
 	mov r0, #0x30
 	add r1, r6, #0
 	add r2, r4, #0
@@ -581,9 +581,9 @@ ov63_021D7970: ; 0x021D7970
 	add r0, #0x68
 	bl NNS_G3dFreeAnmObj
 	ldr r0, [r4, #0x60]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x5c]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov63_021D7970
@@ -882,7 +882,7 @@ ov63_021D7B9C: ; 0x021D7B9C
 	mov r1, #7
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov63_021D7B9C
 

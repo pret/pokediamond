@@ -20,7 +20,7 @@ extern void ov20_02253888(u32 *arg0, void *arg1);
 extern BOOL ov20_022537B8(void *arg0);
 extern BOOL ov20_02253794(void *arg0, u8 arg1);
 extern void ov20_022537E0(const u32 *arg0, u32 arg1, void *arg2, void *arg3, void *arg4, u32 arg5, u32 arg6);
-extern BOOL ov20_02253FBC(void *arg0, NarcId arg1, u32 arg2, u32 arg3, HeapID arg4);
+extern BOOL ov20_02253FBC(void *arg0, NarcId arg1, u32 arg2, u32 arg3, enum HeapID arg4);
 extern u32 *ov20_02253E74(u32 arg0, void *arg1, void *arg2);
 extern void ov20_02254014(void *arg0);
 extern void ov20_02253F14(u32 arg0, void *arg1);
@@ -29,7 +29,7 @@ extern BgConfig *ov20_02252D34();
 extern u32 ov20_02252D24();
 
 BOOL ov24_02254CA0(MemoPadDisplayHandler **displayHandlerOut, MemoPadDrawState *drawState) {
-    MemoPadDisplayHandler *displayHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadDisplayHandler));
+    MemoPadDisplayHandler *displayHandler = Heap_Alloc(HEAP_ID_POKETCH_APP, sizeof(MemoPadDisplayHandler));
     if (displayHandler != NULL) {
         GF_ASSERT(GF_heap_c_dummy_return_true(HEAP_ID_POKETCH_MAIN));
         ov20_022536F4(&(displayHandler->unk8), 0x10);
@@ -71,9 +71,9 @@ void ov24_02254D48(MemoPadDisplayHandler *displayHandler) {
         if (displayHandler->window != NULL) {
             sub_02089444(displayHandler->drawState->unk16E8, displayHandler->window->pixelBuffer, 0x2f80);
             RemoveWindow(displayHandler->window);
-            FreeToHeap(displayHandler->window);
+            Heap_Free(displayHandler->window);
         }
-        FreeToHeap(displayHandler);
+        Heap_Free(displayHandler);
     }
 }
 

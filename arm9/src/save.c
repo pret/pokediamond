@@ -19,7 +19,7 @@ static BOOL saveWritten;
 static SaveData *sSaveDataPtr;
 
 struct SaveData *SaveData_New(void) {
-    struct SaveData *save = AllocFromHeap(HEAP_ID_1, sizeof(struct SaveData));
+    struct SaveData *save = Heap_Alloc(HEAP_ID_1, sizeof(struct SaveData));
     MI_CpuClearFast(save, sizeof(struct SaveData));
     sSaveDataPtr = save;
     save->flashOkay = SaveDetectFlash();
@@ -65,7 +65,7 @@ void *sub_02022634(struct SaveData *save, int idx) {
 // Clears bits at 0x021C491
 
 BOOL sub_0202263C(struct SaveData *save) {
-    u8 *r6 = AllocFromHeapAtEnd(HEAP_ID_MAIN, 0x1000);
+    u8 *r6 = Heap_AllocAtEnd(HEAP_ID_MAIN, 0x1000);
     sub_02016444(1);
     FlashClobberChunkFooter(save, 0, (u32)(save->unk_20220[0] == 0 ? 1 : 0));
     FlashClobberChunkFooter(save, 1, (u32)(save->unk_20220[1] == 0 ? 1 : 0));
@@ -76,7 +76,7 @@ BOOL sub_0202263C(struct SaveData *save) {
         FlashWriteChunk((u32)(0x1000 * i), r6, 0x1000);
         FlashWriteChunk((u32)(0x1000 * (i + 0x40)), r6, 0x1000);
     }
-    FreeToHeap(r6);
+    Heap_Free(r6);
     Save_InitDynamicRegion(save);
     save->saveFileExists = 0;
     sub_02016454(1);
@@ -316,8 +316,8 @@ int sub_02022AD8(struct SaveData *save) {
     u32 sp8;
     u32 sp4;
     {
-        u8 *r6 = AllocFromHeapAtEnd(HEAP_ID_MAIN, 0x20000);
-        u8 *r4 = AllocFromHeapAtEnd(HEAP_ID_MAIN, 0x20000);
+        u8 *r6 = Heap_AllocAtEnd(HEAP_ID_MAIN, 0x20000);
+        u8 *r4 = Heap_AllocAtEnd(HEAP_ID_MAIN, 0x20000);
         if (FlashLoadChunk(0, r6, 0x20000)) {
             sub_0202293C(&sp2C[0], save, r6, 0);
             sub_0202293C(&sp14[0], save, r6, 1);
@@ -332,8 +332,8 @@ int sub_02022AD8(struct SaveData *save) {
             sub_0202288C(&sp2C[1]);
             sub_0202288C(&sp14[1]);
         }
-        FreeToHeap(r6);
-        FreeToHeap(r4);
+        Heap_Free(r6);
+        Heap_Free(r4);
     }
     {
         int r4, r0;
@@ -667,7 +667,7 @@ int WriteSaveFileToFlash(struct SaveData *save, int idx, u8 *data) {
     return 3;
 }
 
-u8 *ReadSaveFileFromFlash(struct SaveData *save, HeapID heapId, int idx, int *ret_p) {
+u8 *ReadSaveFileFromFlash(struct SaveData *save, enum HeapID heapID, int idx, int *ret_p) {
     GF_ASSERT(idx < UNK_020EE6D8);
     const struct SaveChunkHeader *sch = &UNK_020EE6E0[idx];
     GF_ASSERT(sch->id == idx);
@@ -676,7 +676,7 @@ u8 *ReadSaveFileFromFlash(struct SaveData *save, HeapID heapId, int idx, int *re
     u32 sp8;
     int r7;
     u32 sp4;
-    u8 *r6 = AllocFromHeap(heapId, sp10);
+    u8 *r6 = Heap_Alloc(heapID, sp10);
     FlashLoadChunk((u32)(sch->linkedId << 12), r6, sp10);
     spC = ValidateChunk(save, r6, idx, sch->sizeFunc());
     sp8 = sub_020232B4(r6, sch->sizeFunc());
@@ -748,7 +748,7 @@ BOOL FlashLoadChunk(u32 src, void *dest, u32 size) {
     CARD_UnlockBackup((u16)lock);
     OS_ReleaseLockID((u16)lock);
     if (!r5) {
-        FreeToHeap(sSaveDataPtr);
+        Heap_Free(sSaveDataPtr);
         ShowSaveDataReadError(HEAP_ID_1);
     }
     return r5;
@@ -797,6 +797,6 @@ BOOL WaitFlashWrite(int lock, BOOL *res) {
 void SaveErrorHandling(int lock, u32 errno) {
     CARD_UnlockBackup((u16)lock);
     OS_ReleaseLockID((u16)lock);
-    FreeToHeap(sSaveDataPtr);
+    Heap_Free(sSaveDataPtr);
     ShowSaveDataWriteError(HEAP_ID_1, errno);
 }

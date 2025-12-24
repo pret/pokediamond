@@ -730,7 +730,7 @@ _020772FE:
 	mov r0, #0x3
 	mov r1, #0x12
 	lsl r2, r2, #0xe
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0x5d
 	add r0, r6, #0x0
 	lsl r1, r1, #0x4
@@ -1418,7 +1418,7 @@ sub_02077894: ; 0x02077894
 	mov r2, #0x5
 	bl Pokemon_InitWithParams
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 _020778DE:
 	mov r1, #0x56
 	lsl r1, r1, #0x2
@@ -1509,18 +1509,18 @@ _02077982:
 	ldr r1, _02077A70 ; =0x000004AC
 	mov r0, #0x12
 	ldr r1, [r4, r1]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x1
 	bne _020779C2
 	ldr r1, _02077A74 ; =0x000004B4
 	mov r0, #0x12
 	ldr r1, [r4, r1]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r1, _02077A78 ; =0x000004BC
 	mov r0, #0x12
 	ldr r1, [r4, r1]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _020779C2:
 	mov r0, #0x16
 	lsl r0, r0, #0x4
@@ -1583,7 +1583,7 @@ _02077A0C:
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x12
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _02077A80 ; =gSystem + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
@@ -1607,7 +1607,7 @@ sub_02077A84: ; 0x02077A84
 	str r0, [sp, #0x0]
 	add r7, r2, #0x0
 	add r5, r3, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	str r6, [r4, #0x0]
 	str r7, [r4, #0x4]
@@ -1648,7 +1648,7 @@ _02077ADA:
 	ldr r0, [r4, #0x18]
 	bl String_Delete
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start sub_02077AE8
@@ -1997,7 +1997,7 @@ _02077D88:
 	mov r1, #0x0
 	bl BufferBoxMonSpeciesName
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 _02077DCE:
 	ldr r0, [r7, #0x44]
 	cmp r0, #0x0
@@ -2177,7 +2177,7 @@ _02077F1A:
 	mov r1, #0x0
 	bl BufferBoxMonSpeciesName
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	b _02077F7E
 _02077F50:
 	mov r1, #0x56
@@ -2250,7 +2250,7 @@ _02077FB0:
 	bl FreeBgTilemapBuffer
 	mov r0, #0x12
 	add r1, r6, #0x0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4-r6, pc}
 
 	thumb_func_start sub_02077FE8

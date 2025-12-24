@@ -1992,7 +1992,7 @@ ov07_02212E64: ; 0x02212E64
 	mov r1, #1
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start ov07_02212E90
@@ -3023,7 +3023,7 @@ ov07_022136B4: ; 0x022136B4
 	mov r1, #0x12
 	ldr r0, [r0, #0x24]
 	lsl r1, r1, #0xa
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0xb6
 	lsl r2, r2, #4
 	str r0, [r4, r2]
@@ -3142,7 +3142,7 @@ ov07_022137DC: ; 0x022137DC
 	mov r0, #0xb6
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0221380C ; =0x00000B58
 	ldr r0, [r4, r0]
 	bl sub_020223BC
@@ -3280,7 +3280,7 @@ ov07_022138F8: ; 0x022138F8
 	mov r1, #1
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start ov07_02213924
@@ -3336,7 +3336,7 @@ ov07_02213924: ; 0x02213924
 	mov r2, #0x60
 	bl memcpy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r2, #0xa9
 	lsl r2, r2, #2
@@ -5053,7 +5053,7 @@ ov07_02214720: ; 0x02214720
 	str r0, [sp, #0x10]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	add r0, r7, #0
 	bl sub_020313CC
@@ -5070,7 +5070,7 @@ ov07_02214720: ; 0x02214720
 	bl sub_020294B4
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	b _0221493A
 _0221479C:
 	bl sub_02033534
@@ -5105,7 +5105,7 @@ _022147BC:
 	str r0, [sp, #0x14]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	add r0, r7, #0
 	bl sub_020313CC
@@ -5122,7 +5122,7 @@ _022147BC:
 	bl sub_0202930C
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	b _0221493A
 _02214808:
 	mov r0, #1
@@ -5138,7 +5138,7 @@ _02214808:
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	add r0, r7, #0
 	bl sub_020313CC
@@ -5155,7 +5155,7 @@ _02214808:
 	bl sub_0202934C
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	b _0221493A
 _02214854:
 	mov r0, #1
@@ -5171,7 +5171,7 @@ _02214854:
 	str r0, [sp, #0x1c]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	add r0, r7, #0
 	bl sub_020313CC
@@ -5188,16 +5188,16 @@ _02214854:
 	bl sub_020293EC
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	b _0221493A
 _022148A0:
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	bl ov07_02212BD4
 	cmp r0, #1
@@ -5250,9 +5250,9 @@ _02214914:
 	bl sub_0202938C
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	b _0221493A
 _02214936:
 	add sp, #0x20

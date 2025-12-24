@@ -11,7 +11,7 @@ typedef struct SaveChatotSoundClip {
 
 u32 Save_Chatot_sizeof(void);
 void Save_Chatot_Init(struct SaveChatotSoundClip *chatot);
-struct SaveChatotSoundClip *Chatot_New(HeapID heapId);
+struct SaveChatotSoundClip *Chatot_New(enum HeapID heapID);
 struct SaveChatotSoundClip *Save_Chatot_Get(struct SaveData *save);
 BOOL Chatot_Exists(struct SaveChatotSoundClip *chatot);
 void Chatot_Invalidate(struct SaveChatotSoundClip *chatot);

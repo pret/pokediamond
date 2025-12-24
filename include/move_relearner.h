@@ -15,9 +15,9 @@ typedef struct MoveRelearner {
     u8 padding2[1];
 } MoveRelearner;
 
-MoveRelearner *MoveRelearner_New(HeapID heapId);
+MoveRelearner *MoveRelearner_New(enum HeapID heapID);
 void MoveRelearner_Delete(MoveRelearner *moveRelearner);
-u16 *MoveRelearner_GetEligibleLevelUpMoves(Pokemon *mon, HeapID heapId);
+u16 *MoveRelearner_GetEligibleLevelUpMoves(Pokemon *mon, enum HeapID heapID);
 BOOL MoveRelearner_IsValidMove(const u16 *ptr);
 
 #endif // POKEDIAMOND_MOVE_RELEARNER_H

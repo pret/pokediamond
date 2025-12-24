@@ -44,7 +44,7 @@ sub_02025960: ; 0x02025960
 sub_02025964: ; 0x02025964
 	push {r4, lr}
 	mov r1, #0x3c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x0
 	mov r2, #0x3c
 	add r4, r0, #0x0

@@ -247,7 +247,7 @@ sub_02079B60: ; 0x02079B60
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	add r0, r7, #0x0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x28]
@@ -340,7 +340,7 @@ _02079C24:
 	bl BG_LoadPlttData
 _02079C36:
 	add r0, r7, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x14
 	pop {r4-r7, pc}
 
@@ -355,7 +355,7 @@ sub_02079C40: ; 0x02079C40
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x18]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r5, #0x0

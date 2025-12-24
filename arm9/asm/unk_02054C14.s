@@ -456,7 +456,7 @@ _02054F28:
 	add r1, sp, #0x0
 	bl sub_02058BB4
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r4-r5, pc}
@@ -475,7 +475,7 @@ sub_02054F50: ; 0x02054F50
 	str r0, [sp, #0x0]
 	mov r0, #0xb
 	mov r1, #0x14
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x14
 	add r4, r0, #0x0
@@ -561,7 +561,7 @@ sub_02054FE4: ; 0x02054FE4
 	cmp r1, #0x0
 	bne _02055028
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x1
 	pop {r4, pc}
 _02055028:
@@ -578,7 +578,7 @@ sub_0205502C: ; 0x0205502C
 	str r0, [sp, #0x0]
 	mov r0, #0xb
 	mov r1, #0xc
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0xc

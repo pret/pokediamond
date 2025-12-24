@@ -93,7 +93,7 @@ _02012066:
 	bl GF_AssertFail
 _0201206E:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -266,7 +266,7 @@ sub_0201219C: ; 0x0201219C
 	add r0, r5, #0x0
 	lsl r1, r1, #0x5
 	str r3, [sp, #0x20]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x38]
 	ldr r3, [sp, #0x20]
@@ -394,7 +394,7 @@ _0201229C:
 	blt _02012270
 _020122AE:
 	ldr r0, [sp, #0x20]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x30
 	pop {r3-r7, pc}
 
@@ -411,7 +411,7 @@ sub_020122B8: ; 0x020122B8
 	add r0, r5, #0x0
 	lsl r1, r1, #0x5
 	str r3, [sp, #0x10]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x28]
 	ldr r3, [sp, #0x10]
@@ -566,7 +566,7 @@ _020123D4:
 	cmp r4, #0x6
 	blt _020123D4
 	ldr r0, [sp, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x7c
 	pop {r4-r7, pc}
 	nop
@@ -623,7 +623,7 @@ sub_0201244C: ; 0x0201244C
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	lsl r1, r1, #0x6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -641,7 +641,7 @@ sub_02012470: ; 0x02012470
 	add r6, r1, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -660,7 +660,7 @@ _0201249C:
 	mov r2, #0x20
 	bl MIi_CpuCopy16
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -722,7 +722,7 @@ _02012504:
 	cmp r4, #0x6
 	blt _02012504
 	ldr r0, [sp, #0x24]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x8c
 	pop {r4-r7, pc}
 	nop

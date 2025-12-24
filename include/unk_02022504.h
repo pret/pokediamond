@@ -11,7 +11,7 @@ SafariZone *Save_SafariZone_Get(struct SaveData *save);
 struct PCStorage *SaveArray_PCStorage_Get(struct SaveData *save);
 struct UnkStruct_0202AC20 *sub_0202251C(struct SaveData *save);
 void *sub_02022528(struct SaveData *save);
-HallOfFame *LoadHallOfFame(struct SaveData *save, HeapID heapId, int *ret_p);
+HallOfFame *LoadHallOfFame(struct SaveData *save, enum HeapID heapID, int *ret_p);
 s32 SaveHallOfFame(struct SaveData *save, HallOfFame *data);
 
 #endif // POKEDIAMOND_UNK_02022504_H

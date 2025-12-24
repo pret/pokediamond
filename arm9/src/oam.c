@@ -14,8 +14,8 @@ extern void sub_0202135C(void *param0,
     void (*param4)(void),
     u32 param5,
     u32 param6);
-extern void sub_020203CC(HeapID heapId);
-extern void sub_02020404(HeapID heapId);
+extern void sub_020203CC(enum HeapID heapID);
+extern void sub_02020404(enum HeapID heapID);
 
 struct OamData *oamData;
 
@@ -27,7 +27,7 @@ void sub_02009EAC(s32 param0,
     u32 param5,
     u32 param6,
     u32 param7,
-    HeapID heapId) {
+    enum HeapID heapID) {
     s32 r0;
     if (param0 < 4) {
         r0 = 4;
@@ -48,7 +48,7 @@ void sub_02009EAC(s32 param0,
         r2 = param2;
     }
 
-    InitOamData(r0, param1, r2, param3, param4, param5, param6, param7, heapId);
+    InitOamData(r0, param1, r2, param3, param4, param5, param6, param7, heapID);
 }
 
 void InitOamData(s32 param0,
@@ -59,12 +59,12 @@ void InitOamData(s32 param0,
     u32 param5,
     u32 param6,
     u32 param7,
-    HeapID heapId) {
+    enum HeapID heapID) {
     GF_ASSERT(oamData == NULL);
-    oamData = AllocFromHeap(heapId, sizeof(struct OamData));
+    oamData = Heap_Alloc(heapID, sizeof(struct OamData));
     GF_ASSERT(oamData);
 
-    oamData->heapId = heapId;
+    oamData->heapID = heapID;
 
     GF_ASSERT(NNS_G2dGetNewOamManagerInstance(
         &oamData->oamManagers[0], (u16)param0, (u16)param1, (u16)param2, (u16)param3, 0));
@@ -82,10 +82,10 @@ void ApplyAndResetOamManagerBuffer(void) {
 void DeinitOamData(void) {
     GF_ASSERT(oamData);
 
-    sub_0200A064(oamData->heapId);
-    sub_0200A06C(oamData->heapId);
+    sub_0200A064(oamData->heapID);
+    sub_0200A06C(oamData->heapID);
 
-    FreeToHeap(oamData);
+    Heap_Free(oamData);
     oamData = NULL;
 }
 
@@ -109,12 +109,12 @@ NNSG2dOamManager *GetOamManager(u32 screen) {
     }
 }
 
-void sub_0200A064(HeapID heapId) {
-    sub_020203CC(heapId);
+void sub_0200A064(enum HeapID heapID) {
+    sub_020203CC(heapID);
 }
 
-void sub_0200A06C(HeapID heapId) {
-    sub_02020404(heapId);
+void sub_0200A06C(enum HeapID heapID) {
+    sub_02020404(heapID);
 }
 
 u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1) {

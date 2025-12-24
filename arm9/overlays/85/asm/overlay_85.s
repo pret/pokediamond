@@ -18,7 +18,7 @@ ov85_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x4f
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0
 	mov r1, #8
 	mov r2, #0x4f
@@ -193,7 +193,7 @@ ov85_021D7644: ; 0x021D7644
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4f
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -252,10 +252,10 @@ _021D76F0: .word 0x000004C4
 
 	thumb_func_start ov85_021D76F4
 ov85_021D76F4: ; 0x021D76F4
-	ldr r3, _021D76F8 ; =FreeToHeap
+	ldr r3, _021D76F8 ; =Heap_Free
 	bx r3
 	.align 2, 0
-_021D76F8: .word FreeToHeap
+_021D76F8: .word Heap_Free
 	thumb_func_end ov85_021D76F4
 
 	thumb_func_start ov85_021D76FC
@@ -513,7 +513,7 @@ ov85_021D7904: ; 0x021D7904
 	mov r1, #7
 	bl FreeBgTilemapBuffer
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov85_021D7904
@@ -580,7 +580,7 @@ ov85_021D797C: ; 0x021D797C
 	mov r3, #0
 	bl BG_LoadPlttData
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r1, #0
 	add r0, r4, #0
 	add r2, r1, #0
@@ -600,7 +600,7 @@ ov85_021D797C: ; 0x021D797C
 	mov r1, #1
 	bl BG_LoadCharTilesData
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #1
 	mov r2, #0
@@ -625,7 +625,7 @@ ov85_021D797C: ; 0x021D797C
 	ldr r0, [r4, r0]
 	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #8
 	mov r2, #0
@@ -645,7 +645,7 @@ ov85_021D797C: ; 0x021D797C
 	mov r1, #2
 	bl BG_LoadCharTilesData
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #9
 	mov r2, #0
@@ -670,7 +670,7 @@ ov85_021D797C: ; 0x021D797C
 	ldr r0, [r4, r0]
 	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #3
 	mov r2, #0
@@ -688,7 +688,7 @@ ov85_021D797C: ; 0x021D797C
 	mov r3, #0
 	bl BG_LoadPlttData
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #2
 	mov r2, #0
@@ -708,7 +708,7 @@ ov85_021D797C: ; 0x021D797C
 	mov r1, #7
 	bl BG_LoadCharTilesData
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #4
 	mov r2, #0
@@ -733,7 +733,7 @@ ov85_021D797C: ; 0x021D797C
 	ldr r0, [r4, r0]
 	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D7B1C: .word 0x00000448
@@ -1474,7 +1474,7 @@ ov85_021D80F8: ; 0x021D80F8
 	add r5, r0, #0
 	mov r0, #0x4f
 	add r1, r5, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021D810C
 	bl GF_AssertFail
@@ -1526,11 +1526,11 @@ ov85_021D8144: ; 0x021D8144
 	cmp r5, #1
 	bne _021D8162
 	mov r0, #0x4f
-	bl AllocFromHeap
+	bl Heap_Alloc
 	b _021D8168
 _021D8162:
 	mov r0, #0x4f
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 _021D8168:
 	add r5, r0, #0
 	cmp r5, #0
@@ -8620,7 +8620,7 @@ ov85_021DB494: ; 0x021DB494
 	add r2, r4, r2
 	bl ov85_021DB604
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
@@ -8634,7 +8634,7 @@ ov85_021DB494: ; 0x021DB494
 	add r2, #0x24
 	bl ov85_021DB604
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #6
 	mov r2, #0
@@ -8648,7 +8648,7 @@ ov85_021DB494: ; 0x021DB494
 	add r2, #0x44
 	bl ov85_021DB604
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #7
 	mov r2, #0
@@ -8662,7 +8662,7 @@ ov85_021DB494: ; 0x021DB494
 	add r2, #0x64
 	bl ov85_021DB604
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #0x4a
 	mov r2, #0
@@ -8677,7 +8677,7 @@ ov85_021DB494: ; 0x021DB494
 	add r2, r4, r2
 	bl ov85_021DB604
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #0x4b
 	mov r2, #0
@@ -8698,7 +8698,7 @@ ov85_021DB494: ; 0x021DB494
 	add r2, r4, r2
 	bl ov85_021DB604
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #0x4c
 	mov r2, #0
@@ -8719,7 +8719,7 @@ ov85_021DB494: ; 0x021DB494
 	add r2, r4, r2
 	bl ov85_021DB604
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end ov85_021DB494
@@ -9462,7 +9462,7 @@ ov85_021DBB0C: ; 0x021DBB0C
 	add r4, r0, #0
 	mov r0, #0x4f
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r1, r0, #0
 	mov r0, #0
 	str r0, [r1]
@@ -9482,7 +9482,7 @@ ov85_021DBB30: ; 0x021DBB30
 	add r4, r0, #0
 	mov r0, #0x4f
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r1, r0, #0
 	mov r0, #0
 	str r0, [r1]
@@ -9503,7 +9503,7 @@ ov85_021DBB54: ; 0x021DBB54
 	add r4, r1, #0
 	mov r0, #0x4f
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r1, r0, #0
 	mov r0, #0
 	str r0, [r1]
@@ -9567,7 +9567,7 @@ _021DBBB8:
 	bne _021DBBE6
 _021DBBDA:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 _021DBBE6:
@@ -9618,7 +9618,7 @@ _021DBC18:
 	bne _021DBC46
 _021DBC3A:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 _021DBC46:
@@ -9641,7 +9641,7 @@ ov85_021DBC48: ; 0x021DBC48
 	cmp r3, #0x3f
 	bne _021DBC70
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 	pop {r3, r4, r5, r6, r7, pc}
@@ -9714,7 +9714,7 @@ _021DBCD8:
 	cmp r4, #0
 	bne _021DBCFE
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 _021DBCFE:
@@ -15185,7 +15185,7 @@ ov85_021DE5A4: ; 0x021DE5A4
 	add r7, r3, #0
 	ldr r5, [sp, #0x20]
 	ldr r6, [sp, #0x24]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DE5C8
 	bl GF_AssertFail
@@ -15250,26 +15250,26 @@ _021DE5C8:
 	str r0, [r4, r1]
 	ldr r0, [sp]
 	lsl r1, r7, #3
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x53
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	ldr r0, [sp]
 	lsl r1, r5, #3
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x15
 	lsl r1, r1, #4
 	str r0, [r4, r1]
 	ldr r0, [sp]
 	lsl r1, r6, #3
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x55
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	ldr r1, [sp, #0x28]
 	ldr r0, [sp]
 	lsl r1, r1, #3
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x56
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -15468,19 +15468,19 @@ _021DE7BC:
 	mov r0, #0x53
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x15
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x55
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x56
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_0201C29C
 	mov r0, #0x4e
 	lsl r0, r0, #2
@@ -15491,7 +15491,7 @@ _021DE7BC:
 	ldr r0, [r5, #0xc]
 	bl sub_0201FD58
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 	thumb_func_end ov85_021DE710

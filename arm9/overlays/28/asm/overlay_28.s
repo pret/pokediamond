@@ -12,7 +12,7 @@ ov28_02254854: ; 0x02254854
 	mov r1, #0x64
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254892
 	ldr r3, [sp]
@@ -32,7 +32,7 @@ ov28_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -190,7 +190,7 @@ ov28_022549AC: ; 0x022549AC
 	ldr r0, [r4, #0x5c]
 	bl ov28_02254B70
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov28_022549AC
@@ -385,7 +385,7 @@ ov28_02254AF4: ; 0x02254AF4
 	add r5, r0, #0
 	mov r0, #8
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254B6A
 	add r0, #8
@@ -480,7 +480,7 @@ _02254B9A:
 	bl SysTask_Destroy
 _02254BC0:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254BC6:
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov28_02254B70
@@ -683,7 +683,7 @@ _02254D24:
 	lsl r2, r2, #0xa
 	bl GXS_LoadOBJ
 	ldr r0, [sp, #0x20]
-	bl FreeToHeap
+	bl Heap_Free
 	ldrh r0, [r6]
 	mov r1, #1
 	ldr r2, [sp, #0x24]

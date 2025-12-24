@@ -151,7 +151,7 @@ ov05_021F5608: ; 0x021F5608
 	bl BG_LoadPlttData
 	mov r0, #4
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x11
 	mov r2, #0x20
 	add r4, r0, #0
@@ -164,7 +164,7 @@ ov05_021F5608: ; 0x021F5608
 	mov r3, #0x20
 	bl BG_LoadCharTilesData
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r2, _021F565C ; =0x00006001
 	add r0, r5, #0
 	mov r1, #2
@@ -379,7 +379,7 @@ ov05_021F57D0: ; 0x021F57D0
 	str r0, [r4]
 _021F57E2:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4, 0
 

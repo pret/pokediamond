@@ -107,7 +107,7 @@ _0225D74C:
 	ldr r0, [sp, #0x60]
 	str r0, [sp, #0x30]
 	add r0, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x20
 	add r4, r0, #0
@@ -144,7 +144,7 @@ ov11_0225D7B8: ; 0x0225D7B8
 	ldr r0, [r4, #4]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start ov11_0225D7D0

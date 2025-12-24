@@ -1345,7 +1345,7 @@ _02257670:
 	add r4, r0, #0
 	mov r0, #5
 	mov r1, #0x80
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	ldr r0, [sp]
 	ldr r0, [r0, #4]
@@ -1442,7 +1442,7 @@ _022576DA:
 	ldrh r2, [r3, r2]
 	bl MIi_CpuCopy16
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1458,11 +1458,11 @@ ov11_0225775C: ; 0x0225775C
 	str r0, [sp, #4]
 	mov r0, #5
 	mov r1, #0x60
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #5
 	mov r1, #0xc0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	add r0, r4, #0
 	mov r1, #0xff
@@ -1573,9 +1573,9 @@ _022577F2:
 	ldrh r2, [r3, r2]
 	bl MIi_CpuCopy16
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -1591,7 +1591,7 @@ ov11_0225787C: ; 0x0225787C
 	add r6, r1, #0
 	mov r0, #5
 	mov r1, #0x60
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0xff
 	mov r2, #0x60
 	add r4, r0, #0
@@ -1637,7 +1637,7 @@ ov11_0225787C: ; 0x0225787C
 	add r0, r4, r0
 	bl MIi_CpuCopy16
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _022578F8: .word ov11_0225EA58
@@ -1651,7 +1651,7 @@ ov11_02257908: ; 0x02257908
 	add r5, r0, #0
 	mov r0, #5
 	mov r1, #0x60
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0xff
 	mov r2, #0x60
 	add r4, r0, #0
@@ -1682,7 +1682,7 @@ ov11_02257908: ; 0x02257908
 	ldrh r2, [r3, r2]
 	bl MIi_CpuCopy16
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02257960: .word ov11_0225E9F8
@@ -2622,7 +2622,7 @@ ov11_0225805C: ; 0x0225805C
 	strb r0, [r6]
 	mov r0, #5
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0xc
 	add r4, r0, #0
@@ -2745,7 +2745,7 @@ _0225814A:
 	mov r1, #1
 	strb r1, [r0]
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	bl SysTask_Destroy
 	add sp, #8

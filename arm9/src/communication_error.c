@@ -71,7 +71,7 @@ static void VBlankIntr(void) {
     MI_WaitDma(GX_DEFAULT_DMAID);
 }
 
-void ShowCommunicationError(HeapID heapId, u32 error, u32 errorCode) {
+void ShowCommunicationError(enum HeapID heapID, u32 error, u32 errorCode) {
     Window window;
 
     u32 msgNo;
@@ -120,21 +120,21 @@ void ShowCommunicationError(HeapID heapId, u32 error, u32 errorCode) {
     GXS_SetVisibleWnd(0);
     GfGfx_SetBanks(&sCommunicationErrorGraphicsBanks);
 
-    BgConfig *bgConfig = BgConfig_Alloc(heapId);
+    BgConfig *bgConfig = BgConfig_Alloc(heapID);
     SetBothScreensModesAndDisable(&sCommunicationErrorGraphicsModes);
     InitBgFromTemplate(bgConfig, 0, &sCommunicationErrorBgTemplate, GX_BGMODE_0);
     BgClearTilemapBufferAndCommit(bgConfig, GF_BG_LYR_MAIN_0);
-    LoadUserFrameGfx1(bgConfig, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapId);
-    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_1_OFFSET, heapId);
-    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapId);
+    LoadUserFrameGfx1(bgConfig, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heapID);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_1_OFFSET, heapID);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heapID);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, RGB(1, 1, 27));
     BG_SetMaskColor(GF_BG_LYR_SUB_0, RGB(1, 1, 27));
 
-    MsgData *errorMessageData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, heapId);
-    String *errorMessageStr = String_New(384, heapId);
-    String *tmpStr = String_New(384, heapId);
+    MsgData *errorMessageData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, heapID);
+    String *errorMessageStr = String_New(384, heapID);
+    String *tmpStr = String_New(384, heapID);
     ResetAllTextPrinters();
-    MessageFormat *messageFormat = MessageFormat_New(heapId);
+    MessageFormat *messageFormat = MessageFormat_New(heapID);
 
     AddWindow(bgConfig, &window, &sCommunicationErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
@@ -155,5 +155,5 @@ void ShowCommunicationError(HeapID heapId, u32 error, u32 errorCode) {
     RemoveWindow(&window);
     DestroyMsgData(errorMessageData);
     MessageFormat_Delete(messageFormat);
-    FreeToHeap(bgConfig);
+    Heap_Free(bgConfig);
 }

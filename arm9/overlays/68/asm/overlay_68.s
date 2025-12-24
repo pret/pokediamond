@@ -32,7 +32,7 @@ ov68_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x24
 	lsr r2, r2, #9
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0x81
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -166,14 +166,14 @@ ov68_021D762C: ; 0x021D762C
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x24
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _021D767C ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -320,7 +320,7 @@ ov68_021D7774: ; 0x021D7774
 	bl FreeBgTilemapBuffer
 	mov r0, #0x24
 	add r1, r4, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov68_021D7774
@@ -372,7 +372,7 @@ ov68_021D77A4: ; 0x021D77A4
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x24
 	mov r1, #0x80
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	ldr r0, _021D7854 ; =0x00003001
 	mov r2, #0
@@ -395,7 +395,7 @@ _021D7812:
 	mov r3, #2
 	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5]
 	mov r1, #1
 	bl BgCommitTilemapBufferToVram
@@ -1375,7 +1375,7 @@ ov68_021D7F98: ; 0x021D7F98
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x7e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

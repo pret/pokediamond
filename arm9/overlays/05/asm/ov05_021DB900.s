@@ -8,7 +8,7 @@ ov05_021DB900: ; 0x021DB900
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021DB912
 	bl GF_AssertFail
@@ -54,7 +54,7 @@ _021DB958:
 	lsl r4, r0, #2
 	mov r0, #4
 	add r1, r6, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5]
 	cmp r0, #0
 	bne _021DB974
@@ -62,7 +62,7 @@ _021DB958:
 _021DB974:
 	mov r0, #4
 	add r1, r4, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #4]
 	cmp r0, #0
 	bne _021DB986
@@ -98,11 +98,11 @@ ov05_021DB9BC: ; 0x021DB9BC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start ov05_021DB9D4

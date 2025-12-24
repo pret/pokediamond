@@ -586,7 +586,7 @@ ov63_021D8D10: ; 0x021D8D10
 	mov r0, #3
 	mov r1, #0x4c
 	lsl r2, r0, #0x11
-	bl CreateHeap
+	bl Heap_Create
 	mov r1, #0xab
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -739,7 +739,7 @@ ov63_021D8E68: ; 0x021D8E68
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4c
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _021D8E94 ; =SDK_OVERLAY_OVERLAY_63_ID
 	ldr r1, _021D8E98 ; =ov63_021DBAB8
 	bl RegisterMainOverlay
@@ -1217,7 +1217,7 @@ ov63_021D9234: ; 0x021D9234
 	mov r1, #5
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	strb r0, [r4, #0x1a]
 _021D9286:
@@ -1518,14 +1518,14 @@ ov63_021D9498: ; 0x021D9498
 	add r6, r0, #0
 	mov r0, #0x4c
 	add r1, r4, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x44]
 	mov r0, #0x10
 	bl ov63_021DAF20
 	str r0, [r5, #0x48]
 	mov r0, #0x4c
 	add r1, r6, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, #0x4c]
 	ldr r0, [r5, #0x44]
 	mov r1, #0
@@ -1642,14 +1642,14 @@ _021D95D0:
 	add r0, r5, r0
 	add r0, #0xd0
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	cmp r4, #6
 	blo _021D95D0
 	ldr r0, [r5, #0x70]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0x38
@@ -1667,7 +1667,7 @@ _021D9608:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, #0x50]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -1693,7 +1693,7 @@ _021D963C:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
 	beq _021D964A
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r5, #0x44]
 _021D964A:
@@ -1702,7 +1702,7 @@ _021D964A:
 	beq _021D965E
 	bl ov63_021DB580
 	ldr r0, [r5, #0x4c]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r5, #0x4c]
 _021D965E:
@@ -1719,7 +1719,7 @@ _021D965E:
 	mov r1, #4
 	bl FreeBgTilemapBuffer
 	ldr r0, [r5, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r5, #0x10]
 	bl sub_020223BC
 	mov r0, #0
@@ -1771,7 +1771,7 @@ _021D96C6:
 	cmp r0, #0
 	bne _021D96F8
 	ldr r0, [r6, #0x2c]
-	bl FreeToHeap
+	bl Heap_Free
 	bl GF_AssertFail
 	b _021D96F8
 _021D96F4:
@@ -1930,7 +1930,7 @@ _021D9840:
 	ldr r1, [r2, #0x14]
 	add r1, r2, r1
 	sub r1, r1, r0
-	bl ReallocFromHeap
+	bl Heap_Realloc
 	mov r0, #0x80
 	mov r1, #0x4c
 	bl NARC_New
@@ -3042,7 +3042,7 @@ ov63_021DA158: ; 0x021DA158
 	cmp r0, #0
 	bne _021DA192
 	ldr r0, [r4, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	bl GF_AssertFail
 	b _021DA192
 _021DA18E:
@@ -3371,7 +3371,7 @@ ov63_021DA418: ; 0x021DA418
 	mov r1, #5
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021DA470 ; =0x0000028E
 	mov r1, #0
 	strb r1, [r4, r0]
@@ -3382,7 +3382,7 @@ _021DA458:
 	beq _021DA46E
 	add r0, #0xd
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021DA474 ; =0x0000028F
 	mov r1, #0
 	strb r1, [r4, r0]

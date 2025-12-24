@@ -14,7 +14,7 @@ ov05_021E1374: ; 0x021E1374
 	add r7, r0, #0
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E1396
 	bl GF_AssertFail
@@ -197,7 +197,7 @@ _021E14FA:
 	bl ov05_021E1514
 	b _021E150C
 _021E1502:
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -490,7 +490,7 @@ ov05_021E1724: ; 0x021E1724
 	add r6, r1, #0
 	mov r0, #4
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021E173C
 	bl GF_AssertFail
@@ -533,7 +533,7 @@ _021E1770:
 	bl SysTask_Destroy
 	mov r0, #4
 	add r1, r4, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _021E178E:
 	pop {r4, pc}
 	.balign 4, 0

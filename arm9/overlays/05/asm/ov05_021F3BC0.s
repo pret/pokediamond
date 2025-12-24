@@ -9,7 +9,7 @@ ov05_021F3BC0: ; 0x021F3BC0
 	add r7, r0, #0
 	mov r0, #4
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	mov r4, #0
 _021F3BD0:
@@ -33,7 +33,7 @@ _021F3BEC:
 	mov r1, #9
 	mov r0, #4
 	lsl r1, r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r6, #0x10]
 	cmp r0, #0
 	bne _021F3C04
@@ -76,7 +76,7 @@ _021F3C38:
 	ldr r0, [r5, #0x10]
 	cmp r0, #0
 	beq _021F3C4C
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r5, #0x10]
 _021F3C4C:
@@ -86,7 +86,7 @@ _021F3C4C:
 	cmp r4, #4
 	blo _021F3C38
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 

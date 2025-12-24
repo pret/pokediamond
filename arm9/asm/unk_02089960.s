@@ -38,7 +38,7 @@ sub_02089960: ; 0x02089960
 	mov r0, #0x3
 	mov r1, #0x58
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0x0
 	mov r1, #0x3c
 	mov r2, #0x58
@@ -141,7 +141,7 @@ sub_02089A40: ; 0x02089A40
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	add r0, r4, #0x0
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, _02089A64 ; =SDK_OVERLAY_OVERLAY_83_ID
 	ldr r1, _02089A68 ; =ov83_0223A360
 	bl RegisterMainOverlay
@@ -268,7 +268,7 @@ sub_02089B2C: ; 0x02089B2C
 	mov r1, #0x0
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start sub_02089B80

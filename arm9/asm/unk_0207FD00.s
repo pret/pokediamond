@@ -24,7 +24,7 @@ sub_0207FD00: ; 0x0207FD00
 	add r6, r1, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x3c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	mov r2, #0x65
 	str r7, [r4, #0x0]
@@ -436,34 +436,34 @@ sub_02080094: ; 0x02080094
 	ldr r0, [r4, #0x18]
 	cmp r0, #0x0
 	beq _020800A2
-	bl FreeToHeap
+	bl Heap_Free
 _020800A2:
 	ldr r0, [r4, #0x20]
 	cmp r0, #0x0
 	beq _020800AC
-	bl FreeToHeap
+	bl Heap_Free
 _020800AC:
 	ldr r0, [r4, #0x28]
 	cmp r0, #0x0
 	beq _020800B6
-	bl FreeToHeap
+	bl Heap_Free
 _020800B6:
 	ldr r0, [r4, #0x30]
 	cmp r0, #0x0
 	beq _020800C0
-	bl FreeToHeap
+	bl Heap_Free
 _020800C0:
 	ldr r0, [r4, #0x38]
 	cmp r0, #0x0
 	beq _020800CA
-	bl FreeToHeap
+	bl Heap_Free
 _020800CA:
 	ldr r0, [r4, #0x8]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x4]
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 

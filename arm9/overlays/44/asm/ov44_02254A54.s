@@ -10,7 +10,7 @@ ov44_02254A54: ; 0x02254A54
 	add r5, r1, #0
 	mov r0, #8
 	mov r1, #0x3c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254A8A
 	add r0, #8
@@ -99,7 +99,7 @@ ov44_02254B00: ; 0x02254B00
 	beq _02254B10
 	bl ov44_02254AE4
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02254B10:
 	pop {r4, pc}
 	.align 2, 0

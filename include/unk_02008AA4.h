@@ -37,7 +37,7 @@ void sub_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     struct UnkStruct_02008DEC_1 *param13,
     struct UnkStruct_02008DEC_1 *param14);
 struct UnkStruct_02008AA4_1 *sub_02008BE0(struct UnkStruct_02008AA4_2 *param0,
-    HeapID heapId,
+    enum HeapID heapID,
     struct UnkStruct_02008DEC_1 *param2,
     struct UnkStruct_02008DEC_1 *param3,
     struct UnkStruct_02008DEC_1 *param4,

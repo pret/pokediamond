@@ -13,7 +13,7 @@ sub_0208A338: ; 0x0208A338
 	add r5, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x6c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	mov r0, #0x19
 	str r5, [r4, #0x0]
@@ -85,7 +85,7 @@ sub_0208A3C8: ; 0x0208A3C8
 	add r0, r4, #0x0
 	bl sub_0208A400
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 

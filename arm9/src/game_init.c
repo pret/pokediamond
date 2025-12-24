@@ -91,7 +91,7 @@ void Main_ToggleHBlankInterrupt(BOOL enableFlag) {
     (void)OS_EnableIrq();
 }
 
-const struct HeapParam UNK_020EDB10[] = {
+const HeapParam UNK_020EDB10[] = {
     { 0x00D000, OS_ARENA_MAIN },
     { 0x021000, OS_ARENA_MAIN },
     { 0x001000, OS_ARENA_MAIN },
@@ -111,7 +111,7 @@ void sub_02015FC8(void) {
     while (csum & 3) {
         csum++;
     }
-    InitHeapSystem(UNK_020EDB10, NELEMS(UNK_020EDB10), 92, csum);
+    Heap_InitSystem(UNK_020EDB10, NELEMS(UNK_020EDB10), 92, csum);
 }
 
 void InitSystemForTheGame(void) {
@@ -157,17 +157,17 @@ void InitGraphicMemory(void) {
     MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
 }
 
-void *AllocAndReadFile(HeapID heapId, const char *path) {
+void *AllocAndReadFile(enum HeapID heapID, const char *path) {
     void *ret;
 
     FSFile file;
     FS_InitFile(&file);
     if (FS_OpenFile(&file, path)) {
         u32 size = file.prop.file.bottom - file.prop.file.top;
-        ret = AllocFromHeap(heapId, size);
+        ret = Heap_Alloc(heapID, size);
         if (ret != NULL) {
             if (size != FS_ReadFile(&file, ret, (s32)size)) {
-                FreeToHeapExplicit(heapId, ret);
+                Heap_FreeExplicit(heapID, ret);
                 ret = NULL;
             }
         }
@@ -237,14 +237,14 @@ int AddFileToCache(void *contents, u32 hash) {
 void ClearFileCache(void) {
     for (int i = 127; i > -1; i--) {
         if (sFileCache[i].contents != NULL) {
-            FreeToHeap(sFileCache[i].contents);
+            Heap_Free(sFileCache[i].contents);
             sFileCache[i].contents = NULL;
             sFileCache[i].name_hash = 0;
         }
     }
 }
 
-void *OpenFileCached(const s8 *str, HeapID heapId) {
+void *OpenFileCached(const s8 *str, enum HeapID heapID) {
     s8 filenameBuf[32];
     FSFile file;
     void *ret;
@@ -264,10 +264,10 @@ void *OpenFileCached(const s8 *str, HeapID heapId) {
         FS_InitFile(&file);
         if (FS_OpenFile(&file, (const char *)filenameBuf)) {
             u32 size = file.prop.file.bottom - file.prop.file.top;
-            ret = AllocFromHeap(heapId, size);
+            ret = Heap_Alloc(heapID, size);
             if (ret != NULL) {
                 if (size != FS_ReadFile(&file, ret, (s32)size)) {
-                    FreeToHeap(ret);
+                    Heap_Free(ret);
                     ret = NULL;
                 }
             }

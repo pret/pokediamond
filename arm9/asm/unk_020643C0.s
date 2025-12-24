@@ -273,7 +273,7 @@ _020645D8: .word sub_020646DC
 sub_020645DC: ; 0x020645DC
 	push {r4, lr}
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	bne _020645EC
 	bl GF_AssertFail
@@ -292,12 +292,12 @@ _020645F2:
 
 	thumb_func_start sub_02064600
 sub_02064600: ; 0x02064600
-	ldr r3, _02064608 ; =FreeToHeapExplicit
+	ldr r3, _02064608 ; =Heap_FreeExplicit
 	add r1, r0, #0x0
 	ldr r0, [r1, #0x8]
 	bx r3
 	.balign 4
-_02064608: .word FreeToHeapExplicit
+_02064608: .word Heap_FreeExplicit
 
 	thumb_func_start sub_0206460C
 sub_0206460C: ; 0x0206460C
@@ -306,7 +306,7 @@ sub_0206460C: ; 0x0206460C
 	add r5, r1, #0x0
 	mul r5, r2
 	add r1, r5, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	bne _02064622
 	bl GF_AssertFail
@@ -320,13 +320,13 @@ _02064622:
 
 	thumb_func_start sub_02064630
 sub_02064630: ; 0x02064630
-	ldr r3, _0206463C ; =FreeToHeapExplicit
+	ldr r3, _0206463C ; =Heap_FreeExplicit
 	add r1, r0, #0x0
 	ldr r0, [r1, #0x8]
 	ldr r1, [r1, #0xc]
 	bx r3
 	nop
-_0206463C: .word FreeToHeapExplicit
+_0206463C: .word Heap_FreeExplicit
 
 	thumb_func_start sub_02064640
 sub_02064640: ; 0x02064640

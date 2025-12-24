@@ -35,7 +35,7 @@ _021F638E: ; jump table
 _021F639A:
 	mov r0, #0xb
 	mov r1, #8
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [r6, #4]
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -46,7 +46,7 @@ _021F63AC:
 	add r6, r0, #0
 	mov r0, #0xb
 	add r1, r6, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [r5, #4]
 	mov r1, #0
 	add r2, r6, #0
@@ -91,9 +91,9 @@ _021F6402:
 	b _021F6424
 _021F6414:
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _021F6424:

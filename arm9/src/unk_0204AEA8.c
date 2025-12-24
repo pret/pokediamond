@@ -20,7 +20,7 @@ BOOL sub_0204AEA8(struct TaskManager *taskManager) {
         break;
     case 1:
         if (v1[1] == 1) {
-            FreeToHeap(v1);
+            Heap_Free(v1);
             return TRUE;
         }
         break;
@@ -31,7 +31,7 @@ BOOL sub_0204AEA8(struct TaskManager *taskManager) {
 
 void sub_0204AEF8(struct TaskManager *taskManager, u32 a1, u32 a2) // taskManager, effect, bgm
 {
-    u32 *v0 = AllocFromHeapAtEnd(HEAP_ID_FIELD, 4 * sizeof(u32)); // todo: make a struct
+    u32 *v0 = Heap_AllocAtEnd(HEAP_ID_FIELD, 4 * sizeof(u32)); // todo: make a struct
 
     v0[0] = 0;  // state
     v0[1] = 0;  // unk

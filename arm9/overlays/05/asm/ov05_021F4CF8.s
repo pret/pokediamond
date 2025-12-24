@@ -8,7 +8,7 @@ ov05_021F4CF8: ; 0x021F4CF8
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0xfc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r4, #0
 	add r2, r4, #0
 _021F4D06:
@@ -29,7 +29,7 @@ ov05_021F4D1C: ; 0x021F4D1C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}
@@ -690,7 +690,7 @@ _021F51E6:
 	ldrb r1, [r4, #4]
 	lsl r1, r1, #2
 	ldr r4, [r0, r1]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	.balign 4, 0

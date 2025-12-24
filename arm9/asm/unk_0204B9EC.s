@@ -232,7 +232,7 @@ _0204BB72:
 	cmp r6, #0x6
 	blt _0204BB3C
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -495,7 +495,7 @@ sub_0204BD40: ; 0x0204BD40
 	mov r2, #0x1
 	bl sub_020479FC
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0x0
 	pop {r3-r7, pc}
 	.balign 4

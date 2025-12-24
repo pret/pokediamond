@@ -64,7 +64,7 @@ void sub_02055108(PlayerAvatar *avatar) {
 }
 
 void PlayerAvatar_FreeToHeap(PlayerAvatar *avatar) {
-    FreeToHeap(avatar);
+    Heap_Free(avatar);
 }
 
 void PlayerAvatar_DeleteFromMap(PlayerAvatar *avatar) {
@@ -73,7 +73,7 @@ void PlayerAvatar_DeleteFromMap(PlayerAvatar *avatar) {
 }
 
 static PlayerAvatar *PlayerAvatar_Create(void) {
-    PlayerAvatar *avatar = AllocFromHeap(HEAP_ID_FIELD, sizeof(PlayerAvatar));
+    PlayerAvatar *avatar = Heap_Alloc(HEAP_ID_FIELD, sizeof(PlayerAvatar));
     GF_ASSERT(avatar != NULL);
     memset(avatar, 0, sizeof(PlayerAvatar));
     return avatar;

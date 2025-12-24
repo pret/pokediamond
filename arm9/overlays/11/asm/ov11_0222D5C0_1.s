@@ -42,7 +42,7 @@ _0222D600:
 	mov r0, #3
 	mov r1, #5
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, [r5]
 	mov r0, #4
 	tst r0, r1
@@ -175,7 +175,7 @@ _0222D704:
 	b _0222D7EA
 _0222D714:
 	mov r0, #5
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0xd
 	str r0, [r4]
 	b _0222D7EA
@@ -187,7 +187,7 @@ _0222D720:
 	ldr r0, _0222D7F0 ; =SDK_OVERLAY_OVERLAY_07_ID
 	bl UnloadOverlayByID
 	mov r0, #5
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x3e
 	bl sub_02031588
 	mov r0, #0xc
@@ -210,7 +210,7 @@ _0222D752:
 	mov r0, #3
 	mov r1, #0x49
 	lsl r2, r0, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r0, [r5, #4]
 	ldr r1, [sp, #0x24]
 	bl Party_GetMonByIndex
@@ -266,7 +266,7 @@ _0222D7C2:
 	add r0, r5, #0
 	bl sub_0206C92C
 	mov r0, #0x49
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0xd
 	str r0, [r4]
 	b _0222D7EA
@@ -756,7 +756,7 @@ _0222DC42:
 	mov r1, #0x32
 	mov r0, #5
 	lsl r1, r1, #6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5, r7]
 	add r6, r6, #1
 	add r5, #0x10
@@ -1155,14 +1155,14 @@ _0222DFEC:
 	ldr r1, [r6, #4]
 	bl CopyParty
 	ldr r0, [r5, #0x68]
-	bl FreeToHeap
+	bl Heap_Free
 	add r1, r6, #0
 	add r1, #0xf8
 	ldr r0, [r5, #0x48]
 	ldr r1, [r1]
 	bl PlayerProfile_Copy
 	ldr r0, [r5, #0x48]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp]
 	add r6, r6, #4
 	add r0, r0, #1
@@ -1180,14 +1180,14 @@ _0222DFEC:
 	ldr r1, [r7, r1]
 	bl Save_Bag_Copy
 	ldr r0, [r4, #0x58]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r1, #0x11
 	lsl r1, r1, #4
 	ldr r0, [r4, #0x60]
 	ldr r1, [r7, r1]
 	bl Save_Pokedex_Copy
 	ldr r0, [r4, #0x60]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x45
 	ldr r1, [r4, #0x64]
 	lsl r0, r0, #2
@@ -1281,13 +1281,13 @@ _0222DFEC:
 	add r7, #0x8c
 _0222E10A:
 	ldr r0, [r5, r7]
-	bl FreeToHeap
+	bl Heap_Free
 	add r6, r6, #1
 	add r5, #0x10
 	cmp r6, #4
 	blt _0222E10A
 	ldr r0, [r4, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x28]
 	mov r1, #0
 	bl PaletteData_FreeBuffers
@@ -1357,15 +1357,15 @@ _0222E1AC:
 	mov r1, #3
 	bl WindowArray_Delete
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x87
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x22
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x6a
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1395,7 +1395,7 @@ _0222E220:
 	ldr r0, [r4, r0]
 	bl sub_0201C350
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _0222E25C ; =SDK_OVERLAY_OVERLAY_08_ID
 	bl UnloadOverlayByID
 	bl sub_02033590

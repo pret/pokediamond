@@ -75,7 +75,7 @@ sub_02033B68: ; 0x02033B68
 	bl sub_02033D9C
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0x0
 	ldr r0, _02033BC4 ; =sub_02033BC8
 	add r1, r4, #0x0
@@ -276,7 +276,7 @@ sub_02033CD4: ; 0x02033CD4
 	strh r1, [r0, #0x4]
 _02033CF6:
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	nop
 _02033D00: .word 0x40000200
@@ -320,7 +320,7 @@ sub_02033D3C: ; 0x02033D3C
 	add r0, r3, #0x0
 	lsl r1, r1, #0x2
 	add r4, r2, #0x0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _02033D92
@@ -350,7 +350,7 @@ _02033D80:
 	bl GXS_LoadOBJPltt
 _02033D8C:
 	ldr r0, [sp, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 _02033D92:
 	add sp, #0x8
 	pop {r3-r5, pc}
@@ -366,7 +366,7 @@ sub_02033D9C: ; 0x02033D9C
 	add r5, r0, #0x0
 	add r0, r2, #0x0
 	lsl r1, r1, #0x2
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	str r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _02033E58
@@ -456,7 +456,7 @@ _02033E46:
 	bl GXS_LoadOBJ
 _02033E52:
 	ldr r0, [sp, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 _02033E58:
 	add sp, #0x8
 	pop {r3-r5, pc}

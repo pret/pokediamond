@@ -59,7 +59,7 @@ void sub_0201BCFC(u8 textPrinterNumber) {
     struct TextPrinter *printer = sub_0201B6C8();
     if (printer) {
         sub_0201C238(printer);
-        FreeToHeap((void *)printer);
+        Heap_Free((void *)printer);
     }
     SysTask_Destroy(UNK_021C5714[textPrinterNumber]);
     UNK_021C5714[textPrinterNumber] = NULL;
@@ -154,7 +154,7 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
         return 0xff;
     }
 
-    struct TextPrinter *printer = (struct TextPrinter *)AllocFromHeap(HEAP_ID_DEFAULT, sizeof(struct TextPrinter));
+    struct TextPrinter *printer = (struct TextPrinter *)Heap_Alloc(HEAP_ID_DEFAULT, sizeof(struct TextPrinter));
 
     printer->active = TRUE;
     printer->state = 0;
@@ -191,7 +191,7 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
             CopyWindowToVram(printer->printerTemplate.window);
         }
         sub_0201C238(printer);
-        FreeToHeap((void *)printer);
+        Heap_Free((void *)printer);
         return 8;
     }
 }
@@ -288,11 +288,11 @@ void sub_0201C1A8(struct TextPrinter *printer) {
 }
 
 u16 *sub_0201C1B0(void) {
-    void *res = AllocFromHeap(HEAP_ID_DEFAULT, 32 * 24 * sizeof(u16));
+    void *res = Heap_Alloc(HEAP_ID_DEFAULT, 32 * 24 * sizeof(u16));
     struct NNSG2dCharacterData *var;
     void *tmp = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, NARC_font_narc_0005_NCGR, 0, &var, HEAP_ID_DEFAULT);
     MI_CpuCopy32(var->pRawData, res, 32 * 24 * sizeof(u16));
-    FreeToHeap(tmp);
+    Heap_Free(tmp);
     return res;
 }
 
@@ -311,6 +311,6 @@ void sub_0201C238(struct TextPrinter *printer) {
     if (printer->Unk2C == NULL) {
         return;
     }
-    FreeToHeap(printer->Unk2C);
+    Heap_Free(printer->Unk2C);
     printer->Unk2C = NULL;
 }

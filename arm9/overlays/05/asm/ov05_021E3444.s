@@ -38,7 +38,7 @@ ov05_021E3474: ; 0x021E3474
 	mov r1, #0x4c
 	str r2, [sp]
 	add r5, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x4c
 	add r4, r0, #0
@@ -180,7 +180,7 @@ _021E3580:
 _021E3590:
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #4
 	pop {r3, r4, pc}
 _021E359E:
@@ -438,7 +438,7 @@ ov05_021E3768: ; 0x021E3768
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -478,7 +478,7 @@ _021E37B2:
 	and r0, r1
 	str r0, [r2]
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	nop
 _021E37C8: .word 0xFFFF1FFF
@@ -774,7 +774,7 @@ ov05_021E39FC: ; 0x021E39FC
 	push {r4, r5, r6, lr}
 	mov r0, #4
 	mov r1, #0x48
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x48
 	add r4, r0, #0
@@ -822,7 +822,7 @@ _021E3A56:
 	and r0, r1
 	str r0, [r2]
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	nop
 _021E3A6C: .word 0xFFFF1FFF
@@ -1457,7 +1457,7 @@ ov05_021E3F68: ; 0x021E3F68
 	bl sub_020690AC
 	add r0, r4, #0
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, sp, #4
 	add r5, r0, #0
 	ldrh r0, [r1, #4]
@@ -1480,9 +1480,9 @@ ov05_021E3F68: ; 0x021E3F68
 	mov r2, #0x20
 	bl ov05_021E40F0
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -1573,9 +1573,9 @@ ov05_021E4014: ; 0x021E4014
 	add r1, r4, #0
 	bl ov05_021E4118
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -1591,7 +1591,7 @@ ov05_021E4080: ; 0x021E4080
 	lsl r1, r1, #0xa
 	str r2, [sp, #4]
 	add r5, r3, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov ip, r0
 	lsl r0, r5, #2
 	mov r7, #0
@@ -1682,7 +1682,7 @@ ov05_021E4118: ; 0x021E4118
 ov05_021E4140: ; 0x021E4140
 	push {r4, lr}
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -1693,10 +1693,10 @@ ov05_021E4140: ; 0x021E4140
 
 	thumb_func_start ov05_021E4158
 ov05_021E4158: ; 0x021E4158
-	ldr r3, _021E415C ; =FreeToHeap
+	ldr r3, _021E415C ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021E415C: .word FreeToHeap
+_021E415C: .word Heap_Free
 
 	thumb_func_start ov05_021E4160
 ov05_021E4160: ; 0x021E4160
@@ -1800,7 +1800,7 @@ _021E41CE:
 ov05_021E4220: ; 0x021E4220
 	push {r4, lr}
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -1811,10 +1811,10 @@ ov05_021E4220: ; 0x021E4220
 
 	thumb_func_start ov05_021E4238
 ov05_021E4238: ; 0x021E4238
-	ldr r3, _021E423C ; =FreeToHeap
+	ldr r3, _021E423C ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021E423C: .word FreeToHeap
+_021E423C: .word Heap_Free
 
 	thumb_func_start ov05_021E4240
 ov05_021E4240: ; 0x021E4240
@@ -2000,7 +2000,7 @@ ov05_021E4394: ; 0x021E4394
 	add r6, r0, #0
 	mov r0, #4
 	mov r1, #0xcc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0xcc
 	add r7, r0, #0
@@ -2033,7 +2033,7 @@ _021E43CC:
 	cmp r4, #0x30
 	blt _021E43CC
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 
@@ -2205,7 +2205,7 @@ _021E4518: .word ov05_021F745C
 ov05_021E451C: ; 0x021E451C
 	push {r3, lr}
 	mov r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r3, r0, #0
 	mov r2, #0x1c
 	mov r1, #0
@@ -2218,10 +2218,10 @@ _021E452A:
 
 	thumb_func_start ov05_021E4534
 ov05_021E4534: ; 0x021E4534
-	ldr r3, _021E4538 ; =FreeToHeap
+	ldr r3, _021E4538 ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021E4538: .word FreeToHeap
+_021E4538: .word Heap_Free
 
 	thumb_func_start ov05_021E453C
 ov05_021E453C: ; 0x021E453C
@@ -2397,7 +2397,7 @@ ov05_021E4688: ; 0x021E4688
 	push {r3, r4, r5, r6, r7, lr}
 	mov r1, #0x24
 	add r6, r0, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x24
 	add r7, r0, #0
@@ -2429,7 +2429,7 @@ _021E46BC:
 	cmp r4, #8
 	blt _021E46BC
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 
@@ -2531,7 +2531,7 @@ ov05_021E4788: ; 0x021E4788
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0xe8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0xe8
 	add r4, r0, #0
@@ -2551,7 +2551,7 @@ ov05_021E47A0: ; 0x021E47A0
 	bl ov05_021E4918
 _021E47B2:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4, 0
 

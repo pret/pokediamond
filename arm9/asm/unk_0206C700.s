@@ -51,7 +51,7 @@ sub_0206C700: ; 0x0206C700
 	mov r1, #0x80
 	add r7, r2, #0x0
 	str r3, [sp, #0x18]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r4, #0x0
@@ -186,7 +186,7 @@ sub_0206C700: ; 0x0206C700
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x3c]
 	ldr r1, [r4, #0x3c]
 	mov r0, #0x0
@@ -325,15 +325,15 @@ sub_0206C92C: ; 0x0206C92C
 	ldr r0, [r4, #0xc]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x3c]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x58]
 	bl sub_020143D0
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	bl TextFlags_SetCanABSpeedUpPrint
 	pop {r4, pc}
@@ -738,7 +738,7 @@ _0206CCCE:
 	mov r3, #0x4
 	bl sub_02007E68
 	ldr r0, [r4, #0x5c]
-	bl GF_ExpHeap_FndGetTotalFreeSize
+	bl HeapExp_FndGetTotalFreeSize
 	mov r1, #0x2
 	lsl r1, r1, #0xe
 	cmp r0, r1
@@ -2176,7 +2176,7 @@ _0206D8EA:
 	add r2, r6, #0x0
 	bl Pokemon_SetData
 	add r0, r6, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0x0
 	mov r1, #0xa1
 	add r2, sp, #0x0
@@ -2211,7 +2211,7 @@ _0206D8EA:
 	ldr r0, [r4, #0x54]
 	bl Save_Poketch_PokemonHistoryAddMon
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x4c]
 	ldr r3, [r4, #0x5c]
 	mov r1, #0x4
@@ -2589,7 +2589,7 @@ sub_0206DC80: ; 0x0206DC80
 	mov r2, #0x2
 	bl sub_02068B68
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -2670,7 +2670,7 @@ sub_0206DD6C: ; 0x0206DD6C
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x4]
 	mov r1, #0xff
 	bl FillWindowPixelBuffer

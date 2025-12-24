@@ -13,7 +13,7 @@ ov20_02252C5C: ; 0x02252C5C
 	lsl r1, r1, #2
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5]
 	add r4, r0, #0
 	beq _02252D0A
@@ -34,7 +34,7 @@ ov20_02252C5C: ; 0x02252C5C
 	cmp r0, #0
 	bne _02252CA6
 	ldr r0, [r5]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r5]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -145,7 +145,7 @@ ov20_02252D44: ; 0x02252D44
 	add r1, #0x78
 	bl DC_FlushRange
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02252D7A:
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov20_02252D44
@@ -247,7 +247,7 @@ _02252E36:
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _02252E44
-	bl FreeToHeap
+	bl Heap_Free
 _02252E44:
 	mov r0, #0x56
 	lsl r0, r0, #2
@@ -257,7 +257,7 @@ _02252E44:
 	bl SysTask_Destroy
 _02252E52:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02252E58:
 	pop {r4, pc}
 	.align 2, 0

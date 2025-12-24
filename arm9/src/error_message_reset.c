@@ -28,7 +28,7 @@ static const struct WindowTemplate sErrorMessageWindowTemplate = {
     .baseTile = 0x23
 };
 
-static const struct HeapParam sErrorMessageHeapParams = {
+static const HeapParam sErrorMessageHeapParams = {
     .size = 0x00020000,
     .arena = OS_ARENA_MAIN
 };
@@ -88,7 +88,7 @@ void PrintErrorMessageAndReset() {
         OS_SetArenaHi(OS_ARENA_MAIN, OS_GetInitArenaHi(OS_ARENA_MAIN));
         OS_SetArenaLo(OS_ARENA_MAIN, OS_GetInitArenaLo(OS_ARENA_MAIN));
 
-        InitHeapSystem(&sErrorMessageHeapParams, 1, 1, 0);
+        Heap_InitSystem(&sErrorMessageHeapParams, 1, 1, 0);
         sub_0200E3A0(PM_LCD_TOP, 0);
         sub_0200E3A0(PM_LCD_BOTTOM, 0);
 
@@ -171,7 +171,7 @@ void PrintErrorMessageAndReset() {
         RemoveWindow(&buf);
 
         DestroyMsgData(msg_data);
-        FreeToHeap(ptr);
+        Heap_Free(ptr);
 
         OS_ResetSystem(0);
     }

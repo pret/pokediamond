@@ -148,7 +148,7 @@ extern void sub_0205F378(SaveVarsFlags *flags, u16 state);
 extern BagScreenAppData *sub_0203789C(FieldSystem *fieldSystem, u8 mode);
 extern u16 sub_020378FC(BagScreenAppData *bagScreenAppData);
 extern void sub_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u16 *param3);
-extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, HeapID heapId);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, enum HeapID heapID);
 extern void sub_0200E388(u32 param0);
 extern BOOL IsPaletteFadeFinished(void);
 extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 x, u16 y, u16 dir);
@@ -277,7 +277,7 @@ extern BOOL sub_020270D8(FashionCase *fashionCase, u32 param1, u16 param2);
 extern u16 sub_02027114(FashionCase *fashionCase, u16 param1);
 extern void sub_02027264(FashionCase *fashionCase, u16 param1);
 extern u16 sub_02027100(FashionCase *fashionCase, u16 param1);
-extern PokedexAppData *sub_02038AF4(FieldSystem *fieldSystem, HeapID heapId, BOOL isNational);
+extern PokedexAppData *sub_02038AF4(FieldSystem *fieldSystem, enum HeapID heapID, BOOL isNational);
 extern void ov06_0224CBB0(SaveData *saveData);
 extern u16 ov06_0224CC24(SaveData *saveData);
 extern u16 *LocalFieldData_GetSafariBallsCounter(LocalFieldData *localFieldData);
@@ -294,10 +294,10 @@ extern void sub_0205F5A4(SaveVarsFlags *varsFlags, u16 param1);
 extern u16 sub_0205F594(SaveVarsFlags *varsFlags);
 extern void sub_0202AA00(SaveData *saveData);
 extern void Save_CreateRoamerByID(SaveData *saveData, u8 roamer);
-extern NPCTradeAppData *NPCTradeApp_Init(HeapID heapId, u8 tradeId);
+extern NPCTradeAppData *NPCTradeApp_Init(enum HeapID heapID, u8 tradeId);
 extern u16 NPCTradeApp_GetOfferedSpecies(NPCTradeAppData *npcTradeAppData);
 extern u16 NPCTradeApp_GetRequestedSpecies(NPCTradeAppData *npcTradeAppData);
-extern void CallTask_NPCTrade(TaskManager *taskManager, NPCTradeAppData *npcTradeAppData, u16 partyPosition, HeapID heapId);
+extern void CallTask_NPCTrade(TaskManager *taskManager, NPCTradeAppData *npcTradeAppData, u16 partyPosition, enum HeapID heapID);
 extern void NPCTradeApp_Delete(NPCTradeAppData *npcTradeAppData);
 extern void ov06_022411F4(TaskManager *taskManager, u16 *var);
 extern u16 ov05_021F61E8(u16 species);
@@ -336,13 +336,13 @@ extern void sub_02034C24(FieldSystem *fieldSystem, u8 param1, u16 param2);
 extern u16 sub_0205F720(SaveVarsFlags *varsFlags);
 extern u16 sub_0205F740(SaveVarsFlags *varsFlags);
 extern u16 sub_0205F760(SaveVarsFlags *varsFlags);
-extern Poffin *Poffin_New(HeapID heapId);
+extern Poffin *Poffin_New(enum HeapID heapID);
 extern u32 sub_02027F04(Poffin *poffin, u8 *bytes, u8 param2, u32 param3);
 extern u16 sub_02028094(SavePoffinData *savePoffinData, Poffin *poffin);
 extern u16 sub_02028074(SavePoffinData *savePoffinData);
 extern u16 sub_0205F4A0(SaveVarsFlags *varsFlags, u8 eventId);
-extern void *sub_02037A48(HeapID heapId, FieldSystem *fieldSystem, u16 param2);
-extern void ov06_0224F12C(FieldSystem *fieldSystem, u16 *var, u32 param2, HeapID heapId);
+extern void *sub_02037A48(enum HeapID heapID, FieldSystem *fieldSystem, u16 param2);
+extern void ov06_0224F12C(FieldSystem *fieldSystem, u16 *var, u32 param2, enum HeapID heapID);
 extern u16 sub_0205F6A8(SaveVarsFlags *varsFlags);
 extern void ov06_02239944(TaskManager *taskManager);
 extern void ov06_02239AAC(TaskManager *taskManager);
@@ -355,7 +355,7 @@ extern void sub_02033ED0(void);
 extern void FieldSystem_SyncMapObjectsToSave(FieldSystem *fieldSystem);
 extern Location *LocalFieldData_GetSpecialSpawnWarpPtr(LocalFieldData *localFieldData);
 extern u16 GetTrainerCardLevel(FieldSystem *fieldSystem);
-extern SaveStatsPrinter *Field_SaveStatsPrinter_New(FieldSystem *fieldSystem, HeapID heapId, u32 param2);
+extern SaveStatsPrinter *Field_SaveStatsPrinter_New(FieldSystem *fieldSystem, enum HeapID heapID, u32 param2);
 extern void Field_SaveStatsPrinter_Print(SaveStatsPrinter *saveStatsPrinter);
 extern void Field_SaveStatsPrinter_RemoveFromScreen(SaveStatsPrinter *saveStatsPrinter);
 extern void Field_SaveStatsPrinter_Delete(SaveStatsPrinter *saveStatsPrinter);
@@ -392,7 +392,7 @@ static BOOL sub_0203B218(ScriptContext *ctx);
 /*static*/ BOOL sub_0203BB90(ScriptContext *ctx);
 static BOOL sub_0203BBBC(ScriptContext *ctx);
 static BOOL Script_CheckPortraitSlotFull(FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
-static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
+static FashionAppData *sub_0203BC6C(enum HeapID heapID, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static BOOL sub_0203BE9C(ScriptContext *ctx);
 static BOOL sub_0203C71C(ScriptContext *ctx);
 static BOOL sub_0203C9F8(ScriptContext *ctx);
@@ -1531,7 +1531,7 @@ BOOL ScrCmd_Unk02A1(ScriptContext *ctx) { // 02A1
 
     GF_ASSERT(event);
 
-    u16 *unk4 = AllocFromHeap(HEAP_ID_4, 0x100);
+    u16 *unk4 = Heap_Alloc(HEAP_ID_4, 0x100);
     u16 xVal = (u16)MapObject_GetXCoord(event);
     u16 zVal = (u16)MapObject_GetZCoord(event);
 
@@ -1591,7 +1591,7 @@ static BOOL IsAllMovementFinished(ScriptContext *ctx) {
 }
 
 static void sub_0203B174(FieldSystem *fieldSystem, u32 param1, void *param2) {
-    UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)AllocFromHeap(HEAP_ID_4, sizeof(UnkStruct_0203B174));
+    UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)Heap_Alloc(HEAP_ID_4, sizeof(UnkStruct_0203B174));
     if (unkStruct == NULL) {
         GF_AssertFail();
         return;
@@ -1614,10 +1614,10 @@ void sub_0203B1A8(SysTask *task, UnkStruct_0203B174 *param1) {
     SysTask_Destroy(param1->sysTask);
 
     if (param1->Unk08 != NULL) {
-        FreeToHeap(param1->Unk08);
+        Heap_Free(param1->Unk08);
     }
 
-    FreeToHeap(param1);
+    Heap_Free(param1);
 
     if (*movementCounter == 0) {
         GF_ASSERT(FALSE);
@@ -1929,7 +1929,7 @@ BOOL ScrCmd_GetSelectedPartySlot(ScriptContext *ctx) { // 0193
     if (*variable == 7) {
         *variable = 0xFF;
     }
-    FreeToHeap(*partyMenu);
+    Heap_Free(*partyMenu);
     *partyMenu = NULL;
     return FALSE;
 }
@@ -1961,7 +1961,7 @@ BOOL ScrCmd_Unk0195(ScriptContext *ctx) { // 0195
     *unk1 = sub_02037A70(*partyMenuData);
     *unk1 = (*unk1 == TRUE);
 
-    FreeToHeap(*partyMenuData);
+    Heap_Free(*partyMenuData);
     *partyMenuData = NULL;
     return FALSE;
 }
@@ -1982,7 +1982,7 @@ BOOL ScrCmd_Unk0197(ScriptContext *ctx) { // 0197
     GF_ASSERT(*runningAppData);
 
     *unk0 = sub_02037A78(*runningAppData);
-    FreeToHeap(*runningAppData);
+    Heap_Free(*runningAppData);
     *runningAppData = NULL;
 
     return FALSE;
@@ -2024,7 +2024,7 @@ BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx) { // 009F
     if (FieldSystem_ApplicationIsRunning(fieldSystem)) {
         return FALSE;
     }
-    FreeToHeap(*runningAppData);
+    Heap_Free(*runningAppData);
     *runningAppData = NULL;
     return TRUE;
 }
@@ -2039,7 +2039,7 @@ static BOOL sub_0203BBBC(ScriptContext *ctx) {
     if (pcBoxData->unk08 == TRUE) {
         sub_02028AD4(fieldSystem->unk98, sub_02029048(11), 1);
     }
-    FreeToHeap(*pcBoxDataPtr);
+    Heap_Free(*pcBoxDataPtr);
     *pcBoxDataPtr = NULL;
     return TRUE;
 }
@@ -2072,12 +2072,12 @@ static BOOL Script_CheckPortraitSlotFull(FieldSystem *fieldSystem, BOOL isContes
     return TRUE;
 }
 
-static FashionAppData *sub_0203BC6C(HeapID heapId, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
+static FashionAppData *sub_0203BC6C(enum HeapID heapID, FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
     SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveData);
     if (!Script_CheckPortraitSlotFull(fieldSystem, isContest, portraitSlot)) {
         return NULL;
     }
-    FashionAppData *appData = AllocFromHeap(heapId, sizeof(FashionAppData));
+    FashionAppData *appData = Heap_Alloc(heapID, sizeof(FashionAppData));
     memset(appData, 0, sizeof(FashionAppData));
     appData->fashionData = fashionData;
     appData->isContest = isContest;
@@ -2099,7 +2099,7 @@ BOOL ScrCmd_GetDressupPortraitSlot(ScriptContext *ctx) { // 00A4
     FashionAppData **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     u16 *portraitSlotPtr = ScriptGetVarPointer(ctx);
     *portraitSlotPtr = (*runningAppData)->portraitSlot;
-    FreeToHeap(*runningAppData);
+    Heap_Free(*runningAppData);
     return FALSE;
 }
 
@@ -2255,7 +2255,7 @@ BOOL ScrCmd_ShowSealCapsuleEditor(ScriptContext *ctx) { // 00A9
 
 BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx) { // 00AA
     TownMapAppData **townMap = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *townMap = AllocFromHeap(HEAP_ID_FIELD, sizeof(TownMapAppData));
+    *townMap = Heap_Alloc(HEAP_ID_FIELD, sizeof(TownMapAppData));
     TownMap_Init(ctx->fieldSystem, *townMap, 2);
     TownMap_Show(ctx->fieldSystem, *townMap);
     SetupNativeScript(ctx, sub_0203BB90);
@@ -2288,7 +2288,7 @@ BOOL ScrCmd_Unk01D9(ScriptContext *ctx) { // 01D9
     u16 unk0 = ScriptGetVar(ctx);
     u16 unk1 = ScriptGetVar(ctx);
     ScrCmdUnkStruct01D9 **unkStructPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *unkStructPtr = AllocFromHeap(HEAP_ID_FIELD, sizeof(ScrCmdUnkStruct01D9));
+    *unkStructPtr = Heap_Alloc(HEAP_ID_FIELD, sizeof(ScrCmdUnkStruct01D9));
     ScrCmdUnkStruct01D9 *unkStruct = *unkStructPtr;
     MI_CpuFill8(unkStruct, 0, sizeof(ScrCmdUnkStruct01D9)); // consider inlining as is in heartgold
     unkStruct->unk04 = unk0;
@@ -2301,7 +2301,7 @@ BOOL ScrCmd_Unk01D9(ScriptContext *ctx) { // 01D9
 
 BOOL ScrCmd_ShowPCBoxScreen(ScriptContext *ctx) { // 00AB
     PCBoxAppData **pcBoxAppDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    PCBoxAppData *pcBoxAppData = AllocFromHeap(HEAP_ID_FIELD, sizeof(PCBoxAppData)); // also seems inlined
+    PCBoxAppData *pcBoxAppData = Heap_Alloc(HEAP_ID_FIELD, sizeof(PCBoxAppData)); // also seems inlined
     pcBoxAppData->save = ctx->fieldSystem->saveData;
     pcBoxAppData->operation = (enum PCBoxOperation)ScriptReadByte(ctx);
     *pcBoxAppDataPtr = pcBoxAppData;
@@ -2366,7 +2366,7 @@ BOOL ScrCmd_Unk00B3(ScriptContext *ctx) { // 00B3
 
 BOOL ScrCmd_StarterSelectionScreen(ScriptContext *ctx) { // 00B4
     StarterSelectionData **starterSelectionPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
-    *starterSelectionPtr = AllocFromHeap(HEAP_ID_FIELD, sizeof(StarterSelectionData));
+    *starterSelectionPtr = Heap_Alloc(HEAP_ID_FIELD, sizeof(StarterSelectionData));
     StarterSelectionData *starterSelectionData = *starterSelectionPtr; // consider inlining
     starterSelectionData->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
     sub_020386A4(ctx->fieldSystem, *starterSelectionPtr);
@@ -2378,7 +2378,7 @@ BOOL ScrCmd_EndStarterSelectionScreen(ScriptContext *ctx) { // 00B5
     StarterSelectionData **starterSelectionData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     SaveVarsFlags *flags = Save_VarsFlags_Get(ctx->fieldSystem->saveData);
     sub_0205F378(flags, (*starterSelectionData)->state);
-    FreeToHeap(*starterSelectionData);
+    Heap_Free(*starterSelectionData);
     return FALSE;
 }
 
@@ -2399,7 +2399,7 @@ BOOL ScrCmd_GetBagScreenSelection(ScriptContext *ctx) { // 0179
 
     GF_ASSERT(*bagData != NULL);
     *var = sub_020378FC(*bagData); // BagData_GetSelection?
-    FreeToHeap(*bagData);
+    Heap_Free(*bagData);
     *bagData = NULL;
     return FALSE;
 }
@@ -2734,7 +2734,7 @@ BOOL ScrCmd_Unk00F6(ScriptContext *ctx) { // 00F6
     ScrCmdUnkStruct00F4 **appDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     ScrCmdUnkStruct00F4 *appData = *appDataPtr;
     sub_02047174(ctx->fieldSystem->taskManager, &appData->unk2C, 5);
-    FreeToHeap(appData);
+    Heap_Free(appData);
     *appDataPtr = NULL;
     return TRUE;
 }
@@ -3021,7 +3021,7 @@ BOOL ScrCmd_Unk02BA(ScriptContext *ctx) { // 02BA
     *var = sub_020527A8(ctx->fieldSystem->unk78);
     if (*var) {
         void **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-        FreeToHeap(*runningAppData);
+        Heap_Free(*runningAppData);
     }
     return FALSE;
 }
@@ -4015,7 +4015,7 @@ static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species
     Pokemon_Init(mon);
     Pokemon_InitWithParams(mon, species, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
     Pokedex_SetMonSeenFlag(pokedex, mon);
-    FreeToHeap(mon);
+    Heap_Free(mon);
 }
 
 BOOL ScrCmd_CountPCFreeSpace(ScriptContext *ctx) { // 0252
@@ -4501,7 +4501,7 @@ BOOL ScrCmd_Unk0289(ScriptContext *ctx) { // 0289
     u32 unk1 = sub_02027F04(poffin, bytes, unk0, 0);
     SavePoffinData *poffinSave = Save_PoffinData_Get(ctx->fieldSystem->saveData);
     u16 unk2 = sub_02028094(poffinSave, poffin);
-    FreeToHeap(poffin);
+    Heap_Free(poffin);
 
     if (unk2 == 0xFFFF) {
         *var = -1;
@@ -4536,15 +4536,15 @@ BOOL ScrCmd_Unk028F(ScriptContext *ctx) { // 028F
     HallOfFame *hallOfFame = LoadHallOfFame(ctx->fieldSystem->saveData, HEAP_ID_32, &loadResult);
     if (loadResult == 0) {
         *var = 0;
-        FreeToHeap(hallOfFame);
+        Heap_Free(hallOfFame);
         return TRUE;
     } else if (loadResult == 1) {
         *var = Save_HOF_TranslateRecordIdx(hallOfFame, 0);
-        FreeToHeap(hallOfFame);
+        Heap_Free(hallOfFame);
         return TRUE;
     } else if (loadResult == 2) {
         *var = 0;
-        FreeToHeap(hallOfFame);
+        Heap_Free(hallOfFame);
         return TRUE;
     }
     *var = 0;
@@ -4570,7 +4570,7 @@ BOOL ScrCmd_Unk0291(ScriptContext *ctx) { // 0291
     }
     *var2 = sub_02037A70(*partyMenu);
     *var2 = (*var2 == TRUE);
-    FreeToHeap(*partyMenu);
+    Heap_Free(*partyMenu);
     *partyMenu = NULL;
     return FALSE;
 }

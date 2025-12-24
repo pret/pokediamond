@@ -203,7 +203,7 @@ _0206F34A:
 	ldr r2, _0206F388 ; =0x00040100
 	mov r0, #0x3
 	mov r1, #0x36
-	bl CreateHeap
+	bl Heap_Create
 	bl sub_02088878 ; Loads overlay 13
 	mov r0, #0x36
 	bl ov13_02211E60
@@ -212,9 +212,9 @@ _0206F34A:
 	b _0206F380
 _0206F366:
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -235,14 +235,14 @@ sub_0206F38C: ; 0x0206F38C
 	push {r4, lr}
 	mov r0, #0xb
 	mov r1, #0x10
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0x10
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	mov r0, #0xb
 	mov r1, #0xc
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	mov r1, #0x0
 	mov r2, #0xc
 	str r0, [r4, #0x0]

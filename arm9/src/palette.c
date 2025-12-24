@@ -8,15 +8,15 @@
 #include "unk_0200CA44.h"
 #include "unk_020222E8.h"
 
-struct PaletteData *sub_02002FD0(HeapID heapId) {
-    struct PaletteData *ptr = AllocFromHeap(heapId, sizeof(struct PaletteData));
+struct PaletteData *sub_02002FD0(enum HeapID heapID) {
+    struct PaletteData *ptr = Heap_Alloc(heapID, sizeof(struct PaletteData));
     MI_CpuFill8(ptr, 0, sizeof(struct PaletteData));
 
     return ptr;
 }
 
 void sub_02002FEC(struct PaletteData *ptr) {
-    FreeToHeap(ptr);
+    Heap_Free(ptr);
 }
 
 void PaletteData_SetBuffers(
@@ -27,16 +27,16 @@ void PaletteData_SetBuffers(
 }
 
 void PaletteData_AllocBuffers(
-    struct PaletteData *paletteData, u32 index, u32 size, HeapID heapId) {
-    void *ptr = AllocFromHeap(heapId, size);
-    void *ptr2 = AllocFromHeap(heapId, size);
+    struct PaletteData *paletteData, u32 index, u32 size, enum HeapID heapID) {
+    void *ptr = Heap_Alloc(heapID, size);
+    void *ptr2 = Heap_Alloc(heapID, size);
 
     PaletteData_SetBuffers(paletteData, index, ptr, ptr2, size);
 }
 
 void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 index) {
-    FreeToHeap(paletteData->pltt[index].unfadedBuf);
-    FreeToHeap(paletteData->pltt[index].fadedBuf);
+    Heap_Free(paletteData->pltt[index].unfadedBuf);
+    Heap_Free(paletteData->pltt[index].fadedBuf);
 }
 
 void PaletteData_LoadPalette(
@@ -48,13 +48,13 @@ void PaletteData_LoadPalette(
 void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    HeapID heapId,
+    enum HeapID heapID,
     u32 index,
     u32 size,
     u16 offset,
     u16 param7) {
     NNSG2dPaletteData *pltData;
-    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapId);
+    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapID);
 
     GF_ASSERT(ptr != NULL);
 
@@ -65,17 +65,17 @@ void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     GF_ASSERT(size + offset * 2 <= paletteData->pltt[index].bufSize);
 
     PaletteData_LoadPalette(paletteData, pltData->pRawData + param7 * 2, index, offset, (u16)size);
-    FreeToHeap(ptr);
+    Heap_Free(ptr);
 }
 
 void PaletteData_LoadNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    HeapID heapId,
+    enum HeapID heapID,
     u32 index,
     u32 size,
     u16 offset) {
-    PaletteData_LoadFromNarc(paletteData, narcId, memberId, heapId, index, size, offset, 0);
+    PaletteData_LoadFromNarc(paletteData, narcId, memberId, heapID, index, size, offset, 0);
 }
 
 void sub_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size) {
@@ -104,10 +104,10 @@ void sub_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 si
 }
 
 void CopyPaletteFromNarc(
-    NarcId narcId, s32 memberId, HeapID heapId, u32 size, u16 offset, void *dest) {
+    NarcId narcId, s32 memberId, enum HeapID heapID, u32 size, u16 offset, void *dest) {
     NNSG2dPaletteData *pltData;
 
-    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapId);
+    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapID);
     GF_ASSERT(ptr != NULL);
 
     if (size == 0) {
@@ -116,7 +116,7 @@ void CopyPaletteFromNarc(
 
     MI_CpuCopy16(pltData->pRawData + offset * 2, dest, size);
 
-    FreeToHeap(ptr);
+    Heap_Free(ptr);
 }
 
 void PaletteData_CopyPalette(struct PaletteData *paletteData,
@@ -574,7 +574,7 @@ void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 b
 void sub_02003B40(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
-    HeapID heapId,
+    enum HeapID heapID,
     u32 index,
     u32 size,
     u16 offset,
@@ -582,7 +582,7 @@ void sub_02003B40(struct PaletteData *paletteData,
     s32 gTone,
     s32 bTone) {
     NNSG2dPaletteData *pltData;
-    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapId);
+    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heapID);
     GF_ASSERT(ptr != NULL);
 
     if (size == 0) {
@@ -592,5 +592,5 @@ void sub_02003B40(struct PaletteData *paletteData,
     TintPalette_CustomTone(pltData->pRawData, 0x10, rTone, gTone, bTone);
     PaletteData_LoadPalette(paletteData, pltData->pRawData, index, offset, (u16)size);
 
-    FreeToHeap(ptr);
+    Heap_Free(ptr);
 }

@@ -12,7 +12,7 @@ ov23_02254854: ; 0x02254854
 	mov r1, #0x28
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254888
 	ldr r1, [sp]
@@ -166,7 +166,7 @@ _02254964:
 	add r0, r4, #0
 	bl ov23_02254918
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl SysTask_Destroy
 	ldr r0, [r4, #0x10]
@@ -1061,7 +1061,7 @@ ov23_02254FFC: ; 0x02254FFC
 	ldr r1, _02255028 ; =0x0000048C
 	mov r0, #8
 	add r7, r2, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02255022
 	str r6, [r4]
@@ -1084,7 +1084,7 @@ ov23_0225502C: ; 0x0225502C
 	push {r3, lr}
 	cmp r0, #0
 	beq _02255036
-	bl FreeToHeap
+	bl Heap_Free
 _02255036:
 	pop {r3, pc}
 	thumb_func_end ov23_0225502C
@@ -1718,7 +1718,7 @@ ov23_0225551C: ; 0x0225551C
 	add r4, r1, #0
 	mov r0, #8
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r5]
 	cmp r0, #0
 	beq _0225553C
@@ -1734,10 +1734,10 @@ _0225553C:
 
 	thumb_func_start ov23_02255540
 ov23_02255540: ; 0x02255540
-	ldr r3, _02255544 ; =FreeToHeap
+	ldr r3, _02255544 ; =Heap_Free
 	bx r3
 	.align 2, 0
-_02255544: .word FreeToHeap
+_02255544: .word Heap_Free
 	thumb_func_end ov23_02255540
 
 	thumb_func_start ov23_02255548

@@ -38,7 +38,7 @@ _021D74F6:
 	mov r0, #3
 	mov r1, #0x33
 	lsl r2, r2, #0xc
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D7638 ; =0x00004A60
 	add r0, r6, #0
 	mov r2, #0x33
@@ -333,7 +333,7 @@ _021D776C:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x33
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -634,11 +634,11 @@ ov54_021D7A34: ; 0x021D7A34
 	add r6, r0, #0
 	bl ov54_021D8F0C
 	ldr r0, [r6, #0x18]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0xea
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r4, #0
 	add r5, r6, #0
 _021D7A50:
@@ -674,7 +674,7 @@ ov54_021D7A6C: ; 0x021D7A6C
 	mov r1, #0
 	bl FreeBgTilemapBuffer
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov54_021D7A6C
@@ -3320,19 +3320,19 @@ ov54_021D8F0C: ; 0x021D8F0C
 	mov r0, #0xcd
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0xce
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0xc9
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0xca
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov54_021D8F0C
@@ -3777,7 +3777,7 @@ ov54_021D9238: ; 0x021D9238
 	add r5, r0, #0
 	add r0, r1, #0
 	add r1, r4, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
 	bl Save_SafariZone_Get
@@ -3807,7 +3807,7 @@ ov54_021D9274: ; 0x021D9274
 	add r5, r0, #0
 	add r0, r1, #0
 	add r1, r4, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
 	bl Save_SafariZone_Get
@@ -3835,7 +3835,7 @@ ov54_021D92AC: ; 0x021D92AC
 	add r5, r0, #0
 	add r0, r1, #0
 	add r1, r4, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
 	bl Save_SafariZone_Get
@@ -4069,7 +4069,7 @@ ov54_021D943C: ; 0x021D943C
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	add r0, r6, #0
 	bl ov54_021D9098
@@ -4111,7 +4111,7 @@ ov54_021D9488: ; 0x021D9488
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0
@@ -4217,7 +4217,7 @@ ov54_021D9544: ; 0x021D9544
 	add r6, r0, #0
 	add r0, r1, #0
 	add r1, r5, #0
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	add r2, r5, #0
@@ -4267,7 +4267,7 @@ _021D959C:
 	add r2, r4, #0
 	bl MIi_CpuCopyFast
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #4]
 	sub r6, r6, r4
 	add r0, r0, r4

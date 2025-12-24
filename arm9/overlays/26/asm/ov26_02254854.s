@@ -13,7 +13,7 @@ ov26_02254854: ; 0x02254854
 	lsl r1, r1, #2
 	add r7, r2, #0
 	str r3, [sp]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _0225489C
 	ldr r3, [sp]
@@ -36,7 +36,7 @@ ov26_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _02254896:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _0225489C:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -255,7 +255,7 @@ ov26_02254A04: ; 0x02254A04
 	ldr r0, [r4, r0]
 	bl ov26_02254C04
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov26_02254A04
 

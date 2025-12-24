@@ -23,7 +23,7 @@ sub_02086084: ; 0x02086084
 	mov r0, #0x3
 	mov r1, #0x47
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0x0
 	mov r1, #0x80
 	mov r2, #0x47
@@ -208,7 +208,7 @@ sub_020861DC: ; 0x020861DC
 	mov r1, #0x4
 	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_0201C29C
 	ldr r0, [r4, #0x3c]
 	bl sub_020072E8
@@ -219,7 +219,7 @@ sub_020861DC: ; 0x020861DC
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	mov r0, #0x47
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4
@@ -375,7 +375,7 @@ _020863B6:
 	str r0, [r4, #0x0]
 	b _020863CE
 _020863C4:
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r4-r7, pc}
@@ -394,7 +394,7 @@ sub_020863DC: ; 0x020863DC
 	add r4, r1, #0x0
 	mov r0, #0xb
 	mov r1, #0x1c
-	bl AllocFromHeapAtEnd
+	bl Heap_AllocAtEnd
 	add r2, r0, #0x0
 	add r3, r2, #0x0
 	mov r1, #0x1c

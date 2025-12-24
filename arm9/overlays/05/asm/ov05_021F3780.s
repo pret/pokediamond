@@ -31,7 +31,7 @@ ov05_021F379C: ; 0x021F379C
 ov05_021F37AC: ; 0x021F37AC
 	push {r4, lr}
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bne _021F37BC
 	bl GF_AssertFail
@@ -50,12 +50,12 @@ _021F37C2:
 
 	thumb_func_start ov05_021F37D0
 ov05_021F37D0: ; 0x021F37D0
-	ldr r3, _021F37D8 ; =FreeToHeapExplicit
+	ldr r3, _021F37D8 ; =Heap_FreeExplicit
 	add r1, r0, #0
 	ldr r0, [r1]
 	bx r3
 	.balign 4, 0
-_021F37D8: .word FreeToHeapExplicit
+_021F37D8: .word Heap_FreeExplicit
 
 	thumb_func_start ov05_021F37DC
 ov05_021F37DC: ; 0x021F37DC
@@ -86,7 +86,7 @@ _021F37FC:
 	bne _021F37F0
 	ldr r0, [r5]
 	ldr r1, [r5, #0xc]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _021F380E:
 	pop {r3, r4, r5, pc}
 
@@ -100,7 +100,7 @@ ov05_021F3810: ; 0x021F3810
 	mul r5, r0
 	ldr r0, [r4]
 	add r1, r5, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021F382E
@@ -118,7 +118,7 @@ ov05_021F383C: ; 0x021F383C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x5c]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x60

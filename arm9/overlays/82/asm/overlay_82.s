@@ -641,7 +641,7 @@ _0222DA48:
 	mov r0, #3
 	mov r1, #0x44
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _0222DB58 ; =0x00000EC8
 	add r0, r6, #0
 	mov r2, #0x44
@@ -707,7 +707,7 @@ _0222DA48:
 	bl sub_0200433C
 	ldr r1, _0222DB78 ; =0x00020020
 	mov r0, #0x44
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x24]
 	add r0, #0x1f
 	mov r1, #0x1f
@@ -858,7 +858,7 @@ ov82_0222DC50: ; 0x0222DC50
 	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0x24]
-	bl FreeToHeap
+	bl Heap_Free
 	bl sub_020888CC
 	bl sub_02088868
 	add r0, r4, #0
@@ -880,14 +880,14 @@ ov82_0222DC50: ; 0x0222DC50
 	bl ov82_0222DD20
 	bl sub_0202E4F0
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x44
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0

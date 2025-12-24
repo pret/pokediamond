@@ -11,7 +11,7 @@ ov20_02253BA4: ; 0x02253BA4
 	add r0, r5, #0
 	mov r1, #0x1c
 	mov r6, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02253C0E
 	add r0, r6, #0
@@ -26,7 +26,7 @@ ov20_02253BA4: ; 0x02253BA4
 	ldrh r1, [r4, #0x10]
 	add r0, r5, #0
 	lsl r1, r1, #3
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x14]
 	cmp r0, #0
 	beq _02253C0E
@@ -34,14 +34,14 @@ ov20_02253BA4: ; 0x02253BA4
 	mov r1, #0x90
 	add r0, r5, #0
 	mul r1, r2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	beq _02253C0E
 	ldrh r1, [r4, #0x10]
 	add r0, r5, #0
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #4]
 	cmp r0, #0
 	beq _02253C0E
@@ -61,23 +61,23 @@ _02253C0E:
 	cmp r1, #0
 	beq _02253C22
 	add r0, r5, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _02253C22:
 	ldr r1, [r4, #0xc]
 	cmp r1, #0
 	beq _02253C2E
 	add r0, r5, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _02253C2E:
 	ldr r1, [r4, #4]
 	cmp r1, #0
 	beq _02253C3A
 	add r0, r5, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _02253C3A:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 _02253C42:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -95,20 +95,20 @@ ov20_02253C4C: ; 0x02253C4C
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	beq _02253C5C
-	bl FreeToHeap
+	bl Heap_Free
 _02253C5C:
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	beq _02253C66
-	bl FreeToHeap
+	bl Heap_Free
 _02253C66:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _02253C70
-	bl FreeToHeap
+	bl Heap_Free
 _02253C70:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02253C76:
 	pop {r4, pc}
 	thumb_func_end ov20_02253C4C
@@ -630,7 +630,7 @@ ov20_02254014: ; 0x02254014
 	cmp r1, #0
 	beq _02254028
 	ldr r0, [r4, #0x10]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4]
 _02254028:
@@ -638,7 +638,7 @@ _02254028:
 	cmp r1, #0
 	beq _02254038
 	ldr r0, [r4, #0x10]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4, #4]
 _02254038:

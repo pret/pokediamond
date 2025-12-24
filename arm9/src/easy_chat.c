@@ -84,12 +84,12 @@ static const ECIdenticalPhrases sIdenticalPhrases[12] = {
     { sEasyChatYou,          NELEMS(sEasyChatYou)          },
 };
 
-EasyChatManager *EasyChatManager_New(HeapID heapId) {
-    EasyChatManager *ret = AllocFromHeap(heapId, sizeof(EasyChatManager));
+EasyChatManager *EasyChatManager_New(enum HeapID heapID) {
+    EasyChatManager *ret = Heap_Alloc(heapID, sizeof(EasyChatManager));
 
     for (s32 i = 0; i < EC_GROUP_MAX; i++) {
-        ret->heapId = heapId; // inadvertently inside the loop
-        ret->msgData[i] = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heapId);
+        ret->heapID = heapID; // inadvertently inside the loop
+        ret->msgData[i] = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heapID);
     }
     return ret;
 }
@@ -98,7 +98,7 @@ void EasyChatManager_Delete(EasyChatManager *easyChatManager) {
     for (s32 i = 0; i < EC_GROUP_MAX; i++) {
         DestroyMsgData(easyChatManager->msgData[i]);
     }
-    FreeToHeap(easyChatManager);
+    Heap_Free(easyChatManager);
 }
 
 void EasyChatManager_ReadWordIntoString(EasyChatManager *easyChatManager, u16 ecWord, String *dest) {

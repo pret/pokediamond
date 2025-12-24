@@ -12,7 +12,7 @@ ov64_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x2f
 	lsl r2, r2, #0x12
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D7630 ; =0x000006B4
 	add r0, r4, #0
 	mov r2, #0x2f
@@ -30,7 +30,7 @@ _021D7504:
 	add r0, r5, r0
 	mov r1, #0x2f
 	mov r2, #0x20
-	bl GF_ExpHeap_FndInitAllocator
+	bl HeapExp_FndInitAllocator
 	add r0, r4, #0
 	bl OverlayManager_GetField18
 	add r4, r0, #0
@@ -293,13 +293,13 @@ _021D7726:
 	bl ov64_021D7A38
 	add r4, #0x94
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	bl ov64_021D7828
 	bl sub_0201C29C
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x2f
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	thumb_func_end ov64_021D76F4
@@ -727,7 +727,7 @@ ov64_021D7AEC: ; 0x021D7AEC
 	bl RemoveWindow
 	add r4, #0x98
 	ldr r0, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov64_021D7AEC
@@ -1121,7 +1121,7 @@ ov64_021D7E04: ; 0x021D7E04
 	add r4, r1, #0
 	cmp r0, #0
 	beq _021D7E14
-	bl FreeToHeap
+	bl Heap_Free
 _021D7E14:
 	ldr r0, [r5, #0x64]
 	cmp r0, #0
@@ -1130,7 +1130,7 @@ _021D7E14:
 	add r0, r4, #0
 	bl NNS_G3dFreeAnmObj
 	ldr r0, [r5, #0x64]
-	bl FreeToHeap
+	bl Heap_Free
 _021D7E28:
 	add r0, r5, #0
 	mov r1, #0
@@ -2991,9 +2991,9 @@ ov64_021D8C0C: ; 0x021D8C0C
 	ldr r0, [r4, #4]
 	bl sub_02013E44
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov64_021D8C0C
 
@@ -3480,7 +3480,7 @@ _021D8FB2:
 	add r0, r5, #0
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #3

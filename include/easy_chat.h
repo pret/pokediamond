@@ -8,7 +8,7 @@
 typedef u16 ecword_t;
 
 typedef struct EasyChatManager {
-    HeapID heapId;
+    enum HeapID heapID;
     MsgData *msgData[EC_GROUP_MAX];
 } EasyChatManager;
 
@@ -17,7 +17,7 @@ typedef struct SaveEasyChat {
     u32 trendy;
 } SaveEasyChat;
 
-EasyChatManager *EasyChatManager_New(HeapID heapId);
+EasyChatManager *EasyChatManager_New(enum HeapID heapID);
 void EasyChatManager_Delete(EasyChatManager *easyChatManager);
 void EasyChatManager_ReadWordIntoString(EasyChatManager *easyChatManager, u16 ecWord, String *dest);
 void GetECWordIntoStringByIndex(u32 ecWord, String *dest);

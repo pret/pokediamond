@@ -302,21 +302,21 @@ extern void NNS_G2dDrawSpriteFast(s16 param0,
     int param7,
     int param8);
 
-struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId) {
-    struct UnkStruct_02006D98 *ptr = AllocFromHeap(heapId, sizeof(struct UnkStruct_02006D98));
-    ptr->heapId = heapId;
+struct UnkStruct_02006D98 *sub_02006D98(enum HeapID heapID) {
+    struct UnkStruct_02006D98 *ptr = Heap_Alloc(heapID, sizeof(struct UnkStruct_02006D98));
+    ptr->heapID = heapID;
     ptr->unk2E0 = 0;
     ptr->unk29C = 0;
     ptr->unk2A0 = 0x8000;
     ptr->unk2A4 = 0;
     ptr->unk2A8 = 0x80;
 
-    ptr->unk2AC = AllocFromHeap(heapId, 0x8000);
+    ptr->unk2AC = Heap_Alloc(heapID, 0x8000);
 
-    ptr->unk2B0 = AllocFromHeap(heapId, 0xc0);
+    ptr->unk2B0 = Heap_Alloc(heapID, 0xc0);
     MIi_CpuClearFast(0, ptr->unk2B0, 4);
 
-    ptr->unk2B4 = AllocFromHeap(heapId, 0xc0);
+    ptr->unk2B4 = Heap_Alloc(heapID, 0xc0);
     MIi_CpuClearFast(0, ptr->unk2B4, 4);
 
     for (int i = 0; i < 4; i++) {
@@ -328,7 +328,7 @@ struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId) {
 
     u8 *st8;
     void *st4 = AllocAndReadWholeNarcMemberByIdPair(
-        NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0211_NCGR, ptr->heapId);
+        NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0211_NCGR, ptr->heapID);
     NNSG2dCharacterData *stc;
     NNS_G2dGetUnpackedCharacterData(st4, &stc);
 
@@ -346,7 +346,7 @@ struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId) {
         }
     }
 
-    FreeToHeap(st4);
+    Heap_Free(st4);
     ptr->unk2E1 = 1;
     ptr->unk2E2 = 1;
 
@@ -496,10 +496,10 @@ void sub_02006ED4(struct UnkStruct_02006D98 *param0) {
 }
 
 void sub_020072E8(struct UnkStruct_02006D98 *param0) {
-    FreeToHeap(param0->unk2AC);
-    FreeToHeap(param0->unk2B0);
-    FreeToHeap(param0->unk2B4);
-    FreeToHeap(param0);
+    Heap_Free(param0->unk2AC);
+    Heap_Free(param0->unk2B0);
+    Heap_Free(param0->unk2B4);
+    Heap_Free(param0);
 }
 
 void sub_02007314(struct UnkStruct_02006D98_2 *param0) {
@@ -1267,7 +1267,7 @@ void sub_020082A8(struct UnkStruct_02006D98 *param0) {
             st48 = 1;
             st4c = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st54].unk04.field_00,
                 param0->unk000[st54].unk04.field_02,
-                param0->heapId);
+                param0->heapID);
             NNS_G2dGetUnpackedCharacterData(st4c, &st58);
             param0->unk2B8.pixelFmt = st58->pixelFmt;
             param0->unk2B8.mapingType = st58->mapingType;
@@ -1353,7 +1353,7 @@ void sub_020082A8(struct UnkStruct_02006D98 *param0) {
                 }
             }
 
-            FreeToHeap(st4c);
+            Heap_Free(st4c);
         }
         //_020086C2
     }
@@ -1374,7 +1374,7 @@ void sub_020086F4(struct UnkStruct_02006D98 *param0) {
             stc = 1;
             st10 = AllocAndReadWholeNarcMemberByIdPair((NarcId)param0->unk000[st14].unk04.field_00,
                 param0->unk000[st14].unk04.field_04,
-                param0->heapId);
+                param0->heapID);
             NNS_G2dGetUnpackedPaletteData(st10, &st18);
             param0->unk2D0.fmt = st18->fmt;
             r1 = st18->pRawData;
@@ -1382,18 +1382,18 @@ void sub_020086F4(struct UnkStruct_02006D98 *param0) {
                 param0->unk2B0[st14 * 0x10 + r7] = r1[r7];
                 param0->unk2B4[st14 * 0x10 + r7] = r1[r7];
             }
-            FreeToHeap(st10);
+            Heap_Free(st10);
 
             if (param0->unk000[st14].unk6C.unk0_0 != 0) {
                 st10 = AllocAndReadWholeNarcMemberByIdPair(
-                    NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0212_NCLR, param0->heapId);
+                    NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0212_NCLR, param0->heapID);
                 NNS_G2dGetUnpackedPaletteData(st10, &st18);
                 r1 = st18->pRawData;
                 for (r7 = 0; r7 < 0x10; r7++) {
                     param0->unk2B0[(param0->unk000[st14].unk6C.unk0_0 + 3) * 0x10 + r7] = r1[r7];
                     param0->unk2B4[(param0->unk000[st14].unk6C.unk0_0 + 3) * 0x10 + r7] = r1[r7];
                 }
-                FreeToHeap(st10);
+                Heap_Free(st10);
             }
         }
         //_020087E0

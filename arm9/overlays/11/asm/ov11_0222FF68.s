@@ -2264,13 +2264,13 @@ ov11_02230FCC: ; 0x02230FCC
 	add r4, r0, #0
 	mov r0, #5
 	lsl r1, r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x87
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #5
 	sub r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0x22
 	lsl r1, r1, #4
 	str r0, [r4, r1]

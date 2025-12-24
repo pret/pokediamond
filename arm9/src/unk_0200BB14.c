@@ -9,7 +9,7 @@
 #include "unk_02008DEC.h"
 
 extern void sub_0201D060(u32 *param0, u32 param1, u32 param2);
-extern void sub_0201E00C(u32 param0, HeapID heapId);
+extern void sub_0201E00C(u32 param0, enum HeapID heapID);
 extern void NNS_G2dInitOamManagerModule();
 extern u32 sub_0201C328(u32 param0, u32 param1);
 extern void sub_0201D168();
@@ -56,13 +56,13 @@ extern void sub_02020054(u32 param0, u32 *param1);
 extern void sub_02020358(u32 param0, u32 param1);
 extern void sub_02020398(u32 param0, u32 param1);
 
-struct UnkStruct_0200BB14_1 *sub_0200BB14(HeapID heapId) {
-    struct UnkStruct_0200BB14_1 *ptr = AllocFromHeap(heapId, sizeof(struct UnkStruct_0200BB14_1));
+struct UnkStruct_0200BB14_1 *sub_0200BB14(enum HeapID heapID) {
+    struct UnkStruct_0200BB14_1 *ptr = Heap_Alloc(heapID, sizeof(struct UnkStruct_0200BB14_1));
     if (ptr == NULL) {
         return NULL;
     }
 
-    ptr->heapId = heapId;
+    ptr->heapID = heapID;
     ptr->unk004 = 0;
     ptr->unk008 = 1;
 
@@ -72,7 +72,7 @@ struct UnkStruct_0200BB14_1 *sub_0200BB14(HeapID heapId) {
 struct UnkStruct_0200BB14_2 *sub_0200BB34(struct UnkStruct_0200BB14_1 *param0) {
     GF_ASSERT(param0 != NULL);
 
-    struct UnkStruct_0200BB14_2 *ptr = AllocFromHeap(param0->heapId, sizeof(struct UnkStruct_0200BB14_2));
+    struct UnkStruct_0200BB14_2 *ptr = Heap_Alloc(param0->heapID, sizeof(struct UnkStruct_0200BB14_2));
     if (ptr == NULL) {
         return NULL;
     }
@@ -98,10 +98,10 @@ BOOL sub_0200BB6C(
         return FALSE;
     }
 
-    u32 st14[4] = { param2[0], param2[1], param2[2], param0->heapId };
+    u32 st14[4] = { param2[0], param2[1], param2[2], param0->heapID };
 
     sub_0201D060(st14, param2[3], param2[4]);
-    sub_0201E00C(param3, param0->heapId);
+    sub_0201E00C(param3, param0->heapID);
     NNS_G2dInitOamManagerModule();
 
     if (param0->unk008 == 1) {
@@ -113,10 +113,10 @@ BOOL sub_0200BB6C(
             param1[5],
             param1[6],
             param1[7],
-            param0->heapId);
+            param0->heapID);
     }
 
-    param0->unk00c = sub_0201C328(0x20, param0->heapId);
+    param0->unk00c = sub_0201C328(0x20, param0->heapID);
     sub_0201D168();
     sub_0201E0BC();
 
@@ -129,7 +129,7 @@ BOOL sub_0200BBF0(
         return FALSE;
     }
 
-    param1->unk00 = sub_02008C9C(param2, param0->unk010, param0->heapId);
+    param1->unk00 = sub_02008C9C(param2, param0->unk010, param0->heapID);
 
     return TRUE;
 }
@@ -167,7 +167,7 @@ void sub_0200BC5C(struct UnkStruct_0200BB14_2 *param0) {
         sub_020096B4(sub_02009660(param0->unk08, i));
     }
 
-    FreeToHeap(param0->unk08);
+    Heap_Free(param0->unk08);
     sub_02009C30(param0->unk24[0]);
     sub_02009E28(param0->unk24[1]);
 
@@ -190,7 +190,7 @@ void sub_0200BCB0(u32 *param0) {
 void sub_0200BCD0(
     struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1) {
     param0->unk004--;
-    FreeToHeap(param1);
+    Heap_Free(param1);
 }
 
 void sub_0200BCE0(
@@ -204,7 +204,7 @@ void sub_0200BCE0(
 void sub_0200BD04(u32 *param0) {
     GF_ASSERT(param0[1] == 0);
     sub_0200BCB0(param0);
-    FreeToHeap(param0);
+    Heap_Free(param0);
 }
 
 BOOL sub_0200BD20(
@@ -222,38 +222,38 @@ BOOL sub_0200BD20(
 
     param1->unk54 = st14;
     u32 r2 = sub_0200965C();
-    param1->unk08 = AllocFromHeap(param0->heapId, r2 * st14);
+    param1->unk08 = Heap_Alloc(param0->heapID, r2 * st14);
 
     for (s32 i = 0; i < st14; i++) {
         struct UnkStruct_02008DEC_2 *st18 = sub_02009660(param1->unk08, i);
-        void *st1c = AllocAndReadFile(param0->heapId, st10[i]);
+        void *st1c = AllocAndReadFile(param0->heapID, st10[i]);
 
-        sub_02009668(st1c, st18, param0->heapId);
-        FreeToHeap(st1c);
+        sub_02009668(st1c, st18, param0->heapID);
+        Heap_Free(st1c);
     }
 
     for (s32 i = 0; i < st14; i++) {
-        param1->unk0c[i] = sub_02008DEC(sub_020096CC(sub_02009660(param1->unk08, i)), i, param0->heapId);
+        param1->unk0c[i] = sub_02008DEC(sub_020096CC(sub_02009660(param1->unk08, i)), i, param0->heapID);
     }
 
     for (s32 i = 0; i < st14; i++) {
         struct UnkStruct_02008DEC_2 *st20 = sub_02009660(param1->unk08, i);
-        param1->unk24[i] = sub_02009424(sub_020096CC(st20), param0->heapId);
-        param1->unk3c[i] = sub_020093A8(param1->unk0c[i], st20, param1->unk24[i], param0->heapId);
+        param1->unk24[i] = sub_02009424(sub_020096CC(st20), param0->heapID);
+        param1->unk3c[i] = sub_020093A8(param1->unk0c[i], st20, param1->unk24[i], param0->heapID);
     }
 
     sub_02009A90(param1->unk24[0]);
     sub_02009D34(param1->unk24[1]);
-    struct UnkStruct_02008AA4_2 *r6 = AllocAndReadFile(param0->heapId, st10[6]);
+    struct UnkStruct_02008AA4_2 *r6 = AllocAndReadFile(param0->heapID, st10[6]);
     param1->unk04 = sub_02008BE0(r6,
-        param0->heapId,
+        param0->heapID,
         param1->unk0c[0],
         param1->unk0c[1],
         param1->unk0c[2],
         param1->unk0c[3],
         param1->unk0c[4],
         param1->unk0c[5]);
-    FreeToHeap(r6);
+    Heap_Free(r6);
 
     return TRUE;
 }
@@ -359,12 +359,12 @@ BOOL sub_0200BF60(
     param1->unk54 = st4;
 
     for (i = 0; i < st4; i++) {
-        param1->unk0c[i] = sub_02008DEC(param2[i], i, st0->heapId);
+        param1->unk0c[i] = sub_02008DEC(param2[i], i, st0->heapID);
     }
 
     for (i = 0; i < st4; i++) {
         if (param2[i] != 0) {
-            param1->unk24[i] = sub_02009424(param2[i], st0->heapId);
+            param1->unk24[i] = sub_02009424(param2[i], st0->heapID);
             param1->unk3c[i] = 0;
 
             for (s32 j = 0; j < param1->unk24[i]->unk04; j++) {
@@ -376,7 +376,7 @@ BOOL sub_0200BF60(
     return TRUE;
 }
 
-BOOL sub_0200C00C(HeapID *heapId,
+BOOL sub_0200C00C(enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -387,7 +387,7 @@ BOOL sub_0200C00C(HeapID *heapId,
         return FALSE;
     }
 
-    struct UnkStruct_02008DEC_sub *r5 = sub_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, *heapId);
+    struct UnkStruct_02008DEC_sub *r5 = sub_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, *heapID);
     if (r5 != NULL) {
         sub_02009B04(r5);
         sub_0200C474(param1->unk24[0], r5);
@@ -398,7 +398,7 @@ BOOL sub_0200C00C(HeapID *heapId,
     return r5 != NULL ? TRUE : FALSE;
 }
 
-s32 sub_0200C06C(HeapID *heapId,
+s32 sub_0200C06C(enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -410,7 +410,7 @@ s32 sub_0200C06C(HeapID *heapId,
         return -1;
     }
 
-    struct UnkStruct_02008DEC_sub *r5 = sub_02008FEC(param1->unk0c[1], param2, param3, param4, param7, param6, param5, *heapId);
+    struct UnkStruct_02008DEC_sub *r5 = sub_02008FEC(param1->unk0c[1], param2, param3, param4, param7, param6, param5, *heapID);
     if (r5 != NULL) {
         GF_ASSERT(sub_02009D68(r5) == 1);
         sub_0200C474(param1->unk24[1], r5);
@@ -423,7 +423,7 @@ s32 sub_0200C06C(HeapID *heapId,
 
 u8 sub_0200C0DC(u32 param0,
     u32 param1,
-    HeapID *heapId,
+    enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param3,
     NarcId param4,
     s32 param5,
@@ -431,7 +431,7 @@ u8 sub_0200C0DC(u32 param0,
     u32 param7,
     u32 param8,
     s32 param9) {
-    s32 r4 = sub_0200C06C(heapId, param3, param4, param5, param6, param7, param8, param9);
+    s32 r4 = sub_0200C06C(heapID, param3, param4, param5, param6, param7, param8, param9);
     if (r4 != -1) {
         sub_02003108(param0, param1, (u16)(r4 << 4), param7 << 5);
     }
@@ -439,22 +439,22 @@ u8 sub_0200C0DC(u32 param0,
     return (u8)r4;
 }
 
-BOOL sub_0200C124(HeapID *heapId,
+BOOL sub_0200C124(enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
     BOOL param4,
     s32 param5) {
-    return sub_0200C404(heapId, param1, param2, param3, param4, 2, param5);
+    return sub_0200C404(heapID, param1, param2, param3, param4, 2, param5);
 }
 
-BOOL sub_0200C13C(HeapID *heapId,
+BOOL sub_0200C13C(enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
     BOOL param4,
     s32 param5) {
-    return sub_0200C404(heapId, param1, param2, param3, param4, 3, param5);
+    return sub_0200C404(heapID, param1, param2, param3, param4, 3, param5);
 }
 
 struct UnkStruct_0200BB14_5 *sub_0200C154(
@@ -462,21 +462,21 @@ struct UnkStruct_0200BB14_5 *sub_0200C154(
     struct UnkStruct_0200BB14_4 st44;
     s32 st2c[6];
 
-    struct UnkStruct_0200BB14_5 *ptr = AllocFromHeap(param0->heapId, sizeof(struct UnkStruct_0200BB14_5));
+    struct UnkStruct_0200BB14_5 *ptr = Heap_Alloc(param0->heapID, sizeof(struct UnkStruct_0200BB14_5));
     if (ptr == NULL) {
         return NULL;
     }
 
-    ptr->unk08 = AllocFromHeap(param0->heapId, sizeof(struct UnkStruct_0200BB14_6));
+    ptr->unk08 = Heap_Alloc(param0->heapID, sizeof(struct UnkStruct_0200BB14_6));
     if (ptr->unk08 == 0) {
         return NULL;
     }
 
-    ptr->unk08->unk0 = AllocFromHeap(param0->heapId, sizeof(struct UnkStruct_0200BB14_sub));
+    ptr->unk08->unk0 = Heap_Alloc(param0->heapID, sizeof(struct UnkStruct_0200BB14_sub));
     ptr->unk04 = ptr->unk08->unk0;
     if (ptr->unk08->unk0 == NULL) {
         if (ptr->unk08 != NULL) {
-            FreeToHeap(ptr->unk08);
+            Heap_Free(ptr->unk08);
         }
 
         return NULL;
@@ -549,7 +549,7 @@ struct UnkStruct_0200BB14_5 *sub_0200C154(
     st44.unk20 = 0;
     st44.unk24 = param2[2];
     st44.unk28 = param2[4];
-    st44.unk2c = param0->heapId;
+    st44.unk2c = param0->heapID;
 
     ptr->unk00 = sub_0201FE94(&st44);
     ptr->unk0c = param2[12];
@@ -611,10 +611,10 @@ void sub_0200C3DC(u32 *param0) {
 
     sub_0201FFC8(param0[0]);
     sub_02008C80((struct UnkStruct_02008AA4_1 *)param0[2]);
-    FreeToHeap(param0);
+    Heap_Free(param0);
 }
 
-BOOL sub_0200C404(HeapID *heapId,
+BOOL sub_0200C404(enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -625,7 +625,7 @@ BOOL sub_0200C404(HeapID *heapId,
         return FALSE;
     }
 
-    struct UnkStruct_02008DEC_sub *r5 = sub_020090AC(param1->unk0c[param5], param2, param3, param4, param6, param5, *heapId);
+    struct UnkStruct_02008DEC_sub *r5 = sub_020090AC(param1->unk0c[param5], param2, param3, param4, param6, param5, *heapID);
     if (r5 != NULL) {
         BOOL r4 = sub_0200C474(param1->unk24[param5], r5);
         GF_ASSERT(r4 == TRUE);
@@ -984,7 +984,7 @@ void sub_0200C90C(u32 *param0, u32 param1) {
     sub_0200C904(*param0, param1);
 }
 
-BOOL sub_0200C918(HeapID *heapId,
+BOOL sub_0200C918(enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -995,7 +995,7 @@ BOOL sub_0200C918(HeapID *heapId,
         return FALSE;
     }
 
-    struct UnkStruct_02008DEC_sub *r5 = sub_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, *heapId);
+    struct UnkStruct_02008DEC_sub *r5 = sub_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, *heapID);
     if (r5 != NULL) {
         sub_02009AC4(r5);
         sub_0200C474(param1->unk24[0], r5);
@@ -1007,7 +1007,7 @@ BOOL sub_0200C918(HeapID *heapId,
     return r5 != NULL ? TRUE : FALSE;
 }
 
-BOOL sub_0200C978(HeapID *heapId,
+BOOL sub_0200C978(enum HeapID *heapID,
     struct UnkStruct_0200BB14_2 *param1,
     NarcId param2,
     s32 param3,
@@ -1018,7 +1018,7 @@ BOOL sub_0200C978(HeapID *heapId,
         return FALSE;
     }
 
-    struct UnkStruct_02008DEC_sub *r5 = sub_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, *heapId);
+    struct UnkStruct_02008DEC_sub *r5 = sub_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, *heapID);
     if (r5 != NULL) {
         sub_02009B78(r5);
         sub_0200C474(param1->unk24[0], r5);
@@ -1031,17 +1031,17 @@ BOOL sub_0200C978(HeapID *heapId,
 }
 
 void sub_0200C9D8(
-    HeapID *heapId, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5) {
+    enum HeapID *heapID, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5) {
     struct UnkStruct_02008DEC_sub *r6 = sub_020094F0(param1[3], param5);
-    sub_020090FC(param1[3], r6, param2, param3, param4, *heapId);
+    sub_020090FC(param1[3], r6, param2, param3, param4, *heapID);
 
     sub_02009BE8(r6);
 }
 
 void sub_0200CA0C(
-    HeapID *heapId, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5) {
+    enum HeapID *heapID, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5) {
     struct UnkStruct_02008DEC_sub *r6 = sub_020094F0(param1[4], param5);
-    sub_02009168(param1[4], r6, param2, param3, param4, *heapId);
+    sub_02009168(param1[4], r6, param2, param3, param4, *heapID);
 
     sub_02009DE0(r6);
 }

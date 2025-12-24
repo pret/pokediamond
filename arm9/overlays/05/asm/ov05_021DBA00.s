@@ -8,7 +8,7 @@ ov05_021DBA00: ; 0x021DBA00
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r4, #0
@@ -24,7 +24,7 @@ ov05_021DBA1C: ; 0x021DBA1C
 	add r4, r0, #0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}

@@ -12,7 +12,7 @@ ov78_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x48
 	lsl r2, r2, #0x10
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0
 	mov r1, #0xa0
 	mov r2, #0x48
@@ -245,21 +245,21 @@ _021D76C8:
 	add r0, r7, #0
 	bl NNS_G3dFreeAnmObj
 	ldr r0, [r5, #0x60]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	cmp r4, #4
 	blo _021D76C8
 	ldr r0, [r6, #0x5c]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r6]
 	bl Camera_Delete
 	ldr r0, [sp]
 	bl OverlayManager_FreeData
 	bl sub_0201B398
 	mov r0, #0x48
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov78_021D76B8
@@ -338,7 +338,7 @@ ov78_021D778C: ; 0x021D778C
 	add r0, #0x70
 	mov r1, #0x48
 	mov r2, #4
-	bl GF_ExpHeap_FndInitAllocator
+	bl HeapExp_FndInitAllocator
 	add r1, r5, #0
 	add r1, #0x9c
 	ldrb r2, [r1]

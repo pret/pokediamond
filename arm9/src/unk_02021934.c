@@ -6,8 +6,8 @@
 
 #define ASSERT_STR16(_str) ({ GF_ASSERT(_str != NULL); GF_ASSERT(_str->magic == STR16_MAGIC); })
 
-struct String *String_New(u32 length, HeapID heapId) {
-    struct String *ret = AllocFromHeap(heapId, length * 2 + 10);
+struct String *String_New(u32 length, enum HeapID heapID) {
+    struct String *ret = Heap_Alloc(heapID, length * 2 + 10);
     if (ret != NULL) {
         ret->magic = STR16_MAGIC;
         ret->maxsize = (u16)length;
@@ -20,7 +20,7 @@ struct String *String_New(u32 length, HeapID heapId) {
 void String_Delete(struct String *str) {
     ASSERT_STR16(str);
     str->magic = STR16_MAGIC | 1;
-    FreeToHeap(str);
+    Heap_Free(str);
 }
 
 void String_SetEmpty(struct String *str) {
@@ -40,9 +40,9 @@ void StringCopy(struct String *dest, struct String *src) {
     GF_ASSERT(0);
 }
 
-struct String *StringDup(struct String *src, HeapID heapId) {
+struct String *StringDup(struct String *src, enum HeapID heapID) {
     ASSERT_STR16(src);
-    struct String *dest = String_New((u32)(src->size + 1), heapId);
+    struct String *dest = String_New((u32)(src->size + 1), heapID);
     if (dest != NULL) {
         StringCopy(dest, src);
     }

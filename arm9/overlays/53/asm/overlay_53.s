@@ -37,7 +37,7 @@ _021D74F6:
 	mov r0, #3
 	mov r1, #0x27
 	lsl r2, r2, #6
-	bl CreateHeap
+	bl Heap_Create
 	ldr r1, _021D7640 ; =0x0000940C
 	add r0, r6, #0
 	mov r2, #0x27
@@ -410,14 +410,14 @@ _021D786E:
 	add r0, r6, #0
 	bl ov53_021D7AE8
 	ldr r0, [r6, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x27
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #2
 	bl sub_02032B6C
 	mov r0, #1
@@ -675,7 +675,7 @@ _021D7A0E:
 	mov r1, #0xf
 	mov r0, #0x27
 	lsl r1, r1, #0xa
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, _021D7AE0 ; =0x000043C8
 	str r0, [r7, r1]
 	mov r0, #0x27
@@ -704,7 +704,7 @@ ov53_021D7AE8: ; 0x021D7AE8
 	add r6, r0, #0
 	ldr r0, _021D7B1C ; =0x000043C8
 	ldr r0, [r6, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, _021D7B20 ; =0x000093F0
 	ldr r0, [r6, r0]
 	bl sub_020145A8
@@ -749,7 +749,7 @@ ov53_021D7B24: ; 0x021D7B24
 	mov r1, #0
 	bl FreeBgTilemapBuffer
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov53_021D7B24

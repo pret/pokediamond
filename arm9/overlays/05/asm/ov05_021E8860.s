@@ -21,7 +21,7 @@ ov05_021E8860: ; 0x021E8860
 	bl GX_ResetBankForBG
 	mov r0, #4
 	add r1, r0, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	mov r0, #0
 	add r1, r7, #0
@@ -64,7 +64,7 @@ ov05_021E88C0: ; 0x021E88C0
 	bl GfGfx_EngineATogglePlanes
 	ldr r1, [r4]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	pop {r4, pc}
 
 	.section .rodata

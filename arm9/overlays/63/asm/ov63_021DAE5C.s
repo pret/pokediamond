@@ -90,7 +90,7 @@ ov63_021DAEF8: ; 0x021DAEF8
 	mov r1, #0x7d
 	mov r0, #0x4c
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x7d
 	add r4, r0, #0
 	mov r1, #0
@@ -110,14 +110,14 @@ ov63_021DAF20: ; 0x021DAF20
 	add r5, r0, #0
 	mov r0, #0x4c
 	mov r1, #8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0xc
 	add r6, r5, #0
 	mul r6, r0
 	mov r0, #0x4c
 	add r1, r6, #0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	add r2, r6, #0
 	str r0, [r4, #4]
@@ -151,9 +151,9 @@ _021DAF68:
 	blt _021DAF5A
 _021DAF72:
 	ldr r0, [r5, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, r5, r6, pc}
 	thumb_func_end ov63_021DAF4C
 
@@ -215,7 +215,7 @@ _021DAFDA:
 	cmp r4, #0xa
 	blo _021DAFCA
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov63_021DAF9C
 

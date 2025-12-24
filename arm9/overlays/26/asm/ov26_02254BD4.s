@@ -10,7 +10,7 @@ ov26_02254BD4: ; 0x02254BD4
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0x30
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02254C00
 	add r0, #8
@@ -34,7 +34,7 @@ ov26_02254C04: ; 0x02254C04
 	push {r3, lr}
 	cmp r0, #0
 	beq _02254C0E
-	bl FreeToHeap
+	bl Heap_Free
 _02254C0E:
 	pop {r3, pc}
 	thumb_func_end ov26_02254C04
@@ -141,7 +141,7 @@ ov26_02254CC4: ; 0x02254CC4
 	str r0, [sp, #4]
 	mov r0, #8
 	lsl r1, r0, #6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [sp, #0x1c]
 	cmp r0, #0
 	beq _02254D68
@@ -214,7 +214,7 @@ _02254CEC:
 	lsl r3, r3, #8
 	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0x1c]
-	bl FreeToHeap
+	bl Heap_Free
 _02254D68:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}

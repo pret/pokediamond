@@ -4,8 +4,8 @@
 #include "party.h"
 
 BOOL MonNotFaintedOrEgg(struct Pokemon *pokemon);
-BOOL GiveMon(HeapID heapId, struct SaveData *save, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType);
-BOOL GiveEgg(HeapID heapId, struct SaveData *save, u16 species, int level, int metLocIndex, int a3);
+BOOL GiveMon(enum HeapID heapID, struct SaveData *save, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType);
+BOOL GiveEgg(enum HeapID heapID, struct SaveData *save, u16 species, int level, int metLocIndex, int a3);
 void PartyMonSetMoveInSlot(struct Party *party, int partySlot, int moveSlot, u16 move);
 int GetIdxOfFirstPartyMonWithMove(struct Party *party, int move);
 int CountAlivePokemon(struct Party *party);

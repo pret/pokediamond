@@ -9,7 +9,7 @@ ov05_021DC0B8: ; 0x021DC0B8
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	add r2, r4, #0
 	mov r1, #0x18
@@ -56,7 +56,7 @@ _021DC112:
 	sub r1, r1, #1
 	bne _021DC112
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -458,7 +458,7 @@ _021DC3F6:
 	add r1, r0, #0
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r6, #0x10]
 	mov r1, #0
 	mov r2, #0x39
@@ -526,7 +526,7 @@ ov05_021DC480: ; 0x021DC480
 	mov r2, #4
 	bl sub_02009668
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov05_021DC4AC
@@ -547,7 +547,7 @@ _021DC4B4:
 	cmp r4, #4
 	blt _021DC4B4
 	ldr r0, [r6, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r6, #0x10]
 	add r0, r6, #0
@@ -621,7 +621,7 @@ ov05_021DC554: ; 0x021DC554
 	add r5, r0, #0
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0x41
 	lsl r0, r0, #2
@@ -692,7 +692,7 @@ _021DC5A2:
 	bl NARC_Delete
 	ldr r1, [r4]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4]
 _021DC5FE:
@@ -1095,7 +1095,7 @@ _021DC8DC:
 	cmp r0, #0
 	bne _021DC8F4
 	ldr r0, [r4, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #0xc]
 	pop {r3, r4, r5, pc}
@@ -1230,7 +1230,7 @@ _021DC998:
 	cmp r1, #0
 	ble _021DC9FE
 	mov r0, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r2, [r4, #0xc]
 	ldr r1, _021DCA3C ; =0x00000F58
 	str r0, [r2, r1]
@@ -1362,7 +1362,7 @@ _021DCAD2:
 	bl ov05_021DC880
 	ldr r1, [r4, #0x10]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0x1c]
@@ -1390,7 +1390,7 @@ _021DCB14:
 	cmp r1, #0
 	beq _021DCB2C
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r1, [r4, #0xc]
 	ldr r0, _021DCB64 ; =0x00000F58
 	mov r2, #0
@@ -1414,7 +1414,7 @@ _021DCB3E:
 _021DCB4C:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	mov r0, #0
 	str r0, [r4, #0xc]
 _021DCB58:
@@ -1647,7 +1647,7 @@ ov05_021DCD04: ; 0x021DCD04
 _021DCD14:
 	ldr r1, _021DCD60 ; =0x00000F68
 	mov r0, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021DCD26
@@ -1702,7 +1702,7 @@ ov05_021DCD68: ; 0x021DCD68
 _021DCD80:
 	mov r0, #4
 	mov r1, #0x64
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0x10]
 	cmp r0, #0
 	bne _021DCD92
@@ -1905,7 +1905,7 @@ ov05_021DCECC: ; 0x021DCECC
 	mov r3, #0xc0
 	bl BG_LoadPlttData
 	ldr r0, [sp]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [sp]
 _021DCF0E:
@@ -1947,7 +1947,7 @@ ov05_021DCF14: ; 0x021DCF14
 	mov r1, #2
 	bl BG_LoadCharTilesData
 	ldr r0, [sp, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [sp, #8]
 _021DCF62:
@@ -2027,7 +2027,7 @@ _021DCFA0:
 	ldr r0, [r0, #8]
 	bl BgCommitTilemapBufferToVram
 	ldr r0, [sp, #0x14]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [sp, #0x14]
 _021DD00A:

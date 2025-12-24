@@ -91,7 +91,7 @@ ov11_0225C9D4: ; 0x0225C9D4
 	push {r4, lr}
 	mov r0, #5
 	lsl r1, r0, #6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #5
 	mov r1, #0
 	lsl r2, r2, #6
@@ -111,7 +111,7 @@ ov11_0225C9F0: ; 0x0225C9F0
 	bl GF_AssertFail
 _0225C9FE:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.align 2, 0
 

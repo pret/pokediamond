@@ -69,7 +69,7 @@ _021D7564:
 	mov r0, #3
 	ldr r2, [r2, #4]
 	mov r1, #4
-	bl CreateHeap
+	bl Heap_Create
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _021D757A
@@ -77,7 +77,7 @@ _021D7564:
 _021D757A:
 	mov r0, #4
 	mov r1, #0x28
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x28
 	str r0, [r4, #4]
@@ -355,13 +355,13 @@ _021D7806:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [r4, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0
 	str r0, [r4, #4]
 	mov r0, #4
-	bl DestroyHeap
+	bl Heap_Destroy
 	ldr r0, [r4, #0x70]
 	ldr r0, [r0]
 	lsl r0, r0, #8
@@ -1157,7 +1157,7 @@ ov05_021D7EE8: ; 0x021D7EE8
 	add r6, r1, #0
 	add r5, r0, #0
 	mov r1, #0x64
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0x60
 	add r1, r6, #0
@@ -1189,7 +1189,7 @@ _021D7F18:
 	blt _021D7F18
 _021D7F2C:
 	strh r3, [r4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
 	nop
@@ -1207,10 +1207,10 @@ ov05_021D7F40: ; 0x021D7F40
 
 	thumb_func_start ov05_021D7F44
 ov05_021D7F44: ; 0x021D7F44
-	ldr r3, _021D7F48 ; =FreeToHeap
+	ldr r3, _021D7F48 ; =Heap_Free
 	bx r3
 	.balign 4, 0
-_021D7F48: .word FreeToHeap
+_021D7F48: .word Heap_Free
 
 	.section .rodata
 

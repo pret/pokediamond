@@ -15,14 +15,14 @@ sub_02020C44: ; 0x02020C44
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0xc
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r6, r0, #0x0
 	bne _02020C5A
 	bl GF_AssertFail
 _02020C5A:
 	add r0, r4, #0x0
 	lsl r1, r7, #0x3
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r6, #0x0]
 	cmp r0, #0x0
 	bne _02020C6C
@@ -58,9 +58,9 @@ _02020C9A:
 	add r0, r4, #0x0
 	bl sub_02020D9C
 	ldr r0, [r4, #0x0]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4
 
@@ -176,7 +176,7 @@ _02020D7E:
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _02020D8C
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 _02020D8C:
@@ -279,7 +279,7 @@ _02020E2A:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	beq _02020E34
-	bl FreeToHeap
+	bl Heap_Free
 _02020E34:
 	str r4, [r5, #0x4]
 	pop {r3-r5, pc}
@@ -347,7 +347,7 @@ sub_02020E90: ; 0x02020E90
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x8
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
@@ -356,7 +356,7 @@ sub_02020E90: ; 0x02020E90
 	str r0, [r7, #0x0]
 	add r0, r4, #0x0
 	mul r1, r6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r4, #0x0
 	str r0, [r7, #0x4]
 	cmp r6, #0x0
@@ -387,9 +387,9 @@ _02020EDE:
 	ldr r0, [r4, #0x0]
 	bl sub_02020C90
 	ldr r0, [r4, #0x4]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0x0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 
 	thumb_func_start sub_02020EF8
@@ -475,7 +475,7 @@ _02020F82:
 	cmp r0, #0x0
 	bne _02020F98
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	strh r0, [r4, #0x16]
 _02020F98:
@@ -710,7 +710,7 @@ _0202112E:
 	ldr r3, [r4, #0xc]
 	bl sub_020212E4
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	mov r0, #0x1
@@ -973,7 +973,7 @@ sub_02021310: ; 0x02021310
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r1, r6, #0x0
 	add r2, r5, #0x0
 	add r4, r0, #0x0

@@ -37,7 +37,7 @@ typedef struct BagView {
     u16 unk76_1 : 15;
 } BagView; // total size = 0x78
 
-BagView *BagView_New(u8 heapId);
+BagView *BagView_New(u8 heapID);
 u32 BagView_sizeof(void);
 void sub_0206E30C(BagView *bagView, u8 r1);
 void sub_0206E314(BagView *bagView, SaveData *save, u8 r2, BagCursor *cursor);
@@ -50,7 +50,7 @@ u16 sub_0206E37C(BagView *bagView);
 u16 sub_0206E384(BagView *bagView);
 u8 sub_0206E38C(BagView *bagView);
 u8 sub_0206E394(BagView *bagView);
-BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 itemId, HeapID heapId);
-void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 itemId, enum ItemUseError code, HeapID heapId);
+BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 itemId, enum HeapID heapID);
+void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 itemId, enum ItemUseError code, enum HeapID heapID);
 
 #endif // POKEDIAMOND_BAG_VIEW_H

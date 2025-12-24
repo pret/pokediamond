@@ -22,7 +22,7 @@ static void ov24_02254840(void) {
 #include "sinit.h"
 
 BOOL ov24_02254854(MemoPadAppHandler **appHandlerOut, s32 arg1, s32 arg2, s32 arg3) {
-    MemoPadAppHandler *appHandler = AllocFromHeap(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
+    MemoPadAppHandler *appHandler = Heap_Alloc(HEAP_ID_POKETCH_APP, sizeof(MemoPadAppHandler));
     if (appHandler != NULL) {
         if (ov24_0225489C(appHandler, arg1, arg2, arg3)) {
             if (SysTask_CreateOnMainQueue((SysTaskFunc)ov24_02254918, appHandler, 1) != NULL) {
@@ -30,7 +30,7 @@ BOOL ov24_02254854(MemoPadAppHandler **appHandlerOut, s32 arg1, s32 arg2, s32 ar
                 return TRUE;
             }
         }
-        FreeToHeap(appHandler);
+        Heap_Free(appHandler);
     }
     return FALSE;
 }
@@ -56,7 +56,7 @@ BOOL ov24_0225489C(MemoPadAppHandler *appHandler, u32 arg1, u32 arg2, u32 arg3) 
 void ov24_022548F4(MemoPadAppHandler *appHandler) {
     ov20_02254198(appHandler->unk16FC);
     ov24_02254D48(appHandler->displayHandler);
-    FreeToHeap(appHandler);
+    Heap_Free(appHandler);
 }
 
 void ov24_02254918(SysTask *sysTask, MemoPadAppHandler *appHandler) {

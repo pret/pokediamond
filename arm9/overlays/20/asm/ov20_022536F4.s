@@ -182,7 +182,7 @@ _022537FA:
 	ldr r0, [sp, #0x28]
 	ldr r1, [r1, r6]
 	add r1, #0x18
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _02253870
 	ldr r0, [sp, #8]
@@ -223,7 +223,7 @@ _0225382E:
 	pop {r4, r5, r6, r7, pc}
 _02253866:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 _02253870:
@@ -251,7 +251,7 @@ ov20_02253888: ; 0x02253888
 	ldr r0, [r4, #0x14]
 	bl SysTask_Destroy
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	thumb_func_end ov20_02253888
 
@@ -332,7 +332,7 @@ ov20_022538F4: ; 0x022538F4
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	beq _02253960
 	bl ov20_02252DEC
@@ -379,7 +379,7 @@ _02253948:
 	blo _02253910
 _0225395A:
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02253960:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -394,12 +394,12 @@ ov20_0225396C: ; 0x0225396C
 	add r7, r1, #0
 	mov r0, #8
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _022539C2
 	mov r0, #8
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r5, r0, #0
 	add r0, r4, #0
 	bl ov20_02252DEC
@@ -423,10 +423,10 @@ _02253998:
 	mov r2, #0x20
 	bl GXS_LoadOBJPltt
 	add r0, r5, #0
-	bl FreeToHeap
+	bl Heap_Free
 _022539BC:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _022539C2:
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov20_0225396C
@@ -457,7 +457,7 @@ ov20_022539C4: ; 0x022539C4
 	mov r2, #0x80
 	bl GXS_LoadOBJPltt
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02253A02:
 	pop {r3, r4, r5, pc}
 	thumb_func_end ov20_022539C4
@@ -475,7 +475,7 @@ ov20_02253A04: ; 0x02253A04
 	ldr r1, [sp, #0xc]
 	mov r0, #8
 	ldrh r1, [r2, r1]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r7, r0, #0
 	beq _02253A98
 	mov r0, #0x13
@@ -532,7 +532,7 @@ _02253A8C:
 	bl NARC_Delete
 _02253A92:
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 _02253A98:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}

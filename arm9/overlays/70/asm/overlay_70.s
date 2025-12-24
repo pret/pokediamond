@@ -11,12 +11,12 @@ ov70_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x3c
 	lsl r2, r2, #0xe
-	bl CreateHeap
+	bl Heap_Create
 	mov r2, #7
 	mov r0, #3
 	mov r1, #0x3d
 	lsl r2, r2, #0xe
-	bl CreateHeap
+	bl Heap_Create
 	add r0, r5, #0
 	mov r1, #0xdc
 	mov r2, #0x3c
@@ -76,9 +76,9 @@ ov70_021D755C: ; 0x021D755C
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x3d
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #0x3c
-	bl DestroyHeap
+	bl Heap_Destroy
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -399,7 +399,7 @@ ov70_021D77CC: ; 0x021D77CC
 	add r5, r0, #0
 	ldr r1, _021D7894 ; =0x00000E1C
 	mov r0, #0x3d
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	beq _021D788C
 	str r5, [r4]
@@ -497,7 +497,7 @@ ov70_021D78A0: ; 0x021D78A0
 	mov r0, #0x66
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x65
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -526,9 +526,9 @@ ov70_021D78A0: ; 0x021D78A0
 	bl sub_0201FD58
 	bl DeinitOamData
 	ldr r0, [r4, #0x10]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021D790A:
 	pop {r4, pc}
 	thumb_func_end ov70_021D78A0
@@ -1408,11 +1408,11 @@ _021D7FDA:
 	mov r0, #0x5e
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end ov70_021D7FC4
 
@@ -1505,9 +1505,9 @@ _021D8050:
 	cmp r0, #6
 	blt _021D8050
 	ldr r0, [sp, #8]
-	bl FreeToHeap
+	bl Heap_Free
 	ldr r0, [sp, #0xc]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x94
 	pop {r4, r5, r6, r7, pc}
 	nop

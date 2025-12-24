@@ -33,9 +33,9 @@ const u8 UNK_020F7454[] = {
 };
 
 u32 sub_0205FA2C(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, HeapID heapId) {
-    struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(
-        heapId, sizeof(struct UnkPlayerStruct1_0205FA2C));
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, enum HeapID heapID) {
+    struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)Heap_AllocAtEnd(
+        heapID, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
     struct SaveData *save = fieldSystem->saveData;
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct1_0205FA2C));
@@ -86,7 +86,7 @@ u32 sub_0205FAD8(
     MI_CpuCopy8(ptr->unk2c, param0->unk0e, 6);
 
     param0->unk0d = ptr->unk22;
-    FreeToHeap(ptr);
+    Heap_Free(ptr);
 
     *param0->unk14 = NULL;
 
@@ -94,11 +94,11 @@ u32 sub_0205FAD8(
 }
 
 u32 sub_0205FB34(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, HeapID heapId) {
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, enum HeapID heapID) {
     struct SaveData *save = fieldSystem->saveData;
 
-    struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)AllocFromHeapAtEnd(
-        heapId, sizeof(struct UnkPlayerStruct2_0205FA2C));
+    struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)Heap_AllocAtEnd(
+        heapID, sizeof(struct UnkPlayerStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct2_0205FA2C));
 
     ptr->options = Save_PlayerData_GetOptionsAddr(save);
@@ -135,7 +135,7 @@ u32 sub_0205FBC0(
 
     struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)*param0->unk14;
     param0->unk0d = ptr->unk14;
-    FreeToHeap(ptr);
+    Heap_Free(ptr);
 
     *param0->unk14 = NULL;
 
@@ -159,7 +159,7 @@ BOOL sub_0205FBE8(struct TaskManager *taskManager) {
         res2->unk04 = sub_0205FBC0(res2, fieldSystem);
         break;
     case 4:
-        FreeToHeap(res2);
+        Heap_Free(res2);
         return TRUE;
     }
 
@@ -176,7 +176,7 @@ void sub_0205FC50(struct TaskManager *taskManager,
     u8 param7) {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
 
-    struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)AllocFromHeap(
+    struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)Heap_Alloc(
         HEAP_ID_FIELD, sizeof(struct UnkCallbackStruct1_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct1_0205FA2C));
 
@@ -210,7 +210,7 @@ u32 sub_0205FCC4(
     }
 
     param0->unk00 = param0->unk08[8];
-    FreeToHeap(param0->unk08);
+    Heap_Free(param0->unk08);
 
     return 2;
 }
@@ -229,7 +229,7 @@ BOOL sub_0205FCE8(struct TaskManager *taskManager) {
     case 2:
         u16 *var = GetVarPointer(fieldSystem, res2->unk10);
         *var = (u16)res2->unk00;
-        FreeToHeap(res2);
+        Heap_Free(res2);
 
         return TRUE;
     }
@@ -239,7 +239,7 @@ BOOL sub_0205FCE8(struct TaskManager *taskManager) {
 
 void sub_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3) {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
-    struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
+    struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)Heap_Alloc(
         HEAP_ID_FIELD, sizeof(struct UnkCallbackStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct2_0205FA2C));
 
@@ -271,7 +271,7 @@ BOOL sub_0205FD70(struct TaskManager *taskManager) {
         break;
     }
 
-    FreeToHeap(res2);
+    Heap_Free(res2);
 
     return TRUE;
 }
@@ -279,7 +279,7 @@ BOOL sub_0205FD70(struct TaskManager *taskManager) {
 void sub_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2) {
     struct FieldSystem *fieldSystem = TaskManager_GetFieldSystem(taskManager);
 
-    u16 *ptr = AllocFromHeap(HEAP_ID_FIELD, 2 * sizeof(u16));
+    u16 *ptr = Heap_Alloc(HEAP_ID_FIELD, 2 * sizeof(u16));
     MI_CpuFill8(ptr, 0, 2 * sizeof(u16));
 
     ptr[0] = param1;

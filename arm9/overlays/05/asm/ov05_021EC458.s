@@ -328,7 +328,7 @@ _021EC6FA:
 	mov r1, #0
 	bl DaycareMon_SetSteps
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r7, #0
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -381,7 +381,7 @@ ov05_021EC744: ; 0x021EC744
 	bl BoxPokemon_CalcLevel
 	add r4, r0, #0
 	add r0, r7, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -900,7 +900,7 @@ ov05_021ECB6C: ; 0x021ECB6C
 	mov r0, #4
 	mov r1, #0xb4
 	str r2, [sp, #4]
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r4, #0
@@ -1141,7 +1141,7 @@ _021ECD4A:
 	blo _021ECCFE
 _021ECD54:
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -1646,7 +1646,7 @@ _021ED168:
 	add r0, r5, #0
 	bl ov05_021ECD64
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 
@@ -2600,7 +2600,7 @@ _021ED7CE:
 	ldr r0, [sp, #0x10]
 	bl String_Delete
 	add r0, r6, #0
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #0x3c
 	pop {r4, r5, r6, r7, pc}
 	nop

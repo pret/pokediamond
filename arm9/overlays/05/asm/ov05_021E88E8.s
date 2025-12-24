@@ -31,7 +31,7 @@ _021E8906: ; jump table
 _021E8912:
 	mov r0, #4
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	mov r1, #0
 	mov r2, #0x20
@@ -174,7 +174,7 @@ _021E8A42:
 	bl ov05_021E37A4
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 _021E8A56:
@@ -213,7 +213,7 @@ _021E8A86: ; jump table
 _021E8A92:
 	mov r0, #4
 	mov r1, #0x20
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	mov r1, #0
 	mov r2, #0x20
@@ -356,7 +356,7 @@ _021E8BC2:
 	bl ov05_021E37A4
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 _021E8BD6:
@@ -397,7 +397,7 @@ _021E8C0A: ; jump table
 _021E8C18:
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	mov r2, #0x10
 	mov r1, #0
@@ -512,7 +512,7 @@ _021E8CE6:
 _021E8D00:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 	mov r0, #1
@@ -553,7 +553,7 @@ _021E8D3E: ; jump table
 _021E8D4C:
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	mov r2, #0x10
 	mov r1, #0
@@ -669,7 +669,7 @@ _021E8E1C:
 _021E8E36:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 	mov r0, #1
@@ -820,7 +820,7 @@ _021E8F3C: ; jump table
 _021E8F48:
 	mov r0, #4
 	mov r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	mov r2, #0x1c
 	mov r1, #0
@@ -917,7 +917,7 @@ _021E8FFC:
 _021E9010:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 	mov r0, #1
@@ -955,7 +955,7 @@ _021E904C: ; jump table
 _021E9058:
 	mov r0, #4
 	mov r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	mov r2, #0x1c
 	mov r1, #0
@@ -1052,7 +1052,7 @@ _021E910C:
 _021E9120:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 	mov r0, #1
@@ -1095,7 +1095,7 @@ _021E916E:
 	mov r1, #0x1e
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x1e
 	str r0, [r7, #0xc]
 	mov r1, #0
@@ -1455,7 +1455,7 @@ _021E944E:
 	bl ov05_021E37A4
 	ldr r1, [r7, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #0x10]
 	bl sub_0200621C
 _021E948A:
@@ -1501,7 +1501,7 @@ _021E94D4:
 	mov r1, #0x71
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x71
 	str r0, [r6, #0xc]
 	mov r1, #0
@@ -1812,7 +1812,7 @@ _021E974A:
 	bl ov05_021E3A48
 	ldr r1, [r6, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #0x10]
 	bl sub_0200621C
 _021E9786:
@@ -1861,7 +1861,7 @@ _021E97D6:
 	mov r1, #0x7a
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x7a
 	str r0, [r7, #0xc]
 	mov r1, #0
@@ -2255,7 +2255,7 @@ _021E9AF0:
 	bl ov05_021E3E44
 	ldr r1, [r7, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #0x14]
 	bl sub_0200621C
 	add sp, #0x58
@@ -2318,7 +2318,7 @@ _021E9B98:
 	mov r1, #9
 	mov r0, #4
 	lsl r1, r1, #6
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x1c]
 	mov r2, #9
 	str r0, [r1, #0xc]
@@ -2844,7 +2844,7 @@ _021E9FA4:
 	ldr r1, [sp, #0x1c]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #0x18]
 	bl sub_0200621C
 	add sp, #0x44
@@ -2977,7 +2977,7 @@ _021EA110:
 	mov r1, #0x1f
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x1f
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -3255,7 +3255,7 @@ _021EA354:
 	bl ov05_021E3E44
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 _021EA382:
@@ -3307,7 +3307,7 @@ _021EA3D8:
 	mov r1, #0x8a
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x18]
 	mov r2, #0x8a
 	str r0, [r1, #0xc]
@@ -3777,7 +3777,7 @@ _021EA76C:
 	ldr r1, [sp, #0x18]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #0x14]
 	bl sub_0200621C
 _021EA7DE:
@@ -3894,7 +3894,7 @@ _021EA8B2:
 	mov r1, #0x69
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x69
 	str r0, [r4, #0xc]
 	mov r1, #0
@@ -4133,7 +4133,7 @@ _021EAA98:
 	bl ov05_021E3E44
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 _021EAAC6:
@@ -4180,7 +4180,7 @@ _021EAB14:
 	mov r1, #0x1b
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x1b
 	str r0, [r6, #0xc]
 	mov r1, #0
@@ -4442,7 +4442,7 @@ _021EAD1A:
 	bl ov05_021E3E44
 	ldr r1, [r6, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #0x10]
 	bl sub_0200621C
 _021EAD4C:
@@ -4487,7 +4487,7 @@ _021EAD8E:
 	mov r1, #0x3d
 	mov r0, #4
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	ldr r1, [sp, #0x14]
 	mov r2, #0x3d
 	str r0, [r1, #0xc]
@@ -4817,7 +4817,7 @@ _021EB01A:
 	ldr r1, [sp, #0x14]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	ldr r0, [sp, #0x10]
 	bl sub_0200621C
 _021EB04A:
@@ -4976,7 +4976,7 @@ _021EB18E:
 	mov r1, #0x6f
 	mov r0, #4
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x6f
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -5247,7 +5247,7 @@ _021EB394:
 	strb r1, [r0]
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 _021EB3F2:
@@ -5321,7 +5321,7 @@ _021EB466: ; jump table
 _021EB476:
 	mov r0, #4
 	mov r1, #0x10
-	bl AllocFromHeap
+	bl Heap_Alloc
 	str r0, [r4, #0xc]
 	mov r2, #0x10
 	mov r1, #0
@@ -5458,7 +5458,7 @@ _021EB56C:
 _021EB58A:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 	mov r0, #1
@@ -5503,7 +5503,7 @@ _021EB5D0: ; jump table
 _021EB5E4:
 	mov r0, #4
 	mov r1, #0x38
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r1, #0
 	mov r2, #0x38
 	str r0, [r4, #0xc]
@@ -5669,7 +5669,7 @@ _021EB720:
 _021EB73E:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add r0, r6, #0
 	bl sub_0200621C
 	mov r0, #1
@@ -5722,7 +5722,7 @@ _021EB7A2:
 	mov r1, #0x1f
 	ldr r0, [sp, #0x14]
 	lsl r1, r1, #4
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x1f
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -6167,7 +6167,7 @@ _021EBB60:
 	str r0, [r2]
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add sp, #0x30
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -6405,7 +6405,7 @@ _021EBD20:
 	mov r1, #0x9b
 	ldr r0, [sp, #0x10]
 	lsl r1, r1, #2
-	bl AllocFromHeap
+	bl Heap_Alloc
 	mov r2, #0x9b
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -7175,7 +7175,7 @@ _021EC37A:
 	bl ov05_021E3E44
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FreeToHeapExplicit
+	bl Heap_FreeExplicit
 	add sp, #0x4c
 	mov r0, #1
 	pop {r4, r5, r6, r7, pc}

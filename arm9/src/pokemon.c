@@ -45,7 +45,7 @@ BOOL BoxMon_HasPokerus(BoxPokemon *boxMon);
 BOOL BoxMon_IsImmuneToPokerus(BoxPokemon *boxMon);
 void BoxMon_UpdateArceusForm(BoxPokemon *boxMon);
 void LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u16 *levelUpLearnset);
-void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId);
+void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, enum HeapID heapID);
 BOOL MonHasMove(Pokemon *pokemon, u16 move);
 BOOL sub_0206A144(BoxPokemon *boxMon, u32 a1);
 BOOL sub_0206A16C(u16 species, int form, u32 a2);
@@ -119,8 +119,8 @@ u32 SizeOfStructPokemon(void) {
     return sizeof(Pokemon);
 }
 
-Pokemon *Pokemon_New(HeapID heapID) {
-    Pokemon *mon = AllocFromHeap(heapID, sizeof(Pokemon));
+Pokemon *Pokemon_New(enum HeapID heapID) {
+    Pokemon *mon = Heap_Alloc(heapID, sizeof(Pokemon));
     Pokemon_Init(mon);
     return mon;
 }
@@ -187,7 +187,7 @@ void Pokemon_InitWithParams(Pokemon *mon, int species, int level, int ivs, BOOL 
 
     Mail *mail = Mail_New(HEAP_ID_DEFAULT);
     Pokemon_SetData(mon, MON_DATA_MAIL, mail);
-    FreeToHeap(mail);
+    Heap_Free(mail);
 
     u32 zero = 0;
     u8 capsule[0x18];
@@ -357,7 +357,7 @@ void Pokemon_CalcStats(Pokemon *mon) {
     form = Pokemon_GetData(mon, MON_DATA_FORM, NULL);
     species = Pokemon_GetData(mon, MON_DATA_SPECIES, NULL);
 
-    SpeciesData *speciesData = AllocFromHeap(HEAP_ID_DEFAULT, sizeof(SpeciesData));
+    SpeciesData *speciesData = Heap_Alloc(HEAP_ID_DEFAULT, sizeof(SpeciesData));
     SpeciesData_LoadForm(species, form, speciesData);
 
     if (species == SPECIES_SHEDINJA) {
@@ -387,7 +387,7 @@ void Pokemon_CalcStats(Pokemon *mon) {
     newSpDef = Nature_ModifyStatValue(Pokemon_GetNature(mon), newSpDef, STAT_SPDEF);
     Pokemon_SetData(mon, MON_DATA_SP_DEF, &newSpDef);
 
-    FreeToHeap(speciesData);
+    Heap_Free(speciesData);
 
     if (hp != 0 || maxHp == 0) {
         if (species == SPECIES_SHEDINJA) {
@@ -1647,8 +1647,8 @@ void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int value) {
     }
 }
 
-SpeciesData *SpeciesData_NewFromSpecies(int species, HeapID heapID) {
-    SpeciesData *speciesData = (SpeciesData *)AllocFromHeap(heapID, sizeof(SpeciesData));
+SpeciesData *SpeciesData_NewFromSpecies(int species, enum HeapID heapID) {
+    SpeciesData *speciesData = (SpeciesData *)Heap_Alloc(heapID, sizeof(SpeciesData));
     SpeciesData_LoadSpecies(species, speciesData);
     return speciesData;
 }
@@ -1762,7 +1762,7 @@ int SpeciesData_GetValue(SpeciesData *speciesData, enum SpeciesDataParam param) 
 
 void SpeciesData_Free(SpeciesData *speciesData) {
     GF_ASSERT(speciesData != NULL);
-    FreeToHeap(speciesData);
+    Heap_Free(speciesData);
 }
 
 int Species_GetFormValue(int species, int form, enum SpeciesDataParam param) {
@@ -1823,11 +1823,11 @@ u32 ExpRate_GetExpAtLevel(int rate, int level) {
     GF_ASSERT(rate < GROWTH_RATE_COUNT);
     GF_ASSERT(level <= MAX_LEVEL + 1);
 
-    u32 *expTable = (u32 *)AllocFromHeap(HEAP_ID_DEFAULT, (MAX_LEVEL + 1) * sizeof(u32));
+    u32 *expTable = (u32 *)Heap_Alloc(HEAP_ID_DEFAULT, (MAX_LEVEL + 1) * sizeof(u32));
     ExpRate_LoadTable(rate, expTable);
 
     u32 ret = expTable[level];
-    FreeToHeap(expTable);
+    Heap_Free(expTable);
 
     return ret;
 }
@@ -2424,7 +2424,7 @@ u16 GetMonEvolution(struct Party *party, Pokemon *pokemon, u32 context, u32 used
     if (method_ret == NULL) {
         method_ret = &sp40;
     }
-    evoTable = AllocFromHeap(HEAP_ID_DEFAULT, 7 * sizeof(struct Evolution));
+    evoTable = Heap_Alloc(HEAP_ID_DEFAULT, 7 * sizeof(struct Evolution));
     LoadMonEvolutionTable(species, evoTable);
     switch (context) {
     case 0:
@@ -2613,7 +2613,7 @@ u16 GetMonEvolution(struct Party *party, Pokemon *pokemon, u32 context, u32 used
         }
         break;
     }
-    FreeToHeap(evoTable);
+    Heap_Free(evoTable);
     return target;
 }
 
@@ -2656,7 +2656,7 @@ void BoxPokemon_SetDefaultMoves(BoxPokemon *boxMon) {
     u32 form;
     u8 level;
     u16 move;
-    levelUpLearnset = AllocFromHeap(HEAP_ID_DEFAULT, MAX_LEARNED_MOVES * sizeof(u16));
+    levelUpLearnset = Heap_Alloc(HEAP_ID_DEFAULT, MAX_LEARNED_MOVES * sizeof(u16));
     decry = BoxPokemon_UnlockEncryption(boxMon);
     species = (u16)BoxPokemon_GetData(boxMon, MON_DATA_SPECIES, NULL);
     form = BoxPokemon_GetData(boxMon, MON_DATA_FORM, NULL);
@@ -2671,7 +2671,7 @@ void BoxPokemon_SetDefaultMoves(BoxPokemon *boxMon) {
             sub_02069718(boxMon, move);
         }
     }
-    FreeToHeap(levelUpLearnset);
+    Heap_Free(levelUpLearnset);
     BoxPokemon_LockEncryption(boxMon, decry);
 }
 
@@ -2746,20 +2746,20 @@ void BoxMonSetMoveInSlot(BoxPokemon *boxMon, u16 move, u8 slot) {
 
 u32 sub_02069818(Pokemon *pokemon, u32 *r5, u16 *sp0) {
     u32 ret = 0;
-    u16 *levelUpLearnset = AllocFromHeap(HEAP_ID_DEFAULT, MAX_LEARNED_MOVES * sizeof(u16));
+    u16 *levelUpLearnset = Heap_Alloc(HEAP_ID_DEFAULT, MAX_LEARNED_MOVES * sizeof(u16));
     u16 species = (u16)Pokemon_GetData(pokemon, MON_DATA_SPECIES, NULL);
     u32 form = Pokemon_GetData(pokemon, MON_DATA_FORM, NULL);
     u8 level = (u8)Pokemon_GetData(pokemon, MON_DATA_LEVEL, NULL);
     LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
 
     if (levelUpLearnset[*r5] == 0xFFFF) {
-        FreeToHeap(levelUpLearnset);
+        Heap_Free(levelUpLearnset);
         return 0;
     }
     while ((levelUpLearnset[*r5] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT)) {
         (*r5)++;
         if (levelUpLearnset[*r5] == 0xFFFF) {
-            FreeToHeap(levelUpLearnset);
+            Heap_Free(levelUpLearnset);
             return 0;
         }
     }
@@ -2768,7 +2768,7 @@ u32 sub_02069818(Pokemon *pokemon, u32 *r5, u16 *sp0) {
         (*r5)++;
         ret = sub_02069698(pokemon, *sp0);
     }
-    FreeToHeap(levelUpLearnset);
+    Heap_Free(levelUpLearnset);
     return ret;
 }
 
@@ -2843,7 +2843,7 @@ void CopyBoxPokemonToPokemon(BoxPokemon *src, Pokemon *dest) {
     Pokemon_SetData(dest, MON_DATA_MAX_HP, &sp0);
     mail = Mail_New(HEAP_ID_DEFAULT);
     Pokemon_SetData(dest, MON_DATA_MAIL, mail);
-    FreeToHeap(mail);
+    Heap_Free(mail);
     Pokemon_SetData(dest, MON_DATA_BALL_CAPSULE_ID, &sp0);
     MI_CpuClearFast(&sp4, sizeof(sp4));
     Pokemon_SetData(dest, MON_DATA_BALL_CAPSULE, &sp4);
@@ -2909,12 +2909,12 @@ s8 GetFlavorPreferenceFromPID(u32 personality, int flavor) {
 
 int Species_LoadLearnsetTable(u16 species, u32 form, u16 *dest) {
     int i;
-    u16 *levelUpLearnset = AllocFromHeap(HEAP_ID_DEFAULT, MAX_LEARNED_MOVES * sizeof(u16));
+    u16 *levelUpLearnset = Heap_Alloc(HEAP_ID_DEFAULT, MAX_LEARNED_MOVES * sizeof(u16));
     LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
     for (i = 0; levelUpLearnset[i] != LEVEL_UP_LEARNSET_END; i++) {
         dest[i] = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]);
     }
-    FreeToHeap(levelUpLearnset);
+    Heap_Free(levelUpLearnset);
     return i;
 }
 
@@ -3107,11 +3107,11 @@ void LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u16 *levelUp
     ReadWholeNarcMemberByIdPair(levelUpLearnset, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForm(species, form));
 }
 
-void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, HeapID heapId) {
+void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, enum HeapID heapID) {
     if (r4 == SPECIES_CHATOT) {
         if (!sub_02005F14((int)r5)) {
             sub_02005E80(1);
-            sub_020056AC(r5, r4, r6, sp18, heapId);
+            sub_020056AC(r5, r4, r6, sp18, heapID);
         } else {
             if (sp1C) {
                 sub_02005E80(1);
@@ -3119,13 +3119,13 @@ void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp
             sub_02005E90(r7, 0, sp18, r6);
         }
     } else {
-        sub_020056AC(r5, r4, r6, sp18, heapId);
+        sub_020056AC(r5, r4, r6, sp18, heapID);
     }
 }
 
-void sub_0206A014(Pokemon *pokemon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId) {
+void sub_0206A014(Pokemon *pokemon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, enum HeapID heapID) {
     u32 hp;
-    sub_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heapId);
+    sub_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heapID);
     if (pokeball == ITEM_HEAL_BALL) {
         hp = Pokemon_GetData(pokemon, MON_DATA_MAX_HP, NULL);
         Pokemon_SetData(pokemon, MON_DATA_HP, &hp);
@@ -3134,8 +3134,8 @@ void sub_0206A014(Pokemon *pokemon, PlayerProfile *a1, u32 pokeball, u32 a3, u32
     }
 }
 
-void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, HeapID heapId) {
-    sub_020808AC(boxMon, a1, 0, a3, heapId);
+void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, enum HeapID heapID) {
+    sub_020808AC(boxMon, a1, 0, a3, heapID);
     BoxPokemon_SetData(boxMon, MON_DATA_MET_GAME, (void *)&gGameVersion);
     BoxPokemon_SetData(boxMon, MON_DATA_POKEBALL, &pokeball);
     BoxPokemon_SetData(boxMon, MON_DATA_MET_TERRAIN, &encounterType);
@@ -3260,7 +3260,7 @@ void sub_0206A23C(Pokemon *r5, u32 personality) {
     r5->box.checksum = CHECKSUM(&r5->box);
     ENCRYPT_BOX(&r5->box);
     ENCRYPT_PARTY(r5);
-    FreeToHeap(sp4);
+    Heap_Free(sp4);
 }
 
 void SpeciesData_LoadSpecies(int species, SpeciesData *personal) {
@@ -3466,13 +3466,13 @@ BOOL sub_0206A998(Pokemon *pokemon) {
     return IsPokemonLegendaryOrMythical(species);
 }
 
-BOOL sub_0206A9AC(BoxPokemon *boxMon, PlayerProfile *sb2, HeapID heapId) {
+BOOL sub_0206A9AC(BoxPokemon *boxMon, PlayerProfile *sb2, enum HeapID heapID) {
     u32 myId = PlayerProfile_GetTrainerID(sb2);
     u32 otId = BoxPokemon_GetData(boxMon, MON_DATA_OT_ID, NULL);
     u32 myGender = PlayerProfile_GetTrainerGender(sb2);
     u32 otGender = BoxPokemon_GetData(boxMon, MON_DATA_OT_GENDER, NULL);
-    struct String *r7 = PlayerProfile_GetPlayerName_NewString(sb2, heapId);
-    struct String *r6 = String_New(PLAYER_NAME_LENGTH + 1, heapId);
+    struct String *r7 = PlayerProfile_GetPlayerName_NewString(sb2, heapID);
+    struct String *r6 = String_New(PLAYER_NAME_LENGTH + 1, heapID);
     BOOL ret = FALSE;
     BoxPokemon_GetData(boxMon, MON_DATA_OT_NAME_STRING, r6);
     if (myId == otId && myGender == otGender && String_Compare(r7, r6) == 0) {

@@ -7,7 +7,7 @@
 ov05_021F45B4: ; 0x021F45B4
 	push {r4, lr}
 	mov r1, #0x1c
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	bl ov05_021F4650
 	add r0, r4, #0
@@ -27,7 +27,7 @@ _021F45D8:
 	add r0, r4, #0
 	bl ov05_021F4650
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 _021F45E4:
 	pop {r4, pc}
 	.balign 4, 0

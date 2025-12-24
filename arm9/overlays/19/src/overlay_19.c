@@ -24,7 +24,7 @@ const struct BgTemplate ov19_02252508 = {
 };
 
 void ov19_02252440(struct BgConfig *bgConfig) {
-    CreateHeap(3, 8, 0x18000);
+    Heap_Create(HEAP_ID_MAIN, HEAP_ID_POKETCH_APP, 0x18000);
     GXS_SetGraphicsMode(GX_BGMODE_0);
     GX_SetBankForSubBG(0x80);
     GX_SetBankForSubOBJ(0x100);
@@ -39,7 +39,7 @@ void ov19_02252440(struct BgConfig *bgConfig) {
 
 void ov19_022524F4(struct BgConfig *bgConfig) {
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_0);
-    DestroyHeap(HEAP_ID_POKETCH_APP);
+    Heap_Destroy(HEAP_ID_POKETCH_APP);
 }
 
 BOOL ov19_02252504(struct BgConfig *bgConfig) {

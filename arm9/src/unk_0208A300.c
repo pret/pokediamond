@@ -4,8 +4,8 @@
 
 #include "heap.h"
 
-struct UnkStruct_0208A300 *sub_0208A300(HeapID heapId) {
-    struct UnkStruct_0208A300 *ret = AllocFromHeap(heapId, sizeof(struct UnkStruct_0208A300));
+struct UnkStruct_0208A300 *sub_0208A300(enum HeapID heapID) {
+    struct UnkStruct_0208A300 *ret = Heap_Alloc(heapID, sizeof(struct UnkStruct_0208A300));
 
     memset(ret, 0, sizeof(struct UnkStruct_0208A300));
     ret->unk4 = 2;
@@ -14,7 +14,7 @@ struct UnkStruct_0208A300 *sub_0208A300(HeapID heapId) {
 }
 
 void sub_0208A320(struct UnkStruct_0208A300 *unk) {
-    FreeToHeap(unk);
+    Heap_Free(unk);
 }
 
 u32 sub_0208A328(struct UnkStruct_0208A300 *unk) {

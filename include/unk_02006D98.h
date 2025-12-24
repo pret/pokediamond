@@ -94,7 +94,7 @@ struct UnkStruct_02006D98 {
     struct UnkStruct_02006D98_2 unk000[4];
     NNSG2dImageProxy unk260;
     NNSG2dImagePaletteProxy unk284;
-    HeapID heapId;
+    enum HeapID heapID;
     u32 unk29C;
     u32 unk2A0;
     u32 unk2A4;
@@ -125,7 +125,7 @@ struct UnkStruct_02006D98_5 {
     struct UnkStruct_02006D98_sub *unk10;
 };
 
-struct UnkStruct_02006D98 *sub_02006D98(HeapID heapId);
+struct UnkStruct_02006D98 *sub_02006D98(enum HeapID heapID);
 void sub_02006ED4(struct UnkStruct_02006D98 *param0);
 void sub_020072E8(struct UnkStruct_02006D98 *param0);
 void sub_02007314(struct UnkStruct_02006D98_2 *param0);

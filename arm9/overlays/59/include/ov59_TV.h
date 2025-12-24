@@ -8,7 +8,7 @@
 #include "msgdata.h"
 
 typedef struct ov59_TVOverlayData2 {
-    HeapID heapId;
+    enum HeapID heapID;
     struct BgConfig *bgConfig;
     struct MsgData *msgData;
     u32 unk0C;

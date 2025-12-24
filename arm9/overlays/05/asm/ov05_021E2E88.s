@@ -79,7 +79,7 @@ ov05_021E2EE4: ; 0x021E2EE4
 	add r2, r7, #0
 	bl ov05_021E2E88
 	ldr r0, [sp, #4]
-	bl FreeToHeap
+	bl Heap_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -468,7 +468,7 @@ ov05_021E320C: ; 0x021E320C
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x44
-	bl AllocFromHeap
+	bl Heap_Alloc
 	add r4, r0, #0
 	mov r0, #0x16
 	mov r1, #4
@@ -502,9 +502,9 @@ ov05_021E3248: ; 0x021E3248
 	ldr r0, [r4, #0x40]
 	bl String_Delete
 	ldr r0, [r4, #0x38]
-	bl FreeToHeap
+	bl Heap_Free
 	add r0, r4, #0
-	bl FreeToHeap
+	bl Heap_Free
 	pop {r4, pc}
 	.balign 4, 0
 
