@@ -639,7 +639,7 @@ _0206CBE4:
 	ldrh r0, [r0, #0x0]
 	bl sub_02005578
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -1046,13 +1046,13 @@ _0206CF7E:
 	ldr r0, [r4, #0x28]
 	bl Pokemon_CalcLevelAndStats
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
 	bl BufferBoxMonNickname
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x1
@@ -1104,7 +1104,7 @@ _0206CFFA:
 	mov r1, #0x16
 	bl GameStats_AddSpecial
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
 	bl Save_Poketch_PokemonHistoryAddMon
@@ -1132,7 +1132,7 @@ _0206D06E:
 	ldr r0, [r4, #0x28]
 	add r1, #0x68
 	add r2, sp, #0xc
-	bl sub_02069818
+	bl Pokemon_TryLevelUpMove
 	cmp r0, #0x0
 	beq _0206D08E
 	ldr r1, _0206D1DC ; =0x0000FFFE
@@ -1164,7 +1164,7 @@ _0206D098:
 	pop {r3-r4, pc}
 _0206D0AC:
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -1191,7 +1191,7 @@ _0206D0AC:
 	pop {r3-r4, pc}
 _0206D0E8:
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -1222,7 +1222,7 @@ _0206D0E8:
 	pop {r3-r4, pc}
 _0206D12C:
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -1561,7 +1561,7 @@ _0206D3EE:
 	pop {r3-r4, pc}
 _0206D406:
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -1641,7 +1641,7 @@ _0206D480:
 	pop {r3-r4, pc}
 _0206D4A6:
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -1697,7 +1697,7 @@ _0206D4F8:
 	pop {r3-r4, pc}
 _0206D51E:
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -1744,7 +1744,7 @@ _0206D560:
 	ldrh r1, [r1, #0x0]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r4, #0x28]
-	bl MonSetMoveInSlot
+	bl Pokemon_SetMoveInSlot
 	add r0, r4, #0x0
 	mov r1, #0x14
 	add r0, #0x66
@@ -1962,7 +1962,7 @@ _0206D748:
 	cmp r0, #0x0
 	bne _0206D806
 	ldr r0, [r4, #0x28]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
@@ -2096,7 +2096,7 @@ _0206D86E:
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x28]
 	add r1, r5, #0x0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	mov r0, #0x49
 	lsl r0, r0, #0x2
 	str r0, [sp, #0x0]
@@ -2206,7 +2206,7 @@ _0206D8EA:
 	mov r1, #0x16
 	bl GameStats_AddSpecial
 	add r0, r5, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
 	bl Save_Poketch_PokemonHistoryAddMon
@@ -2576,7 +2576,7 @@ sub_0206DC80: ; 0x0206DC80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x28]
 	add r1, r5, #0x0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	add r2, r4, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5

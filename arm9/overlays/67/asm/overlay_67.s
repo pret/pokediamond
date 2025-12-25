@@ -3309,7 +3309,7 @@ ov67_021D8F00: ; 0x021D8F00
 	mov r3, #0x20
 	bl Pokemon_InitWithGenderNatureLetter
 	add r0, r6, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	ldr r1, [sp, #0xc]

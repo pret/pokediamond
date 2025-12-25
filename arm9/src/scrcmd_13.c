@@ -69,7 +69,7 @@ BOOL ScrCmd_Unk0255(struct ScriptContext *ctx) // 0255
         sub_0202BFD8(unk, i, pokemon);
         sub_0208089C(pokemon, player, 2, 0, HEAP_ID_32);
 
-        struct BoxPokemon *box_mon = sub_020690E4(pokemon);
+        struct BoxPokemon *box_mon = Pokemon_GetBoxMon(pokemon);
         GF_ASSERT(PCStorage_PlaceMonInFirstEmptySlotInAnyBox(pc, box_mon));
 
         sub_0202C144(ctx->fieldSystem->saveData, pokemon);

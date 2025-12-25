@@ -590,7 +590,7 @@ _0207297E:
 	bl NewString_ReadMsgData
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -651,7 +651,7 @@ sub_02072A00: ; 0x02072A00
 	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4

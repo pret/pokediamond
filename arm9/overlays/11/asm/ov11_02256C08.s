@@ -1199,7 +1199,7 @@ ov11_022574F0: ; 0x022574F0
 	ldrb r2, [r2]
 	ldr r0, [r5, #0xc]
 	bl ov11_02230014
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	mov r1, #0

@@ -1989,7 +1989,7 @@ _02077D88:
 	mov r2, #0x5
 	bl Pokemon_InitWithParams
 	add r0, r5, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x5a
 	lsl r0, r0, #0x2
@@ -2169,7 +2169,7 @@ _02077F1A:
 	mov r2, #0x1
 	bl Pokemon_InitWithParams
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x5a
 	lsl r0, r0, #0x2

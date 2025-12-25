@@ -625,7 +625,7 @@ _020431D4:
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	add r0, r7, #0x0
 	mov r1, #0x90
 	add r2, r5, #0x0
@@ -696,7 +696,7 @@ sub_02043274: ; 0x02043274
 	mov r1, #0x0
 	bl BufferPlayersName
 	add r0, r7, #0x4
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
@@ -742,7 +742,7 @@ sub_020432C8: ; 0x020432C8
 	mov r1, #0x0
 	bl BufferPlayersName
 	add r0, r7, #0x4
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1

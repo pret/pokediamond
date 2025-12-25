@@ -1442,12 +1442,12 @@ sub_02038144: ; 0x02038144
 	mov r0, #0x20
 	bl Heap_Alloc
 	str r0, [r5, #0x38]
-	bl sub_020690C4
+	bl Pokemon_Size
 	add r1, r0, #0x0
 	mov r0, #0x20
 	bl Heap_Alloc
 	str r0, [r5, #0x3c]
-	bl sub_020690C4
+	bl Pokemon_Size
 	add r1, r0, #0x0
 	mov r0, #0x20
 	bl Heap_Alloc
@@ -1561,10 +1561,10 @@ _02038288:
 	ldr r0, [r4, #0x3c]
 	str r0, [r4, #0x50]
 	ldr r0, [r4, #0x40]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	str r0, [r4, #0x48]
 	ldr r0, [r4, #0x44]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	str r0, [r4, #0x4c]
 	ldr r0, [r5, #0xc]
 	bl Save_PlayerData_GetOptionsAddr
@@ -1687,7 +1687,7 @@ _02038386:
 	bl Party_GetMonByIndex
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x44]
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r0, [r4, #0x60]
 	bl sub_0206C92C
 	mov r0, #0x1a

@@ -4503,7 +4503,7 @@ _022142BE:
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x18]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [sp, #0x14]
 	mov r1, #0

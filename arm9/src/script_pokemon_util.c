@@ -57,7 +57,7 @@ BOOL GiveEgg(enum HeapID heapID, struct SaveData *save, u16 species, int level, 
 
 void PartyMonSetMoveInSlot(struct Party *party, int partySlot, int moveSlot, u16 move) {
     struct Pokemon *mon = Party_GetMonByIndex(party, partySlot);
-    MonSetMoveInSlot(mon, move, (u8)moveSlot);
+    Pokemon_SetMoveInSlot(mon, move, (u8)moveSlot);
 }
 
 int GetIdxOfFirstPartyMonWithMove(struct Party *party, int move) {

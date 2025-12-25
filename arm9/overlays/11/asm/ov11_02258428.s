@@ -2980,7 +2980,7 @@ _02259D2A:
 	add r1, r6, #0
 	bl ov11_02230014
 	str r0, [sp, #0x20]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [sp, #0x1c]
 	mov r1, #0

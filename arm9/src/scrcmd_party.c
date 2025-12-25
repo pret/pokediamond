@@ -570,7 +570,7 @@ BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext *ctx) // 01C9
     struct Party *party = SaveArray_Party_Get(fieldSystem->saveData);
     struct Pokemon *party_mon = Party_GetMonByIndex(party, mon_slot);
 
-    sub_020699A4(party_mon, move_slot);
+    Pokemon_ClearMoveSlot(party_mon, move_slot);
 
     return FALSE;
 }

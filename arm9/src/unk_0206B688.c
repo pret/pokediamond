@@ -18,7 +18,7 @@ u32 sub_0206B688(struct BoxPokemon *boxmon) {
 }
 
 u32 sub_0206B6C8(struct Pokemon *pokemon) {
-    return sub_0206B688(sub_020690E4(pokemon));
+    return sub_0206B688(Pokemon_GetBoxMon(pokemon));
 }
 
 u32 sub_0206B6D4(u32 species, u32 is_egg, u32 form) {
@@ -56,7 +56,7 @@ u16 BoxMon_GetAlternateForm(struct BoxPokemon *boxmon) {
     u32 species = BoxPokemon_GetData(boxmon, MON_DATA_SPECIES_OR_EGG, NULL);
     switch (species) {
     case SPECIES_UNOWN:
-        return GetBoxMonUnownLetter(boxmon);
+        return BoxPokemon_GetForm(boxmon);
     case SPECIES_DEOXYS:
     case SPECIES_BURMY:
     case SPECIES_WORMADAM:
@@ -109,7 +109,7 @@ u32 sub_0206B83C(struct BoxPokemon *boxmon) {
 }
 
 u32 sub_0206B87C(struct Pokemon *pokemon) {
-    return sub_0206B83C(sub_020690E4(pokemon));
+    return sub_0206B83C(Pokemon_GetBoxMon(pokemon));
 }
 
 u32 sub_0206B888(void) {

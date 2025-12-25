@@ -651,7 +651,7 @@ _0222DB70:
 	add r0, r5, #0
 	add r1, r4, #0
 	bl Party_GetMonByIndex
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r7, #0
 	add r1, r4, r6
@@ -4876,7 +4876,7 @@ ov71_0222FDD8: ; 0x0222FDD8
 	ldr r0, [r4, r0]
 	ldr r1, [r1]
 	bl Party_GetMonByIndex
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	mov r0, #0x5f
 	lsl r0, r0, #2
@@ -5695,7 +5695,7 @@ ov71_022304AC: ; 0x022304AC
 	ldr r0, [r4, r0]
 	ldr r1, [r1]
 	bl Party_GetMonByIndex
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	mov r0, #0x5f
 	lsl r0, r0, #2
@@ -5709,7 +5709,7 @@ ov71_022304AC: ; 0x022304AC
 	ldr r0, [r4, r0]
 	sub r1, r1, #6
 	bl Party_GetMonByIndex
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	mov r0, #0x5f
 	lsl r0, r0, #2
@@ -6122,7 +6122,7 @@ ov71_02230810: ; 0x02230810
 	ldr r0, [r4, r0]
 	sub r1, r1, #6
 	bl Party_GetMonByIndex
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	mov r0, #0x5f
 	lsl r0, r0, #2
@@ -6329,12 +6329,12 @@ ov71_022309E8: ; 0x022309E8
 	add r1, r6, #0
 	bl Party_GetMonByIndex
 	add r1, r7, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	bl Party_GetMonByIndex
 	add r1, r4, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	add r0, r4, #0
 	mov r1, #0x4c
 	mov r2, #0
@@ -6362,10 +6362,10 @@ _02230A40:
 	bl Pokemon_RemoveCapsule
 	ldr r1, [r5, #0x3c]
 	add r0, r7, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r1, [r5, #0x40]
 	add r0, r4, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	bl sub_02031190
 	mov r1, #1
 	eor r0, r1
@@ -6390,13 +6390,13 @@ _02230A98:
 	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r7, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r0, [r5, #0x1c]
 	add r1, r4, #0
 	bl ov71_02230AE4

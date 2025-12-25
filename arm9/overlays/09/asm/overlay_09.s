@@ -3495,7 +3495,7 @@ _02213A30:
 	bl NewString_ReadMsgData
 	add r6, r0, #0
 	ldr r0, [r4]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
@@ -3530,7 +3530,7 @@ _02213A82:
 	bl NewString_ReadMsgData
 	add r6, r0, #0
 	ldr r0, [r4]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
@@ -3579,7 +3579,7 @@ _02213AD4:
 	mul r0, r4
 	add r0, r5, r0
 	ldr r0, [r0, #4]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
@@ -3611,7 +3611,7 @@ _02213B24:
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldr r0, [r4, r6]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
@@ -4083,7 +4083,7 @@ ov09_02213E84: ; 0x02213E84
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x24]
 	ldr r0, [r7, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _02214020 ; =0x00001FAC
 	mov r1, #0
@@ -6967,7 +6967,7 @@ ov09_02215784: ; 0x02215784
 	bl NewString_ReadMsgData
 	add r6, r0, #0
 	ldr r0, [r5, r7]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022158DC ; =0x00001FAC
 	mov r1, #0
@@ -8428,7 +8428,7 @@ _02216444:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8453,7 +8453,7 @@ _0221648E:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8512,7 +8512,7 @@ _02216512:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8535,7 +8535,7 @@ _0221654A:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8558,7 +8558,7 @@ _02216580:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8581,7 +8581,7 @@ _022165B6:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8604,7 +8604,7 @@ _022165EC:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8627,7 +8627,7 @@ _02216622:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8650,7 +8650,7 @@ _02216658:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8671,7 +8671,7 @@ _0221668E:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r7, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
@@ -8713,7 +8713,7 @@ ov09_022166D0: ; 0x022166D0
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r6, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, _0221672C ; =0x00001FAC
 	mov r1, #0
@@ -13347,7 +13347,7 @@ _02218C68:
 	bl NewString_ReadMsgData
 	add r4, r0, #0
 	add r0, r6, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	mov r1, #0

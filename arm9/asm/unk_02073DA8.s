@@ -208,7 +208,7 @@ sub_02073EEC: ; 0x02073EEC
 	mov r1, #0x51
 	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -254,7 +254,7 @@ _02073F66:
 	ldr r2, [r5, r2]
 	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4

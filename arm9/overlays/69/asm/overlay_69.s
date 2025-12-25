@@ -2354,7 +2354,7 @@ HOF_MonGetUIStrings: ; 0x0222E8FC
 	sub sp, #8
 	add r4, r0, #0
 	ldr r0, [r4, #0x24]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #0
@@ -2499,7 +2499,7 @@ _0222E9FC:
 	pop {r3, r4, r5, pc}
 _0222EA2E:
 	ldr r0, [r4, #0x24]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #0

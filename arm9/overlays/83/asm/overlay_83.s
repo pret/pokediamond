@@ -15370,7 +15370,7 @@ ov83_02234E6C: ; 0x02234E6C
 	bl sub_02022528
 	str r0, [sp]
 	add r0, sp, #8
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r6, r0, #0
 	mov r4, #0
 	add r5, r7, #0

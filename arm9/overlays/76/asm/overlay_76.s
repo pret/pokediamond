@@ -1830,7 +1830,7 @@ _021D836C: ; jump table
 _021D8382:
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xfc
@@ -1850,7 +1850,7 @@ _021D839A:
 _021D83AE:
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xfc
@@ -1861,7 +1861,7 @@ _021D83AE:
 _021D83C6:
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xfc
@@ -1880,7 +1880,7 @@ _021D83C6:
 _021D83F2:
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xfc
@@ -1899,7 +1899,7 @@ _021D83F2:
 _021D841E:
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xfc
@@ -1918,7 +1918,7 @@ _021D841E:
 _021D844A:
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xfc
@@ -1946,7 +1946,7 @@ _021D8476:
 _021D848A:
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xfc

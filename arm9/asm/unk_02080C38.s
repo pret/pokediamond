@@ -930,7 +930,7 @@ _02081304:
 	bl Chatot_Copy
 	ldr r0, [r6, #0x8]
 	ldr r1, [r4, #0x0]
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	mov r0, #0x8
 	mov r1, #0x14
 	bl String_New
@@ -2685,7 +2685,7 @@ sub_0208206C: ; 0x0208206C
 	bl sub_020832E4
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0

@@ -14730,7 +14730,7 @@ _02234AC4:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14742,7 +14742,7 @@ _02234AE2:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14754,7 +14754,7 @@ _02234AFC:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14795,7 +14795,7 @@ _02234B50:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14804,7 +14804,7 @@ _02234B50:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -14816,7 +14816,7 @@ _02234B80:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14832,7 +14832,7 @@ _02234BA4:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14852,7 +14852,7 @@ _02234BD0:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14873,7 +14873,7 @@ _02234BFE:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14882,7 +14882,7 @@ _02234BFE:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -14894,7 +14894,7 @@ _02234C2E:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14910,7 +14910,7 @@ _02234C52:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14930,7 +14930,7 @@ _02234C7E:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -14939,7 +14939,7 @@ _02234C7E:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -14955,7 +14955,7 @@ _02234CAE:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -14971,7 +14971,7 @@ _02234CD2:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -15002,7 +15002,7 @@ _02234D16:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -15021,7 +15021,7 @@ _02234D3A:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -15040,7 +15040,7 @@ _02234D64:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -15073,7 +15073,7 @@ _02234DAC:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -15094,7 +15094,7 @@ _02234DD6:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -15115,7 +15115,7 @@ _02234E04:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #1
@@ -15163,7 +15163,7 @@ _02234E7E:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -15202,7 +15202,7 @@ _02234ECC:
 	ldr r1, [r4, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	add r1, r5, #1
@@ -25469,7 +25469,7 @@ _02239A82:
 	ldr r1, [r5, #0xc]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r5, #0x48]
 	mov r1, #1
@@ -34574,7 +34574,7 @@ _0223E09E:
 	ldr r1, [r4, #0x14]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r4, #0x9c
 	add r2, r0, #0
 	ldr r0, [r4]
@@ -34634,7 +34634,7 @@ _0223E0F4:
 	ldr r1, [r4, #0x14]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r4, #0x9c
 	add r2, r0, #0
 	ldr r0, [r4]
@@ -34647,7 +34647,7 @@ _0223E138:
 	ldr r1, [r4, #0x14]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0x9c
@@ -34713,7 +34713,7 @@ _0223E16A:
 	ldr r1, [r4, #0x14]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r4, #0x9c
 	add r2, r0, #0
 	ldr r0, [r4]
@@ -43460,7 +43460,7 @@ _02242552:
 	ldr r1, [r4, #0x10]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r4, #0xc8
 	add r2, r0, #0
 	ldr r0, [r4]
@@ -43500,7 +43500,7 @@ _02242596:
 	ldr r1, [r4, #0x10]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r4, #0xc8
 	add r2, r0, #0
 	ldr r0, [r4]

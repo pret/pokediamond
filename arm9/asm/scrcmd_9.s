@@ -550,7 +550,7 @@ sub_02042288: ; 0x02042288
 	add r4, r1, #0x0
 	bl SaveArray_Party_Get
 	bl GetFirstNonEggInParty
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0

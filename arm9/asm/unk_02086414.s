@@ -586,7 +586,7 @@ sub_020867EC: ; 0x020867EC
 	bl String_New
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x10]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

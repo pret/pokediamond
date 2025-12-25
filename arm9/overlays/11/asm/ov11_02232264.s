@@ -17356,7 +17356,7 @@ _0223AACA:
 	pop {r4, r5, r6, r7, pc}
 _0223AADE:
 	add r0, r6, #0
-	bl sub_020690E8
+	bl Pokemon_TryLevelUp
 	cmp r0, #0
 	beq _0223AB0E
 	ldr r1, [r4, #4]
@@ -17825,7 +17825,7 @@ _0223AEC0:
 	add r0, r6, #0
 	add r1, #0x38
 	add r2, sp, #0x44
-	bl sub_02069818
+	bl Pokemon_TryLevelUpMove
 	cmp r0, #0
 	beq _0223AEE6
 	ldr r1, _0223AF74 ; =0x0000FFFE
@@ -18244,7 +18244,7 @@ _0223B1F6:
 	add r0, r6, #0
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x18
-	bl MonSetMoveInSlot
+	bl Pokemon_SetMoveInSlot
 	ldr r1, [r4, #4]
 	ldr r0, _0223B2D8 ; =0x0000219C
 	add r2, r1, r7
@@ -19554,7 +19554,7 @@ _0223BD3E:
 	cmp r5, #4
 	blt _0223BD3E
 	add r0, r6, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x14]
@@ -21803,7 +21803,7 @@ _0223CF52:
 	add r6, r0, #0
 _0223CF5C:
 	ldr r0, [sp, #0x18]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [sp, #0x24]
 	mov r1, #0

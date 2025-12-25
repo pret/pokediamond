@@ -1536,7 +1536,7 @@ _0207A896:
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 	b _0207A8C0
 _0207A8BA:
 	bl sub_0207B628
@@ -1825,7 +1825,7 @@ sub_0207AAE0: ; 0x0207AAE0
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r7, #0x0
@@ -1851,7 +1851,7 @@ sub_0207AB0C: ; 0x0207AB0C
 	bl Pokemon_GetData
 	strh r0, [r5, #0xc]
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	ldr r2, _0207AEAC ; =0x00000674
 	add r4, r0, #0x0
 	ldr r0, [r7, r2]
@@ -3113,7 +3113,7 @@ _0207B522:
 	mvn r0, r0
 	pop {r3-r7, pc}
 _0207B528:
-	bl sub_020690C4
+	bl Pokemon_Size
 	mov r1, #0x93
 	lsl r1, r1, #0x2
 	ldr r1, [r5, r1]
@@ -3217,7 +3217,7 @@ _0207B5E6:
 	mvn r0, r0
 	pop {r3-r7, pc}
 _0207B5EC:
-	bl sub_020690C8
+	bl BoxPokemon_Size
 	mov r1, #0x93
 	lsl r1, r1, #0x2
 	ldr r1, [r5, r1]
@@ -3260,7 +3260,7 @@ sub_0207B628: ; 0x0207B628
 	beq _0207B658
 	b _0207B666
 _0207B640:
-	bl sub_020690C4
+	bl Pokemon_Size
 	ldrb r1, [r4, #0x14]
 	ldr r2, [r4, #0x0]
 	mul r0, r1
@@ -3272,7 +3272,7 @@ _0207B64E:
 	bl Party_GetMonByIndex
 	pop {r4, pc}
 _0207B658:
-	bl sub_020690C8
+	bl BoxPokemon_Size
 	ldrb r1, [r4, #0x14]
 	ldr r2, [r4, #0x0]
 	mul r0, r1
@@ -3706,7 +3706,7 @@ sub_0207B9C0: ; 0x0207B9C0
 	lsl r2, r2, #0x18
 	lsr r1, r1, #0x1c
 	lsr r2, r2, #0x1c
-	bl sub_020698E8
+	bl BoxPokemon_SwapMoveSlots
 	b _0207B9F4
 _0207B9E6:
 	ldrb r2, [r4, r1]
@@ -3714,7 +3714,7 @@ _0207B9E6:
 	lsl r2, r2, #0x18
 	lsr r1, r1, #0x1c
 	lsr r2, r2, #0x1c
-	bl sub_020698E0
+	bl Pokemon_SwapMoveSlots
 _0207B9F4:
 	ldr r0, _0207BA70 ; =0x0000068D
 	mov r1, #0xa1

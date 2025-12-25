@@ -1894,7 +1894,7 @@ BOOL ScrCmd_GetPokemonForm(ScriptContext *ctx) { // 0095
     u16 *variable = ScriptGetVarPointer(ctx);
 
     Party *party = SaveArray_Party_Get(ctx->fieldSystem->saveData);
-    *variable = GetMonUnownLetter(Party_GetMonByIndex(party, partyPosition));
+    *variable = Pokemon_GetForm(Party_GetMonByIndex(party, partyPosition));
 
     return FALSE;
 }

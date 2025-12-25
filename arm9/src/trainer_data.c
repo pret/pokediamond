@@ -323,7 +323,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, enum HeapID heapID)
             iv = (u8)((monSpeciesMoves[i].difficulty * 31) / 255);
             Pokemon_InitWithParams(pokemon, monSpeciesMoves[i].species, monSpeciesMoves[i].level, iv, 1, (s32)personality, 2, 0);
             for (j = 0; j < 4; j++) {
-                MonSetMoveInSlot(pokemon, monSpeciesMoves[i].moves[j], (u8)j);
+                Pokemon_SetMoveInSlot(pokemon, monSpeciesMoves[i].moves[j], (u8)j);
             }
             Party_AddMon(setup->party[party_id], pokemon);
         }
@@ -360,7 +360,7 @@ void CreateNPCTrainerParty(BattleSetup *setup, s32 party_id, enum HeapID heapID)
             Pokemon_InitWithParams(pokemon, monSpeciesItemMoves[i].species, monSpeciesItemMoves[i].level, iv, 1, (s32)personality, 2, 0);
             Pokemon_SetData(pokemon, MON_DATA_HELD_ITEM, &monSpeciesItemMoves[i].item);
             for (j = 0; j < 4; j++) {
-                MonSetMoveInSlot(pokemon, monSpeciesItemMoves[i].moves[j], (u8)j);
+                Pokemon_SetMoveInSlot(pokemon, monSpeciesItemMoves[i].moves[j], (u8)j);
             }
             Party_AddMon(setup->party[party_id], pokemon);
         }

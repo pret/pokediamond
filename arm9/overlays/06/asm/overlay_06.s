@@ -22218,7 +22218,7 @@ _022445A6:
 	ldr r0, [sp, #4]
 	bl Party_GetMonByIndex
 	add r1, r4, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	add r0, r4, #0
 	mov r1, #0xa0
 	mov r2, #0
@@ -31096,15 +31096,15 @@ ov06_0224891C: ; 0x0224891C
 	bl CreateInGameTradeMon
 	ldr r1, [sp, #0x20]
 	add r0, r7, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r0, [r5, #4]
 	ldr r1, [sp, #0x24]
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r0, [sp, #0x20]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	str r0, [r4]
 	ldr r0, [sp, #0x24]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	str r0, [r4, #4]
 	ldr r0, [r5, #8]
 	str r0, [r4, #8]

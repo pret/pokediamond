@@ -238,7 +238,7 @@ static inline void SetSeenUnownLetter(struct Pokedex *pokedex, u32 species, s32 
 
 void Pokedex_SetMonSeenForm(struct Pokedex *pokedex, u16 species, struct Pokemon *pokemon) {
     if (species == SPECIES_UNOWN) {
-        SetSeenUnownLetter(pokedex, species, GetMonUnownLetter(pokemon));
+        SetSeenUnownLetter(pokedex, species, Pokemon_GetForm(pokemon));
     } else if (species == SPECIES_BURMY) {
         Pokedex_SetSeenBurmyOrWormadamForm(pokedex, species, (s32)Pokemon_GetData(pokemon, MON_DATA_FORM, NULL));
     } else if (species == SPECIES_WORMADAM) {

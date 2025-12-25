@@ -7790,7 +7790,7 @@ _021DB464:
 ov14_021DB470: ; 0x021DB470
 	push {r4, lr}
 	add r4, r0, #0
-	bl sub_020690C8
+	bl BoxPokemon_Size
 	add r2, r0, #0
 	mov r1, #0x1e
 	mov r0, #9
@@ -8635,7 +8635,7 @@ ov14_021DBA5C: ; 0x021DBA5C
 	bl ov14_021DC3CC
 	cmp r0, #0
 	bne _021DBA98
-	bl sub_020690C8
+	bl BoxPokemon_Size
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [r4]
@@ -8651,7 +8651,7 @@ ov14_021DBA5C: ; 0x021DBA5C
 	mov r0, #0
 	b _021DBAB6
 _021DBA98:
-	bl sub_020690C4
+	bl Pokemon_Size
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [r4]
@@ -8698,7 +8698,7 @@ ov14_021DBAE0: ; 0x021DBAE0
 	str r1, [sp, #4]
 	bl ov14_021DC3E0
 	str r0, [sp, #0x14]
-	bl sub_020690C8
+	bl BoxPokemon_Size
 	str r0, [sp, #0x10]
 	mov r0, #0
 	str r0, [sp, #0xc]
@@ -8885,7 +8885,7 @@ _021DBC56:
 	lsl r1, r1, #4
 	ldr r0, [r4]
 	ldr r1, [r5, r1]
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 	mov r1, #0x49
 	lsl r1, r1, #2
 	ldr r0, [r5, r1]
@@ -8928,7 +8928,7 @@ ov14_021DBCA0: ; 0x021DBCA0
 	str r0, [sp, #8]
 	ldrb r0, [r6, #9]
 	str r0, [sp, #0xc]
-	bl sub_020690C8
+	bl BoxPokemon_Size
 	str r0, [sp, #4]
 	ldr r0, [sp]
 	mov r5, #0
@@ -8996,7 +8996,7 @@ ov14_021DBD34: ; 0x021DBD34
 	str r1, [sp]
 	add r5, r0, #0
 	add r4, #0x14
-	bl sub_020690C4
+	bl Pokemon_Size
 	add r6, r0, #0
 	ldr r0, [sp]
 	add r2, r6, #0
@@ -9038,7 +9038,7 @@ _021DBD8E:
 	lsl r1, r1, #4
 	ldr r1, [r5, r1]
 	add r0, r7, r6
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 	b _021DBDB0
 _021DBDA2:
 	mov r1, #0x1a
@@ -9367,7 +9367,7 @@ _021DC034:
 	lsl r1, r1, #4
 	ldr r0, [sp]
 	ldr r1, [r5, r1]
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 	mov r0, #0x1a
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]

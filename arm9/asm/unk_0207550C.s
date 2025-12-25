@@ -366,7 +366,7 @@ sub_020757F4: ; 0x020757F4
 	ldr r0, [r0, #0x0]
 	add r5, r2, #0x0
 	bl Party_GetMonByIndex
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -1281,7 +1281,7 @@ _02075FCE:
 	add r7, r0, #0x0
 _02075FDA:
 	ldr r0, [sp, #0x8]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -1581,7 +1581,7 @@ _02076212:
 	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -1872,7 +1872,7 @@ sub_0207640C: ; 0x0207640C
 	bl NewString_ReadMsgData
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -2063,7 +2063,7 @@ _02076680:
 	add r1, r2, #0x0
 	add r1, #0x34
 	add r2, #0x26
-	bl sub_02069818
+	bl Pokemon_TryLevelUpMove
 	cmp r0, #0x0
 	beq _020766B2
 	ldr r1, _0207687C ; =0x0000FFFE
@@ -2083,7 +2083,7 @@ _020766B2:
 	b _02076868
 _020766BA:
 	add r0, r5, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -2130,7 +2130,7 @@ _020766BA:
 	pop {r3-r5, pc}
 _02076724:
 	add r0, r5, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -2309,7 +2309,7 @@ sub_02076890: ; 0x02076890
 	ldr r0, [r0, #0x0]
 	bl Party_GetMonByIndex
 	add r5, r0, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -2593,7 +2593,7 @@ sub_02076AF8: ; 0x02076AF8
 	bl sub_02076AA0
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -2777,7 +2777,7 @@ sub_02076C94: ; 0x02076C94
 	ldr r0, [r0, #0x0]
 	bl Party_GetMonByIndex
 	add r5, r0, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4

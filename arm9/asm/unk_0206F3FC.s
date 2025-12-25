@@ -5044,7 +5044,7 @@ _02071B34:
 	bl NewString_ReadMsgData
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -5567,7 +5567,7 @@ _02071FA0:
 	ldr r2, [r5, r2]
 	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -5600,7 +5600,7 @@ _02071FF2:
 	ldr r2, [r5, r2]
 	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
@@ -5995,7 +5995,7 @@ sub_0207230C: ; 0x0207230C
 	ldr r2, [r5, r2]
 	bl ReadMsgDataIntoString
 	add r0, r7, #0x0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0x0
 	mov r0, #0x6a
 	lsl r0, r0, #0x4

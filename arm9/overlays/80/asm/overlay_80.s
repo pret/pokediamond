@@ -3839,7 +3839,7 @@ ov80_0222F394: ; 0x0222F394
 	bl ov80_0222F690
 	add r0, r4, #0
 	add r0, #0xd4
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	str r0, [sp]
 	mov r0, #7
 	lsl r0, r0, #6
@@ -4783,7 +4783,7 @@ ov80_0222FB3C: ; 0x0222FB3C
 	ldr r0, [sp, #0x24]
 	add r6, r1, #0
 	add r4, r2, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	mov r0, #0xb3
 	lsl r0, r0, #4
@@ -5167,7 +5167,7 @@ ov80_0222FE60: ; 0x0222FE60
 	add r0, #0xd4
 	add r0, r4, r0
 	add r0, r0, r5
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	str r0, [sp]
 	mov r0, #0xb9
 	lsl r0, r0, #2
@@ -11042,7 +11042,7 @@ _02232E4A:
 	ldr r0, [r0, #8]
 	bl Party_GetMonByIndex
 	str r0, [sp, #0x24]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	ldr r1, _02232F84 ; =0x00001004
 	lsl r6, r4, #2
 	ldr r1, [r5, r1]
@@ -11231,7 +11231,7 @@ _02232FDC:
 	add r0, r5, #0
 	add r1, r4, #0
 	bl Party_GetMonByIndex
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	pop {r3, r4, r5, r6, r7, pc}
 _02232FEA:
 	add r0, r7, #0
@@ -11455,7 +11455,7 @@ ov80_0223311C: ; 0x0223311C
 	sub r0, #0xd4
 	mul r0, r1
 	add r0, r2, r0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	mov r1, #5
 	mov r2, #0
 	add r5, r0, #0
@@ -13583,7 +13583,7 @@ _022342B0:
 	add r0, #0xbc
 	ldr r0, [r0]
 	add r1, r5, #0
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 _022342BC:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
@@ -15250,7 +15250,7 @@ _02234F38:
 	ldr r0, [r0]
 	bl sub_0202ABEC
 	add r0, r5, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	mov r0, #0xb3
 	lsl r0, r0, #4
@@ -15296,7 +15296,7 @@ _02234FA4:
 	ldr r0, [r0]
 	bl sub_0202ABEC
 	add r0, r5, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	mov r0, #0xb3
 	lsl r0, r0, #4
@@ -16076,7 +16076,7 @@ ov80_02235534: ; 0x02235534
 	ldr r0, [r0, #0xc]
 	bl PCStorage_GetMonByIndexPair
 	add r1, r4, #0
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 	add r2, r5, #0
 	ldr r0, [r5]
 	add r2, #0xb8
@@ -16205,7 +16205,7 @@ _02235664:
 	add r2, sp, #4
 	bl PCStorage_FindFirstEmptySlot
 	add r0, r4, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
@@ -16284,7 +16284,7 @@ _02235706:
 	add r2, sp, #4
 	bl PCStorage_FindFirstEmptySlot
 	add r0, r4, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
@@ -17224,7 +17224,7 @@ _02235E2C: ; jump table
 _02235E42:
 	add r0, r4, #0
 	add r0, #0xd4
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r4, #0
 	add r1, #0x90
 	str r0, [r1]
@@ -17258,7 +17258,7 @@ _02235E42:
 _02235E88:
 	add r0, r4, #0
 	add r0, #0xd4
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r4, #0
 	add r1, #0x94
 	str r0, [r1]
@@ -17292,7 +17292,7 @@ _02235E88:
 _02235ECE:
 	add r0, r4, #0
 	add r0, #0xd4
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r4, #0
 	add r1, #0x94
 	str r0, [r1]
@@ -17305,7 +17305,7 @@ _02235ECE:
 	mov r0, #1
 	lsl r0, r0, #0xc
 	ldr r0, [r4, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r4, #0
 	add r1, #0x90
 	str r0, [r1]
@@ -17338,7 +17338,7 @@ _02235F26:
 	mov r0, #1
 	lsl r0, r0, #0xc
 	ldr r0, [r4, r0]
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r4, #0
 	add r1, #0x90
 	str r0, [r1]
@@ -17351,7 +17351,7 @@ _02235F26:
 	sub r1, #0xd4
 	mul r1, r0
 	add r0, r2, r1
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r1, r4, #0
 	add r1, #0x94
 	str r0, [r1]
@@ -17720,7 +17720,7 @@ ov80_02236218: ; 0x02236218
 	bl Party_GetMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _02236248:
@@ -17742,7 +17742,7 @@ _02236248:
 	add r2, sp, #0
 	bl PCStorage_FindFirstEmptySlot
 	add r0, r4, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [sp, #4]

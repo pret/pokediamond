@@ -108,7 +108,7 @@ ov05_021EC4F0: ; 0x021EC4F0
 	add r2, sp, #0xc
 	bl Pokemon_GetData
 	add r0, r4, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	bl ov05_021EC4DC
 	cmp r0, #0
 	beq _021EC544
@@ -121,7 +121,7 @@ ov05_021EC4F0: ; 0x021EC4F0
 _021EC544:
 	ldr r1, [sp, #4]
 	add r0, r4, #0
-	bl CopyBoxPokemonToBoxPokemon
+	bl BoxPokemon_Copy
 	add r0, r5, #0
 	mov r1, #0
 	bl DaycareMon_SetSteps
@@ -217,7 +217,7 @@ ov05_021EC604: ; 0x021EC604
 	add r7, sp, #4
 _021EC616:
 	add r0, r5, #0
-	bl sub_020690E8
+	bl Pokemon_TryLevelUp
 	cmp r0, #0
 	beq _021EC658
 	mov r0, #0
@@ -225,7 +225,7 @@ _021EC616:
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl sub_02069818
+	bl Pokemon_TryLevelUpMove
 	cmp r0, #0
 	beq _021EC64E
 _021EC632:
@@ -234,12 +234,12 @@ _021EC632:
 	bne _021EC640
 	ldrh r1, [r7]
 	add r0, r5, #0
-	bl sub_02069708
+	bl Pokemon_ForceAppendMove
 _021EC640:
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl sub_02069818
+	bl Pokemon_TryLevelUpMove
 	cmp r0, #0
 	bne _021EC632
 _021EC64E:
@@ -284,7 +284,7 @@ ov05_021EC668: ; 0x021EC668
 	lsr r7, r0, #0x10
 	add r0, r5, #0
 	add r1, r4, #0
-	bl CopyBoxPokemonToPokemon
+	bl BoxPokemon_CopyToPokemon
 	add r0, r4, #0
 	mov r1, #0xa0
 	mov r2, #0
@@ -361,11 +361,11 @@ ov05_021EC744: ; 0x021EC744
 	add r5, r1, #0
 	bl Pokemon_New
 	add r7, r0, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
-	bl CopyPokemonToBoxPokemon
+	bl Pokemon_CopyToBoxPokemon
 	add r0, r4, #0
 	mov r1, #8
 	mov r2, #0
@@ -979,7 +979,7 @@ _021ECC10:
 	lsl r1, r1, #0x10
 	add r0, r7, #0
 	lsr r1, r1, #0x10
-	bl sub_02069698
+	bl Pokemon_TryAppendMove
 	ldr r1, _021ECD60 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECC46
@@ -988,7 +988,7 @@ _021ECC10:
 	ldr r1, [r4, r1]
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl sub_02069708
+	bl Pokemon_ForceAppendMove
 	b _021ECC46
 _021ECC3C:
 	add r0, r0, #1
@@ -1026,14 +1026,14 @@ _021ECC60:
 	ldr r0, [sp, #0x18]
 	ldr r1, [sp, #0xc]
 	lsr r2, r2, #0x18
-	bl sub_0206A16C
+	bl Species_CanLearnTMHM
 	cmp r0, #0
 	beq _021ECCA2
 	ldr r1, [r4, r6]
 	add r0, r7, #0
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl sub_02069698
+	bl Pokemon_TryAppendMove
 	ldr r1, _021ECD60 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECCA2
@@ -1041,7 +1041,7 @@ _021ECC60:
 	add r0, r7, #0
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl sub_02069708
+	bl Pokemon_ForceAppendMove
 _021ECCA2:
 	add r0, r5, #1
 	lsl r0, r0, #0x10
@@ -1116,7 +1116,7 @@ _021ECD10:
 	lsl r1, r3, #0x10
 	add r0, r7, #0
 	lsr r1, r1, #0x10
-	bl sub_02069698
+	bl Pokemon_TryAppendMove
 	ldr r1, _021ECD60 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECD4A
@@ -1124,7 +1124,7 @@ _021ECD10:
 	add r0, r7, #0
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl sub_02069708
+	bl Pokemon_ForceAppendMove
 	b _021ECD4A
 _021ECD3E:
 	add r0, r2, #1
@@ -1247,14 +1247,14 @@ _021ECE20:
 	mov r1, #0x56
 	add r0, r4, #0
 	lsl r1, r1, #2
-	bl sub_02069698
+	bl Pokemon_TryAppendMove
 	ldr r1, _021ECE40 ; =0x0000FFFF
 	cmp r0, r1
 	bne _021ECE3A
 	mov r1, #0x56
 	add r0, r4, #0
 	lsl r1, r1, #2
-	bl sub_02069708
+	bl Pokemon_ForceAppendMove
 _021ECE3A:
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -2199,7 +2199,7 @@ ov05_021ED5C4: ; 0x021ED5C4
 	add r5, r2, #0
 	bl Party_GetMonByIndex
 	add r4, r0, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r5, #0
 	mov r1, #0
@@ -2596,7 +2596,7 @@ _021ED7CE:
 	bl Pokemon_SetData
 	add r0, r6, #0
 	add r1, r4, #0
-	bl CopyPokemonToPokemon
+	bl Pokemon_Copy
 	ldr r0, [sp, #0x10]
 	bl String_Delete
 	add r0, r6, #0

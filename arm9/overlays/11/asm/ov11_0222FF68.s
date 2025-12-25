@@ -2227,7 +2227,7 @@ ov11_02230F88: ; 0x02230F88
 	cmp r0, #0
 	beq _02230FA4
 	add r0, r1, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r4, #0x98
 	add r1, r0, #0
 	ldr r0, [r4]

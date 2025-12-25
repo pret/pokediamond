@@ -14507,7 +14507,7 @@ ov17_021DE0F4: ; 0x021DE0F4
 	add r1, r6, #0
 	bl sub_02027B78
 	add r0, r6, #0
-	bl sub_020690E4
+	bl Pokemon_GetBoxMon
 	add r2, r0, #0
 	add r0, r7, #0
 	mov r1, #4
