@@ -63,7 +63,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, enum H
         Heap_Free(itemData);
         return TRUE;
     }
-    if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP) && Pokemon_GetData(pokemon, MON_DATA_LEVEL, NULL) < MAX_LEVEL) {
+    if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP) && Pokemon_GetData(pokemon, MON_DATA_LEVEL, NULL) < MAX_MON_LEVEL) {
         Heap_Free(itemData);
         return TRUE;
     }
@@ -272,7 +272,7 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
         }
         sp58 = (s32)Pokemon_GetData(pokemon, MON_DATA_LEVEL, NULL);
         if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP)) {
-            if (sp58 < MAX_LEVEL) {
+            if (sp58 < MAX_MON_LEVEL) {
                 Pokemon_IncreaseData(pokemon, MON_DATA_EXPERIENCE, (int)Pokemon_CalcExpToNextLevel(pokemon));
                 Pokemon_CalcLevelAndStats(pokemon);
                 if (sp50 == 0) {

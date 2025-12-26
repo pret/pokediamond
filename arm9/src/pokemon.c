@@ -73,7 +73,7 @@ u8 BoxPokemon_GetForm(BoxPokemon *boxMon);
 #define SHINY_CHECK(otid, pid) ((                                                                                                              \
                                     (((otid) & 0xFFFF0000u) >> 16u) ^ ((otid) & 0xFFFFu) ^ (((pid) & 0xFFFF0000u) >> 16u) ^ ((pid) & 0xFFFFu)) \
     < 8u)
-#define CALC_UNOWN_LETTER(pid) ((u32)((((pid) & 0x3000000) >> 18) | (((pid) & 0x30000) >> 12) | (((pid) & 0x300) >> 6) | (((pid) & 0x3) >> 0)) % UNOWN_FORM_MAX)
+#define CALC_UNOWN_LETTER(pid) ((u32)((((pid) & 0x3000000) >> 18) | (((pid) & 0x30000) >> 12) | (((pid) & 0x300) >> 6) | (((pid) & 0x3) >> 0)) % UNOWN_FORM_COUNT)
 
 const s8 sFlavorPreferencesByNature[][5] = {
     // Spicy, Dry, Sweet, Bitter, Sour
@@ -285,7 +285,7 @@ void Pokemon_InitWithGenderNatureLetter(Pokemon *mon, u16 species, u8 level, u8 
     u32 personality = 0;
     u16 unownLetter = 0;
 
-    if (letter != 0 && letter < UNOWN_FORM_MAX + 1) {
+    if (letter != 0 && letter < UNOWN_FORM_COUNT + 1) {
         do {
             personality = (LCRandom() | (LCRandom() << 16));
             unownLetter = CALC_UNOWN_LETTER(personality);
@@ -300,9 +300,9 @@ u32 Personality_CreateFromGenderAndNature(u16 species, u8 gender, u8 nature) {
     int pid = nature;
     u8 ratio = Species_GetValue(species, SPECIES_DATA_GENDER_RATIO);
     switch (ratio) {
-    case MON_RATIO_MALE:
-    case MON_RATIO_FEMALE:
-    case MON_RATIO_UNKNOWN:
+    case GENDER_RATIO_MALE_ONLY:
+    case GENDER_RATIO_FEMALE_ONLY:
+    case GENDER_RATIO_UNKNOWN:
         break;
     default:
         if (gender == MON_MALE) {
@@ -1176,7 +1176,7 @@ static void BoxPokemon_SetDataInternal(BoxPokemon *boxMon, int param, void *valu
     case MON_DATA_UNUSED_114:
         blockB->unused2 = VALUE(u16);
         break;
-    case MON_DATA_NICKNAME_FLAT_COMPARE:
+    case MON_DATA_NICKNAME_AND_FLAG:
         GetSpeciesNameIntoArray(blockA->species, HEAP_ID_DEFAULT, namebuf);
         blockB->hasNickname = StringNotEqual(namebuf, value);
         // fallthrough
@@ -1359,8 +1359,8 @@ void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int value) {
         }
         break;
     case MON_DATA_FRIENDSHIP:
-        if (blockA->friendship + value > 255) {
-            blockA->friendship = 255;
+        if (blockA->friendship + value > MAX_FRIENDSHIP) {
+            blockA->friendship = MAX_FRIENDSHIP;
         } else {
             blockA->friendship += value;
         }
@@ -1384,43 +1384,43 @@ void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int value) {
         blockA->spDefEV += value;
         break;
     case MON_DATA_COOL:
-        if (blockA->cool + value > 255) {
-            blockA->cool = 255;
+        if (blockA->cool + value > MAX_CONTEST_STAT) {
+            blockA->cool = MAX_CONTEST_STAT;
         } else {
             blockA->cool += value;
         }
         break;
     case MON_DATA_BEAUTY:
-        if (blockA->beauty + value > 255) {
-            blockA->beauty = 255;
+        if (blockA->beauty + value > MAX_CONTEST_STAT) {
+            blockA->beauty = MAX_CONTEST_STAT;
         } else {
             blockA->beauty += value;
         }
         break;
     case MON_DATA_CUTE:
-        if (blockA->cute + value > 255) {
-            blockA->cute = 255;
+        if (blockA->cute + value > MAX_CONTEST_STAT) {
+            blockA->cute = MAX_CONTEST_STAT;
         } else {
             blockA->cute += value;
         }
         break;
     case MON_DATA_SMART:
-        if (blockA->smart + value > 255) {
-            blockA->smart = 255;
+        if (blockA->smart + value > MAX_CONTEST_STAT) {
+            blockA->smart = MAX_CONTEST_STAT;
         } else {
             blockA->smart += value;
         }
         break;
     case MON_DATA_TOUGH:
-        if (blockA->tough + value > 255) {
-            blockA->tough = 255;
+        if (blockA->tough + value > MAX_CONTEST_STAT) {
+            blockA->tough = MAX_CONTEST_STAT;
         } else {
             blockA->tough += value;
         }
         break;
     case MON_DATA_SHEEN:
-        if (blockA->sheen + value > 255) {
-            blockA->sheen = 255;
+        if (blockA->sheen + value > MAX_POKEMON_SHEEN) {
+            blockA->sheen = MAX_POKEMON_SHEEN;
         } else {
             blockA->sheen += value;
         }
@@ -1430,7 +1430,7 @@ void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int value) {
     case MON_DATA_MOVE3_PP:
     case MON_DATA_MOVE4_PP:
         if (blockB->moveCurrentPPs[param - MON_DATA_MOVE1_PP] + value > WazaGetMaxPp(blockB->moves[param - MON_DATA_MOVE1_PP], blockB->movePPUps[param - MON_DATA_MOVE1_PP])) {
-            blockB->moveCurrentPPs[param - MON_DATA_MOVE1_PP] = (u8)WazaGetMaxPp(blockB->moves[param - MON_DATA_MOVE1_PP], blockB->movePPUps[param - MON_DATA_MOVE1_PP]);
+            blockB->moveCurrentPPs[param - MON_DATA_MOVE1_PP] = WazaGetMaxPp(blockB->moves[param - MON_DATA_MOVE1_PP], blockB->movePPUps[param - MON_DATA_MOVE1_PP]);
         } else {
             blockB->moveCurrentPPs[param - MON_DATA_MOVE1_PP] += value;
         }
@@ -1439,8 +1439,8 @@ void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int value) {
     case MON_DATA_MOVE2_PP_UPS:
     case MON_DATA_MOVE3_PP_UPS:
     case MON_DATA_MOVE4_PP_UPS:
-        if (blockB->movePPUps[param - MON_DATA_MOVE1_PP_UPS] + value > 3) {
-            blockB->movePPUps[param - MON_DATA_MOVE1_PP_UPS] = 3;
+        if (blockB->movePPUps[param - MON_DATA_MOVE1_PP_UPS] + value > MAX_PP_UP_BONUSES) {
+            blockB->movePPUps[param - MON_DATA_MOVE1_PP_UPS] = MAX_PP_UP_BONUSES;
         } else {
             blockB->movePPUps[param - MON_DATA_MOVE1_PP_UPS] += value;
         }
@@ -1451,43 +1451,43 @@ void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int value) {
     case MON_DATA_MOVE4_MAX_PP:
         break;
     case MON_DATA_HP_IV:
-        if (blockB->hpIV + value > 31) {
-            blockB->hpIV = 31;
+        if (blockB->hpIV + value > MAX_IVS_SINGLE_STAT) {
+            blockB->hpIV = MAX_IVS_SINGLE_STAT;
         } else {
             blockB->hpIV += value;
         }
         break;
     case MON_DATA_ATK_IV:
-        if (blockB->atkIV + value > 31) {
-            blockB->atkIV = 31;
+        if (blockB->atkIV + value > MAX_IVS_SINGLE_STAT) {
+            blockB->atkIV = MAX_IVS_SINGLE_STAT;
         } else {
             blockB->atkIV += value;
         }
         break;
     case MON_DATA_DEF_IV:
-        if (blockB->defIV + value > 31) {
-            blockB->defIV = 31;
+        if (blockB->defIV + value > MAX_IVS_SINGLE_STAT) {
+            blockB->defIV = MAX_IVS_SINGLE_STAT;
         } else {
             blockB->defIV += value;
         }
         break;
     case MON_DATA_SPEED_IV:
-        if (blockB->speedIV + value > 31) {
-            blockB->speedIV = 31;
+        if (blockB->speedIV + value > MAX_IVS_SINGLE_STAT) {
+            blockB->speedIV = MAX_IVS_SINGLE_STAT;
         } else {
             blockB->speedIV += value;
         }
         break;
     case MON_DATA_SPATK_IV:
-        if (blockB->spAtkIV + value > 31) {
-            blockB->spAtkIV = 31;
+        if (blockB->spAtkIV + value > MAX_IVS_SINGLE_STAT) {
+            blockB->spAtkIV = MAX_IVS_SINGLE_STAT;
         } else {
             blockB->spAtkIV += value;
         }
         break;
     case MON_DATA_SPDEF_IV:
-        if (blockB->spDefIV + value > 31) {
-            blockB->spDefIV = 31;
+        if (blockB->spDefIV + value > MAX_IVS_SINGLE_STAT) {
+            blockB->spDefIV = MAX_IVS_SINGLE_STAT;
         } else {
             blockB->spDefIV += value;
         }
@@ -1577,7 +1577,7 @@ void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int value) {
     case MON_DATA_UNUSED_114:
     case MON_DATA_UNUSED_115:
     case MON_DATA_NICKNAME:
-    case MON_DATA_NICKNAME_FLAT_COMPARE:
+    case MON_DATA_NICKNAME_AND_FLAG:
     case MON_DATA_NICKNAME_STRING:
     case MON_DATA_NICKNAME_STRING_AND_FLAG:
     case MON_DATA_UNUSED_120:
@@ -1819,9 +1819,9 @@ void ExpRate_LoadTable(int rate, u32 *dest) {
 
 u32 ExpRate_GetExpAtLevel(int rate, int level) {
     GF_ASSERT(rate < GROWTH_RATE_COUNT);
-    GF_ASSERT(level <= MAX_LEVEL + 1);
+    GF_ASSERT(level <= MAX_MON_LEVEL + 1);
 
-    u32 *expTable = Heap_Alloc(HEAP_ID_DEFAULT, (MAX_LEVEL + 1) * sizeof(u32));
+    u32 *expTable = Heap_Alloc(HEAP_ID_DEFAULT, (MAX_MON_LEVEL + 1) * sizeof(u32));
     ExpRate_LoadTable(rate, expTable);
 
     u32 ret = expTable[level];
@@ -1851,10 +1851,10 @@ int Species_CalcLevelByExp(u16 species, u32 exp) {
 
 int SpeciesData_CalcLevelByExp(SpeciesData *speciesData, u16 unused_species, u32 exp) {
 #pragma unused(unused_species)
-    static u32 table[MAX_LEVEL + 1];
+    static u32 table[MAX_MON_LEVEL + 1];
     ExpRate_LoadTable(SpeciesData_GetValue(speciesData, SPECIES_DATA_EXP_RATE), table);
     int i;
-    for (i = 1; i < MAX_LEVEL + 1; i++) {
+    for (i = 1; i < MAX_MON_LEVEL + 1; i++) {
         if (table[i] > exp) {
             break;
         }
@@ -1931,7 +1931,8 @@ u16 Nature_ModifyStatValue(u8 nature, u16 value, u8 stat) {
     return ret;
 }
 
-const s8 sFriendshipModifiers[FRIENDSHIP_EVENT_NUM][3] = {
+// clang-format off
+static const s8 sFriendshipModifiers[FRIENDSHIP_EVENT_NUM][FRIENDSHIP_TIER_NUM] = {
     [FRIENDSHIP_EVENT_GROW_LEVEL] =     {  5,  3,   2 },
     [FRIENDSHIP_EVENT_VITAMIN] =        {  5,  3,   2 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM] =    {  1,  1,   0 },
@@ -1943,6 +1944,7 @@ const s8 sFriendshipModifiers[FRIENDSHIP_EVENT_NUM][3] = {
     [FRIENDSHIP_EVENT_FAINT_LARGE] =    { -5, -5, -10 },
     [FRIENDHSIP_EVENT_CONTEST_WIN] =    {  3,  2,   1 },
 };
+// clang-format on
 
 void Pokemon_UpdateFriendship(Pokemon *mon, u32 kind, u32 location) {
     if (kind == FRIENDSHIP_EVENT_WALKING && (LCRandom() & 1)) {
@@ -1980,8 +1982,8 @@ void Pokemon_UpdateFriendship(Pokemon *mon, u32 kind, u32 location) {
     if (friendship < 0) {
         friendship = 0;
     }
-    if (friendship > FRIENDSHIP_MAX) {
-        friendship = FRIENDSHIP_MAX;
+    if (friendship > MAX_FRIENDSHIP) {
+        friendship = MAX_FRIENDSHIP;
     }
     Pokemon_SetData(mon, MON_DATA_FRIENDSHIP, &friendship);
 }
@@ -2009,11 +2011,11 @@ u8 SpeciesData_GetGenderFromPersonality(SpeciesData *speciesData, u16 species, u
 #pragma unused(species)
     u8 ratio = SpeciesData_GetValue(speciesData, SPECIES_DATA_GENDER_RATIO);
     switch (ratio) {
-    case MON_RATIO_MALE:
+    case GENDER_RATIO_MALE_ONLY:
         return MON_MALE;
-    case MON_RATIO_FEMALE:
+    case GENDER_RATIO_FEMALE_ONLY:
         return MON_FEMALE;
-    case MON_RATIO_UNKNOWN:
+    case GENDER_RATIO_UNKNOWN:
         return MON_GENDERLESS;
     default:
         if (ratio > (personality & 0xff)) {
@@ -2085,9 +2087,9 @@ void BoxPokemon_BuildSpriteTemplate(PokemonSpriteTemplate *template, BoxPokemon 
     u8 form;
     if (species == SPECIES_EGG) {
         if (BoxPokemon_GetData(boxMon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY) {
-            form = EGG_MANAPHY;
+            form = EGG_FORM_MANAPHY;
         } else {
-            form = EGG_STANDARD;
+            form = EGG_FORM_NORMAL;
         }
     } else {
         form = BoxPokemon_GetData(boxMon, MON_DATA_FORM, NULL);
@@ -2103,7 +2105,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
     template->personality = 0;
     switch (species) {
     case SPECIES_BURMY:
-        if (form > BURMY_FORM_MAX - 1) {
+        if (form > BURMY_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2111,7 +2113,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny + 0x92 + form * 2);
         break;
     case SPECIES_WORMADAM:
-        if (form > WORMADAM_FORM_MAX - 1) {
+        if (form > WORMADAM_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2119,7 +2121,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny + 0x98 + form * 2);
         break;
     case SPECIES_SHELLOS:
-        if (form > SHELLOS_FORM_MAX - 1) {
+        if (form > SHELLOS_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2127,7 +2129,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny + 0x9E + form * 2);
         break;
     case SPECIES_GASTRODON:
-        if (form > GASTRODON_FORM_MAX - 1) {
+        if (form > GASTRODON_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2135,7 +2137,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny + 0xA2 + form * 2);
         break;
     case SPECIES_CHERRIM:
-        if (form > CHERRIM_FORM_MAX - 1) {
+        if (form > CHERRIM_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2143,7 +2145,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny * 2 + 0xA6 + form);
         break;
     case SPECIES_ARCEUS:
-        if (form > ARCEUS_FORM_MAX - 1) {
+        if (form > ARCEUS_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2151,7 +2153,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny + 0xAA + form * 2);
         break;
     case SPECIES_CASTFORM:
-        if (form > CASTFORM_FORM_MAX - 1) {
+        if (form > CASTFORM_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2159,7 +2161,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny * 4 + 0x8A + form);
         break;
     case SPECIES_DEOXYS:
-        if (form > DEOXYS_FORM_MAX - 1) {
+        if (form > DEOXYS_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2167,7 +2169,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny + 0x86);
         break;
     case SPECIES_UNOWN:
-        if (form >= UNOWN_FORM_MAX) {
+        if (form >= UNOWN_FORM_COUNT) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2175,7 +2177,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
         template->unk4 = (u16)(shiny + 0x88);
         break;
     case SPECIES_EGG:
-        if (form > 1) {
+        if (form > EGG_FORM_COUNT - 1) {
             form = 0;
         }
         template->narcID = NARC_POKETOOL_POKEGRA_OTHERPOKE;
@@ -2211,9 +2213,9 @@ u8 BoxPokemon_SpriteYOffset(BoxPokemon *boxMon, u32 face) {
     u8 form;
     if (species == SPECIES_EGG) {
         if (BoxPokemon_GetData(boxMon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY) {
-            form = EGG_MANAPHY;
+            form = EGG_FORM_MANAPHY;
         } else {
-            form = EGG_STANDARD;
+            form = EGG_FORM_NORMAL;
         }
     } else {
         form = BoxPokemon_GetData(boxMon, MON_DATA_FORM, NULL);
@@ -2290,7 +2292,7 @@ u8 Species_LoadSpriteYOffset(int species, u8 gender, u32 face, u8 form, u32 pers
         fileID = 8 + (face / 2) + form * 2;
         break;
     case SPECIES_EGG:
-        if (form > 1) {
+        if (form > EGG_FORM_COUNT - 1) {
             form = 0;
         }
         narcID = NARC_POKETOOL_POKEGRA_HEIGHT_O;
@@ -2382,13 +2384,13 @@ BOOL Pokemon_TryLevelUp(Pokemon *mon) {
     u8 nextLevel = Pokemon_GetData(mon, MON_DATA_LEVEL, NULL) + 1;
     u32 exp = Pokemon_GetData(mon, MON_DATA_EXPERIENCE, NULL);
     int expRate = Species_GetValue(species, SPECIES_DATA_EXP_RATE);
-    u32 maxExp = ExpRate_GetExpAtLevel(expRate, MAX_LEVEL);
+    u32 maxExp = ExpRate_GetExpAtLevel(expRate, MAX_MON_LEVEL);
 
     if (exp > maxExp) {
         exp = maxExp;
         Pokemon_SetData(mon, MON_DATA_EXPERIENCE, &exp);
     }
-    if (nextLevel > MAX_LEVEL) {
+    if (nextLevel > MAX_MON_LEVEL) {
         return FALSE;
     }
     if (exp >= ExpRate_GetExpAtLevel(expRate, nextLevel)) {
@@ -3072,7 +3074,7 @@ u32 GetArceusTypeByHeldItemEffect(u16 heldEffect) {
         return TYPE_GRASS;
     case HOLD_EFFECT_ARCEUS_ICE:
         return TYPE_ICE;
-    case HOLD_EFFECT_ARCEUS_FIGHT:
+    case HOLD_EFFECT_ARCEUS_FIGHTING:
         return TYPE_FIGHTING;
     case HOLD_EFFECT_ARCEUS_POISON:
         return TYPE_POISON;

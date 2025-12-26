@@ -263,7 +263,7 @@ void Pokedex_SetMeisterFlagBySpeciesAndLanguage(struct Pokedex *pokedex, u32 spe
 s32 sub_020242C8(struct Pokedex *pokedex, u16 species, s32 r4) {
     u8 r0;
     u8 r1;
-    if (Species_GetValue(species, SPECIES_DATA_GENDER_RATIO) == MON_RATIO_UNKNOWN) {
+    if (Species_GetValue(species, SPECIES_DATA_GENDER_RATIO) == GENDER_RATIO_UNKNOWN) {
         return r4 == 0 ? 2 : -1;
     }
     r1 = (u8)CheckDexFlag(pokedex->field_0084, species);

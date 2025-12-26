@@ -12459,7 +12459,7 @@
     {
       "name": "ITEM_FIST_PLATE",
       "price": 1000,
-      "holdEffect": "HOLD_EFFECT_ARCEUS_FIGHT",
+      "holdEffect": "HOLD_EFFECT_ARCEUS_FIGHTING",
       "holdEffectParam": 20,
       "unk4": 0,
       "unk5": 0,
