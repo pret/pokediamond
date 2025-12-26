@@ -5685,7 +5685,7 @@ ov62_022301AC: ; 0x022301AC
 	ldr r1, [r5, r1]
 	add r0, sp, #0x24
 	mov r2, #2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	ldr r0, _02230214 ; =0x00000428
 	mov r1, #5
 	ldr r0, [r5, r0]
@@ -5695,7 +5695,7 @@ ov62_022301AC: ; 0x022301AC
 	ldr r0, _02230214 ; =0x00000428
 	mov r1, #2
 	ldr r0, [r5, r0]
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r6, r0, #0
 	mov r0, #0x6b
 	lsl r0, r0, #2

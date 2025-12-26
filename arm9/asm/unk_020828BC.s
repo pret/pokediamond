@@ -880,11 +880,11 @@ sub_02082E64: ; 0x02082E64
 	add r1, r5, #0x0
 	lsr r2, r2, #0x18
 	ldr r4, [sp, #0x38]
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	lsl r1, r6, #0x18
 	add r0, r5, #0x0
 	lsr r1, r1, #0x18
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	beq _02082EB0

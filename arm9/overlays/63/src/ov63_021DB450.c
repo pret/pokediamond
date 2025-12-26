@@ -18,7 +18,7 @@ extern void sub_020132BC(u32 param0);
 
 extern void *sub_02012CDC(void *, void *, void *, u32, u32, enum HeapID);
 
-extern void sub_02068C00(struct UnkStruct_02006D98_4 *, u16, u32, u32, u32, u32, u32);
+extern void Species_BuildSpriteTemplate(struct UnkStruct_02006D98_4 *, u16, u32, u32, u32, u32, u32);
 extern void sub_02012CC8(void);
 extern struct Camera *sub_0201343C(void);
 extern void sub_02013194(void *, u32, u32, u32);
@@ -69,7 +69,7 @@ void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 *arg0) // TODO: 
 
     for (u8 i = 0; i < 3; i++) // some kind of animation assignment TODO: investigate further
     {
-        sub_02068C00(&sp1C, (u16)introMonArray[i], 0, 2, 0, 0, 0);
+        Species_BuildSpriteTemplate(&sp1C, (u16)introMonArray[i], 0, 2, 0, 0, 0);
         arg0->field_04[i] = sub_020073A0(arg0->field_00, &sp1C, ov63_021DBEF0[i].field_00, ov63_021DBEF0[i].field_04, 0x3FF, i, 0, 0);
         sub_02007558(arg0->field_04[i], 6, 1);
     }

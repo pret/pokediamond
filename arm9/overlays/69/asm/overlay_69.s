@@ -1229,7 +1229,7 @@ _0222DF98:
 	ldr r1, [sp, #0x2c]
 	add r0, sp, #0xc4
 	mov r2, #2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	ldr r0, [sp, #0x2c]
 	mov r1, #5
 	mov r2, #0

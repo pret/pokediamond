@@ -857,7 +857,7 @@ _0224D0A8:
 	ldrh r1, [r4, #2]
 	ldrb r2, [r4, #4]
 	add r0, sp, #0x14
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	ldr r0, [r5, #0x20]
 	bl sub_020081C0
 	add r7, r0, #0
@@ -908,7 +908,7 @@ _0224D0A8:
 	ldrb r1, [r4, #4]
 	ldrb r3, [r4, #1]
 	lsr r2, r2, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	add r6, r0, #0
 	ldr r0, [sp, #0x10]
 	bl ov11_02230130

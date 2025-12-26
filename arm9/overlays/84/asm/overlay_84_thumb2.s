@@ -2113,7 +2113,7 @@ _021D90F6:
 	ldrb r2, [r2, #2]
 	add r0, sp, #0xc
 	mov r3, #2
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2317,7 +2317,7 @@ _021D92AE:
 	ldrb r2, [r2, #2]
 	add r0, sp, #0x14
 	mov r3, #2
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	add r0, r5, r0

@@ -104,7 +104,7 @@ _0224D5FE:
 	lsl r2, r2, #0x1e
 	add r0, sp, #0x48
 	lsr r2, r2, #0x1e
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	ldr r0, [r5, #4]
 	str r0, [sp]
 	ldrb r3, [r5, #1]
@@ -114,7 +114,7 @@ _0224D5FE:
 	lsl r3, r3, #0x18
 	lsr r1, r1, #0x1e
 	lsr r3, r3, #0x1b
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	str r0, [sp, #0x2c]
 	mov r0, #1
 	str r0, [sp]
@@ -284,7 +284,7 @@ _0224D774:
 	ldrb r3, [r3]
 	add r0, #0x14
 	lsr r2, r2, #0x1e
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	ldr r0, [r5, #4]
 	add r2, r4, #0
 	str r0, [sp]
@@ -296,7 +296,7 @@ _0224D774:
 	ldrb r2, [r2]
 	lsr r1, r1, #0x1e
 	lsr r3, r3, #0x1b
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	add r1, r4, #0
 	add r1, #0x85
 	strb r0, [r1]
@@ -448,7 +448,7 @@ _0224D8C4:
 	ldrb r3, [r3]
 	add r0, #0x14
 	lsr r2, r2, #0x1e
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	ldr r0, [r4, #4]
 	add r2, r5, #0
 	str r0, [sp]
@@ -460,7 +460,7 @@ _0224D8C4:
 	ldrb r2, [r2]
 	lsr r1, r1, #0x1e
 	lsr r3, r3, #0x1b
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	add r1, r5, #0
 	add r1, #0x85
 	strb r0, [r1]
@@ -10872,7 +10872,7 @@ _02252D04:
 	ldrb r1, [r1]
 	ldrb r2, [r2]
 	ldrb r3, [r3]
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	mov r3, #0x50
 	sub r0, r3, r0
 	str r0, [sp]

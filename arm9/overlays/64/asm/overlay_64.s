@@ -836,7 +836,7 @@ ov64_021D7BB4: ; 0x021D7BB4
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	ldr r0, _021D7C04 ; =0x000003FF
 	add r1, sp, #0x10
 	str r0, [sp]

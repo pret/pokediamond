@@ -725,29 +725,29 @@ void sub_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2) {
 
 void sub_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2) {
     struct UnkStruct_02006D98 *r7 = sub_02006D98((enum HeapID)param0->unk162);
-    struct SomeDrawPokemonStruct stc;
-    sub_02068C00(&stc, param1, param2, 2, 0, 0, 0);
+    struct PokemonSpriteTemplate stc;
+    Species_BuildSpriteTemplate(&stc, param1, param2, 2, 0, 0, 0);
     sub_0200DEF4(param0, &stc);
     sub_020072E8(r7);
 }
 
 void sub_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon *param1) {
     struct UnkStruct_02006D98 *r6 = sub_02006D98((enum HeapID)param0->unk162);
-    struct SomeDrawPokemonStruct st0;
-    sub_02068B68(&st0, param1, 2);
+    struct PokemonSpriteTemplate st0;
+    Pokemon_BuildSpriteTemplate(&st0, param1, 2);
     sub_0200DEF4(param0, &st0);
     sub_020072E8(r6);
 }
 
 void sub_0200DEF4(
-    struct UnkStruct_0200CABC_2 *param0, struct SomeDrawPokemonStruct *param1) {
+    struct UnkStruct_0200CABC_2 *param0, struct PokemonSpriteTemplate *param1) {
     void *r4 = Heap_Alloc((enum HeapID)param0->unk162, 0x1900);
 
     struct UnkStruct_0200CABC_3 st18 = UNK_020ECE98;
-    sub_02012400(param1->unk0, param1->unk2, param0->unk162, &st18, r4);
+    sub_02012400(param1->narcID, param1->unk2, param0->unk162, &st18, r4);
 
     struct UnkStruct_0200CABC_3 st8 = UNK_020ECE88;
-    sub_02012400(param1->unk0, param1->unk2, param0->unk162, &st8, r4 + 0xc80);
+    sub_02012400(param1->narcID, param1->unk2, param0->unk162, &st8, r4 + 0xc80);
 
     u32 st4 = sub_02009C5C(sub_020094F0(param0->unk130, 0x15CD5));
 
@@ -755,7 +755,7 @@ void sub_0200DEF4(
     DC_FlushRange(r4, 0x1900);
     GX_LoadOBJ(r4, r7, 0x1900);
     Heap_Free(r4);
-    void *res = sub_02012470(param1->unk0, param1->unk4, param0->unk162);
+    void *res = sub_02012470(param1->narcID, param1->unk4, param0->unk162);
 
     u32 r5 = NNS_G2dGetImagePaletteLocation(sub_02009E54(sub_020094F0(param0->unk134, 0x15CD5), st4), 1);
     DC_FlushRange(res, 0x20);

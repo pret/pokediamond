@@ -2559,7 +2559,7 @@ sub_0206DC80: ; 0x0206DC80
 	ldr r1, [r4, #0x28]
 	add r0, sp, #0x10
 	mov r2, #0x2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -2587,7 +2587,7 @@ sub_0206DC80: ; 0x0206DC80
 	add r0, sp, #0x10
 	add r1, r5, #0x0
 	mov r2, #0x2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	add r0, r5, #0x0
 	bl Heap_Free
 	mov r0, #0x0

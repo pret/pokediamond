@@ -181,15 +181,15 @@ typedef struct Pokemon {
     /* 0x088 */ struct PartyPokemon party;
 } Pokemon; // size: 0xEC
 
-struct SomeDrawPokemonStruct {
-    u16 unk0;
+typedef struct PokemonSpriteTemplate {
+    u16 narcID;
     u16 unk2;
     u16 unk4;
-    u16 unk6;
-    u8 unk8;
+    u16 species;
+    u8 isAnimated;
     u8 filler_9[3];
-    u32 unkC;
-};
+    u32 personality;
+} PokemonSpriteTemplate;
 
 struct PokeanmSub {
     s8 unk0;
@@ -273,18 +273,18 @@ u8 BoxPokemon_GetGender(BoxPokemon *boxMon);
 u8 Species_GetGenderFromPersonality(u16 species, u32 personality);
 u8 Pokemon_IsShiny(Pokemon *mon);
 u32 Personality_GenerateShiny(u32 otID);
-void sub_02068B70(struct SomeDrawPokemonStruct *spC, BoxPokemon *boxMon, u8 sp10);
-void sub_02068C00(struct SomeDrawPokemonStruct *spC, int species, u8 gender, u8 sp10, u8 shiny, u8 form, u32 personality);
-u8 sub_02068E14(Pokemon *mon, u32 a1);
-u8 sub_02068E1C(BoxPokemon *boxMon, u32 a1);
-u8 sub_02068E88(int species, u8 gender, u32 a2, u8 form, u32 pid);
+void BoxPokemon_BuildSpriteTemplate(PokemonSpriteTemplate *template, BoxPokemon *boxMon, u8 face);
+void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u8 gender, u8 sp10, u8 shiny, u8 form, u32 personality);
+u8 Pokemon_SpriteYOffset(Pokemon *mon, u8 face);
+u8 BoxPokemon_SpriteYOffset(BoxPokemon *boxMon, u32 face);
+u8 Species_LoadSpriteYOffset(int species, u8 gender, u32 face, u8 form, u32 personality);
 u32 GetArceusTypeByHeldItemEffect(u16 plate);
 int sub_0206AA30(int a0);
-void sub_02068B68(struct SomeDrawPokemonStruct *spC, Pokemon *mon, u8 sp10);
-void sub_02068FE0(struct SomeDrawPokemonStruct *a0, u16 a1, int a2);
+void Pokemon_BuildSpriteTemplate(struct PokemonSpriteTemplate *template, Pokemon *mon, u8 face);
+void sub_02068FE0(struct PokemonSpriteTemplate *template, u16 a1, int a2);
 void sub_02069010(void *dest, int a1);
 void sub_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6);
-void sub_020690AC(struct SomeDrawPokemonStruct *a0, u32 a1);
+void sub_020690AC(struct PokemonSpriteTemplate *template, u32 a1);
 u32 Pokemon_Size(void);
 u32 BoxPokemon_Size(void);
 u8 BoxPokemon_GetForm(BoxPokemon *boxMon);

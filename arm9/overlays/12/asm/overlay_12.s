@@ -17577,7 +17577,7 @@ ov12_022360B0: ; 0x022360B0
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #0
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r5, r0, #0
 	ldrb r0, [r4, #0x14]
 	cmp r0, #3
@@ -17618,7 +17618,7 @@ _02236100:
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, r5]
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r6, r0, #0
 	ldr r0, [r4]
 	mov r1, #0x25
@@ -17784,7 +17784,7 @@ ov12_02236228: ; 0x02236228
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #0
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	mov r0, #0x36
 	lsl r0, r0, #0xa
 	str r0, [r4, #0xc]
@@ -17811,7 +17811,7 @@ ov12_02236284: ; 0x02236284
 	ldr r0, [r5]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, r4]
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r6, r0, #0
 	ldrb r0, [r5, #0x14]
 	cmp r0, #0
@@ -18677,7 +18677,7 @@ _022368EA:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #0
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r6, r0, #0
 	mov r0, #0x46
 	lsl r0, r0, #2
@@ -25727,7 +25727,7 @@ _02239C90:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r0, sp, #0x14
 	mov r1, #0
 	mov r2, #0x10
@@ -25875,7 +25875,7 @@ _02239DB4:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r3, r0, #0
 	ldrb r0, [r4, #0x11]
 	mov r2, #0xf2
@@ -26057,7 +26057,7 @@ _02239F3A:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	mov r0, #1
 	ldr r1, [r4, #0x18]
 	lsl r0, r0, #8
@@ -26523,7 +26523,7 @@ ov12_0223A2C8: ; 0x0223A2C8
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r3, r0, #0
 	ldrb r0, [r4, #0x10]
 	cmp r0, #0
@@ -27434,7 +27434,7 @@ _0223A9A8:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r4, r0, #0
 	add r0, sp, #0
 	mov r1, #0
@@ -27701,7 +27701,7 @@ ov12_0223ABD4: ; 0x0223ABD4
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r6, r0, #0
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
@@ -30628,7 +30628,7 @@ _0223C27C:
 	lsl r0, r6, #2
 	ldr r0, [r1, r0]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r2, r0, #0
 	mov r0, #6
 	mul r0, r4
@@ -31863,7 +31863,7 @@ _0223CBE4:
 	mov r1, #2
 	ldr r0, [r0]
 	ldr r0, [r0, r6]
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	mov r1, #0x85
 	lsl r1, r1, #2
 	strb r0, [r4, r1]
@@ -38846,7 +38846,7 @@ _02240164:
 _02240184:
 	ldr r0, [r5]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r4, r0, #0
 	ldrb r0, [r5, #0xd]
 	bl ov12_0223C220
@@ -38888,7 +38888,7 @@ _022401DC:
 	blo _0224021C
 	ldr r0, [r5]
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r4, r0, #0
 	ldrb r0, [r5, #0xd]
 	bl ov12_0223C210

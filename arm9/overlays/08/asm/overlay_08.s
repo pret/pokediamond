@@ -31391,7 +31391,7 @@ _022213CE:
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	add r2, r0, #0
 	add r5, sp, #0x24
 	mov r3, #0xa
@@ -49453,7 +49453,7 @@ _0222A31C:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	ldr r0, [r5]
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -49511,7 +49511,7 @@ _0222A31C:
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x10
 	lsr r1, r1, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	ldr r1, [r5]
 	lsl r1, r1, #2
 	add r1, r5, r1
@@ -49692,7 +49692,7 @@ _0222A4E8:
 	lsr r0, r0, #0x10
 	lsr r1, r1, #0x18
 	lsr r3, r3, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	ldr r1, [r5]
 	lsl r1, r1, #2
 	add r1, r5, r1

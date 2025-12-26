@@ -8860,7 +8860,7 @@ ov17_021DB700: ; 0x021DB700
 	add r0, r6, #0
 	add r1, r4, #0
 	mov r2, #2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -8906,7 +8906,7 @@ ov17_021DB700: ; 0x021DB700
 	bl ov17_021DB9B8
 	add r0, r4, #0
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	mov r2, #0
 	str r2, [sp]
 	add r7, r0, #0

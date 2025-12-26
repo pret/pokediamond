@@ -5471,7 +5471,7 @@ ov65_021DA000: ; 0x021DA000
 	ldr r1, [r4]
 	add r0, sp, #0x10
 	mov r2, #2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]

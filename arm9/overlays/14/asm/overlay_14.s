@@ -19595,7 +19595,7 @@ ov14_021E0EF4: ; 0x021E0EF4
 	mov r1, #1
 	add r3, r2, #0
 	str r2, [sp, #8]
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -20497,7 +20497,7 @@ _021E1632:
 	ldr r1, [r4]
 	add r0, sp, #0x10
 	mov r2, #2
-	bl sub_02068B70
+	bl BoxPokemon_BuildSpriteTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]

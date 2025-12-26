@@ -866,7 +866,7 @@ _02254D70:
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	lsr r3, r3, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	b _02254DE6
 _02254DC4:
 	add r0, r3, #0
@@ -884,7 +884,7 @@ _02254DC4:
 	lsl r1, r1, #0x1c
 	lsr r1, r1, #0x1c
 	lsr r3, r3, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 _02254DE6:
 	add r1, sp, #0xc
 	strb r0, [r1, #1]
@@ -1037,7 +1037,7 @@ _02254EC8:
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	lsr r3, r3, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	b _02254F38
 _02254F16:
 	add r0, r5, #0
@@ -1055,7 +1055,7 @@ _02254F16:
 	lsl r1, r1, #0x1c
 	lsr r1, r1, #0x1c
 	lsr r3, r3, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 _02254F38:
 	add r1, sp, #8
 	strb r0, [r1, #1]

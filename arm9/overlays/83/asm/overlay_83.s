@@ -23917,7 +23917,7 @@ ov83_02238F94: ; 0x02238F94
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	mov r1, #0
 	ldr r0, [sp, #0x20]
 	add r2, r1, #0

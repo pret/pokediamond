@@ -347,7 +347,7 @@ sub_02026F3C: ; 0x02026F3C
 	add r5, r1, #0x0
 	mov r1, #0x2
 	add r4, r2, #0x0
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	mov r1, #0x80
 	strb r1, [r5, #0x0]
 	mov r1, #0x28

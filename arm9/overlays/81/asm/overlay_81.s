@@ -1004,7 +1004,7 @@ _02238610:
 	add r0, sp, #0x34
 	add r1, r4, #0
 	mov r2, #2
-	bl sub_02068B70
+	bl BoxPokemon_BuildSpriteTemplate
 	mov r1, #0
 	add r0, r4, #0
 	add r2, r1, #0
@@ -2791,7 +2791,7 @@ ov81_022393A4: ; 0x022393A4
 	add r0, sp, #0x10
 	add r1, r5, #0
 	mov r2, #2
-	bl sub_02068B70
+	bl BoxPokemon_BuildSpriteTemplate
 	ldr r0, [r4]
 	bl ov81_02238830
 	add r1, r0, #0
@@ -2800,7 +2800,7 @@ ov81_022393A4: ; 0x022393A4
 	bl sub_02069010
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_02068E1C
+	bl BoxPokemon_SpriteYOffset
 	add r3, r0, #0
 	mov r1, #0
 	str r1, [sp]
@@ -9843,7 +9843,7 @@ ov81_0223CB90: ; 0x0223CB90
 	add r0, sp, #0x10
 	add r1, r5, #0
 	mov r2, #2
-	bl sub_02068B70
+	bl BoxPokemon_BuildSpriteTemplate
 	ldr r0, [r4]
 	bl ov81_02238838
 	add r1, r0, #0
@@ -9852,7 +9852,7 @@ ov81_0223CB90: ; 0x0223CB90
 	bl sub_02069010
 	add r0, r5, #0
 	mov r1, #2
-	bl sub_02068E1C
+	bl BoxPokemon_SpriteYOffset
 	add r3, r0, #0
 	mov r1, #0
 	str r1, [sp]

@@ -112,7 +112,7 @@ void sub_0200DDD8(struct UnkStruct_0200CABC_2 *param0);
 void sub_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2);
 void sub_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2);
 void sub_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon *param1);
-void sub_0200DEF4(struct UnkStruct_0200CABC_2 *param0, struct SomeDrawPokemonStruct *param1);
+void sub_0200DEF4(struct UnkStruct_0200CABC_2 *param0, struct PokemonSpriteTemplate *param1);
 void DrawFramed10x10Square(struct UnkStruct_0200CABC_2 *param0, u8 paletteNum, u16 fillValue);
 void ClearFramed10x10Square(struct UnkStruct_0200CABC_2 *param0);
 

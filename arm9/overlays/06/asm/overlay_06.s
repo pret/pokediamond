@@ -23341,7 +23341,7 @@ _02244E10:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	add r1, r7, #0
 	mov r0, #1
 	add r1, #0x3c
@@ -28783,14 +28783,14 @@ _02247778: .word 0x0400004A
 
 	thumb_func_start ov06_0224777C
 ov06_0224777C: ; 0x0224777C
-	ldr r3, _02247788 ; =sub_02068B68
+	ldr r3, _02247788 ; =Pokemon_BuildSpriteTemplate
 	add r2, r0, #0
 	add r0, r1, #0
 	ldr r1, [r2, #0x5c]
 	mov r2, #2
 	bx r3
 	.align 2, 0
-_02247788: .word sub_02068B68
+_02247788: .word Pokemon_BuildSpriteTemplate
 
 	thumb_func_start ov06_0224778C
 ov06_0224778C: ; 0x0224778C

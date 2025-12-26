@@ -2643,7 +2643,7 @@ ov71_0222EBFC: ; 0x0222EBFC
 	mov r2, #2
 	add r6, r1, #0
 	str r3, [sp, #0x20]
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	mov r1, #0
 	add r0, r6, #0
 	add r2, r1, #0
@@ -2755,7 +2755,7 @@ ov71_0222ECD4: ; 0x0222ECD4
 	ldr r4, [sp, #0x50]
 	bl Party_GetMonByIndex
 	mov r1, #2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	str r0, [sp, #0x10]
 	mov r0, #1
 	lsl r0, r0, #0xa

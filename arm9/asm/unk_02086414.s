@@ -1445,7 +1445,7 @@ sub_02086EE8: ; 0x02086EE8
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl sub_02068E14
+	bl Pokemon_SpriteYOffset
 	add r7, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x10]
@@ -1456,7 +1456,7 @@ sub_02086EE8: ; 0x02086EE8
 	add r0, sp, #0x28
 	add r1, r4, #0x0
 	mov r2, #0x2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	lsl r1, r6, #0x10
 	add r0, sp, #0x14
 	lsr r1, r1, #0x10

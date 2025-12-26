@@ -2411,7 +2411,7 @@ _021D874E:
 	add r0, sp, #0x18
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl sub_02068C00
+	bl Species_BuildSpriteTemplate
 	cmp r6, #0
 	bne _021D8792
 	ldr r0, [sp, #0x48]
@@ -2424,7 +2424,7 @@ _021D874E:
 	lsr r0, r0, #0x10
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
-	bl sub_02068E88
+	bl Species_LoadSpriteYOffset
 	add r3, r0, #0
 	b _021D8794
 _021D8792:
@@ -52461,7 +52461,7 @@ ov16_021EFAC0: ; 0x021EFAC0
 	add r0, sp, #0x10
 	mov r2, #2
 	add r6, r3, #0
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]

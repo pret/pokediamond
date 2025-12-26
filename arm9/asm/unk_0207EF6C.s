@@ -1153,11 +1153,11 @@ sub_0207F840: ; 0x0207F840
 	add r0, sp, #0x10
 	bne _0207F870
 	mov r2, #0x2
-	bl sub_02068B70
+	bl BoxPokemon_BuildSpriteTemplate
 	b _0207F876
 _0207F870:
 	mov r2, #0x2
-	bl sub_02068B68
+	bl Pokemon_BuildSpriteTemplate
 _0207F876:
 	mov r1, #0xaf
 	lsl r1, r1, #0x2
