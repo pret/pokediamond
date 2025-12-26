@@ -26,7 +26,7 @@ static u32 Pokemon_GetDataInternal(Pokemon *mon, int param, void *ptr);
 static u32 BoxPokemon_GetDataInternal(BoxPokemon *boxMon, int param, void *ptr);
 static void Pokemon_SetDataInternal(Pokemon *mon, int param, void *ptr);
 static void BoxPokemon_SetDataInternal(BoxPokemon *boxMon, int param, void *ptr);
-static void AddMonDataInternal(Pokemon *mon, int param, int amount);
+static void Pokemon_IncreaseDataInternal(Pokemon *mon, int param, int amount);
 void BoxPokemon_AddDataInternal(BoxPokemon *boxMon, int param, int amount);
 u32 BoxPokemon_CalcExpToNextLevel(BoxPokemon *boxMon);
 u16 Nature_ModifyStatValue(u8 nature, u16 value, u8 stat);
@@ -1297,7 +1297,7 @@ static void BoxPokemon_SetDataInternal(BoxPokemon *boxMon, int param, void *valu
 #undef VALUE
 }
 
-void AddMonData(Pokemon *mon, int param, int value) {
+void Pokemon_IncreaseData(Pokemon *mon, int param, int value) {
     u32 checksum;
     if (!mon->box.partyDecrypted) {
         DECRYPT_PARTY(mon);
@@ -1309,7 +1309,7 @@ void AddMonData(Pokemon *mon, int param, int value) {
             return;
         }
     }
-    AddMonDataInternal(mon, param, value);
+    Pokemon_IncreaseDataInternal(mon, param, value);
     if (!mon->box.partyDecrypted) {
         ENCRYPT_PARTY(mon);
         mon->box.checksum = CHECKSUM(&mon->box);
@@ -1317,13 +1317,11 @@ void AddMonData(Pokemon *mon, int param, int value) {
     }
 }
 
-static void AddMonDataInternal(Pokemon *mon, int param, int value) {
-    s32 maxHP;
+static void Pokemon_IncreaseDataInternal(Pokemon *mon, int param, int value) {
     switch (param) {
     case MON_DATA_HP:
-        maxHP = mon->party.maxHP;
-        if ((s32)(mon->party.hp + value) > maxHP) {
-            mon->party.hp = (u16)maxHP;
+        if (mon->party.hp + value > mon->party.maxHP) {
+            mon->party.hp = mon->party.maxHP;
         } else {
             mon->party.hp += value;
         }

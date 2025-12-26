@@ -248,7 +248,7 @@ u32 BoxPokemon_GetData(BoxPokemon *boxMon, int param, void *ptr);
 #endif
 void Pokemon_SetData(Pokemon *mon, int param, void *ptr);
 void BoxPokemon_SetData(BoxPokemon *boxMon, int param, void *ptr);
-void AddMonData(Pokemon *mon, int param, int amount);
+void Pokemon_IncreaseData(Pokemon *mon, int param, int amount);
 SpeciesData *SpeciesData_NewFromSpecies(int species, enum HeapID heapID);
 int SpeciesData_GetValue(SpeciesData *speciesData, enum SpeciesDataParam attr);
 void SpeciesData_Free(SpeciesData *speciesData);

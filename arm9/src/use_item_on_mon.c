@@ -273,7 +273,7 @@ BOOL UseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveIdx, u16 loca
         sp58 = (s32)Pokemon_GetData(pokemon, MON_DATA_LEVEL, NULL);
         if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_LEVEL_UP)) {
             if (sp58 < MAX_LEVEL) {
-                AddMonData(pokemon, MON_DATA_EXPERIENCE, (int)Pokemon_CalcExpToNextLevel(pokemon));
+                Pokemon_IncreaseData(pokemon, MON_DATA_EXPERIENCE, (int)Pokemon_CalcExpToNextLevel(pokemon));
                 Pokemon_CalcLevelAndStats(pokemon);
                 if (sp50 == 0) {
                     sp5C = (s32)Pokemon_GetData(pokemon, MON_DATA_MAX_HP, NULL);

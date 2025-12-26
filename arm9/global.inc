@@ -4745,7 +4745,7 @@
 .extern BoxPokemon_GetData
 .extern Pokemon_SetData
 .extern BoxPokemon_SetData
-.extern AddMonData
+.extern Pokemon_IncreaseData
 .extern SpeciesData_NewFromSpecies
 .extern SpeciesData_GetValue
 .extern SpeciesData_Free
