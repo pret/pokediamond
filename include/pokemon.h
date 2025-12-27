@@ -313,7 +313,7 @@ u16 SinnohDexNoToSpecies(u16 sinnoh_dex);
 void Pokemon_Copy(Pokemon *src, Pokemon *dest);
 void Pokemon_CopyToBoxPokemon(Pokemon *src, BoxPokemon *dest);
 void BoxPokemon_Copy(BoxPokemon *src, BoxPokemon *dest);
-s8 MonGetFlavorPreference(Pokemon *mon, int flavor);
+s8 Pokemon_GetFlavorAffinity(Pokemon *mon, int flavor);
 int Species_LoadLearnsetTable(u16 species, u32 form, u16 *dest);
 void Party_GivePokerusAtRandom(struct Party *party);
 void Party_UpdatePokerus(struct Party *party, int daysPassed);

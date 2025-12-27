@@ -102,7 +102,15 @@
 #define NATURE_CAREFUL 23
 #define NATURE_QUIRKY  24
 
-#define NATURE_NUM     25
+#define NATURE_COUNT   25
+
+#define FLAVOR_SPICY  0
+#define FLAVOR_DRY    1
+#define FLAVOR_SWEET  2
+#define FLAVOR_BITTER 3
+#define FLAVOR_SOUR   4
+
+#define FLAVOR_COUNT  5
 
 // Pokemon Stats
 #define STAT_HP      0

@@ -39,15 +39,15 @@ u32 BoxPokemon_TryAppendMove(BoxPokemon *boxMon, u16 move);
 void BoxPokemon_ForceAppendMove(BoxPokemon *boxMon, u16 move);
 void BoxPokemon_SetMoveInSlot(BoxPokemon *boxMon, u16 move, u8 slot);
 void BoxPokemon_SwapMoveSlots(BoxPokemon *boxMon, int slot1, int slot2);
-s8 BoxMonGetFlavorPreference(BoxPokemon *boxMon, int flavor);
-s8 GetFlavorPreferenceFromPID(u32 personality, int flavor);
+static s8 BoxPokemon_GetFlavorAffinity(BoxPokemon *boxMon, int flavor);
+s8 Personality_GetFlavorAffinity(u32 personality, int flavor);
 u8 Party_MaskHasPokerus(struct Party *party_p, u8 partyMask);
 BOOL BoxPokemon_HasPokerus(BoxPokemon *boxMon);
 BOOL BoxPokemon_IsImmuneToPokerus(BoxPokemon *boxMon);
 void BoxPokemon_UpdateArceusForm(BoxPokemon *boxMon);
 void Species_LoadLevelUpLearnset(int species, int form, u16 *levelUpLearnset);
 void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, enum HeapID heapID);
-BOOL Pokemon_HasMove(Pokemon *mon, u16 move);
+static BOOL Pokemon_HasMove(Pokemon *mon, u16 move);
 BOOL BoxPokemon_CanLearnTMHM(BoxPokemon *boxMon, u8 tmHM);
 BOOL Species_CanLearnTMHM(u16 species, int form, u8 tmHM);
 void BoxPokemon_UpdateAbility(BoxPokemon *boxMon);
@@ -76,34 +76,36 @@ u8 BoxPokemon_GetForm(BoxPokemon *boxMon);
     < 8u)
 #define CALC_UNOWN_LETTER(pid) ((u32)((((pid) & 0x3000000) >> 18) | (((pid) & 0x30000) >> 12) | (((pid) & 0x300) >> 6) | (((pid) & 0x3) >> 0)) % UNOWN_FORM_COUNT)
 
-const s8 sFlavorPreferencesByNature[][5] = {
-    // Spicy, Dry, Sweet, Bitter, Sour
-    { 0,  0,  0,  0,  0  }, // NATURE_HARDY
-    { 1,  0,  0,  0,  -1 }, // NATURE_LONELY
-    { 1,  0,  -1, 0,  0  }, // NATURE_BRAVE
-    { 1,  -1, 0,  0,  0  }, // NATURE_ADAMANT
-    { 1,  0,  0,  -1, 0  }, // NATURE_NAUGHTY
-    { -1, 0,  0,  0,  1  }, // NATURE_BOLD
-    { 0,  0,  0,  0,  0  }, // NATURE_DOCILE
-    { 0,  0,  -1, 0,  1  }, // NATURE_RELAXED
-    { 0,  -1, 0,  0,  1  }, // NATURE_IMPISH
-    { 0,  0,  0,  -1, 1  }, // NATURE_LAX
-    { -1, 0,  1,  0,  0  }, // NATURE_TIMID
-    { 0,  0,  1,  0,  -1 }, // NATURE_HASTY
-    { 0,  0,  0,  0,  0  }, // NATURE_SERIOUS
-    { 0,  -1, 1,  0,  0  }, // NATURE_JOLLY
-    { 0,  0,  1,  -1, 0  }, // NATURE_NAIVE
-    { -1, 1,  0,  0,  0  }, // NATURE_MODEST
-    { 0,  1,  0,  0,  -1 }, // NATURE_MILD
-    { 0,  1,  -1, 0,  0  }, // NATURE_QUIET
-    { 0,  0,  0,  0,  0  }, // NATURE_BASHFUL
-    { 0,  1,  0,  -1, 0  }, // NATURE_RASH
-    { -1, 0,  0,  1,  0  }, // NATURE_CALM
-    { 0,  0,  0,  1,  -1 }, // NATURE_GENTLE
-    { 0,  0,  -1, 1,  0  }, // NATURE_SASSY
-    { 0,  -1, 0,  1,  0  }, // NATURE_CAREFUL
-    { 0,  0,  0,  0,  0  }, // NATURE_QUIRKY
+// clang-format off
+static const s8 sNatureFlavorAffinities[NATURE_COUNT][FLAVOR_COUNT] = {
+                    // Spicy  Dry Sweet Bitter Sour
+    [NATURE_HARDY]   = {  0,   0,   0,    0,    0 },
+    [NATURE_LONELY]  = { +1,   0,   0,    0,   -1 },
+    [NATURE_BRAVE]   = { +1,   0,  -1,    0,    0 },
+    [NATURE_ADAMANT] = { +1,  -1,   0,    0,    0 },
+    [NATURE_NAUGHTY] = { +1,   0,   0,   -1,    0 },
+    [NATURE_BOLD]    = { -1,   0,   0,    0,    1 },
+    [NATURE_DOCILE]  = {  0,   0,   0,    0,    0 },
+    [NATURE_RELAXED] = {  0,   0,  -1,    0,    1 },
+    [NATURE_IMPISH]  = {  0,  -1,   0,    0,    1 },
+    [NATURE_LAX]     = {  0,   0,   0,   -1,    1 },
+    [NATURE_TIMID]   = { -1,   0,  +1,    0,    0 },
+    [NATURE_HASTY]   = {  0,   0,  +1,    0,   -1 },
+    [NATURE_SERIOUS] = {  0,   0,   0,    0,    0 },
+    [NATURE_JOLLY]   = {  0,  -1,  +1,    0,    0 },
+    [NATURE_NAIVE]   = {  0,   0,  +1,   -1,    0 },
+    [NATURE_MODEST]  = { -1,  +1,   0,    0,    0 },
+    [NATURE_MILD]    = {  0,  +1,   0,    0,   -1 },
+    [NATURE_QUIET]   = {  0,  +1,  -1,    0,    0 },
+    [NATURE_BASHFUL] = {  0,   0,   0,    0,    0 },
+    [NATURE_RASH]    = {  0,  +1,   0,   -1,    0 },
+    [NATURE_CALM]    = { -1,   0,   0,   +1,    0 },
+    [NATURE_GENTLE]  = {  0,   0,   0,   +1,   -1 },
+    [NATURE_SASSY]   = {  0,   0,  -1,   +1,    0 },
+    [NATURE_CAREFUL] = {  0,  -1,   0,   +1,    0 },
+    [NATURE_QUIRKY]  = {  0,   0,   0,    0,    0 },
 };
+// clang-format on
 
 void Pokemon_Init(Pokemon *mon) {
     MI_CpuClearFast(mon, sizeof(Pokemon));
@@ -1875,11 +1877,11 @@ u8 BoxPokemon_GetNature(BoxPokemon *boxMon) {
 }
 
 u8 Personality_GetNature(u32 personality) {
-    return (u8)(personality % NATURE_NUM);
+    return (u8)(personality % NATURE_COUNT);
 }
 
 // clang-format off
-const s8 gNatureStatModifiers[NATURE_NUM][NUM_EV_STATS] = {
+const s8 gNatureStatModifiers[NATURE_COUNT][NUM_EV_STATS] = {
                     // Attack Defense Speed Sp.Atk Sp.Def
     [NATURE_HARDY]   = {  0,     0,     0,     0,    0 },
     [NATURE_LONELY]  = { +1,    -1,     0,     0,    0 },
@@ -2818,7 +2820,7 @@ void Pokemon_ClearMoveSlot(Pokemon *mon, u32 slot) {
     Pokemon_SetData(mon, MON_DATA_MOVE1_PP_UPS + MAX_MON_MOVES - 1, &ppUp);
 }
 
-BOOL Pokemon_HasMove(Pokemon *mon, u16 move) {
+static BOOL Pokemon_HasMove(Pokemon *mon, u16 move) {
     int i;
     for (i = 0; i < MAX_MON_MOVES; i++) {
         if (Pokemon_GetData(mon, MON_DATA_MOVE1 + i, NULL) == move) {
@@ -2895,17 +2897,16 @@ void BoxPokemon_Copy(BoxPokemon *src, BoxPokemon *dest) {
     *dest = *src;
 }
 
-s8 MonGetFlavorPreference(Pokemon *mon, int flavor) {
-    return BoxMonGetFlavorPreference(&mon->box, flavor);
+s8 Pokemon_GetFlavorAffinity(Pokemon *mon, int flavor) {
+    return BoxPokemon_GetFlavorAffinity(&mon->box, flavor);
 }
 
-s8 BoxMonGetFlavorPreference(BoxPokemon *boxMon, int flavor) {
-    u32 personality = BoxPokemon_GetData(boxMon, MON_DATA_PERSONALITY, NULL);
-    return GetFlavorPreferenceFromPID(personality, flavor);
+static s8 BoxPokemon_GetFlavorAffinity(BoxPokemon *boxMon, int flavor) {
+    return Personality_GetFlavorAffinity(BoxPokemon_GetData(boxMon, MON_DATA_PERSONALITY, NULL), flavor);
 }
 
-s8 GetFlavorPreferenceFromPID(u32 personality, int flavor) {
-    return sFlavorPreferencesByNature[Personality_GetNature(personality)][flavor];
+s8 Personality_GetFlavorAffinity(u32 personality, int flavor) {
+    return sNatureFlavorAffinities[Personality_GetNature(personality)][flavor];
 }
 
 int Species_LoadLearnsetTable(u16 species, u32 form, u16 *dest) {

@@ -2163,7 +2163,7 @@ _0207AD26:
 _0207ADE0:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl MonGetFlavorPreference
+	bl Pokemon_GetFlavorAffinity
 	cmp r0, #0x1
 	bne _0207ADF4
 	add r0, r5, #0x0

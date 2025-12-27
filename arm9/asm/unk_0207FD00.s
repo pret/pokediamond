@@ -1171,7 +1171,7 @@ sub_02080678: ; 0x02080678
 _0208068A:
 	ldr r0, [r5, #0xc]
 	add r1, r4, #0x0
-	bl MonGetFlavorPreference
+	bl Pokemon_GetFlavorAffinity
 	cmp r0, #0x1
 	bne _02080698
 	add r6, r4, #0x1

@@ -4803,8 +4803,8 @@
 .extern Pokemon_Copy
 .extern Pokemon_CopyToBoxPokemon
 .extern BoxPokemon_Copy
-.extern MonGetFlavorPreference
-.extern GetFlavorPreferenceFromPID
+.extern Pokemon_GetFlavorAffinity
+.extern Personality_GetFlavorAffinity
 .extern Species_LoadLearnsetTable
 .extern Party_GivePokerusAtRandom
 .extern Party_MaskHasPokerus
