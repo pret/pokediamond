@@ -9633,7 +9633,7 @@ _021DC254:
 	cmp r0, r1
 	bne _021DC26A
 	ldr r0, [r4]
-	bl BoxMon_UpdateArceusForm
+	bl BoxPokemon_UpdateArceusForm
 _021DC26A:
 	add sp, #4
 	pop {r3, r4, r5, r6}

@@ -278,7 +278,7 @@ void Species_BuildSpriteTemplate(PokemonSpriteTemplate *template, u16 species, u
 u8 Pokemon_SpriteYOffset(Pokemon *mon, u8 face);
 u8 BoxPokemon_SpriteYOffset(BoxPokemon *boxMon, u32 face);
 u8 Species_LoadSpriteYOffset(int species, u8 gender, u32 face, u8 form, u32 personality);
-u32 GetArceusTypeByHeldItemEffect(u16 plate);
+u32 HoldEffect_GetArceusType(u16 holdEffect);
 int sub_0206AA30(int a0);
 void Pokemon_BuildSpriteTemplate(struct PokemonSpriteTemplate *template, Pokemon *mon, u8 face);
 void sub_02068FE0(struct PokemonSpriteTemplate *template, u16 a1, int a2);

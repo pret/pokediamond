@@ -17689,7 +17689,7 @@ _0224B1D8:
 	bl GetItemAttr
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl GetArceusTypeByHeldItemEffect
+	bl HoldEffect_GetArceusType
 	mov r1, #0x46
 	lsl r1, r1, #2
 	ldr r1, [r5, r1]

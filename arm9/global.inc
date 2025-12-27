@@ -4813,8 +4813,8 @@
 .extern Pokemon_HasPokerus
 .extern Pokemon_IsImmuneToPokerus
 .extern Pokemon_UpdateArceusForm
-.extern BoxMon_UpdateArceusForm
-.extern GetArceusTypeByHeldItemEffect
+.extern BoxPokemon_UpdateArceusForm
+.extern HoldEffect_GetArceusType
 .extern Species_LoadLevelUpLearnset
 .extern sub_02069FB0
 .extern sub_0206A014
