@@ -331,7 +331,7 @@ int LowestFlagNo(u32 mask);
 BOOL Species_IsBattleFacilityBanned(u16 species);
 u16 BattleFacility_GetBanlistEntry(u32 index);
 BOOL Pokemon_IsBattleFacilityBanned(Pokemon *mon);
-BOOL sub_0206A9AC(BoxPokemon *boxMon, PlayerProfile *sb2, enum HeapID heapID);
+BOOL BoxPokemon_BelongsToPlayer(BoxPokemon *boxMon, PlayerProfile *player, enum HeapID heapID);
 void Pokemon_RemoveCapsule(Pokemon *mon);
 void RestoreBoxMonPP(BoxPokemon *boxMon);
 

@@ -4828,7 +4828,7 @@
 .extern Species_IsBattleFacilityBanned
 .extern BattleFacility_GetBanlistEntry
 .extern Pokemon_IsBattleFacilityBanned
-.extern sub_0206A9AC
+.extern BoxPokemon_BelongsToPlayer
 .extern sub_0206AA30
 .extern Pokemon_RemoveCapsule
 .extern RestoreBoxMonPP

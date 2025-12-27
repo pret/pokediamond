@@ -1569,7 +1569,7 @@ _02080994:
 	pop {r3-r7, pc}
 _020809B0:
 	add r2, r6, #0x0
-	bl sub_0206A9AC
+	bl BoxPokemon_BelongsToPlayer
 	cmp r0, #0x1
 	bne _020809F6
 	add r0, r4, #0x0
@@ -1651,7 +1651,7 @@ _02080A66:
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	bl sub_0206A9AC
+	bl BoxPokemon_BelongsToPlayer
 	cmp r0, #0x0
 	bne _02080ACC
 	add r0, r4, #0x0
