@@ -4825,9 +4825,9 @@
 .extern sub_0206A23C
 .extern MaskOfFlagNo
 .extern LowestFlagNo
-.extern IsPokemonLegendaryOrMythical
-.extern GetLegendaryMon
-.extern sub_0206A998
+.extern Species_IsBattleFacilityBanned
+.extern BattleFacility_GetBanlistEntry
+.extern Pokemon_IsBattleFacilityBanned
 .extern sub_0206A9AC
 .extern sub_0206AA30
 .extern Pokemon_RemoveCapsule

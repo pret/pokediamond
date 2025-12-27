@@ -126,7 +126,7 @@ _0206BC42:
 	cmp r0, #0x0
 	bne _0206BC5C
 	add r0, r7, #0x0
-	bl sub_0206A998
+	bl Pokemon_IsBattleFacilityBanned
 	cmp r0, #0x0
 	beq _0206BC5C
 	mov r0, #0x0

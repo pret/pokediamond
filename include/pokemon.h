@@ -24,6 +24,8 @@
 #define LEVEL_UP_LEARNSET_MOVE(x) ((u16)(((x) & LEVEL_UP_LEARNSET_MOVEID_MASK) >> LEVEL_UP_LEARNSET_MOVEID_SHIFT))
 #define LEVEL_UP_LEARNSET_LVL(x)  (((x) & LEVEL_UP_LEARNSET_LEVEL_MASK) >> LEVEL_UP_LEARNSET_LEVEL_SHIFT)
 
+#define BATTLE_FACILITY_BANLIST_SIZE 18
+
 typedef struct SpeciesData {
     /* 0x00 */ u8 hp;
     /* 0x01 */ u8 atk;
@@ -326,9 +328,9 @@ BOOL sub_0206A13C(Pokemon *mon, u32 tmHM);
 void Pokemon_UpdateAbility(Pokemon *mon);
 void sub_0206A23C(Pokemon *r5, u32 personality);
 int LowestFlagNo(u32 mask);
-BOOL IsPokemonLegendaryOrMythical(u16 species);
-u16 GetLegendaryMon(u32 idx);
-BOOL sub_0206A998(Pokemon *mon);
+BOOL Species_IsBattleFacilityBanned(u16 species);
+u16 BattleFacility_GetBanlistEntry(u32 index);
+BOOL Pokemon_IsBattleFacilityBanned(Pokemon *mon);
 BOOL sub_0206A9AC(BoxPokemon *boxMon, PlayerProfile *sb2, enum HeapID heapID);
 void Pokemon_RemoveCapsule(Pokemon *mon);
 void RestoreBoxMonPP(BoxPokemon *boxMon);
