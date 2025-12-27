@@ -1,6 +1,7 @@
 #include "global.h"
 #define IN_POKEMON_C
 #include "constants/abilities.h"
+#include "constants/battle.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/sinnoh_dex.h"
@@ -47,8 +48,8 @@ void BoxPokemon_UpdateArceusForm(BoxPokemon *boxMon);
 void Species_LoadLevelUpLearnset(int species, int form, u16 *levelUpLearnset);
 void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, enum HeapID heapID);
 BOOL Pokemon_HasMove(Pokemon *mon, u16 move);
-BOOL BoxPokemon_CanLearnTMHM(BoxPokemon *boxMon, u32 tmHM);
-BOOL Species_CanLearnTMHM(u16 species, int form, u32 a2);
+BOOL BoxPokemon_CanLearnTMHM(BoxPokemon *boxMon, u8 tmHM);
+BOOL Species_CanLearnTMHM(u16 species, int form, u8 tmHM);
 void BoxPokemon_UpdateAbility(BoxPokemon *boxMon);
 u32 MaskOfFlagNo(int flagno);
 void SpeciesData_LoadSpecies(int species, SpeciesData *speciesData);
@@ -3137,49 +3138,48 @@ void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u
     BoxPokemon_SetData(boxMon, MON_DATA_MET_TERRAIN, &encounterType);
 }
 
-const u16 sItemOdds[2][2] = {
-    { 45, 95 },
-    { 20, 80 },
+static const u16 sHeldItemOdds[][2] = {
+    { 45, 95 }, // Without CompoundEyes (itemRates == 0) 45% no item, 50% common item, 5% rare item
+    { 20, 80 }, // With CompoundEyes (itemRates == 1) 20% no item, 60% common item, 20% rare item
 };
 
-void sub_0206A094(Pokemon *mon, u32 a1, u32 a2) {
-    u32 chance;
-    u16 species;
-    u16 form;
-    u16 item1;
-    u16 item2;
-    if (!(a1 & 0x81)) {
-        chance = (u32)(LCRandom() % 100);
-        species = (u16)Pokemon_GetData(mon, MON_DATA_SPECIES, 0);
-        form = (u16)Pokemon_GetData(mon, MON_DATA_FORM, 0);
-        item1 = (u16)Species_GetFormValue(species, form, SPECIES_DATA_HELD_ITEM_COMMON);
-        item2 = (u16)Species_GetFormValue(species, form, SPECIES_DATA_HELD_ITEM_RARE);
-        if (item1 == item2 && item1 != ITEM_NONE) {
-            Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &item1);
-        } else {
-            if (chance >= sItemOdds[a2][0]) {
-                if (chance < sItemOdds[a2][1]) {
-                    Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &item1);
-                } else {
-                    Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &item2);
-                }
-            }
-        }
+void Pokemon_GiveWildHeldItem(Pokemon *mon, u32 battleType, u32 itemRates) {
+    if (battleType & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_TOWER)) {
+        return;
+    }
+
+    u32 rand = LCRandom() % 100;
+    u16 species = Pokemon_GetData(mon, MON_DATA_SPECIES, NULL);
+    u16 form = Pokemon_GetData(mon, MON_DATA_FORM, NULL);
+    u16 item1 = Species_GetFormValue(species, form, SPECIES_DATA_HELD_ITEM_COMMON);
+    u16 item2 = Species_GetFormValue(species, form, SPECIES_DATA_HELD_ITEM_RARE);
+
+    if (item1 == item2 && item1 != ITEM_NONE) {
+        Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &item1);
+        return;
+    }
+
+    if (rand < sHeldItemOdds[itemRates][0]) {
+        return;
+    } else if (rand < sHeldItemOdds[itemRates][1]) {
+        Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &item1);
+    } else {
+        Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &item2);
     }
 }
 
-BOOL sub_0206A13C(Pokemon *mon, u32 tmHM) {
+BOOL Pokemon_CanLearnTMHM(Pokemon *mon, u8 tmHM) {
     return BoxPokemon_CanLearnTMHM(&mon->box, tmHM);
 }
 
-BOOL BoxPokemon_CanLearnTMHM(BoxPokemon *boxMon, u32 tmHM) {
+BOOL BoxPokemon_CanLearnTMHM(BoxPokemon *boxMon, u8 tmHM) {
     u16 species = BoxPokemon_GetData(boxMon, MON_DATA_SPECIES_OR_EGG, NULL);
     int form = BoxPokemon_GetData(boxMon, MON_DATA_FORM, NULL);
 
     return Species_CanLearnTMHM(species, form, tmHM);
 }
 
-BOOL Species_CanLearnTMHM(u16 species, int form, u32 tmHM) {
+BOOL Species_CanLearnTMHM(u16 species, int form, u8 tmHM) {
     if (species == SPECIES_EGG) {
         return FALSE;
     }

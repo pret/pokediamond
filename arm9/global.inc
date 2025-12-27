@@ -4818,8 +4818,8 @@
 .extern Species_LoadLevelUpLearnset
 .extern sub_02069FB0
 .extern sub_0206A014
-.extern sub_0206A094
-.extern sub_0206A13C
+.extern Pokemon_GiveWildHeldItem
+.extern Pokemon_CanLearnTMHM
 .extern Species_CanLearnTMHM
 .extern Pokemon_UpdateAbility
 .extern sub_0206A23C

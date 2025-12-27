@@ -2562,7 +2562,7 @@ _02076AD4:
 	bl ItemToTMHMId
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl sub_0206A13C
+	bl Pokemon_CanLearnTMHM
 	cmp r0, #0x0
 	bne _02076AEA
 	mov r0, #0xff

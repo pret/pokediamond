@@ -7842,7 +7842,7 @@ _0223D1D8:
 _0223D1DA:
 	ldr r1, [r7]
 	add r0, r6, #0
-	bl sub_0206A094
+	bl Pokemon_GiveWildHeldItem
 	mov r4, #0
 	add r0, r6, #0
 	mov r1, #5
