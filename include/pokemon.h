@@ -326,7 +326,7 @@ void sub_0206A014(Pokemon *mon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 enc
 void Pokemon_GiveWildHeldItem(Pokemon *mon, u32 battleType, u32 itemRates);
 BOOL Pokemon_CanLearnTMHM(Pokemon *mon, u8 tmHM);
 void Pokemon_UpdateAbility(Pokemon *mon);
-void sub_0206A23C(Pokemon *r5, u32 personality);
+void Pokemon_SetPersonality(Pokemon *mon, u32 personality);
 int LowestFlagNo(u32 mask);
 BOOL Species_IsBattleFacilityBanned(u16 species);
 u16 BattleFacility_GetBanlistEntry(u32 index);

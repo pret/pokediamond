@@ -4822,7 +4822,7 @@
 .extern Pokemon_CanLearnTMHM
 .extern Species_CanLearnTMHM
 .extern Pokemon_UpdateAbility
-.extern sub_0206A23C
+.extern Pokemon_SetPersonality
 .extern MaskOfFlagNo
 .extern LowestFlagNo
 .extern Species_IsBattleFacilityBanned

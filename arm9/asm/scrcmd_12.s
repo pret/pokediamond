@@ -389,7 +389,7 @@ _02042FE6:
 _02042FE8:
 	ldr r1, [sp, #0x34]
 	add r0, r4, #0x0
-	bl sub_0206A23C
+	bl Pokemon_SetPersonality
 	add r0, r4, #0x0
 	bl Pokemon_GetGender
 	str r0, [sp, #0x30]
