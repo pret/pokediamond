@@ -18477,7 +18477,7 @@ _0223B414:
 	lsl r1, r1, #0x18
 	ldr r0, [sp]
 	lsr r1, r1, #0x18
-	bl Party_MaskMonsWithPokerus
+	bl Party_MaskHasPokerus
 	cmp r0, #0
 	beq _0223B42E
 	lsl r0, r4, #0x11

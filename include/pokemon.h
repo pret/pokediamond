@@ -314,7 +314,7 @@ void BoxPokemon_Copy(BoxPokemon *src, BoxPokemon *dest);
 s8 MonGetFlavorPreference(Pokemon *mon, int flavor);
 int Species_LoadLearnsetTable(u16 species, u32 form, u16 *dest);
 void Party_GivePokerusAtRandom(struct Party *party);
-void Party_UpdatePokerus(struct Party *party, int r5);
+void Party_UpdatePokerus(struct Party *party, int daysPassed);
 void Party_SpreadPokerus(struct Party *party);
 BOOL Pokemon_HasPokerus(Pokemon *mon);
 BOOL Pokemon_IsImmuneToPokerus(Pokemon *mon);

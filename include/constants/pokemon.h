@@ -318,9 +318,9 @@
 #define GENDER_RATIO(frac) ((frac) <= 1 ? (u8)((frac) * 254.75) : 255)
 
 enum MonGender {
-    MON_MALE = 0,
-    MON_FEMALE = 1,
-    MON_GENDERLESS = 2
+    GENDER_MALE = 0,
+    GENDER_FEMALE = 1,
+    GENDER_NONE = 2
 };
 
 // Constants for AdjustFriendship

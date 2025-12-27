@@ -4807,7 +4807,7 @@
 .extern GetFlavorPreferenceFromPID
 .extern Species_LoadLearnsetTable
 .extern Party_GivePokerusAtRandom
-.extern Party_MaskMonsWithPokerus
+.extern Party_MaskHasPokerus
 .extern Party_UpdatePokerus
 .extern Party_SpreadPokerus
 .extern Pokemon_HasPokerus

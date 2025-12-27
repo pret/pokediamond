@@ -930,7 +930,7 @@ void ov59_LoadSubScrnData(ov59_IntroOverlayData *data) {
 #ifdef NONMATCHING
 void ov59_DrawMunchlax(ov59_IntroOverlayData *data) {
     struct PokemonSpriteTemplate drawStruct;
-    Species_BuildSpriteTemplate(&drawStruct, SPECIES_MUNCHLAX, MON_MALE, 2, FALSE, 0, 0);
+    Species_BuildSpriteTemplate(&drawStruct, SPECIES_MUNCHLAX, GENDER_MALE, 2, FALSE, 0, 0);
     u16 *src = (u16 *)Heap_Alloc(data->heapID, 0x64 * sizeof(u16));
     for (s32 i = 0; i < 0x64; i++) {
         src[i] = ov59_021D9FE8[i] + 1;
