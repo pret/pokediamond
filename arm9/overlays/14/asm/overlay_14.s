@@ -7576,7 +7576,7 @@ ov14_021DB220: ; 0x021DB220
 	mov r1, #0x67
 	lsl r1, r1, #2
 	str r0, [r5, r1]
-	bl SizeOfStructPokemon
+	bl Pokemon_Size
 	add r1, r0, #0
 	mov r0, #9
 	bl Heap_Alloc
@@ -8651,7 +8651,7 @@ ov14_021DBA5C: ; 0x021DBA5C
 	mov r0, #0
 	b _021DBAB6
 _021DBA98:
-	bl Pokemon_Size
+	bl Pokemon_Size2
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [r4]
@@ -8996,7 +8996,7 @@ ov14_021DBD34: ; 0x021DBD34
 	str r1, [sp]
 	add r5, r0, #0
 	add r4, #0x14
-	bl Pokemon_Size
+	bl Pokemon_Size2
 	add r6, r0, #0
 	ldr r0, [sp]
 	add r2, r6, #0

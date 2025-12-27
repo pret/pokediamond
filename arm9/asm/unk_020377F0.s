@@ -1442,12 +1442,12 @@ sub_02038144: ; 0x02038144
 	mov r0, #0x20
 	bl Heap_Alloc
 	str r0, [r5, #0x38]
-	bl Pokemon_Size
+	bl Pokemon_Size2
 	add r1, r0, #0x0
 	mov r0, #0x20
 	bl Heap_Alloc
 	str r0, [r5, #0x3c]
-	bl Pokemon_Size
+	bl Pokemon_Size2
 	add r1, r0, #0x0
 	mov r0, #0x20
 	bl Heap_Alloc

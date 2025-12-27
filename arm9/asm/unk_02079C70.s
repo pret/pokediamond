@@ -3113,7 +3113,7 @@ _0207B522:
 	mvn r0, r0
 	pop {r3-r7, pc}
 _0207B528:
-	bl Pokemon_Size
+	bl Pokemon_Size2
 	mov r1, #0x93
 	lsl r1, r1, #0x2
 	ldr r1, [r5, r1]
@@ -3260,7 +3260,7 @@ sub_0207B628: ; 0x0207B628
 	beq _0207B658
 	b _0207B666
 _0207B640:
-	bl Pokemon_Size
+	bl Pokemon_Size2
 	ldrb r1, [r4, #0x14]
 	ldr r2, [r4, #0x0]
 	mul r0, r1

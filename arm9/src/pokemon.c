@@ -125,7 +125,7 @@ void BoxPokemon_Init(BoxPokemon *boxMon) {
     ENCRYPT_BOX(boxMon);
 }
 
-u32 SizeOfStructPokemon(void) {
+int Pokemon_Size(void) {
     return sizeof(Pokemon);
 }
 
@@ -2371,7 +2371,7 @@ void sub_020690AC(struct PokemonSpriteTemplate *template, u32 a1) {
     template->personality = 0;
 }
 
-u32 Pokemon_Size(void) {
+u32 Pokemon_Size2(void) {
     return sizeof(Pokemon);
 }
 

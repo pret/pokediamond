@@ -228,7 +228,7 @@ typedef struct Party {
 
 void Pokemon_Init(Pokemon *mon);
 void BoxPokemon_Init(BoxPokemon *boxMon);
-u32 SizeOfStructPokemon(void);
+int Pokemon_Size(void);
 Pokemon *Pokemon_New(enum HeapID heapID);
 BOOL Pokemon_UnlockEncryption(Pokemon *mon);
 BOOL Pokemon_LockEncryption(Pokemon *mon, BOOL encrypt);
@@ -288,7 +288,7 @@ void sub_02068FE0(struct PokemonSpriteTemplate *template, u16 a1, int a2);
 void sub_02069010(void *dest, int a1);
 void sub_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6);
 void sub_020690AC(struct PokemonSpriteTemplate *template, u32 a1);
-u32 Pokemon_Size(void);
+u32 Pokemon_Size2(void);
 u32 BoxPokemon_Size(void);
 u8 BoxPokemon_GetForm(BoxPokemon *boxMon);
 u8 Pokemon_GetForm(Pokemon *mon);

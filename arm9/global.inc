@@ -4728,7 +4728,7 @@
 .extern sub_02066840
 .extern Pokemon_Init
 .extern BoxPokemon_Init
-.extern SizeOfStructPokemon
+.extern Pokemon_Size
 .extern Pokemon_New
 .extern Pokemon_UnlockEncryption
 .extern Pokemon_LockEncryption
@@ -4780,7 +4780,7 @@
 .extern sub_02069010
 .extern sub_02069038
 .extern sub_020690AC
-.extern Pokemon_Size
+.extern Pokemon_Size2
 .extern BoxPokemon_Size
 .extern Pokemon_GetForm
 .extern BoxPokemon_GetForm

@@ -13570,7 +13570,7 @@ ov80_02234288: ; 0x02234288
 	bl ov80_02232FAC
 	cmp r0, #0
 	beq _022342B0
-	bl SizeOfStructPokemon
+	bl Pokemon_Size
 	add r2, r0, #0
 	add r0, r4, #0
 	add r0, #0xbc
