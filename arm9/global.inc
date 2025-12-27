@@ -4821,7 +4821,7 @@
 .extern sub_0206A094
 .extern sub_0206A13C
 .extern Species_CanLearnTMHM
-.extern sub_0206A1C4
+.extern Pokemon_UpdateAbility
 .extern sub_0206A23C
 .extern MaskOfFlagNo
 .extern LowestFlagNo

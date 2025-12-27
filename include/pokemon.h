@@ -323,7 +323,7 @@ void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp
 void sub_0206A014(Pokemon *mon, PlayerProfile *a1, u32 pokeball, u32 a3, u32 encounterType, enum HeapID heapID);
 void sub_0206A094(Pokemon *mon, u32 a1, u32 a2);
 BOOL sub_0206A13C(Pokemon *mon, u32 tmHM);
-void sub_0206A1C4(Pokemon *mon);
+void Pokemon_UpdateAbility(Pokemon *mon);
 void sub_0206A23C(Pokemon *r5, u32 personality);
 int LowestFlagNo(u32 mask);
 BOOL IsPokemonLegendaryOrMythical(u16 species);

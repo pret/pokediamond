@@ -1042,7 +1042,7 @@ _0206CF7E:
 	add r2, #0x62
 	bl Pokemon_SetData
 	ldr r0, [r4, #0x28]
-	bl sub_0206A1C4
+	bl Pokemon_UpdateAbility
 	ldr r0, [r4, #0x28]
 	bl Pokemon_CalcLevelAndStats
 	ldr r0, [r4, #0x28]
@@ -2190,7 +2190,7 @@ _0206D8EA:
 	add r2, sp, #0x8
 	bl Pokemon_SetData
 	add r0, r5, #0x0
-	bl sub_0206A1C4
+	bl Pokemon_UpdateAbility
 	add r0, r5, #0x0
 	bl Pokemon_CalcLevelAndStats
 	ldr r0, [r4, #0x24]

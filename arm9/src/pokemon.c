@@ -49,7 +49,7 @@ void sub_0206A054(BoxPokemon *boxMon, PlayerProfile *a1, u32 pokeball, u32 a3, u
 BOOL Pokemon_HasMove(Pokemon *mon, u16 move);
 BOOL BoxPokemon_CanLearnTMHM(BoxPokemon *boxMon, u32 tmHM);
 BOOL Species_CanLearnTMHM(u16 species, int form, u32 a2);
-void sub_0206A1CC(BoxPokemon *boxMon);
+void BoxPokemon_UpdateAbility(BoxPokemon *boxMon);
 u32 MaskOfFlagNo(int flagno);
 void SpeciesData_LoadSpecies(int species, SpeciesData *speciesData);
 void LoadMonEvolutionTable(u16 species, struct Evolution *dest);
@@ -3203,19 +3203,19 @@ BOOL Species_CanLearnTMHM(u16 species, int form, u32 tmHM) {
     return (Species_GetFormValue(species, form, param) & mask) != 0;
 }
 
-void sub_0206A1C4(Pokemon *mon) {
-    sub_0206A1CC(&mon->box);
+void Pokemon_UpdateAbility(Pokemon *mon) {
+    BoxPokemon_UpdateAbility(&mon->box);
 }
 
-void sub_0206A1CC(BoxPokemon *boxMon) {
-    BOOL decry = BoxPokemon_UnlockEncryption(boxMon);
-    int species = (int)BoxPokemon_GetData(boxMon, MON_DATA_SPECIES, NULL);
-    int pid = (int)BoxPokemon_GetData(boxMon, MON_DATA_PERSONALITY, NULL);
-    int ability1 = (int)Species_GetValue(species, SPECIES_DATA_ABILITY_1);
-    int ability2 = (int)Species_GetValue(species, SPECIES_DATA_ABILITY_2);
+void BoxPokemon_UpdateAbility(BoxPokemon *boxMon) {
+    BOOL reencrypt = BoxPokemon_UnlockEncryption(boxMon);
+    int species = BoxPokemon_GetData(boxMon, MON_DATA_SPECIES, NULL);
+    int personality = BoxPokemon_GetData(boxMon, MON_DATA_PERSONALITY, NULL);
+    int ability1 = Species_GetValue(species, SPECIES_DATA_ABILITY_1);
+    int ability2 = Species_GetValue(species, SPECIES_DATA_ABILITY_2);
 
     if (ability2 != ABILITY_NONE) {
-        if (pid & 1) {
+        if (personality & 1) {
             BoxPokemon_SetData(boxMon, MON_DATA_ABILITY, &ability2);
         } else {
             BoxPokemon_SetData(boxMon, MON_DATA_ABILITY, &ability1);
@@ -3223,7 +3223,7 @@ void sub_0206A1CC(BoxPokemon *boxMon) {
     } else {
         BoxPokemon_SetData(boxMon, MON_DATA_ABILITY, &ability1);
     }
-    BoxPokemon_LockEncryption(boxMon, decry);
+    BoxPokemon_LockEncryption(boxMon, reencrypt);
 }
 
 void sub_0206A23C(Pokemon *r5, u32 personality) {
