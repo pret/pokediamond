@@ -194,7 +194,7 @@
       "species": "PIKACHU",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "RAICHU",
           "param": "ITEM_THUNDERSTONE"
         }
@@ -232,7 +232,7 @@
       "species": "NIDORINA",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "NIDOQUEEN",
           "param": "ITEM_MOON_STONE"
         }
@@ -256,7 +256,7 @@
       "species": "NIDORINO",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "NIDOKING",
           "param": "ITEM_MOON_STONE"
         }
@@ -270,7 +270,7 @@
       "species": "CLEFAIRY",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "CLEFABLE",
           "param": "ITEM_MOON_STONE"
         }
@@ -284,7 +284,7 @@
       "species": "VULPIX",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "NINETALES",
           "param": "ITEM_FIRE_STONE"
         }
@@ -298,7 +298,7 @@
       "species": "JIGGLYPUFF",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "WIGGLYTUFF",
           "param": "ITEM_MOON_STONE"
         }
@@ -322,7 +322,7 @@
       "species": "GOLBAT",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "CROBAT"
         }
       ]
@@ -341,12 +341,12 @@
       "species": "GLOOM",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "VILEPLUME",
           "param": "ITEM_LEAF_STONE"
         },
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "BELLOSSOM",
           "param": "ITEM_SUN_STONE"
         }
@@ -444,7 +444,7 @@
       "species": "GROWLITHE",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "ARCANINE",
           "param": "ITEM_FIRE_STONE"
         }
@@ -468,12 +468,12 @@
       "species": "POLIWHIRL",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "POLIWRATH",
           "param": "ITEM_WATER_STONE"
         },
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "POLITOED",
           "param": "ITEM_KINGS_ROCK"
         }
@@ -543,7 +543,7 @@
       "species": "WEEPINBELL",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "VICTREEBEL",
           "param": "ITEM_LEAF_STONE"
         }
@@ -613,7 +613,7 @@
           "param": 37
         },
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "SLOWKING",
           "param": "ITEM_KINGS_ROCK"
         }
@@ -637,7 +637,7 @@
       "species": "MAGNETON",
       "evos": [
         {
-          "method": "EVO_CORONET",
+          "method": "EVO_LEVEL_MAGNETIC_FIELD",
           "target": "MAGNEZONE"
         }
       ]
@@ -692,7 +692,7 @@
       "species": "SHELLDER",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "CLOYSTER",
           "param": "ITEM_WATER_STONE"
         }
@@ -729,7 +729,7 @@
       "species": "ONIX",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "STEELIX",
           "param": "ITEM_METAL_COAT"
         }
@@ -781,7 +781,7 @@
       "species": "EXEGGCUTE",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "EXEGGUTOR",
           "param": "ITEM_LEAF_STONE"
         }
@@ -817,7 +817,7 @@
       "species": "LICKITUNG",
       "evos": [
         {
-          "method": "EVO_HAS_MOVE",
+          "method": "EVO_LEVEL_KNOW_MOVE",
           "target": "LICKILICKY",
           "param": "MOVE_ROLLOUT"
         }
@@ -851,7 +851,7 @@
       "species": "RHYDON",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "RHYPERIOR",
           "param": "ITEM_PROTECTOR"
         }
@@ -861,7 +861,7 @@
       "species": "CHANSEY",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "BLISSEY"
         }
       ]
@@ -870,7 +870,7 @@
       "species": "TANGELA",
       "evos": [
         {
-          "method": "EVO_HAS_MOVE",
+          "method": "EVO_LEVEL_KNOW_MOVE",
           "target": "TANGROWTH",
           "param": "MOVE_ANCIENT_POWER"
         }
@@ -894,7 +894,7 @@
       "species": "SEADRA",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "KINGDRA",
           "param": "ITEM_DRAGON_SCALE"
         }
@@ -918,7 +918,7 @@
       "species": "STARYU",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "STARMIE",
           "param": "ITEM_WATER_STONE"
         }
@@ -936,7 +936,7 @@
       "species": "SCYTHER",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "SCIZOR",
           "param": "ITEM_METAL_COAT"
         }
@@ -950,7 +950,7 @@
       "species": "ELECTABUZZ",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "ELECTIVIRE",
           "param": "ITEM_ELECTIRIZER"
         }
@@ -960,7 +960,7 @@
       "species": "MAGMAR",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "MAGMORTAR",
           "param": "ITEM_MAGMARIZER"
         }
@@ -1000,34 +1000,34 @@
       "species": "EEVEE",
       "evos": [
         {
-          "method": "EVO_ETERNA",
+          "method": "EVO_LEVEL_MOSS_ROCK",
           "target": "LEAFEON"
         },
         {
-          "method": "EVO_ROUTE217",
+          "method": "EVO_LEVEL_ICE_ROCK",
           "target": "GLACEON"
         },
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "JOLTEON",
           "param": "ITEM_THUNDERSTONE"
         },
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "VAPOREON",
           "param": "ITEM_WATER_STONE"
         },
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "FLAREON",
           "param": "ITEM_FIRE_STONE"
         },
         {
-          "method": "EVO_FRIENDSHIP_DAY",
+          "method": "EVO_LEVEL_FRIENDSHIP_DAY",
           "target": "ESPEON"
         },
         {
-          "method": "EVO_FRIENDSHIP_NIGHT",
+          "method": "EVO_LEVEL_FRIENDSHIP_NIGHT",
           "target": "UMBREON"
         }
       ]
@@ -1048,7 +1048,7 @@
       "species": "PORYGON",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "PORYGON2",
           "param": "ITEM_UPGRADE"
         }
@@ -1284,7 +1284,7 @@
       "species": "PICHU",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "PIKACHU"
         }
       ]
@@ -1293,7 +1293,7 @@
       "species": "CLEFFA",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "CLEFAIRY"
         }
       ]
@@ -1302,7 +1302,7 @@
       "species": "IGGLYBUFF",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "JIGGLYPUFF"
         }
       ]
@@ -1311,7 +1311,7 @@
       "species": "TOGEPI",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "TOGETIC"
         }
       ]
@@ -1320,7 +1320,7 @@
       "species": "TOGETIC",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "TOGEKISS",
           "param": "ITEM_SHINY_STONE"
         }
@@ -1418,7 +1418,7 @@
       "species": "AIPOM",
       "evos": [
         {
-          "method": "EVO_HAS_MOVE",
+          "method": "EVO_LEVEL_KNOW_MOVE",
           "target": "AMBIPOM",
           "param": "MOVE_DOUBLE_HIT"
         }
@@ -1428,7 +1428,7 @@
       "species": "SUNKERN",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "SUNFLORA",
           "param": "ITEM_SUN_STONE"
         }
@@ -1442,7 +1442,7 @@
       "species": "YANMA",
       "evos": [
         {
-          "method": "EVO_HAS_MOVE",
+          "method": "EVO_LEVEL_KNOW_MOVE",
           "target": "YANMEGA",
           "param": "MOVE_ANCIENT_POWER"
         }
@@ -1474,7 +1474,7 @@
       "species": "MURKROW",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "HONCHKROW",
           "param": "ITEM_DUSK_STONE"
         }
@@ -1488,7 +1488,7 @@
       "species": "MISDREAVUS",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "MISMAGIUS",
           "param": "ITEM_DUSK_STONE"
         }
@@ -1528,7 +1528,7 @@
       "species": "GLIGAR",
       "evos": [
         {
-          "method": "EVO_ITEM_NIGHT",
+          "method": "EVO_LEVEL_HELD_ITEM_NIGHT",
           "target": "GLISCOR",
           "param": "ITEM_RAZOR_FANG"
         }
@@ -1572,7 +1572,7 @@
       "species": "SNEASEL",
       "evos": [
         {
-          "method": "EVO_ITEM_NIGHT",
+          "method": "EVO_LEVEL_HELD_ITEM_NIGHT",
           "target": "WEAVILE",
           "param": "ITEM_RAZOR_CLAW"
         }
@@ -1620,7 +1620,7 @@
       "species": "PILOSWINE",
       "evos": [
         {
-          "method": "EVO_HAS_MOVE",
+          "method": "EVO_LEVEL_KNOW_MOVE",
           "target": "MAMOSWINE",
           "param": "MOVE_ANCIENT_POWER"
         }
@@ -1692,7 +1692,7 @@
       "species": "PORYGON2",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "PORYGON_Z",
           "param": "ITEM_DUBIOUS_DISC"
         }
@@ -1920,12 +1920,12 @@
       "species": "WURMPLE",
       "evos": [
         {
-          "method": "EVO_LEVEL_PID_LO",
+          "method": "EVO_LEVEL_PID_LOW",
           "target": "SILCOON",
           "param": 7
         },
         {
-          "method": "EVO_LEVEL_PID_HI",
+          "method": "EVO_LEVEL_PID_HIGH",
           "target": "CASCOON",
           "param": 7
         }
@@ -1973,7 +1973,7 @@
       "species": "LOMBRE",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "LUDICOLO",
           "param": "ITEM_WATER_STONE"
         }
@@ -1997,7 +1997,7 @@
       "species": "NUZLEAF",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "SHIFTRY",
           "param": "ITEM_LEAF_STONE"
         }
@@ -2054,7 +2054,7 @@
           "param": 30
         },
         {
-          "method": "EVO_STONE_MALE",
+          "method": "EVO_USE_ITEM_MALE",
           "target": "GALLADE",
           "param": "ITEM_DAWN_STONE"
         }
@@ -2181,7 +2181,7 @@
       "species": "AZURILL",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "MARILL"
         }
       ]
@@ -2190,7 +2190,7 @@
       "species": "NOSEPASS",
       "evos": [
         {
-          "method": "EVO_CORONET",
+          "method": "EVO_LEVEL_MAGNETIC_FIELD",
           "target": "PROBOPASS"
         }
       ]
@@ -2199,7 +2199,7 @@
       "species": "SKITTY",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "DELCATTY",
           "param": "ITEM_MOON_STONE"
         }
@@ -2289,7 +2289,7 @@
       "species": "ROSELIA",
       "evos": [
         {
-          "method": "EVO_STONE",
+          "method": "EVO_USE_ITEM",
           "target": "ROSERADE",
           "param": "ITEM_SHINY_STONE"
         }
@@ -2515,7 +2515,7 @@
       "species": "FEEBAS",
       "evos": [
         {
-          "method": "EVO_BEAUTY",
+          "method": "EVO_LEVEL_BEAUTY",
           "target": "MILOTIC",
           "param": 170
         }
@@ -2561,7 +2561,7 @@
       "species": "DUSCLOPS",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "DUSKNOIR",
           "param": "ITEM_REAPER_CLOTH"
         }
@@ -2598,7 +2598,7 @@
           "param": 42
         },
         {
-          "method": "EVO_STONE_FEMALE",
+          "method": "EVO_USE_ITEM_FEMALE",
           "target": "FROSLASS",
           "param": "ITEM_DAWN_STONE"
         }
@@ -2636,12 +2636,12 @@
       "species": "CLAMPERL",
       "evos": [
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "HUNTAIL",
           "param": "ITEM_DEEPSEATOOTH"
         },
         {
-          "method": "EVO_TRADE_ITEM",
+          "method": "EVO_TRADE_HELD_ITEM",
           "target": "GOREBYSS",
           "param": "ITEM_DEEPSEASCALE"
         }
@@ -2903,7 +2903,7 @@
       "species": "BUDEW",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP_DAY",
+          "method": "EVO_LEVEL_FRIENDSHIP_DAY",
           "target": "ROSELIA"
         }
       ]
@@ -3045,7 +3045,7 @@
       "species": "BUNEARY",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "LOPUNNY"
         }
       ]
@@ -3080,7 +3080,7 @@
       "species": "CHINGLING",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP_NIGHT",
+          "method": "EVO_LEVEL_FRIENDSHIP_NIGHT",
           "target": "CHIMECHO"
         }
       ]
@@ -3117,7 +3117,7 @@
       "species": "BONSLY",
       "evos": [
         {
-          "method": "EVO_HAS_MOVE",
+          "method": "EVO_LEVEL_KNOW_MOVE",
           "target": "SUDOWOODO",
           "param": "MOVE_MIMIC"
         }
@@ -3127,7 +3127,7 @@
       "species": "MIME_JR",
       "evos": [
         {
-          "method": "EVO_HAS_MOVE",
+          "method": "EVO_LEVEL_KNOW_MOVE",
           "target": "MR_MIME",
           "param": "MOVE_MIMIC"
         }
@@ -3137,7 +3137,7 @@
       "species": "HAPPINY",
       "evos": [
         {
-          "method": "EVO_ITEM_DAY",
+          "method": "EVO_LEVEL_HELD_ITEM_DAY",
           "target": "CHANSEY",
           "param": "ITEM_OVAL_STONE"
         }
@@ -3179,7 +3179,7 @@
       "species": "MUNCHLAX",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP",
+          "method": "EVO_LEVEL_FRIENDSHIP",
           "target": "SNORLAX"
         }
       ]
@@ -3188,7 +3188,7 @@
       "species": "RIOLU",
       "evos": [
         {
-          "method": "EVO_FRIENDSHIP_DAY",
+          "method": "EVO_LEVEL_FRIENDSHIP_DAY",
           "target": "LUCARIO"
         }
       ]
@@ -3261,7 +3261,7 @@
       "species": "MANTYKE",
       "evos": [
         {
-          "method": "EVO_OTHER_PARTY_MON",
+          "method": "EVO_LEVEL_SPECIES_IN_PARTY",
           "target": "MANTINE",
           "param": "SPECIES_REMORAID"
         }

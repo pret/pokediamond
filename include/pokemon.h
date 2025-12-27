@@ -211,11 +211,12 @@ struct UnkStruct_02069038 {
     struct Pokeanm anim;
 };
 
-struct Evolution {
+typedef struct Evolution {
     u16 method;
     u16 param;
     u16 target;
-};
+} Evolution;
+#define MAX_MON_EVOLUTIONS 7
 
 #define PARTY_SIZE 6
 
@@ -294,7 +295,7 @@ u8 Pokemon_GetForm(Pokemon *mon);
 void Species_LoadLevelUpLearnset(int species, int form, u16 *levelUpLearnset);
 BoxPokemon *Pokemon_GetBoxMon(Pokemon *mon);
 
-u16 GetMonEvolution(struct Party *party, Pokemon *mon, u32 context, u32 usedItem, u32 *method_ret);
+u16 Pokemon_GetEvolutionTarget(struct Party *party, Pokemon *mon, u8 context, u32 evoParam, u32 *methodRet);
 u16 ReadFromPersonalPmsNarc(u16 species);
 u16 GetEggSpecies(u16 species);
 BOOL Pokemon_TryLevelUp(Pokemon *mon);

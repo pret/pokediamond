@@ -67,7 +67,7 @@ BOOL CanUseItemOnPokemon(struct Pokemon *pokemon, u16 itemId, s32 moveId, enum H
         Heap_Free(itemData);
         return TRUE;
     }
-    if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_EVOLVE) && GetMonEvolution(NULL, pokemon, 3, itemId, NULL) != SPECIES_NONE) {
+    if (GetItemAttr_PreloadedItemData(itemData, ITEMATTR_EVOLVE) && Pokemon_GetEvolutionTarget(NULL, pokemon, 3, itemId, NULL) != SPECIES_NONE) {
         Heap_Free(itemData);
         return TRUE;
     }

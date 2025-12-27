@@ -4786,7 +4786,7 @@
 .extern BoxPokemon_GetForm
 .extern Pokemon_GetBoxMon
 .extern Pokemon_TryLevelUp
-.extern GetMonEvolution
+.extern Pokemon_GetEvolutionTarget
 .extern ReadFromPersonalPmsNarc
 .extern GetEggSpecies
 .extern Pokemon_TryAppendMove
