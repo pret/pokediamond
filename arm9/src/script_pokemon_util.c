@@ -30,7 +30,7 @@ BOOL GiveMon(enum HeapID heapID, struct SaveData *save, u16 species, u8 level, u
     struct Party *party = SaveArray_Party_Get(save);
     struct Pokemon *mon = Pokemon_New(heapID);
     Pokemon_Init(mon);
-    Pokemon_InitWithParams(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    Pokemon_InitWithParams(mon, species, level, INIT_IVS_RANDOM, 0, 0, OT_ID_PLAYER_ID, 0);
     sub_0206A014(mon, data, ITEM_POKE_BALL, mapSec, encounterType, heapID);
     ptr = item;
     Pokemon_SetData(mon, MON_DATA_HELD_ITEM, &ptr);

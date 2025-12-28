@@ -4013,7 +4013,7 @@ static void Script_SetMonSeenFlagBySpecies(FieldSystem *fieldSystem, u16 species
     Pokedex *pokedex = Save_Pokedex_Get(fieldSystem->saveData);
     Pokemon *mon = Pokemon_New(HEAP_ID_32);
     Pokemon_Init(mon);
-    Pokemon_InitWithParams(mon, species, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    Pokemon_InitWithParams(mon, species, 50, INIT_IVS_RANDOM, FALSE, 0, OT_ID_PLAYER_ID, 0);
     Pokedex_SetMonSeenFlag(pokedex, mon);
     Heap_Free(mon);
 }
