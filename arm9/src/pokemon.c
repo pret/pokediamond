@@ -62,7 +62,7 @@ u32 MaskOfFlagNo(int flagno);
 void SpeciesData_LoadSpecies(int species, SpeciesData *speciesData);
 void Species_LoadEvolutions(u16 species, struct Evolution *dest);
 
-int ResolveMonForm(int species, int form);
+int Species_GetFormNarcIndex(int species, int form);
 void MonEncryptSegment(u16 *datap, u32 size, u32 key);
 void MonDecryptSegment(u16 *datap, u32 size, u32 key);
 u16 MonEncryptionLCRNG(u32 *seed);
@@ -1779,7 +1779,7 @@ void SpeciesData_Free(SpeciesData *speciesData) {
 }
 
 int Species_GetFormValue(int species, int form, enum SpeciesDataParam param) {
-    SpeciesData *speciesData = SpeciesData_NewFromSpecies(ResolveMonForm(species, form), HEAP_ID_DEFAULT);
+    SpeciesData *speciesData = SpeciesData_NewFromSpecies(Species_GetFormNarcIndex(species, form), HEAP_ID_DEFAULT);
     int result = SpeciesData_GetValue(speciesData, param);
     SpeciesData_Free(speciesData);
     return result;
@@ -3113,7 +3113,7 @@ u32 HoldEffect_GetArceusType(u16 holdEffect) {
 }
 
 void Species_LoadLevelUpLearnset(int species, int form, u16 *levelUpLearnset) {
-    ReadWholeNarcMemberByIdPair(levelUpLearnset, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForm(species, form));
+    ReadWholeNarcMemberByIdPair(levelUpLearnset, NARC_POKETOOL_PERSONAL_WOTBL, Species_GetFormNarcIndex(species, form));
 }
 
 void sub_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp18, u32 sp1C, enum HeapID heapID) {
@@ -3273,7 +3273,7 @@ void SpeciesData_LoadSpecies(int species, SpeciesData *speciesData) {
 }
 
 void SpeciesData_LoadForm(int species, int form, SpeciesData *speciesData) {
-    ReadWholeNarcMemberByIdPair(speciesData, NARC_POKETOOL_PERSONAL_PERSONAL, ResolveMonForm(species, form));
+    ReadWholeNarcMemberByIdPair(speciesData, NARC_POKETOOL_PERSONAL_PERSONAL, Species_GetFormNarcIndex(species, form));
 }
 
 void Species_LoadEvolutions(u16 species, struct Evolution *evo) {
@@ -3389,7 +3389,7 @@ static void *BoxPokemon_GetDataBlock(BoxPokemon *boxMon, u32 personality, enum P
     return result;
 }
 
-int ResolveMonForm(int species, int form) {
+int Species_GetFormNarcIndex(int species, int form) {
     switch (species) {
     case SPECIES_DEOXYS:
         if (form != 0 && form <= 3) {
