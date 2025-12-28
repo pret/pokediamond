@@ -4831,7 +4831,7 @@
 .extern BoxPokemon_BelongsToPlayer
 .extern sub_0206AA30
 .extern Pokemon_RemoveCapsule
-.extern RestoreBoxMonPP
+.extern BoxPokemon_RestorePP
 .extern LoadAllWazaTbl
 .extern GetWazaAttr
 .extern WazaGetMaxPp

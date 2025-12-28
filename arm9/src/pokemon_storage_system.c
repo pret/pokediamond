@@ -46,7 +46,7 @@ void PCStorage_InitializeBoxes(struct PCStorage *pc) {
 BOOL PCStorage_PlaceMonInFirstEmptySlotInAnyBox(struct PCStorage *pc, struct BoxPokemon *boxmon) {
     int i = (int)pc->curBox;
     do {
-        RestoreBoxMonPP(boxmon);
+        BoxPokemon_RestorePP(boxmon);
         if (PCStorage_PlaceMonInBoxFirstEmptySlot(pc, i, boxmon)) {
             Save_SetDirtyBit();
             return TRUE;
@@ -60,7 +60,7 @@ BOOL PCStorage_PlaceMonInFirstEmptySlotInAnyBox(struct PCStorage *pc, struct Box
 }
 
 BOOL PCStorage_PlaceMonInBoxFirstEmptySlot(struct PCStorage *pc, int boxno, struct BoxPokemon *boxmon) {
-    RestoreBoxMonPP(boxmon);
+    BoxPokemon_RestorePP(boxmon);
     if (boxno == -1) {
         boxno = (int)pc->curBox;
     }
@@ -75,7 +75,7 @@ BOOL PCStorage_PlaceMonInBoxFirstEmptySlot(struct PCStorage *pc, int boxno, stru
 }
 
 BOOL PCStorage_PlaceMonInBoxByIndexPair(struct PCStorage *pc, int boxno, int slotno, struct BoxPokemon *boxmon) {
-    RestoreBoxMonPP(boxmon);
+    BoxPokemon_RestorePP(boxmon);
     if (boxno == -1) {
         boxno = (int)pc->curBox;
     }

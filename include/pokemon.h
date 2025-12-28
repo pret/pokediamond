@@ -334,6 +334,6 @@ u16 BattleFacility_GetBanlistEntry(u32 index);
 BOOL Pokemon_IsBattleFacilityBanned(Pokemon *mon);
 BOOL BoxPokemon_BelongsToPlayer(BoxPokemon *boxMon, PlayerProfile *player, enum HeapID heapID);
 void Pokemon_RemoveCapsule(Pokemon *mon);
-void RestoreBoxMonPP(BoxPokemon *boxMon);
+void BoxPokemon_RestorePP(BoxPokemon *boxMon);
 
 #endif // POKEDIAMOND_POKEMON_H
