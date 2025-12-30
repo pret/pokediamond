@@ -7,7 +7,7 @@
 
 #include "heap.h"
 #include "save.h"
-#include "string16.h"
+#include "string_gf.h"
 
 struct TrainerMonSpecies {
     u16 difficulty;

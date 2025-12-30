@@ -5,7 +5,7 @@
 
 #include "MI_memory.h"
 #include "save.h"
-#include "string16.h"
+#include "string_gf.h"
 
 typedef struct UnkStruct_02024E64 {
     u8 unk0[0xE][0x80];

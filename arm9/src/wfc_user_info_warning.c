@@ -17,7 +17,7 @@
 #include "main.h"
 #include "msgdata.h"
 #include "render_window.h"
-#include "string16.h"
+#include "string_gf.h"
 #include "text.h"
 
 extern void SetMasterBrightnessNeutral(BOOL set_brightness_on_bottom_screen);

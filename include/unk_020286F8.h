@@ -4,7 +4,7 @@
 #include "nitro/types.h"
 
 #include "save.h"
-#include "string16.h"
+#include "string_gf.h"
 
 struct UnkSaveStruct_020286F8 {
     u16 unk_0[8];

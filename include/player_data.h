@@ -3,7 +3,7 @@
 
 #include "igt.h"
 #include "options.h"
-#include "string16.h"
+#include "string_gf.h"
 
 struct SaveData;
 

@@ -5,7 +5,7 @@
 
 #include "bg_window.h"
 #include "options.h"
-#include "string16.h"
+#include "string_gf.h"
 
 void sub_02054590(enum GFPalLoadLocation location, u32 param1);
 void sub_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2);

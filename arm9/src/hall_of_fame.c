@@ -8,7 +8,7 @@
 #include "party.h"
 #include "pokemon.h"
 #include "save.h"
-#include "string16.h"
+#include "string_gf.h"
 
 u32 Save_HOF_sizeof(void) {
     return sizeof(struct HallOfFame);

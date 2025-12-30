@@ -5,7 +5,7 @@
 #include "MI_memory.h"
 #include "math_util.h"
 #include "save.h"
-#include "string16.h"
+#include "string_gf.h"
 #include "string_util.h"
 
 struct UnkSaveStruct_020286F8 *UNK_021C59D0;

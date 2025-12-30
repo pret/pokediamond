@@ -7,7 +7,7 @@
 #include "heap.h"
 #include "options.h"
 #include "save.h"
-#include "string16.h"
+#include "string_gf.h"
 
 void PlayerProfile_Init(PlayerProfile *data);
 

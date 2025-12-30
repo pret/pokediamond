@@ -10,7 +10,7 @@
 #include "gf_gfx_loader.h"
 #include "heap.h"
 #include "message_format.h"
-#include "string16.h"
+#include "string_gf.h"
 #include "unk_0200CA44.h"
 
 const struct FontInfo *gFonts = NULL;

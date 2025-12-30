@@ -7,7 +7,7 @@
 #include "MI_memory.h"
 #include "filesystem.h"
 #include "heap.h"
-#include "string16.h"
+#include "string_gf.h"
 
 static void *LoadSingleElementFromNarc(NarcId narc_id, s32 file_id, enum HeapID heapID);
 static void FreeMsgDataRawData(void *data);

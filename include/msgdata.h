@@ -3,7 +3,7 @@
 
 #include "filesystem.h"
 #include "message_format.h"
-#include "string16.h"
+#include "string_gf.h"
 
 typedef enum MsgDataLoadType {
     MSGDATA_LOAD_DIRECT,

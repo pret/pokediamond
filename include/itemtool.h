@@ -6,7 +6,7 @@
 #include "constants/items.h"
 
 #include "filesystem.h"
-#include "string16.h"
+#include "string_gf.h"
 
 #define ITEMDATA_DATA 0
 #define ITEMDATA_NCGR 1

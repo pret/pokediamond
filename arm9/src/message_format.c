@@ -16,7 +16,7 @@
 #include "player_data.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
-#include "string16.h"
+#include "string_gf.h"
 #include "string_control_code.h"
 #include "text.h"
 #include "trainer_data.h"

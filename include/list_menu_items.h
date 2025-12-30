@@ -2,7 +2,7 @@
 #define POKEDIAMOND_LIST_MENU_ITEMS_H
 
 #include "msgdata.h"
-#include "string16.h"
+#include "string_gf.h"
 
 struct ListMenuItem {
     struct String *text;

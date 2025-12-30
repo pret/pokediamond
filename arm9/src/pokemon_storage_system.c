@@ -7,7 +7,7 @@
 #include "msgdata.h"
 #include "pokemon.h"
 #include "save.h"
-#include "string16.h"
+#include "string_gf.h"
 
 void PCStorage_Init(struct PCStorage *pc) {
     PCStorage_InitializeBoxes(pc);

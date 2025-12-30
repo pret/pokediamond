@@ -11,7 +11,7 @@
 #include "mail.h"
 #include "player_data.h"
 #include "sound_chatot.h"
-#include "string16.h"
+#include "string_gf.h"
 
 #define LEVEL_UP_LEARNSET_END 0xFFFF
 #define LEVEL_UP_LEARNSET_MAX 22

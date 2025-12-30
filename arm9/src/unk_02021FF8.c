@@ -3,7 +3,7 @@
 #include "global.h"
 
 #include "heap.h"
-#include "string16.h"
+#include "string_gf.h"
 
 struct UnkStruct_020220C4 *sub_020220C4(u8 *a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, enum HeapID heapID) {
     struct UnkStruct_020220C4 *ret;
