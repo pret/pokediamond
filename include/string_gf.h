@@ -7,7 +7,7 @@
 typedef struct String {
     u16 maxSize;
     u16 size;
-    u32 magic;
+    u32 integrity;
     u16 data[1];
     u8 padding[2];
 } String;
