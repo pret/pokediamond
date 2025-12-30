@@ -30,7 +30,7 @@ void CopyU16ArrayToString(String *string, u16 *buf);
 void CopyStringToU16Array(String *string, u16 *buf, u32 length);
 u16 *String_c_str(String *string);
 void StrAddChar(String *string, u16 val);
-void StringCat(String *dest, String *src);
+void String_Concat(String *dest, String *src);
 void StrUpperFirstChar(String *string);
 BOOL String_IsTrainerName(String *string);
 void StringCat_HandleTrainerName(String *dest, String *src);

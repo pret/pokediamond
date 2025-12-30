@@ -1403,7 +1403,7 @@
 .extern CopyU16ArrayToStringN
 .extern CopyStringToU16Array
 .extern String_c_str
-.extern StringCat
+.extern String_Concat
 .extern StrAddChar
 .extern StrUpperFirstChar
 .extern StringCat_HandleTrainerName
