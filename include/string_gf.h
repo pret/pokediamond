@@ -25,7 +25,7 @@ void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode pr
 s64 String_atoi(String *string, BOOL *flag);
 u16 String_GetLength(String *string);
 int String_CountLines(const String *string);
-void StringGetLineN(String *dest, const String *src, u32 n);
+void String_CopyLine(String *dest, const String *src, u32 n);
 void String_CopyChars(String *string, u16 *buf);
 void String_ToChars(String *string, u16 *buf, u32 length);
 u16 *String_c_str(String *string);

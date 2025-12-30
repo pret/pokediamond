@@ -167,7 +167,7 @@ int String_CountLines(const String *string) {
     return nline;
 }
 
-void StringGetLineN(String *dest, const String *src, u32 n) {
+void String_CopyLine(String *dest, const String *src, u32 n) {
     String_Assert(src);
     String_Assert(dest);
 

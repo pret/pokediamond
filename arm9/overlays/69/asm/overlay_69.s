@@ -2316,7 +2316,7 @@ _0222E8B2:
 	ldr r0, [r5, #0x18]
 	ldr r1, [r5, #0x1c]
 	add r2, r6, #0
-	bl StringGetLineN
+	bl String_CopyLine
 	mov r0, #0
 	ldr r1, [r5, #0x18]
 	add r2, r0, #0
