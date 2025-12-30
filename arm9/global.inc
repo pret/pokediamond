@@ -4730,10 +4730,10 @@
 .extern BoxPokemon_Init
 .extern Pokemon_Size
 .extern Pokemon_New
-.extern Pokemon_UnlockEncryption
-.extern Pokemon_LockEncryption
-.extern BoxPokemon_UnlockEncryption
-.extern BoxPokemon_LockEncryption
+.extern Pokemon_DecryptData
+.extern Pokemon_EncryptData
+.extern BoxPokemon_DecryptData
+.extern BoxPokemon_EncryptData
 .extern Pokemon_InitWithParams
 .extern Pokemon_InitWithNature
 .extern Pokemon_InitWithGenderNatureLetter

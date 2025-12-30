@@ -4713,7 +4713,7 @@ _021D9B9E:
 	add r1, r6, #0
 	bl Party_GetMonByIndex
 	add r4, r0, #0
-	bl Pokemon_UnlockEncryption
+	bl Pokemon_DecryptData
 	add r7, r0, #0
 	add r0, r4, #0
 	mov r1, #0xac
@@ -4731,7 +4731,7 @@ _021D9B9E:
 _021D9BD2:
 	add r0, r4, #0
 	add r1, r7, #0
-	bl Pokemon_LockEncryption
+	bl Pokemon_EncryptData
 	cmp r5, #2
 	blt _021D9BE4
 	add sp, #8
@@ -5455,7 +5455,7 @@ ov14_021DA168: ; 0x021DA168
 	mov r1, #0
 	add r5, r0, #0
 	str r1, [sp, #4]
-	bl BoxPokemon_UnlockEncryption
+	bl BoxPokemon_DecryptData
 	str r0, [sp]
 	add r0, r5, #0
 	mov r1, #0xac
@@ -5483,7 +5483,7 @@ _021DA1A2:
 _021DA1A8:
 	ldr r1, [sp]
 	add r0, r5, #0
-	bl BoxPokemon_LockEncryption
+	bl BoxPokemon_EncryptData
 	ldr r0, [sp, #4]
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -9189,7 +9189,7 @@ ov14_021DBEAC: ; 0x021DBEAC
 	add r0, r5, #0
 	add r6, r2, #0
 	add r4, #0x4c
-	bl BoxPokemon_UnlockEncryption
+	bl BoxPokemon_DecryptData
 	str r0, [sp]
 	str r5, [r7, #0x4c]
 	add r0, r5, #0
@@ -9323,7 +9323,7 @@ _021DBFB8:
 	bl SpeciesData_Free
 	ldr r1, [sp]
 	add r0, r5, #0
-	bl BoxPokemon_LockEncryption
+	bl BoxPokemon_EncryptData
 	pop {r3, r4, r5, r6, r7, pc}
 
 	thumb_func_start ov14_021DBFF4
@@ -9371,7 +9371,7 @@ _021DC034:
 	mov r0, #0x1a
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl Pokemon_UnlockEncryption
+	bl Pokemon_DecryptData
 	add r6, r0, #0
 	mov r0, #0x1a
 	lsl r0, r0, #4
@@ -9489,7 +9489,7 @@ _021DC034:
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	add r1, r6, #0
-	bl Pokemon_LockEncryption
+	bl Pokemon_EncryptData
 	add r0, r7, #0
 	add r0, #0xa4
 	ldrb r0, [r0]
@@ -18859,7 +18859,7 @@ ov14_021E0940: ; 0x021E0940
 	str r2, [sp, #8]
 	str r3, [sp, #0xc]
 	ldr r4, [sp, #0x64]
-	bl BoxPokemon_UnlockEncryption
+	bl BoxPokemon_DecryptData
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x10]
@@ -18971,7 +18971,7 @@ _021E0A36:
 	bl ov14_021E0B54
 	ldr r1, [sp, #0x10]
 	add r0, r6, #0
-	bl BoxPokemon_LockEncryption
+	bl BoxPokemon_EncryptData
 	add sp, #0x44
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -18987,7 +18987,7 @@ ov14_021E0A60: ; 0x021E0A60
 	str r2, [sp, #8]
 	add r7, r3, #0
 	ldr r4, [sp, #0x70]
-	bl BoxPokemon_UnlockEncryption
+	bl BoxPokemon_DecryptData
 	str r0, [sp, #0x14]
 	add r0, r6, #0
 	mov r1, #0x4c
@@ -19079,7 +19079,7 @@ _021E0B28:
 	bl ov14_021E0B54
 	ldr r1, [sp, #0x14]
 	add r0, r6, #0
-	bl BoxPokemon_LockEncryption
+	bl BoxPokemon_EncryptData
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -21819,7 +21819,7 @@ _021E204A:
 	bl PCStorage_GetMonByIndexPair
 	add r4, r4, #1
 	add r5, r0, #0
-	bl BoxPokemon_UnlockEncryption
+	bl BoxPokemon_DecryptData
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x1c]
@@ -21876,7 +21876,7 @@ _021E20AA:
 _021E20C8:
 	ldr r1, [sp, #0x1c]
 	add r0, r5, #0
-	bl BoxPokemon_LockEncryption
+	bl BoxPokemon_EncryptData
 	ldr r0, [sp, #0x24]
 	add r6, r6, #2
 	add r0, r0, #1

@@ -10832,7 +10832,7 @@ ov80_02232C88: ; 0x02232C88
 	add r7, r2, #0
 	add r6, r3, #0
 	ldr r4, [sp, #0x40]
-	bl BoxPokemon_UnlockEncryption
+	bl BoxPokemon_DecryptData
 	add r0, r5, #0
 	mov r1, #0xab
 	mov r2, #0
@@ -10874,7 +10874,7 @@ ov80_02232C88: ; 0x02232C88
 _02232CF2:
 	add r0, r5, #0
 	mov r1, #1
-	bl BoxPokemon_LockEncryption
+	bl BoxPokemon_EncryptData
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0
 	beq _02232D60
@@ -11266,7 +11266,7 @@ ov80_02233018: ; 0x02233018
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	mov r4, #0
-	bl BoxPokemon_UnlockEncryption
+	bl BoxPokemon_DecryptData
 	ldr r5, _02233050 ; =0x02237220
 	str r0, [sp]
 	add r6, r4, #0
@@ -11282,7 +11282,7 @@ _02233028:
 	blt _02233028
 	ldr r1, [sp]
 	add r0, r7, #0
-	bl BoxPokemon_LockEncryption
+	bl BoxPokemon_EncryptData
 	cmp r4, #0
 	beq _0223304C
 	mov r0, #1
