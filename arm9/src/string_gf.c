@@ -6,8 +6,8 @@
 
 #define ASSERT_STR16(_str) ({ GF_ASSERT(_str != NULL); GF_ASSERT(_str->magic == STR16_MAGIC); })
 
-struct String *String_New(u32 length, enum HeapID heapID) {
-    struct String *ret = Heap_Alloc(heapID, length * 2 + 10);
+String *String_New(u32 length, enum HeapID heapID) {
+    String *ret = Heap_Alloc(heapID, length * 2 + 10);
     if (ret != NULL) {
         ret->magic = STR16_MAGIC;
         ret->maxsize = (u16)length;
@@ -17,19 +17,19 @@ struct String *String_New(u32 length, enum HeapID heapID) {
     return ret;
 }
 
-void String_Delete(struct String *str) {
+void String_Delete(String *str) {
     ASSERT_STR16(str);
     str->magic = STR16_MAGIC | 1;
     Heap_Free(str);
 }
 
-void String_SetEmpty(struct String *str) {
+void String_SetEmpty(String *str) {
     ASSERT_STR16(str);
     str->size = 0;
     str->data[0] = EOS;
 }
 
-void StringCopy(struct String *dest, struct String *src) {
+void StringCopy(String *dest, String *src) {
     ASSERT_STR16(dest);
     ASSERT_STR16(src);
     if (dest->maxsize > src->size) {
@@ -40,16 +40,16 @@ void StringCopy(struct String *dest, struct String *src) {
     GF_ASSERT(0);
 }
 
-struct String *StringDup(struct String *src, enum HeapID heapID) {
+String *StringDup(String *src, enum HeapID heapID) {
     ASSERT_STR16(src);
-    struct String *dest = String_New((u32)(src->size + 1), heapID);
+    String *dest = String_New((u32)(src->size + 1), heapID);
     if (dest != NULL) {
         StringCopy(dest, src);
     }
     return dest;
 }
 
-void String16_FormatInteger(struct String *str, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
+void String16_FormatInteger(String *str, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
     static const u16 sCharset_EN[10] = {
         0x121, 0x122, 0x123, 0x124, 0x125, 0x126, 0x127, 0x128, 0x129, 0x12A
     };
@@ -107,7 +107,7 @@ void String16_FormatInteger(struct String *str, int num, u32 ndigits, enum Print
     GF_ASSERT(FALSE);
 }
 
-s64 String_atoi(struct String *str, BOOL *flag) {
+s64 String_atoi(String *str, BOOL *flag) {
     s64 ret = 0;
     s64 pow10 = 1;
     if (str->size > 18) {
@@ -134,7 +134,7 @@ s64 String_atoi(struct String *str, BOOL *flag) {
     return ret;
 }
 
-BOOL String_Compare(struct String *str1, struct String *str2) {
+BOOL String_Compare(String *str1, String *str2) {
     ASSERT_STR16(str1);
     ASSERT_STR16(str2);
 
@@ -146,12 +146,12 @@ BOOL String_Compare(struct String *str1, struct String *str2) {
     return TRUE;
 }
 
-u16 StringGetLength(struct String *str) {
+u16 StringGetLength(String *str) {
     ASSERT_STR16(str);
     return str->size;
 }
 
-int StringCountLines(volatile struct String *str) {
+int StringCountLines(volatile String *str) {
     ASSERT_STR16(str);
 
     int i, nline;
@@ -163,7 +163,7 @@ int StringCountLines(volatile struct String *str) {
     return nline;
 }
 
-void StringGetLineN(struct String *dest, volatile struct String *src, u32 n) {
+void StringGetLineN(String *dest, volatile String *src, u32 n) {
     ASSERT_STR16(src);
     ASSERT_STR16(dest);
 
@@ -186,7 +186,7 @@ void StringGetLineN(struct String *dest, volatile struct String *src, u32 n) {
     }
 }
 
-void CopyU16ArrayToString(struct String *str, u16 *buf) {
+void CopyU16ArrayToString(String *str, u16 *buf) {
     ASSERT_STR16(str);
 
     for (str->size = 0; *buf != EOS;) {
@@ -199,7 +199,7 @@ void CopyU16ArrayToString(struct String *str, u16 *buf) {
     str->data[str->size] = EOS;
 }
 
-void CopyU16ArrayToStringN(struct String *str, u16 *buf, u32 length) {
+void CopyU16ArrayToStringN(String *str, u16 *buf, u32 length) {
     ASSERT_STR16(str);
 
     if (length <= str->maxsize) {
@@ -219,7 +219,7 @@ void CopyU16ArrayToStringN(struct String *str, u16 *buf, u32 length) {
     GF_ASSERT(0);
 }
 
-void CopyStringToU16Array(struct String *str, u16 *buf, u32 length) {
+void CopyStringToU16Array(String *str, u16 *buf, u32 length) {
     ASSERT_STR16(str);
 
     if (str->size + 1 <= length) {
@@ -229,13 +229,13 @@ void CopyStringToU16Array(struct String *str, u16 *buf, u32 length) {
     GF_ASSERT(0);
 }
 
-u16 *String_c_str(struct String *str) {
+u16 *String_c_str(String *str) {
     ASSERT_STR16(str);
 
     return str->data;
 }
 
-void StringCat(struct String *dest, struct String *src) {
+void StringCat(String *dest, String *src) {
     ASSERT_STR16(dest);
     ASSERT_STR16(src);
 
@@ -247,7 +247,7 @@ void StringCat(struct String *dest, struct String *src) {
     GF_ASSERT(0);
 }
 
-void StrAddChar(struct String *str, u16 val) {
+void StrAddChar(String *str, u16 val) {
     ASSERT_STR16(str);
 
     if (str->size + 1 < str->maxsize) {
@@ -258,7 +258,7 @@ void StrAddChar(struct String *str, u16 val) {
     GF_ASSERT(0);
 }
 
-void StrUpperFirstChar(struct String *str) {
+void StrUpperFirstChar(String *str) {
     ASSERT_STR16(str);
 
     if (str->size != 0) {
@@ -270,11 +270,11 @@ void StrUpperFirstChar(struct String *str) {
     }
 }
 
-BOOL String_IsTrainerName(struct String *string) {
+BOOL String_IsTrainerName(String *string) {
     return string->size != 0 && string->data[0] == 0xF100;
 }
 
-void StringCat_HandleTrainerName(struct String *dest, struct String *src) {
+void StringCat_HandleTrainerName(String *dest, String *src) {
     if (String_IsTrainerName(src)) {
         u16 *dest_p = &dest->data[dest->size];
         u16 *src_p = &src->data[1];
