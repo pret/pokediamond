@@ -32,7 +32,7 @@ void EnemyTrainerSet_Init(BattleSetup *setup, struct SaveData *save, enum HeapID
                 CopyU16StringArray(setup->trainers[i].name, rivalName);
             } else {
                 str = NewString_ReadMsgData(msgData, setup->trainerId[i]);
-                CopyStringToU16Array(str, setup->trainers[i].name, PLAYER_NAME_LENGTH + 1);
+                String_ToChars(str, setup->trainers[i].name, PLAYER_NAME_LENGTH + 1);
                 String_Free(str);
             }
             CreateNPCTrainerParty(setup, i, heapID);

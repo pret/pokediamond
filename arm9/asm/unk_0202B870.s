@@ -277,7 +277,7 @@ _0202BA38:
 	add r0, r7, #0x0
 	add r1, #0x8
 	mov r2, #0x8
-	bl CopyStringToU16Array
+	bl String_ToChars
 	ldr r0, [r5, #0x0]
 	add r6, r6, #0x1
 	str r0, [r4, #0x4]

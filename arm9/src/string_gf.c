@@ -223,7 +223,7 @@ void CopyU16ArrayToStringN(String *string, u16 *buf, u32 length) {
     GF_ASSERT(FALSE);
 }
 
-void CopyStringToU16Array(String *string, u16 *buf, u32 length) {
+void String_ToChars(String *string, u16 *buf, u32 length) {
     String_Assert(string);
 
     if (string->size + 1 <= length) {

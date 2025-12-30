@@ -1401,7 +1401,7 @@
 .extern StringGetLineN
 .extern CopyU16ArrayToString
 .extern CopyU16ArrayToStringN
-.extern CopyStringToU16Array
+.extern String_ToChars
 .extern String_c_str
 .extern String_Concat
 .extern StrAddChar

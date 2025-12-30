@@ -23489,7 +23489,7 @@ ov18_02244BB4: ; 0x02244BB4
 	add r1, r5, #0
 	add r1, #0x94
 	mov r2, #0x50
-	bl CopyStringToU16Array
+	bl String_ToChars
 	add r0, r5, #0
 	add r0, #0x94
 	ldrh r2, [r0]

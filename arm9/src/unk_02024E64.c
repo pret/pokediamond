@@ -42,7 +42,7 @@ u16 *GetRivalNamePtr(struct UnkStruct_02024E64 *unk) {
 }
 
 void RivalsNameToU16Array(struct UnkStruct_02024E64 *unk, struct String *str) {
-    CopyStringToU16Array(str, unk->rival_name_buf, sizeof(unk->rival_name_buf) / sizeof(u16));
+    String_ToChars(str, unk->rival_name_buf, sizeof(unk->rival_name_buf) / sizeof(u16));
 }
 
 u16 *sub_02024F0C(struct UnkStruct_02024E64 *unk) {
@@ -50,5 +50,5 @@ u16 *sub_02024F0C(struct UnkStruct_02024E64 *unk) {
 }
 
 void sub_02024F18(struct UnkStruct_02024E64 *unk, struct String *str) {
-    CopyStringToU16Array(str, unk->unk734, sizeof(unk->unk734) / sizeof(u16));
+    String_ToChars(str, unk->unk734, sizeof(unk->unk734) / sizeof(u16));
 }
