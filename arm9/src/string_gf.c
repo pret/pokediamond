@@ -17,16 +17,16 @@ String *String_New(u32 length, enum HeapID heapID) {
     return ret;
 }
 
-void String_Delete(String *str) {
-    ASSERT_STR16(str);
-    str->magic = STR16_MAGIC | 1;
-    Heap_Free(str);
+void String_Delete(String *string) {
+    ASSERT_STR16(string);
+    string->magic = STR16_MAGIC | 1;
+    Heap_Free(string);
 }
 
-void String_SetEmpty(String *str) {
-    ASSERT_STR16(str);
-    str->size = 0;
-    str->data[0] = EOS;
+void String_SetEmpty(String *string) {
+    ASSERT_STR16(string);
+    string->size = 0;
+    string->data[0] = EOS;
 }
 
 void StringCopy(String *dest, String *src) {
@@ -49,7 +49,7 @@ String *StringDup(String *src, enum HeapID heapID) {
     return dest;
 }
 
-void String16_FormatInteger(String *str, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
+void String16_FormatInteger(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
     static const u16 sCharset_EN[10] = {
         0x121, 0x122, 0x123, 0x124, 0x125, 0x126, 0x127, 0x128, 0x129, 0x12A
     };
@@ -71,18 +71,18 @@ void String16_FormatInteger(String *str, int num, u32 ndigits, enum PrintingMode
         1000000000
     };
 
-    ASSERT_STR16(str);
+    ASSERT_STR16(string);
 
     const u16 *charbase;
     BOOL isNegative = (num < 0);
 
-    if (str->maxsize > ndigits + isNegative) {
+    if (string->maxsize > ndigits + isNegative) {
         charbase = (whichCharset == 0) ? sCharset_JP : sCharset_EN;
-        String_SetEmpty(str);
+        String_SetEmpty(string);
         if (isNegative) {
             num *= -1;
             u16 hyphen = (u16)((whichCharset == 0) ? 0x00F1 : 0x01BE);
-            str->data[str->size++] = hyphen;
+            string->data[string->size++] = hyphen;
         }
         u32 dividend = sPowersOfTen[ndigits - 1];
         while (dividend != 0) {
@@ -90,36 +90,36 @@ void String16_FormatInteger(String *str, int num, u32 ndigits, enum PrintingMode
             num -= dividend * digit;
             if (printingMode == PRINTING_MODE_LEADING_ZEROS) {
                 u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
-                str->data[str->size++] = value;
+                string->data[string->size++] = value;
             } else if (digit != 0 || dividend == 1) {
                 printingMode = PRINTING_MODE_LEADING_ZEROS;
                 u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
-                str->data[str->size++] = value;
+                string->data[string->size++] = value;
             } else if (printingMode == PRINTING_MODE_RIGHT_ALIGN) {
                 u16 value = (u16)((whichCharset == 0) ? 0x0001 : 0x01E2);
-                str->data[str->size++] = value;
+                string->data[string->size++] = value;
             }
             dividend /= 10;
         }
-        str->data[str->size] = EOS;
+        string->data[string->size] = EOS;
         return;
     }
     GF_ASSERT(FALSE);
 }
 
-s64 String_atoi(String *str, BOOL *flag) {
+s64 String_atoi(String *string, BOOL *flag) {
     s64 ret = 0;
     s64 pow10 = 1;
-    if (str->size > 18) {
+    if (string->size > 18) {
         return 0;
     }
-    int ndigits = str->size - 1;
+    int ndigits = string->size - 1;
     while (ndigits >= 0) {
         //                               ０
-        s64 digit = str->data[ndigits] - 0x00A2;
+        s64 digit = string->data[ndigits] - 0x00A2;
         if (digit >= 10ull) {
             //                           0
-            digit = str->data[ndigits] - 0x0121;
+            digit = string->data[ndigits] - 0x0121;
             if (digit >= 10ull) {
                 *flag = FALSE;
                 return ret;
@@ -146,17 +146,17 @@ BOOL String_Compare(String *str1, String *str2) {
     return TRUE;
 }
 
-u16 StringGetLength(String *str) {
-    ASSERT_STR16(str);
-    return str->size;
+u16 StringGetLength(String *string) {
+    ASSERT_STR16(string);
+    return string->size;
 }
 
-int StringCountLines(volatile String *str) {
-    ASSERT_STR16(str);
+int StringCountLines(volatile String *string) {
+    ASSERT_STR16(string);
 
     int i, nline;
-    for (i = 0, nline = 1; i < str->size; i++) {
-        if (str->data[i] == CHAR_LF) {
+    for (i = 0, nline = 1; i < string->size; i++) {
+        if (string->data[i] == CHAR_LF) {
             nline++;
         }
     }
@@ -186,53 +186,53 @@ void StringGetLineN(String *dest, volatile String *src, u32 n) {
     }
 }
 
-void CopyU16ArrayToString(String *str, u16 *buf) {
-    ASSERT_STR16(str);
+void CopyU16ArrayToString(String *string, u16 *buf) {
+    ASSERT_STR16(string);
 
-    for (str->size = 0; *buf != EOS;) {
-        if (str->size >= str->maxsize - 1) {
+    for (string->size = 0; *buf != EOS;) {
+        if (string->size >= string->maxsize - 1) {
             GF_ASSERT(0);
             break;
         }
-        str->data[str->size++] = *buf++;
+        string->data[string->size++] = *buf++;
     }
-    str->data[str->size] = EOS;
+    string->data[string->size] = EOS;
 }
 
-void CopyU16ArrayToStringN(String *str, u16 *buf, u32 length) {
-    ASSERT_STR16(str);
+void CopyU16ArrayToStringN(String *string, u16 *buf, u32 length) {
+    ASSERT_STR16(string);
 
-    if (length <= str->maxsize) {
-        memcpy(str->data, buf, length * 2);
+    if (length <= string->maxsize) {
+        memcpy(string->data, buf, length * 2);
         int i;
         for (i = 0; i < length; i++) {
-            if (str->data[i] == EOS) {
+            if (string->data[i] == EOS) {
                 break;
             }
         }
-        str->size = (u16)i;
+        string->size = (u16)i;
         if (i == length) {
-            str->data[length - 1] = EOS;
+            string->data[length - 1] = EOS;
         }
         return;
     }
     GF_ASSERT(0);
 }
 
-void CopyStringToU16Array(String *str, u16 *buf, u32 length) {
-    ASSERT_STR16(str);
+void CopyStringToU16Array(String *string, u16 *buf, u32 length) {
+    ASSERT_STR16(string);
 
-    if (str->size + 1 <= length) {
-        memcpy(buf, str->data, (u32)((str->size + 1) * 2));
+    if (string->size + 1 <= length) {
+        memcpy(buf, string->data, (u32)((string->size + 1) * 2));
         return;
     }
     GF_ASSERT(0);
 }
 
-u16 *String_c_str(String *str) {
-    ASSERT_STR16(str);
+u16 *String_c_str(String *string) {
+    ASSERT_STR16(string);
 
-    return str->data;
+    return string->data;
 }
 
 void StringCat(String *dest, String *src) {
@@ -247,25 +247,25 @@ void StringCat(String *dest, String *src) {
     GF_ASSERT(0);
 }
 
-void StrAddChar(String *str, u16 val) {
-    ASSERT_STR16(str);
+void StrAddChar(String *string, u16 val) {
+    ASSERT_STR16(string);
 
-    if (str->size + 1 < str->maxsize) {
-        str->data[str->size++] = val;
-        str->data[str->size] = EOS;
+    if (string->size + 1 < string->maxsize) {
+        string->data[string->size++] = val;
+        string->data[string->size] = EOS;
         return;
     }
     GF_ASSERT(0);
 }
 
-void StrUpperFirstChar(String *str) {
-    ASSERT_STR16(str);
+void StrUpperFirstChar(String *string) {
+    ASSERT_STR16(string);
 
-    if (str->size != 0) {
+    if (string->size != 0) {
         //                       a                         z
-        if (str->data[0] >= 0x0145 && str->data[0] <= 0x015E) {
+        if (string->data[0] >= 0x0145 && string->data[0] <= 0x015E) {
             //              (a - A)
-            str->data[0] -= 26;
+            string->data[0] -= 26;
         }
     }
 }
