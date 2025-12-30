@@ -1219,7 +1219,7 @@ _021D7E5E:
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl String_SetEmpty
+	bl String_Clear
 _021D7E68:
 	mov r1, #0
 	str r1, [sp]

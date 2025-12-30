@@ -1390,7 +1390,7 @@
 .extern StringGetWidth_SingleLine_HandleClearToControlCode
 .extern String_New
 .extern String_Free
-.extern String_SetEmpty
+.extern String_Clear
 .extern String_Copy
 .extern String_Clone
 .extern String_FormatInt

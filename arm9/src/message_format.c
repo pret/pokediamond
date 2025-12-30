@@ -443,7 +443,7 @@ void BufferGenderSymbol(MessageFormat *messageFormat, u32 idx, u32 gender) {
         ReadMsgDataIntoString(msgData, narc_0199_00069, messageFormat->buffer); // ♀
         break;
     default:
-        String_SetEmpty(messageFormat->buffer);
+        String_Clear(messageFormat->buffer);
         break;
     }
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
@@ -604,7 +604,7 @@ void MessageFormat_UpperFirstChar(MessageFormat *messageFormat, u32 idx) {
 
 void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest, struct String *src) {
     const u16 *cstr = String_c_str(src);
-    String_SetEmpty(dest);
+    String_Clear(dest);
     while (*cstr != EOS) {
         if (*cstr == EXT_CTRL_CODE_BEGIN) {
             if (MsgArray_ControlCodeIsStrVar(cstr)) {
@@ -627,7 +627,7 @@ void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest,
 
 void MessageFormat_ResetBuffers(MessageFormat *messageFormat) {
     for (int i = 0; i < messageFormat->count; i++) {
-        String_SetEmpty(messageFormat->fields[i].msg);
+        String_Clear(messageFormat->fields[i].msg);
     }
 }
 
