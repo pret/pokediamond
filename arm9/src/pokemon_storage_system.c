@@ -193,7 +193,7 @@ void PCStorage_GetBoxName(struct PCStorage *pc, int boxno, struct String *ret) {
         boxno = (int)pc->curBox;
     }
     if (boxno < NUM_BOXES) {
-        String_CopyChars(ret, pc->names[boxno]);
+        String_CopyFromChars(ret, pc->names[boxno]);
         return;
     }
     GF_ASSERT(0);

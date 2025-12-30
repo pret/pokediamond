@@ -64,7 +64,7 @@ sub_02023AF4: ; 0x02023AF4
 	bl String_New
 	add r1, r5, #0x0
 	add r4, r0, #0x0
-	bl String_CopyChars
+	bl String_CopyFromChars
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4

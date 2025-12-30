@@ -26,7 +26,7 @@ s64 String_AtoI(String *string, BOOL *flag);
 u16 String_GetLength(String *string);
 int String_CountLines(const String *string);
 void String_CopyLine(String *dest, const String *src, u32 n);
-void String_CopyChars(String *string, u16 *buf);
+void String_CopyFromChars(String *string, u16 *buf);
 void String_ToChars(String *string, u16 *buf, u32 length);
 u16 *String_c_str(String *string);
 void StrAddChar(String *string, u16 val);

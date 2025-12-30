@@ -2242,13 +2242,13 @@ sub_02027C84: ; 0x02027C84
 	thumb_func_start sub_02027C88
 sub_02027C88: ; 0x02027C88
 	add r2, r0, #0x0
-	ldr r3, _02027C94 ; =String_CopyChars
+	ldr r3, _02027C94 ; =String_CopyFromChars
 	add r2, #0x20
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	bx r3
 	.balign 4
-_02027C94: .word String_CopyChars
+_02027C94: .word String_CopyFromChars
 
 	thumb_func_start sub_02027C98
 sub_02027C98: ; 0x02027C98

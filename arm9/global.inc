@@ -1399,7 +1399,7 @@
 .extern String_GetLength
 .extern String_CountLines
 .extern String_CopyLine
-.extern String_CopyChars
+.extern String_CopyFromChars
 .extern String_CopyNumChars
 .extern String_ToChars
 .extern String_c_str

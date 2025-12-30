@@ -116,8 +116,8 @@ void Save_HOF_GetMonStatsByIndexPair(struct HallOfFame *hof, int a1, int a2, str
     dest->personality = mon->personality;
     dest->otid = mon->otid;
     dest->form = mon->form;
-    String_CopyChars(dest->nickname, mon->nickname);
-    String_CopyChars(dest->otname, mon->otname);
+    String_CopyFromChars(dest->nickname, mon->nickname);
+    String_CopyFromChars(dest->otname, mon->otname);
     for (int i = 0; i < 4; i++) {
         dest->moves[i] = mon->moves[i];
     }

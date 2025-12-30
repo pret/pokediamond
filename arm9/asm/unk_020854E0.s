@@ -302,7 +302,7 @@ sub_020856F0: ; 0x020856F0
 	bl Mail_GetAuthorNamePtr
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x10]
-	bl String_CopyChars
+	bl String_CopyFromChars
 	add r0, r4, #0x0
 	bl Mail_GetType
 	strb r0, [r6, #0xf]

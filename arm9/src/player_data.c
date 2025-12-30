@@ -72,7 +72,7 @@ u16 *PlayerProfile_GetNamePtr(PlayerProfile *data) {
 }
 
 void PlayerName_FlatToString(PlayerProfile *data, struct String *str) {
-    String_CopyChars(str, data->playerName);
+    String_CopyFromChars(str, data->playerName);
 }
 
 struct String *PlayerProfile_GetPlayerName_NewString(PlayerProfile *data, enum HeapID heapID) {

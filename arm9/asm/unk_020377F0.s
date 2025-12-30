@@ -2022,12 +2022,12 @@ _02038620:
 	beq _0203866E
 	ldr r0, [r4, #0x10]
 	add r1, r5, #0x0
-	bl String_CopyChars
+	bl String_CopyFromChars
 	b _0203866E
 _02038656:
 	ldr r0, [r4, #0x10]
 	add r1, r5, #0x0
-	bl String_CopyChars
+	bl String_CopyFromChars
 	b _0203866E
 _02038660:
 	cmp r5, #0x0
@@ -2035,7 +2035,7 @@ _02038660:
 	ldr r0, [r4, #0xc]
 	add r1, r5, #0x0
 	ldr r0, [r0, #0x18]
-	bl String_CopyChars
+	bl String_CopyFromChars
 _0203866E:
 	ldr r0, [sp, #0x4]
 	ldr r1, _0203867C ; =sub_0203847C

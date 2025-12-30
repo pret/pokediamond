@@ -822,7 +822,7 @@ _0202BE14:
 	add r1, r5, #0x0
 	ldr r0, [r0, #0xc]
 	add r1, #0x8
-	bl String_CopyChars
+	bl String_CopyFromChars
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

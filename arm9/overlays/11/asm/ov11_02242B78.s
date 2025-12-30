@@ -1300,7 +1300,7 @@ _022435DC:
 	add r4, #0x36
 	add r0, r3, #0
 	add r1, r4, #0
-	bl String_CopyChars
+	bl String_CopyFromChars
 	b _02243798
 _022435E8:
 	ldr r0, [r4, #0x4c]

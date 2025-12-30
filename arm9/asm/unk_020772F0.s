@@ -1457,7 +1457,7 @@ _0207790E:
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x18]
 	add r1, #0xd8
-	bl String_CopyChars
+	bl String_CopyFromChars
 _02077932:
 	mov r0, #0x61
 	lsl r0, r0, #0x2
@@ -2191,7 +2191,7 @@ _02077F50:
 	add r1, r5, #0x0
 	add r0, r7, #0x0
 	add r1, #0xd8
-	bl String_CopyChars
+	bl String_CopyFromChars
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r0, #0x5a
@@ -4139,7 +4139,7 @@ _02078F0A:
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
 	add r1, sp, #0x38
-	bl String_CopyChars
+	bl String_CopyFromChars
 	ldr r0, [sp, #0x20]
 	sub r3, r6, r5
 	str r0, [sp, #0x0]
@@ -4269,7 +4269,7 @@ _02079012:
 	bl FillWindowPixelBuffer
 	add r0, r4, #0x0
 	add r1, sp, #0xc
-	bl String_CopyChars
+	bl String_CopyFromChars
 	ldr r3, _0207906C ; =0x000D0E0F
 	add r0, r6, r7
 	add r1, r4, #0x0
