@@ -550,7 +550,7 @@ sub_02083888: ; 0x02083888
 	bl String_Clear
 	ldr r0, [r4, r7]
 	add r1, r5, #0x4
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	ldr r0, _020838B0 ; =0x00000584
 	ldrb r1, [r6, r0]
 	add r1, r1, #0x1

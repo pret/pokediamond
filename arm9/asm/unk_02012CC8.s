@@ -1503,7 +1503,7 @@ ListMenuCursorNew: ; 0x02013690
 	bl String_New
 	ldr r1, _020136BC ; =UNK_020ED548
 	str r0, [r4, #0x4]
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 _020136B2:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}

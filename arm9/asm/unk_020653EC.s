@@ -1671,7 +1671,7 @@ _020660AE:
 	bl Mail_GetAuthorNamePtr
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	ldrb r0, [r6, #0x19]
 	strb r0, [r5, #0x2]
 	ldrb r1, [r5, #0x0]

@@ -114,13 +114,13 @@ void BufferString(MessageFormat *messageFormat, u32 idx, struct String *str, u32
 
 void BufferPlayersName(MessageFormat *messageFormat, u32 idx, PlayerProfile *profile) {
     u16 *name = PlayerProfile_GetNamePtr(profile);
-    CopyU16ArrayToString(messageFormat->buffer, name);
+    String_CopyChars(messageFormat->buffer, name);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
 void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveData *save) {
     u16 *name = GetRivalNamePtr(sub_02024EC0(save));
-    CopyU16ArrayToString(messageFormat->buffer, name);
+    String_CopyChars(messageFormat->buffer, name);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
@@ -330,7 +330,7 @@ void BufferTrainerName(MessageFormat *messageFormat, u32 idx, u32 msgno) {
 }
 
 void BufferTrainerNameFromDataStruct(MessageFormat *messageFormat, u32 idx, Trainer *trdata) {
-    CopyU16ArrayToString(messageFormat->buffer, trdata->name);
+    String_CopyChars(messageFormat->buffer, trdata->name);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
@@ -581,7 +581,7 @@ void BufferGroupName(MessageFormat *messageFormat, struct SaveData *save, u32 r5
     u8 sp10 = sub_020287F8(r6, r5);
     u8 r7 = sub_02028804(r6, r5);
     struct String *r4 = String_New(64, HEAP_ID_4);
-    CopyU16ArrayToString(r4, sub_020287A8(r6, r5, sp28));
+    String_CopyChars(r4, sub_020287A8(r6, r5, sp28));
     BufferString(messageFormat, idx, r4, sp10, 1, r7);
     String_Free(r4);
 }

@@ -377,7 +377,7 @@ BOOL ScrCmd_GetWhiteRockInscription(ScriptContext *ctx) // 0272 - todo: BufferWh
     UnkStruct_02024E64 *unk = sub_02024EB4(ctx->fieldSystem->saveData);
     u16 *unk_buffer = sub_02024F0C(unk);
 
-    CopyU16ArrayToString(str, unk_buffer);
+    String_CopyChars(str, unk_buffer);
     BufferString(*messageFormat, idx, str, 0, 0, gGameLanguage);
     String_Free(str);
 

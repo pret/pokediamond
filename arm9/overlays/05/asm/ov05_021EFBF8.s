@@ -426,7 +426,7 @@ _021EFF2E:
 	bl sub_020283A4
 	add r1, r0, #0
 	ldr r0, [r5, #8]
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	ldr r0, [r5]
 	ldr r1, [r5, #8]
 	add r2, r4, #0

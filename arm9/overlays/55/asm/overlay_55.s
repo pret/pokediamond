@@ -2689,7 +2689,7 @@ _021D8A46:
 	bl sub_020283A4
 	add r1, r0, #0
 	ldr r0, [r5, #0x38]
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	ldr r0, [sp]
 	add r1, r4, #1
 	add r0, r0, r6
@@ -5090,7 +5090,7 @@ ov55_021D9E40: ; 0x021D9E40
 	bne _021D9EB8
 	ldr r0, [r0, #0x18]
 	add r1, r5, #0
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	b _021D9EBE
 _021D9EB8:
 	ldr r0, [r0, #0x18]

@@ -1399,7 +1399,7 @@
 .extern String_GetLength
 .extern String_CountLines
 .extern StringGetLineN
-.extern CopyU16ArrayToString
+.extern String_CopyChars
 .extern CopyU16ArrayToStringN
 .extern String_ToChars
 .extern String_c_str

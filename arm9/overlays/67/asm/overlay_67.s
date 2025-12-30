@@ -3503,7 +3503,7 @@ ov67_021D9098: ; 0x021D9098
 	bl String_New
 	add r1, r6, #0
 	add r4, r0, #0
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #2

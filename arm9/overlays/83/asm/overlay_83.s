@@ -18165,7 +18165,7 @@ ov83_02236484: ; 0x02236484
 	bl String_New
 	add r1, sp, #8
 	add r6, r0, #0
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	mov r1, #1
 	str r1, [sp]
 	mov r0, #2

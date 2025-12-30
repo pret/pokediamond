@@ -267,7 +267,7 @@ sub_02060D90: ; 0x02060D90
 	bl String_New
 	add r1, r7, #0x0
 	add r4, r0, #0x0
-	bl CopyU16ArrayToString
+	bl String_CopyChars
 	ldr r0, [sp, #0x24]
 	ldr r3, [sp, #0x8]
 	str r0, [sp, #0x0]

@@ -190,7 +190,7 @@ void StringGetLineN(String *dest, const String *src, u32 n) {
     }
 }
 
-void CopyU16ArrayToString(String *string, u16 *buf) {
+void String_CopyChars(String *string, u16 *buf) {
     String_Assert(string);
 
     for (string->size = 0; *buf != EOS;) {
