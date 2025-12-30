@@ -1818,7 +1818,7 @@ ov55_021D8370: ; 0x021D8370
 	add r0, #0xd4
 	ldr r0, [r0]
 	ldr r1, [r1, #0x18]
-	bl StringCopy
+	bl String_Copy
 	mov r1, #0xa
 	b _021D83F0
 _021D83A8:
@@ -1914,7 +1914,7 @@ ov55_021D8440: ; 0x021D8440
 	add r0, #0xd8
 	ldr r0, [r0]
 	ldr r1, [r1, #0x18]
-	bl StringCopy
+	bl String_Copy
 	ldr r0, [r5]
 	bl sub_02077AC4
 	mov r0, #0
@@ -5127,7 +5127,7 @@ ov55_021D9EC8: ; 0x021D9EC8
 	add r0, #0xd4
 	ldr r0, [r0]
 	ldr r1, [r1, #0x18]
-	bl StringCopy
+	bl String_Copy
 	ldr r0, [r5, #8]
 	bl sub_020286EC
 	mov r1, #0xf2

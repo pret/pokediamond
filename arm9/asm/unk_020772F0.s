@@ -1321,7 +1321,7 @@ _020777FE:
 _0207781A:
 	ldr r0, [r4, #0x18]
 	add r1, r6, #0x0
-	bl StringCopy
+	bl String_Copy
 	add r0, r6, #0x0
 	bl String_Free
 	ldr r0, [r4, #0x18]
@@ -1345,7 +1345,7 @@ _02077836:
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0x0
-	bl StringCopy
+	bl String_Copy
 	add r0, r5, #0x0
 	bl String_Free
 	ldr r0, [r4, #0x18]

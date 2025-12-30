@@ -818,7 +818,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *dest) {
     case MON_DATA_NICKNAME_STRING:
         if (boxmon->checksum_fail) {
             struct String *buffer = GetSpeciesName(SPECIES_MANAPHY_EGG, HEAP_ID_DEFAULT);
-            StringCopy(dest, buffer);
+            String_Copy(dest, buffer);
             String_Free(buffer);
         } else {
             CopyU16ArrayToString(dest, blockC->nickname);

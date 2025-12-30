@@ -103,7 +103,7 @@ void SetStringAsPlaceholder(MessageFormat *messageFormat, u32 idx, struct String
         if (attrs != NULL) {
             messageFormat->fields[idx].attrs = *attrs;
         }
-        StringCopy(messageFormat->fields[idx].msg, str);
+        String_Copy(messageFormat->fields[idx].msg, str);
     }
 }
 

@@ -20,7 +20,7 @@ void CopyU16ArrayToStringN(String *, u16 *, u32); // copy
 void String_SetEmpty(String *);                   // set empty
 String *StringDup(String *, enum HeapID heapID);
 void String_Free(String *string);
-void StringCopy(String *dest, String *src);
+void String_Copy(String *dest, String *src);
 void String16_FormatInteger(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);
 s64 String_atoi(String *string, BOOL *flag);
 u16 StringGetLength(String *string);

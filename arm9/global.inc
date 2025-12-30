@@ -1391,7 +1391,7 @@
 .extern String_New
 .extern String_Free
 .extern String_SetEmpty
-.extern StringCopy
+.extern String_Copy
 .extern StringDup
 .extern String16_FormatInteger
 .extern String_atoi

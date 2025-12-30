@@ -33,7 +33,7 @@ void String_SetEmpty(String *string) {
     string->data[0] = EOS;
 }
 
-void StringCopy(String *dest, String *src) {
+void String_Copy(String *dest, String *src) {
     String_Assert(dest);
     String_Assert(src);
     if (dest->maxsize > src->size) {
@@ -48,7 +48,7 @@ String *StringDup(String *src, enum HeapID heapID) {
     String_Assert(src);
     String *dest = String_New((u32)(src->size + 1), heapID);
     if (dest != NULL) {
-        StringCopy(dest, src);
+        String_Copy(dest, src);
     }
     return dest;
 }

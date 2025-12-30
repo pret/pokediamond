@@ -2449,7 +2449,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
                 msgNo = nameList[index].msgNo;
             }
             struct String *name = NewString_ReadMsgData(data->msgData, msgNo);
-            StringCopy(data->rivalStruct->name, name);
+            String_Copy(data->rivalStruct->name, name);
             String_Free(name);
             data->controllerCounter = 91;
             break;

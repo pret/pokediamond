@@ -941,7 +941,7 @@ _02081304:
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
 	ldr r1, [r6, #0xc]
-	bl StringCopy
+	bl String_Copy
 	ldr r0, [r6, #0x10]
 	bl PlayerProfile_GetTrainerGender
 	mov r1, #0x42

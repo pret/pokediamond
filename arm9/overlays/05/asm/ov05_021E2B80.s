@@ -344,7 +344,7 @@ ov05_ExpandEasyChatMessage: ; 0x021E2DF0
 	add r4, r0, #0
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl StringCopy
+	bl String_Copy
 	add r0, r4, #0
 	bl String_Free
 	add sp, #8

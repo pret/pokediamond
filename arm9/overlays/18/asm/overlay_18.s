@@ -8495,7 +8495,7 @@ _0223D84E:
 	cmp r1, #0
 	beq _0223D886
 	add r0, r6, #0
-	bl StringCopy
+	bl String_Copy
 	ldr r0, _0223D8A0 ; =0x02251388
 	ldr r0, [r0]
 	add r0, r0, r4
@@ -23528,7 +23528,7 @@ _02244C02:
 	add r5, #0x84
 	ldr r0, [r5]
 	ldr r1, [sp]
-	bl StringCopy
+	bl String_Copy
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _02244C14:
@@ -23604,7 +23604,7 @@ _02244C8A:
 	add r1, #0x84
 	ldr r0, [r5, r0]
 	ldr r1, [r1]
-	bl StringCopy
+	bl String_Copy
 	ldr r0, [r7]
 	add r0, r0, #1
 	str r0, [r7]

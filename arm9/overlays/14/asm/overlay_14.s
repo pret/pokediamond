@@ -9282,7 +9282,7 @@ _021DBF6C:
 _021DBF8C:
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x14]
-	bl StringCopy
+	bl String_Copy
 	ldr r0, [r4, #0x14]
 	bl String_SetEmpty
 _021DBF9A:
@@ -9354,15 +9354,15 @@ ov14_021DBFF4: ; 0x021DBFF4
 	ldr r0, [r4, #0x28]
 	beq _021DC02E
 	ldr r1, [r6, #0x18]
-	bl StringCopy
+	bl String_Copy
 	b _021DC034
 _021DC02E:
 	ldr r1, [r6, #0x14]
-	bl StringCopy
+	bl String_Copy
 _021DC034:
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r6, #0x20]
-	bl StringCopy
+	bl String_Copy
 	mov r1, #0x1a
 	lsl r1, r1, #4
 	ldr r0, [sp]
