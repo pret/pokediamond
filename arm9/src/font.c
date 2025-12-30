@@ -6,8 +6,8 @@
 
 #include "gf_gfx_loader.h"
 #include "render_text.h"
-#include "string_gf.h"
 #include "string_control_code.h"
+#include "string_gf.h"
 #include "text.h"
 #include "unk_02021590.h"
 

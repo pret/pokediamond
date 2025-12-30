@@ -5,7 +5,7 @@
 
 #include "player_data.h" // for struct definitions
 #include "pokemon.h"     // for struct definitions
-#include "string_gf.h"    // for struct definitions
+#include "string_gf.h"   // for struct definitions
 
 int TrainerClass_GetGenderOrTrainerCount(int x);
 int sub_02014C3C(u8);

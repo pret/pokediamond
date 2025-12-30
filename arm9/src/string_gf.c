@@ -1,11 +1,11 @@
+#include "string_gf.h"
+
 #include "global.h"
 
 #include "heap.h"
-#include "string_gf.h"
 #include "string_util.h"
 
-static inline void String_Assert(const String *string)
-{
+static inline void String_Assert(const String *string) {
     GF_ASSERT(string != NULL);
     GF_ASSERT(string->magic == STR16_MAGIC);
 }
