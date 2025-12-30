@@ -211,7 +211,7 @@ sub_02047814: ; 0x02047814
 	add r2, r7, #0x0
 	bl ReadMsgDataIntoString
 	add r0, r7, #0x0
-	bl String_c_str
+	bl String_GetChars
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0xf8

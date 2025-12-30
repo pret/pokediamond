@@ -1860,7 +1860,7 @@ _020384F2:
 	cmp r0, #0x5
 	bne _02038514
 	ldr r0, [r1, #0x18]
-	bl String_c_str
+	bl String_GetChars
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl sub_0202881C

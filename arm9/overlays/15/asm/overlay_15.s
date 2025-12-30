@@ -4949,7 +4949,7 @@ ov15_021D9B04: ; 0x021D9B04
 	mov r1, #0x23
 	bl ov15_021D8720
 	str r0, [r4]
-	bl String_c_str
+	bl String_GetChars
 	str r0, [r4, #4]
 	ldrh r1, [r0]
 	ldr r0, _021D9B2C ; =0x0000FFFE

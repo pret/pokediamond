@@ -1979,7 +1979,7 @@ ov55_021D84C8: ; 0x021D84C8
 	add r0, r5, #0
 	add r0, #0xd4
 	ldr r0, [r0]
-	bl String_c_str
+	bl String_GetChars
 	add r1, r0, #0
 	add r0, r4, #0
 	bl CopyPlayerName

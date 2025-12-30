@@ -1402,7 +1402,7 @@
 .extern String_CopyFromChars
 .extern String_CopyNumChars
 .extern String_CopyToChars
-.extern String_c_str
+.extern String_GetChars
 .extern String_Concat
 .extern StrAddChar
 .extern StrUpperFirstChar

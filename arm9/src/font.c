@@ -110,7 +110,7 @@ u32 sub_02002DE0(u32 param0, u16 *str, u32 param2) {
 u32 sub_02002E14(u32 param0, struct String *str, u32 param2) {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
-    return GetStringWidth(UNK_02106FC8->unk94[param0], String_c_str(str), param2);
+    return GetStringWidth(UNK_02106FC8->unk94[param0], String_GetChars(str), param2);
 }
 
 s32 GetFontAttribute(u8 fontId, s32 attr) {
@@ -156,7 +156,7 @@ void LoadFontPal1(enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotO
 u32 FontID_String_GetWidthMultiline(u32 param0, struct String *str, u32 param2) {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
-    return GetStringWidthMultiline(UNK_02106FC8->unk94[param0], String_c_str(str), param2);
+    return GetStringWidthMultiline(UNK_02106FC8->unk94[param0], String_GetChars(str), param2);
 }
 
 u32 sub_02002F40(u32 param0, struct String *str, u32 param2, u32 param3) {
@@ -189,12 +189,12 @@ u32 sub_02002F58(const u16 *str) {
 }
 
 u32 sub_02002F90(struct String *str) {
-    return sub_02002F58(String_c_str(str));
+    return sub_02002F58(String_GetChars(str));
 }
 
 s32 sub_02002F9C(u32 param0, struct String *str) {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
     return StringGetWidth_SingleLine_HandleClearToControlCode(
-        UNK_02106FC8->unk94[param0], String_c_str(str));
+        UNK_02106FC8->unk94[param0], String_GetChars(str));
 }

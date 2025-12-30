@@ -603,7 +603,7 @@ void MessageFormat_UpperFirstChar(MessageFormat *messageFormat, u32 idx) {
 }
 
 void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest, struct String *src) {
-    const u16 *cstr = String_c_str(src);
+    const u16 *cstr = String_GetChars(src);
     String_Clear(dest);
     while (*cstr != EOS) {
         if (*cstr == EXT_CTRL_CODE_BEGIN) {

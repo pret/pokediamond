@@ -168,7 +168,7 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
     }
 
     printer->printerTemplate = *printerTemplate;
-    printer->printerTemplate.currentChar.raw = String_c_str(printer->printerTemplate.currentChar.wrapped);
+    printer->printerTemplate.currentChar.raw = String_GetChars(printer->printerTemplate.currentChar.wrapped);
     printer->callback = callback;
     UNK_021C570C = 0;
     sub_0201C1A8(printer);
