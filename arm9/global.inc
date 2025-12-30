@@ -1404,7 +1404,7 @@
 .extern String_CopyToChars
 .extern String_GetChars
 .extern String_Concat
-.extern StrAddChar
+.extern String_AppendChar
 .extern StrUpperFirstChar
 .extern StringCat_HandleTrainerName
 .extern sub_020220C4

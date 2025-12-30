@@ -616,11 +616,11 @@ void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest,
                 const u16 *before = cstr;
                 cstr = MsgArray_SkipControlCode(cstr);
                 while (before < cstr) {
-                    StrAddChar(dest, *before++);
+                    String_AppendChar(dest, *before++);
                 }
             }
         } else {
-            StrAddChar(dest, *cstr++);
+            String_AppendChar(dest, *cstr++);
         }
     }
 }

@@ -186,7 +186,7 @@ void String_CopyLine(String *dest, const String *src, u32 n) {
         if (c == CHAR_LF) {
             break;
         }
-        StrAddChar(dest, c);
+        String_AppendChar(dest, c);
     }
 }
 
@@ -251,7 +251,7 @@ void String_Concat(String *dest, String *src) {
     GF_ASSERT(FALSE);
 }
 
-void StrAddChar(String *string, u16 val) {
+void String_AppendChar(String *string, u16 val) {
     String_Assert(string);
 
     if (string->size + 1 < string->maxsize) {
