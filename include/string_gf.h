@@ -5,7 +5,7 @@
 #include "unk_02021590.h"
 
 typedef struct String {
-    u16 maxsize;
+    u16 maxSize;
     u16 size;
     u32 magic;
     u16 data[1];

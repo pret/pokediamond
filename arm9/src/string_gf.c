@@ -14,7 +14,7 @@ String *String_New(u32 length, enum HeapID heapID) {
     String *ret = Heap_Alloc(heapID, length * 2 + 10);
     if (ret != NULL) {
         ret->magic = STR16_MAGIC;
-        ret->maxsize = (u16)length;
+        ret->maxSize = (u16)length;
         ret->size = 0;
         ret->data[0] = EOS;
     }
@@ -36,7 +36,7 @@ void String_Clear(String *string) {
 void String_Copy(String *dest, String *src) {
     String_Assert(dest);
     String_Assert(src);
-    if (dest->maxsize > src->size) {
+    if (dest->maxSize > src->size) {
         memcpy(dest->data, src->data, (u32)((src->size + 1) * 2));
         dest->size = src->size;
         return;
@@ -80,7 +80,7 @@ void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode pr
     const u16 *charbase;
     BOOL isNegative = (num < 0);
 
-    if (string->maxsize > ndigits + isNegative) {
+    if (string->maxSize > ndigits + isNegative) {
         charbase = (whichCharset == 0) ? sCharset_JP : sCharset_EN;
         String_Clear(string);
         if (isNegative) {
@@ -194,7 +194,7 @@ void String_CopyFromChars(String *string, u16 *buf) {
     String_Assert(string);
 
     for (string->size = 0; *buf != EOS;) {
-        if (string->size >= string->maxsize - 1) {
+        if (string->size >= string->maxSize - 1) {
             GF_ASSERT(FALSE);
             break;
         }
@@ -206,7 +206,7 @@ void String_CopyFromChars(String *string, u16 *buf) {
 void String_CopyNumChars(String *string, u16 *buf, u32 length) {
     String_Assert(string);
 
-    if (length <= string->maxsize) {
+    if (length <= string->maxSize) {
         memcpy(string->data, buf, length * 2);
         int i;
         for (i = 0; i < length; i++) {
@@ -243,7 +243,7 @@ void String_Concat(String *dest, String *src) {
     String_Assert(dest);
     String_Assert(src);
 
-    if (dest->size + src->size + 1 <= dest->maxsize) {
+    if (dest->size + src->size + 1 <= dest->maxSize) {
         memcpy(dest->data + dest->size, src->data, (u32)(2 * (src->size + 1)));
         dest->size += src->size;
         return;
@@ -254,7 +254,7 @@ void String_Concat(String *dest, String *src) {
 void String_AppendChar(String *string, u16 val) {
     String_Assert(string);
 
-    if (string->size + 1 < string->maxsize) {
+    if (string->size + 1 < string->maxSize) {
         string->data[string->size++] = val;
         string->data[string->size] = EOS;
         return;
