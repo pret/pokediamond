@@ -299,7 +299,7 @@ struct String *ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, stru
         r5 = NewString_ReadMsgData(msgData, msgno);
         if (r5 != NULL) {
             StringExpandPlaceholders(messageFormat, r4, r5);
-            ret = StringDup(r4, heapID);
+            ret = String_Clone(r4, heapID);
             String_Free(r5);
         }
         String_Free(r4);

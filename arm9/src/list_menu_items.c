@@ -39,7 +39,7 @@ void ListMenuItems_AddItem(struct ListMenuItem *items, struct String *str, s32 v
     enum HeapID heapID;
     struct ListMenuItem *newItem = ListMenuItems_SeekEnd(items, &heapID);
     if (newItem != NULL) {
-        newItem->text = StringDup(str, heapID);
+        newItem->text = String_Clone(str, heapID);
         newItem->value = value;
     }
 }

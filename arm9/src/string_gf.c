@@ -44,7 +44,7 @@ void String_Copy(String *dest, String *src) {
     GF_ASSERT(FALSE);
 }
 
-String *StringDup(String *src, enum HeapID heapID) {
+String *String_Clone(String *src, enum HeapID heapID) {
     String_Assert(src);
     String *dest = String_New((u32)(src->size + 1), heapID);
     if (dest != NULL) {

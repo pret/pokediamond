@@ -1392,7 +1392,7 @@
 .extern String_Free
 .extern String_SetEmpty
 .extern String_Copy
-.extern StringDup
+.extern String_Clone
 .extern String16_FormatInteger
 .extern String_atoi
 .extern String_Compare

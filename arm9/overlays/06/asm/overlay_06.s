@@ -41862,7 +41862,7 @@ _0224DCEC:
 	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r1, r6, #0
-	bl StringDup
+	bl String_Clone
 	str r0, [r5, #0x10]
 	mov r3, #0
 	str r3, [sp]
@@ -42272,7 +42272,7 @@ _0224E034:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	ldr r1, [sp, #0x14]
-	bl StringDup
+	bl String_Clone
 	add r1, r6, #0
 	add r1, #0xc4
 	str r0, [r1]
