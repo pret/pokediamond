@@ -53,7 +53,7 @@ String *String_Clone(String *src, enum HeapID heapID) {
     return dest;
 }
 
-void String16_FormatInteger(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
+void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
     static const u16 sCharset_EN[10] = {
         0x121, 0x122, 0x123, 0x124, 0x125, 0x126, 0x127, 0x128, 0x129, 0x12A
     };

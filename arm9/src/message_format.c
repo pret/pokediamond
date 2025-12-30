@@ -165,7 +165,7 @@ void BufferBoxMonOTName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon
 }
 
 void BufferIntegerAsString(MessageFormat *messageFormat, u32 idx, s32 num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
-    String16_FormatInteger(messageFormat->buffer, num, ndigits, printingMode, whichCharset);
+    String_FormatInt(messageFormat->buffer, num, ndigits, printingMode, whichCharset);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 

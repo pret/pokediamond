@@ -3380,7 +3380,7 @@ ov57_021D8FD8: ; 0x021D8FD8
 	ldr r0, [sp, #0x28]
 	ldr r1, [sp, #0x2c]
 	ldr r3, [sp, #0x34]
-	bl String16_FormatInteger
+	bl String_FormatInt
 	mov r0, #0
 	ldr r1, [sp, #0x28]
 	add r2, r0, #0

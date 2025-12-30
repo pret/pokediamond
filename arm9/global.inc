@@ -1393,7 +1393,7 @@
 .extern String_SetEmpty
 .extern String_Copy
 .extern String_Clone
-.extern String16_FormatInteger
+.extern String_FormatInt
 .extern String_atoi
 .extern String_Compare
 .extern String_GetLength

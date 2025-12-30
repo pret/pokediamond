@@ -21,7 +21,7 @@ void String_SetEmpty(String *);                   // set empty
 String *String_Clone(String *, enum HeapID heapID);
 void String_Free(String *string);
 void String_Copy(String *dest, String *src);
-void String16_FormatInteger(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);
+void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);
 s64 String_atoi(String *string, BOOL *flag);
 u16 String_GetLength(String *string);
 int String_CountLines(const String *string);
