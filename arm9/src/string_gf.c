@@ -41,7 +41,7 @@ void StringCopy(String *dest, String *src) {
         dest->size = src->size;
         return;
     }
-    GF_ASSERT(0);
+    GF_ASSERT(FALSE);
 }
 
 String *StringDup(String *src, enum HeapID heapID) {
@@ -195,7 +195,7 @@ void CopyU16ArrayToString(String *string, u16 *buf) {
 
     for (string->size = 0; *buf != EOS;) {
         if (string->size >= string->maxsize - 1) {
-            GF_ASSERT(0);
+            GF_ASSERT(FALSE);
             break;
         }
         string->data[string->size++] = *buf++;
@@ -220,7 +220,7 @@ void CopyU16ArrayToStringN(String *string, u16 *buf, u32 length) {
         }
         return;
     }
-    GF_ASSERT(0);
+    GF_ASSERT(FALSE);
 }
 
 void CopyStringToU16Array(String *string, u16 *buf, u32 length) {
@@ -230,7 +230,7 @@ void CopyStringToU16Array(String *string, u16 *buf, u32 length) {
         memcpy(buf, string->data, (u32)((string->size + 1) * 2));
         return;
     }
-    GF_ASSERT(0);
+    GF_ASSERT(FALSE);
 }
 
 u16 *String_c_str(String *string) {
@@ -248,7 +248,7 @@ void StringCat(String *dest, String *src) {
         dest->size += src->size;
         return;
     }
-    GF_ASSERT(0);
+    GF_ASSERT(FALSE);
 }
 
 void StrAddChar(String *string, u16 val) {
@@ -259,7 +259,7 @@ void StrAddChar(String *string, u16 val) {
         string->data[string->size] = EOS;
         return;
     }
-    GF_ASSERT(0);
+    GF_ASSERT(FALSE);
 }
 
 void StrUpperFirstChar(String *string) {
