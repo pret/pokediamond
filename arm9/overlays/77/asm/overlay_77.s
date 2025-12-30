@@ -1588,7 +1588,7 @@ ov77_021D7FAC: ; 0x021D7FAC
 	add r2, r4, #0
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #2
 	bl sub_02002CF8
 	add sp, #0x18
@@ -1712,7 +1712,7 @@ _021D830A:
 	bne _021D8340
 	ldr r0, _021D834C ; =0x0000C06C
 	ldr r0, [r5, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _021D8348 ; =0x0000C064
 	mov r1, #2
 	str r1, [r5, r0]
@@ -2019,9 +2019,9 @@ ov77_021D8510: ; 0x021D8510
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, _021D85CC ; =0x0000C044
 	add r0, r5, r0
 	bl CopyWindowToVram
@@ -2105,9 +2105,9 @@ _021D865C:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, _021D8690 ; =0x0000C044
 	add r0, r5, r0
 	bl CopyWindowToVram
@@ -2175,7 +2175,7 @@ ov77_021D86B4: ; 0x021D86B4
 	str r3, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 _021D870E:
@@ -2280,9 +2280,9 @@ _021D87C8:
 	mov r3, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	mov r1, #1
 _021D87EC:
 	ldr r0, [sp, #0x1c]

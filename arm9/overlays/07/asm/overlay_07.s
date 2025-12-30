@@ -4513,7 +4513,7 @@ _022142BE:
 	add r1, r6, #0
 	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4627,7 +4627,7 @@ ov07_0221437C: ; 0x0221437C
 	add r2, r7, #0
 	bl StringExpandPlaceholders
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4684,7 +4684,7 @@ ov07_022143FC: ; 0x022143FC
 	add r1, r4, #0
 	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -4748,7 +4748,7 @@ ov07_022143FC: ; 0x022143FC
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0
 	ldr r3, [sp, #0x24]
 	str r1, [sp]
@@ -5004,7 +5004,7 @@ _022146F6:
 	cmp r4, #6
 	blo _022146DC
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]

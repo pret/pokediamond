@@ -339,9 +339,9 @@ ov70_021D7760: ; 0x021D7760
 	mov r4, #0
 _021D7766:
 	ldr r0, [r5, #0x20]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #0x24]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, #0x1c
 	cmp r4, #6
@@ -501,11 +501,11 @@ ov70_021D78A0: ; 0x021D78A0
 	mov r0, #0x65
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

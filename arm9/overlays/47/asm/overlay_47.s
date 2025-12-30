@@ -725,7 +725,7 @@ ov47_02254D6C: ; 0x02254D6C
 	add r4, r0, #0
 	beq _02254D8A
 	ldr r0, [r4, #0x5c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x58]
 	bl DestroyMsgData
 	add r0, r4, #0

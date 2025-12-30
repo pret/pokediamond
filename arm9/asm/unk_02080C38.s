@@ -137,7 +137,7 @@ _02080CB4:
 	bl sub_02081214
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x0]
 	bl sub_02081DC4
 	ldr r0, [r4, #0x4]
@@ -1173,7 +1173,7 @@ _020814FE:
 	add r0, r5, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]

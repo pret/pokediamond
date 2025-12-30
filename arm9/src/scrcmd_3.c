@@ -110,7 +110,7 @@ BOOL ScrCmd_Unk00FA(ScriptContext *ctx) {
 
     *miscDataPtr = sub_02081214(&unk);
 
-    String_Delete(str);
+    String_Free(str);
 
     return FALSE;
 }

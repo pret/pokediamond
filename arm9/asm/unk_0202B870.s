@@ -288,7 +288,7 @@ _0202BA38:
 	ldr r0, [sp, #0x0]
 	bl Heap_Free
 	add r0, r7, #0x0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x4]
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -844,7 +844,7 @@ _0202BE74:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0x0
 	beq _0202BE7E
-	bl String_Delete
+	bl String_Free
 _0202BE7E:
 	add r4, r4, #0x1
 	add r5, #0xc

@@ -607,9 +607,9 @@ sub_020867EC: ; 0x020867EC
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0x0
 	bl MessageFormat_Delete
 	add r0, r6, #0x0
@@ -677,7 +677,7 @@ _020868DE:
 	add r2, r4, #0x0
 	bl ListMenuItems_AddItem
 	add r0, r6, #0x0
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #0x1
 	cmp r4, #0x2
 	blt _020868DE

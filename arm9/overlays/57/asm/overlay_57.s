@@ -612,10 +612,10 @@ ov57_021D79F4: ; 0x021D79F4
 	add r4, r0, #0
 	ldr r0, _021D7A0C ; =0x00003308
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _021D7A10 ; =0x0000330C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	nop
 _021D7A0C: .word 0x00003308
@@ -3012,11 +3012,11 @@ _021D8C32:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl MessageFormat_Delete
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	add sp, #0x18
@@ -3329,11 +3329,11 @@ _021D8E74:
 	add r3, r2, #0
 	bl ov57_021D8FD8
 	ldr r0, [sp, #0x14]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl MessageFormat_Delete
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	add sp, #0x18
@@ -3521,9 +3521,9 @@ _021D906E:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl MessageFormat_Delete
 	add sp, #0x18

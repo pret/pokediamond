@@ -82,12 +82,12 @@ void MessageFormat_Delete(MessageFormat *messageFormat) {
             if (messageFormat->fields[i].msg == NULL) {
                 break;
             }
-            String_Delete(messageFormat->fields[i].msg);
+            String_Free(messageFormat->fields[i].msg);
         }
         Heap_Free(messageFormat->fields);
     }
     if (messageFormat->buffer != NULL) {
-        String_Delete(messageFormat->buffer);
+        String_Free(messageFormat->buffer);
     }
     messageFormat->count = 0;
     Heap_Free(messageFormat);
@@ -583,7 +583,7 @@ void BufferGroupName(MessageFormat *messageFormat, struct SaveData *save, u32 r5
     struct String *r4 = String_New(64, HEAP_ID_4);
     CopyU16ArrayToString(r4, sub_020287A8(r6, r5, sp28));
     BufferString(messageFormat, idx, r4, sp10, 1, r7);
-    String_Delete(r4);
+    String_Free(r4);
 }
 
 void BufferMonthNameAbbr(MessageFormat *messageFormat, u32 idx, u32 month) {

@@ -228,7 +228,7 @@ ov81_02238004: ; 0x02238004
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #8]
 	bl Heap_Free
 	ldr r0, [r4, #0x18]
@@ -2052,9 +2052,9 @@ ov81_02238D64: ; 0x02238D64
 	add r0, r4, #0
 	bl ov81_02239498
 	ldr r0, [r4, #0x54]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x58]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x5c]
 	bl ov81_0223890C
 	ldr r0, [r4, #0x40]
@@ -9109,9 +9109,9 @@ ov81_0223C580: ; 0x0223C580
 	ldr r0, [r4, #0x6c]
 	bl ov81_0223CDE0
 	ldr r0, [r4, #0x58]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x5c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x60]
 	cmp r0, #0
 	beq _0223C5AC

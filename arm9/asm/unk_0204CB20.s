@@ -6065,7 +6065,7 @@ _0204F990:
 	add r1, r4, #0x0
 	bl sub_020311D0
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0x0
 	bl Heap_Free
 	pop {r3-r5, pc}
@@ -6141,7 +6141,7 @@ _0204FA26:
 	mov r2, #0x1
 	bl sub_02030BC4
 	ldr r0, [sp, #0x0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0204FA54 ; =UNK_021C5A68
 	mov r2, #0x1
 	ldr r1, [r0, #0x0]

@@ -496,7 +496,7 @@ ov12_0222D9B0: ; 0x0222D9B0
 	ldr r0, [r4, #0x5c]
 	bl sub_02002FEC
 	ldr r0, [r4, #0x58]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x54]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x44]
@@ -3669,7 +3669,7 @@ _0222F3AE:
 	ldr r0, [r4, #0x48]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x4c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x44]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x30]
@@ -5507,7 +5507,7 @@ _02230296:
 	add r0, r4, #0
 	add r0, #0xa0
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	add r0, #0x9c
 	ldr r0, [r0]
@@ -8891,9 +8891,9 @@ ov12_02231D5C: ; 0x02231D5C
 	str r3, [sp, #0x18]
 	bl ov12_022322C0
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r2, [r5, #4]
 	mov r0, #1
 	str r0, [sp]
@@ -9315,7 +9315,7 @@ _0223210E:
 	mov r3, #2
 	bl ov12_022322C0
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r2, [r5, #4]
 	ldr r0, [r2, #0x18]
 	ldr r1, [r2, #0x1c]
@@ -10791,7 +10791,7 @@ _02232C62:
 	mov r2, #2
 	bl ov12_02232D7C
 	ldr r0, [sp, #0x24]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	ldrb r0, [r4, r0]
@@ -10823,9 +10823,9 @@ _02232C62:
 	mov r2, #0
 	bl ov12_02232D7C
 	ldr r0, [sp, #0x28]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x1c]
 	add r7, r7, #2
 	add r0, #0x14
@@ -10861,7 +10861,7 @@ _02232CF8:
 	add r3, r6, #0
 	bl ov12_02232D7C
 	ldr r0, [sp, #0x2c]
-	bl String_Delete
+	bl String_Free
 	add r7, r7, #1
 	add r4, #8
 	add r6, #0x14
@@ -15300,7 +15300,7 @@ _02234F96:
 	mov r1, #1
 	bl Bg_GetXpos
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -15462,7 +15462,7 @@ _0223506A:
 	mov r0, #0x15
 	bl ov12_02231380
 	ldr r0, [sp, #0x30]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -25531,7 +25531,7 @@ _02239AF4:
 	add r5, #0xd0
 	strb r0, [r5]
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -29485,9 +29485,9 @@ ov12_0223B940: ; 0x0223B940
 	add r2, r7, #0
 	bl ov12_0223BCD8
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl DestroyMsgData
 	add sp, #0x18
@@ -29619,13 +29619,13 @@ _0223BA3E:
 	str r1, [sp, #0x18]
 	bl ov12_0223BCD8
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -31382,11 +31382,11 @@ _0223C778:
 	cmp r0, #3
 	blt _0223C778
 	ldr r0, [sp, #0x38]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x34]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x30]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -34782,7 +34782,7 @@ _0223E210:
 	ldr r1, _0223E270 ; =0x00000AB8
 	strb r0, [r5, r1]
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -35117,7 +35117,7 @@ _0223E49A:
 	mov r1, #1
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0223E51C ; =0x00001BF1
 	mov r1, #1
 	strb r1, [r5, r0]
@@ -41542,7 +41542,7 @@ _022415D4:
 	add r0, r4, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	add r0, #0xc8
 	ldr r0, [r0]
@@ -43570,7 +43570,7 @@ _02242618:
 	lsl r1, r1, #2
 	strb r0, [r5, r1]
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -43937,7 +43937,7 @@ _022428E6:
 	cmp r5, #4
 	blt _022428E6
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]

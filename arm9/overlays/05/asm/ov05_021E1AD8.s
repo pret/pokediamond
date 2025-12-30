@@ -352,7 +352,7 @@ ov05_021E1D38: ; 0x021E1D38
 	add r0, #0xb4
 	str r1, [r0]
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	add r0, #0x9b
 	ldrb r0, [r0]
@@ -550,7 +550,7 @@ ov05_021E1ECC: ; 0x021E1ECC
 	add r5, r6, #0
 _021E1EFC:
 	ldr r0, [r5, #0x1c]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x1c
@@ -795,7 +795,7 @@ ov05_021E2094: ; 0x021E2094
 	lsl r1, r1, #2
 	str r0, [r2, r1]
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	cmp r4, #0xfa
 	bne _021E2104
 	add r0, r5, #0
@@ -1147,7 +1147,7 @@ ov05_021E2368: ; 0x021E2368
 	add r5, r6, #0
 _021E2398:
 	ldr r0, [r5, #0x1c]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x1c
@@ -1211,9 +1211,9 @@ ov05_021E23D0: ; 0x021E23D0
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -1385,9 +1385,9 @@ ov05_021E2540: ; 0x021E2540
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -1416,7 +1416,7 @@ ov05_021E25A4: ; 0x021E25A4
 	add r5, r6, #0
 _021E25D0:
 	ldr r0, [r5, #0x1c]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x1c
@@ -1773,7 +1773,7 @@ ov05_021E27E8: ; 0x021E27E8
 	add r0, r7, #0
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	add r1, r4, #0
 	bl ov05_021E28A0
@@ -1857,9 +1857,9 @@ ov05_021E28A0: ; 0x021E28A0
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl MessageFormat_Delete
 	ldr r0, [sp, #0xc]
@@ -1984,9 +1984,9 @@ ov05_021E29C8: ; 0x021E29C8
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	bl MessageFormat_Delete
 	add r0, r7, #0
@@ -2104,9 +2104,9 @@ ov05_021E2AD4: ; 0x021E2AD4
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	bl MessageFormat_Delete
 	add r0, r7, #0

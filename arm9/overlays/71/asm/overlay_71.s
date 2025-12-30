@@ -247,11 +247,11 @@ ov71_0222D780: ; 0x0222D780
 	mov r3, #0
 	bl ov71_02230EFC
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -697,7 +697,7 @@ _0222DBB0:
 	mov r3, #0
 	bl ov71_02230EFC
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
 	add r5, #0x10
 	add r4, r4, #1
@@ -1733,7 +1733,7 @@ ov71_0222E438: ; 0x0222E438
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0222E4D4 ; =0x0000221C
 	ldr r0, [r4, r0]
 	bl Heap_Free
@@ -1770,7 +1770,7 @@ ov71_0222E438: ; 0x0222E438
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0
@@ -2711,7 +2711,7 @@ ov71_0222EC5C: ; 0x0222EC5C
 	mov r3, #0
 	bl ov71_02230EFC
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end ov71_0222EC5C
@@ -2951,7 +2951,7 @@ _0222EE14:
 	str r3, [sp, #4]
 	bl ov71_02230EFC
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	b _0222EEA6
 _0222EE9A:
 	add r0, r5, #0
@@ -3002,7 +3002,7 @@ _0222EEA6:
 	str r3, [sp, #4]
 	bl ov71_02230EFC
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4452,7 +4452,7 @@ _0222FA8A:
 	sub r3, #0xd
 	bl ListMenuItems_AppendFromMsgData
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r2, _0222FAD0 ; =0x0000367C
 	mov r3, #0x5d
 	lsl r3, r3, #2
@@ -7008,7 +7008,7 @@ _02230F76:
 	bl AddTextPrinterParameterized2
 	add r4, r0, #0
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	add sp, #0x10
 	pop {r4, r5, r6, pc}

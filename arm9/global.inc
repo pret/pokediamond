@@ -1389,7 +1389,7 @@
 .extern GetStringWidthMultiline
 .extern StringGetWidth_SingleLine_HandleClearToControlCode
 .extern String_New
-.extern String_Delete
+.extern String_Free
 .extern String_SetEmpty
 .extern StringCopy
 .extern StringDup

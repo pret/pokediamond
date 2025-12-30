@@ -428,7 +428,7 @@ _0207586C:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075890:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -444,7 +444,7 @@ _02075890:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _020758B4:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -460,7 +460,7 @@ _020758B4:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _020758D8:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -476,7 +476,7 @@ _020758D8:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _020758FC:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -492,7 +492,7 @@ _020758FC:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075920:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -508,7 +508,7 @@ _02075920:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075944:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -524,7 +524,7 @@ _02075944:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075968:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -540,7 +540,7 @@ _02075968:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _0207598C:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -562,7 +562,7 @@ _0207598C:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _020759BE:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -584,7 +584,7 @@ _020759BE:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _020759F0:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -606,7 +606,7 @@ _020759F0:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075A22:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -628,7 +628,7 @@ _02075A22:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075A54:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -650,7 +650,7 @@ _02075A54:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075A86:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -672,7 +672,7 @@ _02075A86:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075AB8:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -695,7 +695,7 @@ _02075AB8:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075AEC:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -718,7 +718,7 @@ _02075AEC:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075B20:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -741,7 +741,7 @@ _02075B20:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075B54:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -764,7 +764,7 @@ _02075B54:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075B88:
 	ldr r0, _02075B94 ; =0x0000069C
@@ -793,7 +793,7 @@ _02075B98:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075BCA:
 	ldr r0, _02075C50 ; =0x0000069C
@@ -816,7 +816,7 @@ _02075BCA:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075BFE:
 	ldr r0, _02075C50 ; =0x0000069C
@@ -838,7 +838,7 @@ _02075BFE:
 	add r2, r6, #0x0
 	bl StringExpandPlaceholders
 	add r0, r6, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 _02075C30:
 	ldr r2, _02075C50 ; =0x0000069C
@@ -1313,7 +1313,7 @@ _02075FDA:
 	add r2, r7, #0x0
 	bl StringExpandPlaceholders
 	add r0, r7, #0x0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x8]
 	bl sub_0207C2D4
 	add r4, r0, #0x0
@@ -1596,7 +1596,7 @@ _02076212:
 	add r2, r6, #0x0
 	bl StringExpandPlaceholders
 	add r0, r6, #0x0
-	bl String_Delete
+	bl String_Free
 	ldr r7, _020763E0 ; =0x00000B25
 	ldr r3, _020763F4 ; =0x0000070E
 	ldrb r5, [r4, r7]
@@ -1903,7 +1903,7 @@ sub_0207640C: ; 0x0207640C
 	add r2, r7, #0x0
 	bl StringExpandPlaceholders
 	add r0, r7, #0x0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0x0
 	bl sub_0207C2D4
 	add r4, r0, #0x0
@@ -2111,7 +2111,7 @@ _020766BA:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2158,7 +2158,7 @@ _02076724:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2225,7 +2225,7 @@ _020767A4:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2355,7 +2355,7 @@ _020768E6:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2392,7 +2392,7 @@ sub_02076950: ; 0x02076950
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -2430,7 +2430,7 @@ sub_020769A4: ; 0x020769A4
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -2470,7 +2470,7 @@ sub_020769FC: ; 0x020769FC
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -2505,7 +2505,7 @@ sub_02076A48: ; 0x02076A48
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -2652,7 +2652,7 @@ _02076B68:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2681,7 +2681,7 @@ _02076BB2:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2710,7 +2710,7 @@ _02076BF2:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2740,7 +2740,7 @@ _02076C34:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2823,7 +2823,7 @@ _02076CDC:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -2883,7 +2883,7 @@ sub_02076D3C: ; 0x02076D3C
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -2926,7 +2926,7 @@ sub_02076DD4: ; 0x02076DD4
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -2964,7 +2964,7 @@ sub_02076E28: ; 0x02076E28
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -3004,7 +3004,7 @@ sub_02076E80: ; 0x02076E80
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -3042,7 +3042,7 @@ sub_02076ED4: ; 0x02076ED4
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r5, #0x0
 	mvn r1, r1
@@ -3165,7 +3165,7 @@ sub_02076FB0: ; 0x02076FB0
 	add r2, r7, #0x0
 	bl StringExpandPlaceholders
 	add r0, r7, #0x0
-	bl String_Delete
+	bl String_Free
 	cmp r4, #0x0
 	ldr r1, _02077038 ; =0x000006F8
 	bne _0207701C

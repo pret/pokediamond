@@ -442,7 +442,7 @@ sub_02048848: ; 0x02048848
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x2c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x30]
 	bl sub_0200DBFC
 	add r4, #0x1c
@@ -510,7 +510,7 @@ sub_020488D4: ; 0x020488D4
 	ldr r0, [r4, #0x2c]
 	cmp r0, #0x0
 	beq _020488E4
-	bl String_Delete
+	bl String_Free
 _020488E4:
 	add r0, r4, #0x0
 	add r0, #0x1c

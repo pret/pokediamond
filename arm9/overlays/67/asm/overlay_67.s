@@ -461,7 +461,7 @@ ov67_021D78AC: ; 0x021D78AC
 	ldr r0, [r4, #0x54]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x58]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	thumb_func_end ov67_021D78AC
 
@@ -1204,7 +1204,7 @@ _021D7E32:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -1241,7 +1241,7 @@ _021D7E32:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #0x50]
 	mov r1, #0
 	bl NewString_ReadMsgData
@@ -1269,7 +1269,7 @@ _021D7E32:
 	ldr r2, [r5, #0x58]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #1
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1695,7 +1695,7 @@ _021D822A:
 	bl StringGetLength
 	add r5, r0, #0
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, sp, #0x10
 	ldrh r0, [r0]
 	mov r1, #1
@@ -1720,7 +1720,7 @@ _021D822A:
 	bl StringGetLength
 	add r5, r5, r0
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	b _021D82BA
 _021D828A:
 	add r2, sp, #0x10
@@ -1735,7 +1735,7 @@ _021D828A:
 	bl StringGetLength
 	add r5, r5, r0
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r2, sp, #0x10
 	ldrh r2, [r2]
 	ldr r0, [r4, #0x54]
@@ -1796,7 +1796,7 @@ _021D82F2:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 _021D832E:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -2018,7 +2018,7 @@ ov67_021D84A8: ; 0x021D84A8
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2049,7 +2049,7 @@ ov67_021D84E4: ; 0x021D84E4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2080,7 +2080,7 @@ ov67_021D8520: ; 0x021D8520
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2111,7 +2111,7 @@ ov67_021D855C: ; 0x021D855C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2142,7 +2142,7 @@ ov67_021D8598: ; 0x021D8598
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2173,7 +2173,7 @@ ov67_021D85D4: ; 0x021D85D4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2204,7 +2204,7 @@ ov67_021D8610: ; 0x021D8610
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2235,7 +2235,7 @@ ov67_021D864C: ; 0x021D864C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2276,7 +2276,7 @@ ov67_021D8688: ; 0x021D8688
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2321,7 +2321,7 @@ ov67_021D86DC: ; 0x021D86DC
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2362,7 +2362,7 @@ ov67_021D873C: ; 0x021D873C
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2403,7 +2403,7 @@ ov67_021D8790: ; 0x021D8790
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2446,7 +2446,7 @@ ov67_021D87E4: ; 0x021D87E4
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2501,7 +2501,7 @@ _021D886E:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2551,7 +2551,7 @@ _021D88D2:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2582,7 +2582,7 @@ ov67_021D8914: ; 0x021D8914
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2613,7 +2613,7 @@ ov67_021D8950: ; 0x021D8950
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2654,7 +2654,7 @@ ov67_021D898C: ; 0x021D898C
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2697,7 +2697,7 @@ ov67_021D89E0: ; 0x021D89E0
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2740,7 +2740,7 @@ ov67_021D8A3C: ; 0x021D8A3C
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2783,7 +2783,7 @@ ov67_021D8A98: ; 0x021D8A98
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2826,7 +2826,7 @@ ov67_021D8AF4: ; 0x021D8AF4
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2869,7 +2869,7 @@ ov67_021D8B50: ; 0x021D8B50
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2912,7 +2912,7 @@ ov67_021D8BAC: ; 0x021D8BAC
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2955,7 +2955,7 @@ ov67_021D8C08: ; 0x021D8C08
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2998,7 +2998,7 @@ ov67_021D8C64: ; 0x021D8C64
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3041,7 +3041,7 @@ ov67_021D8CC0: ; 0x021D8CC0
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3084,7 +3084,7 @@ ov67_021D8D1C: ; 0x021D8D1C
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3127,7 +3127,7 @@ ov67_021D8D78: ; 0x021D8D78
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3158,7 +3158,7 @@ ov67_021D8DD4: ; 0x021D8DD4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3189,7 +3189,7 @@ ov67_021D8E10: ; 0x021D8E10
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3220,7 +3220,7 @@ ov67_021D8E4C: ; 0x021D8E4C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3251,7 +3251,7 @@ ov67_021D8E88: ; 0x021D8E88
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3282,7 +3282,7 @@ ov67_021D8EC4: ; 0x021D8EC4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3398,7 +3398,7 @@ _021D8F9A:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -3483,7 +3483,7 @@ _021D9046:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -3514,7 +3514,7 @@ ov67_021D9098: ; 0x021D9098
 	add r3, r7, #0
 	bl BufferString
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3580,7 +3580,7 @@ _021D9114:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3647,7 +3647,7 @@ _021D9198:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3722,7 +3722,7 @@ _021D921C:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3789,7 +3789,7 @@ _021D92B4:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3864,7 +3864,7 @@ _021D9338:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3908,7 +3908,7 @@ ov67_021D9390: ; 0x021D9390
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3960,7 +3960,7 @@ ov67_021D93EC: ; 0x021D93EC
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3991,7 +3991,7 @@ ov67_021D9458: ; 0x021D9458
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4036,7 +4036,7 @@ ov67_021D9494: ; 0x021D9494
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4067,7 +4067,7 @@ ov67_021D94F0: ; 0x021D94F0
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4134,7 +4134,7 @@ _021D956C:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4165,7 +4165,7 @@ ov67_021D95B0: ; 0x021D95B0
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4211,7 +4211,7 @@ ov67_021D95EC: ; 0x021D95EC
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4242,7 +4242,7 @@ ov67_021D964C: ; 0x021D964C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4294,7 +4294,7 @@ ov67_021D9688: ; 0x021D9688
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4325,7 +4325,7 @@ ov67_021D96F4: ; 0x021D96F4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0

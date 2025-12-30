@@ -1586,7 +1586,7 @@ _02066050:
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _02066060
-	bl String_Delete
+	bl String_Free
 _02066060:
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
@@ -1912,7 +1912,7 @@ sub_020662E4: ; 0x020662E4
 	lsl r7, r7, #0x4
 _020662F0:
 	ldr r0, [r5, r7]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x6
@@ -1920,15 +1920,15 @@ _020662F0:
 	mov r0, #0x47
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x46
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]

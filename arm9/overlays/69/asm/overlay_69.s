@@ -203,10 +203,10 @@ _0222D762:
 	bl MessageFormat_Delete
 	ldr r0, _0222D7E8 ; =0x00001B54
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0222D7EC ; =0x00001B58
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0222D7F0 ; =0x00001B5C
 	ldr r0, [r4, r0]
 	bl DestroyMsgData

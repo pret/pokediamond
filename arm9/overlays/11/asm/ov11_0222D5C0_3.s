@@ -217,7 +217,7 @@ _0222F30E:
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl DestroyMsgData
 	ldr r0, _0222F4D8 ; =ov11_0222F0D4

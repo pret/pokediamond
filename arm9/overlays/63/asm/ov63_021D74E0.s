@@ -2092,7 +2092,7 @@ _021D844C:
 	str r1, [sp, #0x14]
 	bl AddTextPrinterParameterized3
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	mov r1, #0x15

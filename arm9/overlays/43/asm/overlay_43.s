@@ -673,7 +673,7 @@ ov43_02254CD0: ; 0x02254CD0
 	add r0, sp, #0x14
 	bl RemoveWindow
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 _02254D44:
 	add sp, #0x24
 	pop {r3, r4, r5, r6, pc}

@@ -643,15 +643,15 @@ ov54_021D7A34: ; 0x021D7A34
 	add r5, r6, #0
 _021D7A50:
 	ldr r0, [r5, #0x2c]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
 	blt _021D7A50
 	ldr r0, [r6, #0x48]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x44]
-	bl String_Delete
+	bl String_Free
 	pop {r4, r5, r6, pc}
 	thumb_func_end ov54_021D7A34
 
@@ -2879,7 +2879,7 @@ _021D8BAC:
 	bl AddTextPrinterParameterized2
 _021D8BDE:
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 _021D8BE4:
 	ldr r0, [sp, #0x20]
 	add r7, #8
@@ -3008,7 +3008,7 @@ ov54_021D8C90: ; 0x021D8C90
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xba
 	lsl r0, r0, #2
 	add r0, r5, r0

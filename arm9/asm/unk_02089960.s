@@ -495,7 +495,7 @@ _02089CE8:
 	cmp r4, #0x0
 	bne _02089D48
 	ldr r0, [r5, #0x14]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #0xc]
 	add r0, r0, #0x1
 	str r0, [r5, #0xc]
@@ -512,7 +512,7 @@ _02089D50:
 	cmp r0, #0x0
 	bne _02089D80
 	ldr r0, [r5, #0x14]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #0xc]
 	add r0, r0, #0x1
 	str r0, [r5, #0xc]

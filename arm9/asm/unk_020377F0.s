@@ -1889,7 +1889,7 @@ _0203852E:
 	ldr r0, [r4, #0xc]
 	bl sub_02077AC4
 	ldr r0, [r4, #0x10]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0x0
 	bl Heap_Free
 	mov r0, #0x1

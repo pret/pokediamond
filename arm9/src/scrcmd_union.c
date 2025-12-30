@@ -75,7 +75,7 @@ BOOL ScrCmd_UnionGroup(struct ScriptContext *ctx) // 021D
         sub_02028810(unk_sav_ptr, 0, 2);
         sub_02028788(unk_sav_ptr, 0, MTRandom());
 
-        String_Delete(player_name);
+        String_Free(player_name);
 
         sub_02028700(unk_sav_ptr, 0, 1);
         sub_020612EC(ctx->fieldSystem);

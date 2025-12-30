@@ -1117,30 +1117,30 @@ ov65_021D7D74: ; 0x021D7D74
 	add r5, r6, #0
 _021D7D7C:
 	ldr r0, [r5, #0x50]
-	bl String_Delete
+	bl String_Free
 	cmp r4, #5
 	bge _021D7D94
 	ldr r0, [r5, #0x68]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6
 	blt _021D7D7C
 _021D7D94:
 	ldr r0, [r6, #0x4c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x48]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x44]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x40]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x3c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x38]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x34]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x30]
 	bl MessageFormat_Delete
 	ldr r0, [r6, #0x28]
@@ -3346,13 +3346,13 @@ ov65_021D8F08: ; 0x021D8F08
 	add r5, r6, #0
 _021D8F10:
 	ldr r0, [r5, #0x24]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #3
 	blt _021D8F10
 	ldr r0, [r6, #0x20]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x1c]
 	bl MessageFormat_Delete
 	ldr r0, [r6, #0x18]
@@ -3416,11 +3416,11 @@ ov65_021D8F34: ; 0x021D8F34
 
 	thumb_func_start ov65_021D8FA4
 ov65_021D8FA4: ; 0x021D8FA4
-	ldr r3, _021D8FAC ; =String_Delete
+	ldr r3, _021D8FAC ; =String_Free
 	ldr r0, [r0, #0x3c]
 	bx r3
 	nop
-_021D8FAC: .word String_Delete
+_021D8FAC: .word String_Free
 	thumb_func_end ov65_021D8FA4
 
 	thumb_func_start ov65_021D8FB0

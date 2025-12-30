@@ -1923,20 +1923,20 @@ ov82_0222E504: ; 0x0222E504
 	add r4, r0, #0
 	ldr r0, _0222E534 ; =0x00000B98
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0222E538 ; =0x00000B8C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0222E53C ; =0x00000B94
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb9
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0222E540 ; =0x00000B88
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	.align 2, 0
 _0222E534: .word 0x00000B98
@@ -4059,7 +4059,7 @@ ov82_0222F4D8: ; 0x0222F4D8
 	ldr r1, _0222F544 ; =0x00000B9C
 	str r0, [r5, r1]
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -4397,7 +4397,7 @@ ov82_0222F740: ; 0x0222F740
 	ldr r1, _0222F7BC ; =0x00000B9C
 	str r0, [r5, r1]
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

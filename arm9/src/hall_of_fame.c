@@ -62,7 +62,7 @@ void Save_HOF_RecordParty(struct HallOfFame *hof, struct Party *party, RTCDate *
         }
         hof->num_total++;
         if (str != NULL) {
-            String_Delete(str);
+            String_Free(str);
         }
     }
 }

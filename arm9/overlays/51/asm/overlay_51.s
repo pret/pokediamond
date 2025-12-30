@@ -1581,7 +1581,7 @@ _0225548C:
 	add r3, r1, #0
 	bl BufferString
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 _022554CA:
 	ldr r1, [sp, #8]
 	add r0, r7, #0
@@ -1629,7 +1629,7 @@ _0225550A:
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _0225551E
-	bl String_Delete
+	bl String_Free
 _0225551E:
 	ldr r1, [r5]
 	mov r0, #0x1c
@@ -1638,7 +1638,7 @@ _0225551E:
 	ldr r0, [r0, #8]
 	cmp r0, #0
 	beq _02255530
-	bl String_Delete
+	bl String_Free
 _02255530:
 	ldr r0, [sp, #8]
 	bl PlayerProfile_GetNamePtr

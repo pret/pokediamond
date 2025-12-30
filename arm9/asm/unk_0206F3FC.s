@@ -982,23 +982,23 @@ sub_0206FAA4: ; 0x0206FAA4
 	lsl r7, r7, #0x8
 _0206FAD8:
 	ldr r0, [r5, r7]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #0x1
 	add r5, #0x2c
 	cmp r4, #0x6
 	blo _0206FAD8
 	ldr r0, _0206FB40 ; =0x000006A4
 	ldr r0, [r6, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0206FB44 ; =0x000006A8
 	ldr r0, [r6, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r7, _0206FB48 ; =0x000006AC
 	mov r5, #0x0
 	add r4, r6, #0x0
 _0206FAFC:
 	ldr r0, [r4, r7]
-	bl String_Delete
+	bl String_Free
 	add r5, r5, #0x1
 	add r4, r4, #0x4
 	cmp r5, #0x13
@@ -4409,7 +4409,7 @@ _02071630:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -5070,7 +5070,7 @@ _02071B34:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1

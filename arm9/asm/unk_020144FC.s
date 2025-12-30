@@ -64,7 +64,7 @@ sub_02014564: ; 0x02014564
 	add r5, #0x70
 _0201456E:
 	ldr r0, [r5, #0x4]
-	bl String_Delete
+	bl String_Free
 	sub r5, r5, #0x4
 	sub r4, r4, #0x1
 	bpl _0201456E

@@ -538,7 +538,7 @@ sub_0204224C: ; 0x0204224C
 	add r2, r4, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4

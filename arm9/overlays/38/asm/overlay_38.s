@@ -659,7 +659,7 @@ ov38_02254D04: ; 0x02254D04
 	beq _02254D32
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	add r0, #0xb4
 	ldr r0, [r0]

@@ -2026,7 +2026,7 @@ _020498DC:
 	cmp r0, #0x1
 	bne _0204992C
 	ldr r0, [r4, #0x34]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r3, #0xb

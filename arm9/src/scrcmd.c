@@ -4671,8 +4671,8 @@ BOOL ScrCmd_CompareMysteryGiftEasyChatInput(ScriptContext *ctx) { // 02AA
     String *userInput = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, narc_0327_00001, HEAP_ID_32);
     String *targetString = NewString_ReadMsgData(msgData, narc_0327_00000);
     *var = String_Compare(userInput, targetString) == FALSE;
-    String_Delete(userInput);
-    String_Delete(targetString);
+    String_Free(userInput);
+    String_Free(targetString);
     DestroyMsgData(msgData);
     MessageFormat_Delete(messageFormat);
     return FALSE;

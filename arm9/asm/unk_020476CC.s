@@ -218,7 +218,7 @@ sub_02047814: ; 0x02047814
 	ldr r0, [r0, #0x0]
 	bl CopyPlayerName
 	add r0, r7, #0x0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x10]

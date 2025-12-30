@@ -8661,7 +8661,7 @@ _0223D804:
 	mov r0, #0x23
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0223D910 ; =0x00000241
 	ldrb r0, [r4, r0]
 	cmp r0, #0
@@ -9174,7 +9174,7 @@ _0223DC52:
 	add r1, r7, #0
 	bl ListMenuItems_AddItem
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x8b
 	lsl r0, r0, #2
 	ldrb r0, [r5, r0]
@@ -9310,7 +9310,7 @@ _0223DD86:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	lsl r1, r5, #0x10
 	add r0, r4, #0
 	lsr r1, r1, #0x10
@@ -9438,9 +9438,9 @@ ov06_0223DE34: ; 0x0223DE34
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 _0223DEC6:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -9480,7 +9480,7 @@ ov06_0223DED0: ; 0x0223DED0
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	b _0223DF30
 _0223DF1C:
 	mov r0, #0x50
@@ -9541,9 +9541,9 @@ _0223DF30:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r5, #0x28
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
@@ -9681,7 +9681,7 @@ _0223E034:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -9736,7 +9736,7 @@ _0223E124:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -9876,9 +9876,9 @@ _0223E214:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r5, #0x48
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
@@ -10074,7 +10074,7 @@ _0223E418:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r4, r2]
@@ -10139,7 +10139,7 @@ _0223E450:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r4, r2]
@@ -10217,7 +10217,7 @@ _0223E50A:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	add r0, #0x88
 	ldr r0, [r0]
@@ -10263,9 +10263,9 @@ _0223E50A:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r5, #0x38
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
@@ -10425,7 +10425,7 @@ _0223E704:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
@@ -10640,7 +10640,7 @@ _0223E88A:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
@@ -10882,7 +10882,7 @@ _0223EA74:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -10943,7 +10943,7 @@ ov06_0223EB2C: ; 0x0223EB2C
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r1, r4, #0
 	ldr r0, [r5, #8]
 	add r1, #0x18
@@ -11225,7 +11225,7 @@ _0223ED66:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -11518,7 +11518,7 @@ ov06_0223EFFC: ; 0x0223EFFC
 _0223F004:
 	ldr r0, [r6]
 	ldr r0, [r0, r5]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #8
@@ -15256,9 +15256,9 @@ _02240E8C:
 	b _02240D34
 _02240EE0:
 	ldr r0, [sp, #0x2c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x28]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x30]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x24]
@@ -15555,13 +15555,13 @@ _0224113A:
 	ldr r0, [r4, #0x68]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x20]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x6c]
 	bl sub_0206BB74
 	add r0, r4, #0
@@ -19449,7 +19449,7 @@ ov06_02243024: ; 0x02243024
 	add r5, r6, #0
 _02243060:
 	ldr r0, [r5, #0x24]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0xc
@@ -19499,9 +19499,9 @@ ov06_02243080: ; 0x02243080
 	str r3, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -21848,9 +21848,9 @@ _0224429E:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
@@ -22119,7 +22119,7 @@ _022443D4:
 	add r2, r7, #0
 	bl SetMonData
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl DestroyMsgData
 	b _02244508
@@ -22565,7 +22565,7 @@ ov06_02244820: ; 0x02244820
 	mov r2, #8
 	bl CopyStringToU16Array
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -31011,7 +31011,7 @@ _0224886C:
 	mov r2, #0x80
 	bl CopyStringToU16Array
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #8]
 	add r1, sp, #4
 	bl CopyPlayerName
@@ -31182,7 +31182,7 @@ CreateInGameTradeMon: ; 0x022489D4
 	add r2, r7, #0
 	bl SetMonData
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	mov r1, #1
 	add r0, sp, #0x10
 	strb r1, [r0]
@@ -31258,7 +31258,7 @@ CreateInGameTradeMon: ; 0x022489D4
 	add r2, r6, #0
 	bl SetMonData
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r2, r4, #0
 	add r0, r5, #0
 	mov r1, #0x9c
@@ -40926,7 +40926,7 @@ ov06_0224D46C: ; 0x0224D46C
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	bl NewString_ReadMsgData
@@ -40946,7 +40946,7 @@ ov06_0224D46C: ; 0x0224D46C
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0
 	ldr r5, _0224D698 ; =0x02251FAC
 	str r0, [sp, #0x24]
@@ -40973,7 +40973,7 @@ _0224D576:
 	add r0, r4, #0
 	bl AddTextPrinterParameterized
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x24]
 	add r5, #8
 	add r0, r0, #1
@@ -41006,7 +41006,7 @@ _0224D5BE:
 	add r0, r4, #0
 	bl AddTextPrinterParameterized
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
 	add r5, #8
 	add r0, r0, #1
@@ -41061,7 +41061,7 @@ _0224D60C:
 	add r0, r4, #0
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x2c]
-	bl String_Delete
+	bl String_Free
 	add r7, r7, #1
 	add r5, #8
 	cmp r7, #4
@@ -41075,7 +41075,7 @@ _0224D60C:
 	cmp r0, #5
 	blt _0224D608
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add r0, r4, #0
@@ -41256,7 +41256,7 @@ _0224D7D0:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb
 	str r0, [r4]
 	mov r0, #1
@@ -41282,7 +41282,7 @@ _0224D80E:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb
 	str r0, [r4]
 	mov r0, #0xc
@@ -41352,7 +41352,7 @@ _0224D8A6:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xa
 	str r0, [r4]
 	mov r0, #4
@@ -41425,7 +41425,7 @@ _0224D94C:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb
 	str r0, [r4]
 	mov r0, #0xc
@@ -41472,7 +41472,7 @@ _0224D992:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb
 	str r0, [r4]
 	mov r0, #3
@@ -41504,7 +41504,7 @@ _0224D9EA:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb9
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -41528,7 +41528,7 @@ _0224DA32:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb9
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -41605,7 +41605,7 @@ _0224DAD2:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb
 	str r0, [r4]
 	mov r0, #9
@@ -41625,7 +41625,7 @@ _0224DAFE:
 	add r1, r5, #0
 	bl ov06_0224DCD8
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb
 	str r0, [r4]
 	mov r0, #0xc
@@ -41896,7 +41896,7 @@ ov06_0224DD28: ; 0x0224DD28
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	beq _0224DD48
-	bl String_Delete
+	bl String_Free
 	mov r0, #0
 	str r0, [r4, #0x10]
 _0224DD48:
@@ -41959,9 +41959,9 @@ ov06_0224DD50: ; 0x0224DD50
 	add r0, r6, #0
 	bl MessageFormat_Delete
 	ldr r0, [sp, #0xc]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -42019,9 +42019,9 @@ ov06_0224DDD8: ; 0x0224DDD8
 	add r0, r6, #0
 	bl MessageFormat_Delete
 	ldr r0, [sp, #0xc]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -42096,13 +42096,13 @@ ov06_0224DED8: ; 0x0224DED8
 	add r5, r6, #0
 _0224DEE6:
 	ldr r0, [r5, #0x10]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #3
 	blt _0224DEE6
 	ldr r0, [r6, #0xc]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #8]
 	bl MessageFormat_Delete
 	ldr r0, [r6, #4]
@@ -42313,9 +42313,9 @@ _0224E084:
 	mov r0, #0x4a
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r3, [sp, #0x14]
 	ldr r0, [r5, #4]
 	ldr r1, _0224E168 ; =ov06_022523A0
@@ -42435,7 +42435,7 @@ _0224E1AC:
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, r7]
 	add r5, r5, #1
 	add r4, r4, #4

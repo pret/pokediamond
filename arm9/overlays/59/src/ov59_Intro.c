@@ -715,7 +715,7 @@ BOOL ov59_DisplayMessage(ov59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvanc
         BufferString(data->messageFormat, 0, data->playerStruct->name, data->selectedGender, 1, 2);
         BufferString(data->messageFormat, 1, data->rivalStruct->name, 0, 1, 2);
         StringExpandPlaceholders(data->messageFormat, data->string, string);
-        String_Delete(string);
+        String_Free(string);
 
         u32 delay = Options_GetTextFrameDelay(data->options);
         data->minTextSpacing = AddTextPrinterParameterized(&data->window, 1, data->string, 0, 0, delay, NULL);
@@ -725,7 +725,7 @@ BOOL ov59_DisplayMessage(ov59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvanc
         if (sub_0201BD70((u8)data->minTextSpacing)) {
             break;
         }
-        String_Delete(data->string);
+        String_Free(data->string);
         data->displayMessageCounter = 2;
         break;
     case 2:
@@ -834,7 +834,7 @@ BOOL ov59_DisplayControlAdventureMessage(ov59_IntroOverlayData *data, u32 msgNo,
             FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
             AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
         }
-        String_Delete(data->string);
+        String_Free(data->string);
         data->displayControlMessageCounter = 1;
         break;
     case 1:
@@ -2450,7 +2450,7 @@ BOOL ov59_MasterController(ov59_IntroOverlayData *data) {
             }
             struct String *name = NewString_ReadMsgData(data->msgData, msgNo);
             StringCopy(data->rivalStruct->name, name);
-            String_Delete(name);
+            String_Free(name);
             data->controllerCounter = 91;
             break;
         }

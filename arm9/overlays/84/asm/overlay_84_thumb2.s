@@ -624,7 +624,7 @@ ov84_021D85B8: ; 0x021D85B8
 	bl SysTask_Destroy
 _021D85C6:
 	ldr r0, [r4, #0x30]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x24]
 	bl RemoveWindow
 	ldr r0, [r4, #0x28]

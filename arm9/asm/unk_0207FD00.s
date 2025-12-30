@@ -608,7 +608,7 @@ sub_02080108: ; 0x02080108
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x8
 	pop {r4-r6, pc}
 
@@ -766,7 +766,7 @@ _0208036E:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x8
 	pop {r4-r6, pc}
 	.balign 4
@@ -883,7 +883,7 @@ _02080478:
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x8
 	pop {r3-r7, pc}
 
@@ -1733,7 +1733,7 @@ sub_02080AE4: ; 0x02080AE4
 	add r2, r4, #0x0
 	bl SetBoxMonData
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x8
 	pop {r4-r6, pc}
 

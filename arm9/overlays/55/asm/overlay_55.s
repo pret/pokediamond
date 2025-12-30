@@ -647,7 +647,7 @@ ov55_021D7A38: ; 0x021D7A38
 	add r5, r6, #0
 _021D7A4C:
 	ldr r0, [r5, #0x38]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x20
@@ -655,22 +655,22 @@ _021D7A4C:
 	add r0, r6, #0
 	add r0, #0xb8
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	add r0, #0xc0
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	mov r5, #0
 	add r4, r6, #0
 _021D7A7C:
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r5, r5, #1
 	add r4, r4, #4
 	cmp r5, #4
@@ -678,10 +678,10 @@ _021D7A7C:
 	add r0, r6, #0
 	add r0, #0xd4
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r6, #0xd8
 	ldr r0, [r6]
-	bl String_Delete
+	bl String_Free
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end ov55_021D7A38

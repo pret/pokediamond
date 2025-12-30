@@ -549,7 +549,7 @@ ov76_021D7938: ; 0x021D7938
 	mov r0, #1
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end ov76_021D7938
@@ -1100,7 +1100,7 @@ ov76_021D7D60: ; 0x021D7D60
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2002,7 +2002,7 @@ _021D84D8:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D8510: .word ov76_021D8F6C

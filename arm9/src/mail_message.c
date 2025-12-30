@@ -128,7 +128,7 @@ u32 MailMsg_NumFields(u16 bank, u16 num) {
             cstr++;
         }
     }
-    String_Delete(str);
+    String_Free(str);
     return count;
 }
 

@@ -144,7 +144,7 @@ BOOL TryFormatRegisteredKeyItemUseMessage(SaveData *saveData, String *dest, u32 
     }
 
     StringExpandPlaceholders(messageFormat, dest, string);
-    String_Delete(string);
+    String_Free(string);
     MessageFormat_Delete(messageFormat);
     DestroyMsgData(msgData);
     return TRUE;
@@ -174,7 +174,7 @@ void GetItemUseErrorMessage(PlayerProfile *playerProfile, String *dest, u16 item
         String *src = NewString_ReadMsgData(msgData, narc_0199_00036);
         BufferPlayersName(messageFormat, 0, playerProfile);
         StringExpandPlaceholders(messageFormat, dest, src);
-        String_Delete(src);
+        String_Free(src);
         MessageFormat_Delete(messageFormat);
         DestroyMsgData(msgData);
         break;

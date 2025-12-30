@@ -117,7 +117,7 @@ void ShowWFCUserInfoWarning(enum HeapID heapID, u32 a1) {
 
     ReadMsgDataIntoString(warning_messages_data, narc_0613_00015, warning_message); // Your Nintendo Wi-Fi Connection User Information may have been erased...
     AddTextPrinterParameterized(&window, 0, warning_message, 0, 0, 0, 0);
-    String_Delete(warning_message);
+    String_Free(warning_message);
 
     GfGfx_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);

@@ -842,7 +842,7 @@ ov86_021D7B80: ; 0x021D7B80
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _021D7C00
@@ -905,7 +905,7 @@ _021D7C02:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	nop

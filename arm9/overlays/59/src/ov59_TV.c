@@ -331,7 +331,7 @@ BOOL ov59_021D9C74(ov59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3) 
 
         width = (256 - width) / 2;
         AddTextPrinterParameterized2(&data->window, 0, string, width, param3, TEXT_SPEED_INSTANT, MAKE_TEXT_COLOR(15, 2, 0), NULL);
-        String_Delete(string);
+        String_Free(string);
         CopyWindowToVram(&data->window);
         ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_PLANE_TOGGLE_ON);
         data->unk24 = 240;

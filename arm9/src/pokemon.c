@@ -819,7 +819,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *dest) {
         if (boxmon->checksum_fail) {
             struct String *buffer = GetSpeciesName(SPECIES_MANAPHY_EGG, HEAP_ID_DEFAULT);
             StringCopy(dest, buffer);
-            String_Delete(buffer);
+            String_Free(buffer);
         } else {
             CopyU16ArrayToString(dest, blockC->nickname);
         }
@@ -1362,7 +1362,7 @@ void SetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *value) {
     case MON_DATA_SPECIES_NAME:
         speciesName = GetSpeciesName(blockA->species, HEAP_ID_DEFAULT);
         CopyStringToU16Array(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
-        String_Delete(speciesName);
+        String_Free(speciesName);
         break;
     }
 #undef VALUE
@@ -3470,8 +3470,8 @@ BOOL sub_0206A9AC(struct BoxPokemon *boxmon, PlayerProfile *sb2, enum HeapID hea
     if (myId == otId && myGender == otGender && String_Compare(r7, r6) == 0) {
         ret = TRUE;
     }
-    String_Delete(r6);
-    String_Delete(r7);
+    String_Free(r6);
+    String_Free(r7);
     return ret;
 }
 

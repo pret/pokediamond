@@ -112,7 +112,7 @@ void ShowSaveDataReadError(enum HeapID heapID) {
 
     ReadMsgDataIntoString(msg_data, narc_0005_00000, str); // The data could not be read. Please turn off the power...
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
-    String_Delete(str);
+    String_Free(str);
 
     GfGfx_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);
@@ -173,7 +173,7 @@ void ShowGBACartRemovedError(enum HeapID heapID) {
 
     ReadMsgDataIntoString(msg_data, narc_0005_00001, str); // Error reading data. The GBA Game Pak was removed...
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
-    String_Delete(str);
+    String_Free(str);
 
     GfGfx_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);

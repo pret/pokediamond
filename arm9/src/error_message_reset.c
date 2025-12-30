@@ -142,7 +142,7 @@ void PrintErrorMessageAndReset() {
 
         AddTextPrinterParameterized(&buf, 0, str, 0, 0, 0, NULL);
 
-        String_Delete(str);
+        String_Free(str);
         GfGfx_BothDispOn();
         SetMasterBrightnessNeutral(PM_LCD_TOP);
         SetMasterBrightnessNeutral(PM_LCD_BOTTOM);

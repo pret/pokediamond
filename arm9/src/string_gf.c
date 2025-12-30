@@ -21,7 +21,7 @@ String *String_New(u32 length, enum HeapID heapID) {
     return ret;
 }
 
-void String_Delete(String *string) {
+void String_Free(String *string) {
     String_Assert(string);
     string->magic = STR16_MAGIC | 1;
     Heap_Free(string);

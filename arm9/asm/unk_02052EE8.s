@@ -917,12 +917,12 @@ sub_020535E0: ; 0x020535E0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _020535F4
-	bl String_Delete
+	bl String_Free
 _020535F4:
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	beq _020535FE
-	bl String_Delete
+	bl String_Free
 _020535FE:
 	pop {r4, pc}
 

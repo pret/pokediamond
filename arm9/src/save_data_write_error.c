@@ -120,7 +120,7 @@ void ShowSaveDataWriteError(enum HeapID heapID, u32 err_no) {
 
     ReadMsgDataIntoString(msg_data, msg_no, str);
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
-    String_Delete(str);
+    String_Free(str);
 
     GfGfx_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);

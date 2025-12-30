@@ -655,9 +655,9 @@ ov05_021F60FC: ; 0x021F60FC
 	ldr r0, [r4, #0x34]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x2c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x30]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x48]
 	bl DestroyMsgData
 	pop {r4, pc}

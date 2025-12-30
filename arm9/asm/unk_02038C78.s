@@ -1058,9 +1058,9 @@ _02038DD2:
 	ldr r0, [r4, #0x40]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x44]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x48]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	add r0, r4, #0x0

@@ -1198,7 +1198,7 @@ ov16_021D7D9C: ; 0x021D7D9C
 	mov r3, #0x31
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl ov16_021DBBAC
 	add sp, #0x14
@@ -4694,7 +4694,7 @@ ov16_021D98B0: ; 0x021D98B0
 	add r4, r0, #0
 	ldr r0, _021D98D4 ; =0x00001754
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _021D98D8 ; =0x00001748
 	ldr r0, [r4, r0]
 	bl sub_02087B0C
@@ -8498,7 +8498,7 @@ _021DB3E4:
 	bl sub_02002E14
 	add r6, r0, #0
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -9663,10 +9663,10 @@ _021DBBA8:
 
 	thumb_func_start ov16_021DBBAC
 ov16_021DBBAC: ; 0x021DBBAC
-	ldr r3, _021DBBB0 ; =String_Delete
+	ldr r3, _021DBBB0 ; =String_Free
 	bx r3
 	.align 2, 0
-_021DBBB0: .word String_Delete
+_021DBBB0: .word String_Free
 	thumb_func_end ov16_021DBBAC
 
 	thumb_func_start ov16_021DBBB4
@@ -11602,7 +11602,7 @@ ov16_021DC958: ; 0x021DC958
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r0, [r5]
@@ -11664,7 +11664,7 @@ ov16_021DCA2C: ; 0x021DCA2C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r0, [r5]
@@ -12886,7 +12886,7 @@ _021DD420:
 	add r0, r5, #0
 	bl ov16_021DB3BC
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	add sp, #0x40
@@ -17114,7 +17114,7 @@ _021DF394:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -17166,7 +17166,7 @@ ov16_021DF3E4: ; 0x021DF3E4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -17411,7 +17411,7 @@ ov16_021DF5D0: ; 0x021DF5D0
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	nop
@@ -17505,7 +17505,7 @@ _021DF698:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -17632,7 +17632,7 @@ _021DF774:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -17900,7 +17900,7 @@ ov16_021DF970: ; 0x021DF970
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #1
 	mov r1, #0
 	bl SetBgPriority
@@ -29813,7 +29813,7 @@ ov16_021E5064: ; 0x021E5064
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 	ldr r2, [sp, #0x10]
@@ -29870,7 +29870,7 @@ ov16_021E5104: ; 0x021E5104
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0x14
@@ -29909,7 +29909,7 @@ ov16_021E5158: ; 0x021E5158
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0x14
@@ -34501,7 +34501,7 @@ _021E731E:
 	sub r3, r3, r6
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x1c]
@@ -45875,7 +45875,7 @@ ov16_021EC7E8: ; 0x021EC7E8
 	mov r3, #0x98
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0x10
@@ -45943,7 +45943,7 @@ ov16_021EC898: ; 0x021EC898
 	add r0, r0, #4
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r2, _021EC9AC ; =0x00000266
@@ -45999,7 +45999,7 @@ _021EC970:
 	add r0, r0, #4
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	add sp, #0x1c
@@ -48855,7 +48855,7 @@ ov16_021EDEC8: ; 0x021EDEC8
 	mov r3, #0x98
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0x10
@@ -48922,7 +48922,7 @@ ov16_021EDF78: ; 0x021EDF78
 	add r0, r0, #4
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r2, _021EE08C ; =0x00000266
@@ -48978,7 +48978,7 @@ _021EE04E:
 	add r0, r0, #4
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	add sp, #0x1c
@@ -52443,7 +52443,7 @@ ov16_021EFA6C: ; 0x021EFA6C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl DestroyMsgData
 	add sp, #0x10

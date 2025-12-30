@@ -712,15 +712,15 @@ ov53_021D7AE8: ; 0x021D7AE8
 	add r5, r6, #0
 _021D7B00:
 	ldr r0, [r5, #0x14]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
 	blt _021D7B00
 	ldr r0, [r6, #0x2c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x28]
-	bl String_Delete
+	bl String_Free
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021D7B1C: .word 0x000043C8
@@ -3628,7 +3628,7 @@ ov53_021D91C8: ; 0x021D91C8
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb6
 	lsl r0, r0, #2
 	add r0, r5, r0

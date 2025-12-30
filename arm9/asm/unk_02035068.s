@@ -686,9 +686,9 @@ _02035526:
 	add r1, r7, #0x0
 	bl ListMenuItems_AddItem
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0x0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0x0
 	bl MessageFormat_Delete
 	b _020355A2
@@ -994,7 +994,7 @@ _020357D6:
 	str r1, [sp, #0x8]
 	bl AddTextPrinterParameterized
 	add r0, r7, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb
 	bl MessageFormat_New
 	add r7, r0, #0x0
@@ -1049,9 +1049,9 @@ _0203584C:
 	str r1, [sp, #0x8]
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0x0
 	bl MessageFormat_Delete
 	ldr r0, [sp, #0x1c]

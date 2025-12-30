@@ -7747,7 +7747,7 @@ _0223D276:
 	cmp r6, #0
 	beq _0223D280
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 _0223D280:
 	cmp r5, #0
 	beq _0223D28A
@@ -8150,7 +8150,7 @@ _0223D5AC:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0223D5BC
-	bl String_Delete
+	bl String_Free
 _0223D5BC:
 	add r4, r4, #1
 	add r5, r5, #4
@@ -8343,7 +8343,7 @@ ov18_0223D6D8: ; 0x0223D6D8
 	add r2, r7, #0
 	bl StringExpandPlaceholders
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl MessageFormat_Delete
 	add sp, #8
@@ -8386,7 +8386,7 @@ ov18_0223D744: ; 0x0223D744
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl MessageFormat_Delete
 	add sp, #8
@@ -8501,7 +8501,7 @@ _0223D84E:
 	add r0, r0, r4
 	add r0, #0xdc
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0223D8A0 ; =0x02251388
 	mov r1, #0
 	ldr r0, [r0]
@@ -10162,7 +10162,7 @@ ov18_0223E4D4: ; 0x0223E4D4
 	ldr r1, [r1]
 	bl StringExpandPlaceholders
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl MessageFormat_Delete
 _0223E54E:
@@ -23457,7 +23457,7 @@ ov18_02244B7C: ; 0x02244B7C
 	add r4, r5, #0
 _02244B84:
 	ldr r0, [r4]
-	bl String_Delete
+	bl String_Free
 	add r6, r6, #1
 	add r4, r4, #4
 	cmp r6, #0x20
@@ -23465,13 +23465,13 @@ _02244B84:
 	add r0, r5, #0
 	add r0, #0x80
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	mov r4, #0
 _02244B9E:
 	add r0, r5, #0
 	add r0, #0x84
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #2
@@ -32987,7 +32987,7 @@ _022495BA:
 	add r1, r7, #0
 	bl ListMenuItems_AddItem
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	b _022495EE
 _022495E2:
 	ldr r0, [r5, #0x40]
@@ -35279,9 +35279,9 @@ ov18_0224A8AC: ; 0x0224A8AC
 	bl sub_020021EC
 _0224A8C0:
 	ldr r0, [r5, #0x68]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #0x6c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #0x70]
 	bl MessageFormat_Delete
 	bl ov18_0223D648
@@ -35937,12 +35937,12 @@ _0224AE34:
 	ldr r0, [r5, #0x68]
 	cmp r0, #0
 	beq _0224AE3E
-	bl String_Delete
+	bl String_Free
 _0224AE3E:
 	ldr r0, [r5, #0x6c]
 	cmp r0, #0
 	beq _0224AE48
-	bl String_Delete
+	bl String_Free
 _0224AE48:
 	ldr r0, [r5, #0x70]
 	cmp r0, #0
@@ -37366,9 +37366,9 @@ ov18_0224B980: ; 0x0224B980
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4, #0x68]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x6c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x70]
 	bl MessageFormat_Delete
 	mov r0, #0x7f
@@ -39370,9 +39370,9 @@ ov18_0224CA34: ; 0x0224CA34
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x68]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x6c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x70]
 	bl MessageFormat_Delete
 	add r0, r4, #0
@@ -40717,9 +40717,9 @@ _0224D500:
 	cmp r0, #7
 	blt _0224D500
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x1c]
 	bl MessageFormat_Delete
 	add sp, #0x20
@@ -41273,9 +41273,9 @@ _0224D9DE:
 	cmp r0, #5
 	blt _0224D8FA
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl MessageFormat_Delete
 	add sp, #0x28
@@ -41456,9 +41456,9 @@ ov18_0224DB5C: ; 0x0224DB5C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #4]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x28]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x24]
@@ -42362,7 +42362,7 @@ ov18_0224E0CC: ; 0x0224E0CC
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r6, #0
 	add r4, sp, #0x14
 _0224E186:
@@ -42867,11 +42867,11 @@ _0224E454:
 	add r0, r6, #0
 	bl MessageFormat_Delete
 	ldr r0, [sp, #0x28]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x2c]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x24]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x20]

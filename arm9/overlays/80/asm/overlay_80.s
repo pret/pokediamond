@@ -3108,11 +3108,11 @@ ov80_0222EE08: ; 0x0222EE08
 	add r4, r0, #0
 	ldr r0, _0222EE20 ; =0x00000B4C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb5
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	.align 2, 0
 _0222EE20: .word 0x00000B4C
@@ -3771,7 +3771,7 @@ ov80_0222F300: ; 0x0222F300
 	str r3, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end ov80_0222F300
@@ -4391,18 +4391,18 @@ ov80_0222F830: ; 0x0222F830
 	add r5, r7, #0
 _0222F83A:
 	ldr r0, [r5, r6]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0xa
 	blt _0222F83A
 	ldr r0, _0222F860 ; =0x00000B4C
 	ldr r0, [r7, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb5
 	lsl r0, r0, #4
 	ldr r0, [r7, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _0222F85C: .word 0x00000B54
@@ -4826,7 +4826,7 @@ ov80_0222FB3C: ; 0x0222FB3C
 	lsl r1, r1, #6
 	str r0, [r5, r1]
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -4977,17 +4977,17 @@ _0222FCA2:
 	add r3, r2, #0
 	bl ov80_02236D50
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x24]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x28]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x2c]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -5032,9 +5032,9 @@ ov80_0222FD28: ; 0x0222FD28
 	add r3, r2, #0
 	bl ov80_02236D50
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -5682,13 +5682,13 @@ ov80_022302C4: ; 0x022302C4
 	add r4, r0, #0
 	ldr r0, _022302E4 ; =0x00000B54
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _022302E8 ; =0x00000B58
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _022302EC ; =0x00000B4C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	nop
 _022302E4: .word 0x00000B54
@@ -6043,9 +6043,9 @@ ov80_02230550: ; 0x02230550
 	mov r3, #2
 	bl ov80_02236D50
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	nop
@@ -6740,11 +6740,11 @@ ov80_02230B2C: ; 0x02230B2C
 	bl Heap_Free
 	ldr r0, _02230B68 ; =0x00000B4C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb5
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	nop
 _02230B68: .word 0x00000B4C
@@ -8424,7 +8424,7 @@ ov80_022318D4: ; 0x022318D4
 	add r3, r2, #0
 	bl ov80_02236D50
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	mov r1, #0x3d
 	bl NewString_ReadMsgData
@@ -8439,7 +8439,7 @@ ov80_022318D4: ; 0x022318D4
 	add r3, r2, #0
 	bl ov80_02236D50
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	mov r1, #0x3f
 	bl NewString_ReadMsgData
@@ -8454,7 +8454,7 @@ ov80_022318D4: ; 0x022318D4
 	add r3, r2, #0
 	bl ov80_02236D50
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	mov r1, #0x41
 	bl NewString_ReadMsgData
@@ -8477,7 +8477,7 @@ ov80_022318D4: ; 0x022318D4
 	add r1, r6, #0
 	bl ov80_02236D50
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	mov r1, #0x42
 	bl NewString_ReadMsgData
@@ -8500,7 +8500,7 @@ ov80_022318D4: ; 0x022318D4
 	add r1, r4, #0
 	bl ov80_02236D50
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	nop
@@ -9362,17 +9362,17 @@ ov80_022320E8: ; 0x022320E8
 	bl Heap_Free
 	ldr r0, _0223211C ; =0x00000B44
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _02232120 ; =0x00000B4C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _02232124 ; =0x00000B48
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb5
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	.align 2, 0
 _02232118: .word 0x00001004
@@ -10698,7 +10698,7 @@ _02232B62:
 	lsl r1, r1, #6
 	str r0, [r5, r1]
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -11678,7 +11678,7 @@ ov80_022332EC: ; 0x022332EC
 	lsl r1, r1, #6
 	str r0, [r5, r1]
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -12087,11 +12087,11 @@ ov80_02233684: ; 0x02233684
 	bl Heap_Free
 	ldr r0, _022336C0 ; =0x00000B4C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xb5
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	nop
 _022336C0: .word 0x00000B4C
@@ -13082,7 +13082,7 @@ ov80_02233EA4: ; 0x02233EA4
 	mov r2, #0
 	bl ov80_02236D50
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 _02233ED2:
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -13154,7 +13154,7 @@ _02233F34:
 	bl ov80_02236D50
 _02233F4E:
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 _02233F54:
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -13187,7 +13187,7 @@ ov80_02233F5C: ; 0x02233F5C
 	add r1, r4, #0
 	bl ov80_02236D50
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 _02233F92:
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -13275,7 +13275,7 @@ _02234022:
 	mov r3, #2
 	bl ov80_02233F9C
 	ldr r0, [sp, #0x14]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -13347,7 +13347,7 @@ _022340B6:
 	mov r3, #2
 	bl ov80_02233F9C
 	ldr r0, [sp, #0x14]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -13473,13 +13473,13 @@ _022341CA:
 	strb r6, [r7, #2]
 	strb r0, [r7, #3]
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14484,12 +14484,12 @@ _022349B8: .word 0x00000B4C
 	thumb_func_start ov80_022349BC
 ov80_022349BC: ; 0x022349BC
 	ldr r1, _022349C4 ; =0x00000B4C
-	ldr r3, _022349C8 ; =String_Delete
+	ldr r3, _022349C8 ; =String_Free
 	ldr r0, [r0, r1]
 	bx r3
 	.align 2, 0
 _022349C4: .word 0x00000B4C
-_022349C8: .word String_Delete
+_022349C8: .word String_Free
 	thumb_func_end ov80_022349BC
 
 	thumb_func_start ov80_022349CC
@@ -18245,13 +18245,13 @@ ov80_0223669C: ; 0x0223669C
 	mov r0, #0xb5
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _022366BC ; =0x00000B7C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _022366C0 ; =0x00000B4C
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	.align 2, 0
 _022366BC: .word 0x00000B7C
@@ -19047,7 +19047,7 @@ ov80_02236C70: ; 0x02236C70
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, _02236CD8 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
@@ -19227,7 +19227,7 @@ ov80_02236D8C: ; 0x02236D8C
 	lsl r1, r1, #6
 	str r0, [r5, r1]
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

@@ -824,7 +824,7 @@ ov85_021D7BB8: ; 0x021D7BB8
 	ldr r0, [r4, #4]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x18]
-	bl String_Delete
+	bl String_Free
 	pop {r4, r5, r6, pc}
 	nop
 _021D7BE8: .word 0x00000408

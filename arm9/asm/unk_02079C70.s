@@ -749,22 +749,22 @@ sub_0207A264: ; 0x0207A264
 	mov r0, #0x25
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x96
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x1a
 	lsl r0, r0, #0x6
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, _0207A2D4 ; =0x00000684
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 	.balign 4
 _0207A2C4: .word 0x00000688

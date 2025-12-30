@@ -278,7 +278,7 @@ sub_02060D90: ; 0x02060D90
 	add r2, r4, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -329,7 +329,7 @@ sub_02060E04: ; 0x02060E04
 	mov r2, #0xb
 	bl CopyStringToU16Array
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -438,7 +438,7 @@ sub_02060ECC: ; 0x02060ECC
 	mov r2, #0xb
 	bl CopyStringToU16Array
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 _02060F0C:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1546,7 +1546,7 @@ sub_02061750: ; 0x02061750
 	mov r3, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x5
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -3390,7 +3390,7 @@ _0206257A:
 	add r3, r6, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0x0
 	bl sub_0202769C
 	add r2, r0, #0x0

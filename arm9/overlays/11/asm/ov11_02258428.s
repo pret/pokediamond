@@ -1933,13 +1933,13 @@ _0225934A:
 	add r2, r4, #0
 	bl ov11_0225A458
 	ldr r0, [sp, #0x24]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5]
 	bl ov11_0222FF74
 	mov r1, #0x22
@@ -2347,7 +2347,7 @@ _02259748:
 	add r2, r4, #0
 	bl ov11_0225A458
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	mov r4, #0
 	mov r7, #3
 	b _022597B0
@@ -2520,9 +2520,9 @@ ov11_02259898: ; 0x02259898
 	add r2, r6, #0
 	bl ov11_0225A458
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -2587,9 +2587,9 @@ ov11_02259930: ; 0x02259930
 	add r2, r6, #0
 	bl ov11_0225A458
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -2679,13 +2679,13 @@ ov11_022599CC: ; 0x022599CC
 	add r2, r7, #0
 	bl ov11_0225A458
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2775,13 +2775,13 @@ ov11_02259AB0: ; 0x02259AB0
 	add r2, r7, #0
 	bl ov11_0225A458
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2872,13 +2872,13 @@ ov11_02259B94: ; 0x02259B94
 	add r2, r7, #0
 	bl ov11_0225A458
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x20]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3024,7 +3024,7 @@ _02259D5C:
 	add r0, r5, #0
 	bl ov11_0225A458
 	ldr r0, [sp, #0x24]
-	bl String_Delete
+	bl String_Free
 	cmp r4, #1
 	beq _02259DA2
 	cmp r4, #3
@@ -3074,7 +3074,7 @@ _02259DEC:
 	b _02259CE0
 _02259DF2:
 	ldr r0, [sp, #0x28]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x2c]
 	ldr r1, _02259E54 ; =0x000003A2
 	bl NewString_ReadMsgData
@@ -3100,7 +3100,7 @@ _02259DF2:
 	add r1, r5, r1
 	bl ov11_0225A458
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x44
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4386,7 +4386,7 @@ _0225A826:
 	mov r2, #2
 	bl ov11_0225A968
 	ldr r0, [sp, #0x48]
-	bl String_Delete
+	bl String_Free
 _0225A846:
 	add r0, r6, #0
 	add r0, #0x84
@@ -4506,11 +4506,11 @@ _0225A906:
 	b _0225A7CE
 _0225A930:
 	ldr r0, [sp, #0x28]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x2c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x30]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0xc
 _0225A944:
 	ldr r1, [sp, #8]

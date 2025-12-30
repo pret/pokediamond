@@ -3293,7 +3293,7 @@ _022316CC:
 	bl AddTextPrinterParameterized
 	add r5, r0, #0
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	b _02231778
 _022316F6:
 	cmp r7, #0x64
@@ -3331,7 +3331,7 @@ _02231708:
 	bl AddTextPrinterParameterized
 	add r5, r0, #0
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	b _02231778
@@ -4652,7 +4652,7 @@ ov11_022321EC: ; 0x022321EC
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start ov11_0223220C

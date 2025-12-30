@@ -1435,7 +1435,7 @@ _021ECF7E:
 	add r2, r6, #0
 	bl SetMonData
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x40]
 	cmp r0, #4
 	bne _021ECFEE
@@ -1462,7 +1462,7 @@ _021ECF7E:
 	add r2, sp, #0x18
 	bl SetMonData
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 _021ECFEE:
 	mov r0, #0
 	str r0, [sp]
@@ -1560,7 +1560,7 @@ _021ED05E:
 	add r2, r4, #0
 	bl SetMonData
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -2598,7 +2598,7 @@ _021ED7CE:
 	add r1, r4, #0
 	bl CopyPokemonToPokemon
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl Heap_Free
 	add sp, #0x3c

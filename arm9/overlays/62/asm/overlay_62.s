@@ -1234,7 +1234,7 @@ ov62_0222DE00: ; 0x0222DE00
 	ldr r1, [sp, #0x70]
 	bl sub_02011AC0
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	add r0, sp, #0x1c
@@ -1992,7 +1992,7 @@ _0222E49A:
 	add r1, r4, #0
 	bl ListMenuItems_AddItem
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r6, r6, #1
 	add r5, r5, #4
 	cmp r6, r7
@@ -3280,7 +3280,7 @@ _0222EE96:
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0xc
@@ -3591,7 +3591,7 @@ _0222F0FE:
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 _0222F152:
 	add r6, r6, #1
 	add r5, #0x10
@@ -3657,7 +3657,7 @@ _0222F194:
 	add r0, r5, r4
 	bl CopyWindowToVram
 	ldr r0, [sp, #0x10]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3722,7 +3722,7 @@ _0222F226:
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0xc

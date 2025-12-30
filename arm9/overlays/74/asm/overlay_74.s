@@ -909,32 +909,32 @@ ov74_021D7BB4: ; 0x021D7BB4
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	ldr r0, [r6, #0x68]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x64]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x48]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x44]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x40]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x34]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x3c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x38]
-	bl String_Delete
+	bl String_Free
 	mov r4, #0
 	add r5, r6, #0
 _021D7BEC:
 	ldr r0, [r5, #0x4c]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6
 	blt _021D7BEC
 	ldr r0, [r6, #0x30]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x2c]
 	bl MessageFormat_Delete
 	ldr r0, [r6, #0x28]
@@ -1324,7 +1324,7 @@ _021D7F2E:
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #0x1e
@@ -1651,7 +1651,7 @@ ov74_021D818C: ; 0x021D818C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop

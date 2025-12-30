@@ -1523,7 +1523,7 @@ _020136CA:
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _020136D8
-	bl String_Delete
+	bl String_Free
 _020136D8:
 	add r0, r4, #0x0
 	bl Heap_Free

@@ -355,7 +355,7 @@ sub_0208578C: ; 0x0208578C
 	ldr r0, [r4, #0x10]
 	cmp r0, #0x0
 	beq _0208579A
-	bl String_Delete
+	bl String_Free
 _0208579A:
 	add r0, r4, #0x0
 	bl Heap_Free

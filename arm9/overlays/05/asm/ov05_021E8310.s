@@ -163,7 +163,7 @@ ov05_021E8410: ; 0x021E8410
 	add r3, r1, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #1
 	str r0, [sp, #0x10]
 	ldr r0, _021E84EC ; =ov05_021F78D4
@@ -194,7 +194,7 @@ _021E846E:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	sub r2, r7, #4
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
@@ -221,7 +221,7 @@ _021E846E:
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 _021E84D6:
 	ldr r0, [sp, #0xc]
 	add r7, r7, #4

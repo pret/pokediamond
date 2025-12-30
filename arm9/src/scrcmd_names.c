@@ -230,7 +230,7 @@ BOOL ScrCmd_Unk00DA(ScriptContext *ctx) // 00DA - todo: BufferPokemonSpeciesName
     String *str = sub_02040AE4(msg_no, HEAP_ID_4);
 
     BufferString(*messageFormat, idx, str, unk1, unk2, 2);
-    String_Delete(str);
+    String_Free(str);
 
     return FALSE;
 }
@@ -253,7 +253,7 @@ BOOL ScrCmd_GetPlayerStarterName(ScriptContext *ctx) // 00DB - todo: BufferPlaye
     String *str = sub_02040AE4(msg_no, HEAP_ID_4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_Delete(str);
+    String_Free(str);
 
     return FALSE;
 }
@@ -267,7 +267,7 @@ BOOL ScrCmd_GetRivalStarterName(ScriptContext *ctx) // 00DC - todo: BufferRivalS
     String *str = sub_02040AE4(msg_no, HEAP_ID_4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_Delete(str);
+    String_Free(str);
 
     return FALSE;
 }
@@ -281,7 +281,7 @@ BOOL ScrCmd_GetCounterpartStarterName(ScriptContext *ctx) // 00DD - todo: Buffer
     String *str = sub_02040AE4(msg_no, HEAP_ID_4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_Delete(str);
+    String_Free(str);
 
     return FALSE;
 }
@@ -328,7 +328,7 @@ BOOL ScrCmd_GetMapName(ScriptContext *ctx) // 00E2 - todo: BufferMapName?
 
     sub_02064E60(map_no, HEAP_ID_4, str);
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_Delete(str);
+    String_Free(str);
 
     return FALSE;
 }
@@ -342,7 +342,7 @@ BOOL ScrCmd_GetBerryName(ScriptContext *ctx) // 017B - todo: BufferBerryName?
     String *nut_name = GetNutName((u16)(berry - FIRST_BERRY_IDX), HEAP_ID_32);
 
     BufferString(*messageFormat, idx, nut_name, 0, unk < 2, 2);
-    String_Delete(nut_name);
+    String_Free(nut_name);
 
     return FALSE;
 }
@@ -379,7 +379,7 @@ BOOL ScrCmd_GetWhiteRockInscription(ScriptContext *ctx) // 0272 - todo: BufferWh
 
     CopyU16ArrayToString(str, unk_buffer);
     BufferString(*messageFormat, idx, str, 0, 0, gGameLanguage);
-    String_Delete(str);
+    String_Free(str);
 
     return FALSE;
 }

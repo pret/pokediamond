@@ -500,7 +500,7 @@ ov05_021E3248: ; 0x021E3248
 	add r0, #0x20
 	bl RemoveWindow
 	ldr r0, [r4, #0x40]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x38]
 	bl Heap_Free
 	add r0, r4, #0

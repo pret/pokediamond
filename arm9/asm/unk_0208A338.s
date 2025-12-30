@@ -75,9 +75,9 @@ sub_0208A3C8: ; 0x0208A3C8
 	ldr r0, [r4, #0x14]
 	bl DestroyListMenuCursorObj
 	ldr r0, [r4, #0x4]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x8]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0xc]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x10]

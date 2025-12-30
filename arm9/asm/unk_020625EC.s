@@ -1011,7 +1011,7 @@ _02062D40:
 	add r0, r5, #0x0
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x3
@@ -1020,7 +1020,7 @@ _02062D40:
 	add r4, r6, #0x0
 _02062D56:
 	ldr r0, [r4, #0x48]
-	bl String_Delete
+	bl String_Free
 	add r5, r5, #0x1
 	add r4, r4, #0x4
 	cmp r5, #0x7
@@ -1032,9 +1032,9 @@ _02062D56:
 	add r4, r6, #0x0
 _02062D6E:
 	ldr r0, [r4, #0x64]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x7c]
-	bl String_Delete
+	bl String_Free
 	ldrb r0, [r6, #0x18]
 	add r5, r5, #0x1
 	add r4, r4, #0x4
@@ -1042,15 +1042,15 @@ _02062D6E:
 	blt _02062D6E
 _02062D84:
 	ldr r0, [r6, #0x44]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x40]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x3c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x38]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x34]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r6, #0x30]
 	bl MessageFormat_Delete
 	ldr r0, [r6, #0x2c]

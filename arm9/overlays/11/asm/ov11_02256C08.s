@@ -1306,9 +1306,9 @@ ov11_022574F0: ; 0x022574F0
 	add r0, sp, #0x24
 	bl RemoveWindow
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x1c]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1852,7 +1852,7 @@ _02257A26:
 	add r0, sp, #0x18
 	bl RemoveWindow
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -1977,9 +1977,9 @@ _02257B1E:
 	add r0, sp, #0x24
 	bl RemoveWindow
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x18]
-	bl String_Delete
+	bl String_Free
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

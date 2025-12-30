@@ -300,9 +300,9 @@ struct String *ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, stru
         if (r5 != NULL) {
             StringExpandPlaceholders(messageFormat, r4, r5);
             ret = StringDup(r4, heapID);
-            String_Delete(r5);
+            String_Free(r5);
         }
-        String_Delete(r4);
+        String_Free(r4);
     }
     return ret;
 }

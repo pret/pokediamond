@@ -4260,7 +4260,7 @@ ov17_021D95AC: ; 0x021D95AC
 	add r1, r5, #0
 	bl sub_020274F0
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 _021D95EC:
 	ldr r0, [sp]
 	mov r5, #0
@@ -4347,7 +4347,7 @@ ov17_021D964C: ; 0x021D964C
 	add r1, r5, #0
 	bl sub_02027A58
 	add r0, r5, #0
-	bl String_Delete
+	bl String_Free
 _021D969A:
 	ldr r1, [sp]
 	add r0, r6, #0
@@ -4729,7 +4729,7 @@ ov17_021D9918: ; 0x021D9918
 	add r2, r4, #0
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r0, _021D99D4 ; =0x000006A8
@@ -4785,9 +4785,9 @@ ov17_021D99E0: ; 0x021D99E0
 	add r2, r4, #0
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, _021D9A58 ; =0x000006A8
@@ -4866,7 +4866,7 @@ _021D9AD0:
 	bl AddTextPrinterParameterized2
 	add r6, r0, #0
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, _021D9B08 ; =0x000006A8
@@ -4889,7 +4889,7 @@ ov17_021D9B18: ; 0x021D9B18
 	mov r0, #0x6d
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x6d
 	mov r1, #0
 	lsl r0, r0, #4
@@ -11292,7 +11292,7 @@ _021DC898:
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r6, #0
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -11681,7 +11681,7 @@ ov17_021DCBC0: ; 0x021DCBC0
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x51
 	mov r1, #0
 	lsl r0, r0, #2
@@ -11957,7 +11957,7 @@ _021DCD98:
 	bl AddTextPrinterParameterized2
 	add r6, r0, #0
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r5, #0
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -14397,7 +14397,7 @@ _021DDFF8:
 	sub r3, r3, r4
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5]
 	bl sub_0202769C
 	add r2, r0, #0
@@ -14439,9 +14439,9 @@ _021DDFF8:
 	sub r3, r3, r5
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add r0, r7, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -14533,7 +14533,7 @@ _021DE1A0:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14565,7 +14565,7 @@ _021DE1A0:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14589,7 +14589,7 @@ _021DE1A0:
 	sub r3, r3, r5
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r7, #0

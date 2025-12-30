@@ -1438,9 +1438,9 @@ _020519BA:
 	ldr r0, [r4, #0x28]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0xc]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x10]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x78]
 	bl DestroyListMenuCursorObj
 	add r0, r4, #0x0
@@ -2196,9 +2196,9 @@ _02051F7C:
 	ldr r0, [r4, #0x18]
 	bl MessageFormat_Delete
 	ldr r0, [r4, #0x0]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x4]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0x0
 	add r0, #0x8
 	mov r1, #0x0

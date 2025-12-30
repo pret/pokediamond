@@ -858,7 +858,7 @@ _022124EC:
 	add r0, r5, #0
 	add r0, #0xd4
 	ldr r0, [r0]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x20
@@ -866,22 +866,22 @@ _022124EC:
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r7, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl String_Delete
+	bl String_Free
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl String_Delete
+	bl String_Free
 	mov r6, #0x59
 	mov r5, #0
 	add r4, r7, #0
 	lsl r6, r6, #2
 _02212524:
 	ldr r0, [r4, r6]
-	bl String_Delete
+	bl String_Free
 	add r5, r5, #1
 	add r4, r4, #4
 	cmp r5, #4
@@ -889,7 +889,7 @@ _02212524:
 	mov r0, #0x56
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl String_Delete
+	bl String_Free
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 	thumb_func_end ov56_022124E4
@@ -2778,7 +2778,7 @@ ov56_0221341C: ; 0x0221341C
 	cmp r0, #0
 	bne _0221344C
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 _0221344C:
@@ -2801,7 +2801,7 @@ _0221344C:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #4]
 	ldrb r0, [r0, #0x1b]
 	cmp r0, #0x10

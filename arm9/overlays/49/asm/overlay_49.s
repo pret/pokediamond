@@ -452,7 +452,7 @@ ov49_02254AD4: ; 0x02254AD4
 	add r0, sp, #0x1c
 	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 _02254B94:
 	add r0, sp, #0x1c
 	bl RemoveWindow

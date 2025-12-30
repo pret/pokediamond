@@ -7829,11 +7829,11 @@ ov14_021DB49C: ; 0x021DB49C
 
 	thumb_func_start ov14_021DB4BC
 ov14_021DB4BC: ; 0x021DB4BC
-	ldr r3, _021DB4C4 ; =String_Delete
+	ldr r3, _021DB4C4 ; =String_Free
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021DB4C4: .word String_Delete
+_021DB4C4: .word String_Free
 
 	thumb_func_start ov14_021DB4C8
 ov14_021DB4C8: ; 0x021DB4C8
@@ -7866,15 +7866,15 @@ ov14_021DB500: ; 0x021DB500
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x14]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x18]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x1c]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x20]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r4, #0x24]
-	bl String_Delete
+	bl String_Free
 	pop {r4, pc}
 
 	thumb_func_start ov14_021DB524
@@ -7912,9 +7912,9 @@ ov14_021DB558: ; 0x021DB558
 	mov r4, #0
 _021DB55E:
 	ldr r0, [r5, #0x30]
-	bl String_Delete
+	bl String_Free
 	ldr r0, [r5, #0x34]
-	bl String_Delete
+	bl String_Free
 	add r4, r4, #1
 	add r5, #0x30
 	cmp r4, #2
@@ -19526,12 +19526,12 @@ _021E0E86:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
 	beq _021E0E90
-	bl String_Delete
+	bl String_Free
 _021E0E90:
 	ldr r0, [r5, #0x48]
 	cmp r0, #0
 	beq _021E0E9A
-	bl String_Delete
+	bl String_Free
 _021E0E9A:
 	ldr r0, [r5, #0x24]
 	cmp r0, #0
@@ -20729,12 +20729,12 @@ _021E17F6:
 	ldr r0, [r5, #0x30]
 	cmp r0, #0
 	beq _021E1800
-	bl String_Delete
+	bl String_Free
 _021E1800:
 	ldr r0, [r5, #0x34]
 	cmp r0, #0
 	beq _021E180A
-	bl String_Delete
+	bl String_Free
 _021E180A:
 	ldr r0, [r5, #0x18]
 	bl Heap_Free
@@ -21693,7 +21693,7 @@ _021E1F62:
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021E1F6E
-	bl String_Delete
+	bl String_Free
 _021E1F6E:
 	ldr r0, [r5, #0x10]
 	cmp r0, #0
@@ -24553,7 +24553,7 @@ _021E3518:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021E3526
-	bl String_Delete
+	bl String_Free
 _021E3526:
 	mov r4, #0
 	add r5, r6, #0
@@ -28252,7 +28252,7 @@ ov14_021E50EC: ; 0x021E50EC
 	add r0, r4, #0
 	bl ov14_021E5474
 	ldr r0, [r4, #0x74]
-	bl String_Delete
+	bl String_Free
 	add r0, r4, #0
 	bl Heap_Free
 _021E5124:

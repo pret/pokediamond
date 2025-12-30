@@ -346,7 +346,7 @@ ov05_ExpandEasyChatMessage: ; 0x021E2DF0
 	add r1, r4, #0
 	bl StringCopy
 	add r0, r4, #0
-	bl String_Delete
+	bl String_Free
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
