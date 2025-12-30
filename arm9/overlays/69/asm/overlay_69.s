@@ -2307,7 +2307,7 @@ ov69_0222E89C: ; 0x0222E89C
 	add r5, r0, #0
 	ldr r0, [r5, #0x1c]
 	add r4, r1, #0
-	bl StringCountLines
+	bl String_CountLines
 	mov r6, #0
 	str r0, [sp, #0x10]
 	cmp r0, #0

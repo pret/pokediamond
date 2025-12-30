@@ -1397,7 +1397,7 @@
 .extern String_atoi
 .extern String_Compare
 .extern StringGetLength
-.extern StringCountLines
+.extern String_CountLines
 .extern StringGetLineN
 .extern CopyU16ArrayToString
 .extern CopyU16ArrayToStringN

@@ -155,7 +155,7 @@ u16 StringGetLength(String *string) {
     return string->size;
 }
 
-int StringCountLines(const String *string) {
+int String_CountLines(const String *string) {
     String_Assert(string);
 
     int i, nline;

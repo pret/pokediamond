@@ -24,7 +24,7 @@ void String_Copy(String *dest, String *src);
 void String16_FormatInteger(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);
 s64 String_atoi(String *string, BOOL *flag);
 u16 StringGetLength(String *string);
-int StringCountLines(const String *string);
+int String_CountLines(const String *string);
 void StringGetLineN(String *dest, const String *src, u32 n);
 void CopyU16ArrayToString(String *string, u16 *buf);
 void CopyStringToU16Array(String *string, u16 *buf, u32 length);
