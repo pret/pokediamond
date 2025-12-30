@@ -1396,7 +1396,7 @@
 .extern String16_FormatInteger
 .extern String_atoi
 .extern String_Compare
-.extern StringGetLength
+.extern String_GetLength
 .extern String_CountLines
 .extern StringGetLineN
 .extern CopyU16ArrayToString

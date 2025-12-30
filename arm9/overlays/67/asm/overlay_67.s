@@ -1692,7 +1692,7 @@ _021D822A:
 	mov r3, #0x2a
 	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
-	bl StringGetLength
+	bl String_GetLength
 	add r5, r0, #0
 	add r0, r6, #0
 	bl String_Free
@@ -1717,7 +1717,7 @@ _021D822A:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x58]
-	bl StringGetLength
+	bl String_GetLength
 	add r5, r5, r0
 	add r0, r6, #0
 	bl String_Free
@@ -1732,7 +1732,7 @@ _021D828A:
 	mov r3, #0x2a
 	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
-	bl StringGetLength
+	bl String_GetLength
 	add r5, r5, r0
 	add r0, r6, #0
 	bl String_Free

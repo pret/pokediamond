@@ -150,7 +150,7 @@ BOOL String_Compare(String *str1, String *str2) {
     return TRUE;
 }
 
-u16 StringGetLength(String *string) {
+u16 String_GetLength(String *string) {
     String_Assert(string);
     return string->size;
 }

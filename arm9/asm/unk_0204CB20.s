@@ -6102,7 +6102,7 @@ sub_0204F9BC: ; 0x0204F9BC
 	mov r1, #0xf
 	bl PlayerProfile_GetPlayerName_NewString
 	str r0, [sp, #0x0]
-	bl StringGetLength
+	bl String_GetLength
 	cmp r0, #0x0
 	beq _0204F9FE
 	ldr r0, _0204FA54 ; =UNK_021C5A68
