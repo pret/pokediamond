@@ -1394,7 +1394,7 @@
 .extern String_Copy
 .extern String_Clone
 .extern String_FormatInt
-.extern String_atoi
+.extern String_AtoI
 .extern String_Compare
 .extern String_GetLength
 .extern String_CountLines

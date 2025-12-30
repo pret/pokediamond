@@ -1967,7 +1967,7 @@ ov55_021D84C8: ; 0x021D84C8
 	add r0, #0xd8
 	ldr r0, [r0]
 	add r1, sp, #4
-	bl String_atoi
+	bl String_AtoI
 	str r0, [sp]
 	ldr r0, [sp, #4]
 	add r7, r1, #0
@@ -2081,7 +2081,7 @@ _021D85B2:
 	add r0, #0xd8
 	ldr r0, [r0]
 	add r1, sp, #8
-	bl String_atoi
+	bl String_AtoI
 	add r7, r0, #0
 	ldr r0, [sp, #4]
 	add r6, r1, #0

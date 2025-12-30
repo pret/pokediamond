@@ -111,7 +111,7 @@ void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode pr
     GF_ASSERT(FALSE);
 }
 
-s64 String_atoi(String *string, BOOL *flag) {
+s64 String_AtoI(String *string, BOOL *flag) {
     s64 ret = 0;
     s64 pow10 = 1;
     if (string->size > 18) {
