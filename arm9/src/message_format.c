@@ -610,7 +610,7 @@ void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest,
             if (MsgArray_ControlCodeIsStrVar(cstr)) {
                 u32 idx = MsgArray_ControlCodeGetField(cstr, 0);
                 GF_ASSERT(idx < messageFormat->count);
-                StringCat_HandleTrainerName(dest, messageFormat->fields[idx].msg);
+                String_ConcatTrainerName(dest, messageFormat->fields[idx].msg);
                 cstr = MsgArray_SkipControlCode(cstr);
             } else {
                 const u16 *before = cstr;

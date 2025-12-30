@@ -1406,7 +1406,7 @@
 .extern String_Concat
 .extern String_AppendChar
 .extern StrUpperFirstChar
-.extern StringCat_HandleTrainerName
+.extern String_ConcatTrainerName
 .extern sub_020220C4
 .extern sub_0202212C
 .extern sub_02022144

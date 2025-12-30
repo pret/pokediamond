@@ -33,6 +33,6 @@ void String_AppendChar(String *string, u16 val);
 void String_Concat(String *dest, String *src);
 void StrUpperFirstChar(String *string);
 BOOL String_IsTrainerName(String *string);
-void StringCat_HandleTrainerName(String *dest, String *src);
+void String_ConcatTrainerName(String *dest, String *src);
 
 #endif // POKEDIAMOND_STRING16_H
