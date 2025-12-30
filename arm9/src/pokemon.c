@@ -1259,11 +1259,11 @@ void SetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *value) {
         break;
     case MON_DATA_NICKNAME_STRING_AND_FLAG:
         GetSpeciesNameIntoArray(blockA->species, HEAP_ID_DEFAULT, namebuf2);
-        String_ToChars(value, namebuf3, POKEMON_NAME_LENGTH + 1);
+        String_CopyToChars(value, namebuf3, POKEMON_NAME_LENGTH + 1);
         blockB->isNicknamed = StringNotEqual(namebuf2, namebuf3);
         // fallthrough
     case MON_DATA_NICKNAME_STRING:
-        String_ToChars(value, blockC->nickname, POKEMON_NAME_LENGTH + 1);
+        String_CopyToChars(value, blockC->nickname, POKEMON_NAME_LENGTH + 1);
         break;
     case MON_DATA_UNUSED_120:
         blockC->Unused = VALUE(u8);
@@ -1307,7 +1307,7 @@ void SetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *value) {
         }
         break;
     case MON_DATA_OT_NAME_STRING:
-        String_ToChars(value, blockD->otTrainerName, PLAYER_NAME_LENGTH + 1);
+        String_CopyToChars(value, blockD->otTrainerName, PLAYER_NAME_LENGTH + 1);
         break;
     case MON_DATA_EGG_YEAR:
         blockD->dateEggReceived[0] = VALUE(u8);
@@ -1361,7 +1361,7 @@ void SetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *value) {
         break;
     case MON_DATA_SPECIES_NAME:
         speciesName = GetSpeciesName(blockA->species, HEAP_ID_DEFAULT);
-        String_ToChars(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
+        String_CopyToChars(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
         String_Free(speciesName);
         break;
     }

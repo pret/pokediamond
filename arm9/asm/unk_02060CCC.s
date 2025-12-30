@@ -327,7 +327,7 @@ sub_02060E04: ; 0x02060E04
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	mov r2, #0xb
-	bl String_ToChars
+	bl String_CopyToChars
 	add r0, r4, #0x0
 	bl String_Free
 	pop {r4-r6, pc}
@@ -436,7 +436,7 @@ sub_02060ECC: ; 0x02060ECC
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	mov r2, #0xb
-	bl String_ToChars
+	bl String_CopyToChars
 	add r0, r4, #0x0
 	bl String_Free
 _02060F0C:

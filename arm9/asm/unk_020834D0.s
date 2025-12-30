@@ -567,7 +567,7 @@ sub_020838B4: ; 0x020838B4
 	add r0, r2, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x8
-	bl String_ToChars
+	bl String_CopyToChars
 	mov r0, #0x14
 	add r1, r0, #0x0
 	bl Heap_Alloc

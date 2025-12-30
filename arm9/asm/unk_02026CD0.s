@@ -112,7 +112,7 @@ sub_02026D98: ; 0x02026D98
 	add r4, r2, #0x0
 	add r1, #0x20
 	mov r2, #0x8
-	bl String_ToChars
+	bl String_CopyToChars
 	add r5, #0x34
 	strb r4, [r5, #0x0]
 	pop {r3-r5, pc}

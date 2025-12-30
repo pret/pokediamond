@@ -42,9 +42,9 @@ void Save_HOF_RecordParty(struct HallOfFame *hof, struct Party *party, RTCDate *
                 hof_party->party[j].moves[3] = (u16)GetMonData(mon, MON_DATA_MOVE4, NULL);
                 if (str != NULL) {
                     GetMonData(mon, MON_DATA_NICKNAME_STRING, str);
-                    String_ToChars(str, hof_party->party[j].nickname, POKEMON_NAME_LENGTH + 1);
+                    String_CopyToChars(str, hof_party->party[j].nickname, POKEMON_NAME_LENGTH + 1);
                     GetMonData(mon, MON_DATA_OT_NAME_STRING, str);
-                    String_ToChars(str, hof_party->party[j].otname, PLAYER_NAME_LENGTH + 1);
+                    String_CopyToChars(str, hof_party->party[j].otname, PLAYER_NAME_LENGTH + 1);
                 } else {
                     hof_party->party[j].nickname[0] = EOS;
                     hof_party->party[j].otname[0] = EOS;

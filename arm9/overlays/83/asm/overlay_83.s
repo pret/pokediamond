@@ -3362,7 +3362,7 @@ ov83_0222F074: ; 0x0222F074
 	add r7, r0, #0
 	add r1, r4, r1
 	mov r2, #0x24
-	bl String_ToChars
+	bl String_CopyToChars
 	add r0, r7, #0
 	bl String_Free
 	mov r0, #0xc
@@ -3419,7 +3419,7 @@ ov83_0222F074: ; 0x0222F074
 	lsl r1, r1, #2
 	add r1, r4, r1
 	mov r2, #0xfa
-	bl String_ToChars
+	bl String_CopyToChars
 	add r0, r7, #0
 	bl String_Free
 	mov r0, #0xd2

@@ -59,9 +59,9 @@ u16 *sub_020287A8(struct UnkSaveStruct_020286F8 *ptr, u32 i, u32 j) {
 
 void sub_020287C0(struct UnkSaveStruct_020286F8 *ptr, u32 i, u32 j, struct String *k) {
     if (j == 0) {
-        String_ToChars(k, ptr[i].unk_0, 8);
+        String_CopyToChars(k, ptr[i].unk_0, 8);
     } else {
-        String_ToChars(k, ptr[i].unk_10, 8);
+        String_CopyToChars(k, ptr[i].unk_10, 8);
     }
 }
 

@@ -204,7 +204,7 @@ void PCStorage_SetBoxName(struct PCStorage *pc, int boxno, struct String *src) {
         boxno = (int)pc->curBox;
     }
     if (boxno < NUM_BOXES) {
-        String_ToChars(src, pc->names[boxno], BOX_NAME_LENGTH);
+        String_CopyToChars(src, pc->names[boxno], BOX_NAME_LENGTH);
         Save_SetDirtyBit();
     }
 }

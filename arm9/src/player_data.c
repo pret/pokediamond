@@ -64,7 +64,7 @@ void CopyPlayerName(u16 *dest, PlayerProfile *data) {
 }
 
 void PlayerName_StringToFlat(PlayerProfile *data, struct String *str) {
-    String_ToChars(str, data->playerName, PLAYER_NAME_LENGTH + 1);
+    String_CopyToChars(str, data->playerName, PLAYER_NAME_LENGTH + 1);
 }
 
 u16 *PlayerProfile_GetNamePtr(PlayerProfile *data) {

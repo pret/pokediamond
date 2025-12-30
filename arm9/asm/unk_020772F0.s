@@ -1328,7 +1328,7 @@ _0207781A:
 	add r4, #0x1c
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl String_ToChars
+	bl String_CopyToChars
 	pop {r4-r6, pc}
 _02077836:
 	cmp r0, #0x3
@@ -1352,7 +1352,7 @@ _02077836:
 	add r4, #0x1c
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl String_ToChars
+	bl String_CopyToChars
 	pop {r4-r6, pc}
 _02077864:
 	mov r0, #0x1
@@ -1967,7 +1967,7 @@ sub_02077CD4: ; 0x02077CD4
 	beq _02077D88
 	add r1, r4, r1
 	mov r2, #0x20
-	bl String_ToChars
+	bl String_CopyToChars
 _02077D88:
 	add r1, r4, #0x0
 	mov r0, #0x1
