@@ -599,7 +599,7 @@ void BufferMonthNameAbbr(MessageFormat *messageFormat, u32 idx, u32 month) {
 }
 
 void MessageFormat_UpperFirstChar(MessageFormat *messageFormat, u32 idx) {
-    StrUpperFirstChar(messageFormat->fields[idx].msg);
+    String_UpperFirstChar(messageFormat->fields[idx].msg);
 }
 
 void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest, struct String *src) {

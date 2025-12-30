@@ -262,7 +262,7 @@ void String_AppendChar(String *string, u16 val) {
     GF_ASSERT(FALSE);
 }
 
-void StrUpperFirstChar(String *string) {
+void String_UpperFirstChar(String *string) {
     String_Assert(string);
 
     if (string->size != 0) {

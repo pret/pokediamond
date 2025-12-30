@@ -31,7 +31,7 @@ void String_CopyToChars(String *string, u16 *buf, u32 length);
 u16 *String_GetChars(String *string);
 void String_AppendChar(String *string, u16 val);
 void String_Concat(String *dest, String *src);
-void StrUpperFirstChar(String *string);
+void String_UpperFirstChar(String *string);
 BOOL String_IsTrainerName(String *string);
 void String_ConcatTrainerName(String *dest, String *src);
 
