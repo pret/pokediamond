@@ -47,14 +47,14 @@ _02023AE0: .word memset
 
 	thumb_func_start sub_02023AE4
 sub_02023AE4: ; 0x02023AE4
-	ldr r3, _02023AF0 ; =CopyU16ArrayToStringN
+	ldr r3, _02023AF0 ; =String_CopyNumChars
 	add r2, r0, #0x0
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	mov r2, #0xc
 	bx r3
 	.balign 4
-_02023AF0: .word CopyU16ArrayToStringN
+_02023AF0: .word String_CopyNumChars
 
 	thumb_func_start sub_02023AF4
 sub_02023AF4: ; 0x02023AF4

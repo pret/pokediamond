@@ -203,7 +203,7 @@ void String_CopyChars(String *string, u16 *buf) {
     string->data[string->size] = EOS;
 }
 
-void CopyU16ArrayToStringN(String *string, u16 *buf, u32 length) {
+void String_CopyNumChars(String *string, u16 *buf, u32 length) {
     String_Assert(string);
 
     if (length <= string->maxsize) {

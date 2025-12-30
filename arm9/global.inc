@@ -1400,7 +1400,7 @@
 .extern String_CountLines
 .extern String_CopyLine
 .extern String_CopyChars
-.extern CopyU16ArrayToStringN
+.extern String_CopyNumChars
 .extern String_ToChars
 .extern String_c_str
 .extern String_Concat

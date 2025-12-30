@@ -16,7 +16,7 @@ typedef struct String {
 
 String *String_New(u32 count, enum HeapID heapID);
 BOOL String_Compare(String *, String *);
-void CopyU16ArrayToStringN(String *, u16 *, u32); // copy
+void String_CopyNumChars(String *, u16 *, u32); // copy
 void String_Clear(String *);                   // set empty
 String *String_Clone(String *, enum HeapID heapID);
 void String_Free(String *string);

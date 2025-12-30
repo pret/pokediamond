@@ -6053,7 +6053,7 @@ ov83_022305A4: ; 0x022305A4
 	add r1, r6, #0
 	mov r2, #0x24
 	add r4, r0, #0
-	bl CopyU16ArrayToStringN
+	bl String_CopyNumChars
 	mov r0, #0
 	mov r1, #6
 	bl GetFontAttribute
@@ -8558,7 +8558,7 @@ ov83_02231A4C: ; 0x02231A4C
 	lsl r1, r1, #2
 	add r1, r2, r1
 	mov r2, #0x24
-	bl CopyU16ArrayToStringN
+	bl String_CopyNumChars
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -8714,7 +8714,7 @@ ov83_02231B84: ; 0x02231B84
 	lsl r1, r1, #2
 	add r1, r2, r1
 	mov r2, #0xfa
-	bl CopyU16ArrayToStringN
+	bl String_CopyNumChars
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -15577,7 +15577,7 @@ _02235004:
 	ldr r1, [r5, #0x38]
 	add r7, r0, #0
 	mov r2, #0x40
-	bl CopyU16ArrayToStringN
+	bl String_CopyNumChars
 	add r0, r5, #0
 	add r1, r7, #0
 	add r2, r4, #0
