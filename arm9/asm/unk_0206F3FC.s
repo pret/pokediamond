@@ -4023,7 +4023,7 @@ _0207136E:
 	add r1, r5, r0
 	ldr r0, _020713E8 ; =0x00000704
 	ldrh r0, [r1, r0]
-	bl Species_IsBattleFacilityBanned
+	bl Species_IsBattleTowerBanned
 	cmp r0, #0x1
 	bne _02071390
 	mov r0, #0x0

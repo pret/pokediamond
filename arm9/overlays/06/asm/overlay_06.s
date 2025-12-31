@@ -19839,7 +19839,7 @@ _02243312:
 	cmp r0, #0
 	bne _0224336E
 	add r0, r5, #0
-	bl Species_IsBattleFacilityBanned
+	bl Species_IsBattleTowerBanned
 	cmp r0, #1
 	beq _0224336E
 	add r0, sp, #0x10
@@ -21815,7 +21815,7 @@ ov06_02244210: ; 0x02244210
 	mov r4, #0
 _02244264:
 	add r0, r4, #0
-	bl BattleFacility_GetBanlistEntry
+	bl BattleTower_GetBanlistEntry
 	add r7, r0, #0
 	ldr r0, [sp, #0x18]
 	add r1, r7, #0

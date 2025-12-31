@@ -4825,9 +4825,9 @@
 .extern Pokemon_SetPersonality
 .extern MaskOfFlagNo
 .extern LowestFlagNo
-.extern Species_IsBattleFacilityBanned
-.extern BattleFacility_GetBanlistEntry
-.extern Pokemon_IsBattleFacilityBanned
+.extern Species_IsBattleTowerBanned
+.extern BattleTower_GetBanlistEntry
+.extern Pokemon_IsBattleTowerBanned
 .extern BoxPokemon_BelongsToPlayer
 .extern sub_0206AA30
 .extern Pokemon_RemoveCapsule

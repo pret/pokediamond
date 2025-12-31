@@ -24,7 +24,7 @@
 #define LEVEL_UP_LEARNSET_MOVE(x) ((u16)(((x) & LEVEL_UP_LEARNSET_MOVEID_MASK) >> LEVEL_UP_LEARNSET_MOVEID_SHIFT))
 #define LEVEL_UP_LEARNSET_LVL(x)  (((x) & LEVEL_UP_LEARNSET_LEVEL_MASK) >> LEVEL_UP_LEARNSET_LEVEL_SHIFT)
 
-#define BATTLE_FACILITY_BANLIST_SIZE 18
+#define BATTLE_TOWER_BANLIST_SIZE 18
 
 typedef struct SpeciesData {
     /* 0x00 */ u8 hp;
@@ -329,9 +329,9 @@ BOOL Pokemon_CanLearnTMHM(Pokemon *mon, u8 tmHM);
 void Pokemon_UpdateAbility(Pokemon *mon);
 void Pokemon_SetPersonality(Pokemon *mon, u32 personality);
 int LowestFlagNo(u32 mask);
-BOOL Species_IsBattleFacilityBanned(u16 species);
-u16 BattleFacility_GetBanlistEntry(u32 index);
-BOOL Pokemon_IsBattleFacilityBanned(Pokemon *mon);
+BOOL Species_IsBattleTowerBanned(u16 species);
+u16 BattleTower_GetBanlistEntry(u32 index);
+BOOL Pokemon_IsBattleTowerBanned(Pokemon *mon);
 BOOL BoxPokemon_BelongsToPlayer(BoxPokemon *boxMon, PlayerProfile *player, enum HeapID heapID);
 void Pokemon_RemoveCapsule(Pokemon *mon);
 void BoxPokemon_RestorePP(BoxPokemon *boxMon);
