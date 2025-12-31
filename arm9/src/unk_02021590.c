@@ -166,10 +166,10 @@ void DecompressGlyphTiles_LazyFromNarc(struct FontData *ptr, u16 param1, struct 
 u32 GetStringWidth(struct FontData *ptr, const u16 *str, u32 letterSpacing) {
     u32 width = 0;
 
-    while (*str != EOS) {
-        if (*str == EXT_CTRL_CODE_BEGIN) {
+    while (*str != CHAR_EOS) {
+        if (*str == CHAR_CONTROL_CODE_ARG) {
             str = MsgArray_SkipControlCode(str);
-            if (*str == EOS) {
+            if (*str == CHAR_EOS) {
                 break;
             }
         }
@@ -191,10 +191,10 @@ int GetGlyphWidth_FixedWidth(struct FontData *ptr, int a1) {
 s32 GetStringWidthMultiline(struct FontData *r7, const u16 *arr, u32 r6) {
     s32 ret = 0;
     u32 r4 = 0;
-    while (*arr != EOS) {
-        if (*arr == EXT_CTRL_CODE_BEGIN) {
+    while (*arr != CHAR_EOS) {
+        if (*arr == CHAR_CONTROL_CODE_ARG) {
             arr = MsgArray_SkipControlCode(arr);
-        } else if (*arr == CHAR_LF) {
+        } else if (*arr == CHAR_LINE_BREAK) {
             if (ret < r4 - r6) {
                 ret = (int)(r4 - r6);
             }
@@ -213,8 +213,8 @@ s32 GetStringWidthMultiline(struct FontData *r7, const u16 *arr, u32 r6) {
 
 s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData *r6, const u16 *arr) {
     s32 ret = 0;
-    while (*arr != EOS) {
-        if (*arr == EXT_CTRL_CODE_BEGIN) {
+    while (*arr != CHAR_EOS) {
+        if (*arr == CHAR_CONTROL_CODE_ARG) {
             if (MsgArray_GetControlCode(arr) == 515) {
                 ret = MsgArray_ControlCodeGetField(arr, 0) - 12;
             }

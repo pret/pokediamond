@@ -170,13 +170,13 @@ u32 sub_02002F40(u32 param0, struct String *str, u32 param2, u32 param3) {
 
 u32 sub_02002F58(const u16 *str) {
     u32 r5 = 1;
-    while (*str != EOS) {
-        if (*str == EXT_CTRL_CODE_BEGIN) {
+    while (*str != CHAR_EOS) {
+        if (*str == CHAR_CONTROL_CODE_ARG) {
             str = MsgArray_SkipControlCode(str);
             continue;
         }
 
-        if (*str == CHAR_LF) {
+        if (*str == CHAR_LINE_BREAK) {
             r5++;
             str++;
             continue;

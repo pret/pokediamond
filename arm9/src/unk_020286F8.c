@@ -21,8 +21,8 @@ void sub_02028700(struct UnkSaveStruct_020286F8 *ptr, int a, int b) {
 void sub_02028724(struct UnkSaveStruct_020286F8 *ptr) {
     MI_CpuClearFast(ptr, 6 * sizeof(struct UnkSaveStruct_020286F8));
     for (int i = 0; i < 6; i++) {
-        ptr[i].unk_0[0] = EOS;
-        ptr[i].unk_10[0] = EOS;
+        ptr[i].unk_0[0] = CHAR_EOS;
+        ptr[i].unk_10[0] = CHAR_EOS;
     }
     UNK_021C59D0 = ptr;
 }
@@ -98,7 +98,7 @@ BOOL sub_02028840(struct UnkSaveStruct_020286F8 *ptr, int i) {
 }
 
 BOOL sub_02028854(struct UnkSaveStruct_020286F8 *ptr, const u16 *str) {
-    if (str[0] == EOS) {
+    if (str[0] == CHAR_EOS) {
         return FALSE;
     }
     for (int i = 0; i < 6; i++) {
@@ -110,10 +110,10 @@ BOOL sub_02028854(struct UnkSaveStruct_020286F8 *ptr, const u16 *str) {
 }
 
 BOOL sub_0202888C(struct UnkSaveStruct_020286F8 *ptr) {
-    if (ptr->unk_0[0] == EOS) {
+    if (ptr->unk_0[0] == CHAR_EOS) {
         return TRUE;
     }
-    if (ptr->unk_10[0] == EOS) {
+    if (ptr->unk_10[0] == CHAR_EOS) {
         return TRUE;
     }
     return FALSE;

@@ -12,7 +12,7 @@ struct String *String_New(u32 length, enum HeapID heapID) {
         ret->magic = STR16_MAGIC;
         ret->maxsize = (u16)length;
         ret->size = 0;
-        ret->data[0] = EOS;
+        ret->data[0] = CHAR_EOS;
     }
     return ret;
 }
@@ -26,7 +26,7 @@ void String_Delete(struct String *str) {
 void String_SetEmpty(struct String *str) {
     ASSERT_STR16(str);
     str->size = 0;
-    str->data[0] = EOS;
+    str->data[0] = CHAR_EOS;
 }
 
 void StringCopy(struct String *dest, struct String *src) {
@@ -101,7 +101,7 @@ void String16_FormatInteger(struct String *str, int num, u32 ndigits, enum Print
             }
             dividend /= 10;
         }
-        str->data[str->size] = EOS;
+        str->data[str->size] = CHAR_EOS;
         return;
     }
     GF_ASSERT(FALSE);
@@ -139,7 +139,7 @@ BOOL String_Compare(struct String *str1, struct String *str2) {
     ASSERT_STR16(str2);
 
     for (int i = 0; str1->data[i] == str2->data[i]; i++) {
-        if (str1->data[i] == EOS) {
+        if (str1->data[i] == CHAR_EOS) {
             return FALSE;
         }
     }
@@ -156,7 +156,7 @@ int StringCountLines(volatile struct String *str) {
 
     int i, nline;
     for (i = 0, nline = 1; i < str->size; i++) {
-        if (str->data[i] == CHAR_LF) {
+        if (str->data[i] == CHAR_LINE_BREAK) {
             nline++;
         }
     }
@@ -170,7 +170,7 @@ void StringGetLineN(struct String *dest, volatile struct String *src, u32 n) {
     int i = 0;
     if (n != 0) {
         for (i = 0; i < src->size; i++) {
-            if (src->data[i] == CHAR_LF && --n == 0) {
+            if (src->data[i] == CHAR_LINE_BREAK && --n == 0) {
                 i++;
                 break;
             }
@@ -179,7 +179,7 @@ void StringGetLineN(struct String *dest, volatile struct String *src, u32 n) {
     String_SetEmpty(dest);
     for (; i < src->size; i++) {
         u16 c = src->data[i];
-        if (c == CHAR_LF) {
+        if (c == CHAR_LINE_BREAK) {
             break;
         }
         StrAddChar(dest, c);
@@ -189,14 +189,14 @@ void StringGetLineN(struct String *dest, volatile struct String *src, u32 n) {
 void CopyU16ArrayToString(struct String *str, u16 *buf) {
     ASSERT_STR16(str);
 
-    for (str->size = 0; *buf != EOS;) {
+    for (str->size = 0; *buf != CHAR_EOS;) {
         if (str->size >= str->maxsize - 1) {
             GF_ASSERT(0);
             break;
         }
         str->data[str->size++] = *buf++;
     }
-    str->data[str->size] = EOS;
+    str->data[str->size] = CHAR_EOS;
 }
 
 void CopyU16ArrayToStringN(struct String *str, u16 *buf, u32 length) {
@@ -206,13 +206,13 @@ void CopyU16ArrayToStringN(struct String *str, u16 *buf, u32 length) {
         memcpy(str->data, buf, length * 2);
         int i;
         for (i = 0; i < length; i++) {
-            if (str->data[i] == EOS) {
+            if (str->data[i] == CHAR_EOS) {
                 break;
             }
         }
         str->size = (u16)i;
         if (i == length) {
-            str->data[length - 1] = EOS;
+            str->data[length - 1] = CHAR_EOS;
         }
         return;
     }
@@ -252,7 +252,7 @@ void StrAddChar(struct String *str, u16 val) {
 
     if (str->size + 1 < str->maxsize) {
         str->data[str->size++] = val;
-        str->data[str->size] = EOS;
+        str->data[str->size] = CHAR_EOS;
         return;
     }
     GF_ASSERT(0);
@@ -298,7 +298,7 @@ void StringCat_HandleTrainerName(struct String *dest, struct String *src) {
             *dest_p++ = cur_char;
             outsize++;
         }
-        *dest_p = EOS;
+        *dest_p = CHAR_EOS;
         dest->size += outsize;
     } else {
         StringCat(dest, src);

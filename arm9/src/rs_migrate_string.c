@@ -290,7 +290,7 @@ BOOL ConvertRSStringToDPStringInternational(const u8 *rs_str, u16 *dp_str, u32 l
 
     notFullWidth = (language != LANGUAGE_JAPANESE);
     for (i = 0; i < length - 1; i++) {
-        if (rs_str[i] == 0xFF) { // RS: EOS
+        if (rs_str[i] == 0xFF) { // RS: CHAR_EOS
             break;
         }
         if (rs_str[i] >= 0xF7) // RS: DYNAMIC
@@ -302,7 +302,7 @@ BOOL ConvertRSStringToDPStringInternational(const u8 *rs_str, u16 *dp_str, u32 l
             for (r1 = 0; r1 < r3; r1++) {
                 dp_str[r1] = 0x1AC; // DP: ?
             }
-            dp_str[r1] = EOS;
+            dp_str[r1] = CHAR_EOS;
             return FALSE;
         }
         switch (conversion_table[rs_str[i]][notFullWidth]) {
@@ -317,6 +317,6 @@ BOOL ConvertRSStringToDPStringInternational(const u8 *rs_str, u16 *dp_str, u32 l
             break;
         }
     }
-    dp_str[i] = EOS;
+    dp_str[i] = CHAR_EOS;
     return TRUE;
 }

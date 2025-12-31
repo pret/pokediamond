@@ -36,13 +36,13 @@ const s32 gPowersOfTen[] = {
 
 void CopyU16StringArray(u16 *dest, const u16 *src) {
     u16 c = *src;
-    while (c != EOS) {
+    while (c != CHAR_EOS) {
         src++;
         *dest = c;
         c = *src;
         dest++;
     }
-    *dest = EOS;
+    *dest = CHAR_EOS;
 }
 
 u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num) {
@@ -62,13 +62,13 @@ u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num) {
 
 u32 StringLength(const u16 *str) {
     int i;
-    for (i = 0; str[i] != EOS; i++) {}
+    for (i = 0; str[i] != CHAR_EOS; i++) {}
     return i;
 }
 
 BOOL StringNotEqual(const u16 *s1, const u16 *s2) {
     for (; *s1 == *s2; s1++, s2++) {
-        if (*s1 == EOS) {
+        if (*s1 == CHAR_EOS) {
             return FALSE;
         }
     }
@@ -83,7 +83,7 @@ BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num) {
         if (num == 0) {
             return FALSE;
         }
-        if (*s1 == EOS && *s2 == EOS) {
+        if (*s1 == CHAR_EOS && *s2 == CHAR_EOS) {
             return FALSE;
         }
         s1++;
@@ -109,7 +109,7 @@ u16 *StringFill(u16 *dest, u16 value, u32 num) {
 }
 
 u16 *StringFillEOS(u16 *dest, u32 num) {
-    return StringFill(dest, EOS, num);
+    return StringFill(dest, CHAR_EOS, num);
 }
 
 u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n) {
@@ -117,17 +117,17 @@ u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u3
         u16 res = (u16)(value / x);
         value = value - x * res;
         if (mode == PRINTING_MODE_LEADING_ZEROS) {
-            *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
+            *dest = res >= 10 ? (u16)CHAR_JP_QMARK : gDigitTable[res];
             dest++;
         } else if (res != 0 || x == 1) {
             mode = PRINTING_MODE_LEADING_ZEROS;
-            *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
+            *dest = res >= 10 ? (u16)CHAR_JP_QMARK : gDigitTable[res];
             dest++;
         } else if (mode == PRINTING_MODE_RIGHT_ALIGN) {
             *dest = 1;
             dest++;
         }
     }
-    *dest = EOS;
+    *dest = CHAR_EOS;
     return dest;
 }

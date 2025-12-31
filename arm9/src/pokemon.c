@@ -809,7 +809,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *dest) {
             for (ret = 0; ret < POKEMON_NAME_LENGTH; ret++) {
                 dest16[ret] = blockC->nickname[ret];
             }
-            dest16[ret] = EOS;
+            dest16[ret] = CHAR_EOS;
         }
         break;
     case MON_DATA_NICKNAME_STRING_AND_FLAG:
@@ -862,7 +862,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon *boxmon, int attr, void *dest) {
         for (ret = 0; ret < PLAYER_NAME_LENGTH; ret++) {
             dest16[ret] = blockD->otTrainerName[ret];
         }
-        dest16[ret] = EOS;
+        dest16[ret] = CHAR_EOS;
     } break;
     case MON_DATA_OT_NAME_STRING:
         CopyU16ArrayToString(dest, blockD->otTrainerName);

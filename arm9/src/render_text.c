@@ -51,9 +51,9 @@ u32 RenderText(struct TextPrinter *printer) {
         GF_ASSERT(currentChar != 0xF100);
 
         switch (currentChar) {
-        case EOS:
+        case CHAR_EOS:
             return 1;
-        case CHAR_LF:
+        case CHAR_LINE_BREAK:
             printer->printerTemplate.currentX = printer->printerTemplate.x;
             s32 fontAttribute = GetFontAttribute(printer->printerTemplate.fontId, 1);
 
@@ -64,7 +64,7 @@ u32 RenderText(struct TextPrinter *printer) {
         case 0xF0FD:
             printer->printerTemplate.currentChar.raw++;
             return 2;
-        case EXT_CTRL_CODE_BEGIN:
+        case CHAR_CONTROL_CODE_ARG:
             printer->printerTemplate.currentChar.raw--;
             switch ((u16)MsgArray_GetControlCode(printer->printerTemplate.currentChar.raw)) {
             case 0xFF00:

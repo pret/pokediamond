@@ -19,7 +19,7 @@ void sub_020254CC(struct UnkStruct_020254B8 *arr) {
 
     for (i = 0; i < 16; i++) {
         memset(&arr[i], 0, sizeof(struct UnkStruct_020254B8));
-        arr[i].field_00[0] = EOS;
+        arr[i].field_00[0] = CHAR_EOS;
     }
 }
 
@@ -63,14 +63,14 @@ void sub_02025520(struct UnkStruct_020254B8 *sp0, struct UnkStruct_020254B8 *sp4
     for (spC = 0; spC < n; spC++) {
         sp10[r4] = sp4[spC];
         if (sp18[spC] >= 0) {
-            sp0[sp18[spC]].field_00[0] = EOS;
+            sp0[sp18[spC]].field_00[0] = CHAR_EOS;
         }
         r4++;
     }
 
     // Copy unmasked entries from sp0 to buffer
     for (r12 = 0; r12 < 16; r12++) {
-        if (sp0[r12].field_00[0] != EOS) {
+        if (sp0[r12].field_00[0] != CHAR_EOS) {
             sp10[r4] = sp0[r12];
             r4++;
             if (r4 >= 16) {

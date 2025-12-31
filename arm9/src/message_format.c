@@ -605,8 +605,8 @@ void MessageFormat_UpperFirstChar(MessageFormat *messageFormat, u32 idx) {
 void StringExpandPlaceholders(MessageFormat *messageFormat, struct String *dest, struct String *src) {
     const u16 *cstr = String_c_str(src);
     String_SetEmpty(dest);
-    while (*cstr != EOS) {
-        if (*cstr == EXT_CTRL_CODE_BEGIN) {
+    while (*cstr != CHAR_EOS) {
+        if (*cstr == CHAR_CONTROL_CODE_ARG) {
             if (MsgArray_ControlCodeIsStrVar(cstr)) {
                 u32 idx = MsgArray_ControlCodeGetField(cstr, 0);
                 GF_ASSERT(idx < messageFormat->count);
@@ -688,7 +688,7 @@ void sub_0200B9A8(struct UnkStruct_0200B870 *a0, int a1, struct Window *a2, int 
 
 void sub_0200B9EC(struct UnkStruct_0200B870 *string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y) {
     ConvertUIntToDecimalString(string->data, value, mode, n);
-    for (int i = 0; string->data[i] != EOS; i++) {
+    for (int i = 0; string->data[i] != CHAR_EOS; i++) {
         if (string->data[i] >= CHAR_JP_0 && string->data[i] <= CHAR_JP_9) {
             BlitBitmapRectToWindow(window, string->unk_4->pRawData + (string->data[i] - CHAR_JP_0) * 32, 0, 0, 8, 8, (u16)x, (u16)y, 8, 8);
         } else {
