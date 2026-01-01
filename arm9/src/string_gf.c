@@ -221,7 +221,7 @@ void String_CopyFromChars(String *dest, const charcode_t *src) {
     dest->data[dest->size] = EOS;
 }
 
-void String_CopyNumChars(String *dest, charcode_t *src, u32 num) {
+void String_CopyNumChars(String *dest, const charcode_t *src, u32 num) {
     String_Assert(dest);
 
     if (num <= dest->maxSize) {

@@ -9,15 +9,27 @@
  * Managed string buffer.
  */
 typedef struct String {
+    /// Maximum allocated size of the buffer.
     u16 maxSize;
+    /// Size of the buffer, at present; the length of the underlying string.
     u16 size;
+    /// Integrity value specified at allocation time.
     u32 integrity;
+    /// The underlying character buffer.
+    ///
+    /// UB: This is meant to be a flexible array, but is purposely defined
+    /// incorrectly in order to match the original byte-code. The correct
+    /// definition method would be as `data[]`.
     charcode_t data[1];
-    u8 padding[2];
 } String;
 
+/**
+ * Control codes for which charset to use when formatting a string.
+ */
 enum CharsetMode {
+    /// Use the Japanese character set (i.e., full-width characters).
     CHARSET_MODE_JP,
+    /// Use the English character set (i.e., half-width characters).
     CHARSET_MODE_EN,
 };
 
@@ -140,7 +152,6 @@ void String_CopyLine(String *dest, const String *src, u32 lineNum);
  * @param[out] dest Destination buffer.
  * @param src Raw character source buffer.
  */
-
 void String_CopyFromChars(String *dest, const charcode_t *src);
 
 /**
@@ -151,7 +162,7 @@ void String_CopyFromChars(String *dest, const charcode_t *src);
  * @param src Raw character source buffer.
  * @param num Number of values to copy.
  */
-void String_CopyNumChars(String *dest, charcode_t *src, u32 num);
+void String_CopyNumChars(String *dest, const charcode_t *src, u32 num);
 
 /**
  * @brief Dumps the contents of a String into a raw character buffer.
