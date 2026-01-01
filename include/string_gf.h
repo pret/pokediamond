@@ -12,24 +12,27 @@ typedef struct String {
     u8 padding[2];
 } String;
 
-#define STR16_MAGIC 0xB6F8D2EC
+enum CharsetMode {
+    CHARSET_MODE_JP,
+    CHARSET_MODE_EN,
+};
 
-String *String_New(u32 count, enum HeapID heapID);
+String *String_New(u32 maxSize, enum HeapID heapID);
 BOOL String_Compare(String *, String *);
-void String_CopyNumChars(String *, u16 *, u32); // copy
+void String_CopyNumChars(String *dest, u16 *src, u32 num);
 void String_Clear(String *);                   // set empty
 String *String_Clone(String *, enum HeapID heapID);
 void String_Free(String *string);
 void String_Copy(String *dest, String *src);
-void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);
-s64 String_AtoI(String *string, BOOL *flag);
+void String_FormatInt(String *string, int num, u32 maxDigits, enum PaddingMode paddingMode, enum CharsetMode charsetMode);
+s64 String_AtoI(String *string, BOOL *success);
 u16 String_GetLength(String *string);
 int String_CountLines(const String *string);
-void String_CopyLine(String *dest, const String *src, u32 n);
-void String_CopyFromChars(String *string, u16 *buf);
-void String_CopyToChars(String *string, u16 *buf, u32 length);
+void String_CopyLine(String *dest, const String *src, u32 lineNum);
+void String_CopyFromChars(String *dest, u16 *src);
+void String_CopyToChars(String *src, u16 *dest, u32 destSize);
 u16 *String_GetChars(String *string);
-void String_AppendChar(String *string, u16 val);
+void String_AppendChar(String *string, u16 c);
 void String_Concat(String *dest, String *src);
 void String_UpperFirstChar(String *string);
 BOOL String_IsTrainerName(String *string);

@@ -167,7 +167,7 @@ BOOL ScrCmd_Unk00FF(ScriptContext *ctx) {
     u16 num = ScriptGetVar(ctx);
     u16 idx = ScriptGetVar(ctx);
 
-    BufferIntegerAsString(*msgFormat, idx, num, 1, PRINTING_MODE_LEFT_ALIGN, TRUE);
+    BufferIntegerAsString(*msgFormat, idx, num, 1, PADDING_MODE_NONE, TRUE);
 
     return FALSE;
 }

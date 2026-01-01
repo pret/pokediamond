@@ -5,25 +5,29 @@
 #include "heap.h"
 #include "string_util.h"
 
+#define STRING_HEADER_SIZE  (10)
+#define STRING_MAGIC_NUMBER (0xB6F8D2EC)
+#define STRING_INVAL        (STRING_MAGIC_NUMBER + 1)
+
 static inline void String_Assert(const String *string) {
     GF_ASSERT(string != NULL);
-    GF_ASSERT(string->integrity == STR16_MAGIC);
+    GF_ASSERT(string->integrity == STRING_MAGIC_NUMBER);
 }
 
-String *String_New(u32 length, enum HeapID heapID) {
-    String *ret = Heap_Alloc(heapID, length * 2 + 10);
-    if (ret != NULL) {
-        ret->integrity = STR16_MAGIC;
-        ret->maxSize = (u16)length;
-        ret->size = 0;
-        ret->data[0] = EOS;
+String *String_New(u32 maxSize, enum HeapID heapID) {
+    String *string = Heap_Alloc(heapID, STRING_HEADER_SIZE + (maxSize * sizeof(u16)));
+    if (string != NULL) {
+        string->integrity = STRING_MAGIC_NUMBER;
+        string->maxSize = maxSize;
+        string->size = 0;
+        string->data[0] = EOS;
     }
-    return ret;
+    return string;
 }
 
 void String_Free(String *string) {
     String_Assert(string);
-    string->integrity = STR16_MAGIC | 1;
+    string->integrity = STRING_INVAL;
     Heap_Free(string);
 }
 
@@ -37,7 +41,7 @@ void String_Copy(String *dest, String *src) {
     String_Assert(dest);
     String_Assert(src);
     if (dest->maxSize > src->size) {
-        memcpy(dest->data, src->data, (u32)((src->size + 1) * 2));
+        memcpy(dest->data, src->data, (src->size + 1) * sizeof(u16));
         dest->size = src->size;
         return;
     }
@@ -46,23 +50,15 @@ void String_Copy(String *dest, String *src) {
 
 String *String_Clone(String *src, enum HeapID heapID) {
     String_Assert(src);
-    String *dest = String_New((u32)(src->size + 1), heapID);
-    if (dest != NULL) {
-        String_Copy(dest, src);
+    String *ret = String_New(src->size + 1, heapID);
+    if (ret != NULL) {
+        String_Copy(ret, src);
     }
-    return dest;
+    return ret;
 }
 
-void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
-    static const u16 sCharset_EN[10] = {
-        0x121, 0x122, 0x123, 0x124, 0x125, 0x126, 0x127, 0x128, 0x129, 0x12A
-    };
-
-    static const u16 sCharset_JP[10] = {
-        0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB
-    };
-
-    static const u32 sPowersOfTen[10] = {
+void String_FormatInt(String *dest, int num, u32 maxDigits, enum PaddingMode paddingMode, enum CharsetMode charsetMode) {
+    static const u32 sPowersOfTen[] = {
         1,
         10,
         100,
@@ -72,69 +68,92 @@ void String_FormatInt(String *string, int num, u32 ndigits, enum PrintingMode pr
         1000000,
         10000000,
         100000000,
-        1000000000
+        1000000000,
     };
 
-    String_Assert(string);
+    static const u16 sDigits_JP[] = {
+        CHAR_JP_0,
+        CHAR_JP_1,
+        CHAR_JP_2,
+        CHAR_JP_3,
+        CHAR_JP_4,
+        CHAR_JP_5,
+        CHAR_JP_6,
+        CHAR_JP_7,
+        CHAR_JP_8,
+        CHAR_JP_9,
+    };
 
-    const u16 *charbase;
+    static const u16 sDigits_EN[] = {
+        CHAR_0,
+        CHAR_1,
+        CHAR_2,
+        CHAR_3,
+        CHAR_4,
+        CHAR_5,
+        CHAR_6,
+        CHAR_7,
+        CHAR_8,
+        CHAR_9,
+    };
+
+    String_Assert(dest);
+
     BOOL isNegative = (num < 0);
 
-    if (string->maxSize > ndigits + isNegative) {
-        charbase = (whichCharset == 0) ? sCharset_JP : sCharset_EN;
-        String_Clear(string);
+    if (dest->maxSize > maxDigits + isNegative) {
+        const u16 *digitSet = (charsetMode == CHARSET_MODE_JP) ? sDigits_JP : sDigits_EN;
+
+        String_Clear(dest);
+
         if (isNegative) {
             num *= -1;
-            u16 hyphen = (u16)((whichCharset == 0) ? 0x00F1 : 0x01BE);
-            string->data[string->size++] = hyphen;
+            dest->data[dest->size++] = (charsetMode == CHARSET_MODE_JP) ? 0x00F1 : 0x01BE;
         }
-        u32 dividend = sPowersOfTen[ndigits - 1];
+
+        u32 dividend = sPowersOfTen[maxDigits - 1];
         while (dividend != 0) {
-            u16 digit = (u16)(num / dividend);
+            u16 digit = num / dividend;
             num -= dividend * digit;
-            if (printingMode == PRINTING_MODE_LEADING_ZEROS) {
-                u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
-                string->data[string->size++] = value;
+
+            if (paddingMode == PADDING_MODE_ZEROES) {
+                dest->data[dest->size++] = (digit < 10) ? digitSet[digit] : 0x00E2;
+                // If we hit a non-zero digit, flip the padding mode off
             } else if (digit != 0 || dividend == 1) {
-                printingMode = PRINTING_MODE_LEADING_ZEROS;
-                u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
-                string->data[string->size++] = value;
-            } else if (printingMode == PRINTING_MODE_RIGHT_ALIGN) {
-                u16 value = (u16)((whichCharset == 0) ? 0x0001 : 0x01E2);
-                string->data[string->size++] = value;
+                paddingMode = PADDING_MODE_ZEROES;
+                dest->data[dest->size++] = (digit < 10) ? digitSet[digit] : 0x00E2;
+            } else if (paddingMode == PADDING_MODE_SPACES) {
+                dest->data[dest->size++] = (charsetMode == CHARSET_MODE_JP) ? 0x0001 : 0x01E2;
             }
             dividend /= 10;
         }
-        string->data[string->size] = EOS;
+        dest->data[dest->size] = EOS;
         return;
     }
     GF_ASSERT(FALSE);
 }
 
-s64 String_AtoI(String *string, BOOL *flag) {
-    s64 ret = 0;
-    s64 pow10 = 1;
+s64 String_AtoI(String *string, BOOL *success) {
+    s64 ret = 0ll;
+    s64 pow = 1ll;
     if (string->size > 18) {
         return 0;
     }
-    int ndigits = string->size - 1;
-    while (ndigits >= 0) {
-        //                               ０
-        s64 digit = string->data[ndigits] - 0x00A2;
+
+    for (int i = (string->size - 1); i >= 0; i--) {
+        s64 digit = string->data[i] - 0x00A2;
         if (digit >= 10ull) {
-            //                           0
-            digit = string->data[ndigits] - 0x0121;
+            digit = string->data[i] - 0x0121;
             if (digit >= 10ull) {
-                *flag = FALSE;
+                *success = FALSE;
                 return ret;
             }
         }
-        digit *= pow10;
+        digit *= pow;
         ret += digit;
-        pow10 *= 10;
-        ndigits--;
+        pow *= 10;
     }
-    *flag = TRUE;
+    *success = TRUE;
     return ret;
 }
 
@@ -158,23 +177,23 @@ u16 String_GetLength(String *string) {
 int String_CountLines(const String *string) {
     String_Assert(string);
 
-    int i, nline;
-    for (i = 0, nline = 1; i < string->size; i++) {
+    int i, count;
+    for (i = 0, count = 1; i < string->size; i++) {
         if (string->data[i] == CHAR_LF) {
-            nline++;
+            count++;
         }
     }
-    return nline;
+    return count;
 }
 
-void String_CopyLine(String *dest, const String *src, u32 n) {
+void String_CopyLine(String *dest, const String *src, u32 lineNum) {
     String_Assert(src);
     String_Assert(dest);
 
     int i = 0;
-    if (n != 0) {
+    if (lineNum != 0) {
         for (i = 0; i < src->size; i++) {
-            if (src->data[i] == CHAR_LF && --n == 0) {
+            if (src->data[i] == CHAR_LF && --lineNum == 0) {
                 i++;
                 break;
             }
@@ -182,52 +201,52 @@ void String_CopyLine(String *dest, const String *src, u32 n) {
     }
     String_Clear(dest);
     for (; i < src->size; i++) {
-        u16 c = src->data[i];
-        if (c == CHAR_LF) {
+        if (src->data[i] == CHAR_LF) {
             break;
         }
-        String_AppendChar(dest, c);
+        String_AppendChar(dest, src->data[i]);
     }
 }
 
-void String_CopyFromChars(String *string, u16 *buf) {
-    String_Assert(string);
+void String_CopyFromChars(String *dest, u16 *src) {
+    String_Assert(dest);
 
-    for (string->size = 0; *buf != EOS;) {
-        if (string->size >= string->maxSize - 1) {
+    for (dest->size = 0; *src != EOS;) {
+        if (dest->size >= dest->maxSize - 1) {
             GF_ASSERT(FALSE);
             break;
         }
-        string->data[string->size++] = *buf++;
+        dest->data[dest->size++] = *src++;
     }
-    string->data[string->size] = EOS;
+    dest->data[dest->size] = EOS;
 }
 
-void String_CopyNumChars(String *string, u16 *buf, u32 length) {
-    String_Assert(string);
+void String_CopyNumChars(String *dest, u16 *src, u32 num) {
+    String_Assert(dest);
 
-    if (length <= string->maxSize) {
-        memcpy(string->data, buf, length * 2);
+    if (num <= dest->maxSize) {
+        memcpy(dest->data, src, num * sizeof(u16));
+
         int i;
-        for (i = 0; i < length; i++) {
-            if (string->data[i] == EOS) {
+        for (i = 0; i < num; i++) {
+            if (dest->data[i] == EOS) {
                 break;
             }
         }
-        string->size = (u16)i;
-        if (i == length) {
-            string->data[length - 1] = EOS;
+        dest->size = i;
+        if (i == num) {
+            dest->data[num - 1] = EOS;
         }
         return;
     }
     GF_ASSERT(FALSE);
 }
 
-void String_CopyToChars(String *string, u16 *buf, u32 length) {
-    String_Assert(string);
+void String_CopyToChars(String *src, u16 *dest, u32 destSize) {
+    String_Assert(src);
 
-    if (string->size + 1 <= length) {
-        memcpy(buf, string->data, (u32)((string->size + 1) * 2));
+    if (src->size + 1 <= destSize) {
+        memcpy(dest, src->data, (src->size + 1) * sizeof(u16));
         return;
     }
     GF_ASSERT(FALSE);
@@ -244,18 +263,18 @@ void String_Concat(String *dest, String *src) {
     String_Assert(src);
 
     if (dest->size + src->size + 1 <= dest->maxSize) {
-        memcpy(dest->data + dest->size, src->data, (u32)(2 * (src->size + 1)));
+        memcpy(dest->data + dest->size, src->data, (src->size + 1) * sizeof(u16));
         dest->size += src->size;
         return;
     }
     GF_ASSERT(FALSE);
 }
 
-void String_AppendChar(String *string, u16 val) {
+void String_AppendChar(String *string, u16 c) {
     String_Assert(string);
 
     if (string->size + 1 < string->maxSize) {
-        string->data[string->size++] = val;
+        string->data[string->size++] = c;
         string->data[string->size] = EOS;
         return;
     }
@@ -275,35 +294,42 @@ void String_UpperFirstChar(String *string) {
 }
 
 BOOL String_IsTrainerName(String *string) {
-    return string->size != 0 && string->data[0] == 0xF100;
+    return string->size > 0 && string->data[0] == 0xF100;
 }
 
 void String_ConcatTrainerName(String *dest, String *src) {
+    // Trainer names are expressed using a format with a designating leader
+    // code followed by compression algorithm that trims individual characters
+    // from 16 bits to 10 bits.
+    //
+    // TODO: This process could do with some more documentation, i.e. why this
+    // is done.
     if (String_IsTrainerName(src)) {
-        u16 *dest_p = &dest->data[dest->size];
-        u16 *src_p = &src->data[1];
-        s32 bit = 0;
-        u32 outsize = 0;
-        u16 cur_char = 0;
+        u16 *dstChar = &dest->data[dest->size];
+        u16 *srcChar = &src->data[1];
+        s32 shift = 0;
+        u32 charsAdded = 0;
+        u16 curChar = 0;
 
-        while (1) {
-            cur_char = (u16)((*src_p >> bit) & 0x1FF);
-            bit += 9;
-            if (bit >= 15) {
-                src_p++;
-                bit -= 15;
-                if (bit != 0) {
-                    cur_char |= (*src_p << (9 - bit)) & 0x1FF;
+        while (TRUE) {
+            curChar = (*srcChar >> shift) & 0x1FF;
+            shift += 9;
+            if (shift >= 15) {
+                srcChar++;
+                shift -= 15;
+                if (shift != 0) {
+                    curChar |= (*srcChar << (9 - shift)) & 0x1FF;
                 }
             }
-            if (cur_char == 0x1FF) {
+
+            if (curChar == 0x1FF) {
                 break;
             }
-            *dest_p++ = cur_char;
-            outsize++;
+            *dstChar++ = curChar;
+            charsAdded++;
         }
-        *dest_p = EOS;
-        dest->size += outsize;
+        *dstChar = EOS;
+        dest->size += charsAdded;
     } else {
         String_Concat(dest, src);
     }

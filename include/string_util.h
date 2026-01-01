@@ -7,10 +7,10 @@
 
 #include "global.h"
 
-enum PrintingMode {
-    PRINTING_MODE_LEFT_ALIGN,
-    PRINTING_MODE_RIGHT_ALIGN,
-    PRINTING_MODE_LEADING_ZEROS
+enum PaddingMode {
+    PADDING_MODE_NONE,
+    PADDING_MODE_SPACES,
+    PADDING_MODE_ZEROES
 };
 
 void CopyU16StringArray(u16 *dest, const u16 *src);
@@ -20,6 +20,6 @@ BOOL StringNotEqual(const u16 *s1, const u16 *s2);
 BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num);
 u16 *StringFill(u16 *dest, u16 value, u32 num);
 u16 *StringFillEOS(u16 *dest, u32 num);
-u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n);
+u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PaddingMode mode, u32 n);
 
 #endif // POKEDIAMOND_STRING_UTIL_H

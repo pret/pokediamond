@@ -43,7 +43,7 @@ void BufferBoxMonSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, s
 void BufferSpeciesNameWithArticle(MessageFormat *messageFormat, u32 idx, u32 species);
 void BufferBoxMonNickname(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon);
 void BufferBoxMonOTName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon *mon);
-void BufferIntegerAsString(MessageFormat *messageFormat, u32 idx, s32 num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);
+void BufferIntegerAsString(MessageFormat *messageFormat, u32 idx, s32 num, u32 ndigits, enum PaddingMode paddingMode, BOOL whichCharset);
 void BufferMoveName(MessageFormat *messageFormat, u32 idx, u32 move);
 void BufferRibbonNameOrDesc(MessageFormat *messageFormat, u32 idx, u32 ribbon);
 void BufferAbilityName(MessageFormat *messageFormat, u32 idx, u32 ability);
@@ -96,6 +96,6 @@ void MessageFormat_ResetBuffers(MessageFormat *messageFormat);
 struct UnkStruct_0200B870 *MessagePrinter_New(u32 color1, u32 color2, u32 color3, enum HeapID heapID);
 void MessagePrinter_Delete(struct UnkStruct_0200B870 *a0);
 void sub_0200B9A8(struct UnkStruct_0200B870 *a0, int a1, struct Window *a2, int a3, int a4);
-void sub_0200B9EC(struct UnkStruct_0200B870 *string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y);
+void sub_0200B9EC(struct UnkStruct_0200B870 *string, u32 value, u32 n, enum PaddingMode mode, struct Window *window, int x, int y);
 
 #endif // POKEDIAMOND_MESSAGE_FORMAT_H

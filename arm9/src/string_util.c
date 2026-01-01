@@ -112,18 +112,18 @@ u16 *StringFillEOS(u16 *dest, u32 num) {
     return StringFill(dest, EOS, num);
 }
 
-u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n) {
+u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PaddingMode mode, u32 n) {
     for (u32 x = (u32)gPowersOfTen[n - 1]; x != 0; x = x / 10) {
         u16 res = (u16)(value / x);
         value = value - x * res;
-        if (mode == PRINTING_MODE_LEADING_ZEROS) {
+        if (mode == PADDING_MODE_ZEROES) {
             *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
             dest++;
         } else if (res != 0 || x == 1) {
-            mode = PRINTING_MODE_LEADING_ZEROS;
+            mode = PADDING_MODE_ZEROES;
             *dest = res >= 10 ? (u16)CHAR_JP_QUESTION_MARK : gDigitTable[res];
             dest++;
-        } else if (mode == PRINTING_MODE_RIGHT_ALIGN) {
+        } else if (mode == PADDING_MODE_SPACES) {
             *dest = 1;
             dest++;
         }

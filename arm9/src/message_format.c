@@ -164,8 +164,8 @@ void BufferBoxMonOTName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
-void BufferIntegerAsString(MessageFormat *messageFormat, u32 idx, s32 num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset) {
-    String_FormatInt(messageFormat->buffer, num, ndigits, printingMode, whichCharset);
+void BufferIntegerAsString(MessageFormat *messageFormat, u32 idx, s32 num, u32 ndigits, enum PaddingMode paddingMode, BOOL whichCharset) {
+    String_FormatInt(messageFormat->buffer, num, ndigits, paddingMode, (enum CharsetMode)whichCharset);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
@@ -686,7 +686,7 @@ void sub_0200B9A8(struct UnkStruct_0200B870 *a0, int a1, struct Window *a2, int 
     BlitBitmapRectToWindow(a2, a0->unk_4->pRawData + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
 }
 
-void sub_0200B9EC(struct UnkStruct_0200B870 *string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y) {
+void sub_0200B9EC(struct UnkStruct_0200B870 *string, u32 value, u32 n, enum PaddingMode mode, struct Window *window, int x, int y) {
     ConvertUIntToDecimalString(string->data, value, mode, n);
     for (int i = 0; string->data[i] != EOS; i++) {
         if (string->data[i] >= CHAR_JP_0 && string->data[i] <= CHAR_JP_9) {

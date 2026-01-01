@@ -131,7 +131,7 @@ BOOL ScrCmd_Unk00D5(ScriptContext *ctx) // 00D5 - todo: BufferNumber? TextNumber
     u16 unk = ScriptGetVar(ctx);
     u32 digits = sub_02054C14(unk);
 
-    BufferIntegerAsString(*messageFormat, idx, unk, digits, PRINTING_MODE_RIGHT_ALIGN, TRUE);
+    BufferIntegerAsString(*messageFormat, idx, unk, digits, PADDING_MODE_SPACES, TRUE);
 
     return FALSE;
 }
@@ -141,13 +141,13 @@ BOOL ScrCmd_Unk0280(ScriptContext *ctx) // 0280 - todo: BufferNumberSpecial? nee
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u16 unk = ScriptGetVar(ctx);
-    enum PrintingMode printingMode = (enum PrintingMode)ScriptReadByte(ctx);
+    enum PaddingMode paddingMode = (enum PaddingMode)ScriptReadByte(ctx);
     u8 digits = ScriptReadByte(ctx);
-    if (printingMode == PRINTING_MODE_LEFT_ALIGN) {
+    if (paddingMode == PADDING_MODE_NONE) {
         digits = (u8)sub_02054C14(unk);
     }
 
-    BufferIntegerAsString(*messageFormat, idx, unk, digits, printingMode, TRUE);
+    BufferIntegerAsString(*messageFormat, idx, unk, digits, paddingMode, TRUE);
 
     return FALSE;
 }
