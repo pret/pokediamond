@@ -3,6 +3,8 @@
 
 #include "nitro/types.h"
 
+typedef u16 charcode_t;
+
 const u16 *MsgArray_SkipControlCode(const u16 *arr);
 u32 MsgArray_GetControlCode(const u16 *arr);
 BOOL MsgArray_ControlCodeIsStrVar(const u16 *arr);
