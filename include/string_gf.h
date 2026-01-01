@@ -12,7 +12,7 @@ typedef struct String {
     u16 maxSize;
     u16 size;
     u32 integrity;
-    u16 data[1];
+    charcode_t data[1];
     u8 padding[2];
 } String;
 
@@ -141,7 +141,7 @@ void String_CopyLine(String *dest, const String *src, u32 lineNum);
  * @param src Raw character source buffer.
  */
 
-void String_CopyFromChars(String *dest, u16 *src);
+void String_CopyFromChars(String *dest, const charcode_t *src);
 
 /**
  * @brief Copies a specific number of values from a raw character buffer into
@@ -151,7 +151,7 @@ void String_CopyFromChars(String *dest, u16 *src);
  * @param src Raw character source buffer.
  * @param num Number of values to copy.
  */
-void String_CopyNumChars(String *dest, u16 *src, u32 num);
+void String_CopyNumChars(String *dest, charcode_t *src, u32 num);
 
 /**
  * @brief Dumps the contents of a String into a raw character buffer.
@@ -162,7 +162,7 @@ void String_CopyNumChars(String *dest, u16 *src, u32 num);
  * @param[out] dest Destination buffer.
  * @param destSize Size of `dest`.
  */
-void String_CopyToChars(String *src, u16 *dest, u32 destSize);
+void String_CopyToChars(String *src, charcode_t *dest, u32 destSize);
 
 /**
  * @brief Accessor for the underlying data buffer of a managed string.
@@ -170,7 +170,7 @@ void String_CopyToChars(String *src, u16 *dest, u32 destSize);
  * @param string
  * @return Underlying data buffer for `string`.
  */
-u16 *String_GetChars(String *string);
+charcode_t *String_GetChars(String *string);
 
 /**
  * @brief Concatenates `src` onto the end of `dest`, if allocation permits.
@@ -190,7 +190,7 @@ void String_Concat(String *dest, String *src);
  * @param[out] string Destination buffer.
  * @param c Character to append.
  */
-void String_AppendChar(String *string, u16 c);
+void String_AppendChar(String *string, charcode_t c);
 
 /**
  * @brief Checks if a given string is a trainer name.
