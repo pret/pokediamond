@@ -166,7 +166,7 @@ int ApplyPoisonStep(struct Party *party, int location) {
         Pokemon_SetData(mon, MON_DATA_HP, &hp);
         if (hp == 1) {
             numHealed++;
-            Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_HEAL_FIELD_PSN, (u32)location);
+            Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_POISON_SURVIVE, (u32)location);
         }
         numPoisoned++;
     }
