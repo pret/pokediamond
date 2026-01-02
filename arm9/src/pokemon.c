@@ -2106,7 +2106,7 @@ void BoxPokemon_BuildSpriteTemplate(PokemonSpriteTemplate *template, BoxPokemon 
         if (BoxPokemon_GetData(boxMon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY) {
             form = EGG_FORM_MANAPHY;
         } else {
-            form = EGG_FORM_NORMAL;
+            form = EGG_FORM_BASE;
         }
     } else {
         form = BoxPokemon_GetData(boxMon, MON_DATA_FORM, NULL);
@@ -2232,7 +2232,7 @@ u8 BoxPokemon_SpriteYOffset(BoxPokemon *boxMon, u32 face) {
         if (BoxPokemon_GetData(boxMon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY) {
             form = EGG_FORM_MANAPHY;
         } else {
-            form = EGG_FORM_NORMAL;
+            form = EGG_FORM_BASE;
         }
     } else {
         form = BoxPokemon_GetData(boxMon, MON_DATA_FORM, NULL);
