@@ -3,6 +3,7 @@
 
 #include "global.h"
 
+#include "bag_cursor.h"
 #include "bg_window.h"
 #include "camera.h"
 #include "field_types_def.h"
@@ -62,7 +63,7 @@ struct FieldSystem {
     u32 unk7C;
     u8 padding7[0x10];
     u32 unk90;
-    u8 padding8[0x4];
+    BagCursor *bagCursor;
     u32 *unk98;
     u8 padding9[0xC];
     UnkStruct_02046444 *unkA8;

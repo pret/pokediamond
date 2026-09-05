@@ -644,7 +644,7 @@ _020653AA:
 _020653BA:
 	ldr r1, [r5, #0x4]
 	add r0, r4, #0x0
-	bl sub_02038680
+	bl FieldSystem_OpenTrainerCase
 	mov r0, #0xb
 	str r0, [r5, #0x0]
 	b _020653E2

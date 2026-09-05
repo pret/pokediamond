@@ -99,7 +99,7 @@ _02080C88: ; jump table (using 16-bit offset)
 	.short _02080DE6 - _02080C88 - 2; case 14
 _02080CA6:
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -240,7 +240,7 @@ _02080DCE:
 	b _02080DF2
 _02080DD4:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -338,7 +338,7 @@ _02080E80: ; jump table (using 16-bit offset)
 	.short _02080FD2 - _02080E80 - 2; case 13
 _02080E9C:
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -491,7 +491,7 @@ _02080FBA:
 	b _02080FDC
 _02080FC0:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -549,7 +549,7 @@ _02081026: ; jump table (using 16-bit offset)
 	.short _020811A8 - _02081026 - 2; case 9
 _0208103A:
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -741,7 +741,7 @@ _0208117E:
 	b _020811B4
 _02081196:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]

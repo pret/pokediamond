@@ -10,9 +10,9 @@
 extern OverlayManagerTemplate UNK_020F96DC;
 extern OverlayManagerTemplate UNK_020FA6E8;
 extern u32 sub_02079C70(struct SaveData *save);
-extern void sub_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
-extern void sub_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, PlayerProfile *player_data);
-extern u32 *sub_02038790(struct FieldSystem *fieldSystem, u16 param1, u16 param2);
+extern void sub_0207B000(PokemonSummaryArgs *ptr, const u8 param1[12]);
+extern void sub_0207C2A4(PokemonSummaryArgs *ptr, PlayerProfile *player_data);
+extern u32 *NintendoWifiConnection_LaunchApp(struct FieldSystem *fieldSystem, u16 param1, u16 param2);
 extern u16 *GetVarPointer(struct FieldSystem *fieldSystem, u16);
 extern u16 ov06_02244660(struct FieldSystem *fieldSystem, u8 *param1);
 extern u16 ov06_022446BC(struct FieldSystem *fieldSystem, u8 *param1);
@@ -34,27 +34,27 @@ const u8 UNK_020F7454[] = {
 
 u32 sub_0205FA2C(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, enum HeapID heapID) {
-    struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)Heap_AllocAtEnd(
-        heapID, sizeof(struct UnkPlayerStruct1_0205FA2C));
+    PartyMenuArgs *ptr = (PartyMenuArgs *)Heap_AllocAtEnd(
+        heapID, sizeof(PartyMenuArgs));
 
     struct SaveData *save = fieldSystem->saveData;
-    MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct1_0205FA2C));
+    MI_CpuFill8(ptr, 0, sizeof(PartyMenuArgs));
 
     ptr->options = Save_PlayerData_GetOptionsAddr(save);
 
-    ptr->player_party = SaveArray_Party_Get(save);
+    ptr->party = SaveArray_Party_Get(save);
 
     ptr->bag = Save_Bag_Get(save);
 
-    ptr->unk21 = 0;
-    ptr->unk20 = param0->unk08;
-    ptr->unk32 = param0->unk0a;
-    ptr->unk322 = param0->unk0b;
-    ptr->unk33 = param0->unk0c;
-    ptr->unk22 = param0->unk0d;
+    ptr->unk_21 = 0;
+    ptr->context = param0->unk08;
+    ptr->minMonsToSelect = param0->unk0a;
+    ptr->maxMonsToSelect = param0->unk0b;
+    ptr->maxLevel = param0->unk0c;
+    ptr->partySlot = param0->unk0d;
 
     for (u8 i = 0; i < 6; i++) {
-        ptr->unk2c[i] = param0->unk0e[i];
+        ptr->selectedOrder[i] = param0->unk0e[i];
     }
 
     sub_020373D4(fieldSystem, &UNK_020F96DC, ptr);
@@ -70,9 +70,9 @@ u32 sub_0205FAD8(
         return 1;
     }
 
-    struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)*param0->unk14;
+    PartyMenuArgs *ptr = (PartyMenuArgs *)*param0->unk14;
 
-    u8 r1 = ptr->unk22;
+    u8 r1 = ptr->partySlot;
     if (r1 != 6) {
         if (r1 == 7) {
             param0->unk00 = 0;
@@ -83,9 +83,9 @@ u32 sub_0205FAD8(
         return 4;
     }
 
-    MI_CpuCopy8(ptr->unk2c, param0->unk0e, 6);
+    MI_CpuCopy8(ptr->selectedOrder, param0->unk0e, 6);
 
-    param0->unk0d = ptr->unk22;
+    param0->unk0d = ptr->partySlot;
     Heap_Free(ptr);
 
     *param0->unk14 = NULL;
@@ -97,24 +97,24 @@ u32 sub_0205FB34(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, enum HeapID heapID) {
     struct SaveData *save = fieldSystem->saveData;
 
-    struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)Heap_AllocAtEnd(
-        heapID, sizeof(struct UnkPlayerStruct2_0205FA2C));
-    MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct2_0205FA2C));
+    PokemonSummaryArgs *ptr = (PokemonSummaryArgs *)Heap_AllocAtEnd(
+        heapID, sizeof(PokemonSummaryArgs));
+    MI_CpuFill8(ptr, 0, sizeof(PokemonSummaryArgs));
 
     ptr->options = Save_PlayerData_GetOptionsAddr(save);
-    ptr->player_party = SaveArray_Party_Get(save);
-    ptr->IsNatDex = SaveArray_IsNatDexEnabled(save);
-    ptr->unk2c = sub_02079C70(save);
+    ptr->party = SaveArray_Party_Get(save);
+    ptr->natDexEnabled = SaveArray_IsNatDexEnabled(save);
+    ptr->unk2C = sub_02079C70(save);
 
     ptr->unk11 = 1;
-    ptr->unk14 = param0->unk0d;
+    ptr->partySlot = param0->unk0d;
 
-    ptr->party_count = (u8)Party_GetCount(ptr->player_party);
+    ptr->partyCount = (u8)Party_GetCount(ptr->party);
 
-    ptr->unk18 = 0;
+    ptr->moveToLearn = 0;
     ptr->unk12 = param0->unk09;
 
-    ptr->unk20 = sub_0202A918(save);
+    ptr->ribbons = sub_0202A918(save);
 
     sub_0207B000(ptr, UNK_020F7454);
 
@@ -133,8 +133,8 @@ u32 sub_0205FBC0(
         return 3;
     }
 
-    struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)*param0->unk14;
-    param0->unk0d = ptr->unk14;
+    PokemonSummaryArgs *ptr = (PokemonSummaryArgs *)*param0->unk14;
+    param0->unk0d = ptr->partySlot;
     Heap_Free(ptr);
 
     *param0->unk14 = NULL;
@@ -195,7 +195,7 @@ u32 sub_0205FC9C(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem) {
     if (sub_0203384C(fieldSystem->saveData)) {
 
-        param0->unk08 = sub_02038790(fieldSystem, param0->unk12, param0->unk14);
+        param0->unk08 = NintendoWifiConnection_LaunchApp(fieldSystem, param0->unk12, param0->unk14);
         return 1;
     }
 

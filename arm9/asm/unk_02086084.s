@@ -255,7 +255,7 @@ _020862AE:
 	mov r1, #0xb
 	bl ov05_021ED940
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -369,7 +369,7 @@ _020863A8:
 	b _020863CE
 _020863B6:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

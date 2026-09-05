@@ -190,7 +190,7 @@ _0206F330:
 	b _0206F380
 _0206F336:
 	add r0, r6, #0x0
-	bl sub_020383D8
+	bl CallTask_WirelessTrade
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]

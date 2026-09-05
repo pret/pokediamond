@@ -94,7 +94,7 @@ _02048526: ; jump table (using 16-bit offset)
 _0204853A:
 	add r0, r6, #0x0
 	add r1, r5, #0x4
-	bl sub_02038814
+	bl FieldTask_StartHallOfFame
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -227,7 +227,7 @@ _02048644:
 	add r5, #0x10
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl sub_02038854
+	bl FieldSystem_StartEndCredits
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

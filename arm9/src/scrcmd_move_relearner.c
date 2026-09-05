@@ -4,18 +4,18 @@
 #include "move_relearner.h"
 #include "party.h"
 #include "scrcmd.h"
-#include "unk_020377F0.h"
+#include "launch_application.h"
 
 extern void *FieldSysGetAttrAddr(struct FieldSystem *, int idx);
 
-extern struct UnkStruct_02037CF0 *sub_02037CF0(enum HeapID heapID, struct FieldSystem *, u8);
-extern u8 sub_02037D5C(struct UnkStruct_02037CF0 *);
-extern void sub_02038864(struct FieldSystem *, MoveRelearner *moveRelearner);
+extern PokemonSummaryArgs *sub_02037CF0(enum HeapID heapID, struct FieldSystem *, u8);
+extern u8 PokemonSummary_GetSelectedMoveSlot(PokemonSummaryArgs *);
+extern void FieldSystem_OpenMoveReminderMenu(struct FieldSystem *, MoveRelearner *moveRelearner);
 extern BOOL sub_0203BC04(struct ScriptContext *ctx);
 
 BOOL ScrCmd_Unk01C6(struct ScriptContext *ctx) { // 01C6 - todo: MoveInfo?
     u16 unk = ScriptGetVar(ctx);
-    struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    PokemonSummaryArgs **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     *runningAppData = sub_02037CF0(HEAP_ID_32, ctx->fieldSystem, (u8)unk);
 
     SetupNativeScript(ctx, sub_0203BC04);
@@ -24,10 +24,10 @@ BOOL ScrCmd_Unk01C6(struct ScriptContext *ctx) { // 01C6 - todo: MoveInfo?
 
 BOOL ScrCmd_Unk01C7(struct ScriptContext *ctx) { // 01C7 - todo: StoreMove?
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
-    struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    PokemonSummaryArgs **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     GF_ASSERT(*runningAppData != NULL);
 
-    *ret_ptr = sub_02037D5C(*runningAppData);
+    *ret_ptr = PokemonSummary_GetSelectedMoveSlot(*runningAppData);
     if (*ret_ptr == 4) {
         *ret_ptr = 0xFF;
     }
@@ -69,7 +69,7 @@ void sub_02045E74(struct ScriptContext *ctx, u8 a1, struct Pokemon *pokemon, u16
     moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
     moveRelearner->eligibleMoves = eligibleMoves;
     moveRelearner->unk15 = a1;
-    sub_02038864(ctx->fieldSystem, moveRelearner);
+    FieldSystem_OpenMoveReminderMenu(ctx->fieldSystem, moveRelearner);
 
     SetupNativeScript(ctx, sub_0203BC04);
     Heap_Free(eligibleMoves);

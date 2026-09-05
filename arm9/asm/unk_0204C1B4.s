@@ -291,7 +291,7 @@ _0204C3B6:
 	b _0204C458
 _0204C3DA:
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -306,7 +306,7 @@ _0204C3E8:
 	b _0204C458
 _0204C3F8:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -377,7 +377,7 @@ _0204C484:
 	ldr r0, _0204C4A0 ; =0x00000603
 	bl PlaySE
 	add r0, r5, #0x0
-	bl CallTask_FadeToBlack
+	bl FieldTransition_FadeOut
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -444,7 +444,7 @@ _0204C4F6:
 	b _0204C522
 _0204C510:
 	add r0, r6, #0x0
-	bl CallTask_FadeToBlack
+	bl FieldTransition_FadeOut
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]

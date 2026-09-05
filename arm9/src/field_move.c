@@ -72,7 +72,7 @@ extern void StartScriptFromMenu(TaskManager *taskManager, u16 script, LocalMapOb
 extern void FieldMove_SetArgs(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3, u16 param4);
 extern BOOL Task_UseFlyInField(TaskManager *taksManager);
 extern void TownMap_Init(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2);
-extern void TownMap_Show(FieldSystem *fieldSystem, TownMapAppData *townMap);
+extern void FieldSystem_OpenTownMap(FieldSystem *fieldSystem, TownMapAppData *townMap);
 extern void StartMenu_SetExitTaskFunc(StartMenuTaskData *startMenu, TaskFunc taskFunc);
 extern FieldMoveTaskEnvironment *FieldMoveTask_CreateTeleportEnvironment(FieldSystem *fieldSystem, Pokemon *mon, enum HeapID heapID);
 extern BOOL Task_FieldTeleport(TaskManager *taskManager);
@@ -254,7 +254,7 @@ static void FieldMove_UseFly(FieldMoveUseData *useData, const FieldMoveCheckData
     TownMapAppData *townMap = Heap_Alloc(HEAP_ID_FIELD, sizeof(TownMapAppData));
     startMenu->exitTaskEnvironment = townMap;
     TownMap_Init(fieldSystem, startMenu->exitTaskEnvironment, 1);
-    TownMap_Show(fieldSystem, startMenu->exitTaskEnvironment);
+    FieldSystem_OpenTownMap(fieldSystem, startMenu->exitTaskEnvironment);
     StartMenu_SetExitTaskFunc(startMenu, Task_UseFlyInField);
 }
 

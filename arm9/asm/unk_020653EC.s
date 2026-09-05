@@ -2470,7 +2470,7 @@ _02066738:
 	ldr r0, [r4, r0]
 	ldr r3, [r4, #0x0]
 	mov r1, #0x0
-	bl sub_02037F58
+	bl FieldSystem_LaunchMailApp_Read
 	b _0206676C
 _02066756:
 	ldr r0, [r4, #0x0]
@@ -2482,7 +2482,7 @@ _02066756:
 	ldrb r3, [r3, #0x0]
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl sub_02037F2C
+	bl FieldSystem_LaunchMailApp_Write
 _0206676C:
 	mov r1, #0x6a
 	lsl r1, r1, #0x2

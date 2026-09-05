@@ -361,7 +361,7 @@ _02060A8A:
 	bl ov05_021DA54C
 _02060AA8:
 	add r0, r6, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	mov r0, #0x4
 	strb r0, [r4, #0x0]
 	b _02060B00
@@ -393,7 +393,7 @@ _02060AE2:
 	add r0, r5, #0x0
 	bl sub_0204AD8C
 	add r0, r6, #0x0
-	bl sub_0204B0E8
+	bl FieldTransition_StartMapAndFadeIn
 	mov r0, #0x7
 	strb r0, [r4, #0x0]
 	b _02060B00

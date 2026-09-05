@@ -71,9 +71,9 @@ typedef struct PokedexAppData {
 
 } PokedexAppData; // todo: fill out and move to own file
 
-typedef struct NPCTradeAppData {
+typedef struct NPCTradeData {
 
-} NPCTradeAppData; // todo: fill out and move to own file
+} NPCTradeData; // todo: fill out and move to own file
 
 typedef struct Poffin {
 

@@ -153,7 +153,7 @@ Static arm9
     Object unk_02037024.o
     Object unk_020372D4.o
     Object unk_020377B0.o
-    Object unk_020377F0.o
+    Object launch_application.o
     Object script.o
     Object unk_02038C78.o
     Object scrcmd.o
@@ -196,7 +196,7 @@ Static arm9
     Object unk_0204AB0C.o
     Object unk_0204ADE0.o
     Object unk_0204AEA8.o
-    Object unk_0204AF24.o
+    Object field_transition.o
     Object unk_0204B0A0.o
     Object unk_0204B34C.o
     Object unk_0204B9EC.o
@@ -234,7 +234,7 @@ Static arm9
     Object unk_0206015C.o
     Object unk_02060344.o
     Object unk_020603B0.o
-    Object unk_020606B0.o
+    Object npc_trade.o
     Object unk_020607D4.o
     Object unk_02060CCC.o
     Object unk_020625EC.o

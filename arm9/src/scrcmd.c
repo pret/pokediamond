@@ -45,8 +45,8 @@
 #include "unk_02022504.h"
 #include "unk_02029FB0.h"
 #include "unk_020337E8.h"
-#include "unk_020377F0.h"
-#include "unk_0204AF24.h"
+#include "launch_application.h"
+#include "field_transition.h"
 #include "unk_0204B0A0.h"
 #include "unk_0205EC84.h"
 #include "unk_0206015C.h"
@@ -103,14 +103,14 @@ extern void ov05_021F1EC0(LocalMapObject *event, u32 param1);
 extern u16 sub_02029E0C(SealCase *sealCase);
 extern u16 SealCase_CountSealOccurrenceAnywhere(SealCase *sealCase, u16 sealId);
 extern void sub_02029D44(SealCase *sealCase, u16 sealId, s16 amount);
-extern PartyMenuAppData *sub_020379F8(u32 param0, FieldSystem *fieldSystem);
-extern PartyMenuAppData *sub_02037A1C(u32 param0, FieldSystem *fieldSystem);
-extern PartyMenuAppData *sub_02037B44(TaskManager *taskManager, u32 param1);
-extern u16 sub_02037A40(PartyMenuAppData *partyMenu);
-extern u16 sub_02037A70(PartyMenuAppData *partyMenu);
-extern void *sub_02037BB0(u32 param0, FieldSystem *fieldSystem, u16 param2, u16 param3, u16 param4, u16 param5);
-extern void *sub_02037C00(u32 param0, FieldSystem *fieldSystem, u16 param2);
-extern u16 sub_02037A78(void *runningAppData);
+extern PartyMenuAppData *FieldSystem_OpenPartyMenu_SelectPokemon(u32 param0, FieldSystem *fieldSystem);
+extern PartyMenuAppData *FieldSystem_OpenPartyMenu_SelectForTrade(u32 param0, FieldSystem *fieldSystem);
+extern PartyMenuAppData *FieldSystem_OpenPartyMenu_SelectForUnionRoomBattle(TaskManager *taskManager, enum HeapID heapID);
+extern u16 PartyMenu_GetSelectedSlot(PartyMenuAppData *partyMenu);
+extern u16 PartyMenu_GetMenuSelectionResult(PartyMenuAppData *partyMenu);
+extern void *FieldSystem_OpenPartyMenu_SelectForContest(u32 param0, FieldSystem *fieldSystem, u16 param2, u16 param3, u16 param4, u16 param5);
+extern void *FieldSystem_GetPartyMenuMonSummary(u32 param0, FieldSystem *fieldSystem, u16 param2);
+extern u16 PokemonSummary_GetPartySlot(void *runningAppData);
 extern u16 ov05_021E1858(FieldSystem *fieldSystem, LocalMapObject *event, u16 param2);
 extern void *sub_02029048(u32 param0);
 extern void sub_02028AD4(u32 *param0, void *param1, u32 param2);
@@ -130,24 +130,24 @@ extern void sub_02027478(u32 param0, u16 param1);
 extern void ShowGeonetScreen(FieldSystem *fieldSystem);
 extern void ShowSealCapsuleEditor(TaskManager *taskManager, SaveData *save);
 extern void TownMap_Init(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2);
-extern void TownMap_Show(FieldSystem *fieldSystem, TownMapAppData *townMap);
+extern void FieldSystem_OpenTownMap(FieldSystem *fieldSystem, TownMapAppData *townMap);
 extern SavePoffinData *Save_PoffinData_Get(SaveData *save);
 extern u32 sub_020281B8(SavePoffinData *savePoffinData);
-extern void sub_02037FE4(FieldSystem *fieldSystem, ScrCmdUnkStruct01D9 *param1);
-extern void LaunchStoragePCInterface(FieldSystem *fieldSystem, PCBoxAppData *pcBoxAppData);
+extern void FieldSystem_OpenBattleTowerRecordsApp(FieldSystem *fieldSystem, ScrCmdUnkStruct01D9 *param1);
+extern void FieldSystem_OpenPokemonStorage(FieldSystem *fieldSystem, PCBoxAppData *pcBoxAppData);
 extern void sub_020383F8(FieldSystem *fieldSystem);
 extern void sub_02065344(FieldSystem *fieldSystem);
-extern void sub_020383D8(TaskManager *taskManager);
+extern void CallTask_WirelessTrade(TaskManager *taskManager);
 extern void *sub_0203842C(FieldSystem *fieldSystem);
 extern void CallTask_GameClear(TaskManager *taskManager);
-extern HallOfFame *sub_02038824(FieldSystem *fieldSystem);
-extern void sub_020386E0(FieldSystem *fieldSystem, u16 param1);
+extern HallOfFame *FieldTask_OpenPCHallOfFameScreen(FieldSystem *fieldSystem);
+extern void FieldSystem_LaunchGTSApp(FieldSystem *fieldSystem, u16 param1);
 extern void sub_0206F3D8(TaskManager *taskManager, u16 *param1);
-extern void sub_020386A4(FieldSystem *fieldSystem, StarterSelectionData *starterSelectionData);
+extern void FieldSystem_LaunchChooseStarterApp(FieldSystem *fieldSystem, StarterSelectionData *starterSelectionData);
 extern void sub_0205F378(SaveVarsFlags *flags, u16 state);
-extern BagScreenAppData *sub_0203789C(FieldSystem *fieldSystem, u8 mode);
-extern u16 sub_020378FC(BagScreenAppData *bagScreenAppData);
-extern void sub_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u16 *param3);
+extern BagScreenAppData *FieldSystem_CreateBagContext(FieldSystem *fieldSystem, u8 mode);
+extern u16 BagContext_GetSelectedItem(BagScreenAppData *bagScreenAppData);
+extern void CallTask_EasyChat(TaskManager *taskManager, u16 *param1, u16 *param2, u16 *param3);
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, enum HeapID heapID);
 extern void sub_0200E388(u32 param0);
 extern BOOL IsPaletteFadeFinished(void);
@@ -191,7 +191,7 @@ extern u16 sub_02054D1C(u32 param0, u16 param1);
 extern void UpdateHoneyTree(FieldSystem *fieldSystem);
 extern u16 CheckHoneyTree(FieldSystem *fieldSystem);
 extern void ov05_021F4E7C(FieldSystem *fieldSystem);
-extern void sub_020386B4(FieldSystem *fieldSystem);
+extern void FieldSystem_LaunchSignatureApp(FieldSystem *fieldSystem);
 extern u16 Field_SaveGame(FieldSystem *fieldSystem);
 extern void Field_GivePoketch(TaskManager *taskManager);
 extern void sub_02031588(u8 param0);
@@ -249,7 +249,7 @@ extern void InitCanalaveGym(FieldSystem *fieldSystem);
 extern void InitVeilstoneGym(FieldSystem *fieldSystem);
 extern void InitSunyshoreGym(FieldSystem *fieldSystem, u8 room);
 extern void RotateSunyshoreGymGear(FieldSystem *fieldSystem, u8 rotation);
-extern void HatchEggInParty(FieldSystem *fieldSystem);
+extern void FieldSystem_HatchEgg(FieldSystem *fieldSystem);
 extern void *ov18_0224CA54(u16 param0, FieldSystem *fieldSystem, u32 mapObjectId);
 extern u16 ov18_0224CA2C(void *param0);
 extern u8 ov18_0224CA58(u16 param0);
@@ -277,7 +277,7 @@ extern BOOL sub_020270D8(FashionCase *fashionCase, u32 param1, u16 param2);
 extern u16 sub_02027114(FashionCase *fashionCase, u16 param1);
 extern void sub_02027264(FashionCase *fashionCase, u16 param1);
 extern u16 sub_02027100(FashionCase *fashionCase, u16 param1);
-extern PokedexAppData *sub_02038AF4(FieldSystem *fieldSystem, enum HeapID heapID, BOOL isNational);
+extern PokedexAppData *FieldSystem_ShowDiploma(FieldSystem *fieldSystem, enum HeapID heapID, BOOL isNational);
 extern void ov06_0224CBB0(SaveData *saveData);
 extern u16 ov06_0224CC24(SaveData *saveData);
 extern u16 *LocalFieldData_GetSafariBallsCounter(LocalFieldData *localFieldData);
@@ -294,11 +294,11 @@ extern void sub_0205F5A4(SaveVarsFlags *varsFlags, u16 param1);
 extern u16 sub_0205F594(SaveVarsFlags *varsFlags);
 extern void sub_0202AA00(SaveData *saveData);
 extern void Save_CreateRoamerByID(SaveData *saveData, u8 roamer);
-extern NPCTradeAppData *NPCTradeApp_Init(enum HeapID heapID, u8 tradeId);
-extern u16 NPCTradeApp_GetOfferedSpecies(NPCTradeAppData *npcTradeAppData);
-extern u16 NPCTradeApp_GetRequestedSpecies(NPCTradeAppData *npcTradeAppData);
-extern void CallTask_NPCTrade(TaskManager *taskManager, NPCTradeAppData *npcTradeAppData, u16 partyPosition, enum HeapID heapID);
-extern void NPCTradeApp_Delete(NPCTradeAppData *npcTradeAppData);
+extern NPCTradeData *NPCTrade_Init(enum HeapID heapID, u8 tradeId);
+extern u16 NPCTrade_GetSpecies(NPCTradeData *npcTradeData);
+extern u16 NPCTrade_GetRequestedSpecies(NPCTradeData *npcTradeData);
+extern void FieldTask_StartNPCTrade(TaskManager *taskManager, NPCTradeData *npcTradeData, u16 partySlot, enum HeapID heapID);
+extern void NPCTrade_Free(NPCTradeData *npcTradeData);
 extern void ov06_022411F4(TaskManager *taskManager, u16 *var);
 extern u16 ov05_021F61E8(u16 species);
 extern u16 ov05_021F61DC(u16 species);
@@ -341,7 +341,7 @@ extern u32 sub_02027F04(Poffin *poffin, u8 *bytes, u8 param2, u32 param3);
 extern u16 sub_02028094(SavePoffinData *savePoffinData, Poffin *poffin);
 extern u16 sub_02028074(SavePoffinData *savePoffinData);
 extern u16 sub_0205F4A0(SaveVarsFlags *varsFlags, u8 eventId);
-extern void *sub_02037A48(enum HeapID heapID, FieldSystem *fieldSystem, u16 param2);
+extern void *FieldSystem_OpenPartyMenu_SelectForDaycare(enum HeapID heapID, FieldSystem *fieldSystem, u16 param2);
 extern void ov06_0224F12C(FieldSystem *fieldSystem, u16 *var, u32 param2, enum HeapID heapID);
 extern u16 sub_0205F6A8(SaveVarsFlags *varsFlags);
 extern void ov06_02239944(TaskManager *taskManager);
@@ -1901,21 +1901,21 @@ BOOL ScrCmd_GetPokemonForm(ScriptContext *ctx) { // 0095
 
 BOOL ScrCmd_ChoosePokemonMenu(ScriptContext *ctx) { // 0191
     PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *partyMenu = sub_020379F8(0x20, ctx->fieldSystem);
+    *partyMenu = FieldSystem_OpenPartyMenu_SelectPokemon(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
 
 BOOL ScrCmd_OpenTradeScreen(ScriptContext *ctx) { // 02A5
     PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *partyMenu = sub_02037A1C(0x20, ctx->fieldSystem);
+    *partyMenu = FieldSystem_OpenPartyMenu_SelectForTrade(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
 
 BOOL ScrCmd_UnionChoosePokemonMenu(ScriptContext *ctx) { // 0192
     PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *partyMenu = sub_02037B44(ctx->fieldSystem->taskManager, 0x20);
+    *partyMenu = FieldSystem_OpenPartyMenu_SelectForUnionRoomBattle(ctx->fieldSystem->taskManager, HEAP_ID_32);
     return TRUE;
 }
 
@@ -1924,7 +1924,7 @@ BOOL ScrCmd_GetSelectedPartySlot(ScriptContext *ctx) { // 0193
     PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
 
     GF_ASSERT(*partyMenu);
-    *variable = sub_02037A40(*partyMenu);
+    *variable = PartyMenu_GetSelectedSlot(*partyMenu);
 
     if (*variable == 7) {
         *variable = 0xFF;
@@ -1941,7 +1941,7 @@ BOOL ScrCmd_Unk0194(ScriptContext *ctx) { // 0194
     u16 unk2 = ScriptGetVar(ctx);
     u16 unk3 = ScriptGetVar(ctx);
 
-    *runningAppData = sub_02037BB0(0x20, ctx->fieldSystem, unk2, unk1, unk3, unk0);
+    *runningAppData = FieldSystem_OpenPartyMenu_SelectForContest(0x20, ctx->fieldSystem, unk2, unk1, unk3, unk0);
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
@@ -1952,13 +1952,13 @@ BOOL ScrCmd_Unk0195(ScriptContext *ctx) { // 0195
     PartyMenuAppData **partyMenuData = (PartyMenuAppData **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     GF_ASSERT(*partyMenuData);
 
-    *unk0 = sub_02037A40(*partyMenuData);
+    *unk0 = PartyMenu_GetSelectedSlot(*partyMenuData);
 
     if (*unk0 == 7) {
         *unk0 = 0xFF;
     }
 
-    *unk1 = sub_02037A70(*partyMenuData);
+    *unk1 = PartyMenu_GetMenuSelectionResult(*partyMenuData);
     *unk1 = (*unk1 == TRUE);
 
     Heap_Free(*partyMenuData);
@@ -1970,7 +1970,7 @@ BOOL ScrCmd_Unk0196(ScriptContext *ctx) { // 0196
     void **runningAppData = (void **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     u16 unk0 = ScriptGetVar(ctx);
 
-    *runningAppData = sub_02037C00(0x20, ctx->fieldSystem, unk0);
+    *runningAppData = FieldSystem_GetPartyMenuMonSummary(0x20, ctx->fieldSystem, unk0);
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
@@ -1981,7 +1981,7 @@ BOOL ScrCmd_Unk0197(ScriptContext *ctx) { // 0197
 
     GF_ASSERT(*runningAppData);
 
-    *unk0 = sub_02037A78(*runningAppData);
+    *unk0 = PokemonSummary_GetPartySlot(*runningAppData);
     Heap_Free(*runningAppData);
     *runningAppData = NULL;
 
@@ -2049,12 +2049,12 @@ BOOL sub_0203BC04(ScriptContext *ctx) {
 }
 
 BOOL ScrCmd_RestoreOverworld(ScriptContext *ctx) { // 00A1
-    CallTask_RestoreOverworld(ctx->fieldSystem->taskManager);
+    FieldTransition_StartMap(ctx->fieldSystem->taskManager);
     return TRUE;
 }
 
 BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx) { // 01F8
-    sub_0204AF3C(ctx->fieldSystem->taskManager);
+    FieldTransition_FinishMap(ctx->fieldSystem->taskManager);
     return TRUE;
 }
 
@@ -2257,7 +2257,7 @@ BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx) { // 00AA
     TownMapAppData **townMap = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     *townMap = Heap_Alloc(HEAP_ID_FIELD, sizeof(TownMapAppData));
     TownMap_Init(ctx->fieldSystem, *townMap, 2);
-    TownMap_Show(ctx->fieldSystem, *townMap);
+    FieldSystem_OpenTownMap(ctx->fieldSystem, *townMap);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
@@ -2294,7 +2294,7 @@ BOOL ScrCmd_Unk01D9(ScriptContext *ctx) { // 01D9
     unkStruct->unk04 = unk0;
     unkStruct->unk06 = unk1;
     unkStruct->save = ctx->fieldSystem->saveData;
-    sub_02037FE4(ctx->fieldSystem, *unkStructPtr);
+    FieldSystem_OpenBattleTowerRecordsApp(ctx->fieldSystem, *unkStructPtr);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
@@ -2305,7 +2305,7 @@ BOOL ScrCmd_ShowPCBoxScreen(ScriptContext *ctx) { // 00AB
     pcBoxAppData->save = ctx->fieldSystem->saveData;
     pcBoxAppData->operation = (enum PCBoxOperation)ScriptReadByte(ctx);
     *pcBoxAppDataPtr = pcBoxAppData;
-    LaunchStoragePCInterface(ctx->fieldSystem, *pcBoxAppDataPtr);
+    FieldSystem_OpenPokemonStorage(ctx->fieldSystem, *pcBoxAppDataPtr);
     SetupNativeScript(ctx, sub_0203BBBC);
     return TRUE;
 }
@@ -2322,7 +2322,7 @@ BOOL ScrCmd_Unk00AD(ScriptContext *ctx) { // 00AD
 }
 
 BOOL ScrCmd_Unk00AE(ScriptContext *ctx) { // 00AE
-    sub_020383D8(ctx->fieldSystem->taskManager);
+    CallTask_WirelessTrade(ctx->fieldSystem->taskManager);
     return TRUE;
 }
 
@@ -2340,7 +2340,7 @@ BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx) { // 00B0
 
 BOOL ScrCmd_InitHallOfFame(ScriptContext *ctx) { // 00B1
     HallOfFame **hallOfFameData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *hallOfFameData = sub_02038824(ctx->fieldSystem);
+    *hallOfFameData = FieldTask_OpenPCHallOfFameScreen(ctx->fieldSystem);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
@@ -2350,7 +2350,7 @@ BOOL ScrCmd_Unk00B2(ScriptContext *ctx) { // 00B2
     u16 *unk1 = ScriptGetVarPointer(ctx);
     if (sub_0203384C(ctx->fieldSystem->saveData)) {
         *unk1 = 1;
-        sub_020386E0(ctx->fieldSystem, unk0);
+        FieldSystem_LaunchGTSApp(ctx->fieldSystem, unk0);
         SetupNativeScript(ctx, sub_0203BC04);
     } else {
         *unk1 = 0;
@@ -2369,7 +2369,7 @@ BOOL ScrCmd_StarterSelectionScreen(ScriptContext *ctx) { // 00B4
     *starterSelectionPtr = Heap_Alloc(HEAP_ID_FIELD, sizeof(StarterSelectionData));
     StarterSelectionData *starterSelectionData = *starterSelectionPtr; // consider inlining
     starterSelectionData->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
-    sub_020386A4(ctx->fieldSystem, *starterSelectionPtr);
+    FieldSystem_LaunchChooseStarterApp(ctx->fieldSystem, *starterSelectionPtr);
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
@@ -2388,7 +2388,7 @@ BOOL ScrCmd_ShowBagScreen(ScriptContext *ctx) { // 0178
     bagData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
 
     GF_ASSERT(*bagData == NULL);
-    *bagData = sub_0203789C(ctx->fieldSystem, mode); // BagData_New?
+    *bagData = FieldSystem_CreateBagContext(ctx->fieldSystem, mode); // BagData_New?
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
@@ -2398,7 +2398,7 @@ BOOL ScrCmd_GetBagScreenSelection(ScriptContext *ctx) { // 0179
     BagScreenAppData **bagData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
 
     GF_ASSERT(*bagData != NULL);
-    *var = sub_020378FC(*bagData); // BagData_GetSelection?
+    *var = BagContext_GetSelectedItem(*bagData); // BagData_GetSelection?
     Heap_Free(*bagData);
     *bagData = NULL;
     return FALSE;
@@ -2439,7 +2439,7 @@ BOOL ScrCmd_Unk0243(ScriptContext *ctx) { // 0243
     u16 *unk1 = ScriptGetVarPointer(ctx);
     u16 *unk2 = ScriptGetVarPointer(ctx);
     *unk2 = 0xFFFF;
-    sub_02037E18(ctx->fieldSystem->taskManager, unk1, unk2, NULL);
+    CallTask_EasyChat(ctx->fieldSystem->taskManager, unk1, unk2, NULL);
     return TRUE;
 }
 
@@ -2450,7 +2450,7 @@ BOOL ScrCmd_Unk0244(ScriptContext *ctx) { // 0244
     u16 *unk3 = ScriptGetVarPointer(ctx);
     *unk2 = 0xFFFF;
     *unk3 = 0xFFFF;
-    sub_02037E18(ctx->fieldSystem->taskManager, unk1, unk2, unk3);
+    CallTask_EasyChat(ctx->fieldSystem->taskManager, unk1, unk2, unk3);
     return TRUE;
 }
 
@@ -2869,7 +2869,7 @@ BOOL ScrCmd_StopHoneyTreeAnimation(ScriptContext *ctx) { // 012A
 }
 
 BOOL ScrCmd_ShowSignatureScreen(ScriptContext *ctx) { // 012B
-    sub_020386B4(ctx->fieldSystem);
+    FieldSystem_LaunchSignatureApp(ctx->fieldSystem);
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
@@ -3374,7 +3374,7 @@ BOOL ScrCmd_RotateSunyshoreGymGear(ScriptContext *ctx) { // 0176
 }
 
 BOOL ScrCmd_HatchEgg(ScriptContext *ctx) { // 01AC
-    HatchEggInParty(ctx->fieldSystem);
+    FieldSystem_HatchEgg(ctx->fieldSystem);
     return TRUE;
 }
 
@@ -3642,14 +3642,14 @@ BOOL ScrCmd_CheckNationalDexComplete(ScriptContext *ctx) { // 01E9
 
 BOOL ScrCmd_RegisterSinnohPokedex(ScriptContext *ctx) { // 01EA
     PokedexAppData **pokedexAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *pokedexAppData = sub_02038AF4(ctx->fieldSystem, HEAP_ID_32, FALSE);
+    *pokedexAppData = FieldSystem_ShowDiploma(ctx->fieldSystem, HEAP_ID_32, FALSE);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
 
 BOOL ScrCmd_RegisterNationalPokedex(ScriptContext *ctx) { // 01EB
     PokedexAppData **pokedexAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    *pokedexAppData = sub_02038AF4(ctx->fieldSystem, HEAP_ID_32, TRUE);
+    *pokedexAppData = FieldSystem_ShowDiploma(ctx->fieldSystem, HEAP_ID_32, TRUE);
     SetupNativeScript(ctx, sub_0203BB90);
     return TRUE;
 }
@@ -3826,36 +3826,36 @@ BOOL ScrCmd_CreateRoamer(ScriptContext *ctx) { // 021C
 }
 
 BOOL ScrCmd_NPCTradeInit(ScriptContext *ctx) { // 0226
-    NPCTradeAppData **tradeAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    NPCTradeData **tradeAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u8 tradeId = ScriptReadByte(ctx);
-    *tradeAppData = NPCTradeApp_Init(HEAP_ID_FIELD, tradeId);
+    *tradeAppData = NPCTrade_Init(HEAP_ID_FIELD, tradeId);
     return FALSE;
 }
 
 BOOL ScrCmd_NPCTradeGetOfferedSpecies(ScriptContext *ctx) { // 0227
-    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    NPCTradeData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 *var = ScriptGetVarPointer(ctx);
-    *var = NPCTradeApp_GetOfferedSpecies(*tradeData);
+    *var = NPCTrade_GetSpecies(*tradeData);
     return FALSE;
 }
 
 BOOL ScrCmd_NPCTradeGetRequestedSpecies(ScriptContext *ctx) { // 0228
-    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    NPCTradeData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 *var = ScriptGetVarPointer(ctx);
-    *var = NPCTradeApp_GetRequestedSpecies(*tradeData);
+    *var = NPCTrade_GetRequestedSpecies(*tradeData);
     return FALSE;
 }
 
 BOOL ScrCmd_NPCTradeExecute(ScriptContext *ctx) { // 0229
-    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    NPCTradeData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 partyPosition = ScriptGetVar(ctx);
-    CallTask_NPCTrade(ctx->taskManager, *tradeData, partyPosition, HEAP_ID_FIELD);
+    FieldTask_StartNPCTrade(ctx->taskManager, *tradeData, partyPosition, HEAP_ID_FIELD);
     return TRUE;
 }
 
 BOOL ScrCmd_NPCTradeEnd(ScriptContext *ctx) { // 022A
-    NPCTradeAppData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
-    NPCTradeApp_Delete(*tradeData);
+    NPCTradeData **tradeData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    NPCTrade_Free(*tradeData);
     return FALSE;
 }
 
@@ -4554,7 +4554,7 @@ BOOL ScrCmd_Unk028F(ScriptContext *ctx) { // 028F
 BOOL ScrCmd_Unk0290(ScriptContext *ctx) { // 0290
     u16 unk0 = ScriptGetVar(ctx);
     void **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA); // todo: find out what this is
-    *runningAppData = sub_02037A48(HEAP_ID_32, ctx->fieldSystem, unk0);
+    *runningAppData = FieldSystem_OpenPartyMenu_SelectForDaycare(HEAP_ID_32, ctx->fieldSystem, unk0);
     SetupNativeScript(ctx, sub_0203BC04);
     return TRUE;
 }
@@ -4564,11 +4564,11 @@ BOOL ScrCmd_Unk0291(ScriptContext *ctx) { // 0291
     u16 *var2 = ScriptGetVarPointer(ctx);
     PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     GF_ASSERT(*partyMenu != NULL);
-    *var1 = sub_02037A40(*partyMenu);
+    *var1 = PartyMenu_GetSelectedSlot(*partyMenu);
     if (*var1 == 7) {
         *var1 = 255;
     }
-    *var2 = sub_02037A70(*partyMenu);
+    *var2 = PartyMenu_GetMenuSelectionResult(*partyMenu);
     *var2 = (*var2 == TRUE);
     Heap_Free(*partyMenu);
     *partyMenu = NULL;

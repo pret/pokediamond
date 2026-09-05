@@ -11173,7 +11173,7 @@ ov06_0223ECF0: ; 0x0223ECF0
 	bl sub_0206E314
 	ldr r1, [r4, #4]
 	add r0, r5, #0
-	bl sub_0203781C
+	bl Bag_LaunchApp
 	ldr r1, _0223ED4C ; =sub_0208A258
 	add r0, r6, #0
 	add r2, r4, #0
@@ -30965,8 +30965,8 @@ _0224883C:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start NPCTradeApp_Init
-NPCTradeApp_Init: ; 0x0224884C
+	thumb_func_start NPCTrade_Init
+NPCTrade_Init: ; 0x0224884C
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0x104
 	add r6, r1, #0
@@ -31023,8 +31023,8 @@ _0224886C:
 	add sp, #0x104
 	pop {r3, r4, r5, r6, pc}
 
-	thumb_func_start NPCTradeApp_Delete
-NPCTradeApp_Delete: ; 0x022488CC
+	thumb_func_start NPCTrade_Free
+NPCTrade_Free: ; 0x022488CC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
@@ -31038,22 +31038,22 @@ NPCTradeApp_Delete: ; 0x022488CC
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start NPCTradeApp_GetOfferedSpecies
-NPCTradeApp_GetOfferedSpecies: ; 0x022488EC
+	thumb_func_start NPCTrade_GetSpecies
+NPCTrade_GetSpecies: ; 0x022488EC
 	ldr r0, [r0]
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
 
-	thumb_func_start NPCTradeApp_GetRequestedSpecies
-NPCTradeApp_GetRequestedSpecies: ; 0x022488F4
+	thumb_func_start NPCTrade_GetRequestedSpecies
+NPCTrade_GetRequestedSpecies: ; 0x022488F4
 	ldr r0, [r0]
 	ldr r0, [r0, #0x4c]
 	bx lr
 	.align 2, 0
 
-	thumb_func_start ov06_022488FC
-ov06_022488FC: ; 0x022488FC
+	thumb_func_start NPCTrade_ReceiveMon
+NPCTrade_ReceiveMon: ; 0x022488FC
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
@@ -31068,8 +31068,8 @@ ov06_022488FC: ; 0x022488FC
 	bl sub_0202C144
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start ov06_0224891C
-ov06_0224891C: ; 0x0224891C
+	thumb_func_start NPCTrade_FillAnimationTemplate
+NPCTrade_FillAnimationTemplate: ; 0x0224891C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r6, r0, #0

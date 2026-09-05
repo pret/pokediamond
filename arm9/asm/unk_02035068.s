@@ -1701,7 +1701,7 @@ sub_02035D34: ; 0x02035D34
 	add r1, r4, #0x0
 	str r0, [r4, #0x1c]
 	add r0, r5, #0x0
-	bl sub_02038690
+	bl FieldSystem_OpenPokedex
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	str r4, [r6, r0]
@@ -1770,7 +1770,7 @@ sub_02035E1C: ; 0x02035E1C
 	add r0, r5, #0x0
 	add r1, r4, r1
 	mov r2, #0x0
-	bl sub_020379C8
+	bl FieldSystem_OpenPartyMenu
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1887,7 +1887,7 @@ _02035ECC:
 	bl sub_0207C2A4
 	add r0, r5, #0x0
 	add r1, r7, #0x0
-	bl sub_0203796C
+	bl FieldSystem_OpenSummaryScreen
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	str r7, [r4, r0]
@@ -1935,7 +1935,7 @@ _02035F4A:
 	bl sub_0207C2A4
 	add r0, r5, #0x0
 	add r1, r7, #0x0
-	bl sub_0203796C
+	bl FieldSystem_OpenSummaryScreen
 	mov r0, #0xb
 	mov r1, #0x4
 	bl Heap_Alloc
@@ -1992,7 +1992,7 @@ _02035FD0:
 	bl sub_0207C2A4
 	add r0, r5, #0x0
 	add r1, r7, #0x0
-	bl sub_0203796C
+	bl FieldSystem_OpenSummaryScreen
 	mov r0, #0xb
 	mov r1, #0x4
 	bl Heap_Alloc
@@ -2020,7 +2020,7 @@ _02036056:
 	ldrb r2, [r2, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl sub_02037F2C
+	bl FieldSystem_LaunchMailApp_Write
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2060,7 +2060,7 @@ _020360AC:
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	mov r2, #0xb
-	bl sub_02037F90
+	bl FieldSystem_LaunchMailApp_ReadHeld
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2111,7 +2111,7 @@ _020360EA:
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	add r0, r5, #0x0
-	bl sub_0203781C
+	bl Bag_LaunchApp
 	ldr r1, _02036280 ; =sub_020362E4
 	add r0, r4, #0x0
 	bl StartMenu_SetExitTaskFunc
@@ -2187,7 +2187,7 @@ _020361CA:
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2214,7 +2214,7 @@ _02036200:
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r2, #0x7e
 	lsl r2, r2, #0x2
 	str r0, [r4, r2]
@@ -2241,7 +2241,7 @@ _02036234:
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2299,7 +2299,7 @@ sub_020362A8: ; 0x020362A8
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2475,7 +2475,7 @@ _020363F6:
 	add r0, r6, #0x0
 	mov r1, #0x2
 	lsr r2, r2, #0x18
-	bl sub_02037F2C
+	bl FieldSystem_LaunchMailApp_Write
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2608,7 +2608,7 @@ sub_02036534: ; 0x02036534
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	add r0, r5, #0x0
-	bl sub_02038680
+	bl FieldSystem_OpenTrainerCase
 	mov r0, #0x72
 	ldr r1, _02036580 ; =sub_02036584
 	lsl r0, r0, #0x2
@@ -2770,7 +2770,7 @@ sub_020366A8: ; 0x020366A8
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02037EF8
+	bl FieldSystem_OpenOptionsMenu
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -2851,7 +2851,7 @@ sub_02036724: ; 0x02036724
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	add r0, r5, #0x0
-	bl sub_02037E80
+	bl FieldSystem_OpenEasyChat
 	mov r0, #0x72
 	ldr r1, _02036778 ; =sub_0203677C
 	lsl r0, r0, #0x2
@@ -3064,7 +3064,7 @@ _0203692E:
 	ldrb r2, [r7, #0x14]
 	add r0, r6, #0x0
 	add r1, r4, r1
-	bl sub_020379C8
+	bl FieldSystem_OpenPartyMenu
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3198,7 +3198,7 @@ sub_02036A14: ; 0x02036A14
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3228,7 +3228,7 @@ sub_02036A78: ; 0x02036A78
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3271,7 +3271,7 @@ Task_UseFlyInField: ; 0x02036AB8
 	add r0, r6, #0x0
 	add r1, r4, r1
 	lsr r2, r2, #0x18
-	bl sub_020379C8
+	bl FieldSystem_OpenPartyMenu
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3352,7 +3352,7 @@ sub_02036B90: ; 0x02036B90
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3412,7 +3412,7 @@ _02036C0E:
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3429,7 +3429,7 @@ _02036C32:
 	ldrb r2, [r6, #0x2]
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_020379C8
+	bl FieldSystem_OpenPartyMenu
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3458,7 +3458,7 @@ _02036C70:
 	ldrb r2, [r6, #0x2]
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_020379C8
+	bl FieldSystem_OpenPartyMenu
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3486,7 +3486,7 @@ _02036CB0:
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3595,7 +3595,7 @@ sub_02036D94: ; 0x02036D94
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3620,7 +3620,7 @@ sub_02036DD4: ; 0x02036DD4
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -3787,7 +3787,7 @@ sub_02036F1C: ; 0x02036F1C
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
 	add r1, r4, r1
-	bl sub_02037844
+	bl FieldSystem_OpenBag
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]

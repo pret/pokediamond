@@ -16,7 +16,7 @@
 #include "script.h" //TODO: temp include, remove when structs are split
 #include "text.h"
 #include "unk_020051F4.h"
-#include "unk_0204AF24.h"
+#include "field_transition.h"
 
 static void Blackout_InitDisplays(BgConfig *bgConfig);
 static void Blackout_DrawMessage(FieldSystem *fieldSystem, TaskManager *taskManager);
@@ -226,7 +226,7 @@ BOOL Task_Blackout(TaskManager *taskManager) {
         (*state)++;
         break;
     case STATE_BLACKOUT_TASK_RESTORE_OVERWORLD:
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         (*state)++;
         break;
     case STATE_BLACKOUT_TASK_QUEUE_SCRIPT:

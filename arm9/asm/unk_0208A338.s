@@ -287,7 +287,7 @@ _0208A57A:
 	bl sub_0208A400
 	ldr r0, [r4, #0x0]
 	ldr r1, [r4, #0x50]
-	bl sub_02037E80
+	bl FieldSystem_OpenEasyChat
 	mov r0, #0x6
 	str r0, [r4, #0x54]
 	b _0208A6C8

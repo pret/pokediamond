@@ -7,7 +7,7 @@
 #include "overlay_06.h"
 #include "scrcmd.h"
 
-extern void sub_02038AD0(TaskManager *);
+extern void AccessoryShop_Init(TaskManager *);
 
 static const u16 UNK_020F40A6[] = {
     ITEM_AIR_MAIL,
@@ -438,6 +438,6 @@ BOOL ScrCmd_SealsMart(ScriptContext *ctx) // 014A
 
 BOOL ScrCmd_AccessoriesShop(ScriptContext *ctx) // 0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
 {
-    sub_02038AD0(ctx->fieldSystem->taskManager);
+    AccessoryShop_Init(ctx->fieldSystem->taskManager);
     return TRUE;
 }

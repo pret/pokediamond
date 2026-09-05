@@ -581,7 +581,7 @@ _02048D56:
 	b _02048D8C
 _02048D7A:
 	add r0, r6, #0x0
-	bl sub_0204B0E8
+	bl FieldTransition_StartMapAndFadeIn
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -715,7 +715,7 @@ _02048E92:
 	b _02048EC2
 _02048EA4:
 	add r0, r7, #0x0
-	bl sub_0204B0E8
+	bl FieldTransition_StartMapAndFadeIn
 	mov r0, #0x3
 	str r0, [r5, #0x0]
 	b _02048EC2
@@ -823,7 +823,7 @@ _02048F7E:
 	bl sub_02052EE8
 	str r0, [r4, #0x7c]
 	add r0, r7, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r5, #0x0]
 	add r0, r0, #0x1
 	str r0, [r5, #0x0]
@@ -935,7 +935,7 @@ _02049064:
 	add r0, r6, #0x0
 	bl sub_0204AD60
 	add r0, r5, #0x0
-	bl sub_0204B090
+	bl FieldTransition_FadeOutAndFinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -956,7 +956,7 @@ _02049090:
 	add r0, r6, #0x0
 	bl sub_0204AD8C
 	add r0, r5, #0x0
-	bl sub_0204B0E8
+	bl FieldTransition_StartMapAndFadeIn
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1128,7 +1128,7 @@ _020491F0:
 	add r0, r6, #0x0
 	bl sub_0204AD60
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1149,7 +1149,7 @@ _02049216:
 	add r0, r6, #0x0
 	bl sub_0204AD8C
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1355,7 +1355,7 @@ sub_020493A4: ; 0x020493A4
 	b _020493CC
 _020493BA:
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1398,7 +1398,7 @@ sub_020493E8: ; 0x020493E8
 	b _0204942C
 _02049408:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1601,7 +1601,7 @@ sub_02049584: ; 0x02049584
 	b _020495AC
 _0204959A:
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1647,7 +1647,7 @@ sub_020495C8: ; 0x020495C8
 	b _02049616
 _020495F0:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1742,7 +1742,7 @@ _020496A0:
 	add r0, r7, #0x0
 	bl sub_0204AD60
 	add r0, r6, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -1763,7 +1763,7 @@ _020496CC:
 	add r0, r7, #0x0
 	bl sub_0204AD8C
 	add r0, r6, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2161,7 +2161,7 @@ _020499F2:
 	b _02049AB2
 _02049A06:
 	add r0, r6, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2196,7 +2196,7 @@ _02049A42:
 	add r0, r5, #0x0
 	bl sub_0204AB44
 	add r0, r6, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2322,7 +2322,7 @@ _02049B54:
 	b _02049BDC
 _02049B68:
 	add r0, r6, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2354,7 +2354,7 @@ _02049B9C:
 	add r0, r5, #0x0
 	bl sub_0204AB44
 	add r0, r6, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2568,7 +2568,7 @@ _02049D4C:
 	cmp r0, #0x0
 	beq _02049D98
 	add r0, r6, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2584,14 +2584,14 @@ _02049D60:
 	b _02049D98
 _02049D72:
 	add r0, r6, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02049D98
 _02049D80:
 	add r0, r6, #0x0
-	bl CallTask_FadeFromBlack
+	bl FieldTransition_FadeIn
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2679,14 +2679,14 @@ _02049E2E:
 	mov r2, #0x0
 	bl sub_0204ACA8
 	add r0, r6, #0x0
-	bl CallTask_FadeToBlack
+	bl FieldTransition_FadeOut
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02049E9E
 _02049E46:
 	add r0, r6, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2702,7 +2702,7 @@ _02049E54:
 	b _02049E9E
 _02049E66:
 	add r0, r6, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2811,7 +2811,7 @@ _02049F3C:
 	add r0, r6, #0x0
 	bl sub_0204AD60
 	add r0, r5, #0x0
-	bl sub_0204B090
+	bl FieldTransition_FadeOutAndFinishMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -2832,7 +2832,7 @@ _02049F68:
 	add r0, r6, #0x0
 	bl sub_0204AD8C
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

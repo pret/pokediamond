@@ -15,12 +15,12 @@
 #include "unk_02022504.h"
 #include "unk_02029FB0.h"
 #include "unk_0204AEA8.h"
-#include "unk_0204AF24.h"
+#include "field_transition.h"
 #include "unk_0205EC84.h"
 #include "unk_0205FA2C.h"
 #include "use_item_on_mon.h"
 
-extern void sub_0203780C(FieldSystem *fieldSystem, BattleSetup *battleSetup);
+extern void FieldSystem_StartBattleProcess(FieldSystem *fieldSystem, BattleSetup *battleSetup);
 extern void BattleSetup_Delete(BattleSetup *setup);
 extern BOOL IsBattleResultWin(u32 winFlag);
 extern void sub_02047F38(BattleSetup *setup, FieldSystem *fieldSystem);
@@ -90,7 +90,7 @@ static BOOL Task_StartBattle(TaskManager *taskManager) {
 
     switch (*state) {
     case 0:
-        sub_0203780C(fieldSystem, battleSetup);
+        FieldSystem_StartBattleProcess(fieldSystem, battleSetup);
         (*state)++;
         break;
     case 1:
@@ -149,7 +149,7 @@ static BOOL Task_StartEncounter(TaskManager *taskManager) { // todo: better name
         (*state)++;
         break;
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         (*state)++;
         break;
     case 2:
@@ -173,12 +173,12 @@ static BOOL Task_StartEncounter(TaskManager *taskManager) { // todo: better name
 
         sub_020472F4(fieldSystem, encounter->setup);
         sub_020473CC(fieldSystem, encounter->setup);
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         (*state)++;
         break;
     case 4:
         MapObjectManager_UnpauseAllMovement(fieldSystem->mapObjectManager);
-        CallTask_FadeFromBlack(taskManager);
+        FieldTransition_FadeIn(taskManager);
         (*state)++;
         break;
     case 5:
@@ -218,7 +218,7 @@ static BOOL Task_02046758(TaskManager *taskManager) {
         (*state)++;
         break;
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         (*state)++;
         break;
     case 2:
@@ -229,7 +229,7 @@ static BOOL Task_02046758(TaskManager *taskManager) {
         sub_0204671C(encounter->setup->winFlag, fieldSystem);
         sub_02047FA4(encounter->setup, fieldSystem);
         GameStats_AddSpecial(Save_GameStats_Get(fieldSystem->saveData), GAME_STAT_UNK21);
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         (*state)++;
         break;
     case 4:
@@ -275,7 +275,7 @@ static BOOL Task_02046878(TaskManager *taskManager) {
         (*state)++;
         break;
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         (*state)++;
         break;
     case 2:
@@ -286,11 +286,11 @@ static BOOL Task_02046878(TaskManager *taskManager) {
         sub_02047FA4(encounter->setup, fieldSystem);
         sub_02060044(fieldSystem, &encounter->setup->unk138);
         Encounter_GetResult(encounter);
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         (*state)++;
         break;
     case 4:
-        CallTask_FadeFromBlack(taskManager);
+        FieldTransition_FadeIn(taskManager);
         (*state)++;
         break;
     case 5:
@@ -367,7 +367,7 @@ static BOOL Task_WildEncounter(TaskManager *taskManager) {
         encounter->state++;
         break;
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         encounter->state++;
         break;
     case 2:
@@ -401,12 +401,12 @@ static BOOL Task_WildEncounter(TaskManager *taskManager) {
                 sub_0205DD40(fieldSystem->unk90);
             }
         }
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         encounter->state++;
         break;
     case 4:
         ov06_02248724(fieldSystem, encounter->setup);
-        CallTask_FadeFromBlack(taskManager);
+        FieldTransition_FadeIn(taskManager);
         encounter->state++;
         break;
     case 5:
@@ -441,7 +441,7 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
         (*state)++;
         break;
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         (*state)++;
         break;
     case 2:
@@ -466,12 +466,12 @@ static BOOL Task_SafariEncounter(TaskManager *taskManager) {
         (*state)++;
         break;
     case 4:
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         (*state)++;
         break;
     case 5:
         MapObjectManager_UnpauseAllMovement(fieldSystem->mapObjectManager);
-        CallTask_FadeFromBlack(taskManager);
+        FieldTransition_FadeIn(taskManager);
         (*state)++;
         break;
     case 6:
@@ -542,7 +542,7 @@ static BOOL Task_PalParkEncounter(TaskManager *taskManager) {
         (*state)++;
         break;
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         (*state)++;
         break;
     case 2:
@@ -556,12 +556,12 @@ static BOOL Task_PalParkEncounter(TaskManager *taskManager) {
         (*state)++;
         break;
     case 4:
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         (*state)++;
         break;
     case 5:
         MapObjectManager_UnpauseAllMovement(fieldSystem->mapObjectManager);
-        CallTask_FadeFromBlack(taskManager);
+        FieldTransition_FadeIn(taskManager);
         (*state)++;
         break;
     case 6:
@@ -607,7 +607,7 @@ static BOOL Task_TutorialBattle(TaskManager *taskManager) {
         (*state)++;
         break;
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         (*state)++;
         break;
     case 2:
@@ -618,12 +618,12 @@ static BOOL Task_TutorialBattle(TaskManager *taskManager) {
         (*state)++;
         break;
     case 4:
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         (*state)++;
         break;
     case 5:
         MapObjectManager_UnpauseAllMovement(fieldSystem->mapObjectManager);
-        CallTask_FadeFromBlack(taskManager);
+        FieldTransition_FadeIn(taskManager);
         (*state)++;
         break;
     case 6:

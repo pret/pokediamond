@@ -9,7 +9,7 @@
 #include "map_object.h"
 #include "save_vars_flags.h"
 #include "unk_020051F4.h"
-#include "unk_0204AF24.h"
+#include "field_transition.h"
 
 /*  Note to future reader, there might be some errors
     in the return type / parameters. They are right for this code
@@ -53,12 +53,12 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager) {
         sub_0206367C(fieldSystem, 1);
         ov06_02245198(unkStruct1->unkD, unkStruct1->unk4);
         unkStruct1->unk8 = ov06_022451F0(unkStruct1->unk4);
-        CallTask_FadeToBlack(taskManager);
+        FieldTransition_FadeOut(taskManager);
         unkStruct1->action = 1;
         break;
 
     case 1:
-        sub_0204AF3C(taskManager);
+        FieldTransition_FinishMap(taskManager);
         unkStruct1->action = 2;
         break;
 
@@ -75,7 +75,7 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager) {
         break;
 
     case 3:
-        CallTask_RestoreOverworld(taskManager);
+        FieldTransition_StartMap(taskManager);
         unkStruct1->action = 4;
         break;
 
@@ -93,7 +93,7 @@ BOOL Task_UseGreatMarshBinoculars(struct TaskManager *taskManager) {
             unkStruct1->action = 5;
         } else {
             MapObject_SetVisible(playerObject, FALSE);
-            CallTask_FadeFromBlack(taskManager);
+            FieldTransition_FadeIn(taskManager);
             unkStruct1->action = 8;
         }
         break;

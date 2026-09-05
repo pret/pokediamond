@@ -4,7 +4,7 @@
 #include "message_format.h"
 #include "scrcmd.h"
 #include "unk_020286F8.h"
-#include "unk_020377F0.h"
+#include "launch_application.h"
 
 extern void *FieldSysGetAttrAddr(struct FieldSystem *, u8 idx);
 

@@ -2223,7 +2223,7 @@ _02051FCC:
 _02051FDC:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl sub_02038680
+	bl FieldSystem_OpenTrainerCase
 	ldr r0, [r4, #0x28]
 	add r0, r0, #0x1
 	str r0, [r4, #0x28]

@@ -347,7 +347,7 @@ sub_0205D0BC: ; 0x0205D0BC
 	bl TaskManager_GetEnvironment
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl sub_02037EB8
+	bl FieldSystem_OpenTownMapItem
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -370,10 +370,10 @@ _0205D0F8: .word sub_0205D0FC
 
 	thumb_func_start sub_0205D0FC
 sub_0205D0FC: ; 0x0205D0FC
-	ldr r3, _0205D100 ; =sub_02037EB8
+	ldr r3, _0205D100 ; =FieldSystem_OpenTownMapItem
 	bx r3
 	.balign 4
-_0205D100: .word sub_02037EB8
+_0205D100: .word FieldSystem_OpenTownMapItem
 
 	thumb_func_start sub_0205D104
 sub_0205D104: ; 0x0205D104
@@ -835,7 +835,7 @@ sub_0205D498: ; 0x0205D498
 	add r0, r6, #0x0
 	mov r1, #0x3
 	mov r3, #0xb
-	bl sub_02037F58
+	bl FieldSystem_LaunchMailApp_Read
 	add r6, r0, #0x0
 	ldrh r0, [r5, #0x4]
 	mov r1, #0x3
@@ -906,7 +906,7 @@ sub_0205D528: ; 0x0205D528
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xb
-	bl sub_02037FC4
+	bl FieldSystem_LaunchPoffinCaseApp
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -929,11 +929,11 @@ _0205D564: .word sub_0205D568
 
 	thumb_func_start sub_0205D568
 sub_0205D568: ; 0x0205D568
-	ldr r3, _0205D570 ; =sub_02037FC4
+	ldr r3, _0205D570 ; =FieldSystem_LaunchPoffinCaseApp
 	mov r1, #0xb
 	bx r3
 	nop
-_0205D570: .word sub_02037FC4
+_0205D570: .word FieldSystem_LaunchPoffinCaseApp
 
 	thumb_func_start sub_0205D574
 sub_0205D574: ; 0x0205D574

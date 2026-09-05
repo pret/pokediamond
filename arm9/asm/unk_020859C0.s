@@ -654,7 +654,7 @@ _02085DCE: ; jump table (using 16-bit offset)
 	.short _02085F20 - _02085DCE - 2; case 6
 _02085DDC:
 	add r0, r5, #0x0
-	bl sub_0204AF3C
+	bl FieldTransition_FinishMap
 	ldr r0, [r6, #0x10]
 	bl Save_SealCase_Get
 	str r0, [r7, #0x20]
@@ -799,7 +799,7 @@ _02085F0E:
 	b _02085F38
 _02085F14:
 	add r0, r5, #0x0
-	bl CallTask_RestoreOverworld
+	bl FieldTransition_StartMap
 	mov r0, #0x6
 	str r0, [r6, #0x14]
 	b _02085F38
